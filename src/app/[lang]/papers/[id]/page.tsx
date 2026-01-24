@@ -5,6 +5,7 @@ import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
+import { ReadingMode } from '@/components/ReadingMode';
 import { getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
@@ -222,6 +223,7 @@ export default async function PaperPage({ params }: Props) {
         </article>
         <TableOfContents items={tocItems} />
       </main>
+      <ReadingMode />
     </>
   );
 }

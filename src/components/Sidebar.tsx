@@ -14,7 +14,7 @@ export function Sidebar({ lang, currentId }: SidebarProps) {
   const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
 
   return (
-    <aside className="w-64 shrink-0 border-r border-frc-blue overflow-y-auto hidden lg:block">
+    <aside data-sidebar className="w-64 shrink-0 border-r border-frc-blue overflow-y-auto hidden lg:block">
       <nav className="py-6 px-4 text-sm sticky top-0">
         <SidebarSection title="100 — Core Theory" items={series100} lang={lang} currentId={currentId} />
         <SidebarSection title="566 — Reciprocity" items={series566} lang={lang} currentId={currentId} />

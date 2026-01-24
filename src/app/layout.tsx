@@ -3,6 +3,7 @@ import { SchemaScript } from '@/components/SchemaScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { TextSharePopover } from '@/components/TextSharePopover';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
 import './globals.css';
 
@@ -60,6 +61,7 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <TextSharePopover />
         </ThemeProvider>
       </body>
     </html>

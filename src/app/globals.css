@@ -516,3 +516,63 @@ a, button {
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   READING MODE
+   Distraction-free reading: hides chrome, centers content
+   ═══════════════════════════════════════════════════ */
+
+.reading-mode header,
+.reading-mode footer {
+  display: none !important;
+}
+
+.reading-mode [data-sidebar],
+.reading-mode [data-toc] {
+  display: none !important;
+}
+
+.reading-mode main {
+  display: block !important;
+}
+
+.reading-mode main > article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.reading-mode .content-body {
+  font-size: 1.0625rem;
+  line-height: 1.9;
+}
+
+/* ═══════════════════════════════════════════════════
+   TEXT SHARE POPOVER
+   ═══════════════════════════════════════════════════ */
+
+.share-popover {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  gap: 2px;
+  background: var(--color-frc-void-light);
+  border: 1px solid var(--color-frc-blue);
+  padding: 4px;
+  animation: fadeUp 0.15s ease-out;
+}
+
+.share-popover button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--color-frc-text-dim);
+  transition: color 0.15s ease;
+}
+
+.share-popover button:hover {
+  color: var(--color-frc-gold);
+}

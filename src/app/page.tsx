@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPapers } from '@/lib/content';
+import { VideoSeries } from '@/components/VideoSeries';
 
 export default function Home() {
   const papers = getPapers('en');
@@ -235,6 +236,9 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ═══ VIDEO SERIES ═══ */}
+      <VideoSeries />
 
       {/* ═══ FRAMEWORK PROPERTIES ═══ */}
       <section className="border-t border-frc-blue bg-frc-void-light">
