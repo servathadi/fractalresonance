@@ -1,4 +1,13 @@
-# Redirect root papers/formulas to English versions
+# v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
-/formulas  /en/formulas  301
 /papers/*  /en/papers/:splat  301
+/formula/coherence  /en/formulas  301
+/formulas  /en/formulas  301
+/for-ai  /llms.txt  301
+/for-machines  /llms.txt  301
+/about  /en/about  301
+/positioning  /en/positioning  301
+/mu-levels  /en/mu-levels  301
+/contact  /en/about  301
+/ai-awakening  /en/papers  301
+/blog  /en/papers  301
