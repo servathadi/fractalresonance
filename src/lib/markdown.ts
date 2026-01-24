@@ -21,10 +21,18 @@ export function renderMarkdown(body: string, lang: string): string {
     return `<!--CODE_BLOCK_${idx}-->`;
   });
 
-  // Headings
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // Headings (with IDs for TOC anchoring)
+  html = html.replace(/^(#{1,4}) (.+)$/gm, (_, hashes, text) => {
+    const level = hashes.length;
+    const id = text
+      .replace(/[*_`]/g, '')
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    return `<h${level} id="${id}">${text}</h${level}>`;
+  });
 
   // Blockquotes
   html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
@@ -96,6 +104,29 @@ function resolveWikilinkHref(id: string, lang: string): string {
     return `/${lang}/papers/${cleanId}${section}`;
   }
   return `/${lang}/concepts/${cleanId}${section}`;
+}
+
+/** Extract table-of-contents items from markdown heading lines */
+export function extractTocItems(body: string): { id: string; text: string; level: number }[] {
+  const items: { id: string; text: string; level: number }[] = [];
+  const lines = body.split('\n');
+
+  for (const line of lines) {
+    const heading = line.match(/^(#{2,4})\s+(.+)$/);
+    if (!heading) continue;
+
+    const level = heading[1].length;
+    const text = heading[2].replace(/[*_`]/g, '');
+    const id = text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    items.push({ id, text, level });
+  }
+
+  return items;
 }
 
 /** Escape HTML special characters in code blocks */

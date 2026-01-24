@@ -3,8 +3,10 @@ import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { Sidebar } from '@/components/Sidebar';
+import { TableOfContents } from '@/components/TableOfContents';
 import { getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks } from '@/lib/content';
-import { renderMarkdown } from '@/lib/markdown';
+import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -60,13 +62,15 @@ export default async function PaperPage({ params }: Props) {
   // Content is from trusted local markdown files (not user input).
   // Rendered at build time via static generation.
   const renderedBody = renderMarkdown(paper.body, lang);
+  const tocItems = extractTocItems(paper.body);
 
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <article className="flex-1 max-w-4xl mx-auto px-6 py-12">
+        <Sidebar lang={lang} currentId={id} />
+        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href="/" className="hover:text-frc-gold">FRC</a>
@@ -194,6 +198,7 @@ export default async function PaperPage({ params }: Props) {
             </section>
           )}
         </article>
+        <TableOfContents items={tocItems} />
       </main>
     </>
   );

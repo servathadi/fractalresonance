@@ -1,0 +1,4 @@
+# Redirect root papers/formulas to English versions
+/papers  /en/papers  301
+/formulas  /en/formulas  301
+/papers/*  /en/papers/:splat  301

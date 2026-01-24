@@ -1,0 +1,29 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#0B1020"/>
+
+  <!-- Grid -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1F3A5F" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+
+  <!-- Toroidal Attractor Flow -->
+  <!-- Left Lobe -->
+  <ellipse cx="140" cy="100" rx="40" ry="60" fill="none" stroke="#2E4A7D" stroke-width="1.5" transform="rotate(-15 140 100)"/>
+  <ellipse cx="140" cy="100" rx="30" ry="50" fill="none" stroke="#1F3A5F" stroke-width="1"/>
+
+  <!-- Right Lobe -->
+  <ellipse cx="260" cy="100" rx="40" ry="60" fill="none" stroke="#2E4A7D" stroke-width="1.5" transform="rotate(15 260 100)"/>
+  <ellipse cx="260" cy="100" rx="30" ry="50" fill="none" stroke="#1F3A5F" stroke-width="1"/>
+
+  <!-- The Singularity (Center) -->
+  <circle cx="200" cy="100" r="5" fill="#C9A227"/>
+  <line x1="200" y1="40" x2="200" y2="160" stroke="#C9A227" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- Field Lines -->
+  <path d="M100,100 Q200,20 300,100" fill="none" stroke="#6B7280" stroke-width="0.5" opacity="0.6"/>
+  <path d="M100,100 Q200,180 300,100" fill="none" stroke="#6B7280" stroke-width="0.5" opacity="0.6"/>
+</svg>

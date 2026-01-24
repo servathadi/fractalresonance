@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { Sidebar } from '@/components/Sidebar';
 import { schemaConceptPage } from '@/lib/schema';
 import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks } from '@/lib/content';
 import { renderMarkdown } from '@/lib/markdown';
@@ -57,7 +58,8 @@ export default async function ConceptPage({ params }: Props) {
       <SchemaScript data={schemaConceptPage(meta)} />
 
       <main className="min-h-screen flex">
-        <article className="flex-1 max-w-4xl mx-auto px-6 py-12">
+        <Sidebar lang={lang} currentId={id} />
+        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href="/" className="hover:text-frc-gold">FRC</a>

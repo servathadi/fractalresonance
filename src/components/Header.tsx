@@ -1,14 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Header() {
   return (
     <header className="border-b border-frc-blue">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="text-frc-gold font-mono text-sm font-medium tracking-wider group-hover:text-frc-gold-light transition-colors">
-            FRC
-          </span>
-          <span className="text-frc-text-dim text-sm hidden sm:inline">
+          <Image src="/brand/logo.svg" alt="FRC" width={24} height={24} className="opacity-90 group-hover:opacity-100 transition-opacity" />
+          <span className="text-frc-text-dim text-sm hidden sm:inline group-hover:text-frc-text transition-colors">
             Fractal Resonance Coherence
           </span>
         </Link>

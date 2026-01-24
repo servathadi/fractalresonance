@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Fractal Resonance Coherence',
     title: 'Fractal Resonance Coherence',
     description: 'Research platform exploring the reciprocal relationship between entropy and coherence.',
+    images: [{ url: '/brand/banner.jpg', width: 1024, height: 572 }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -40,6 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/brand/logo.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/brand/logo.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

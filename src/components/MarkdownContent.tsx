@@ -26,6 +26,7 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   allowedAttributes: {
     a: ['href', 'class', 'title', 'target', 'rel'],
     img: ['src', 'alt', 'width', 'height', 'class'],
+    h1: ['id'], h2: ['id'], h3: ['id'], h4: ['id'],
     code: ['class'],
     pre: ['class'],
     div: ['class'],

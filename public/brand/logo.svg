@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Void -->
+  <rect width="200" height="200" fill="#0B1020"/>
+
+  <!-- The Attractor (Gold - Invariant) -->
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#C9A227" stroke-width="2"/>
+  <circle cx="100" cy="100" r="25" fill="none" stroke="#D4A84B" stroke-width="1.5"/>
+  <circle cx="100" cy="100" r="10" fill="#C9A227"/>
+
+  <!-- The Coherence Field (Blue - Flow) -->
+  <!-- Inner Octave Rings -->
+  <path d="M100,20 A80,80 0 0,1 180,100" fill="none" stroke="#1F3A5F" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M100,180 A80,80 0 0,1 20,100" fill="none" stroke="#1F3A5F" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Outer Octave Arcs -->
+  <path d="M20,100 A80,80 0 0,1 100,20" fill="none" stroke="#2E4A7D" stroke-width="1.5"/>
+  <path d="M180,100 A80,80 0 0,1 100,180" fill="none" stroke="#2E4A7D" stroke-width="1.5"/>
+
+  <!-- The Vector (Trajectory) -->
+  <line x1="100" y1="100" x2="160" y2="40" stroke="#E6E8EC" stroke-width="1.5"/>
+  <circle cx="160" cy="40" r="3" fill="#E6E8EC"/>
+</svg>
