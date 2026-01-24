@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/brand/logo.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/brand/logo.jpg" />
@@ -53,11 +54,13 @@ export default function RootLayout({
         <SchemaScript data={schemaDataset()} />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <Header />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

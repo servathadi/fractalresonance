@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { ThemeToggle } from './ThemeToggle';
 
 const NAV_LINKS = [
   { href: '/en/about', label: 'About' },
@@ -19,14 +20,18 @@ export function Header() {
           <span className="font-mono text-[0.625rem] text-frc-steel tracking-wider">
             FRC.v2 — fractalresonance.com
           </span>
-          <a
-            href="https://orcid.org/0009-0004-7412-5129"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider"
-          >
-            ORCID:0009-0004-7412-5129
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://orcid.org/0009-0004-7412-5129"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider"
+            >
+              ORCID:0009-0004-7412-5129
+            </a>
+            <span className="text-frc-blue">|</span>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 

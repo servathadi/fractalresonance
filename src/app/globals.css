@@ -1,18 +1,52 @@
 @import "tailwindcss";
 
-@theme {
-  --color-frc-void: #0B1020;
-  --color-frc-void-light: #0E1428;
-  --color-frc-text: #E6E8EC;
-  --color-frc-text-dim: #9CA3AF;
-  --color-frc-blue: #1F3A5F;
-  --color-frc-blue-light: #2E4A7D;
-  --color-frc-gold: #C9A227;
-  --color-frc-gold-light: #D4A84B;
-  --color-frc-steel: #6B7280;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-frc-void: var(--frc-void);
+  --color-frc-void-light: var(--frc-void-light);
+  --color-frc-text: var(--frc-text);
+  --color-frc-text-dim: var(--frc-text-dim);
+  --color-frc-blue: var(--frc-blue);
+  --color-frc-blue-light: var(--frc-blue-light);
+  --color-frc-gold: var(--frc-gold);
+  --color-frc-gold-light: var(--frc-gold-light);
+  --color-frc-steel: var(--frc-steel);
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════
+   THEME: Light
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --frc-void: #FAFBFC;
+  --frc-void-light: #F0F2F5;
+  --frc-text: #1A1D23;
+  --frc-text-dim: #5A6170;
+  --frc-blue: #CBD5E1;
+  --frc-blue-light: #94A3B8;
+  --frc-gold: #96780A;
+  --frc-gold-light: #A8871E;
+  --frc-steel: #64748B;
+}
+
+/* ═══════════════════════════════════════════════════
+   THEME: Dark (brand default)
+   ═══════════════════════════════════════════════════ */
+
+.dark {
+  --frc-void: #0B1020;
+  --frc-void-light: #0E1428;
+  --frc-text: #E6E8EC;
+  --frc-text-dim: #9CA3AF;
+  --frc-blue: #1F3A5F;
+  --frc-blue-light: #2E4A7D;
+  --frc-gold: #C9A227;
+  --frc-gold-light: #D4A84B;
+  --frc-steel: #6B7280;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -23,6 +57,7 @@ body {
   background-color: var(--color-frc-void);
   color: var(--color-frc-text);
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -45,8 +80,12 @@ body {
   inset: 0;
   background-image: radial-gradient(circle, var(--color-frc-blue) 0.5px, transparent 0.5px);
   background-size: 32px 32px;
-  opacity: 0.15;
+  opacity: 0.4;
   pointer-events: none;
+}
+
+.dark .geo-grid::before {
+  opacity: 0.15;
 }
 
 /* Cross-hair coordinate markers for section headers */
@@ -197,10 +236,14 @@ body {
   font-family: var(--font-mono);
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 300;
-  color: color-mix(in srgb, var(--color-frc-blue) 15%, transparent);
+  color: color-mix(in srgb, var(--color-frc-blue) 35%, transparent);
   pointer-events: none;
   user-select: none;
   line-height: 1;
+}
+
+.dark .watermark-symbol {
+  color: color-mix(in srgb, var(--color-frc-blue) 15%, transparent);
 }
 
 /* ═══════════════════════════════════════════════════
