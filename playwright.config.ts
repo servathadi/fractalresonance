@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3099',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -19,9 +19,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    command: 'npx serve out -l 3099',
+    url: 'http://localhost:3099',
+    reuseExistingServer: false,
+    timeout: 30 * 1000,
   },
 });
