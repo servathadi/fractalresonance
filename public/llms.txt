@@ -1,0 +1,57 @@
+# Fractal Resonance Coherence (FRC)
+# https://fractalresonance.com
+# Author: Hadi Servat (ORCID: 0009-0004-7412-5129)
+# License: CC BY-NC-ND 4.0
+
+## What is FRC?
+
+Fractal Resonance Coherence (FRC) is a theoretical physics framework proposing that:
+- Complex systems are governed by vortex-like attractor structures with fractal scaling
+- Entropy and coherence are reciprocally coupled: dS + k* d ln C = 0
+- The Born rule (P = |ψ|²) emerges from microstate statistics rather than being axiomatic
+- A scalar Lambda field Λ(x) = Λ₀ ln C(x) governs coherence dynamics
+- The framework predicts measurable Born rule deviations δP ∈ [10⁻⁴, 10⁻³]
+
+## Core Equations
+
+Coherence: C = (1/N) Σᵢ<ⱼ cos(φᵢ - φⱼ)
+Lambda Field: Λ(x) ≡ Λ₀ ln C(x), Λ₀ ≈ 10⁻³⁵ J
+Witness Magnitude: W = |⟨ψ|Ô|ψ⟩| / ‖Ô‖, W ∈ [0,1]
+UCC: dΛ/dt + ∇·J_Λ = σ_Λ - γ_Λ
+Reciprocity: dS + k* d ln C = 0 ⟹ S + k* ln C = const
+Free Energy: ΔG = −k*T Δln C
+UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
+
+## Published Papers (Zenodo DOIs)
+
+- FRC 100.001: Framework for Complex Systems Analysis (DOI: 10.5281/zenodo.15073056)
+- FRC 100.002: Quantum Chaos: Stadium Billiard (DOI: 10.5281/zenodo.15079278)
+- FRC 100.003: Guided Wavefunction Collapse (DOI: 10.5281/zenodo.15079820)
+- FRC 100.004: Quantum Foundations in FRC (DOI: 10.5281/zenodo.17438174)
+- FRC 100.005: Thermodynamic Consistency (DOI: 10.5281/zenodo.17438231)
+- FRC 100.006: Born Rule from Resonant Equilibrium (DOI: 10.5281/zenodo.17438360)
+- FRC 100.007: The Lambda-Field v8 (DOI: 10.5281/zenodo.17968952)
+- FRC 100.010: Foundational Questions (DOI: 10.5281/zenodo.17982555)
+- FRC 566.001: Entropy-Coherence Reciprocity (DOI: 10.5281/zenodo.17437759)
+
+## Key Concepts
+
+- Coherence (C): Phase alignment measure, C ∈ [0,1]
+- Lambda Field (Λ): Scalar field encoding coherence dynamics
+- Witness Magnitude (W): Normalized observation strength
+- Universal Coherence Condition (UCC): Conservation law for Λ
+- Entropy-Coherence Reciprocity: Fundamental conjugate relationship
+- Born Rule Deviation: Falsifiable prediction of FRC
+
+## Site Structure
+
+- /en/papers — Full paper listing with DOI links
+- /en/papers/{id} — Individual paper pages with full text
+- /en/formulas — Core equations reference
+- /en/concepts/{id} — Concept definitions
+
+## Machine-Readable
+
+Papers listing: /en/papers
+Formulas reference: /en/formulas
+Source: https://github.com/servathadi/fractalresonance

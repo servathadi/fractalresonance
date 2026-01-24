@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fractalresonance.com/sitemap.xml
+
+# AI/LLM discovery
+# See: https://fractalresonance.com/llms.txt
