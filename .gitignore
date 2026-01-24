@@ -27,3 +27,5 @@ npm-debug.log*
 
 # Playwright MCP
 .playwright-mcp/
+content/inbox/Slides/
+*.pdf
