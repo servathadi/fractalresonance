@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
 import './globals.css';
 
@@ -47,8 +49,12 @@ export default function RootLayout({
         <SchemaScript data={schemaSiteGraph()} />
         <SchemaScript data={schemaDataset()} />
       </head>
-      <body className="antialiased">
-        {children}
+      <body className="antialiased min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

@@ -24,6 +24,8 @@ interface RawFrontmatter {
   tags?: string[];
   abstract?: string;
   lang?: string;
+  doi?: string;
+  license?: string;
   related?: string[];
   video?: {
     url: string;

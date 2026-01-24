@@ -88,6 +88,19 @@ export default async function PaperPage({ params }: Props) {
                 <span className="tag">{paper.frontmatter.series}</span>
               )}
             </div>
+            {paper.frontmatter.doi && (
+              <div className="mt-3">
+                <a
+                  href={`https://zenodo.org/doi/${paper.frontmatter.doi}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+                >
+                  <span>DOI</span>
+                  <span className="text-frc-text">{paper.frontmatter.doi}</span>
+                </a>
+              </div>
+            )}
             {paper.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {paper.frontmatter.tags.map(tag => (

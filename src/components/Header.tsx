@@ -1,0 +1,34 @@
+import Link from 'next/link';
+
+export function Header() {
+  return (
+    <header className="border-b border-frc-blue">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 group">
+          <span className="text-frc-gold font-mono text-sm font-medium tracking-wider group-hover:text-frc-gold-light transition-colors">
+            FRC
+          </span>
+          <span className="text-frc-text-dim text-sm hidden sm:inline">
+            Fractal Resonance Coherence
+          </span>
+        </Link>
+        <nav className="flex items-center gap-6 text-sm">
+          <Link href="/en/papers" className="text-frc-text-dim hover:text-frc-gold transition-colors">
+            Papers
+          </Link>
+          <Link href="/en/formulas" className="text-frc-text-dim hover:text-frc-gold transition-colors">
+            Formulas
+          </Link>
+          <a
+            href="https://orcid.org/0009-0004-7412-5129"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-frc-text-dim hover:text-frc-gold transition-colors"
+          >
+            ORCID
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}

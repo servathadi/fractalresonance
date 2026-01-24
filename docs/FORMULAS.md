@@ -108,17 +108,17 @@ I(X;Y) = D_KL(p_XY ∥ p_X p_Y)
 
 ---
 
-## Paper Series
+## Paper Series (Published on Zenodo)
 
-| Series | Topic | Key Papers |
-|--------|-------|-----------|
-| 100 | Core Theory | 100.001–100.007 |
-| 160 | Extensions | 160.030–160.103 |
-| 170 | Applications | 170.005–170.503 |
-| 183 | Consciousness | 183.001–183.030 |
-| 190 | Experimental | 190.102–190.799 |
-| 200 | Quantum Mechanics | 200.400–200.410 |
-| 566 | Reciprocity & UCC | 566.001, 566.010 |
+| Series | Topic | Papers | DOIs |
+|--------|-------|--------|------|
+| 100 | Core Theory | 100.001–100.010 (8 papers) | See docs/PAPERS.md |
+| 566 | Reciprocity & UCC | 566.001, 566.010 | See docs/PAPERS.md |
+| 821 | Fundamental Physics | 821.PHY | — |
+| 830 | Applied Specs | 830.501–830.511 (11 docs) | Internal |
+| 841–843 | Advanced Applications | 841.004, 842.001–002, 843.001 | — |
+
+Full catalog with Zenodo DOIs: [docs/PAPERS.md](./PAPERS.md)
 
 ---
 
