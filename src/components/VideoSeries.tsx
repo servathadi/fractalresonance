@@ -65,7 +65,7 @@ export function VideoSeries() {
             </a>
           </div>
           <p className="text-sm text-frc-text-dim mt-2">
-            Fractal Resonance Cognition — a seven-part exploration of deterministic dynamics beneath apparent quantum randomness.
+            Fractal Resonance Coherence — a seven-part exploration of deterministic dynamics beneath apparent quantum randomness.
           </p>
         </div>
 

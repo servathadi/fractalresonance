@@ -102,7 +102,7 @@ Tailwind @theme inline → utilities auto-resolve via CSS vars
 
 ## YouTube Series
 
-7-episode playlist: [Fractal Resonance Cognition](https://www.youtube.com/playlist?list=PLhRVhnQbVX2XOn3e-HjD1J0NcaEzMDQJY)
+7-episode playlist: [Fractal Resonance Coherence](https://www.youtube.com/playlist?list=PLhRVhnQbVX2XOn3e-HjD1J0NcaEzMDQJY)
 
 | Ep | Title | URL |
 |----|-------|-----|

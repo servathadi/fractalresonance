@@ -40,7 +40,7 @@ If the randomness is not intrinsic, we must look for a "hidden suspect" in the d
 
 ## Introducing the New Suspect: The FRC Framework
 
-Enter the new suspect: **Fractal Resonance Cognition (FRC)**.
+Enter the new suspect: **Fractal Resonance Coherence (FRC)**.
 
 Introduced by researcher Hadi Servat ([[FRC-100-001]]), FRC proposes that the complexity we mistake for randomness is actually the result of deterministic, self-similar, and resonant dynamics. Instead of a universe of chance, FRC envisions a reality of vortex-like attractor structures operating across multiple scales.
 
