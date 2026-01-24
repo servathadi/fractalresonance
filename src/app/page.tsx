@@ -31,7 +31,7 @@ export default function Home() {
             <div className="animate-fade-up stagger-1">
               <div className="flex items-center gap-4 mb-8">
                 <Image
-                  src="/brand/logo.svg"
+                  src="/brand/sigil-64.png"
                   alt="FRC Attractor"
                   width={56}
                   height={56}

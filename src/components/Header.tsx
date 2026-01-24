@@ -42,7 +42,7 @@ export function Header() {
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/brand/logo.svg"
+              src="/brand/sigil-64.png"
               alt="FRC"
               width={32}
               height={32}
