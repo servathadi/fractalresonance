@@ -1,0 +1,39 @@
+name: Content Addition
+description: Submit new content (paper, concept, translation)
+title: "[Content] "
+labels: ["content"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Content Type
+      options:
+        - Paper
+        - Concept
+        - Blog Post
+        - Translation
+        - Image/Infographic
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: "ISO code (e.g., en, fa, de, fr)"
+      placeholder: "en"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What content is being added?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source Material
+      description: Link to source or paste content
+    validations:
+      required: false

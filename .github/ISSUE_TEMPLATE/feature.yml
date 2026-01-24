@@ -1,0 +1,40 @@
+name: Feature Request
+description: Propose a new feature for the FRC platform
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What feature would you like to add?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this feature needed? What problem does it solve?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Content System
+        - UI/Reading Experience
+        - Translation Pipeline
+        - AI/Agent Integration
+        - Build/Deploy
+        - Authentication
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Notes
+      description: Any thoughts on how this could be implemented?
+    validations:
+      required: false
