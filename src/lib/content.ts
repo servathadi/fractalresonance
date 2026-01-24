@@ -233,6 +233,7 @@ export function toPaperMeta(parsed: ParsedContent): PaperMeta {
     abstract: fm.abstract || '',
     tags: fm.tags || [],
     lang: fm.lang || 'en',
+    doi: fm.doi,
     video: fm.video,
     images: fm.images,
     rating: fm.rating,

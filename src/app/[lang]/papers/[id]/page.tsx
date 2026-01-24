@@ -34,18 +34,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!paper) return { title: 'Not Found' };
 
   const fm = paper.frontmatter;
+  const author = fm.author || 'H. Servat';
+  const paperUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
+
   return {
     title: fm.title,
     description: fm.abstract,
     keywords: fm.tags,
-    authors: [{ name: fm.author || 'H. Servat' }],
+    authors: [{ name: author }],
     openGraph: {
       type: 'article',
       title: fm.title,
       description: fm.abstract,
       publishedTime: fm.date,
-      authors: [fm.author || 'H. Servat'],
+      authors: [author],
       tags: fm.tags,
+    },
+    other: {
+      // Google Scholar meta tags
+      'citation_title': fm.title,
+      'citation_author': author,
+      ...(fm.date && { 'citation_publication_date': fm.date }),
+      'citation_journal_title': 'Fractal Resonance Coherence',
+      ...(fm.doi && { 'citation_doi': fm.doi }),
+      'citation_abstract_html_url': paperUrl,
+      'citation_language': lang,
+      ...(fm.id && { 'citation_technical_report_number': fm.id }),
+      // Dublin Core for additional discoverability
+      'DC.title': fm.title,
+      'DC.creator': author,
+      ...(fm.date && { 'DC.date': fm.date }),
+      'DC.type': 'Text',
+      'DC.format': 'text/html',
+      'DC.language': lang,
+      ...(fm.doi && { 'DC.identifier': `doi:${fm.doi}` }),
     },
   };
 }

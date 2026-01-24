@@ -22,6 +22,7 @@ export interface PaperMeta {
   abstract: string;
   tags: string[];
   lang: string;
+  doi?: string;
   video?: {
     url: string;
     embedUrl?: string;
@@ -111,6 +112,7 @@ export function schemaOrganization() {
     logo: `${SITE_URL}/brand/logo.png`,
     sameAs: [
       'https://github.com/servathadi/fractalresonance',
+      'https://zenodo.org/communities/frc',
     ],
     founder: { '@id': `${SITE_URL}/#author` },
   };
@@ -125,6 +127,9 @@ export function schemaPerson() {
     name: 'Hadi Servat',
     url: SITE_URL,
     sameAs: [
+      'https://orcid.org/0009-0004-7412-5129',
+      'https://www.researchgate.net/profile/Hadi-Servat',
+      'https://independent.academia.edu/HadiServat',
       'https://github.com/servathadi',
     ],
     jobTitle: 'Researcher',
@@ -162,6 +167,14 @@ export function schemaScholarlyArticle(paper: PaperMeta) {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/${paper.lang}/papers/${paper.id}`,
     },
+    ...(paper.doi && {
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'DOI',
+        value: paper.doi,
+      },
+      sameAs: `https://doi.org/${paper.doi}`,
+    }),
   };
 
   if (paper.rating) {
