@@ -49,13 +49,13 @@ export function renderMarkdown(body: string, lang: string): string {
   // Wikilinks with display text: [[ID|text]]
   html = html.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (_, id, display) => {
     const href = resolveWikilinkHref(id, lang);
-    return `<a href="${href}" class="wikilink">${display}</a>`;
+    return `<a href="${href}" class="wikilink" data-wikilink-id="${id}">${display}</a>`;
   });
 
   // Wikilinks plain: [[ID]]
   html = html.replace(/\[\[([^\]]+)\]\]/g, (_, id) => {
     const href = resolveWikilinkHref(id, lang);
-    return `<a href="${href}" class="wikilink">${id}</a>`;
+    return `<a href="${href}" class="wikilink" data-wikilink-id="${id}">${id}</a>`;
   });
 
   // Regular markdown links

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
@@ -6,7 +7,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks } from '@/lib/content';
+import { getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -81,6 +82,7 @@ export default async function PaperPage({ params }: Props) {
   const meta = toPaperMeta(paper);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
+  const glossary = getGlossary(lang);
 
   // Content is from trusted local markdown files (not user input).
   // Rendered at build time via static generation.
@@ -131,7 +133,13 @@ export default async function PaperPage({ params }: Props) {
             {paper.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {paper.frontmatter.tags.map(tag => (
-                  <span key={tag} className="tag">{tag}</span>
+                  <Link 
+                    key={tag} 
+                    href={`/${lang}/tags/${encodeURIComponent(tag)}`}
+                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
+                  >
+                    {tag}
+                  </Link>
                 ))}
               </div>
             )}
@@ -167,7 +175,7 @@ export default async function PaperPage({ params }: Props) {
 
           {/* Body — rendered from trusted local markdown files at build time */}
           <div className="content-body" suppressHydrationWarning>
-            <MarkdownContent html={renderedBody} />
+            <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 
           {/* Images gallery */}

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPapers, getLanguages } from '@/lib/content';
+import { getPapers, getArticles, getLanguages } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static pages per language
-  const staticPages = ['about', 'articles', 'papers', 'formulas', 'positioning', 'mu-levels'];
+  const staticPages = ['about', 'articles', 'papers', 'formulas', 'positioning', 'mu-levels', 'graph'];
 
   for (const lang of languages) {
     for (const page of staticPages) {
@@ -36,6 +36,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${SITE_URL}/${lang}/papers/${paper.frontmatter.id}`,
         lastModified: paper.frontmatter.date ? new Date(paper.frontmatter.date) : new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.9,
+      });
+    }
+
+    // Article pages
+    const articles = getArticles(lang);
+    for (const article of articles) {
+      entries.push({
+        url: `${SITE_URL}/${lang}/articles/${article.frontmatter.id}`,
+        lastModified: article.frontmatter.date ? new Date(article.frontmatter.date) : new Date(),
         changeFrequency: 'monthly',
         priority: 0.9,
       });

@@ -168,6 +168,20 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
     .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
 }
 
+/** Get all articles (blog/episodes) for a language */
+export function getArticles(lang: string = 'en'): ParsedContent[] {
+  const dir = path.join(CONTENT_DIR, lang, 'articles');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.md'))
+    .map(f => {
+      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return parseFrontmatter(raw);
+    })
+    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+}
+
 /** Get a single paper by id */
 export function getPaper(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
@@ -219,6 +233,20 @@ export function getLanguages(): string[] {
     });
 }
 
+/** Get a single article by id */
+export function getArticle(lang: string, id: string): ParsedContent | null {
+  const dir = path.join(CONTENT_DIR, lang, 'articles');
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
 // ─── Schema Converters ─────────────────────────────────────────────────────
 
 /** Convert parsed frontmatter to PaperMeta for schema generation */
@@ -256,6 +284,157 @@ export function toConceptMeta(parsed: ParsedContent): ConceptMeta {
     related: fm.related || [],
     lang: fm.lang || 'en',
   };
+}
+
+export interface GlossaryItem {
+  id: string;
+  title: string;
+  excerpt: string;
+  type: 'paper' | 'concept';
+  url: string;
+}
+
+/** Get a glossary map of all content for tooltips */
+export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
+  const glossary: Record<string, GlossaryItem> = {};
+  
+  // Process Papers
+  const papers = getPapers(lang);
+  for (const p of papers) {
+    const fm = p.frontmatter;
+    glossary[fm.id] = {
+      id: fm.id,
+      title: fm.title,
+      excerpt: fm.abstract || 'No abstract available.',
+      type: 'paper',
+      url: `/${lang}/papers/${fm.id}`
+    };
+  }
+
+  // Process Concepts
+  const concepts = getConcepts(lang);
+  for (const c of concepts) {
+    const fm = c.frontmatter;
+    // Use first paragraph as excerpt
+    const firstPara = c.body
+      .split('\n\n')
+      .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
+      ?.replace(/\[\[|\]\]/g, '') // strip wikilink brackets
+      .slice(0, 150) + (c.body.length > 150 ? '...' : '') || 'No description.';
+
+    glossary[fm.id] = {
+      id: fm.id,
+      title: fm.title,
+      excerpt: firstPara,
+      type: 'concept',
+      url: `/${lang}/concepts/${fm.id}`
+    };
+  }
+
+  return glossary;
+}
+
+// ─── Tag Processing ────────────────────────────────────────────────────────
+
+/** Get all unique tags across all content */
+export function getAllTags(lang: string = 'en'): string[] {
+  const papers = getPapers(lang);
+  const concepts = getConcepts(lang);
+  const tags = new Set<string>();
+
+  [...papers, ...concepts].forEach(item => {
+    (item.frontmatter.tags || []).forEach(t => tags.add(t));
+  });
+
+  return Array.from(tags).sort();
+}
+
+/** Get all content items that have a specific tag */
+export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
+  const papers = getPapers(lang);
+  const concepts = getConcepts(lang);
+  
+  // Normalize tag for comparison (case-insensitive? or exact?)
+  // Let's do exact match for now, maybe case-insensitive later
+  return [...papers, ...concepts]
+    .filter(item => (item.frontmatter.tags || []).includes(tag))
+    .sort((a, b) => {
+      // Sort by date desc, then title
+      const dateA = a.frontmatter.date || '';
+      const dateB = b.frontmatter.date || '';
+      if (dateA && dateB) return dateB.localeCompare(dateA);
+      return a.frontmatter.title.localeCompare(b.frontmatter.title);
+    });
+}
+
+// ─── Graph Generation ──────────────────────────────────────────────────────
+
+export interface GraphNode {
+  id: string;
+  title: string;
+  type: 'paper' | 'concept';
+  val: number; // radius based on connections
+}
+
+export interface GraphLink {
+  source: string;
+  target: string;
+}
+
+export interface GraphData {
+  nodes: GraphNode[];
+  links: GraphLink[];
+}
+
+/** Generate graph data for visualization */
+export function getGraphData(lang: string = 'en'): GraphData {
+  const nodes: GraphNode[] = [];
+  const links: GraphLink[] = [];
+  const nodeIds = new Set<string>();
+
+  const papers = getPapers(lang);
+  const concepts = getConcepts(lang);
+  const allContent = [...papers, ...concepts];
+
+  // 1. Create Nodes
+  for (const c of allContent) {
+    const id = c.frontmatter.id;
+    if (!nodeIds.has(id)) {
+      nodes.push({
+        id,
+        title: c.frontmatter.title,
+        type: c.frontmatter.id.startsWith('FRC') ? 'paper' : 'concept',
+        val: 1 // base size
+      });
+      nodeIds.add(id);
+    }
+  }
+
+  // 2. Create Links
+  for (const c of allContent) {
+    const sourceId = c.frontmatter.id;
+    const extracted = extractWikilinks(c.body);
+    
+    // Dedup links per file
+    const targetIds = new Set(extracted.map(l => l.id.split('#')[0]));
+
+    for (const targetId of targetIds) {
+      // Only link if target exists in our content (internal links)
+      if (nodeIds.has(targetId) && sourceId !== targetId) {
+        links.push({ source: sourceId, target: targetId });
+        
+        // Increase size of target node (centrality)
+        const targetNode = nodes.find(n => n.id === targetId);
+        if (targetNode) targetNode.val += 0.5;
+        
+        // Increase size of source node
+        const sourceNode = nodes.find(n => n.id === sourceId);
+        if (sourceNode) sourceNode.val += 0.2;
+      }
+    }
+  }
+
+  return { nodes, links };
 }
 
 // ─── Wikilink Processing ───────────────────────────────────────────────────

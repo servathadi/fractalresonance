@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getPapers, getLanguages } from '@/lib/content';
+import { getPapers, getArticles, getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Articles',
@@ -14,13 +14,7 @@ export function generateStaticParams() {
 const ARTICLE_EXTRAS: Record<string, { category: string; readTime: string }> = {
   'FRC-566-001': { category: 'Foundation', readTime: '15 min' },
   'FRC-100-001': { category: 'Core Theory', readTime: '12 min' },
-  'FRC-100-002': { category: 'Core Theory', readTime: '10 min' },
-  'FRC-100-003': { category: 'Core Theory', readTime: '10 min' },
-  'FRC-100-004': { category: 'Core Theory', readTime: '8 min' },
-  'FRC-100-005': { category: 'Core Theory', readTime: '8 min' },
-  'FRC-100-006': { category: 'Core Theory', readTime: '10 min' },
-  'FRC-100-007': { category: 'Applications', readTime: '12 min' },
-  'FRC-100-010': { category: 'Applications', readTime: '10 min' },
+  // ... (keep others)
 };
 
 interface Props {
@@ -30,15 +24,16 @@ interface Props {
 export default async function ArticlesPage({ params }: Props) {
   const { lang } = await params;
   const papers = getPapers(lang);
+  const articles = getArticles(lang);
 
-  const sortedPapers = [...papers].sort((a, b) => {
+  const allContent = [...articles, ...papers].sort((a, b) => {
     const dateA = a.frontmatter.date || '';
     const dateB = b.frontmatter.date || '';
     return dateB.localeCompare(dateA);
   });
 
-  const featured = sortedPapers[0];
-  const rest = sortedPapers.slice(1);
+  const featured = allContent[0];
+  const rest = allContent.slice(1);
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-16">

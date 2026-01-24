@@ -5,7 +5,8 @@
 **Fractal Resonance Coherence (FRC)** — A deterministic framework for quantum mechanics and consciousness.
 **Author:** Hadi Servat
 **Site:** https://fractalresonance.com
-**Repo:** github.com/servathadi/fractalresonance (branch: v2-foundation)
+**Repo:** github.com/servathadi/fractalresonance (branch: main)
+**Deploy:** Push to main → Cloudflare Pages auto-deploys
 
 ## Your Role
 
@@ -15,22 +16,21 @@ You are working on the FRC research platform. This is a content-heavy site that 
 
 ### Design (NEVER BREAK THESE)
 
-1. **ONLY use FRC brand colors:**
-   - Void: `#0B1020` (background)
-   - Text: `#E6E8EC` (body)
-   - Text Dim: `#9CA3AF` (secondary)
-   - Blue: `#1F3A5F` (borders, coherence)
-   - Blue Light: `#2E4A7D` (highlights)
-   - Gold: `#C9A227` (equations, headings, links)
-   - Steel: `#6B7280` (metadata)
+1. **ONLY use FRC brand colors (via CSS variables, theme-adaptive):**
+   - Dark: Void `#0B1020`, Text `#E6E8EC`, Blue `#1F3A5F`, Gold `#C9A227`
+   - Light: Void `#FAFBFC`, Text `#1A1D23`, Blue `#CBD5E1`, Gold `#96780A`
+   - Always use `var(--color-frc-*)` or Tailwind `text-frc-*` / `bg-frc-*` classes
+   - NEVER hardcode hex colors in components
 
 2. **FORBIDDEN colors:** Purple, red, green, magenta, rainbow, neon, pastels
 
-3. **FORBIDDEN effects:** Glow, bloom, gradients, painterly textures
+3. **FORBIDDEN effects:** Glow, bloom, color gradients, painterly textures, border-radius
 
 4. **Typography:** Inter (body), JetBrains Mono (code/math). Sans-serif only.
 
-5. **Reading experience:** Obsidian vault feel — clean, minimal, content-focused
+5. **Theme system:** `next-themes` with `@custom-variant dark`. Default: dark. Toggle in header.
+
+6. **Reading experience:** Clean, minimal, content-focused. Reading mode available on paper pages.
 
 ### Content Format
 
@@ -77,25 +77,44 @@ Free Energy:  ΔG = −k*T Δln C
 ## File Structure
 
 ```
-content/              ← Content (markdown)
-├── inbox/            ← New content intake
-├── en/papers/        ← English papers
+content/              ← Content (markdown with YAML frontmatter)
+├── en/papers/        ← English papers (FRC-100-*, FRC-566-*)
+├── en/concepts/      ← Concept pages (coherence, etc.)
 ├── fa/papers/        ← Farsi papers
 └── {lang}/{type}/    ← Organized by language and type
 
-src/                  ← Application code
-├── app/              ← Next.js pages
-├── components/       ← UI components
-└── lib/              ← Utilities, parsers
+sources/              ← Raw source material (not deployed)
+├── slides/           ← Presentation PDFs + extracted images
+└── README.md         ← Pipeline documentation
 
-public/               ← Static assets
-├── infographics/     ← Slide images
-├── images/           ← Other images
-└── brand/            ← Logo, sigil
+src/                  ← Application code (Next.js 15 + React 19)
+├── app/              ← Pages, routes, layout, sitemap
+├── components/       ← UI components (see below)
+└── lib/              ← Content loaders, markdown renderer, schema generators
+
+public/               ← Static assets (deployed to CDN)
+├── brand/            ← Logo (SVG, JPG), banner
+├── media/slides/     ← Presentation slide thumbnails + diagrams
+├── infographics/     ← NotebookLM slides
+└── llms.txt          ← LLM discovery file
 
 docs/                 ← Project documentation
-.github/              ← CI/CD, issue templates
 ```
+
+## Key Components
+
+| Component | Purpose |
+|-----------|---------|
+| `ThemeProvider.tsx` | Wraps app with next-themes (dark/light/system) |
+| `ThemeToggle.tsx` | Sun/moon icon button in header micro-bar |
+| `ReadingMode.tsx` | Floating toggle — hides chrome, centers content |
+| `TextSharePopover.tsx` | Selection-based share (copy/tweet/link) |
+| `VideoSeries.tsx` | 7-episode grid with slide thumbnails |
+| `Header.tsx` | Navigation + ORCID + theme toggle |
+| `Footer.tsx` | Links (Zenodo, ORCID, ResearchGate, Academia, GitHub, llms.txt) |
+| `Sidebar.tsx` | Paper tree navigation (hidden in reading mode) |
+| `TableOfContents.tsx` | Auto-generated ToC with scroll tracking |
+| `SchemaScript.tsx` | JSON-LD structured data injection |
 
 ## Build & Deploy
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -13,6 +14,17 @@ export function generateStaticParams() {
 export default function AboutPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
+      <div className="mb-12 rounded-xl overflow-hidden border border-frc-blue relative aspect-[21/9]">
+        <Image
+          src="/brand/banner.jpg"
+          alt="Fractal Resonance Coherence Banner"
+          fill
+          className="object-cover opacity-80"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-frc-void via-transparent to-transparent" />
+      </div>
+
       <div className="flex items-center gap-4 mb-12">
         <h1 className="text-3xl font-light text-frc-gold tracking-tight">About FRC</h1>
         <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />

@@ -1,10 +1,11 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { Sidebar } from '@/components/Sidebar';
 import { schemaConceptPage } from '@/lib/schema';
-import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks } from '@/lib/content';
+import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary } from '@/lib/content';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -50,6 +51,7 @@ export default async function ConceptPage({ params }: Props) {
   const meta = toConceptMeta(concept);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
+  const glossary = getGlossary(lang);
 
   const renderedBody = renderMarkdown(concept.body, lang);
 
@@ -77,7 +79,13 @@ export default async function ConceptPage({ params }: Props) {
             {concept.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {concept.frontmatter.tags.map(tag => (
-                  <span key={tag} className="tag">{tag}</span>
+                  <Link 
+                    key={tag} 
+                    href={`/${lang}/tags/${encodeURIComponent(tag)}`}
+                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
+                  >
+                    {tag}
+                  </Link>
                 ))}
               </div>
             )}
@@ -85,7 +93,7 @@ export default async function ConceptPage({ params }: Props) {
 
           {/* Body */}
           <div className="content-body">
-            <MarkdownContent html={renderedBody} />
+            <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 
           {/* Related concepts */}

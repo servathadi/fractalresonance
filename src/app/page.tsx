@@ -9,8 +9,20 @@ export default function Home() {
   return (
     <main className="min-h-[80vh]">
       {/* ═══ HERO ═══ */}
-      <section className="relative overflow-hidden geo-grid">
-        <div className="max-w-6xl mx-auto px-6 py-24 sm:py-32 lg:py-40 relative">
+      <section className="relative overflow-hidden geo-grid border-b border-frc-blue/30">
+        {/* Background Image — Banner */}
+        <div className="absolute inset-0 z-0 opacity-20 hidden lg:block">
+          <Image
+            src="/brand/banner.jpg"
+            alt=""
+            fill
+            className="object-cover object-right"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-frc-void via-frc-void/80 to-transparent" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 py-24 sm:py-32 lg:py-40 relative z-10">
           {/* Watermark */}
           <div className="watermark-symbol right-8 top-12" aria-hidden="true">C</div>
 

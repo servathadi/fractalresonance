@@ -2,11 +2,16 @@
 
 **Source:** `/home/mumega/dominion/FRC Resources/FRCBranding/brand guide`
 
-## Color Palette (STRICT)
+## Color Palette
+
+Colors are defined as CSS custom properties and swap between themes.
+
+### Dark Theme (brand default)
 
 | Name | Hex | CSS Variable | Usage |
 |------|-----|--------------|-------|
 | Void | `#0B1020` | `--frc-void` | Primary background |
+| Void Light | `#0E1428` | `--frc-void-light` | Alt sections background |
 | Text | `#E6E8EC` | `--frc-text` | Main text (off-white) |
 | Text Dim | `#9CA3AF` | `--frc-text-dim` | Secondary text |
 | Blue | `#1F3A5F` | `--frc-blue` | Coherence, flow, borders |
@@ -14,6 +19,37 @@
 | Gold | `#C9A227` | `--frc-gold` | Invariants, attractors, equations |
 | Gold Light | `#D4A84B` | `--frc-gold-light` | Gold highlights |
 | Steel | `#6B7280` | `--frc-steel` | Tertiary, metadata |
+
+### Light Theme
+
+| Name | Hex | CSS Variable | Notes |
+|------|-----|--------------|-------|
+| Void | `#FAFBFC` | `--frc-void` | Near-white background |
+| Void Light | `#F0F2F5` | `--frc-void-light` | Alt sections |
+| Text | `#1A1D23` | `--frc-text` | Dark text |
+| Text Dim | `#5A6170` | `--frc-text-dim` | Secondary text |
+| Blue | `#CBD5E1` | `--frc-blue` | Light borders |
+| Blue Light | `#94A3B8` | `--frc-blue-light` | Hover borders |
+| Gold | `#96780A` | `--frc-gold` | Darker gold (WCAG AA on white) |
+| Gold Light | `#A8871E` | `--frc-gold-light` | Lighter gold accent |
+| Steel | `#64748B` | `--frc-steel` | Labels/metadata |
+
+### Theme Implementation
+
+```css
+/* globals.css */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-frc-void: var(--frc-void);
+  /* ... all colors reference CSS variables */
+}
+
+:root { /* light values */ }
+.dark { /* dark values */ }
+```
+
+Switching is handled by `next-themes` with `attribute="class"`, `defaultTheme="dark"`, `enableSystem`.
 
 ## Semantic Color Mapping
 
@@ -110,14 +146,27 @@ export default {
 
 The site should feel like reading from someone's Obsidian vault:
 
-- **Dark background** (void #0B1020)
+- **Dark/Light background** — theme-adaptive via CSS variables
 - **Generous whitespace** — content breathes
-- **Left sidebar** — collapsible paper tree
-- **Max content width** — 720px for readability
-- **Line height** — 1.75 for body text
+- **Left sidebar** — collapsible paper tree (hidden in reading mode)
+- **Max content width** — 720px for readability (680px in reading mode)
+- **Line height** — 1.8 for body text (1.9 in reading mode)
 - **Headings** — light weight, gold for H1, text for H2+
 - **Links** — gold color, no underline until hover
-- **Code blocks** — slightly lighter background, monospace
+- **Code blocks** — slightly lighter background, monospace, gold left border
 - **Images** — full-width within content column, subtle border
 - **Backlinks** — section at bottom, dimmer text
-- **Tags** — small pills, blue background
+- **Tags** — small pills, blue border, mono font
+- **Reading mode** — floating toggle hides all chrome for focused reading
+- **Text share** — select text to get copy/tweet/link share popover
+
+## Interactive Features
+
+| Feature | Component | Location |
+|---------|-----------|----------|
+| Theme toggle | `ThemeToggle.tsx` | Header micro-bar |
+| Reading mode | `ReadingMode.tsx` | Paper pages (bottom-right) |
+| Text share | `TextSharePopover.tsx` | Global (all pages) |
+| Video series | `VideoSeries.tsx` | Homepage |
+| Table of contents | `TableOfContents.tsx` | Paper pages (right rail) |
+| Sidebar | `Sidebar.tsx` | Paper pages (left rail) |

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getLanguages } from '@/lib/content';
+import { CoherenceWidget } from '@/components/widgets/CoherenceWidget';
 
 export const metadata: Metadata = {
   title: 'Formulas',
@@ -123,7 +124,12 @@ export default function FormulasPage() {
                   <span className="text-xs font-mono text-frc-steel shrink-0">{item.paper}</span>
                 </div>
                 <p className="font-mono text-sm text-frc-text mt-2 break-all">{item.equation}</p>
-                <p className="text-xs text-frc-text-dim mt-2">{item.description}</p>
+                <p className="text-xs text-frc-text-dim mt-2 mb-4">{item.description}</p>
+                {item.name === 'Coherence (C)' && (
+                  <div className="mt-4">
+                    <CoherenceWidget />
+                  </div>
+                )}
               </div>
             ))}
           </div>

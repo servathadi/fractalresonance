@@ -59,6 +59,9 @@ export function Footer() {
               <a href="https://github.com/servathadi/fractalresonance" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 GitHub
               </a>
+              <a href="https://mumega.com/https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+                Ask AI (NotebookLM)
+              </a>
               <Link href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
                 llms.txt
               </Link>

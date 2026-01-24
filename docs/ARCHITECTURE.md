@@ -116,25 +116,36 @@ content/
 
 ## UI Layers
 
-### 1. Sidebar (always visible)
-- Paper tree (collapsible by series)
-- Book chapters
-- Language switcher
-- Search
-- Graph link
+### 1. Header
+- Top micro-bar: site identifier, ORCID link, theme toggle (sun/moon)
+- Main nav: Logo + navigation links (About, Articles, Papers, Formulas, Positioning, mu-Levels)
 
-### 2. Main Content (Obsidian reading experience)
+### 2. Sidebar (paper pages, hidden in reading mode)
+- Paper tree (collapsible by series: 100, 566)
+- Concept pages
+- Active page highlighting
+
+### 3. Main Content
 - Clean typography (Inter for body, JetBrains Mono for code)
-- Inline images from infographics
-- `[[wikilinks]]` rendered as hover-preview links
-- Code blocks for equations
+- Inline images from slides/infographics
+- `[[wikilinks]]` rendered as navigable links
+- Equation blocks with gold left border
 - Backlinks section at bottom
+- Table of Contents on right rail (scroll-tracked)
 
-### 3. AI Layer (invisible to humans, structured for agents)
-- JSON-LD on every page
+### 4. Interactive Features
+- **Reading mode** — floating book icon (bottom-right), hides all chrome
+- **Text share** — select 5+ chars → Copy/Tweet/Link popover appears
+- **Theme toggle** — dark/light with smooth CSS transition
+- **Video series** — episode grid with slide thumbnails on homepage
+
+### 5. SEO/AI Layer (invisible to humans)
+- JSON-LD structured data (ScholarlyArticle, Person, Dataset, WebSite)
+- Google Scholar citation_* meta tags on paper pages
+- Dublin Core meta tags on paper pages
+- Dynamic sitemap.xml with correct lastmod dates
 - `/llms.txt` with full framework summary
-- `/api/*` endpoints for programmatic access
-- Structured frontmatter for extraction
+- ORCID, ResearchGate, Academia.edu sameAs links in schema
 
 ## Access Control
 
@@ -167,9 +178,8 @@ npm run dev
 # Production build (static export)
 npm run build
 
-# Deploy (automatic via GitHub Actions)
-git push origin v2-foundation
-# → GitHub Actions → npm run build → Cloudflare Pages
+# Deploy (push to main → Cloudflare Pages auto-deploys)
+git push origin main
 ```
 
 ## Tech Decisions
@@ -178,8 +188,10 @@ git push origin v2-foundation
 |----------|--------|--------|
 | Static vs Dynamic | Static export | CDN-friendly, no server needed |
 | CMS vs Files | Files (markdown) | Obsidian-compatible, git-versioned |
-| Database | None (build-time) | Content is files, auth is Supabase |
-| Hosting | Cloudflare Pages | Free, global CDN, auto-deploy |
-| Styling | Tailwind 4 | FRC brand tokens, dark theme |
-| Translation | Gemini 3 Flash | Free tier, good quality |
-| Auth | Supabase | Already in use, role-based |
+| Database | None (build-time) | Content is files, no runtime DB |
+| Hosting | Cloudflare Pages | Free, global CDN, auto-deploy from main |
+| Styling | Tailwind CSS 4 | `@theme inline` with CSS custom properties |
+| Theming | next-themes | SSR-safe, localStorage persistence, system detection |
+| SEO | Dynamic sitemap + Scholar meta + JSON-LD | Academic discoverability |
+| Typography | Inter + JetBrains Mono | Via Google Fonts, preconnect |
+| Images | next/image | Auto-optimization, responsive sizes |
