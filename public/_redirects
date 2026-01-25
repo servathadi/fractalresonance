@@ -7,7 +7,8 @@
 /concepts/*  /en/concepts/:splat  301
 /topics  /en/topics  301
 /topics/*  /en/topics/:splat  301
-/formula/coherence  /en/formulas  301
+/formula/lambda-field  /en/papers/FRC-100-007  301
+/formula/coherence  /en/papers/FRC-566-001  301
 /formulas  /en/formulas  301
 /for-ai  /llms.txt  301
 /for-machines  /llms.txt  301
@@ -20,6 +21,12 @@
 /blog/*  /en/blog/:splat  301
 /articles  /en/articles  301
 /articles/*  /en/articles/:splat  301
+/api/papers  /en/papers  301
+/api/papers/*  /en/papers  301
+/api/concepts  /en/concepts  301
+/api/concepts/*  /en/concepts  301
+/api/graph  /en/graph  301
+/api/graph/*  /en/graph  301
 
 # River-only articles that had (or may get) Kasra-side links.
 /en/articles/gemini-deep-research-frc-2026-01-25  /en/river/articles/gemini-deep-research-frc-2026-01-25  302
