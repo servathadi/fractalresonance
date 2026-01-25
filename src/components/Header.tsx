@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { PerspectiveToggleCompact } from './PerspectiveToggle';
 import { getDictionary } from '@/lib/dictionaries';
 
 // RTL languages
@@ -46,6 +47,8 @@ export function Header() {
               ORCID:0009-0004-7412-5129
             </a>
             <span className="text-frc-blue hidden sm:block">|</span>
+            <PerspectiveToggleCompact />
+            <span className="text-frc-blue">|</span>
             <LanguageSelector />
             <span className="text-frc-blue">|</span>
             <ThemeToggle />

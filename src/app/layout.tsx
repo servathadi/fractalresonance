@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { PerspectiveProvider } from '@/components/PerspectiveProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
@@ -58,12 +59,14 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
-          <Header />
-          <div className="flex-1">
-            {children}
-          </div>
-          <Footer />
-          <TextSharePopover />
+          <PerspectiveProvider>
+            <Header />
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+            <TextSharePopover />
+          </PerspectiveProvider>
         </ThemeProvider>
       </body>
     </html>
