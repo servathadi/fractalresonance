@@ -90,3 +90,17 @@ perspective: river   # or kasra, or both
 ```
 
 This is optional. If omitted, content is treated as `kasra` by default.
+
+## River Digest Template (Standard)
+
+To create a standard River digest skeleton:
+
+```bash
+npm run content:new-river -- --lang en --title "My Digest Title" --tags river,digest,meta --source "chat:gemini"
+```
+
+It writes to `content/inbox/<lang>/articles/` by default. Then:
+
+```bash
+npm run content:process-inbox
+```

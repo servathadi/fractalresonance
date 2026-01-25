@@ -14,6 +14,7 @@
     "content:report": "node scripts/content-report.js",
     "content:sanitize": "node scripts/sanitize-content.js",
     "content:ingest": "node scripts/ingest.js",
+    "content:new-river": "node scripts/new-river.js",
     "content:process-inbox": "node scripts/process-inbox.js"
   },
   "dependencies": {
