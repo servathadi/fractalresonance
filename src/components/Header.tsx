@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { path: '/about', label: 'About' },
   { path: '/articles', label: 'Articles' },
   { path: '/papers', label: 'Papers' },
+  { path: '/books', label: 'Books' },
   { path: '/graph', label: 'Graph' },
   { path: '/formulas', label: 'Formulas' },
   { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },

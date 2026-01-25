@@ -196,6 +196,34 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   return null;
 }
 
+/** Get all books for a language */
+export function getBooks(lang: string = 'en'): ParsedContent[] {
+  const dir = path.join(CONTENT_DIR, lang, 'books');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.md'))
+    .map(f => {
+      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return parseFrontmatter(raw);
+    })
+    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+}
+
+/** Get a single book by id */
+export function getBook(lang: string, id: string): ParsedContent | null {
+  const dir = path.join(CONTENT_DIR, lang, 'books');
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
 /** Get all concepts for a language */
 export function getConcepts(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
@@ -482,12 +510,12 @@ export function extractWikilinks(body: string): WikiLink[] {
 
 const SITE_URL = 'https://fractalresonance.com';
 
-export type ContentType = 'papers' | 'articles' | 'concepts';
+export type ContentType = 'papers' | 'articles' | 'concepts' | 'books';
 
 /** Check if content exists in a specific language */
 export function contentExistsInLang(type: ContentType, lang: string, id: string): boolean {
-  const getter = type === 'papers' ? getPaper : type === 'articles' ? getArticle : getConcept;
-  return getter(lang, id) !== null;
+  const getters = { papers: getPaper, articles: getArticle, concepts: getConcept, books: getBook };
+  return getters[type](lang, id) !== null;
 }
 
 /** Get all languages where a content item exists */

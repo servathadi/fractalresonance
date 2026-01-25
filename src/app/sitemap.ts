@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPapers, getArticles, getConcepts, getLanguages, getAlternateLanguages, getStaticPageAlternates } from '@/lib/content';
+import { getPapers, getArticles, getConcepts, getBooks, getLanguages, getAlternateLanguages, getStaticPageAlternates } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static pages with language alternates
-  const staticPages = ['about', 'articles', 'papers', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms'];
+  const staticPages = ['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms'];
 
   for (const page of staticPages) {
     const alternates = getStaticPageAlternates(page);
@@ -99,6 +99,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
           lastModified: new Date(),
           changeFrequency: 'monthly',
           priority: 0.85,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // Book pages with language alternates
+  const seenBookIds = new Set<string>();
+  for (const lang of languages) {
+    const books = getBooks(lang);
+    for (const book of books) {
+      const id = book.frontmatter.id;
+      if (seenBookIds.has(id)) continue;
+      seenBookIds.add(id);
+
+      const alternates = getAlternateLanguages('books', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/books/${id}`,
+          lastModified: book.frontmatter.date ? new Date(book.frontmatter.date) : new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.9,
           alternates: { languages: alternates },
         });
       }
