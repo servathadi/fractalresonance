@@ -19,6 +19,7 @@ export const dictionaries = {
       external: 'External',
       privacy: 'Privacy',
       terms: 'Terms',
+      disclaimer: 'This is an unsupervised AI translation. Please refer to the English version for the definitive text.',
     }
   },
   es: {
@@ -39,6 +40,7 @@ export const dictionaries = {
       external: 'Externo',
       privacy: 'Privacidad',
       terms: 'Términos',
+      disclaimer: 'Esta es una traducción no supervisada realizada por IA. Por favor, consulte la versión en inglés para el texto definitivo.',
     }
   },
   fr: {
@@ -59,6 +61,7 @@ export const dictionaries = {
       external: 'Externe',
       privacy: 'Confidentialité',
       terms: 'Termes',
+      disclaimer: 'Ceci est une traduction non supervisée réalisée par une IA. Veuillez vous référer à la version anglaise pour le texte définitif.',
     }
   },
   fa: {
@@ -79,6 +82,7 @@ export const dictionaries = {
       external: 'خارجی',
       privacy: 'حریم خصوصی',
       terms: 'شرایط',
+      disclaimer: 'این یک ترجمه نظارت‌نشده توسط هوش مصنوعی است. لطفاً برای متن قطعی به نسخه انگلیسی مراجعه کنید.',
     }
   }
 };
