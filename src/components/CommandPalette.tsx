@@ -7,7 +7,7 @@ interface SearchItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept' | 'tool';
+  type: 'paper' | 'concept' | 'book' | 'article' | 'tool';
   url: string;
 }
 
@@ -92,14 +92,14 @@ export function CommandPalette({ items }: CommandPaletteProps) {
           <svg className="w-5 h-5 text-frc-steel mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <input
-            autoFocus
-            type="text"
-            placeholder="Search papers, concepts, or formulas..."
-            className="flex-1 bg-transparent border-none outline-none text-frc-text placeholder-frc-text-dim text-lg"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+            <input
+              autoFocus
+              type="text"
+              placeholder="Search papers, concepts, books..."
+              className="flex-1 bg-transparent border-none outline-none text-frc-text placeholder-frc-text-dim text-lg"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
           <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono text-frc-steel border border-frc-blue/50 rounded bg-frc-blue/10">
             ESC
           </kbd>
@@ -127,7 +127,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
                       <span className={`text-[10px] uppercase tracking-widest font-mono ${
-                         item.type === 'paper' ? 'text-frc-gold' : 'text-frc-blue'
+                         item.type === 'concept' ? 'text-frc-blue' : 'text-frc-gold'
                       }`}>
                         {item.type}
                       </span>

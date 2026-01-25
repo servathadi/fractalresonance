@@ -54,7 +54,7 @@ export interface ParsedContent {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  const fmRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
+  const fmRegex = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/;
   const match = content.match(fmRegex);
 
   if (!match) {
@@ -62,94 +62,152 @@ export function parseFrontmatter(content: string): ParsedContent {
   }
 
   const [, fmRaw, body] = match;
-  const frontmatter: Record<string, unknown> = {};
-
-  let currentKey = '';
-  let currentArray: unknown[] | null = null;
-  let currentObject: Record<string, unknown> | null = null;
-
-  for (const line of fmRaw.split('\n')) {
-    // Array item (top-level)
-    if (currentArray !== null && !currentObject && line.match(/^\s{2,}-\s/)) {
-      const val = line.replace(/^\s*-\s*/, '').trim();
-      currentArray.push(parseValue(val));
-      continue;
-    }
-
-    // Object property (nested under array)
-    if (currentObject && line.match(/^\s{4,}\w/)) {
-      const objMatch = line.match(/^\s+(\w+):\s*(.*)$/);
-      if (objMatch) {
-        currentObject[objMatch[1]] = parseValue(objMatch[2]);
-      }
-      continue;
-    }
-
-    // Array item that starts an object
-    if (currentArray !== null && line.match(/^\s{2,}-\s+\w+:/)) {
-      if (currentObject) {
-        currentArray.push(currentObject);
-      }
-      currentObject = {};
-      const objMatch = line.match(/^\s*-\s+(\w+):\s*(.*)$/);
-      if (objMatch) {
-        currentObject[objMatch[1]] = parseValue(objMatch[2]);
-      }
-      continue;
-    }
-
-    // Flush previous array/object
-    if (currentArray !== null && !line.match(/^\s/)) {
-      if (currentObject) {
-        currentArray.push(currentObject);
-        currentObject = null;
-      }
-      frontmatter[currentKey] = currentArray;
-      currentArray = null;
-    }
-
-    // Top-level key: value
-    const kvMatch = line.match(/^(\w+):\s*(.*)$/);
-    if (kvMatch) {
-      const [, key, rawVal] = kvMatch;
-      currentKey = key;
-
-      // Inline array: [a, b, c]
-      if (rawVal.startsWith('[') && rawVal.endsWith(']')) {
-        frontmatter[key] = rawVal
-          .slice(1, -1)
-          .split(',')
-          .map(s => parseValue(s.trim()));
-        continue;
-      }
-
-      // Start of block array/object
-      if (rawVal === '') {
-        currentArray = [];
-        continue;
-      }
-
-      frontmatter[key] = parseValue(rawVal);
-    }
-  }
-
-  // Flush trailing array
-  if (currentArray !== null) {
-    if (currentObject) {
-      currentArray.push(currentObject);
-    }
-    frontmatter[currentKey] = currentArray;
-  }
+  const frontmatter = parseYamlFrontmatter(fmRaw);
 
   return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim() };
 }
 
-function parseValue(val: string): string | number | boolean {
+type YamlValue =
+  | string
+  | number
+  | boolean
+  | null
+  | YamlValue[]
+  | { [key: string]: YamlValue };
+
+function parseYamlFrontmatter(src: string): Record<string, unknown> {
+  const root: Record<string, unknown> = {};
+  const stack: Array<{ indent: number; container: Record<string, unknown> | unknown[] }> = [
+    { indent: -1, container: root },
+  ];
+
+  const lines = src.split('\n');
+  let i = 0;
+
+  while (i < lines.length) {
+    const rawLine = lines[i];
+    i++;
+
+    if (!rawLine || /^\s*$/.test(rawLine)) continue;
+
+    const indent = rawLine.match(/^ */)?.[0].length ?? 0;
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+
+    // Close containers when indentation decreases.
+    while (stack.length > 1 && indent <= stack[stack.length - 1].indent) {
+      stack.pop();
+    }
+
+    const ctx = stack[stack.length - 1].container;
+
+    // Sequence item
+    if (line.startsWith('- ')) {
+      if (!Array.isArray(ctx)) continue;
+
+      const rest = line.slice(2).trim();
+      if (!rest) {
+        const obj: Record<string, unknown> = {};
+        ctx.push(obj);
+        stack.push({ indent, container: obj });
+        continue;
+      }
+
+      const kv = splitYamlKeyValue(rest);
+      if (!kv) {
+        ctx.push(parseYamlValue(rest));
+        continue;
+      }
+
+      const [k, vRaw] = kv;
+      const obj: Record<string, unknown> = {};
+      ctx.push(obj);
+      stack.push({ indent, container: obj });
+
+      if (vRaw === '') {
+        const nested = inferYamlContainer(lines, i, indent + 2);
+        obj[k] = nested;
+        // Child properties live two spaces deeper than the dash indent.
+        stack.push({ indent: indent + 2, container: nested });
+      } else {
+        obj[k] = parseYamlValue(vRaw);
+      }
+      continue;
+    }
+
+    // Mapping entry
+    const kv = splitYamlKeyValue(line);
+    if (!kv || Array.isArray(ctx)) continue;
+
+    const [key, rawVal] = kv;
+    if (rawVal === '') {
+      const nested = inferYamlContainer(lines, i, indent + 2);
+      (ctx as Record<string, unknown>)[key] = nested;
+      stack.push({ indent, container: nested });
+      continue;
+    }
+
+    (ctx as Record<string, unknown>)[key] = parseYamlValue(rawVal);
+  }
+
+  return root;
+}
+
+function splitYamlKeyValue(line: string): [string, string] | null {
+  const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+  if (!match) return null;
+  return [match[1], match[2] ?? ''];
+}
+
+function inferYamlContainer(lines: string[], startIndex: number, childIndent: number): Record<string, unknown> | unknown[] {
+  for (let j = startIndex; j < lines.length; j++) {
+    const rawLine = lines[j];
+    if (!rawLine || /^\s*$/.test(rawLine)) continue;
+
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+
+    const indent = rawLine.match(/^ */)?.[0].length ?? 0;
+    if (indent < childIndent) break;
+
+    return line.startsWith('- ') ? [] : {};
+  }
+
+  // Default to mapping when there's no obvious child structure.
+  return {};
+}
+
+function parseYamlValue(raw: string): YamlValue {
+  const val = raw.trim();
+
+  // Inline array: [a, b, c]
+  if (val.startsWith('[') && val.endsWith(']')) {
+    const inner = val.slice(1, -1).trim();
+    if (!inner) return [];
+    return inner.split(',').map((s) => parseYamlValue(s.trim()));
+  }
+
+  if (val === 'null' || val === '~') return null;
   if (val === 'true') return true;
   if (val === 'false') return false;
-  const num = Number(val);
-  if (!isNaN(num) && val !== '') return num;
-  return val.replace(/^["']|["']$/g, '');
+
+  // Numbers (avoid coercing dates/ids like 2025-01-01)
+  if (/^-?\d+(\.\d+)?$/.test(val)) {
+    const num = Number(val);
+    if (!Number.isNaN(num)) return num;
+  }
+
+  return stripYamlQuotes(val);
+}
+
+function stripYamlQuotes(val: string): string {
+  if (
+    (val.startsWith('"') && val.endsWith('"')) ||
+    (val.startsWith("'") && val.endsWith("'"))
+  ) {
+    return val.slice(1, -1);
+  }
+  return val;
 }
 
 // ─── Content Loaders ───────────────────────────────────────────────────────
@@ -318,7 +376,7 @@ export interface GlossaryItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept';
+  type: 'paper' | 'concept' | 'book' | 'article';
   url: string;
 }
 
@@ -356,6 +414,32 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
       excerpt: firstPara,
       type: 'concept',
       url: `/${lang}/concepts/${fm.id}`
+    };
+  }
+
+  // Process Books
+  const books = getBooks(lang);
+  for (const b of books) {
+    const fm = b.frontmatter;
+    glossary[fm.id] = {
+      id: fm.id,
+      title: fm.title,
+      excerpt: fm.abstract || 'No description available.',
+      type: 'book',
+      url: `/${lang}/books/${fm.id}`,
+    };
+  }
+
+  // Process Articles
+  const articles = getArticles(lang);
+  for (const a of articles) {
+    const fm = a.frontmatter;
+    glossary[fm.id] = {
+      id: fm.id,
+      title: fm.title,
+      excerpt: fm.abstract || 'No description available.',
+      type: 'article',
+      url: `/${lang}/articles/${fm.id}`,
     };
   }
 

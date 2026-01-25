@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPapers, getLanguages } from '@/lib/content';
 import { VideoSeries } from '@/components/VideoSeries';
+import { PerspectiveHomeIntro, PerspectiveStartHere } from '@/components/PerspectiveHome';
 
 export function generateStaticParams() {
   return getLanguages().map(lang => ({ lang }));
@@ -51,10 +52,13 @@ export default async function ContentHub({ params }: Props) {
               Fractal Resonance<br />Coherence
             </h1>
 
-            <p className="animate-fade-up stagger-3 text-frc-text-dim text-lg sm:text-xl max-w-xl mb-10 leading-relaxed font-light">
-              A unified framework revealing consciousness as resonance patterns
-              across nested scales — from quantum substrate to universal awareness.
-            </p>
+            <div className="animate-fade-up stagger-3 max-w-xl mb-10 space-y-3">
+              <p className="text-frc-text-dim text-lg sm:text-xl leading-relaxed font-light">
+                A unified framework linking quantum mechanics, thermodynamics, and consciousness
+                through coherence.
+              </p>
+              <PerspectiveHomeIntro />
+            </div>
 
             <div className="animate-fade-up stagger-4 nested-border inline-block mb-10">
               <div className="nested-border-inner">
@@ -87,6 +91,8 @@ export default async function ContentHub({ params }: Props) {
       </section>
 
       <div className="ruled-line max-w-5xl mx-auto" />
+
+      <PerspectiveStartHere lang={lang} />
 
       {/* Video + Key Concepts */}
       <section className="max-w-6xl mx-auto px-6 pb-20">

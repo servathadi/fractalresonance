@@ -13,7 +13,7 @@ interface GlossaryItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept';
+  type: 'paper' | 'concept' | 'book' | 'article';
   url: string;
 }
 
@@ -137,7 +137,7 @@ function Tooltip({ item, rect }: { item: GlossaryItem; rect: DOMRect }) {
       <div className="bg-frc-void border border-frc-gold/30 shadow-2xl p-4 rounded-md max-w-sm w-80 backdrop-blur-md bg-opacity-95 text-left">
         <div className="flex items-center justify-between mb-2">
           <span className={`text-[10px] uppercase tracking-widest font-mono ${
-            item.type === 'paper' ? 'text-frc-gold' : 'text-frc-blue'
+            item.type === 'concept' ? 'text-frc-blue' : 'text-frc-gold'
           }`}>
             {item.type}
           </span>

@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "validate": "tsx scripts/validate-links.ts"
+    "validate": "node scripts/validate-links.js"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
