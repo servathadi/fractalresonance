@@ -23,9 +23,15 @@ function normalizeFrontmatterDelimiters(str) {
 async function main() {
   const args = process.argv.slice(2);
   const write = args.includes('--write');
-  const root = args.find((a) => !a.startsWith('--')) || CONTENT_DIR;
+  const rootArg = args.find((a) => !a.startsWith('--')) || CONTENT_DIR;
 
-  const files = await glob('**/*.{md,mdx}', { cwd: root, absolute: true });
+  let files = [];
+  if (fs.existsSync(rootArg) && fs.statSync(rootArg).isFile()) {
+    files = [path.resolve(rootArg)];
+  } else {
+    const root = rootArg;
+    files = await glob('**/*.{md,mdx}', { cwd: root, absolute: true });
+  }
   let changed = 0;
   let issues = 0;
 
@@ -65,4 +71,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-
