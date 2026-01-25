@@ -20,13 +20,16 @@ export function Sidebar({ lang, currentId, basePath, view }: SidebarProps) {
   const open566 = !!currentId && currentId.startsWith('FRC-566');
   const open800 = !!currentId && currentId.startsWith('FRC-8');
   const anySeriesOpen = open100 || open566 || open800;
+  // Keep Applications visible while reading core papers so cross-series discovery
+  // (e.g. "841.004") doesn't feel "missing".
+  const open800Default = open800 || open100;
 
   return (
     <aside data-sidebar className="w-56 shrink-0 border-r border-frc-blue hidden lg:block">
       <nav className="py-6 px-4 text-sm sticky top-0">
         <SidebarSection title="100 — Core Theory" items={series100} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open100 : true} />
         <SidebarSection title="566 — Reciprocity" items={series566} currentId={currentId} base={base} openByDefault={open566} />
-        <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800} />
+        <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800Default} />
         {concepts.length > 0 && (
           <div className="mt-6">
             <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
