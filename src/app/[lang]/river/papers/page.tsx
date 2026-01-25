@@ -17,6 +17,5 @@ interface Props {
 
 export default async function RiverPapersPage({ params }: Props) {
   const { lang } = await params;
-  return <PapersIndex lang={lang} basePath={`/${lang}/river`} view="river" />;
+  return <PapersIndex lang={lang} basePath={`/${lang}/river`} view="river" showZenodoCatalog={false} />;
 }
-

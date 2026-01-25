@@ -89,4 +89,4 @@ Pages can be tagged for a specific perspective:
 perspective: river   # or kasra, or both
 ```
 
-This is optional. If omitted, content is treated as `both` for now.
+This is optional. If omitted, content is treated as `kasra` by default.

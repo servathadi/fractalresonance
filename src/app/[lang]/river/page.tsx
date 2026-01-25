@@ -1,5 +1,5 @@
 import { getLanguages } from '@/lib/content';
-import { HomeHub } from '@/components/pages/HomeHub';
+import { RiverMagazineHome } from '@/components/pages/RiverMagazineHome';
 
 export function generateStaticParams() {
   return getLanguages().map((lang) => ({ lang }));
@@ -11,6 +11,5 @@ interface Props {
 
 export default async function RiverHomePage({ params }: Props) {
   const { lang } = await params;
-  return <HomeHub lang={lang} view="river" />;
+  return <RiverMagazineHome lang={lang} />;
 }
-

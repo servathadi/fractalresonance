@@ -10,8 +10,20 @@ function getHref(basePath: string, isPaper: boolean, id: string): string {
   return `${basePath}/${isPaper ? 'papers' : 'articles'}/${id}`;
 }
 
-export function ArticlesIndex({ lang, basePath, view }: { lang: string; basePath: string; view: PerspectiveView }) {
-  const papers = getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view));
+export function ArticlesIndex({
+  lang,
+  basePath,
+  view,
+  includePapers = true,
+}: {
+  lang: string;
+  basePath: string;
+  view: PerspectiveView;
+  includePapers?: boolean;
+}) {
+  const papers = includePapers
+    ? getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view))
+    : [];
   const articles = getArticles(lang).filter((a) => matchesPerspectiveView(a.frontmatter.perspective, view));
   const paperIds = new Set(papers.map((p) => p.frontmatter.id));
 
@@ -190,4 +202,3 @@ export function ArticlesIndex({ lang, basePath, view }: { lang: string; basePath
     </main>
   );
 }
-

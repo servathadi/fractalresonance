@@ -509,8 +509,8 @@ export type PerspectiveView = 'kasra' | 'river';
 
 export function normalizeContentPerspective(p: unknown): ContentPerspective {
   if (p === 'kasra' || p === 'river' || p === 'both') return p;
-  // Back-compat: if not specified, allow it everywhere.
-  return 'both';
+  // Default: current corpus is Kasra unless explicitly marked otherwise.
+  return 'kasra';
 }
 
 export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boolean {

@@ -11,6 +11,8 @@ import { ReadingMode } from '@/components/ReadingMode';
 import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
+export const dynamicParams = false;
+
 interface Props {
   params: Promise<{ lang: string; id: string }>;
 }
