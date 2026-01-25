@@ -23,7 +23,11 @@ jobs:
       - name: Validate Wikilinks
         run: npm run validate
 
-      # 2. Run Playwright Tests
+      # 2. Build (needed for Playwright to serve static files)
+      - name: Build
+        run: npm run build
+
+      # 3. Run Playwright Tests
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
