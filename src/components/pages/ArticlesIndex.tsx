@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { estimateReadTime, getArticles, getPapers, matchesPerspectiveView, type ParsedContent, type PerspectiveView } from '@/lib/content';
+import { ArticlesGridClient, type ArticlesGridItem } from '@/components/pages/ArticlesGridClient';
 
 const ARTICLE_EXTRAS: Record<string, { category: string; readTime?: string }> = {
   'FRC-566-001': { category: 'Foundation' },
@@ -38,13 +39,29 @@ export function ArticlesIndex({
   const featured = allContent[0];
   const rest = allContent.slice(1);
 
-  const extrasFor = (item: ParsedContent) => {
+  function extrasFor(item: ParsedContent) {
     const fm = item.frontmatter;
     const id = fm.id;
     const known = ARTICLE_EXTRAS[id];
     const readTime = known?.readTime || fm.read_time || estimateReadTime(item.body);
     return { category: known?.category || 'Research', readTime };
-  };
+  }
+
+  const gridItems: ArticlesGridItem[] = rest.map((item, i) => {
+    const fm = item.frontmatter;
+    const isPaper = paperIds.has(fm.id);
+    const extras = extrasFor(item);
+    return {
+      id: fm.id,
+      title: fm.title,
+      abstract: fm.abstract,
+      date: fm.date,
+      href: getHref(basePath, isPaper, fm.id),
+      category: extras.category,
+      readTime: extras.readTime,
+      ordinal: i + 2, // +1 for 1-based, +1 because 01 is "Latest"
+    };
+  });
 
   const content = (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -140,50 +157,7 @@ export function ArticlesIndex({
         </section>
       )}
 
-      {/* Articles Grid */}
-      <section>
-        <div className="section-marker mb-8" data-section="§03">
-          <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">All Articles</span>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {rest.map((item, i) => {
-            const fm = item.frontmatter;
-            const isPaper = paperIds.has(fm.id);
-            const extras = extrasFor(item);
-            return (
-              <Link
-                key={fm.id}
-                href={getHref(basePath, isPaper, fm.id)}
-                className="card block p-6 group"
-              >
-                <div className="flex items-start gap-4">
-                  <span className="font-mono text-xs text-frc-steel shrink-0 mt-1 tabular-nums">
-                    {String(i + 2).padStart(2, '0')}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="tag">{extras.category}</span>
-                      <span className="text-[0.625rem] text-frc-steel">{extras.readTime}</span>
-                    </div>
-                    <h3 className="text-sm text-frc-text group-hover:text-frc-gold transition-colors font-medium leading-snug mb-2">
-                      {fm.title}
-                    </h3>
-                    {fm.abstract && (
-                      <p className="text-xs text-frc-text-dim leading-relaxed line-clamp-2">
-                        {fm.abstract}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-3 mt-3 text-[0.625rem] text-frc-steel">
-                      <span className="font-mono">{fm.id}</span>
-                      <span>{fm.date}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      <ArticlesGridClient items={gridItems} />
 
       {/* Zenodo CTA */}
       <div className="ruled-line" />
