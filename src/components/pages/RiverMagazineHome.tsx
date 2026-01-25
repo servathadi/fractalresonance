@@ -17,6 +17,18 @@ function excerptOf(item: ParsedContent): string {
 export function RiverMagazineHome({ lang }: { lang: string }) {
   const basePath = `/${lang}/river`;
   const kasraBase = `/${lang}`;
+  const pinned = [
+    {
+      id: 'river-welcome',
+      title: 'River Digest: How To Read FRC',
+      href: `${basePath}/articles/river-welcome`,
+    },
+    {
+      id: 'gemini-deep-research-frc-2026-01-25',
+      title: 'Gemini Deep Research on FRC (Jan 25, 2026)',
+      href: `${basePath}/articles/gemini-deep-research-frc-2026-01-25`,
+    },
+  ];
 
   const riverArticles = getArticles(lang)
     .filter((a) => matchesPerspectiveView(a.frontmatter.perspective, 'river'))
@@ -49,6 +61,29 @@ export function RiverMagazineHome({ lang }: { lang: string }) {
           </Link>
         </div>
       </header>
+
+      <section className="mb-12">
+        <div className="section-marker mb-6" data-section="§00">
+          <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">Pinned</span>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {pinned.map((p) => (
+            <Link key={p.id} href={p.href} className="card block p-6 group">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <h2 className="text-lg text-frc-text group-hover:text-frc-gold transition-colors font-medium leading-snug">
+                    {p.title}
+                  </h2>
+                  <p className="text-xs text-frc-text-dim mt-2">
+                    Curated entry point for River.
+                  </p>
+                </div>
+                <span className="text-frc-steel group-hover:text-frc-gold transition-colors shrink-0">&rarr;</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {latest.length === 0 ? (
         <section className="border border-frc-blue rounded-lg p-6">
@@ -102,4 +137,3 @@ npm run content:process-inbox`}
     </main>
   );
 }
-
