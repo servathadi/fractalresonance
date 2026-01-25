@@ -8,6 +8,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import sanitizeHtml from 'sanitize-html';
 import { createPortal } from 'react-dom';
+import renderMathInElement from 'katex/contrib/auto-render';
+import 'katex/dist/katex.min.css';
 
 interface GlossaryItem {
   id: string;
@@ -47,6 +49,8 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   },
   allowedClasses: {
     a: ['wikilink'],
+    div: ['*'],
+    span: ['*'],
     code: ['*'],
     pre: ['*'],
   },
@@ -67,6 +71,27 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     // But since this is a client component receiving HTML string, we can just sanitize and set.
     setSanitizedHtml(sanitizeHtml(html, SANITIZE_OPTIONS));
   }, [html]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Math: render $...$ and $$...$$ using KaTeX auto-render.
+    // Content is local markdown, so we can keep options permissive.
+    try {
+      renderMathInElement(container, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+        ],
+        throwOnError: false,
+        strict: false,
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      });
+    } catch {
+      // If KaTeX fails, fall back to showing raw text.
+    }
+  }, [sanitizedHtml]);
 
   useEffect(() => {
     const container = containerRef.current;
