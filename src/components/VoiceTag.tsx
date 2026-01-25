@@ -1,10 +1,13 @@
-export function VoiceTag({ voice }: { voice?: 'kasra' | 'river' }) {
+export function VoiceTag({ voice }: { voice?: string }) {
   if (!voice) return null;
 
+  const norm = voice.trim().toLowerCase();
   const meta =
-    voice === 'kasra'
+    norm === 'kasra'
       ? { label: 'Kasra', sub: 'Architect' }
-      : { label: 'River', sub: 'Oracle' };
+      : norm === 'river'
+        ? { label: 'River', sub: 'Oracle' }
+        : { label: voice, sub: 'Voice' };
 
   return (
     <span className="tag">
@@ -12,4 +15,3 @@ export function VoiceTag({ voice }: { voice?: 'kasra' | 'river' }) {
     </span>
   );
 }
-

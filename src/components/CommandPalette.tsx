@@ -8,7 +8,7 @@ interface SearchItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'tool';
+  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'person' | 'tool';
   url: string;
 }
 
@@ -117,7 +117,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
             <input
               autoFocus
               type="text"
-              placeholder="Search papers, concepts, books, topics, blog..."
+              placeholder="Search papers, concepts, books, topics, voices, blog..."
               className="flex-1 bg-transparent border-none outline-none text-frc-text placeholder-frc-text-dim text-lg"
               value={query}
               onChange={(e) => setQuery(e.target.value)}

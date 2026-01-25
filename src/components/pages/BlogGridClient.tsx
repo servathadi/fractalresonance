@@ -11,7 +11,7 @@ export interface BlogGridItem {
   date?: string;
   href: string;
   tags: string[];
-  voice?: 'kasra' | 'river';
+  voice?: string;
   readTime: string;
   ordinal: number;
 }
@@ -19,11 +19,22 @@ export interface BlogGridItem {
 export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
   const [query, setQuery] = useState('');
   const [tag, setTag] = useState<string>('All');
-  const [voice, setVoice] = useState<'All' | 'kasra' | 'river'>('All');
+  const [voice, setVoice] = useState<string>('All');
 
   const tags = useMemo(() => {
     const t = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
     return ['All', ...t];
+  }, [items]);
+
+  const voices = useMemo(() => {
+    const uniq = Array.from(new Set(items.map((i) => i.voice).filter(Boolean) as string[]));
+    // Put known personas first, then the rest alphabetically.
+    const known = ['kasra', 'river'];
+    const rest = uniq
+      .filter((v) => !known.includes(v))
+      .sort((a, b) => a.localeCompare(b));
+    const ordered = [...known.filter((k) => uniq.includes(k)), ...rest];
+    return ['All', ...ordered];
   }, [items]);
 
   const filtered = useMemo(() => {
@@ -55,7 +66,7 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {(['All', 'kasra', 'river'] as const).map((v) => (
+          {voices.map((v) => (
             <button
               key={v}
               type="button"
@@ -129,4 +140,3 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
     </section>
   );
 }
-

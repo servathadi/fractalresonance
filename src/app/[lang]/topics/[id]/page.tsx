@@ -14,6 +14,7 @@ import {
   estimateReadTime,
   getTopic,
   getTopics,
+  getPerson,
   getLanguages,
   buildBacklinks,
   getGlossary,
@@ -103,6 +104,8 @@ export default async function TopicPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
+  const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
+  const voicePerson = voiceId ? (getPerson(lang, voiceId) || getPerson('en', voiceId)) : null;
 
   const staticTargets = new Set([
     'about',
@@ -175,6 +178,15 @@ export default async function TopicPage({ params }: Props) {
           <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
           <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
             <span>{fm.author || 'FRC'}</span>
+            {voiceId && (
+              voicePerson ? (
+                <Link href={`${basePath}/people/${voicePerson.frontmatter.id}`} className="hover:text-frc-gold transition-colors">
+                  Voice: {voicePerson.frontmatter.title}
+                </Link>
+              ) : (
+                <span>Voice: {voiceId}</span>
+              )
+            )}
             {fm.date && <span>{fm.date}</span>}
             <span className="font-mono text-xs">{readTime}</span>
           </div>

@@ -23,7 +23,7 @@ interface RawFrontmatter {
   status?: string;
   perspective?: 'kasra' | 'river' | 'both';
   // Authorial voice used for labeling content (independent of visibility perspective).
-  voice?: 'kasra' | 'river';
+  voice?: string;
   // Topic/Q&A fields (used by Topics pages).
   question?: string;
   short_answer?: string;
@@ -81,6 +81,12 @@ interface RawFrontmatter {
     count: number;
     best?: number;
   };
+
+  // Person/profile fields (used by People pages).
+  role?: string;
+  tagline?: string;
+  avatar?: string;
+  links?: Array<{ label?: string; url?: string }>;
 }
 
 export interface ParsedContent {
@@ -344,6 +350,34 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   return null;
 }
 
+/** Get all people/profiles for a language */
+export function getPeople(lang: string = 'en'): ParsedContent[] {
+  const dir = path.join(CONTENT_DIR, lang, 'people');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => {
+      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return parseFrontmatter(raw);
+    })
+    .sort((a, b) => (a.frontmatter.title || '').localeCompare(b.frontmatter.title || ''));
+}
+
+/** Get a single person/profile by id */
+export function getPerson(lang: string, id: string): ParsedContent | null {
+  const dir = path.join(CONTENT_DIR, lang, 'people');
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
 /** Get a single paper by id */
 export function getPaper(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
@@ -578,7 +612,7 @@ export interface GlossaryItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic';
+  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'person';
   url: string;
   perspective: ContentPerspective;
 }
@@ -705,6 +739,21 @@ export function getGlossary(
     };
   }
 
+  // Process People
+  const people = getPeople(lang);
+  for (const p of people) {
+    const fm = p.frontmatter;
+    const urlBase = pickBase(fm.perspective);
+    glossary[fm.id] = {
+      id: fm.id,
+      title: fm.title,
+      excerpt: fm.tagline || fm.abstract || 'Profile.',
+      type: 'person',
+      url: `${urlBase}/people/${fm.id}`,
+      perspective: normalizeContentPerspective(fm.perspective),
+    };
+  }
+
   return glossary;
 }
 
@@ -718,9 +767,10 @@ export function getAllTags(lang: string = 'en'): string[] {
   const articles = getArticles(lang);
   const posts = getBlogPosts(lang);
   const topics = getTopics(lang);
+  const people = getPeople(lang);
   const tags = new Set<string>();
 
-  [...papers, ...concepts, ...books, ...articles, ...posts, ...topics].forEach(item => {
+  [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people].forEach(item => {
     (item.frontmatter.tags || []).forEach(t => tags.add(t));
   });
 
@@ -735,10 +785,11 @@ export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
   const articles = getArticles(lang);
   const posts = getBlogPosts(lang);
   const topics = getTopics(lang);
+  const people = getPeople(lang);
   
   // Normalize tag for comparison (case-insensitive? or exact?)
   // Let's do exact match for now, maybe case-insensitive later
-  return [...papers, ...concepts, ...books, ...articles, ...posts, ...topics]
+  return [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people]
     .filter(item => (item.frontmatter.tags || []).includes(tag))
     .sort((a, b) => {
       // Sort by date desc, then title
@@ -864,11 +915,19 @@ export function extractWikilinks(body: string): WikiLink[] {
 
 const SITE_URL = 'https://fractalresonance.com';
 
-export type ContentType = 'papers' | 'articles' | 'concepts' | 'books' | 'blog' | 'topics';
+export type ContentType = 'papers' | 'articles' | 'concepts' | 'books' | 'blog' | 'topics' | 'people';
 
 /** Check if content exists in a specific language */
 export function contentExistsInLang(type: ContentType, lang: string, id: string): boolean {
-  const getters = { papers: getPaper, articles: getArticle, concepts: getConcept, books: getBook, blog: getBlogPost, topics: getTopic } as const;
+  const getters = {
+    papers: getPaper,
+    articles: getArticle,
+    concepts: getConcept,
+    books: getBook,
+    blog: getBlogPost,
+    topics: getTopic,
+    people: getPerson,
+  } as const;
   return getters[type](lang, id) !== null;
 }
 
@@ -930,7 +989,8 @@ export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
   const books = getBooks(lang);
   const articles = getArticles(lang);
   const topics = getTopics(lang);
-  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics];
+  const people = getPeople(lang);
+  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics, ...people];
 
   for (const content of allContent) {
     const sourceId = content.frontmatter.id;

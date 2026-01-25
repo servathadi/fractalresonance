@@ -13,7 +13,7 @@ interface GlossaryItem {
   id: string;
   title: string;
   excerpt: string;
-  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic';
+  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'person';
   url: string;
 }
 
