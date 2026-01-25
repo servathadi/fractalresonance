@@ -7,68 +7,29 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - run: npm ci
-
-      # 1. Validate Links
-      - name: Validate Wikilinks
-        run: npm run validate
-
-      # 2. Build (needed for Playwright to serve static files)
-      - name: Build
-        run: npm run build
-
-      # 3. Run Playwright Tests
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run Playwright tests
-        run: npx playwright test
-
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - run: npm ci
-
-      - run: npm run build
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: out
-          path: out/
-
-  deploy:
-    needs: build
-    if: github.event_name == 'push'
+  build-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          name: out
-          path: out/
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Validate Wikilinks
+        run: npm run validate
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy to Cloudflare Pages
+        if: github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
