@@ -76,9 +76,17 @@ export function Footer() {
           <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">
             dS + k* d ln C = 0
           </span>
-          <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">
-            FRC {new Date().getFullYear()}
-          </span>
+          <div className="flex items-center gap-4">
+            <Link href="/en/privacy" className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+              Privacy
+            </Link>
+            <Link href="/en/terms" className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+              Terms
+            </Link>
+            <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">
+              FRC {new Date().getFullYear()}
+            </span>
+          </div>
         </div>
       </div>
     </footer>
