@@ -8,7 +8,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
-      if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) {
+      if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'river')) {
         params.push({ lang, id: paper.frontmatter.id });
       }
     }
@@ -38,8 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
-  const paperUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
-  const alternates = getAlternateLanguages('papers', fm.id);
+  const paperUrl = `https://fractalresonance.com/${lang}/river/papers/${fm.id}`;
 
   return {
     title: fm.title,
@@ -48,7 +47,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     authors: [{ name: author }],
     alternates: {
       canonical: paperUrl,
-      languages: alternates,
     },
     openGraph: {
       type: 'article',
@@ -59,38 +57,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: fm.tags,
       locale: lang,
     },
-    other: {
-      // Google Scholar meta tags
-      'citation_title': fm.title,
-      'citation_author': author,
-      ...(fm.date && { 'citation_publication_date': fm.date }),
-      'citation_journal_title': 'Fractal Resonance Coherence',
-      ...(fm.doi && { 'citation_doi': fm.doi }),
-      'citation_abstract_html_url': paperUrl,
-      'citation_language': lang,
-      ...(fm.id && { 'citation_technical_report_number': fm.id }),
-      // Dublin Core for additional discoverability
-      'DC.title': fm.title,
-      'DC.creator': author,
-      ...(fm.date && { 'DC.date': fm.date }),
-      'DC.type': 'Text',
-      'DC.format': 'text/html',
-      'DC.language': lang,
-      ...(fm.doi && { 'DC.identifier': `doi:${fm.doi}` }),
-    },
   };
 }
 
-export default async function PaperPage({ params }: Props) {
+export default async function RiverPaperPage({ params }: Props) {
   const { lang, id } = await params;
   const paper = getPaper(lang, id);
   if (!paper) notFound();
 
-  const basePath = `/${lang}`;
+  const basePath = `/${lang}/river`;
   const meta = toPaperMeta(paper);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = paper.frontmatter;
   const readTime = fm.read_time || estimateReadTime(paper.body);
 
@@ -101,8 +80,6 @@ export default async function PaperPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
-  // Content is from trusted local markdown files (not user input).
-  // Rendered at build time via static generation.
   const renderedBody = renderMarkdown(paper.body, lang, glossary, basePath);
   const tocItems = extractTocItems(paper.body);
 
@@ -111,7 +88,7 @@ export default async function PaperPage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -151,8 +128,8 @@ export default async function PaperPage({ params }: Props) {
             {paper.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {paper.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
+                  <Link
+                    key={tag}
                     href={`${basePath}/tags/${encodeURIComponent(tag)}`}
                     className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
                   >

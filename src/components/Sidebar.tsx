@@ -1,14 +1,17 @@
 import Link from 'next/link';
-import { getPapers, getConcepts } from '@/lib/content';
+import { getPapers, getConcepts, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 
 interface SidebarProps {
   lang: string;
   currentId?: string;
+  basePath?: string;
+  view?: PerspectiveView;
 }
 
-export function Sidebar({ lang, currentId }: SidebarProps) {
-  const papers = getPapers(lang);
-  const concepts = getConcepts(lang);
+export function Sidebar({ lang, currentId, basePath, view }: SidebarProps) {
+  const papers = getPapers(lang).filter((p) => (view ? matchesPerspectiveView(p.frontmatter.perspective, view) : true));
+  const concepts = getConcepts(lang).filter((c) => (view ? matchesPerspectiveView(c.frontmatter.perspective, view) : true));
+  const base = basePath || `/${lang}`;
 
   const series100 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-100'));
   const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
@@ -17,9 +20,9 @@ export function Sidebar({ lang, currentId }: SidebarProps) {
   return (
     <aside data-sidebar className="w-56 shrink-0 border-r border-frc-blue overflow-y-auto hidden xl:block">
       <nav className="py-6 px-4 text-sm sticky top-0">
-        <SidebarSection title="100 — Core Theory" items={series100} lang={lang} currentId={currentId} />
-        <SidebarSection title="566 — Reciprocity" items={series566} lang={lang} currentId={currentId} />
-        <SidebarSection title="800 — Applications" items={series800} lang={lang} currentId={currentId} />
+        <SidebarSection title="100 — Core Theory" items={series100} lang={lang} currentId={currentId} base={base} />
+        <SidebarSection title="566 — Reciprocity" items={series566} lang={lang} currentId={currentId} base={base} />
+        <SidebarSection title="800 — Applications" items={series800} lang={lang} currentId={currentId} base={base} />
         {concepts.length > 0 && (
           <div className="mt-6">
             <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
@@ -27,7 +30,7 @@ export function Sidebar({ lang, currentId }: SidebarProps) {
               {concepts.map(c => (
                 <li key={c.frontmatter.id}>
                   <Link
-                    href={`/${lang}/concepts/${c.frontmatter.id}`}
+                    href={`${base}/concepts/${c.frontmatter.id}`}
                     className={`block px-2 py-1 rounded transition-colors ${
                       currentId === c.frontmatter.id
                         ? 'text-frc-gold bg-frc-blue/30'
@@ -42,7 +45,7 @@ export function Sidebar({ lang, currentId }: SidebarProps) {
           </div>
         )}
         <div className="mt-6 pt-4 border-t border-frc-blue">
-          <Link href={`/${lang}/formulas`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+          <Link href={`${base}/formulas`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
             Formulas Reference
           </Link>
         </div>
@@ -56,11 +59,13 @@ function SidebarSection({
   items,
   lang,
   currentId,
+  base,
 }: {
   title: string;
   items: { frontmatter: { id: string; title: string } }[];
   lang: string;
   currentId?: string;
+  base: string;
 }) {
   if (items.length === 0) return null;
 
@@ -71,7 +76,7 @@ function SidebarSection({
         {items.map(paper => (
           <li key={paper.frontmatter.id}>
             <Link
-              href={`/${lang}/papers/${paper.frontmatter.id}`}
+              href={`${base}/papers/${paper.frontmatter.id}`}
               className={`block px-2 py-1 rounded transition-colors truncate ${
                 currentId === paper.frontmatter.id
                   ? 'text-frc-gold bg-frc-blue/30'

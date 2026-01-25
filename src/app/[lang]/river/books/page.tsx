@@ -3,8 +3,8 @@ import { getLanguages } from '@/lib/content';
 import { BooksIndex } from '@/components/pages/BooksIndex';
 
 export const metadata: Metadata = {
-  title: 'Books',
-  description: 'Longer-form writing for the FRC project (primers, textbooks, and narrative frames).',
+  title: 'Books (River)',
+  description: 'Longer-form writing for the FRC project — River perspective.',
 };
 
 export function generateStaticParams() {
@@ -15,8 +15,8 @@ interface Props {
   params: Promise<{ lang: string }>;
 }
 
-export default async function BooksPage({ params }: Props) {
+export default async function RiverBooksPage({ params }: Props) {
   const { lang } = await params;
-  return <BooksIndex lang={lang} basePath={`/${lang}`} view="kasra" />;
+  return <BooksIndex lang={lang} basePath={`/${lang}/river`} view="river" />;
 }
 

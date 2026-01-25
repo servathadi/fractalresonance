@@ -21,6 +21,7 @@ interface RawFrontmatter {
   author?: string;
   date?: string;
   status?: string;
+  perspective?: 'kasra' | 'river' | 'both';
   tags?: string[];
   abstract?: string;
   tldr?: string;
@@ -500,22 +501,46 @@ export interface GlossaryItem {
   excerpt: string;
   type: 'paper' | 'concept' | 'book' | 'article';
   url: string;
+  perspective: ContentPerspective;
+}
+
+export type ContentPerspective = 'kasra' | 'river' | 'both';
+export type PerspectiveView = 'kasra' | 'river';
+
+export function normalizeContentPerspective(p: unknown): ContentPerspective {
+  if (p === 'kasra' || p === 'river' || p === 'both') return p;
+  // Back-compat: if not specified, allow it everywhere.
+  return 'both';
+}
+
+export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boolean {
+  const norm = normalizeContentPerspective(p);
+  return norm === 'both' || norm === view;
 }
 
 /** Get a glossary map of all content for tooltips */
-export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
+export function getGlossary(
+  lang: string = 'en',
+  opts?: { basePath?: string; view?: PerspectiveView }
+): Record<string, GlossaryItem> {
   const glossary: Record<string, GlossaryItem> = {};
+  const basePath = opts?.basePath || `/${lang}`;
+  const view = opts?.view;
+  const otherBasePath = view === 'river' ? `/${lang}` : `/${lang}/river`;
+  const pickBase = (p: unknown) => (view ? (matchesPerspectiveView(p, view) ? basePath : otherBasePath) : basePath);
   
   // Process Papers
   const papers = getPapers(lang);
   for (const p of papers) {
     const fm = p.frontmatter;
+    const urlBase = pickBase(fm.perspective);
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No abstract available.',
       type: 'paper',
-      url: `/${lang}/papers/${fm.id}`
+      url: `${urlBase}/papers/${fm.id}`,
+      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -523,6 +548,7 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
   const concepts = getConcepts(lang);
   for (const c of concepts) {
     const fm = c.frontmatter;
+    const urlBase = pickBase(fm.perspective);
     // Use first paragraph as excerpt
     const firstPara = c.body
       .split('\n\n')
@@ -535,7 +561,8 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
       title: fm.title,
       excerpt: firstPara,
       type: 'concept',
-      url: `/${lang}/concepts/${fm.id}`
+      url: `${urlBase}/concepts/${fm.id}`,
+      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -543,12 +570,14 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
   const books = getBooks(lang);
   for (const b of books) {
     const fm = b.frontmatter;
+    const urlBase = pickBase(fm.perspective);
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'book',
-      url: `/${lang}/books/${fm.id}`,
+      url: `${urlBase}/books/${fm.id}`,
+      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -556,12 +585,14 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
   const articles = getArticles(lang);
   for (const a of articles) {
     const fm = a.frontmatter;
+    const urlBase = pickBase(fm.perspective);
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'article',
-      url: `/${lang}/articles/${fm.id}`,
+      url: `${urlBase}/articles/${fm.id}`,
+      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -574,9 +605,11 @@ export function getGlossary(lang: string = 'en'): Record<string, GlossaryItem> {
 export function getAllTags(lang: string = 'en'): string[] {
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
+  const books = getBooks(lang);
+  const articles = getArticles(lang);
   const tags = new Set<string>();
 
-  [...papers, ...concepts].forEach(item => {
+  [...papers, ...concepts, ...books, ...articles].forEach(item => {
     (item.frontmatter.tags || []).forEach(t => tags.add(t));
   });
 
@@ -587,10 +620,12 @@ export function getAllTags(lang: string = 'en'): string[] {
 export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
+  const books = getBooks(lang);
+  const articles = getArticles(lang);
   
   // Normalize tag for comparison (case-insensitive? or exact?)
   // Let's do exact match for now, maybe case-insensitive later
-  return [...papers, ...concepts]
+  return [...papers, ...concepts, ...books, ...articles]
     .filter(item => (item.frontmatter.tags || []).includes(tag))
     .sort((a, b) => {
       // Sort by date desc, then title

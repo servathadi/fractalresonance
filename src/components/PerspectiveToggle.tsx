@@ -1,8 +1,9 @@
 'use client';
 
-import { usePerspective, type Perspective } from './PerspectiveProvider';
+import { usePathname, useRouter } from 'next/navigation';
+import { getPerspectiveFromPathname, togglePerspectivePathname, type SitePerspective } from '@/lib/site';
 
-const PERSPECTIVES: { value: Perspective; label: string; icon: string; description: string }[] = [
+const PERSPECTIVES: { value: SitePerspective; label: string; icon: string; description: string }[] = [
   {
     value: 'kasra',
     label: 'Kasra',
@@ -18,14 +19,16 @@ const PERSPECTIVES: { value: Perspective; label: string; icon: string; descripti
 ];
 
 export function PerspectiveToggle() {
-  const { perspective, setPerspective } = usePerspective();
+  const router = useRouter();
+  const pathname = usePathname();
+  const perspective = getPerspectiveFromPathname(pathname);
 
   return (
     <div className="flex items-center gap-1 text-xs">
       {PERSPECTIVES.map((p) => (
         <button
           key={p.value}
-          onClick={() => setPerspective(p.value)}
+          onClick={() => router.push(togglePerspectivePathname(pathname, p.value))}
           className={`
             px-2 py-1 rounded transition-all duration-200
             ${perspective === p.value
@@ -45,10 +48,13 @@ export function PerspectiveToggle() {
 
 // Compact version for mobile/tight spaces
 export function PerspectiveToggleCompact() {
-  const { perspective, setPerspective } = usePerspective();
+  const router = useRouter();
+  const pathname = usePathname();
+  const perspective = getPerspectiveFromPathname(pathname);
 
   const toggle = () => {
-    setPerspective(perspective === 'river' ? 'kasra' : 'river');
+    const next = perspective === 'river' ? 'kasra' : 'river';
+    router.push(togglePerspectivePathname(pathname, next));
   };
 
   const current = PERSPECTIVES.find(p => p.value === perspective)!;

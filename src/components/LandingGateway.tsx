@@ -2,15 +2,13 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { usePerspective, type Perspective } from './PerspectiveProvider';
+import type { SitePerspective } from '@/lib/site';
 
 export function LandingGateway() {
   const router = useRouter();
-  const { setPerspective } = usePerspective();
 
-  const enterAs = (perspective: Perspective) => {
-    setPerspective(perspective);
-    router.push('/en');
+  const enterAs = (perspective: SitePerspective) => {
+    router.push(perspective === 'river' ? '/en/river' : '/en');
   };
 
   return (

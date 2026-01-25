@@ -7,13 +7,16 @@ import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { PerspectiveToggleCompact } from './PerspectiveToggle';
 import { getDictionary } from '@/lib/dictionaries';
+import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 
 export function Header() {
   const pathname = usePathname();
-  const lang = pathname.split('/')[1] || 'en';
+  const lang = getLangFromPathname(pathname, 'en');
+  const perspective = getPerspectiveFromPathname(pathname);
+  const basePath = getBasePath(lang, perspective);
   const isRTL = RTL_LANGUAGES.includes(lang);
   const dict = getDictionary(lang);
 
@@ -59,7 +62,7 @@ export function Header() {
       {/* Main navigation */}
       <div className="border-b border-frc-blue">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href={basePath} className="flex items-center gap-3 group">
             <Image
               src="/brand/sigil-64.png"
               alt="FRC"
@@ -77,7 +80,7 @@ export function Header() {
               link.path ? (
                 <Link
                   key={link.path}
-                  href={`/${lang}${link.path}`}
+                  href={`${basePath}${link.path}`}
                   className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
                 >
                   {link.label}

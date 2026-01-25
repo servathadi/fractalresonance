@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const tagSet = new Set<string>();
     const all = [...getPapers(lang), ...getArticles(lang), ...getBooks(lang), ...getConcepts(lang)]
-      .filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'kasra'));
+      .filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'river'));
 
     for (const item of all) {
       for (const t of item.frontmatter.tags || []) tagSet.add(t);
@@ -32,17 +32,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
   return {
-    title: `Tag: ${decodedTag}`,
-    description: `Articles, papers, and concepts tagged with "${decodedTag}".`,
+    title: `Tag: ${decodedTag} (River)`,
+    description: `Content tagged with "${decodedTag}" — River perspective.`,
   };
 }
 
-export default async function TagPage({ params }: Props) {
+export default async function RiverTagPage({ params }: Props) {
   const { lang, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
-  const content = getContentsByTag(lang, decodedTag).filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'kasra'));
-  const basePath = `/${lang}`;
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
+  const content = getContentsByTag(lang, decodedTag).filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'river'));
+  const basePath = `/${lang}/river`;
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
 
   if (content.length === 0) notFound();
 
@@ -73,31 +73,30 @@ export default async function TagPage({ params }: Props) {
           const href = g?.url || `${basePath}/concepts/${fm.id}`;
 
           return (
-            <Link 
-              key={fm.id} 
+            <Link
+              key={fm.id}
               href={href}
               className="card block p-6 group"
             >
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="flex items-center gap-3">
-                   <span className={`text-[10px] uppercase tracking-widest font-mono ${type === 'concept' ? 'text-frc-blue' : 'text-frc-gold'}`}>
-                     {typeLabel}
-                   </span>
-                   {fm.date && <span className="text-xs text-frc-steel">{fm.date}</span>}
+                  <span className={`text-[10px] uppercase tracking-widest font-mono ${type === 'concept' ? 'text-frc-blue' : 'text-frc-gold'}`}>
+                    {typeLabel}
+                  </span>
+                  {fm.date && <span className="text-xs text-frc-steel">{fm.date}</span>}
                 </div>
                 <span className="font-mono text-xs text-frc-steel">{fm.id}</span>
               </div>
-              
+
               <h2 className="text-xl text-frc-text group-hover:text-frc-gold transition-colors font-medium mb-3">
                 {fm.title}
               </h2>
-              
+
               {fm.abstract ? (
                 <p className="text-sm text-frc-text-dim leading-relaxed line-clamp-2">
                   {fm.abstract}
                 </p>
               ) : (
-                // Try to find description from body for concepts
                 <p className="text-sm text-frc-text-dim leading-relaxed line-clamp-2">
                   {item.body.split('\n\n').find(p => p && !p.startsWith('#') && !p.startsWith('---'))?.replace(/[[|]]/g, '') || ''}
                 </p>

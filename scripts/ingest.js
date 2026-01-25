@@ -4,6 +4,7 @@ const path = require('path');
 const DEFAULT_LANG = 'en';
 const DEFAULT_STATUS = 'draft';
 const DEFAULT_TYPE = 'article';
+const ALLOWED_PERSPECTIVES = new Set(['kasra', 'river', 'both']);
 
 const TYPE_TO_DIR = {
   paper: 'papers',
@@ -120,17 +121,23 @@ function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
 
-function writeItem({ outRoot, type, lang, id, title, tags, status, source, body, dryRun }) {
+function writeItem({ outRoot, type, lang, id, title, tags, status, source, perspective, body, dryRun }) {
   const dir = TYPE_TO_DIR[type] || TYPE_TO_DIR[DEFAULT_TYPE];
   const safeLang = lang || DEFAULT_LANG;
   const safeTitle = title || id || 'Untitled';
   const safeId = id || `${type}-${todayIso()}-${Math.random().toString(16).slice(2, 8)}`;
+  const perspectiveRaw = perspective ? String(perspective).toLowerCase() : '';
+  if (perspectiveRaw && !ALLOWED_PERSPECTIVES.has(perspectiveRaw)) {
+    throw new Error(`Invalid perspective: ${perspective} (expected kasra|river|both)`);
+  }
+  const safePerspective = perspectiveRaw || undefined;
 
   const meta = {
     id: safeId,
     title: safeTitle,
     date: todayIso(),
     status: status || DEFAULT_STATUS,
+    perspective: safePerspective,
     tags: tags && tags.length ? tags : undefined,
     lang: safeLang,
     type,
@@ -189,7 +196,8 @@ async function main() {
       const tags = parseTagList(b.attrs.tags || args.tags);
       const status = b.attrs.status || args.status || DEFAULT_STATUS;
       const source = b.attrs.source || args.source;
-      const res = writeItem({ outRoot, type, lang, id, title, tags, status, source, body: b.body, dryRun });
+      const perspective = b.attrs.perspective || args.perspective;
+      const res = writeItem({ outRoot, type, lang, id, title, tags, status, source, perspective, body: b.body, dryRun });
       written.push(res.outPath);
     }
   } else {
@@ -200,7 +208,8 @@ async function main() {
     const tags = parseTagList(args.tags);
     const status = args.status || DEFAULT_STATUS;
     const source = args.source;
-    const res = writeItem({ outRoot, type, lang, id, title, tags, status, source, body: raw, dryRun });
+    const perspective = args.perspective;
+    const res = writeItem({ outRoot, type, lang, id, title, tags, status, source, perspective, body: raw, dryRun });
     written.push(res.outPath);
   }
 
@@ -212,4 +221,3 @@ main().catch((err) => {
   console.error(err.message || err);
   process.exit(1);
 });
-

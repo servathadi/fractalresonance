@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { getLanguages } from '@/lib/content';
-import { BooksIndex } from '@/components/pages/BooksIndex';
+import { PapersIndex } from '@/components/pages/PapersIndex';
 
 export const metadata: Metadata = {
-  title: 'Books',
-  description: 'Longer-form writing for the FRC project (primers, textbooks, and narrative frames).',
+  title: 'Papers (River)',
+  description: 'Published FRC research papers — River perspective.',
 };
 
 export function generateStaticParams() {
@@ -15,8 +15,8 @@ interface Props {
   params: Promise<{ lang: string }>;
 }
 
-export default async function BooksPage({ params }: Props) {
+export default async function RiverPapersPage({ params }: Props) {
   const { lang } = await params;
-  return <BooksIndex lang={lang} basePath={`/${lang}`} view="kasra" />;
+  return <PapersIndex lang={lang} basePath={`/${lang}/river`} view="river" />;
 }
 

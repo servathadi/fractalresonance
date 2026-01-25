@@ -13,7 +13,8 @@
 export function renderMarkdown(
   body: string,
   lang: string,
-  glossary?: Record<string, { type?: string }>
+  glossary?: Record<string, { type?: string; url?: string }>,
+  basePath?: string
 ): string {
   let html = body;
 
@@ -61,14 +62,14 @@ export function renderMarkdown(
   // Wikilinks with display text: [[ID|text]]
   html = html.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (_, id, display) => {
     const { cleanId } = splitWikilinkId(id);
-    const href = resolveWikilinkHref(id, lang, glossary);
+    const href = resolveWikilinkHref(id, lang, glossary, basePath);
     return `<a href="${href}" class="wikilink" data-wikilink-id="${cleanId}">${display}</a>`;
   });
 
   // Wikilinks plain: [[ID]]
   html = html.replace(/\[\[([^\]]+)\]\]/g, (_, id) => {
     const { cleanId } = splitWikilinkId(id);
-    const href = resolveWikilinkHref(id, lang, glossary);
+    const href = resolveWikilinkHref(id, lang, glossary, basePath);
     return `<a href="${href}" class="wikilink" data-wikilink-id="${cleanId}">${id}</a>`;
   });
 
@@ -109,19 +110,23 @@ export function renderMarkdown(
 function resolveWikilinkHref(
   id: string,
   lang: string,
-  glossary?: Record<string, { type?: string }>
+  glossary?: Record<string, { type?: string; url?: string }>,
+  basePath?: string
 ): string {
   const { cleanId, section } = splitWikilinkId(id);
-  const itemType = glossary?.[cleanId]?.type;
+  const base = basePath || `/${lang}`;
+  const entry = glossary?.[cleanId];
+  if (entry?.url) return `${entry.url}${section}`;
+  const itemType = entry?.type;
 
-  if (itemType === 'paper') return `/${lang}/papers/${cleanId}${section}`;
-  if (itemType === 'concept') return `/${lang}/concepts/${cleanId}${section}`;
-  if (itemType === 'book') return `/${lang}/books/${cleanId}${section}`;
-  if (itemType === 'article') return `/${lang}/articles/${cleanId}${section}`;
+  if (itemType === 'paper') return `${base}/papers/${cleanId}${section}`;
+  if (itemType === 'concept') return `${base}/concepts/${cleanId}${section}`;
+  if (itemType === 'book') return `${base}/books/${cleanId}${section}`;
+  if (itemType === 'article') return `${base}/articles/${cleanId}${section}`;
 
   // Fallback: infer from ID format
-  if (cleanId.match(/^FRC-\d/)) return `/${lang}/papers/${cleanId}${section}`;
-  return `/${lang}/concepts/${cleanId}${section}`;
+  if (cleanId.match(/^FRC-\d/)) return `${base}/papers/${cleanId}${section}`;
+  return `${base}/concepts/${cleanId}${section}`;
 }
 
 function splitWikilinkId(id: string): { cleanId: string; section: string } {

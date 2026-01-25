@@ -7,7 +7,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const books = getBooks(lang);
     for (const book of books) {
-      if (book.frontmatter.id) {
+      if (book.frontmatter.id && matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) {
         params.push({ lang, id: book.frontmatter.id });
       }
     }
@@ -66,22 +66,23 @@ export default async function BookPage({ params }: Props) {
   const book = getBook(lang, id);
   if (!book) notFound();
 
+  const basePath = `/${lang}`;
   const meta = toPaperMeta(book);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang);
+  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
   const chapters = getBookChapters(lang, id);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
-    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `/${lang}/${pid}` };
+    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `${basePath}/${pid}` };
     const item = glossary[pid];
-    return { id: pid, title: item?.title || pid, href: item?.url || `/${lang}/concepts/${pid}` };
+    return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
-  const renderedBody = renderMarkdown(book.body, lang, glossary);
+  const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
   const tocItems = extractTocItems(book.body);
 
   return (
@@ -89,13 +90,13 @@ export default async function BookPage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} />
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
-            <a href="/" className="hover:text-frc-gold">FRC</a>
+            <a href={basePath} className="hover:text-frc-gold">FRC</a>
             <span className="mx-2">/</span>
-            <a href={`/${lang}/books`} className="hover:text-frc-gold">Books</a>
+            <a href={`${basePath}/books`} className="hover:text-frc-gold">Books</a>
             <span className="mx-2">/</span>
             <span className="text-frc-text">{book.frontmatter.title}</span>
           </nav>
@@ -115,7 +116,7 @@ export default async function BookPage({ params }: Props) {
                 {book.frontmatter.tags.map(tag => (
                   <Link
                     key={tag}
-                    href={`/${lang}/tags/${encodeURIComponent(tag)}`}
+                    href={`${basePath}/tags/${encodeURIComponent(tag)}`}
                     className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
                   >
                     {tag}
@@ -177,7 +178,7 @@ export default async function BookPage({ params }: Props) {
               <ul className="space-y-1">
                 {pageBacklinks.map(linkId => {
                   const item = glossary[linkId];
-                  const href = item?.url || `/${lang}/papers/${linkId}`;
+                  const href = item?.url || `${basePath}/papers/${linkId}`;
                   return (
                     <li key={linkId}>
                       <a

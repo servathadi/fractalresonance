@@ -6,7 +6,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { schemaConceptPage } from '@/lib/schema';
-import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const concepts = getConcepts(lang);
     for (const concept of concepts) {
-      if (concept.frontmatter.id && matchesPerspectiveView(concept.frontmatter.perspective, 'kasra')) {
+      if (concept.frontmatter.id && matchesPerspectiveView(concept.frontmatter.perspective, 'river')) {
         params.push({ lang, id: concept.frontmatter.id });
       }
     }
@@ -36,8 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = concept.frontmatter;
   const description = concept.body.split('\n\n').find(p => p && !p.startsWith('#')) || '';
-  const conceptUrl = `https://fractalresonance.com/${lang}/concepts/${fm.id}`;
-  const alternates = getAlternateLanguages('concepts', fm.id);
+  const conceptUrl = `https://fractalresonance.com/${lang}/river/concepts/${fm.id}`;
 
   return {
     title: `${fm.title} — FRC Concept`,
@@ -45,7 +44,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     alternates: {
       canonical: conceptUrl,
-      languages: alternates,
     },
     openGraph: {
       type: 'article',
@@ -56,16 +54,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ConceptPage({ params }: Props) {
+export default async function RiverConceptPage({ params }: Props) {
   const { lang, id } = await params;
   const concept = getConcept(lang, id);
   if (!concept) notFound();
 
-  const basePath = `/${lang}`;
+  const basePath = `/${lang}/river`;
   const meta = toConceptMeta(concept);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = concept.frontmatter;
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -82,7 +80,7 @@ export default async function ConceptPage({ params }: Props) {
       <SchemaScript data={schemaConceptPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -101,8 +99,8 @@ export default async function ConceptPage({ params }: Props) {
             {concept.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {concept.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
+                  <Link
+                    key={tag}
                     href={`${basePath}/tags/${encodeURIComponent(tag)}`}
                     className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
                   >

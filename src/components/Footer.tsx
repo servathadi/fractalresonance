@@ -4,13 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { getDictionary } from '@/lib/dictionaries';
+import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 
 export function Footer() {
   const pathname = usePathname();
-  const lang = pathname.split('/')[1] || 'en';
+  const lang = getLangFromPathname(pathname, 'en');
+  const perspective = getPerspectiveFromPathname(pathname);
+  const basePath = getBasePath(lang, perspective);
   const isRTL = RTL_LANGUAGES.includes(lang);
   const dict = getDictionary(lang);
 
@@ -41,12 +44,12 @@ export function Footer() {
           <div>
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.navigate}</p>
             <div className="flex flex-col gap-2 text-sm">
-              <Link href={`/${lang}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about}</Link>
-              <Link href={`/${lang}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles}</Link>
-              <Link href={`/${lang}/papers`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.papers}</Link>
-              <Link href={`/${lang}/formulas`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.formulas}</Link>
-              <Link href={`/${lang}/positioning`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.positioning}</Link>
-              <Link href={`/${lang}/mu-levels`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.muLevels}</Link>
+              <Link href={`${basePath}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about}</Link>
+              <Link href={`${basePath}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles}</Link>
+              <Link href={`${basePath}/papers`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.papers}</Link>
+              <Link href={`${basePath}/formulas`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.formulas}</Link>
+              <Link href={`${basePath}/positioning`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.positioning}</Link>
+              <Link href={`${basePath}/mu-levels`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.muLevels}</Link>
             </div>
           </div>
 
@@ -87,10 +90,10 @@ export function Footer() {
             dS + k* d ln C = 0
           </span>
           <div className="flex items-center gap-4">
-            <Link href={`/${lang}/privacy`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+            <Link href={`${basePath}/privacy`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
               {dict.footer.privacy}
             </Link>
-            <Link href={`/${lang}/terms`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+            <Link href={`${basePath}/terms`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
               {dict.footer.terms}
             </Link>
             <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">

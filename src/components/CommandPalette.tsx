@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useState, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
 interface SearchItem {
   id: string;
@@ -20,6 +21,27 @@ export function CommandPalette({ items }: CommandPaletteProps) {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const router = useRouter();
+  const pathname = usePathname();
+
+  const navigate = (url: string) => {
+    // Preserve River/Kasra context when navigating internal routes.
+    const lang = getLangFromPathname(pathname, 'en');
+    const perspective = getPerspectiveFromPathname(pathname);
+    const basePath = getBasePath(lang, perspective);
+
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    if (url.startsWith(`/${lang}/`)) {
+      const tail = url.slice(`/${lang}`.length);
+      router.push(`${basePath}${tail}`);
+      return;
+    }
+
+    router.push(url);
+  };
 
   // Toggle on Cmd+K
   useEffect(() => {
@@ -66,7 +88,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
       } else if (e.key === 'Enter') {
         e.preventDefault();
         if (filteredItems[selectedIndex]) {
-          router.push(filteredItems[selectedIndex].url);
+          navigate(filteredItems[selectedIndex].url);
           setIsOpen(false);
         }
       }
@@ -74,7 +96,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, filteredItems, selectedIndex, router]);
+  }, [isOpen, filteredItems, selectedIndex, router, pathname]);
 
   if (!isOpen) return null;
 
@@ -116,7 +138,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
                 <li
                   key={item.id}
                   onClick={() => {
-                    router.push(item.url);
+                    navigate(item.url);
                     setIsOpen(false);
                   }}
                   onMouseEnter={() => setSelectedIndex(index)}

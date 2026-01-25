@@ -8,7 +8,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -20,10 +20,10 @@ export async function generateStaticParams() {
   const params: { lang: string; id: string }[] = [];
 
   for (const lang of languages) {
-    const papers = getPapers(lang);
-    for (const paper of papers) {
-      if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) {
-        params.push({ lang, id: paper.frontmatter.id });
+    const articles = getArticles(lang);
+    for (const article of articles) {
+      if (article.frontmatter.id && matchesPerspectiveView(article.frontmatter.perspective, 'river')) {
+        params.push({ lang, id: article.frontmatter.id });
       }
     }
   }
@@ -33,13 +33,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, id } = await params;
-  const paper = getPaper(lang, id);
-  if (!paper) return { title: 'Not Found' };
+  const article = getArticle(lang, id);
+  if (!article) return { title: 'Not Found' };
 
-  const fm = paper.frontmatter;
+  const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
-  const paperUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
-  const alternates = getAlternateLanguages('papers', fm.id);
+  const articleUrl = `https://fractalresonance.com/${lang}/river/articles/${fm.id}`;
 
   return {
     title: fm.title,
@@ -47,8 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: paperUrl,
-      languages: alternates,
+      canonical: articleUrl,
     },
     openGraph: {
       type: 'article',
@@ -59,40 +57,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: fm.tags,
       locale: lang,
     },
-    other: {
-      // Google Scholar meta tags
-      'citation_title': fm.title,
-      'citation_author': author,
-      ...(fm.date && { 'citation_publication_date': fm.date }),
-      'citation_journal_title': 'Fractal Resonance Coherence',
-      ...(fm.doi && { 'citation_doi': fm.doi }),
-      'citation_abstract_html_url': paperUrl,
-      'citation_language': lang,
-      ...(fm.id && { 'citation_technical_report_number': fm.id }),
-      // Dublin Core for additional discoverability
-      'DC.title': fm.title,
-      'DC.creator': author,
-      ...(fm.date && { 'DC.date': fm.date }),
-      'DC.type': 'Text',
-      'DC.format': 'text/html',
-      'DC.language': lang,
-      ...(fm.doi && { 'DC.identifier': `doi:${fm.doi}` }),
-    },
   };
 }
 
-export default async function PaperPage({ params }: Props) {
+export default async function RiverArticlePage({ params }: Props) {
   const { lang, id } = await params;
-  const paper = getPaper(lang, id);
-  if (!paper) notFound();
+  const article = getArticle(lang, id);
+  if (!article) notFound();
 
-  const basePath = `/${lang}`;
-  const meta = toPaperMeta(paper);
+  const basePath = `/${lang}/river`;
+  const meta = toPaperMeta(article);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const fm = paper.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(paper.body);
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
+  const fm = article.frontmatter;
+  const readTime = fm.read_time || estimateReadTime(article.body);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -101,58 +80,41 @@ export default async function PaperPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
-  // Content is from trusted local markdown files (not user input).
-  // Rendered at build time via static generation.
-  const renderedBody = renderMarkdown(paper.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(paper.body);
+  const renderedBody = renderMarkdown(article.body, lang, glossary, basePath);
+  const tocItems = extractTocItems(article.body);
 
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
             <span className="mx-2">/</span>
-            <a href={`${basePath}/papers`} className="hover:text-frc-gold">Papers</a>
+            <a href={`${basePath}/articles`} className="hover:text-frc-gold">Articles</a>
             <span className="mx-2">/</span>
-            <span className="text-frc-text">{paper.frontmatter.id}</span>
+            <span className="text-frc-text">{article.frontmatter.title}</span>
           </nav>
 
           {/* Header */}
           <header className="mb-8">
             <h1 className="text-3xl font-light text-frc-gold mb-3">
-              {paper.frontmatter.title}
+              {article.frontmatter.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-              <span>{paper.frontmatter.author || 'H. Servat'}</span>
-              <span>{paper.frontmatter.date}</span>
+              <span>{article.frontmatter.author || 'H. Servat'}</span>
+              <span>{article.frontmatter.date}</span>
               <span className="font-mono text-xs">{readTime}</span>
-              {paper.frontmatter.series && (
-                <span className="tag">{paper.frontmatter.series}</span>
-              )}
             </div>
-            {paper.frontmatter.doi && (
-              <div className="mt-3">
-                <a
-                  href={`https://zenodo.org/doi/${paper.frontmatter.doi}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
-                >
-                  <span>DOI</span>
-                  <span className="text-frc-text">{paper.frontmatter.doi}</span>
-                </a>
-              </div>
-            )}
-            {paper.frontmatter.tags && (
+
+            {article.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
-                {paper.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
+                {article.frontmatter.tags.map(tag => (
+                  <Link
+                    key={tag}
                     href={`${basePath}/tags/${encodeURIComponent(tag)}`}
                     className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
                   >
@@ -163,6 +125,13 @@ export default async function PaperPage({ params }: Props) {
             )}
           </header>
 
+          <ContentDigest
+            tldr={fm.tldr}
+            keyPoints={fm.key_points}
+            prerequisites={prereqLinks}
+            readTime={readTime}
+          />
+
           {/* Video embed (if available) */}
           {meta.video && (
             <div className="mb-8 rounded-lg overflow-hidden border border-frc-blue">
@@ -171,7 +140,7 @@ export default async function PaperPage({ params }: Props) {
                   src={meta.video.embedUrl}
                   className="w-full aspect-video"
                   allowFullScreen
-                  title={`${paper.frontmatter.title} — Video Explainer`}
+                  title={`${article.frontmatter.title} — Video Explainer`}
                 />
               ) : (
                 <video
@@ -184,21 +153,14 @@ export default async function PaperPage({ params }: Props) {
             </div>
           )}
 
-          <ContentDigest
-            tldr={fm.tldr}
-            keyPoints={fm.key_points}
-            prerequisites={prereqLinks}
-            readTime={readTime}
-          />
-
           {/* Abstract */}
-          {paper.frontmatter.abstract && (
+          {article.frontmatter.abstract && (
             <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
-              {paper.frontmatter.abstract}
+              {article.frontmatter.abstract}
             </blockquote>
           )}
 
-          {/* Body — rendered from trusted local markdown files at build time */}
+          {/* Body */}
           <div className="content-body" suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
@@ -224,13 +186,6 @@ export default async function PaperPage({ params }: Props) {
                 ))}
               </div>
             </section>
-          )}
-
-          {/* Rating */}
-          {meta.rating && (
-            <div className="mt-8 text-sm text-frc-text-dim">
-              Rating: {meta.rating.value}/{meta.rating.best || 5} ({meta.rating.count} reviews)
-            </div>
           )}
 
           {/* Backlinks */}

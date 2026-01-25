@@ -2,8 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { getBasePath, getPerspectiveFromPathname } from '@/lib/site';
 
 // Theme-aware colors
 const COLORS = {
@@ -49,6 +50,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
   const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
   const { resolvedTheme } = useTheme();
   const colors = COLORS[resolvedTheme === 'dark' ? 'dark' : 'light'];
@@ -134,7 +136,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       })
       .on('click', (event, d) => {
         const path = d.type === 'paper' ? 'papers' : 'concepts';
-        router.push(`/${lang}/${path}/${d.id}`);
+        const basePath = getBasePath(lang, getPerspectiveFromPathname(pathname));
+        router.push(`${basePath}/${path}/${d.id}`);
       });
 
     // Tick
@@ -175,7 +178,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return () => {
       simulation.stop();
     };
-  }, [data, lang, router, colors]);
+  }, [data, lang, router, colors, pathname]);
 
   return (
     <div ref={containerRef} className="w-full h-[600px] relative bg-frc-void border border-frc-blue/30 rounded-lg overflow-hidden">

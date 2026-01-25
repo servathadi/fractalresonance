@@ -12,7 +12,7 @@ Paste any text into a file, then run:
 
 ```bash
 # Example: ingest a chat as a draft article
-npm run content:ingest -- --file /path/to/chat.txt --type article --lang en --title "On Time and Coherence" --tags time,coherence,whitehead --source "chat:gemini"
+npm run content:ingest -- --file /path/to/chat.txt --type article --lang en --title "On Time and Coherence" --tags time,coherence,whitehead --source "chat:gemini" --perspective river
 ```
 
 This creates a draft markdown file under:
@@ -38,7 +38,7 @@ Use blocks:
 Your curated content goes here.
 <!-- frc:end -->
 
-<!-- frc:begin type=article id=note-2026-01-25-process-jung lang=en title="Process + Jung: Two Lenses" tags=process-philosophy,jung,interpretation status=draft source="chat:gpt" -->
+<!-- frc:begin type=article id=note-2026-01-25-process-jung lang=en title="Process + Jung: Two Lenses" tags=process-philosophy,jung,interpretation status=draft perspective=river source="chat:gpt" -->
 # Process + Jung: Two Lenses
 
 Your curated content goes here.
@@ -81,3 +81,12 @@ read_time: "8 min"
 
 These show up as a “Digest” block above the body on the site.
 
+## Perspective Metadata (River vs Kasra)
+
+Pages can be tagged for a specific perspective:
+
+```yaml
+perspective: river   # or kasra, or both
+```
+
+This is optional. If omitted, content is treated as `both` for now.

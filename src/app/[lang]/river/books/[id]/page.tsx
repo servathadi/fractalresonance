@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
+import { schemaPaperPage } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -20,10 +20,10 @@ export async function generateStaticParams() {
   const params: { lang: string; id: string }[] = [];
 
   for (const lang of languages) {
-    const articles = getArticles(lang);
-    for (const article of articles) {
-      if (article.frontmatter.id && matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) {
-        params.push({ lang, id: article.frontmatter.id });
+    const books = getBooks(lang);
+    for (const book of books) {
+      if (book.frontmatter.id && matchesPerspectiveView(book.frontmatter.perspective, 'river')) {
+        params.push({ lang, id: book.frontmatter.id });
       }
     }
   }
@@ -33,13 +33,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, id } = await params;
-  const article = getArticle(lang, id);
-  if (!article) return { title: 'Not Found' };
+  const book = getBook(lang, id);
+  if (!book) return { title: 'Not Found' };
 
-  const fm = article.frontmatter;
+  const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const articleUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
-  const alternates = getAlternateLanguages('articles', fm.id);
+  const bookUrl = `https://fractalresonance.com/${lang}/river/books/${fm.id}`;
 
   return {
     title: fm.title,
@@ -47,14 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: articleUrl,
-      languages: alternates,
+      canonical: bookUrl,
     },
     openGraph: {
-      type: 'article',
+      type: 'book',
       title: fm.title,
       description: fm.abstract,
-      publishedTime: fm.date,
       authors: [author],
       tags: fm.tags,
       locale: lang,
@@ -62,19 +59,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticlePage({ params }: Props) {
+export default async function RiverBookPage({ params }: Props) {
   const { lang, id } = await params;
-  const article = getArticle(lang, id);
-  if (!article) notFound();
+  const book = getBook(lang, id);
+  if (!book) notFound();
 
-  const basePath = `/${lang}`;
-  // Reuse PaperMeta for schema as it fits article structure well enough
-  const meta = toPaperMeta(article);
+  const basePath = `/${lang}/river`;
+  const meta = toPaperMeta(book);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const fm = article.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(article.body);
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
+  const fm = book.frontmatter;
+  const readTime = fm.read_time || estimateReadTime(book.body);
+  const chapters = getBookChapters(lang, id);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -83,41 +80,40 @@ export default async function ArticlePage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
-  const renderedBody = renderMarkdown(article.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(article.body);
+  const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
+  const tocItems = extractTocItems(book.body);
 
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
             <span className="mx-2">/</span>
-            <a href={`${basePath}/articles`} className="hover:text-frc-gold">Articles</a>
+            <a href={`${basePath}/books`} className="hover:text-frc-gold">Books</a>
             <span className="mx-2">/</span>
-            <span className="text-frc-text">{article.frontmatter.title}</span>
+            <span className="text-frc-text">{book.frontmatter.title}</span>
           </nav>
 
           {/* Header */}
           <header className="mb-8">
             <h1 className="text-3xl font-light text-frc-gold mb-3">
-              {article.frontmatter.title}
+              {book.frontmatter.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-              <span>{article.frontmatter.author || 'H. Servat'}</span>
-              <span>{article.frontmatter.date}</span>
+              <span>{book.frontmatter.author || 'H. Servat'}</span>
+              {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
               <span className="font-mono text-xs">{readTime}</span>
             </div>
-            
-            {article.frontmatter.tags && (
+            {book.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
-                {article.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
+                {book.frontmatter.tags.map(tag => (
+                  <Link
+                    key={tag}
                     href={`${basePath}/tags/${encodeURIComponent(tag)}`}
                     className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
                   >
@@ -135,61 +131,40 @@ export default async function ArticlePage({ params }: Props) {
             readTime={readTime}
           />
 
-          {/* Video embed (if available) */}
-          {meta.video && (
-            <div className="mb-8 rounded-lg overflow-hidden border border-frc-blue">
-              {meta.video.embedUrl ? (
-                <iframe
-                  src={meta.video.embedUrl}
-                  className="w-full aspect-video"
-                  allowFullScreen
-                  title={`${article.frontmatter.title} — Video Explainer`}
-                />
-              ) : (
-                <video
-                  src={meta.video.url}
-                  poster={meta.video.thumbnailUrl}
-                  controls
-                  className="w-full"
-                />
-              )}
-            </div>
-          )}
-
           {/* Abstract */}
-          {article.frontmatter.abstract && (
+          {book.frontmatter.abstract && (
             <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
-              {article.frontmatter.abstract}
+              {book.frontmatter.abstract}
             </blockquote>
           )}
 
-          {/* Body */}
-          <div className="content-body" suppressHydrationWarning>
-            <MarkdownContent html={renderedBody} glossary={glossary} />
-          </div>
-
-          {/* Images gallery */}
-          {meta.images && meta.images.length > 0 && (
-            <section className="mt-12">
-              <h2 className="text-xl font-light text-frc-text mb-4">Figures</h2>
-              <div className="grid gap-4">
-                {meta.images.map((img, i) => (
-                  <figure key={i} className="border border-frc-blue rounded-lg overflow-hidden">
-                    <img
-                      src={img.url}
-                      alt={img.caption}
-                      className="w-full"
-                      width={img.width}
-                      height={img.height}
-                    />
-                    <figcaption className="px-4 py-2 text-sm text-frc-text-dim">
-                      {img.caption}
-                    </figcaption>
-                  </figure>
+          {chapters.length > 0 && (
+            <section className="mb-8">
+              <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {chapters.map((c, idx) => (
+                  <a
+                    key={c.filename}
+                    href={`#${c.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()}`}
+                    className="card block p-4 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="font-mono text-xs text-frc-steel shrink-0 tabular-nums mt-0.5">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-sm text-frc-text group-hover:text-frc-gold transition-colors">
+                        {c.title}
+                      </span>
+                    </div>
+                  </a>
                 ))}
               </div>
             </section>
           )}
+
+          <div className="content-body" suppressHydrationWarning>
+            <MarkdownContent html={renderedBody} glossary={glossary} />
+          </div>
 
           {/* Backlinks */}
           {pageBacklinks.length > 0 && (
