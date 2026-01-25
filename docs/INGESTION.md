@@ -104,3 +104,28 @@ It writes to `content/inbox/<lang>/articles/` by default. Then:
 ```bash
 npm run content:process-inbox
 ```
+
+## Media Hygiene (Remote Images -> Local)
+
+If a markdown file references remote images (e.g. `https://.../image.png`), you can pull them into the repo and rewrite the markdown to stable local paths under `public/media/...`.
+
+```bash
+# Sync remote images for all content (skips content/inbox by default)
+npm run content:sync-media
+
+# Limit to one language
+npm run content:sync-media -- --lang en
+
+# Include inbox drafts too
+npm run content:sync-media -- --include-inbox
+
+# Dry-run (prints a summary, no files written)
+npm run content:sync-media -- --dry-run
+```
+
+By default, `content:sync-media` also considers frontmatter image URLs (e.g. `video.thumbnailUrl`).
+To disable that:
+
+```bash
+npm run content:sync-media -- --frontmatter=false
+```

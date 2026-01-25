@@ -16,6 +16,7 @@
     "content:ingest": "node scripts/ingest.js",
     "content:new-river": "node scripts/new-river.js",
     "content:new-blog": "node scripts/new-blog.js",
+    "content:sync-media": "node scripts/sync-media.js",
     "content:process-inbox": "node scripts/process-inbox.js"
   },
   "dependencies": {
