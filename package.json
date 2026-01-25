@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "validate": "node scripts/validate-links.js"
+    "validate": "node scripts/validate-links.js",
+    "content:report": "node scripts/content-report.js",
+    "content:sanitize": "node scripts/sanitize-content.js"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",

@@ -4,10 +4,11 @@ import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
+import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -71,6 +72,15 @@ export default async function ArticlePage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
+  const fm = article.frontmatter;
+  const readTime = fm.read_time || estimateReadTime(article.body);
+
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const prereqLinks = (fm.prerequisites || []).map((pid) => {
+    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `/${lang}/${pid}` };
+    const item = glossary[pid];
+    return { id: pid, title: item?.title || pid, href: item?.url || `/${lang}/concepts/${pid}` };
+  });
 
   const renderedBody = renderMarkdown(article.body, lang, glossary);
   const tocItems = extractTocItems(article.body);
@@ -99,6 +109,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
               <span>{article.frontmatter.author || 'H. Servat'}</span>
               <span>{article.frontmatter.date}</span>
+              <span className="font-mono text-xs">{readTime}</span>
             </div>
             
             {article.frontmatter.tags && (
@@ -115,6 +126,13 @@ export default async function ArticlePage({ params }: Props) {
               </div>
             )}
           </header>
+
+          <ContentDigest
+            tldr={fm.tldr}
+            keyPoints={fm.key_points}
+            prerequisites={prereqLinks}
+            readTime={readTime}
+          />
 
           {/* Video embed (if available) */}
           {meta.video && (

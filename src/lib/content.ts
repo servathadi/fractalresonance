@@ -23,10 +23,22 @@ interface RawFrontmatter {
   status?: string;
   tags?: string[];
   abstract?: string;
+  tldr?: string;
+  key_points?: string[];
+  prerequisites?: string[];
+  read_time?: string;
   lang?: string;
   doi?: string;
   license?: string;
   related?: string[];
+  intros?: {
+    river?: string;
+    kasra?: string;
+  };
+  startHere?: {
+    river?: Array<{ k?: string; title?: string; desc?: string; target?: string; url?: string }>;
+    kasra?: Array<{ k?: string; title?: string; desc?: string; target?: string; url?: string }>;
+  };
   video?: {
     url: string;
     embedUrl?: string;
@@ -52,9 +64,21 @@ export interface ParsedContent {
   body: string;
 }
 
+export interface HomeConfig {
+  intros?: {
+    river?: string;
+    kasra?: string;
+  };
+  startHere?: {
+    river?: Array<{ k?: string; title?: string; desc?: string; target?: string; url?: string }>;
+    kasra?: Array<{ k?: string; title?: string; desc?: string; target?: string; url?: string }>;
+  };
+}
+
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  const fmRegex = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/;
+  // Allow whitespace on delimiter lines (some translated files contain `--- `).
+  const fmRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;
   const match = content.match(fmRegex);
 
   if (!match) {
@@ -259,13 +283,32 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return [];
 
-  return fs.readdirSync(dir)
-    .filter(f => f.endsWith('.md'))
-    .map(f => {
-      const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-      return parseFrontmatter(raw);
-    })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+  const entries = fs.readdirSync(dir);
+  const books: ParsedContent[] = [];
+
+  for (const e of entries) {
+    const full = path.join(dir, e);
+    const stat = fs.statSync(full);
+
+    // Single-file book: books/<id>.md
+    if (stat.isFile() && e.endsWith('.md')) {
+      const raw = fs.readFileSync(full, 'utf-8');
+      books.push(parseFrontmatter(raw));
+      continue;
+    }
+
+    // Folder book: books/<id>/index.md (or first chapter file)
+    if (stat.isDirectory()) {
+      const indexPath = path.join(full, 'index.md');
+      const chapterFiles = fs.readdirSync(full).filter(f => f.endsWith('.md')).sort();
+      const pick = fs.existsSync(indexPath) ? indexPath : (chapterFiles[0] ? path.join(full, chapterFiles[0]) : null);
+      if (!pick) continue;
+      const raw = fs.readFileSync(pick, 'utf-8');
+      books.push(parseFrontmatter(raw));
+    }
+  }
+
+  return books.sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
 }
 
 /** Get a single book by id */
@@ -273,13 +316,71 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return null;
 
+  // 1) Single-file book
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
     if (parsed.frontmatter.id === id) return parsed;
   }
-  return null;
+
+  // 2) Folder book: books/<id>/(index.md + chapters)
+  const bookDir = path.join(dir, id);
+  if (!fs.existsSync(bookDir) || !fs.statSync(bookDir).isDirectory()) return null;
+
+  const indexPath = path.join(bookDir, 'index.md');
+  const chapterFiles = fs.readdirSync(bookDir).filter(f => f.endsWith('.md') && f !== 'index.md');
+  const sortedChapters = chapterFiles.sort(sortChapterFilenames);
+
+  if (fs.existsSync(indexPath)) {
+    const raw = fs.readFileSync(indexPath, 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    const chapters = getBookChapters(lang, id);
+    if (!chapters || chapters.length === 0) return parsed;
+
+    // Render the index content followed by chapters in order for a single-page reading experience.
+    const combined = [
+      parsed.body,
+      ...chapters.map((c) => `\n\n## ${c.title}\n\n${c.body}`),
+    ].join('\n\n');
+
+    return { frontmatter: parsed.frontmatter, body: combined };
+  }
+
+  // If there's no index.md, treat the first chapter file as the book page.
+  if (sortedChapters.length === 0) return null;
+  const raw = fs.readFileSync(path.join(bookDir, sortedChapters[0]), 'utf-8');
+  return parseFrontmatter(raw);
+}
+
+export interface BookChapter {
+  filename: string;
+  title: string;
+  body: string;
+}
+
+export function getBookChapters(lang: string, id: string): BookChapter[] {
+  const bookDir = path.join(CONTENT_DIR, lang, 'books', id);
+  if (!fs.existsSync(bookDir) || !fs.statSync(bookDir).isDirectory()) return [];
+
+  const chapterFiles = fs
+    .readdirSync(bookDir)
+    .filter((f) => f.endsWith('.md') && f !== 'index.md')
+    .sort(sortChapterFilenames);
+
+  return chapterFiles.map((filename) => {
+    const raw = fs.readFileSync(path.join(bookDir, filename), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    const title = parsed.frontmatter.title || filename.replace(/\.md$/, '');
+    return { filename, title, body: parsed.body };
+  });
+}
+
+function sortChapterFilenames(a: string, b: string): number {
+  const numA = a.match(/(\d+)/)?.[1];
+  const numB = b.match(/(\d+)/)?.[1];
+  if (numA && numB) return Number(numA) - Number(numB);
+  return a.localeCompare(b);
 }
 
 /** Get all concepts for a language */
@@ -317,6 +418,27 @@ export function getLanguages(): string[] {
       const full = path.join(CONTENT_DIR, f);
       return fs.statSync(full).isDirectory() && f !== 'inbox';
     });
+}
+
+export function getHomeConfig(lang: string = 'en'): HomeConfig | null {
+  // Keep home CMS config outside normal content types.
+  const tryPaths = [
+    path.join(CONTENT_DIR, lang, 'site', 'home.md'),
+    path.join(CONTENT_DIR, 'en', 'site', 'home.md'),
+  ];
+
+  for (const p of tryPaths) {
+    if (!fs.existsSync(p)) continue;
+    const raw = fs.readFileSync(p, 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    const fm = parsed.frontmatter as unknown as HomeConfig;
+    return {
+      intros: fm.intros,
+      startHere: fm.startHere,
+    };
+  }
+
+  return null;
 }
 
 /** Get a single article by id */
@@ -600,6 +722,17 @@ export type ContentType = 'papers' | 'articles' | 'concepts' | 'books';
 export function contentExistsInLang(type: ContentType, lang: string, id: string): boolean {
   const getters = { papers: getPaper, articles: getArticle, concepts: getConcept, books: getBook };
   return getters[type](lang, id) !== null;
+}
+
+export function estimateReadTime(body: string, wordsPerMinute: number = 220): string {
+  const words = body
+    .replace(/```[\s\S]*?```/g, ' ') // ignore code blocks
+    .replace(/[#*_`>\[\]\(\)\|]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  const minutes = Math.max(1, Math.round(words / wordsPerMinute));
+  return `${minutes} min`;
 }
 
 /** Get all languages where a content item exists */

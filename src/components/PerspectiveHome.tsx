@@ -3,30 +3,46 @@
 import Link from 'next/link';
 import { usePerspective } from './PerspectiveProvider';
 
-export function PerspectiveHomeIntro() {
+export function PerspectiveHomeIntro({
+  intros,
+}: {
+  intros?: { river?: string; kasra?: string };
+}) {
   const { perspective } = usePerspective();
 
   if (perspective === 'river') {
     return (
       <p className="text-frc-text-dim text-sm sm:text-base leading-relaxed font-light">
-        River mode: meaning first. Start with the narrative arc, then use the equations as anchors.
+        {intros?.river ||
+          'River mode: meaning first. Start with the narrative arc, then use the equations as anchors.'}
       </p>
     );
   }
 
   return (
     <p className="text-frc-text-dim text-sm sm:text-base leading-relaxed font-light">
-      Kasra mode: equations first. Start from reciprocity, then follow UCC dynamics into falsifiable predictions.
+      {intros?.kasra ||
+        'Kasra mode: equations first. Start from reciprocity, then follow UCC dynamics into falsifiable predictions.'}
     </p>
   );
 }
 
-export function PerspectiveStartHere({ lang }: { lang: string }) {
+export function PerspectiveStartHere({
+  lang,
+  items,
+}: {
+  lang: string;
+  items?: {
+    river?: Array<{ k: string; title: string; desc: string; href: string }>;
+    kasra?: Array<{ k: string; title: string; desc: string; href: string }>;
+  };
+}) {
   const { perspective } = usePerspective();
 
   const isRiver = perspective === 'river';
 
-  const items = isRiver
+  const resolved = isRiver ? items?.river : items?.kasra;
+  const fallback = isRiver
     ? [
         {
           k: '01',
@@ -51,7 +67,7 @@ export function PerspectiveStartHere({ lang }: { lang: string }) {
         {
           k: '01',
           title: 'Start with reciprocity',
-          desc: 'Entropy–coherence law and the UCC flow equation.',
+          desc: 'Entropy-coherence law and the UCC flow equation.',
           href: `/${lang}/papers/FRC-566-001`,
         },
         {
@@ -67,6 +83,7 @@ export function PerspectiveStartHere({ lang }: { lang: string }) {
           href: `/${lang}/graph`,
         },
       ];
+  const list = resolved && resolved.length > 0 ? resolved : fallback;
 
   return (
     <section className="max-w-6xl mx-auto px-6 pb-12">
@@ -80,7 +97,7 @@ export function PerspectiveStartHere({ lang }: { lang: string }) {
       </div>
 
       <div className="grid sm:grid-cols-3 gap-4">
-        {items.map((it) => (
+        {list.map((it) => (
           <Link key={it.k} href={it.href} className="card block p-5 group">
             <div className="flex items-start gap-4">
               <span className="font-mono text-xs text-frc-gold shrink-0 mt-0.5 tabular-nums">

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { schemaConceptPage } from '@/lib/schema';
 import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
@@ -64,6 +65,14 @@ export default async function ConceptPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
+  const fm = concept.frontmatter;
+
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const prereqLinks = (fm.prerequisites || []).map((pid) => {
+    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `/${lang}/${pid}` };
+    const item = glossary[pid];
+    return { id: pid, title: item?.title || pid, href: item?.url || `/${lang}/concepts/${pid}` };
+  });
 
   const renderedBody = renderMarkdown(concept.body, lang, glossary);
 
@@ -102,6 +111,12 @@ export default async function ConceptPage({ params }: Props) {
               </div>
             )}
           </header>
+
+          <ContentDigest
+            tldr={fm.tldr}
+            keyPoints={fm.key_points}
+            prerequisites={prereqLinks}
+          />
 
           {/* Body */}
           <div className="content-body">

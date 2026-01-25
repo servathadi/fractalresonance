@@ -4,10 +4,11 @@ import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
+import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -89,6 +90,15 @@ export default async function PaperPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
+  const fm = paper.frontmatter;
+  const readTime = fm.read_time || estimateReadTime(paper.body);
+
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const prereqLinks = (fm.prerequisites || []).map((pid) => {
+    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `/${lang}/${pid}` };
+    const item = glossary[pid];
+    return { id: pid, title: item?.title || pid, href: item?.url || `/${lang}/concepts/${pid}` };
+  });
 
   // Content is from trusted local markdown files (not user input).
   // Rendered at build time via static generation.
@@ -119,6 +129,7 @@ export default async function PaperPage({ params }: Props) {
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
               <span>{paper.frontmatter.author || 'H. Servat'}</span>
               <span>{paper.frontmatter.date}</span>
+              <span className="font-mono text-xs">{readTime}</span>
               {paper.frontmatter.series && (
                 <span className="tag">{paper.frontmatter.series}</span>
               )}
@@ -171,6 +182,13 @@ export default async function PaperPage({ params }: Props) {
               )}
             </div>
           )}
+
+          <ContentDigest
+            tldr={fm.tldr}
+            keyPoints={fm.key_points}
+            prerequisites={prereqLinks}
+            readTime={readTime}
+          />
 
           {/* Abstract */}
           {paper.frontmatter.abstract && (

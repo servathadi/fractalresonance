@@ -3,10 +3,11 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
@@ -69,6 +70,16 @@ export default async function BookPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
+  const fm = book.frontmatter;
+  const readTime = fm.read_time || estimateReadTime(book.body);
+  const chapters = getBookChapters(lang, id);
+
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const prereqLinks = (fm.prerequisites || []).map((pid) => {
+    if (staticTargets.has(pid)) return { id: pid, title: pid, href: `/${lang}/${pid}` };
+    const item = glossary[pid];
+    return { id: pid, title: item?.title || pid, href: item?.url || `/${lang}/concepts/${pid}` };
+  });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary);
   const tocItems = extractTocItems(book.body);
@@ -97,6 +108,7 @@ export default async function BookPage({ params }: Props) {
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
               <span>{book.frontmatter.author || 'H. Servat'}</span>
               {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
+              <span className="font-mono text-xs">{readTime}</span>
             </div>
             {book.frontmatter.tags && (
               <div className="flex flex-wrap gap-2 mt-3">
@@ -113,6 +125,13 @@ export default async function BookPage({ params }: Props) {
             )}
           </header>
 
+          <ContentDigest
+            tldr={fm.tldr}
+            keyPoints={fm.key_points}
+            prerequisites={prereqLinks}
+            readTime={readTime}
+          />
+
           {/* Abstract */}
           {book.frontmatter.abstract && (
             <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
@@ -121,6 +140,30 @@ export default async function BookPage({ params }: Props) {
           )}
 
           {/* Body */}
+          {chapters.length > 0 && (
+            <section className="mb-8">
+              <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {chapters.map((c, idx) => (
+                  <a
+                    key={c.filename}
+                    href={`#${c.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()}`}
+                    className="card block p-4 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="font-mono text-xs text-frc-steel shrink-0 tabular-nums mt-0.5">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-sm text-frc-text group-hover:text-frc-gold transition-colors">
+                        {c.title}
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
           <div className="content-body" suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>

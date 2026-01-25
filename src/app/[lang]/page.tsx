@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPapers, getLanguages } from '@/lib/content';
+import { getGlossary, getHomeConfig, getPapers, getLanguages } from '@/lib/content';
 import { VideoSeries } from '@/components/VideoSeries';
 import { PerspectiveHomeIntro, PerspectiveStartHere } from '@/components/PerspectiveHome';
 
@@ -15,6 +15,35 @@ interface Props {
 export default async function ContentHub({ params }: Props) {
   const { lang } = await params;
   const papers = getPapers(lang);
+  const glossary = getGlossary(lang);
+  const home = getHomeConfig(lang);
+
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+
+  const resolveTarget = (target?: string, url?: string) => {
+    if (url) return url;
+    if (!target) return `/${lang}`;
+    if (staticTargets.has(target)) return `/${lang}/${target}`;
+    const item = glossary[target];
+    if (item?.url) return item.url;
+    // Fall back to concept route when unknown; link validator should prevent most misses.
+    return `/${lang}/concepts/${target}`;
+  };
+
+  const startHere = {
+    kasra: (home?.startHere?.kasra || []).map((it, idx) => ({
+      k: it.k || String(idx + 1).padStart(2, '0'),
+      title: it.title || '',
+      desc: it.desc || '',
+      href: resolveTarget(it.target, it.url),
+    })),
+    river: (home?.startHere?.river || []).map((it, idx) => ({
+      k: it.k || String(idx + 1).padStart(2, '0'),
+      title: it.title || '',
+      desc: it.desc || '',
+      href: resolveTarget(it.target, it.url),
+    })),
+  };
 
   return (
     <main className="min-h-[80vh]">
@@ -57,7 +86,7 @@ export default async function ContentHub({ params }: Props) {
                 A unified framework linking quantum mechanics, thermodynamics, and consciousness
                 through coherence.
               </p>
-              <PerspectiveHomeIntro />
+              <PerspectiveHomeIntro intros={home?.intros} />
             </div>
 
             <div className="animate-fade-up stagger-4 nested-border inline-block mb-10">
@@ -92,7 +121,7 @@ export default async function ContentHub({ params }: Props) {
 
       <div className="ruled-line max-w-5xl mx-auto" />
 
-      <PerspectiveStartHere lang={lang} />
+      <PerspectiveStartHere lang={lang} items={startHere} />
 
       {/* Video + Key Concepts */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
