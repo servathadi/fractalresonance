@@ -93,7 +93,7 @@ export default async function RiverPaperPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(paper.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(paper.body);
+  const tocItems = extractTocItems(paper.body).filter((t) => t.level === 2);
 
   return (
     <>

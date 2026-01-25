@@ -128,7 +128,7 @@ export default async function TopicPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(topic.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(topic.body);
+  const tocItems = extractTocItems(topic.body).filter((t) => t.level === 2);
 
   const authorities = Array.isArray(fm.authorities) ? fm.authorities : [];
   const answers = Array.isArray(fm.answers) ? fm.answers : [];

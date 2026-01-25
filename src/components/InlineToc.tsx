@@ -4,15 +4,19 @@ export function InlineToc({
   items,
   title = 'On this page',
   className = '',
+  hideAt = 'lg',
 }: {
   items: TocItem[];
   title?: string;
   className?: string;
+  hideAt?: 'lg' | 'xl' | '2xl';
 }) {
   if (!items || items.length === 0) return null;
 
+  const hideClass = hideAt === 'lg' ? 'lg:hidden' : hideAt === 'xl' ? 'xl:hidden' : '2xl:hidden';
+
   return (
-    <details className={`xl:hidden mb-6 border border-frc-blue rounded-lg ${className}`}>
+    <details className={`${hideClass} mb-6 border border-frc-blue rounded-lg ${className}`}>
       <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
         <span className="text-xs uppercase tracking-wider text-frc-steel">{title}</span>
       </summary>

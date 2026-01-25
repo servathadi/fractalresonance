@@ -106,7 +106,7 @@ export default async function PaperPage({ params }: Props) {
   // Content is from trusted local markdown files (not user input).
   // Rendered at build time via static generation.
   const renderedBody = renderMarkdown(paper.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(paper.body);
+  const tocItems = extractTocItems(paper.body).filter((t) => t.level === 2);
 
   return (
     <>

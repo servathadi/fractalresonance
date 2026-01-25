@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = post.frontmatter;
   const readTime = fm.read_time || estimateReadTime(post.body);
-  const tocItems = extractTocItems(post.body);
+  const tocItems = extractTocItems(post.body).filter((t) => t.level === 2);
   const renderedBody = renderMarkdown(post.body, lang, glossary, basePath);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'blog', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -171,4 +171,3 @@ export default async function BlogPostPage({ params }: Props) {
     </>
   );
 }
-

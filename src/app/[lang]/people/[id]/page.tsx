@@ -76,7 +76,7 @@ export default async function PersonPage({ params }: Props) {
   const readTime = fm.read_time || estimateReadTime(person.body);
 
   const renderedBody = renderMarkdown(person.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(person.body);
+  const tocItems = extractTocItems(person.body).filter((t) => t.level === 2);
 
   return (
     <PageShell

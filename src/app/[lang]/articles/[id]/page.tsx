@@ -85,7 +85,7 @@ export default async function ArticlePage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(article.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(article.body);
+  const tocItems = extractTocItems(article.body).filter((t) => t.level === 2);
 
   return (
     <>

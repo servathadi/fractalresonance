@@ -10,11 +10,11 @@ export interface TocItem {
 
 interface TableOfContentsProps {
   items: TocItem[];
-  minBreakpoint?: 'xl' | '2xl';
+  minBreakpoint?: 'lg' | 'xl' | '2xl';
   title?: string;
 }
 
-export function TableOfContents({ items, minBreakpoint = 'xl', title = 'On this page' }: TableOfContentsProps) {
+export function TableOfContents({ items, minBreakpoint = 'lg', title = 'On this page' }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
@@ -39,7 +39,12 @@ export function TableOfContents({ items, minBreakpoint = 'xl', title = 'On this 
 
   if (items.length === 0) return null;
 
-  const breakpointClass = minBreakpoint === 'xl' ? 'hidden xl:block' : 'hidden 2xl:block';
+  const breakpointClass =
+    minBreakpoint === 'lg'
+      ? 'hidden lg:block'
+      : minBreakpoint === 'xl'
+        ? 'hidden xl:block'
+        : 'hidden 2xl:block';
 
   return (
     <nav data-toc className={`${breakpointClass} w-60 xl:w-72 shrink-0`}>

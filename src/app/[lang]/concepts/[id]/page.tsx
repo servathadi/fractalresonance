@@ -79,7 +79,7 @@ export default async function ConceptPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(concept.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(concept.body);
+  const tocItems = extractTocItems(concept.body).filter((t) => t.level === 2);
 
   return (
     <>
