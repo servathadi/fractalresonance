@@ -50,6 +50,14 @@ export function renderMarkdown(
   // Italic
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
+  // Images: ![alt](url) or ![alt](url "title")
+  html = html.replace(/!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]+)")?\)/g, (_, alt, url, title) => {
+    const safeAlt = escapeHtml(String(alt || ''));
+    const safeUrl = escapeHtml(String(url || ''));
+    const safeTitle = title ? ` title="${escapeHtml(String(title))}"` : '';
+    return `<img src="${safeUrl}" alt="${safeAlt}"${safeTitle} />`;
+  });
+
   // Wikilinks with display text: [[ID|text]]
   html = html.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (_, id, display) => {
     const { cleanId } = splitWikilinkId(id);

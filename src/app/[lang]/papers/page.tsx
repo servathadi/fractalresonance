@@ -32,9 +32,15 @@ export default async function PapersPage({ params }: Props) {
   const { lang } = await params;
   const papers = getPapers(lang);
 
-  // Group by series
+  // Group by series (simple prefix-based)
   const series100 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-100'));
   const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
+  const series800 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-8'));
+  const other = papers.filter(
+    p => !p.frontmatter.id?.startsWith('FRC-100')
+      && !p.frontmatter.id?.startsWith('FRC-566')
+      && !p.frontmatter.id?.startsWith('FRC-8')
+  );
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
@@ -72,6 +78,34 @@ export default async function PapersPage({ params }: Props) {
           </h2>
           <div className="space-y-4">
             {series566.map(paper => (
+              <PaperCard key={paper.frontmatter.id} paper={paper} lang={lang} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {series800.length > 0 && (
+        <section className="mb-12">
+          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
+            <span className="text-frc-gold font-mono text-sm">800</span>
+            Applications
+          </h2>
+          <div className="space-y-4">
+            {series800.map(paper => (
+              <PaperCard key={paper.frontmatter.id} paper={paper} lang={lang} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {other.length > 0 && (
+        <section className="mb-12">
+          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
+            <span className="text-frc-gold font-mono text-sm">—</span>
+            Other
+          </h2>
+          <div className="space-y-4">
+            {other.map(paper => (
               <PaperCard key={paper.frontmatter.id} paper={paper} lang={lang} />
             ))}
           </div>

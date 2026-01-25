@@ -12,12 +12,14 @@ export function Sidebar({ lang, currentId }: SidebarProps) {
 
   const series100 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-100'));
   const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
+  const series800 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-8'));
 
   return (
-    <aside data-sidebar className="w-64 shrink-0 border-r border-frc-blue overflow-y-auto hidden lg:block">
+    <aside data-sidebar className="w-56 shrink-0 border-r border-frc-blue overflow-y-auto hidden xl:block">
       <nav className="py-6 px-4 text-sm sticky top-0">
         <SidebarSection title="100 — Core Theory" items={series100} lang={lang} currentId={currentId} />
         <SidebarSection title="566 — Reciprocity" items={series566} lang={lang} currentId={currentId} />
+        <SidebarSection title="800 — Applications" items={series800} lang={lang} currentId={currentId} />
         {concepts.length > 0 && (
           <div className="mt-6">
             <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>

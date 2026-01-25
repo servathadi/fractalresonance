@@ -38,7 +38,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
   if (items.length === 0) return null;
 
   return (
-    <nav data-toc className="hidden xl:block w-48 shrink-0">
+    <nav data-toc className="hidden 2xl:block w-56 shrink-0">
       <div className="sticky top-6 py-6">
         <h4 className="text-xs uppercase tracking-wider text-frc-steel mb-3">On this page</h4>
         <ul className="space-y-1 text-xs">
@@ -61,4 +61,3 @@ export function TableOfContents({ items }: TableOfContentsProps) {
     </nav>
   );
 }
-
