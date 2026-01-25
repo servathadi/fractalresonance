@@ -3,7 +3,8 @@ id: gemini-deep-research-frc-2026-01-25
 title: "Gemini Deep Research on FRC (Jan 25, 2026)"
 date: "2026-01-25"
 status: "draft"
-perspective: river
+status: "published"
+perspective: both
 source: "chat:gemini deep research"
 tags: ["river", "digest", "meta", "public-face", "needs-factcheck"]
 tldr: "An external deep-research synthesis of the public FRC site, written as an analytical overview spanning physics, information geometry, and consciousness."
@@ -152,4 +153,3 @@ Defining experience as "the wave pattern itself" is presented as an ambitious br
 The shift from intrinsic randomness to deterministic, scale-invariant resonance invites a reimagining of the observer as a resonant node within a fractal loop of meaning.
 
 ![Chaos has structure slide cover](/media/slides/cover-chaos-has-structure.png)
-
