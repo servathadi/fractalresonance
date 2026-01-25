@@ -5,6 +5,7 @@ export const dictionaries = {
     nav: {
       about: 'About',
       articles: 'Articles',
+      blog: 'Blog',
       papers: 'Papers',
       books: 'Books',
       graph: 'Graph',
@@ -26,6 +27,7 @@ export const dictionaries = {
     nav: {
       about: 'Acerca',
       articles: 'Artículos',
+      blog: 'Blog',
       papers: 'Papers',
       books: 'Libros',
       graph: 'Grafo',
@@ -47,6 +49,7 @@ export const dictionaries = {
     nav: {
       about: 'À propos',
       articles: 'Articles',
+      blog: 'Blog',
       papers: 'Papiers',
       books: 'Livres',
       graph: 'Graphe',
@@ -68,6 +71,7 @@ export const dictionaries = {
     nav: {
       about: 'درباره',
       articles: 'مقالات',
+      blog: 'وبلاگ',
       papers: 'مقاله‌ها',
       books: 'کتاب‌ها',
       graph: 'گراف',

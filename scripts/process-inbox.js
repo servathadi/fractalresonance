@@ -12,6 +12,8 @@ const TYPE_TO_DIR = {
   concepts: 'concepts',
   article: 'articles',
   articles: 'articles',
+  blog: 'blog',
+  blogs: 'blog',
   book: 'books',
   books: 'books',
   note: 'articles',
@@ -113,4 +115,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

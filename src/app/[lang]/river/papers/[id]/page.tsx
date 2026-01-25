@@ -8,7 +8,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
-import { ReadingMode } from '@/components/ReadingMode';
+import { PageShell } from '@/components/PageShell';
 import {
   estimateReadTime,
   getPaper,
@@ -99,10 +99,11 @@ export default async function RiverPaperPage({ params }: Props) {
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
-      <main className="min-h-screen flex flex-col lg:flex-row">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" variant="mobile" />
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
-        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
+      <PageShell
+        leftMobile={<Sidebar lang={lang} currentId={id} basePath={basePath} view="river" variant="mobile" />}
+        leftDesktop={<Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />}
+        right={<TableOfContents items={tocItems} />}
+      >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={`/${lang}/river`} className="hover:text-frc-gold">River</a>
@@ -182,10 +183,7 @@ export default async function RiverPaperPage({ params }: Props) {
               </ul>
             </section>
           )}
-        </article>
-        <TableOfContents items={tocItems} />
-      </main>
-      <ReadingMode />
+      </PageShell>
     </>
   );
 }

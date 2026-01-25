@@ -8,7 +8,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
-import { ReadingMode } from '@/components/ReadingMode';
+import { PageShell } from '@/components/PageShell';
 import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
@@ -112,10 +112,11 @@ export default async function PaperPage({ params }: Props) {
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
-      <main className="min-h-screen flex flex-col lg:flex-row">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
-        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
+      <PageShell
+        leftMobile={<Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
+        right={<TableOfContents items={tocItems} />}
+      >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
@@ -262,10 +263,7 @@ export default async function PaperPage({ params }: Props) {
               </ul>
             </section>
           )}
-        </article>
-        <TableOfContents items={tocItems} />
-      </main>
-      <ReadingMode />
+      </PageShell>
     </>
   );
 }

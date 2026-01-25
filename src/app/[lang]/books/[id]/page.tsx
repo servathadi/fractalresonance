@@ -7,7 +7,7 @@ import { ContentDigest } from '@/components/ContentDigest';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
-import { ReadingMode } from '@/components/ReadingMode';
+import { PageShell } from '@/components/PageShell';
 import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -91,10 +91,11 @@ export default async function BookPage({ params }: Props) {
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
-      <main className="min-h-screen flex flex-col lg:flex-row">
-        <BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
-        <BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
-        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
+      <PageShell
+        leftMobile={<BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
+        right={<TableOfContents items={tocItems} minBreakpoint="xl" title="Book index" />}
+      >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
@@ -198,10 +199,7 @@ export default async function BookPage({ params }: Props) {
               </ul>
             </section>
           )}
-        </article>
-        <TableOfContents items={tocItems} minBreakpoint="xl" title="Book index" />
-      </main>
-      <ReadingMode />
+      </PageShell>
     </>
   );
 }
