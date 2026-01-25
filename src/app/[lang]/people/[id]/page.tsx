@@ -14,6 +14,7 @@ import {
   buildBacklinks,
   getGlossary,
   matchesPerspectiveView,
+  getWorkForPerson,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
@@ -77,6 +78,15 @@ export default async function PersonPage({ params }: Props) {
 
   const renderedBody = renderMarkdown(person.body, lang, glossary, basePath);
   const tocItems = extractTocItems(person.body).filter((t) => t.level === 2);
+  const work = getWorkForPerson(
+    lang,
+    { id: fm.id, title: fm.title, aliases: fm.aliases },
+    { basePath, view: 'kasra', glossary }
+  );
+  const workByType = work.reduce((acc, item) => {
+    (acc[item.type] ||= []).push(item);
+    return acc;
+  }, {} as Record<string, typeof work>);
 
   return (
     <PageShell
@@ -125,6 +135,36 @@ export default async function PersonPage({ params }: Props) {
       <div className="content-body" suppressHydrationWarning>
         <MarkdownContent html={renderedBody} glossary={glossary} />
       </div>
+
+      {work.length > 0 && (
+        <section className="mt-12 border-t border-frc-blue pt-6">
+          <h2 className="text-lg font-light text-frc-text mb-3">Work</h2>
+          <div className="grid gap-6">
+            {(['paper', 'topic', 'article', 'blog', 'book', 'concept'] as const)
+              .filter((t) => (workByType[t] || []).length > 0)
+              .map((t) => (
+                <div key={t}>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xs uppercase tracking-wider text-frc-steel">
+                      {t === 'paper' ? 'Papers' : t === 'topic' ? 'Topics' : t === 'blog' ? 'Blog' : t === 'article' ? 'Articles' : t === 'book' ? 'Books' : 'Concepts'}
+                    </h3>
+                    <span className="text-xs text-frc-text-dim font-mono">{workByType[t].length}</span>
+                  </div>
+                  <ul className="space-y-1 text-sm">
+                    {workByType[t].slice(0, 12).map((w) => (
+                      <li key={w.url} className="flex items-baseline justify-between gap-3">
+                        <Link href={w.url} className="text-frc-text-dim hover:text-frc-gold transition-colors truncate">
+                          {w.title}
+                        </Link>
+                        <span className="text-[11px] text-frc-steel font-mono shrink-0">{w.date || w.id}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+        </section>
+      )}
 
       {pageBacklinks.length > 0 && (
         <section className="mt-12 border-t border-frc-blue pt-6">

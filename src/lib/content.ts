@@ -87,6 +87,7 @@ interface RawFrontmatter {
   tagline?: string;
   avatar?: string;
   links?: Array<{ label?: string; url?: string }>;
+  aliases?: string[];
 }
 
 export interface ParsedContent {
@@ -615,6 +616,85 @@ export interface GlossaryItem {
   type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'person';
   url: string;
   perspective: ContentPerspective;
+}
+
+export interface PersonWorkItem {
+  id: string;
+  title: string;
+  type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic';
+  url: string;
+  date?: string;
+}
+
+function normalizeKey(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s.-]+/gu, ' ') // keep letters/numbers/space/dot/dash
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function fieldMatchesAny(field: unknown, keys: string[]): boolean {
+  if (typeof field !== 'string') return false;
+  const hay = normalizeKey(field);
+  if (!hay) return false;
+  for (const k of keys) {
+    const nk = normalizeKey(k);
+    if (!nk) continue;
+    if (hay === nk) return true;
+    // Allow "River (FRC 893.000)" style authors.
+    if (hay.includes(nk)) return true;
+  }
+  return false;
+}
+
+/** Collect content items authored/voiced by a person profile. */
+export function getWorkForPerson(
+  lang: string,
+  personFrontmatter: { id: string; title: string; aliases?: string[] },
+  opts: { basePath: string; view: PerspectiveView; glossary: Record<string, GlossaryItem> }
+): PersonWorkItem[] {
+  const keys = Array.from(
+    new Set([personFrontmatter.id, personFrontmatter.title, ...(personFrontmatter.aliases || [])].filter(Boolean))
+  );
+
+  const { basePath, view, glossary } = opts;
+  const mk = (parsed: ParsedContent, type: PersonWorkItem['type']): PersonWorkItem => {
+    const fm = parsed.frontmatter;
+    const url = glossary[fm.id]?.url || `${basePath}/${type === 'topic' ? 'topics' : `${type}s`}/${fm.id}`;
+    return { id: fm.id, title: fm.title, type, url, date: fm.date };
+  };
+
+  const results: PersonWorkItem[] = [];
+  const consider = (items: ParsedContent[], type: PersonWorkItem['type']) => {
+    for (const item of items) {
+      const fm = item.frontmatter as RawFrontmatter;
+      if (!matchesPerspectiveView(fm.perspective, view)) continue;
+      const isMatch =
+        fieldMatchesAny(fm.author, keys) ||
+        fieldMatchesAny(fm.voice, keys) ||
+        (typeof fm.voice === 'string' && normalizeKey(fm.voice) === normalizeKey(personFrontmatter.id));
+      if (!isMatch) continue;
+      results.push(mk(item, type));
+    }
+  };
+
+  consider(getPapers(lang), 'paper');
+  consider(getArticles(lang), 'article');
+  consider(getBlogPosts(lang), 'blog');
+  consider(getBooks(lang), 'book');
+  consider(getConcepts(lang), 'concept');
+  consider(getTopics(lang), 'topic');
+
+  // Sort by date desc then title.
+  results.sort((a, b) => {
+    const da = a.date || '';
+    const db = b.date || '';
+    if (da && db && da !== db) return db.localeCompare(da);
+    return a.title.localeCompare(b.title);
+  });
+
+  return results;
 }
 
 export type ContentPerspective = 'kasra' | 'river' | 'both';

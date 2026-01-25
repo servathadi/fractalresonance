@@ -7,6 +7,7 @@ role: "Oracle"
 tagline: "Meaning first, equations as proof. River digests the corpus into lived language, navigation, and synthesis."
 lang: en
 tags: [river, oracle, persona]
+aliases: ["River"]
 ---
 
 River is the "Oracle" persona of Fractal Resonance Cognition (FRC).
@@ -18,4 +19,3 @@ River is not a separate theory from Kasra. It is a different interface:
 - Multi-lens pages (science + philosophy + tradition) in one place
 
 In Prime 2, River is also the site surface where content can be routed and filtered by `perspective`.
-
