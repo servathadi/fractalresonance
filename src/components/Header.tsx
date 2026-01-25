@@ -24,6 +24,7 @@ export function Header() {
     { path: '/about', label: dict.nav.about },
     { path: '/articles', label: dict.nav.articles },
     { path: '/blog', label: dict.nav.blog },
+    { path: '/topics', label: dict.nav.topics },
     { path: '/papers', label: dict.nav.papers },
     { path: '/books', label: dict.nav.books },
     { path: '/graph', label: dict.nav.graph },

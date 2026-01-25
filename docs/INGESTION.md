@@ -122,6 +122,16 @@ It writes to `content/inbox/<lang>/articles/` by default. Then:
 npm run content:process-inbox
 ```
 
+## Topic Template (Q&A + Spectrum)
+
+To create a new Topics page draft:
+
+```bash
+npm run content:new-topic -- --lang en --title "What is coherence?" --question "What is coherence in FRC?" --perspective river --tags coherence,frc --short_answer "..."
+```
+
+Then run `content:process-inbox` (optionally with `--ai sos`).
+
 ## Media Hygiene (Remote Images -> Local)
 
 If a markdown file references remote images (e.g. `https://.../image.png`), you can pull them into the repo and rewrite the markdown to stable local paths under `public/media/...`.

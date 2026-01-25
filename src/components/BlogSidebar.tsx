@@ -54,6 +54,9 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
             </ul>
           </div>
           <div className="mt-6 pt-4 border-t border-frc-blue">
+            <Link href={`${base}/topics`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+              Topics
+            </Link>
             <Link href={`${base}/papers`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
               Papers
             </Link>
@@ -69,4 +72,3 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
     </aside>
   );
 }
-

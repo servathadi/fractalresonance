@@ -47,6 +47,7 @@ export function Footer() {
               <Link href={`${basePath}/about`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.about}</Link>
               <Link href={`${basePath}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles}</Link>
               <Link href={`${basePath}/blog`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.blog}</Link>
+              <Link href={`${basePath}/topics`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.topics}</Link>
               <Link href={`${basePath}/papers`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.papers}</Link>
               <Link href={`${basePath}/formulas`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.formulas}</Link>
               <Link href={`${basePath}/positioning`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.positioning}</Link>

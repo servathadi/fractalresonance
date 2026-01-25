@@ -61,6 +61,9 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
         <Link href={`${base}/blog`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
           Blog
         </Link>
+        <Link href={`${base}/topics`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+          Topics
+        </Link>
         <Link href={`${base}/articles`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
           Articles
         </Link>

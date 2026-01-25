@@ -9,6 +9,8 @@ const CONTENT_DIR = path.join(process.cwd(), 'content');
 const TYPE_TO_DIR = {
   paper: 'papers',
   papers: 'papers',
+  topic: 'topics',
+  topics: 'topics',
   concept: 'concepts',
   concepts: 'concepts',
   article: 'articles',
@@ -99,6 +101,7 @@ async function digestWithSos({
 
   const CANONICAL_TYPE = {
     papers: 'paper',
+    topics: 'topic',
     concepts: 'concept',
     articles: 'article',
     books: 'book',

@@ -9,6 +9,8 @@ const ALLOWED_PERSPECTIVES = new Set(['kasra', 'river', 'both']);
 const TYPE_TO_DIR = {
   paper: 'papers',
   papers: 'papers',
+  topic: 'topics',
+  topics: 'topics',
   concept: 'concepts',
   concepts: 'concepts',
   article: 'articles',

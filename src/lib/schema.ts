@@ -52,6 +52,19 @@ export interface ConceptMeta {
   lang: string;
 }
 
+export interface TopicMeta {
+  id: string;
+  title: string;
+  question: string;
+  shortAnswer: string;
+  tags: string[];
+  lang: string;
+  date?: string;
+  author?: string;
+  /** Override canonical URL (e.g. River routes). */
+  url?: string;
+}
+
 export interface BreadcrumbItem {
   name: string;
   url: string;
@@ -247,6 +260,37 @@ export function schemaAggregateRating(paper: PaperMeta) {
     itemReviewed: {
       '@type': 'ScholarlyArticle',
       '@id': `${SITE_URL}/${paper.lang}/papers/${paper.id}`,
+    },
+  };
+}
+
+// ─── Topic-Level Schemas ───────────────────────────────────────────────────
+
+/**
+ * QAPage — "Topic" question pages.
+ * We keep this lightweight: one question + one short answer.
+ */
+export function schemaTopicPage(topic: TopicMeta) {
+  const url = topic.url || `${SITE_URL}/${topic.lang}/topics/${topic.id}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'QAPage',
+    '@id': url,
+    url,
+    name: topic.title,
+    headline: topic.title,
+    inLanguage: topic.lang,
+    datePublished: topic.date,
+    author: topic.author ? { '@type': 'Person', name: topic.author } : { '@id': `${SITE_URL}/#author` },
+    keywords: topic.tags,
+    mainEntity: {
+      '@type': 'Question',
+      name: topic.question || topic.title,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: topic.shortAnswer || '',
+      },
     },
   };
 }
