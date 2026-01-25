@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
 import './globals.css';
 
@@ -43,8 +44,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/brand/logo.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/brand/logo.jpg" />
+        <link rel="icon" href="/brand/sigil-32.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/brand/sigil-64.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -55,6 +56,7 @@ export default function RootLayout({
         <SchemaScript data={schemaDataset()} />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
+        <GoogleAnalytics />
         <ThemeProvider>
           <Header />
           <div className="flex-1">

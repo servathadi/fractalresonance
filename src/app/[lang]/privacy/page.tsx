@@ -38,15 +38,43 @@ export default function PrivacyPage() {
             This is a static research publication website. We do not:
           </p>
           <ul className="list-disc list-inside text-frc-text-dim space-y-2 ml-4">
-            <li>Collect personal information</li>
             <li>Require user accounts or registration</li>
-            <li>Use cookies for tracking or advertising</li>
-            <li>Store any user data on our servers</li>
+            <li>Store personal information on our servers</li>
+            <li>Use cookies for advertising purposes</li>
+            <li>Sell or share data with third parties</li>
           </ul>
+          <p className="text-frc-text-dim leading-relaxed mt-4">
+            We do use analytics to understand how visitors use the site (see Section 3).
+          </p>
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">3. Hosting and Analytics</h2>
+          <h2 className="text-lg text-frc-text font-medium">3. Analytics</h2>
+          <p className="text-frc-text-dim leading-relaxed">
+            We use <span className="text-frc-text">Google Analytics 4</span> to understand how visitors
+            interact with our website. This service collects anonymous usage data including:
+          </p>
+          <ul className="list-disc list-inside text-frc-text-dim space-y-2 ml-4">
+            <li>Pages visited and time spent on site</li>
+            <li>Referring websites</li>
+            <li>General geographic location (country/region level)</li>
+            <li>Browser type and device information</li>
+          </ul>
+          <p className="text-frc-text-dim leading-relaxed mt-4">
+            This data is anonymized and used solely to improve the website. Google Analytics uses
+            cookies to collect this information. You can opt out by using browser extensions like
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline ml-1">
+              Google Analytics Opt-out Browser Add-on
+            </a>.
+            For more details, see
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline ml-1">
+              Google&apos;s Privacy Policy
+            </a>.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-lg text-frc-text font-medium">4. Hosting</h2>
           <p className="text-frc-text-dim leading-relaxed">
             This website is hosted on Cloudflare Pages. Cloudflare may collect standard web
             server logs including IP addresses, browser type, and pages visited for security
@@ -55,13 +83,10 @@ export default function PrivacyPage() {
               Cloudflare&apos;s Privacy Policy
             </a>.
           </p>
-          <p className="text-frc-text-dim leading-relaxed">
-            We do not use Google Analytics or any third-party tracking services.
-          </p>
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">4. External Links</h2>
+          <h2 className="text-lg text-frc-text font-medium">5. External Links</h2>
           <p className="text-frc-text-dim leading-relaxed">
             Our website contains links to external services including:
           </p>
@@ -80,7 +105,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">5. Embedded Content</h2>
+          <h2 className="text-lg text-frc-text font-medium">6. Embedded Content</h2>
           <p className="text-frc-text-dim leading-relaxed">
             Some pages embed YouTube videos. When you view a page with an embedded video,
             YouTube may collect information according to their privacy policy. Videos are
@@ -89,7 +114,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">6. Your Rights</h2>
+          <h2 className="text-lg text-frc-text font-medium">7. Your Rights</h2>
           <p className="text-frc-text-dim leading-relaxed">
             Since we do not collect personal data, there is no personal information to
             access, correct, or delete. If you have questions about data processed by
@@ -98,7 +123,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">7. Changes to This Policy</h2>
+          <h2 className="text-lg text-frc-text font-medium">8. Changes to This Policy</h2>
           <p className="text-frc-text-dim leading-relaxed">
             We may update this Privacy Policy from time to time. Changes will be posted
             on this page with an updated revision date.
@@ -106,7 +131,7 @@ export default function PrivacyPage() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-lg text-frc-text font-medium">8. Contact</h2>
+          <h2 className="text-lg text-frc-text font-medium">9. Contact</h2>
           <p className="text-frc-text-dim leading-relaxed">
             For questions about this Privacy Policy, please contact us through the
             channels listed on our
