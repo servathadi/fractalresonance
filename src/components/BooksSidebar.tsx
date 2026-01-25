@@ -54,6 +54,12 @@ export function BooksSidebar({ lang, currentId, basePath, view, variant = 'deskt
             </ul>
           </div>
           <div className="mt-6 pt-4 border-t border-frc-blue">
+            <Link href={`${base}/blog`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+              Blog
+            </Link>
+            <Link href={`${base}/articles`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+              Articles
+            </Link>
             <Link href={`${base}/papers`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
               Papers
             </Link>
