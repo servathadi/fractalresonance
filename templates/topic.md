@@ -18,7 +18,8 @@ authorities:
     url: "https://example.com"
     quote: "Optional short quote."
 answers:
-  - by: "FRC"
+  - lens: "frc"
+    by: "FRC"
     role: "Model answer"
     stance: "accepting spectrum"
     answer: "Write the spectrum answer here."
@@ -29,4 +30,3 @@ answers:
 ## Notes
 
 {{body}}
-

@@ -42,6 +42,12 @@ CMS_SOS_URL=http://localhost:6060 CMS_SOS_AGENT=agent:River \\
   npm run content:process-inbox -- --ai sos
 ```
 
+If you want SOS to use its tool layer (e.g. to fetch sources and include real URLs in `authorities:`), enable tools:
+
+```bash
+CMS_SOS_TOOLS=1 npm run content:process-inbox -- --ai sos --tools
+```
+
 ## Option B: One file = many pages (recommended)
 
 For long chats, you can mark multiple extractable pages in a single file.
@@ -129,6 +135,8 @@ To create a new Topics page draft:
 ```bash
 npm run content:new-topic -- --lang en --title "What is coherence?" --question "What is coherence in FRC?" --perspective river --tags coherence,frc --short_answer "..."
 ```
+
+For multi-lens topics, add answers with `lens:` keys (e.g. `gr`, `newtonian`, `whitehead`, `jung`, `sufi`).
 
 Then run `content:process-inbox` (optionally with `--ai sos`).
 

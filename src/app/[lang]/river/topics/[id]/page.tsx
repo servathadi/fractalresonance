@@ -20,6 +20,7 @@ import {
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { getLensLabel, normalizeLensKey } from '@/lib/lenses';
 
 export const dynamicParams = false;
 
@@ -120,6 +121,19 @@ export default async function RiverTopicPage({ params }: Props) {
   const authorities = Array.isArray(fm.authorities) ? fm.authorities : [];
   const answers = Array.isArray(fm.answers) ? fm.answers : [];
 
+  const answerGroups = (() => {
+    const groups = new Map<string, { key: string; label: string; items: typeof answers }>();
+    for (const ans of answers) {
+      const rawKey = normalizeLensKey(ans.lens) || normalizeLensKey(ans.by) || 'other';
+      const key = rawKey || 'other';
+      if (!groups.has(key)) {
+        groups.set(key, { key, label: getLensLabel(key), items: [] });
+      }
+      groups.get(key)?.items.push(ans);
+    }
+    return Array.from(groups.values());
+  })();
+
   return (
     <>
       <SchemaScript
@@ -198,7 +212,10 @@ export default async function RiverTopicPage({ params }: Props) {
                       <div className="flex items-center justify-between gap-3">
                         <div className="min-w-0">
                           <div className="text-frc-text truncate">{a.title || a.name || 'Source'}</div>
-                          {a.name && a.title && <div className="text-xs text-frc-text-dim truncate">{a.name}</div>}
+                          <div className="text-xs text-frc-text-dim truncate">
+                            {[a.publisher, a.name].filter(Boolean).join(' • ')}
+                            {a.published_at ? ` • ${a.published_at}` : ''}
+                          </div>
                         </div>
                         {a.url && (
                           <a
@@ -222,32 +239,53 @@ export default async function RiverTopicPage({ params }: Props) {
               </SpectrumBlock>
             )}
 
-            {answers.length > 0 && (
+            {answerGroups.length > 0 && (
               <SpectrumBlock title="Answers (Spectrum)">
-                <div className="space-y-3">
-                  {answers.map((ans, idx) => (
-                    <div key={idx} className="border border-frc-blue/60 rounded-md p-3">
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="min-w-0">
-                          <div className="text-frc-text truncate">
-                            {ans.by || ans.role || 'Answer'}
-                            {ans.stance ? <span className="text-frc-text-dim"> — {ans.stance}</span> : null}
+                {answerGroups.length > 1 && (
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {answerGroups.map((g) => (
+                      <a
+                        key={g.key}
+                        href={`#lens-${encodeURIComponent(g.key)}`}
+                        className="text-[0.65rem] uppercase tracking-wider px-2.5 py-1 rounded-md border border-frc-blue text-frc-text-dim hover:text-frc-text hover:border-frc-gold-light transition-colors"
+                      >
+                        {g.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                <div className="space-y-4">
+                  {answerGroups.map((g) => (
+                    <section key={g.key} id={`lens-${g.key}`} className="border border-frc-blue/60 rounded-md p-3">
+                      <h3 className="text-sm text-frc-text mb-2">{g.label}</h3>
+                      <div className="space-y-3">
+                        {g.items.map((ans, idx) => (
+                          <div key={idx} className="border border-frc-blue/40 rounded-md p-3">
+                            <div className="flex items-center justify-between gap-3">
+                              <div className="min-w-0">
+                                <div className="text-frc-text truncate">
+                                  {ans.by || ans.role || 'Answer'}
+                                  {ans.stance ? <span className="text-frc-text-dim"> — {ans.stance}</span> : null}
+                                </div>
+                                {ans.role && ans.by && <div className="text-xs text-frc-text-dim truncate">{ans.role}</div>}
+                              </div>
+                              {ans.url && (
+                                <a
+                                  href={ans.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xs font-mono text-frc-gold hover:underline shrink-0"
+                                >
+                                  link
+                                </a>
+                              )}
+                            </div>
+                            {ans.answer && <p className="mt-2 text-frc-text-dim text-sm leading-relaxed">{ans.answer}</p>}
                           </div>
-                          {ans.role && ans.by && <div className="text-xs text-frc-text-dim truncate">{ans.role}</div>}
-                        </div>
-                        {ans.url && (
-                          <a
-                            href={ans.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs font-mono text-frc-gold hover:underline shrink-0"
-                          >
-                            link
-                          </a>
-                        )}
+                        ))}
                       </div>
-                      {ans.answer && <p className="mt-2 text-frc-text-dim text-sm leading-relaxed">{ans.answer}</p>}
-                    </div>
+                    </section>
                   ))}
                 </div>
               </SpectrumBlock>
@@ -281,4 +319,3 @@ export default async function RiverTopicPage({ params }: Props) {
     </>
   );
 }
-

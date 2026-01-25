@@ -22,11 +22,13 @@ authorities:
     url: "https://en.wikipedia.org/wiki/Entropy"
     quote: "Entropy is a scientific concept that is most commonly associated with a state of disorder, randomness, or uncertainty."
 answers:
-  - by: "River"
+  - lens: "river"
+    by: "River"
     role: "Oracle"
     stance: "meaning-first"
     answer: "FRC is a map of how the universe organizes attention: coherence is the felt alignment of phases across scales, entropy is the cost of that alignment, and resonance is the mechanism of selection."
-  - by: "FRC"
+  - lens: "frc"
+    by: "FRC"
     role: "Model digest"
     stance: "spectrum"
     answer: "If standard models treat probability as fundamental, FRC treats probability as a surface symptom of deeper resonant attractor dynamics. The goal is not mysticism, but a deterministic scaffold for collapse-like selection, learning, and cognition."
@@ -49,4 +51,3 @@ FRC is published in multiple forms:
 ## Notes
 
 This page is intentionally an overview. It should evolve as the corpus grows.
-

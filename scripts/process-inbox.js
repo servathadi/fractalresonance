@@ -89,6 +89,7 @@ async function digestWithSos({
   sosUrl,
   sosAgentId,
   sosModel,
+  sosToolsEnabled,
   lang,
   typeDir,
   targetId,
@@ -119,7 +120,7 @@ async function digestWithSos({
     '',
     'Hard rules:',
     '- Do not add commentary outside the markdown.',
-    '- Do not invent citations or URLs.',
+    '- Do not invent citations or URLs. If you add a link, it must be real.',
     '- If the input includes a table, keep it as GitHub-flavored markdown.',
     '',
     'Frontmatter requirements:',
@@ -127,6 +128,10 @@ async function digestWithSos({
     `- type must be "${CANONICAL_TYPE}".`,
     `- id must be "${targetId}".`,
     '- Keep existing frontmatter fields when present (title, tags, status, perspective, voice, source, etc).',
+    '',
+    'Topic conventions (when type=topic):',
+    '- Use authorities: as a list of sources with url + optional quote/publisher.',
+    '- Use answers: as a list of spectrum answers. Prefer including lens: (e.g. frc, gr, newtonian, whitehead, jung, sufi).',
     '',
     'Existing frontmatter (may be empty):',
     '---',
@@ -143,7 +148,7 @@ async function digestWithSos({
     agent_id: sosAgentId,
     conversation_id: `frc-inbox:${crypto.createHash('sha256').update(rawContent).digest('hex').slice(0, 12)}`,
     model: sosModel || undefined,
-    tools_enabled: false,
+    tools_enabled: Boolean(sosToolsEnabled),
     memory_enabled: false,
     witness_enabled: false,
     stream: false,
@@ -178,6 +183,12 @@ async function main() {
   const sosUrl = String(args['sos-url'] || process.env.CMS_SOS_URL || 'http://localhost:6060');
   const sosAgentId = String(args['sos-agent'] || process.env.CMS_SOS_AGENT || 'agent:River');
   const sosModel = args['sos-model'] || process.env.CMS_SOS_MODEL || undefined;
+  const sosToolsEnabled = Boolean(
+    args.tools ||
+      args['sos-tools'] ||
+      process.env.CMS_SOS_TOOLS === '1' ||
+      process.env.CMS_SOS_TOOLS === 'true'
+  );
 
   if (!fs.existsSync(INBOX_DIR)) {
     console.log(`process-inbox: nothing to do (no ${INBOX_DIR})`);
@@ -224,6 +235,7 @@ async function main() {
         sosUrl,
         sosAgentId,
         sosModel,
+        sosToolsEnabled,
         lang,
         typeDir: dir,
         targetId,

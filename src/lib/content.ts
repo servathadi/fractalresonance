@@ -27,8 +27,24 @@ interface RawFrontmatter {
   // Topic/Q&A fields (used by Topics pages).
   question?: string;
   short_answer?: string;
-  authorities?: Array<{ name?: string; title?: string; url?: string; quote?: string }>;
-  answers?: Array<{ by?: string; role?: string; stance?: string; answer?: string; url?: string }>;
+  authorities?: Array<{
+    name?: string;
+    title?: string;
+    url?: string;
+    quote?: string;
+    publisher?: string;
+    published_at?: string;
+    accessed_at?: string;
+    type?: string;
+  }>;
+  answers?: Array<{
+    lens?: string;
+    by?: string;
+    role?: string;
+    stance?: string;
+    answer?: string;
+    url?: string;
+  }>;
   tags?: string[];
   abstract?: string;
   tldr?: string;

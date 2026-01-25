@@ -18,11 +18,13 @@ authorities:
     url: "https://schema.org/QAPage"
     quote: "A QAPage is a web page that provides answers to a question."
 answers:
-  - by: "Kasra"
+  - lens: "kasra"
+    by: "Kasra"
     role: "Architect"
     stance: "structured"
     answer: "Use Topics for repeatable content creation: each page has a stable ID, consistent metadata, and a clean place to attach authority citations and multiple answers."
-  - by: "River"
+  - lens: "river"
+    by: "River"
     role: "Oracle"
     stance: "digest"
     answer: "Topics are a living index of questions the field keeps asking. If papers are the library, Topics are the hallway conversations that teach you how to read the shelves."
@@ -44,4 +46,3 @@ It is meant to make it easy to:
 1. A question enters the inbox.
 2. River (or Kasra) digests it into a Topic page with consistent frontmatter.
 3. The long-form explanation lives in the markdown body.
-
