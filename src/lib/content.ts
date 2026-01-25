@@ -646,7 +646,9 @@ export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
   const backlinks: Record<string, string[]> = {};
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
-  const allContent = [...papers, ...concepts];
+  const books = getBooks(lang);
+  const articles = getArticles(lang);
+  const allContent = [...papers, ...concepts, ...books, ...articles];
 
   for (const content of allContent) {
     const sourceId = content.frontmatter.id;

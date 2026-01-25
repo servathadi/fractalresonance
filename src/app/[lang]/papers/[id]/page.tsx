@@ -92,7 +92,7 @@ export default async function PaperPage({ params }: Props) {
 
   // Content is from trusted local markdown files (not user input).
   // Rendered at build time via static generation.
-  const renderedBody = renderMarkdown(paper.body, lang);
+  const renderedBody = renderMarkdown(paper.body, lang, glossary);
   const tocItems = extractTocItems(paper.body);
 
   return (
@@ -221,16 +221,20 @@ export default async function PaperPage({ params }: Props) {
                 Linked from
               </h3>
               <ul className="space-y-1">
-                {pageBacklinks.map(linkId => (
-                  <li key={linkId}>
-                    <a
-                      href={`/${lang}/papers/${linkId}`}
-                      className="text-frc-gold hover:underline text-sm"
-                    >
-                      {linkId}
-                    </a>
-                  </li>
-                ))}
+                {pageBacklinks.map(linkId => {
+                  const item = glossary[linkId];
+                  const href = item?.url || `/${lang}/papers/${linkId}`;
+                  return (
+                    <li key={linkId}>
+                      <a
+                        href={href}
+                        className="text-frc-gold hover:underline text-sm"
+                      >
+                        {item?.title || linkId}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}
@@ -241,4 +245,3 @@ export default async function PaperPage({ params }: Props) {
     </>
   );
 }
-

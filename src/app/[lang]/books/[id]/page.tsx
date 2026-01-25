@@ -70,7 +70,7 @@ export default async function BookPage({ params }: Props) {
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
 
-  const renderedBody = renderMarkdown(book.body, lang);
+  const renderedBody = renderMarkdown(book.body, lang, glossary);
   const tocItems = extractTocItems(book.body);
 
   return (
@@ -132,16 +132,20 @@ export default async function BookPage({ params }: Props) {
                 Linked from
               </h3>
               <ul className="space-y-1">
-                {pageBacklinks.map(linkId => (
-                  <li key={linkId}>
-                    <a
-                      href={`/${lang}/papers/${linkId}`}
-                      className="text-frc-gold hover:underline text-sm"
-                    >
-                      {linkId}
-                    </a>
-                  </li>
-                ))}
+                {pageBacklinks.map(linkId => {
+                  const item = glossary[linkId];
+                  const href = item?.url || `/${lang}/papers/${linkId}`;
+                  return (
+                    <li key={linkId}>
+                      <a
+                        href={href}
+                        className="text-frc-gold hover:underline text-sm"
+                      >
+                        {item?.title || linkId}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}

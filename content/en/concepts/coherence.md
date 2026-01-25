@@ -2,7 +2,7 @@
 title: "Coherence (C)"
 id: coherence
 tags: [core-concept, scalar-gauge, dimensionless]
-related: [entropy, witness, lambda]
+related: [entropy, witness, lambda-field]
 lang: en
 ---
 
@@ -31,4 +31,4 @@ Where k* is the coherence constant (1 in information layers, k_B in thermodynami
 
 - [[FRC-566-001]] — Reciprocity law formalization
 - [[FRC-100-001]] — Original definition
-- [[FRC-200-001]] — Lambda operator context
+- [[FRC-100-007]] — Lambda field formalization

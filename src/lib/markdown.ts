@@ -10,7 +10,11 @@
  * through this function.
  */
 
-export function renderMarkdown(body: string, lang: string): string {
+export function renderMarkdown(
+  body: string,
+  lang: string,
+  glossary?: Record<string, { type?: string }>
+): string {
   let html = body;
 
   // Code blocks (must be first to prevent inner processing)
@@ -48,25 +52,30 @@ export function renderMarkdown(body: string, lang: string): string {
 
   // Wikilinks with display text: [[ID|text]]
   html = html.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (_, id, display) => {
-    const href = resolveWikilinkHref(id, lang);
-    return `<a href="${href}" class="wikilink" data-wikilink-id="${id}">${display}</a>`;
+    const { cleanId } = splitWikilinkId(id);
+    const href = resolveWikilinkHref(id, lang, glossary);
+    return `<a href="${href}" class="wikilink" data-wikilink-id="${cleanId}">${display}</a>`;
   });
 
   // Wikilinks plain: [[ID]]
   html = html.replace(/\[\[([^\]]+)\]\]/g, (_, id) => {
-    const href = resolveWikilinkHref(id, lang);
-    return `<a href="${href}" class="wikilink" data-wikilink-id="${id}">${id}</a>`;
+    const { cleanId } = splitWikilinkId(id);
+    const href = resolveWikilinkHref(id, lang, glossary);
+    return `<a href="${href}" class="wikilink" data-wikilink-id="${cleanId}">${id}</a>`;
   });
 
   // Regular markdown links
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
 
-  // Unordered lists
-  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-  html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+  // Lists (use lightweight tagging to distinguish ul vs ol before wrapping)
+  html = html.replace(/^\s*\d+\.\s+(.+)$/gm, '<li data-list="ol">$1</li>');
+  html = html.replace(/^\s*-\s+(.+)$/gm, '<li data-list="ul">$1</li>');
+  html = html.replace(/((?:<li data-list="ol">.*<\/li>\n?)+)/g, '<ol>$1</ol>');
+  html = html.replace(/((?:<li data-list="ul">.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+  html = html.replace(/<li data-list="(ol|ul)">/g, '<li>');
 
-  // Ordered lists
-  html = html.replace(/^\d+\.\s(.+)$/gm, '<li>$1</li>');
+  // Tables (GitHub-style)
+  html = convertTables(html);
 
   // Paragraphs
   html = html
@@ -89,21 +98,118 @@ export function renderMarkdown(body: string, lang: string): string {
 }
 
 /** Resolve wikilink ID to href */
-function resolveWikilinkHref(id: string, lang: string): string {
-  let cleanId = id;
-  let section = '';
+function resolveWikilinkHref(
+  id: string,
+  lang: string,
+  glossary?: Record<string, { type?: string }>
+): string {
+  const { cleanId, section } = splitWikilinkId(id);
+  const itemType = glossary?.[cleanId]?.type;
 
-  if (id.includes('#')) {
-    const parts = id.split('#');
-    cleanId = parts[0];
-    section = `#${parts[1]}`;
-  }
+  if (itemType === 'paper') return `/${lang}/papers/${cleanId}${section}`;
+  if (itemType === 'concept') return `/${lang}/concepts/${cleanId}${section}`;
+  if (itemType === 'book') return `/${lang}/books/${cleanId}${section}`;
+  if (itemType === 'article') return `/${lang}/articles/${cleanId}${section}`;
 
-  // Determine if it's a paper or concept based on ID format
-  if (cleanId.match(/^FRC-\d/)) {
-    return `/${lang}/papers/${cleanId}${section}`;
-  }
+  // Fallback: infer from ID format
+  if (cleanId.match(/^FRC-\d/)) return `/${lang}/papers/${cleanId}${section}`;
   return `/${lang}/concepts/${cleanId}${section}`;
+}
+
+function splitWikilinkId(id: string): { cleanId: string; section: string } {
+  if (!id.includes('#')) return { cleanId: id, section: '' };
+  const [cleanId, sectionPart] = id.split('#');
+  return { cleanId, section: sectionPart ? `#${sectionPart}` : '' };
+}
+
+function convertTables(src: string): string {
+  const lines = src.split('\n');
+  const out: string[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const headerLine = lines[i];
+    const dividerLine = lines[i + 1];
+
+    if (headerLine && dividerLine && looksLikeTableRow(headerLine) && looksLikeTableDivider(dividerLine)) {
+      const headers = parseTableRow(headerLine);
+      const aligns = parseTableAlignments(dividerLine, headers.length);
+
+      const bodyRows: string[][] = [];
+      i += 2;
+
+      while (i < lines.length && looksLikeTableRow(lines[i])) {
+        bodyRows.push(parseTableRow(lines[i]));
+        i++;
+      }
+
+      i -= 1; // compensate for outer loop i++
+      out.push(renderTableHtml(headers, aligns, bodyRows));
+      continue;
+    }
+
+    out.push(lines[i]);
+  }
+
+  return out.join('\n');
+}
+
+function looksLikeTableRow(line: string): boolean {
+  // Very small heuristic: at least two pipes and not a code fence marker.
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  if (trimmed.startsWith('```')) return false;
+  const pipeCount = (trimmed.match(/\|/g) || []).length;
+  return pipeCount >= 2;
+}
+
+function looksLikeTableDivider(line: string): boolean {
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  // e.g. | --- | :---: | ---: |
+  return /^[\|\s:-]+$/.test(trimmed) && trimmed.includes('-') && trimmed.includes('|');
+}
+
+function parseTableRow(line: string): string[] {
+  const parts = line.split('|').map(p => p.trim());
+  // Drop leading/trailing empties from optional outer pipes
+  if (parts.length && parts[0] === '') parts.shift();
+  if (parts.length && parts[parts.length - 1] === '') parts.pop();
+  return parts;
+}
+
+function parseTableAlignments(dividerLine: string, count: number): Array<'left' | 'center' | 'right'> {
+  const cols = parseTableRow(dividerLine);
+  const aligns: Array<'left' | 'center' | 'right'> = [];
+
+  for (let i = 0; i < count; i++) {
+    const raw = (cols[i] || '').trim();
+    const starts = raw.startsWith(':');
+    const ends = raw.endsWith(':');
+    if (starts && ends) aligns.push('center');
+    else if (ends) aligns.push('right');
+    else aligns.push('left');
+  }
+
+  return aligns;
+}
+
+function renderTableHtml(
+  headers: string[],
+  aligns: Array<'left' | 'center' | 'right'>,
+  rows: string[][]
+): string {
+  const ths = headers
+    .map((h, idx) => `<th align="${aligns[idx] || 'left'}">${h}</th>`)
+    .join('');
+
+  const trs = rows
+    .map((r) => {
+      const tds = headers.map((_, idx) => `<td align="${aligns[idx] || 'left'}">${r[idx] || ''}</td>`).join('');
+      return `<tr>${tds}</tr>`;
+    })
+    .join('');
+
+  return `<table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
 }
 
 /** Extract table-of-contents items from markdown heading lines */

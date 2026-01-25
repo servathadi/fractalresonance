@@ -65,7 +65,7 @@ export default async function ConceptPage({ params }: Props) {
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang);
 
-  const renderedBody = renderMarkdown(concept.body, lang);
+  const renderedBody = renderMarkdown(concept.body, lang, glossary);
 
   return (
     <>
@@ -115,15 +115,19 @@ export default async function ConceptPage({ params }: Props) {
                 Related Concepts
               </h3>
               <div className="flex flex-wrap gap-3">
-                {concept.frontmatter.related.map(rel => (
-                  <a
-                    key={rel}
-                    href={`/${lang}/concepts/${rel}`}
-                    className="text-frc-gold hover:underline text-sm"
-                  >
-                    {rel}
-                  </a>
-                ))}
+                {concept.frontmatter.related.map(rel => {
+                  const item = glossary[rel];
+                  const href = item?.url || `/${lang}/concepts/${rel}`;
+                  return (
+                    <a
+                      key={rel}
+                      href={href}
+                      className="text-frc-gold hover:underline text-sm"
+                    >
+                      {item?.title || rel}
+                    </a>
+                  );
+                })}
               </div>
             </section>
           )}
@@ -135,16 +139,20 @@ export default async function ConceptPage({ params }: Props) {
                 Referenced by
               </h3>
               <ul className="space-y-1">
-                {pageBacklinks.map(linkId => (
-                  <li key={linkId}>
-                    <a
-                      href={`/${lang}/papers/${linkId}`}
-                      className="text-frc-gold hover:underline text-sm"
-                    >
-                      {linkId}
-                    </a>
-                  </li>
-                ))}
+                {pageBacklinks.map(linkId => {
+                  const item = glossary[linkId];
+                  const href = item?.url || `/${lang}/papers/${linkId}`;
+                  return (
+                    <li key={linkId}>
+                      <a
+                        href={href}
+                        className="text-frc-gold hover:underline text-sm"
+                      >
+                        {item?.title || linkId}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           )}

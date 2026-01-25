@@ -2,7 +2,7 @@
 title: "همدوسی (C)"
 id: coherence
 tags: [مفهوم-اصلی, سنجه-اسکالر, بدون-بعد]
-related: [entropy, witness, lambda]
+related: [entropy, witness, lambda-field]
 lang: fa
 ---
 
@@ -31,4 +31,4 @@ S + k* ln C = const.
 
 - [[FRC-566-001]] — فرمول‌بندی قانون متقابل
 - [[FRC-100-001]] — تعریف اصلی
-- [[FRC-200-001]] — زمینه عملگر لامبدا
+- [[FRC-100-007]] — فرمول‌بندی میدان لامبدا

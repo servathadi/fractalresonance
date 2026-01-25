@@ -2,7 +2,7 @@
 title: "Cohérence (C)"
 id: coherence
 tags: [concept-central, jauge-scalaire, adimensionnel]
-related: [entropy, witness, lambda]
+related: [entropy, witness, lambda-field]
 lang: fr
 ---
 
@@ -31,4 +31,4 @@ Où k* est la constante de cohérence (1 dans les couches d'information, k_B dan
 
 - [[FRC-566-001]] — Formalisation de la loi de réciprocité
 - [[FRC-100-001]] — Définition originale
-- [[FRC-200-001]] — Contexte de l'opérateur Lambda
+- [[FRC-100-007]] — Formalisation du champ Lambda
