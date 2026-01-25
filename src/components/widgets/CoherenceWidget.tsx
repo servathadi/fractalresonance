@@ -1,6 +1,19 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from 'next-themes';
+
+// Theme-aware colors
+const COLORS = {
+  dark: {
+    blue: '#1F3A5F',
+    gold: '#C9A227',
+  },
+  light: {
+    blue: '#CBD5E1',
+    gold: '#96780A',
+  },
+};
 
 interface CoherenceWidgetProps {
   initialN?: number;
@@ -9,7 +22,9 @@ interface CoherenceWidgetProps {
 
 export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidgetProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+  const { resolvedTheme } = useTheme();
+  const colors = COLORS[resolvedTheme === 'dark' ? 'dark' : 'light'];
+
   // Simulation State
   const [N, setN] = useState(initialN);
   const [K, setK] = useState(initialK);
@@ -93,7 +108,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
       // Unit Circle
       ctx.beginPath();
       ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
-      ctx.strokeStyle = '#1F3A5F'; // frc-blue
+      ctx.strokeStyle = colors.blue;
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -107,7 +122,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
         // Color based on sync (closeness to psi)
         const diff = Math.abs(osc.phase - psi) % (2*Math.PI);
         // Simple gold/steel coloring
-        ctx.fillStyle = '#C9A227'; // frc-gold
+        ctx.fillStyle = colors.gold;
         ctx.fill();
       }
 
@@ -119,7 +134,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
       ctx.beginPath();
       ctx.moveTo(cx, cy);
       ctx.lineTo(ax, ay);
-      ctx.strokeStyle = '#C9A227'; // frc-gold
+      ctx.strokeStyle = colors.gold;
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -127,7 +142,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
       if (r > 0.05) {
         ctx.beginPath();
         ctx.arc(ax, ay, 4, 0, 2 * Math.PI);
-        ctx.fillStyle = '#C9A227';
+        ctx.fillStyle = colors.gold;
         ctx.fill();
       }
 
@@ -143,7 +158,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
     animationId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationId);
-  }, [isRunning, N]); // Re-bind if N changes (re-init)
+  }, [isRunning, N, colors]); // Re-bind if N or theme changes
 
   return (
     <div className="w-full bg-frc-void border border-frc-blue rounded-lg p-5">

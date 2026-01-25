@@ -3,6 +3,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
+
+// Theme-aware colors
+const COLORS = {
+  dark: {
+    void: '#0B1020',
+    text: '#E6E8EC',
+    blue: '#1F3A5F',
+    gold: '#C9A227',
+    steel: '#6B7280',
+    textDim: '#9CA3AF',
+  },
+  light: {
+    void: '#FAFBFC',
+    text: '#1A1D23',
+    blue: '#CBD5E1',
+    gold: '#96780A',
+    steel: '#9CA3AF',
+    textDim: '#6B7280',
+  },
+};
 
 interface GraphNode extends d3.SimulationNodeDatum {
   id: string;
@@ -29,6 +50,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const router = useRouter();
   const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
+  const { resolvedTheme } = useTheme();
+  const colors = COLORS[resolvedTheme === 'dark' ? 'dark' : 'light'];
 
   useEffect(() => {
     if (!containerRef.current || !svgRef.current || !data.nodes.length) return;
@@ -61,7 +84,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
 
     // Links
     const link = g.append('g')
-      .attr('stroke', '#6B7280') // frc-steel
+      .attr('stroke', colors.steel)
       .attr('stroke-opacity', 0.6)
       .selectAll('line')
       .data(data.links)
@@ -70,13 +93,13 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
 
     // Nodes
     const node = g.append('g')
-      .attr('stroke', '#0B1020') // frc-void
+      .attr('stroke', colors.void)
       .attr('stroke-width', 1.5)
       .selectAll('circle')
       .data(data.nodes)
       .join('circle')
       .attr('r', d => d.val * 3 + 2) // Base size + centrality
-      .attr('fill', d => d.type === 'paper' ? '#C9A227' : '#1F3A5F') // Gold vs Blue
+      .attr('fill', d => d.type === 'paper' ? colors.gold : colors.blue)
       .attr('cursor', 'pointer')
       .call(d3.drag<any, any>()
         .on('start', dragstarted)
@@ -94,7 +117,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       .attr('dy', 4)
       .text(d => d.id)
       .attr('font-size', '10px')
-      .attr('fill', '#9CA3AF') // frc-text-dim
+      .attr('fill', colors.textDim)
       .attr('pointer-events', 'none')
       .style('opacity', d => d.val > 2 ? 1 : 0); // Hide labels for small nodes initially
 
@@ -102,12 +125,12 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     node
       .on('mouseover', (event, d) => {
         setHoveredNode(d);
-        d3.select(event.currentTarget).attr('stroke', '#E6E8EC').attr('stroke-width', 2);
+        d3.select(event.currentTarget).attr('stroke', colors.text).attr('stroke-width', 2);
         // Highlight connections could go here
       })
       .on('mouseout', (event) => {
         setHoveredNode(null);
-        d3.select(event.currentTarget).attr('stroke', '#0B1020').attr('stroke-width', 1.5);
+        d3.select(event.currentTarget).attr('stroke', colors.void).attr('stroke-width', 1.5);
       })
       .on('click', (event, d) => {
         const path = d.type === 'paper' ? 'papers' : 'concepts';
@@ -152,7 +175,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return () => {
       simulation.stop();
     };
-  }, [data, lang, router]);
+  }, [data, lang, router, colors]);
 
   return (
     <div ref={containerRef} className="w-full h-[600px] relative bg-frc-void border border-frc-blue/30 rounded-lg overflow-hidden">
