@@ -7,6 +7,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
+import { InlineToc } from '@/components/InlineToc';
 import { ReadingMode } from '@/components/ReadingMode';
 import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -89,7 +90,8 @@ export default async function RiverArticlePage({ params }: Props) {
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
-      <main className="min-h-screen flex">
+      <main className="min-h-screen flex flex-col lg:flex-row">
+        <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" variant="mobile" />
         <Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
@@ -133,6 +135,8 @@ export default async function RiverArticlePage({ params }: Props) {
             prerequisites={prereqLinks}
             readTime={readTime}
           />
+
+          <InlineToc items={tocItems} />
 
           {/* Video embed (if available) */}
           {meta.video && (

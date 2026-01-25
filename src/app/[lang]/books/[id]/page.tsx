@@ -6,6 +6,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
+import { InlineToc } from '@/components/InlineToc';
 import { ReadingMode } from '@/components/ReadingMode';
 import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
@@ -90,7 +91,8 @@ export default async function BookPage({ params }: Props) {
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
-      <main className="min-h-screen flex">
+      <main className="min-h-screen flex flex-col lg:flex-row">
+        <BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
         <BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
@@ -140,6 +142,8 @@ export default async function BookPage({ params }: Props) {
               {book.frontmatter.abstract}
             </blockquote>
           )}
+
+          <InlineToc items={tocItems} title="Book index" />
 
           {/* Body */}
           {chapters.length > 0 && (

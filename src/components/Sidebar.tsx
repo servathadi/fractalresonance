@@ -6,9 +6,10 @@ interface SidebarProps {
   currentId?: string;
   basePath?: string;
   view?: PerspectiveView;
+  variant?: 'desktop' | 'mobile';
 }
 
-export function Sidebar({ lang, currentId, basePath, view }: SidebarProps) {
+export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }: SidebarProps) {
   const papers = getPapers(lang).filter((p) => (view ? matchesPerspectiveView(p.frontmatter.perspective, view) : true));
   const concepts = getConcepts(lang).filter((c) => (view ? matchesPerspectiveView(c.frontmatter.perspective, view) : true));
   const base = basePath || `/${lang}`;
@@ -24,39 +25,58 @@ export function Sidebar({ lang, currentId, basePath, view }: SidebarProps) {
   // (e.g. "841.004") doesn't feel "missing".
   const open800Default = open800 || open100;
 
-  return (
-    <aside data-sidebar className="w-56 shrink-0 border-r border-frc-blue hidden lg:block">
-      <nav className="py-6 px-4 text-sm sticky top-0">
-        <SidebarSection title="100 — Core Theory" items={series100} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open100 : true} />
-        <SidebarSection title="566 — Reciprocity" items={series566} currentId={currentId} base={base} openByDefault={open566} />
-        <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800Default} />
-        {concepts.length > 0 && (
-          <div className="mt-6">
-            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
-            <ul className="space-y-0.5">
-              {concepts.map(c => (
-                <li key={c.frontmatter.id}>
-                  <Link
-                    href={`${base}/concepts/${c.frontmatter.id}`}
-                    className={`block px-2 py-1 rounded transition-colors ${
-                      currentId === c.frontmatter.id
-                        ? 'text-frc-gold bg-frc-blue/30'
-                        : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20'
-                    }`}
-                  >
-                    {c.frontmatter.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <div className="mt-6 pt-4 border-t border-frc-blue">
-          <Link href={`${base}/formulas`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-            Formulas Reference
-          </Link>
+  const isMobile = variant === 'mobile';
+  const asideClass = isMobile
+    ? 'w-full border-b border-frc-blue block lg:hidden'
+    : 'w-60 xl:w-72 shrink-0 border-r border-frc-blue hidden lg:block';
+  const navClass = isMobile ? 'py-3 px-4 text-sm' : 'py-6 px-4 text-sm sticky top-0';
+
+  const nav = (
+    <nav className={navClass}>
+      <SidebarSection title="100 — Core Theory" items={series100} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open100 : true} />
+      <SidebarSection title="566 — Reciprocity" items={series566} currentId={currentId} base={base} openByDefault={open566} />
+      <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800Default} />
+      {concepts.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
+          <ul className="space-y-0.5 max-h-64 overflow-y-auto pr-1">
+            {concepts.map(c => (
+              <li key={c.frontmatter.id}>
+                <Link
+                  href={`${base}/concepts/${c.frontmatter.id}`}
+                  className={`block px-2 py-1 rounded transition-colors ${
+                    currentId === c.frontmatter.id
+                      ? 'text-frc-gold bg-frc-blue/30'
+                      : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20'
+                  }`}
+                >
+                  {c.frontmatter.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </nav>
+      )}
+      <div className="mt-6 pt-4 border-t border-frc-blue">
+        <Link href={`${base}/formulas`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+          Formulas Reference
+        </Link>
+      </div>
+    </nav>
+  );
+
+  return (
+    <aside data-sidebar className={asideClass}>
+      {isMobile ? (
+        <details>
+          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+            <span className="text-xs uppercase tracking-wider text-frc-steel">Browse library</span>
+          </summary>
+          {nav}
+        </details>
+      ) : (
+        nav
+      )}
     </aside>
   );
 }
