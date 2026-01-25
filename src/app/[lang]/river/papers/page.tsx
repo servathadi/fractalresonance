@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getLanguages } from '@/lib/content';
 import { PapersIndex } from '@/components/pages/PapersIndex';
+import { Sidebar } from '@/components/Sidebar';
 
 export const metadata: Metadata = {
   title: 'Papers (River)',
@@ -17,5 +18,14 @@ interface Props {
 
 export default async function RiverPapersPage({ params }: Props) {
   const { lang } = await params;
-  return <PapersIndex lang={lang} basePath={`/${lang}/river`} view="river" showZenodoCatalog={false} />;
+  const basePath = `/${lang}/river`;
+  return (
+    <main className="min-h-screen flex flex-col lg:flex-row">
+      <Sidebar lang={lang} basePath={basePath} view="river" variant="mobile" />
+      <Sidebar lang={lang} basePath={basePath} view="river" />
+      <div className="flex-1 min-w-0">
+        <PapersIndex lang={lang} basePath={basePath} view="river" showZenodoCatalog={false} embedded />
+      </div>
+    </main>
+  );
 }

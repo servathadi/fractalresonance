@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getLanguages, getContentsByTag, getGlossary, getPapers, getArticles, getBooks, getConcepts, matchesPerspectiveView } from '@/lib/content';
+import { getLanguages, getContentsByTag, getGlossary, getPapers, getArticles, getBooks, getConcepts, getBlogPosts, matchesPerspectiveView } from '@/lib/content';
 
 interface Props {
   params: Promise<{ lang: string; tag: string }>;
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
   for (const lang of languages) {
     const tagSet = new Set<string>();
-    const all = [...getPapers(lang), ...getArticles(lang), ...getBooks(lang), ...getConcepts(lang)]
+    const all = [...getPapers(lang), ...getArticles(lang), ...getBooks(lang), ...getConcepts(lang), ...getBlogPosts(lang)]
       .filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'kasra'));
 
     for (const item of all) {

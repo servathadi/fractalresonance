@@ -1,11 +1,21 @@
 import Link from 'next/link';
 import { getBooks, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 
-export function BooksIndex({ lang, basePath, view }: { lang: string; basePath: string; view: PerspectiveView }) {
+export function BooksIndex({
+  lang,
+  basePath,
+  view,
+  embedded = false,
+}: {
+  lang: string;
+  basePath: string;
+  view: PerspectiveView;
+  embedded?: boolean;
+}) {
   const books = getBooks(lang).filter((b) => matchesPerspectiveView(b.frontmatter.perspective, view));
 
-  return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+  const content = (
+    <div className="max-w-4xl mx-auto px-6 py-12">
       <header className="mb-12">
         <h1 className="text-3xl font-light text-frc-gold mb-3">Books</h1>
         <p className="text-frc-text-dim">
@@ -49,7 +59,9 @@ export function BooksIndex({ lang, basePath, view }: { lang: string; basePath: s
           })}
         </div>
       )}
-    </main>
+    </div>
   );
-}
 
+  if (embedded) return content;
+  return <main>{content}</main>;
+}

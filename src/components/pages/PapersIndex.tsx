@@ -19,11 +19,13 @@ export function PapersIndex({
   basePath,
   view,
   showZenodoCatalog = true,
+  embedded = false,
 }: {
   lang: string;
   basePath: string;
   view: PerspectiveView;
   showZenodoCatalog?: boolean;
+  embedded?: boolean;
 }) {
   const papers = getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view));
 
@@ -37,8 +39,8 @@ export function PapersIndex({
       && !p.frontmatter.id?.startsWith('FRC-8')
   );
 
-  return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+  const content = (
+    <div className="max-w-4xl mx-auto px-6 py-12">
       <header className="mb-12">
         <h1 className="text-3xl font-light text-frc-gold mb-3">Papers</h1>
         <p className="text-frc-text-dim">
@@ -155,8 +157,11 @@ export function PapersIndex({
           </div>
         </section>
       )}
-    </main>
+    </div>
   );
+
+  if (embedded) return content;
+  return <main>{content}</main>;
 }
 
 function PaperCard({ paper, basePath }: { paper: ParsedContent; basePath: string }) {

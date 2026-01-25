@@ -4,10 +4,13 @@ import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
-import { Sidebar } from '@/components/Sidebar';
+import { ConceptsSidebar } from '@/components/ConceptsSidebar';
+import { TableOfContents } from '@/components/TableOfContents';
+import { InlineToc } from '@/components/InlineToc';
+import { PageShell } from '@/components/PageShell';
 import { schemaConceptPage } from '@/lib/schema';
 import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
-import { renderMarkdown } from '@/lib/markdown';
+import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -76,15 +79,17 @@ export default async function ConceptPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(concept.body, lang, glossary, basePath);
+  const tocItems = extractTocItems(concept.body);
 
   return (
     <>
       <SchemaScript data={schemaConceptPage(meta)} />
 
-      <main className="min-h-screen flex flex-col lg:flex-row">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
-        <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
+      <PageShell
+        leftMobile={<ConceptsSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<ConceptsSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
+        right={<TableOfContents items={tocItems} />}
+      >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
@@ -119,6 +124,8 @@ export default async function ConceptPage({ params }: Props) {
             keyPoints={fm.key_points}
             prerequisites={prereqLinks}
           />
+
+          <InlineToc items={tocItems} />
 
           {/* Body */}
           <div className="content-body">
@@ -173,8 +180,7 @@ export default async function ConceptPage({ params }: Props) {
               </ul>
             </section>
           )}
-        </article>
-      </main>
+      </PageShell>
     </>
   );
 }
