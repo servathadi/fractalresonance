@@ -3,7 +3,7 @@ import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of Service for Fractal Resonance Coherence (fractalresonance.com)',
+  description: 'Terms of Service for Fractal Resonance Cognition (fractalresonance.com)',
 };
 
 export function generateStaticParams() {
@@ -36,7 +36,7 @@ export default function TermsPage() {
           <h2 className="text-lg text-frc-text font-medium">2. Nature of Content</h2>
           <p className="text-frc-text-dim leading-relaxed">
             The Website presents theoretical physics research and academic publications related
-            to the Fractal Resonance Coherence (FRC) framework. The content is:
+            to the Fractal Resonance Cognition (FRC) framework. The content is:
           </p>
           <ul className="list-disc list-inside text-frc-text-dim space-y-2 ml-4">
             <li>Theoretical in nature and represents an ongoing research program</li>

@@ -4,7 +4,7 @@ import { getBooks, getLanguages, type ParsedContent } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Books',
-  description: 'Books exploring the Fractal Resonance Coherence framework — from foundational theory to applications.',
+  description: 'Books exploring the Fractal Resonance Cognition framework — from foundational theory to applications.',
 };
 
 export function generateStaticParams() {
@@ -24,7 +24,7 @@ export default async function BooksPage({ params }: Props) {
       <header className="mb-12">
         <h1 className="text-3xl font-light text-frc-gold mb-3">Books</h1>
         <p className="text-frc-text-dim">
-          Long-form explorations of the Fractal Resonance Coherence framework.
+          Long-form explorations of the Fractal Resonance Cognition framework.
         </p>
       </header>
 

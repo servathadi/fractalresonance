@@ -3,7 +3,7 @@ import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Fractal Resonance Coherence (fractalresonance.com)',
+  description: 'Privacy Policy for Fractal Resonance Cognition (fractalresonance.com)',
 };
 
 export function generateStaticParams() {
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
         <section className="space-y-4">
           <h2 className="text-lg text-frc-text font-medium">1. Introduction</h2>
           <p className="text-frc-text-dim leading-relaxed">
-            Fractal Resonance Coherence (&quot;FRC&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website
+            Fractal Resonance Cognition (&quot;FRC&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website
             fractalresonance.com. This Privacy Policy explains how we collect, use, and protect
             information when you visit our website.
           </p>

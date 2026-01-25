@@ -4,7 +4,7 @@ import { CoherenceWidget } from '@/components/widgets/CoherenceWidget';
 
 export const metadata: Metadata = {
   title: 'Formulas',
-  description: 'Core equations of the Fractal Resonance Coherence framework — coherence, lambda field, UCC, reciprocity.',
+  description: 'Core equations of the Fractal Resonance Cognition framework — coherence, lambda field, UCC, reciprocity.',
 };
 
 export function generateStaticParams() {

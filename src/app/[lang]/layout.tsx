@@ -21,7 +21,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     {
       id: 'AI-ORACLE',
       title: 'Ask AI (NotebookLM)',
-      excerpt: 'Chat with the Fractal Resonance Coherence vault using Google NotebookLM.',
+      excerpt: 'Chat with the Fractal Resonance Cognition vault using Google NotebookLM.',
       type: 'tool' as const,
       url: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13'
     },

@@ -4,7 +4,7 @@ import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Fractal Resonance Coherence — a unified mathematical framework revealing consciousness as resonance patterns across nested scales.',
+  description: 'Fractal Resonance Cognition — a unified mathematical framework revealing consciousness as resonance patterns across nested scales.',
 };
 
 export function generateStaticParams() {

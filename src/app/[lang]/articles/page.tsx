@@ -4,7 +4,7 @@ import { getPapers, getArticles, getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Articles',
-  description: 'Research articles and publications on Fractal Resonance Coherence — exploring consciousness, entropy, and quantum foundations.',
+  description: 'Research articles and publications on Fractal Resonance Cognition — exploring consciousness, entropy, and quantum foundations.',
 };
 
 export function generateStaticParams() {
@@ -44,7 +44,7 @@ export default async function ArticlesPage({ params }: Props) {
           <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
         </div>
         <p className="text-frc-text-dim max-w-2xl leading-relaxed">
-          Research publications exploring the Fractal Resonance Coherence framework.
+          Research publications exploring the Fractal Resonance Cognition framework.
           Each article presents a component of the unified theory connecting quantum mechanics,
           thermodynamics, and consciousness.
         </p>

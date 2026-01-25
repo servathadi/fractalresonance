@@ -24,7 +24,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image src="/brand/sigil-64.png" alt="FRC" width={24} height={24} className="opacity-70" />
               <span className="text-frc-gold text-sm font-medium tracking-wide">
-                Fractal Resonance Coherence
+                Fractal Resonance Cognition
               </span>
             </div>
             <p className="text-frc-text-dim text-xs leading-relaxed max-w-sm mb-4">

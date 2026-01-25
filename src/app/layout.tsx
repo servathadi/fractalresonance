@@ -10,24 +10,24 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Fractal Resonance Coherence',
+    default: 'Fractal Resonance Cognition',
     template: '%s | FRC',
   },
-  description: 'Research platform for the Fractal Resonance Coherence framework — exploring consciousness, coherence, and quantum foundations.',
+  description: 'Research platform for the Fractal Resonance Cognition framework — exploring consciousness, coherence, and quantum foundations.',
   keywords: ['FRC', 'fractal resonance', 'coherence', 'consciousness', 'quantum mechanics', 'entropy', 'reciprocity'],
   authors: [{ name: 'Hadi Servat' }],
   metadataBase: new URL('https://fractalresonance.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Fractal Resonance Coherence',
-    title: 'Fractal Resonance Coherence',
+    siteName: 'Fractal Resonance Cognition',
+    title: 'Fractal Resonance Cognition',
     description: 'Research platform exploring the reciprocal relationship between entropy and coherence.',
     images: [{ url: '/brand/banner.jpg', width: 1024, height: 572 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fractal Resonance Coherence',
+    title: 'Fractal Resonance Cognition',
     description: 'Research platform exploring the reciprocal relationship between entropy and coherence.',
   },
   robots: {

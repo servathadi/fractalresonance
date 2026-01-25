@@ -41,7 +41,7 @@ export default async function PapersPage({ params }: Props) {
       <header className="mb-12">
         <h1 className="text-3xl font-light text-frc-gold mb-3">Papers</h1>
         <p className="text-frc-text-dim">
-          Published research on the Fractal Resonance Coherence framework.
+          Published research on the Fractal Resonance Cognition framework.
           All papers are available on{' '}
           <a href="https://zenodo.org" target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline">
             Zenodo
