@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { getConcepts, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
+import { ConceptsGridClient, type ConceptsGridItem } from '@/components/pages/ConceptsGridClient';
 
 export function ConceptsIndex({
   lang,
@@ -13,6 +13,22 @@ export function ConceptsIndex({
   embedded?: boolean;
 }) {
   const concepts = getConcepts(lang).filter((c) => matchesPerspectiveView(c.frontmatter.perspective, view));
+
+  const items: ConceptsGridItem[] = concepts.map((c) => {
+    const fm = c.frontmatter;
+    const excerpt = c.body
+      .split('\n\n')
+      .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
+      ?.replace(/\[\[|\]\]/g, '')
+      .slice(0, 180) || '';
+    return {
+      id: fm.id,
+      title: fm.title,
+      excerpt,
+      href: `${basePath}/concepts/${fm.id}`,
+      tags: fm.tags || [],
+    };
+  });
 
   const content = (
     <div className="max-w-4xl mx-auto px-6 py-12">
@@ -28,41 +44,7 @@ export function ConceptsIndex({
           No concepts published yet.
         </div>
       ) : (
-        <div className="grid gap-4">
-          {concepts.map((c) => {
-            const fm = c.frontmatter;
-            const excerpt = c.body
-              .split('\n\n')
-              .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
-              ?.replace(/\[\[|\]\]/g, '')
-              .slice(0, 180) || '';
-
-            return (
-              <Link
-                key={fm.id}
-                href={`${basePath}/concepts/${fm.id}`}
-                className="card block p-6 group"
-              >
-                <div className="flex items-start justify-between gap-4 mb-2">
-                  <div className="min-w-0">
-                    <h2 className="text-xl text-frc-text group-hover:text-frc-gold transition-colors font-medium">
-                      {fm.title}
-                    </h2>
-                    <div className="flex items-center gap-3 mt-2 text-xs text-frc-steel">
-                      <span className="font-mono">{fm.id}</span>
-                    </div>
-                  </div>
-                  <span className="text-frc-steel group-hover:text-frc-gold transition-colors shrink-0">&rarr;</span>
-                </div>
-                {excerpt && (
-                  <p className="text-sm text-frc-text-dim leading-relaxed line-clamp-3">
-                    {excerpt}
-                  </p>
-                )}
-              </Link>
-            );
-          })}
-        </div>
+        <ConceptsGridClient items={items} />
       )}
     </div>
   );

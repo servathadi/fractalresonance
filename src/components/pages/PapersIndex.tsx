@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { getPapers, matchesPerspectiveView, type ParsedContent, type PerspectiveView } from '@/lib/content';
+import { getPapers, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
+import { PapersGridClient, type PapersGridItem } from '@/components/pages/PapersGridClient';
 
 // Paper DOIs for Zenodo links
 const PAPER_DOIS: Record<string, string> = {
@@ -29,15 +30,27 @@ export function PapersIndex({
 }) {
   const papers = getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view));
 
-  // Group by series (simple prefix-based)
-  const series100 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-100'));
-  const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
-  const series800 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-8'));
-  const other = papers.filter(
-    p => !p.frontmatter.id?.startsWith('FRC-100')
-      && !p.frontmatter.id?.startsWith('FRC-566')
-      && !p.frontmatter.id?.startsWith('FRC-8')
-  );
+  const items: PapersGridItem[] = papers.map((paper) => {
+    const fm = paper.frontmatter;
+    const id = fm.id;
+    const doi = PAPER_DOIS[id];
+    const series: PapersGridItem['series'] =
+      id?.startsWith('FRC-100') ? '100'
+      : id?.startsWith('FRC-566') ? '566'
+      : id?.startsWith('FRC-8') ? '800'
+      : 'other';
+
+    return {
+      id,
+      title: fm.title,
+      abstract: fm.abstract,
+      date: fm.date,
+      href: `${basePath}/papers/${id}`,
+      tags: fm.tags || [],
+      series,
+      doiSuffix: doi ? doi.split('/').pop() : undefined,
+    };
+  });
 
   const content = (
     <div className="max-w-4xl mx-auto px-6 py-12">
@@ -64,61 +77,7 @@ export function PapersIndex({
         </section>
       )}
 
-      {series100.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
-            <span className="text-frc-gold font-mono text-sm">100</span>
-            Core Theory
-          </h2>
-          <div className="space-y-4">
-            {series100.map(paper => (
-              <PaperCard key={paper.frontmatter.id} paper={paper} basePath={basePath} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {series566.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
-            <span className="text-frc-gold font-mono text-sm">566</span>
-            Reciprocity &amp; UCC
-          </h2>
-          <div className="space-y-4">
-            {series566.map(paper => (
-              <PaperCard key={paper.frontmatter.id} paper={paper} basePath={basePath} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {series800.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
-            <span className="text-frc-gold font-mono text-sm">800</span>
-            Applications
-          </h2>
-          <div className="space-y-4">
-            {series800.map(paper => (
-              <PaperCard key={paper.frontmatter.id} paper={paper} basePath={basePath} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {other.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4 flex items-center gap-2">
-            <span className="text-frc-gold font-mono text-sm">—</span>
-            Other
-          </h2>
-          <div className="space-y-4">
-            {other.map(paper => (
-              <PaperCard key={paper.frontmatter.id} paper={paper} basePath={basePath} />
-            ))}
-          </div>
-        </section>
-      )}
+      {papers.length > 0 && <PapersGridClient items={items} />}
 
       {showZenodoCatalog && (
         <section className="mt-16 border-t border-frc-blue pt-8">
@@ -162,39 +121,4 @@ export function PapersIndex({
 
   if (embedded) return content;
   return <main>{content}</main>;
-}
-
-function PaperCard({ paper, basePath }: { paper: ParsedContent; basePath: string }) {
-  const fm = paper.frontmatter;
-  const id = fm.id;
-  const doi = PAPER_DOIS[id];
-
-  return (
-    <Link
-      href={`${basePath}/papers/${id}`}
-      className="block border border-frc-blue rounded-lg px-5 py-4 hover:border-frc-gold-light transition-colors group"
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <h3 className="text-frc-text group-hover:text-frc-gold transition-colors font-normal truncate">
-            {fm.title}
-          </h3>
-          <div className="flex items-center gap-3 mt-1 text-xs text-frc-text-dim">
-            <span>{fm.date}</span>
-            {doi && (
-              <span className="font-mono">DOI: {doi.split('/').pop()}</span>
-            )}
-          </div>
-          {fm.abstract && (
-            <p className="text-sm text-frc-text-dim mt-2 line-clamp-2">
-              {fm.abstract}
-            </p>
-          )}
-        </div>
-        <span className="text-frc-steel group-hover:text-frc-gold transition-colors shrink-0">
-          &rarr;
-        </span>
-      </div>
-    </Link>
-  );
 }
