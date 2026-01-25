@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
-import { Sidebar } from '@/components/Sidebar';
+import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
 import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
@@ -83,14 +83,15 @@ export default async function BookPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(book.body);
+  // For books, the "index" should be the main chapter-level headings (H2).
+  const tocItems = extractTocItems(book.body).filter((t) => t.level === 2);
 
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <BooksSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -194,7 +195,7 @@ export default async function BookPage({ params }: Props) {
             </section>
           )}
         </article>
-        <TableOfContents items={tocItems} />
+        <TableOfContents items={tocItems} minBreakpoint="xl" title="Book index" />
       </main>
       <ReadingMode />
     </>

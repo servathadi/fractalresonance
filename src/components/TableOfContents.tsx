@@ -10,9 +10,11 @@ export interface TocItem {
 
 interface TableOfContentsProps {
   items: TocItem[];
+  minBreakpoint?: 'xl' | '2xl';
+  title?: string;
 }
 
-export function TableOfContents({ items }: TableOfContentsProps) {
+export function TableOfContents({ items, minBreakpoint = '2xl', title = 'On this page' }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
@@ -37,10 +39,12 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
   if (items.length === 0) return null;
 
+  const breakpointClass = minBreakpoint === 'xl' ? 'hidden xl:block' : 'hidden 2xl:block';
+
   return (
-    <nav data-toc className="hidden 2xl:block w-56 shrink-0">
+    <nav data-toc className={`${breakpointClass} w-56 shrink-0`}>
       <div className="sticky top-6 py-6">
-        <h4 className="text-xs uppercase tracking-wider text-frc-steel mb-3">On this page</h4>
+        <h4 className="text-xs uppercase tracking-wider text-frc-steel mb-3">{title}</h4>
         <ul className="space-y-1 text-xs">
           {items.map(item => (
             <li key={item.id} style={{ paddingLeft: `${(item.level - 2) * 0.75}rem` }}>
