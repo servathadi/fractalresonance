@@ -25,6 +25,23 @@ Then move it into the real CMS structure:
 npm run content:process-inbox
 ```
 
+## Optional: AI Digestion via SOS (River/Kasra)
+
+If you have SOS running (local or remote), `content:process-inbox` can ask SOS to rewrite inbox drafts into clean markdown with consistent frontmatter.
+
+Environment:
+
+- `CMS_SOS_URL` (default: `http://localhost:6060`)
+- `CMS_SOS_AGENT` (default: `agent:River`)
+- `CMS_SOS_MODEL` (optional, e.g. `grok-4-1-fast-reasoning`)
+
+Usage:
+
+```bash
+CMS_SOS_URL=http://localhost:6060 CMS_SOS_AGENT=agent:River \\
+  npm run content:process-inbox -- --ai sos
+```
+
 ## Option B: One file = many pages (recommended)
 
 For long chats, you can mark multiple extractable pages in a single file.
