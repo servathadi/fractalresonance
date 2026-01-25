@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { href: '/en/papers', label: 'Papers' },
   { href: '/en/graph', label: 'Graph' },
   { href: '/en/formulas', label: 'Formulas' },
-  { href: 'https://mumega.com/https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },
+  { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },
   { href: '/en/positioning', label: 'Positioning' },
   { href: '/en/mu-levels', label: 'μ-Levels' },
 ];

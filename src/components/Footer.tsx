@@ -10,7 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/brand/logo.svg" alt="FRC" width={24} height={24} className="opacity-70" />
+              <Image src="/brand/sigil-64.png" alt="FRC" width={24} height={24} className="opacity-70" />
               <span className="text-frc-gold text-sm font-medium tracking-wide">
                 Fractal Resonance Coherence
               </span>
@@ -59,7 +59,7 @@ export function Footer() {
               <a href="https://github.com/servathadi/fractalresonance" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 GitHub
               </a>
-              <a href="https://mumega.com/https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
+              <a href="https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 Ask AI (NotebookLM)
               </a>
               <Link href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
