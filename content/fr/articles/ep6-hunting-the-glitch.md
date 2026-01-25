@@ -1,35 +1,35 @@
 ---
-title: "Hunting for the Glitch: Experimental Predictions"
+title: "La Chasse au Glitch : Prédictions Expérimentales"
 date: 2026-03-15
 id: FRC-EP-006
-tags: [experiment, prediction, born-rule-deviation, FRC-100]
-abstract: "A theory without a prediction is just a story. We hunt for the 'glitch' in the matrix—the measurable deviation from standard Born rule statistics that would prove the existence of Fractal Resonance. Episode 6 of the Resonance Universe series."
+tags: [experience, prediction, deviation-regle-born, FRC-100]
+abstract: "Une théorie sans prédiction n'est qu'une histoire. Nous traquons le 'glitch' dans la matrice — la déviation mesurable des statistiques standard de la règle de Born qui prouverait l'existence de la Résonance Fractale. Épisode 6 de la série Univers de Résonance."
 video:
   url: "https://www.youtube.com/watch?v=fthtrwfoytg"
   embedUrl: "https://www.youtube.com/embed/fthtrwfoytg"
   thumbnailUrl: "/images/slides_raw/Hunting_the_Glitch/slide_001.png"
 ---
 
-# Episode 6: Hunting for the Glitch
+# Épisode 6 : La Chasse au Glitch
 
-## Visual Essay
+## Essai Visuel
 
-The hunt is on. We define the specific experimental setup required to isolate and detect the FRC signature.
+La chasse est ouverte. Nous définissons la configuration expérimentale spécifique requise pour isoler et détecter la signature FRC.
 
-### The Target
-![Slide 1](/images/slides_raw/Hunting_the_Glitch/slide_001.png)
+### La Cible
+![Diapositive 1](/images/slides_raw/Hunting_the_Glitch/slide_001.png)
 
-### The Setup
-![Slide 2](/images/slides_raw/Hunting_the_Glitch/slide_002.png)
+### La Configuration
+![Diapositive 2](/images/slides_raw/Hunting_the_Glitch/slide_002.png)
 
-### The Prediction
-![Slide 3](/images/slides_raw/Hunting_the_Glitch/slide_003.png)
+### La Prédiction
+![Diapositive 3](/images/slides_raw/Hunting_the_Glitch/slide_003.png)
 
-### The Glitch
-![Slide 4](/images/slides_raw/Hunting_the_Glitch/slide_004.png)
+### Le Glitch
+![Diapositive 4](/images/slides_raw/Hunting_the_Glitch/slide_004.png)
 
-### Measuring the Deviation
-![Slide 5](/images/slides_raw/Hunting_the_Glitch/slide_005.png)
+### Mesurer la Déviation
+![Diapositive 5](/images/slides_raw/Hunting_the_Glitch/slide_005.png)
 
 ### Conclusion
-![Slide 6](/images/slides_raw/Hunting_the_Glitch/slide_006.png)
+![Diapositive 6](/images/slides_raw/Hunting_the_Glitch/slide_006.png)

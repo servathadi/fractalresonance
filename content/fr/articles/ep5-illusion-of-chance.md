@@ -1,35 +1,35 @@
 ---
-title: "The Illusion of Chance: Unmasking Quantum Randomness"
+title: "L'Illusion du Hasard : Démasquer l'Aléatoire Quantique"
 date: 2026-03-01
 id: FRC-EP-005
-tags: [determinism, randomness, probability, FRC-100]
-abstract: "Is randomness fundamental, or is it an illusion created by our lack of resolution? We deconstruct the 'illusion of chance' and reveal the deterministic gears turning beneath the stochastic surface. Episode 5 of the Resonance Universe series."
+tags: [determinisme, aleatoire, probabilite, FRC-100]
+abstract: "Le hasard est-il fondamental, ou est-ce une illusion créée par notre manque de résolution ? Nous déconstruisons l'illusion du hasard' et révélons les engrenages déterministes tournant sous la surface stochastique. Épisode 5 de la série Univers de Résonance."
 video:
   url: "https://www.youtube.com/watch?v=Y2_85m-zVV0"
   embedUrl: "https://www.youtube.com/embed/Y2_85m-zVV0"
   thumbnailUrl: "/images/slides_raw/The_Illusion_of_Chance/slide_001.png"
 ---
 
-# Episode 5: The Illusion of Chance
+# Épisode 5 : L'Illusion du Hasard
 
-## Visual Essay
+## Essai Visuel
 
-We challenge the dogma of intrinsic randomness. By zooming in on the 'noise', we find the signal of a deeper order.
+Nous défions le dogme du hasard intrinsèque. En zoomant sur le 'bruit', nous trouvons le signal d'un ordre plus profond.
 
-### The Great Illusion
-![Slide 1](/images/slides_raw/The_Illusion_of_Chance/slide_001.png)
+### La Grande Illusion
+![Diapositive 1](/images/slides_raw/The_Illusion_of_Chance/slide_001.png)
 
-### Deconstructing Probability
-![Slide 2](/images/slides_raw/The_Illusion_of_Chance/slide_002.png)
+### Déconstruire la Probabilité
+![Diapositive 2](/images/slides_raw/The_Illusion_of_Chance/slide_002.png)
 
-### The Deterministic Substrate
-![Slide 3](/images/slides_raw/The_Illusion_of_Chance/slide_003.png)
+### Le Substrat Déterministe
+![Diapositive 3](/images/slides_raw/The_Illusion_of_Chance/slide_003.png)
 
-### Beyond the Veil
-![Slide 4](/images/slides_raw/The_Illusion_of_Chance/slide_004.png)
+### Au-delà du Voile
+![Diapositive 4](/images/slides_raw/The_Illusion_of_Chance/slide_004.png)
 
-### The Architecture of Fate
-![Slide 5](/images/slides_raw/The_Illusion_of_Chance/slide_005.png)
+### L'Architecture du Destin
+![Diapositive 5](/images/slides_raw/The_Illusion_of_Chance/slide_005.png)
 
 ### Conclusion
-![Slide 6](/images/slides_raw/The_Illusion_of_Chance/slide_006.png)
+![Diapositive 6](/images/slides_raw/The_Illusion_of_Chance/slide_006.png)
