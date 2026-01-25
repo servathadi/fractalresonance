@@ -15,6 +15,7 @@
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-farsi: 'Vazirmatn', 'Inter', system-ui, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -575,4 +576,70 @@ a, button {
 
 .share-popover button:hover {
   color: var(--color-frc-gold);
+}
+
+/* ═══════════════════════════════════════════════════
+   RTL SUPPORT (Farsi, Arabic, Hebrew)
+   ═══════════════════════════════════════════════════ */
+
+/* Farsi font family */
+.font-farsi {
+  font-family: var(--font-farsi);
+}
+
+/* RTL text alignment and direction overrides */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .content-body ul,
+[dir="rtl"] .content-body ol {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+[dir="rtl"] .content-body blockquote {
+  border-left: none;
+  border-right: 3px solid var(--color-frc-gold);
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .content-body pre {
+  border-left: none;
+  border-right: 3px solid var(--color-frc-gold);
+}
+
+[dir="rtl"] .equation-block {
+  border-left: none;
+  border-right: 3px solid var(--color-frc-gold);
+}
+
+[dir="rtl"] .equation-block::after {
+  right: auto;
+  left: 1rem;
+}
+
+[dir="rtl"] .section-marker {
+  padding-left: 0;
+  padding-right: 3rem;
+}
+
+[dir="rtl"] .section-marker::before {
+  left: auto;
+  right: 0;
+}
+
+/* RTL-aware flex layouts */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+/* Keep LTR for code and equations */
+[dir="rtl"] pre,
+[dir="rtl"] code,
+[dir="rtl"] .equation-block span,
+[dir="rtl"] .font-mono {
+  direction: ltr;
+  text-align: left;
 }

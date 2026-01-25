@@ -1,19 +1,27 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSelector } from './LanguageSelector';
 
+// Navigation links (path relative to language)
 const NAV_LINKS = [
-  { href: '/en/about', label: 'About' },
-  { href: '/en/articles', label: 'Articles' },
-  { href: '/en/papers', label: 'Papers' },
-  { href: '/en/graph', label: 'Graph' },
-  { href: '/en/formulas', label: 'Formulas' },
-  { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },
-  { href: '/en/positioning', label: 'Positioning' },
-  { href: '/en/mu-levels', label: 'μ-Levels' },
+  { path: '/about', label: 'About' },
+  { path: '/articles', label: 'Articles' },
+  { path: '/papers', label: 'Papers' },
+  { path: '/graph', label: 'Graph' },
+  { path: '/formulas', label: 'Formulas' },
+  { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },
+  { path: '/positioning', label: 'Positioning' },
+  { path: '/mu-levels', label: 'μ-Levels' },
 ];
 
 export function Header() {
+  const pathname = usePathname();
+  const lang = pathname.split('/')[1] || 'en';
+
   return (
     <header className="sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm">
       {/* Top micro-bar with coordinates */}
@@ -27,10 +35,12 @@ export function Header() {
               href="https://orcid.org/0009-0004-7412-5129"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider"
+              className="font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider hidden sm:block"
             >
               ORCID:0009-0004-7412-5129
             </a>
+            <span className="text-frc-blue hidden sm:block">|</span>
+            <LanguageSelector />
             <span className="text-frc-blue">|</span>
             <ThemeToggle />
           </div>
@@ -55,13 +65,25 @@ export function Header() {
 
           <nav className="flex items-center">
             {NAV_LINKS.map(link => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
-              >
-                {link.label}
-              </Link>
+              link.path ? (
+                <Link
+                  key={link.path}
+                  href={`/${lang}${link.path}`}
+                  className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
         </div>
