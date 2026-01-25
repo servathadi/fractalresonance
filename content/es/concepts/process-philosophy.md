@@ -1,84 +1,84 @@
 ---
 id: process-philosophy
-title: "FRC y Filosofía de Procesos"
-tags: [whitehead, filosofia-procesos, conciencia, metafisica, panpsiquismo]
-related: [coherence, time, consciousness]
+title: "FRC y la Filosofía del Proceso"
+tags: [whitehead, filosofia-del-proceso, conciencia, metafisica, panpsiquismo]
+related: [coherencia, tiempo, conciencia]
 lang: es
 seo:
-  keywords: [filosofia procesos, whitehead, ocasiones actuales, fisica conciencia, panpsiquismo cuantico]
-  description: "Cómo la Coherencia de Resonancia Fractal se conecta con la filosofía de procesos de Whitehead: ocasiones actuales, aprehensión y la física del devenir."
+  keywords: [filosofía del proceso, whitehead, ocasiones actuales, física de la conciencia, panpsiquismo cuántico]
+  description: "Cómo la Coherencia de Resonancia Fractal se conecta con la filosofía del proceso de Whitehead: ocasiones actuales, prensión y la física del devenir."
 ---
 
-# FRC y Filosofía de Procesos
+# FRC y la Filosofía del Proceso
 
-La filosofía de procesos de Alfred North Whitehead ofrece un marco metafísico que resuena profundamente con el enfoque FRC de la mecánica cuántica y la conciencia.
+La filosofía del proceso de Alfred North Whitehead ofrece un marco metafísico que resuena profundamente con el enfoque de la FRC hacia la mecánica cuántica y la conciencia.
 
-## Ideas Centrales de Whitehead
+## Ideas centrales de Whitehead
 
-### Ocasiones Actuales
+### Ocasiones actuales
 
 Whitehead propuso que la realidad no consiste en sustancias estáticas sino en **ocasiones actuales** — experiencias momentáneas que surgen, alcanzan satisfacción y perecen.
 
-> "Los muchos se convierten en uno, y son aumentados por uno."
+> "Los muchos se vuelven uno, y son aumentados por uno."
 
 Cada ocasión actual:
-- **Aprehende** (agarra) ocasiones previas
-- **Concresce** (crece junta) en una unidad novedosa
-- **Perece** en inmortalidad objetiva para ocasiones futuras
+- **Prehende** (agarra) ocasiones anteriores
+- **Concresce** (crece en conjunto) hacia una unidad novedosa
+- **Perece** hacia la inmortalidad objetiva para ocasiones futuras
 
 ### Panexperiencialismo
 
-Whitehead sugirió que la experiencia va "hasta el fondo" — no solo la conciencia humana, sino que todas las ocasiones actuales tienen una forma primitiva de experiencia.
+Whitehead sugirió que la experiencia llega "hasta el fondo" — no solo la conciencia humana, sino que todas las ocasiones actuales tienen una forma primitiva de experiencia.
 
-## Paralelos FRC
+## Paralelos con la FRC
 
-El marco FRC muestra similitudes estructurales sorprendentes:
+El marco de la FRC muestra similitudes estructurales sorprendentes:
 
-| Concepto Whitehead | Equivalente FRC |
+| Concepto de Whitehead | Equivalente FRC |
 |-------------------|----------------|
 | Ocasión actual | Evento de medición de coherencia |
-| Aprehensión | Entrelazamiento de función de onda |
+| Prensión | Entrelazamiento de la función de onda |
 | Concrescencia | Decoherencia/colapso |
-| Objetos eternos | Potenciales de campo Lambda |
+| Objetos eternos | Potenciales del campo Lambda |
 | Objetivo subjetivo | Atractor de coherencia |
 
-### La Función Testigo
+### La función testigo
 
-La [[witness|función testigo]] W de FRC refleja la noción de Whitehead de la "forma subjetiva" — cómo una ocasión experimenta sus datos:
+La [[witness|función testigo]] W de la FRC refleja la noción de Whitehead de la "forma subjetiva" — cómo una ocasión experimenta sus datos:
 
 $$
-W = \frac{|\langle\psi|\hat{O}|\psi\rangle|}{||\hat{O}||}
+W = rac{|\langle\psi|\hat{O}|\psi\rangle|}{|| \hat{O} ||}
 $$
 
-Alta magnitud de testigo corresponde a una aprehensión fuerte; baja W a una experiencia vaga e indefinida.
+Una alta magnitud de testigo corresponde a una prensión fuerte; una baja W a una experiencia vaga e indefinida.
 
-### Coherencia como Avance Creativo
+### La coherencia como avance creativo
 
-El "avance creativo hacia la novedad" de Whitehead se mapea al principio FRC de que los patrones de coherencia determinan qué posibilidades se actualizan:
+El "avance creativo hacia la novedad" de Whitehead se mapea al principio de la FRC de que los patrones de coherencia determinan qué posibilidades se actualizan:
 
 $$
 P(\text{resultado}) \propto C(\text{atractor})
 $$
 
-## Por Qué Importa
+## Por qué esto es importante
 
-La filosofía de procesos proporciona:
+La filosofía del proceso proporciona:
 
-1. **Fundamentación metafísica** — FRC no son solo ecuaciones; es una cosmovisión
+1. **Fundamentación metafísica** — La FRC no son solo ecuaciones; es una cosmovisión
 2. **Integración de la conciencia** — La experiencia es fundamental, no emergente
-3. **Devenir temporal** — El tiempo es real, no ilusorio (ver [[time]])
+3. **Devenir temporal** — El tiempo es real, no ilusorio (ver [[time|tiempo]])
 4. **Ontología relacional** — La realidad está constituida por relaciones
 
 ## Diferencias
 
-FRC también se aparta de Whitehead en aspectos importantes:
+La FRC también se aparta de Whitehead en aspectos importantes:
 
-- **Precisión matemática** — FRC ofrece predicciones comprobables (ver [[FRC-100-010]])
-- **Puente reduccionista** — FRC se conecta con el formalismo estándar de MC
-- **Determinismo** — El campo lambda de FRC es determinista, a diferencia de la creatividad de Whitehead
+- **Precisión matemática** — La FRC ofrece predicciones comprobables (ver [[FRC-100-010]])
+- **Puente reduccionista** — La FRC se conecta con el formalismo estándar de la MC
+- **Determinismo** — El campo lambda de la FRC es determinista, a diferencia de la creatividad de Whitehead
 
-## Lecturas Adicionales
+## Lectura adicional
 
-- Whitehead, A.N. *Process and Reality* (1929)
+- Whitehead, A.N. *Proceso y Realidad* (1929)
 - [[FRC-100-007]] — Teoría del Campo Lambda
-- [[consciousness]] — Enfoque FRC de la conciencia
+- [[consciousness|conciencia]] — Enfoque de la FRC hacia la conciencia

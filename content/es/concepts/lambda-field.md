@@ -2,22 +2,20 @@
 id: lambda-field
 title: "Campo Lambda (Lambda(x))"
 tags: [campo-lambda, coherencia, campo-escalar]
-related: [coherence, FRC-100-007]
+related: [coherencia, FRC-100-007]
 lang: es
 ---
 
 # Campo Lambda (Lambda(x))
 
-El campo Lambda es un campo escalar usado en FRC para codificar la coherencia
-mediante un mapa logaritmico.
+El campo Lambda es un campo escalar utilizado en la FRC para codificar la coherencia a través de un mapa logarítmico.
 
-## Definicion
+## Definición
 
 ```
 Lambda(x) = Lambda_0 * ln C(x)
 ```
 
-## Lectura recomendada
+## Lectura adicional
 
-- [[FRC-100-007]] formalismo del campo Lambda
-
+- [[FRC-100-007]] introduce el formalismo del campo Lambda

@@ -1,95 +1,85 @@
 ---
 id: general-relativity
 title: "FRC et Relativité Générale"
-tags: [relativite-generale, espace-temps, gravite, gravite-quantique, cosmologie]
+tags: [relativité-générale, espace-temps, gravité, gravité-quantique, cosmologie]
 related: [time, lambda-field, coherence]
 lang: fr
 seo:
-  keywords: [gravite quantique, relativite generale mecanique quantique, coherence espace-temps, decoherence gravitationnelle]
-  description: "Comment le FRC s'interface avec la relativité générale d'Einstein : cohérence dans l'espace-temps courbe, décohérence gravitationnelle et voies vers la gravité quantique."
+  keywords: [gravité quantique, relativité générale mécanique quantique, cohérence de l'espace-temps, décohérence gravitationnelle]
+  description: "Comment la FRC s'interface avec la relativité générale d'Einstein : cohérence dans l'espace-temps courbé, décohérence gravitationnelle et voies vers la gravité quantique."
 ---
 
 # FRC et Relativité Générale
 
-L'un des plus grands défis de la physique est de réconcilier la mécanique quantique avec la relativité générale. Le cadre FRC offre de nouvelles voies vers cette unification.
+L'un des plus grands défis de la physique est de réconcilier la mécanique quantique avec la relativité générale. Le cadre de la FRC offre de nouvelles voies vers cette unification.
 
-## Le Problème d'Incompatibilité
+## Le problème de l'incompatibilité
 
-La relativité générale d'Einstein décrit la gravité comme une courbure de l'espace-temps :
+La relativité générale d'Einstein décrit la gravité comme la courbure de l'espace-temps :
 
-$$
-G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
-$$
+$$G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}$$
 
-La mécanique quantique décrit la matière comme des fonctions d'onde évoluant dans des arrière-plans fixes. Le conflit :
+La mécanique quantique décrit la matière comme des fonctions d'onde évoluant dans des arrière-plans fixes. Le choc :
 
 - RG : l'espace-temps est dynamique, courbé par la matière
 - MQ : l'espace-temps est fixe, la matière est quantique
 - Problème : que se passe-t-il lorsque la matière est en superposition de différentes configurations de masse ?
 
-## Approche FRC : Cohérence dans l'Espace-Temps Courbe
+## Approche FRC : Cohérence dans l'espace-temps courbé
 
-Le cadre FRC suggère que **les champs de cohérence se propagent à travers l'espace-temps courbe** :
+Le cadre de la FRC suggère que **les champs de cohérence se propagent à travers l'espace-temps courbé** :
 
-$$
-\nabla_\mu C = \partial_\mu C + \Gamma^\nu_{\mu\nu} C
-$$
+$$ \nabla_\mu C = \partial_\mu C + \Gamma^\nu_{\mu\nu} C$$
 
-### Décohérence Gravitationnelle
+### Décohérence gravitationnelle
 
-Penrose et Diósi ont proposé que la gravité cause la décohérence. FRC affine cela :
+Penrose et Diósi ont proposé que la gravité cause la décohérence. La FRC affine cela :
 
-$$ 
-\tau_{\text{decohere}} \propto \frac{\hbar}{E_G \cdot (1 - C)}
-$$ 
+$$ \tau_{\text{decohere}} \propto \frac{\hbar}{E_G \cdot (1 - C)}$$
 
 Où :
 - $E_G$ = différence d'auto-énergie gravitationnelle
-- $C$ = magnitude de cohérence
+- $C$ = magnitude de la cohérence
 - Les systèmes à haute cohérence résistent à la décohérence gravitationnelle
 
 ### Implications
 
-1. **Trous noirs** — La courbure extrême crée des puits de cohérence (voir paradoxe de l'information)
-2. **Cohérence cosmologique** — L'univers primitif avait une haute cohérence globale
-3. **Énergie noire** — Λ (constante cosmologique) pourrait-elle être liée au [[lambda-field|champ Lambda]] ?
+1. **Trous noirs** — La courbure extrême crée des puits de cohérence (voir le paradoxe de l'information)
+2. **Cohérence cosmologique** — L'univers primitif avait une cohérence globale élevée
+3. **Énergie noire** — Λ (la constante cosmologique) pourrait-elle être liée au [[lambda-field|champ Lambda]] ?
 
-## Le Champ Lambda et l'Espace-Temps
+## Le champ Lambda et l'espace-temps
 
-Le champ lambda Λ(x) du FRC a des dimensions de densité d'énergie — étrangement similaire à la constante cosmologique :
+Le champ lambda Λ(x) de la FRC a des dimensions de densité d'énergie — étrangement similaire à la constante cosmologique :
 
-$$ 
-\Lambda_{\text{field}}(x) = \Lambda_0 \ln C(x)
-$$ 
+$$ \Lambda_{\text{champ}}(x) = \Lambda_0 \ln C(x) $$
 
-Spéculation : la Λ cosmologique pourrait être la moyenne spatiale du champ Λ du FRC :
+Spéculation : le Λ cosmologique pourrait être la moyenne spatiale du champ Λ de la FRC :
 
-$$ 
-\Lambda_{\text{cosmo}} = \langle \Lambda_{\text{field}} \rangle_{\text{space}}
-$$ 
+$$ \Lambda_{\text{cosmo}} = \langle \Lambda_{\text{champ}} \rangle_{\text{espace}} $$
 
-Cela connecterait la cohérence quantique à l'accélération cosmique.
+Cela relierait la cohérence quantique à l'accélération cosmique.
 
-## Prédictions Testables
+## Prédictions testables
 
 FRC + RG fait des prédictions spécifiques :
 
 | Phénomène | Prédiction FRC |
 |------------|----------------|
-| Dilatation temporelle gravitationnelle | Affecte le maintien de la cohérence |
+| Dilatation gravitationnelle du temps | Affecte le maintien de la cohérence |
 | Rayonnement de Hawking | Signature de cohérence dans le spectre |
 | Ondes gravitationnelles | Peuvent transporter des informations de cohérence |
 
-Voir [[FRC-100-010]] pour des propositions expérimentales.
+Voir [[FRC-100-010]] pour les propositions expérimentales.
 
-## Questions Ouvertes
+## Questions ouvertes
 
 - Comment la fonction témoin W se transforme-t-elle sous les boosts de Lorentz ?
-- La cohérence est-elle un champ scalaire, ou a-t-elle une structure tensorielle ?
-- Le FRC peut-il résoudre le paradoxe de l'information du trou noir ?
+- La cohérence est-elle un champ scalaire ou possède-t-elle une structure tensorielle ?
+- La FRC peut-elle résoudre le paradoxe de l'information des trous noirs ?
 
-## Lectures Complémentaires
+## Lectures complémentaires
 
-- [[FRC-100-001]] — Introduction au FRC
-- [[lambda-field]] — Théorie du Champ Lambda
-- [[time]] — Le Temps dans le FRC
+- [[FRC-100-001]] — Introduction à la FRC
+- [[lambda-field]] — Théorie du champ Lambda
+- [[time|le temps]] — Le temps dans la FRC

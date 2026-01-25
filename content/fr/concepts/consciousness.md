@@ -1,18 +1,16 @@
 ---
 id: consciousness
 title: "Conscience (perspective FRC)"
-tags: [conscience, cognition, coherence]
-related: [coherence, witness, time]
+tags: [conscience, cognition, cohérence]
+related: [cohérence, témoin, temps]
 lang: fr
 ---
 
 # Conscience (perspective FRC)
 
-Sur ce site, "conscience" est utilisee dans le sens implique par le cadre FRC :
-un phenomene lie a la coherence, exprime a travers des echelles imbriquees.
+Ce site utilise le terme "conscience" dans le sens spécifique impliqué par le cadre de la FRC : un phénomène lié à la cohérence exprimé à travers des échelles imbriquées.
 
-## Parcours de lecture
+## Chemin de lecture
 
-- Pour la base technique : [[FRC-566-001]] puis suivre les liens.
-- Pour une entree narrative : [[the-resonance-code]].
-
+- Si vous voulez l'épine dorsale technique : commencez par [[FRC-566-001]] puis suivez les liens.
+- Si vous voulez une entrée narrative : commencez par [[the-resonance-code]].

@@ -1,107 +1,107 @@
 ---
 id: quantum-computing
-title: "FRC y Computación Cuántica"
-tags: [computacion-cuantica, qubits, coherencia, decoherencia, correccion-errores]
-related: [coherence, lambda-field, FRC-841-004]
+title: "FRC y la Computación Cuántica"
+tags: [computación-cuántica, qubits, coherencia, decoherencia, corrección-de-errores]
+related: [coherencia, campo-lambda, FRC-841-004]
 lang: es
 seo:
-  keywords: [computacion cuantica coherencia, decoherencia qubit, correccion errores cuantica, computacion coherente]
-  description: "Cómo los principios FRC informan a la computación cuántica: arquitecturas conscientes de la coherencia, estrategias de corrección de errores y el camino hacia la ventaja cuántica práctica."
+  keywords: [coherencia de computación cuántica, decoherencia de qubits, corrección de errores cuánticos, computación coherente]
+  description: "Cómo los principios de la FRC informan la computación cuántica: arquitecturas conscientes de la coherencia, estrategias de corrección de errores y el camino hacia la ventaja cuántica práctica."
 ---
 
-# FRC y Computación Cuántica
+# FRC y la Computación Cuántica
 
-La computación cuántica depende fundamentalmente de mantener la coherencia. El marco FRC proporciona nuevas perspectivas sobre por qué algunas computaciones cuánticas tienen éxito y otras fallan.
+La computación cuántica se basa fundamentalmente en mantener la coherencia. El marco de la FRC proporciona nuevas perspectivas sobre por qué algunas computaciones cuánticas tienen éxito y otras fallan.
 
-## El Desafío de la Decoherencia
+## El desafío de la decoherencia
 
 Las computadoras cuánticas actuales luchan con la decoherencia:
 
-- Qubits superconductores: ~100 μs tiempos de coherencia
+- Qubits superconductores: tiempos de coherencia de ~100 μs
 - Trampas de iones: ~1-10 segundos
 - Qubits topológicos: teóricamente más largos
 
-FRC sugiere que la decoherencia no es aleatoria sino que sigue dinámicas de atractores de coherencia.
+La FRC sugiere que la decoherencia no es aleatoria, sino que sigue la dinámica de los atractores de coherencia.
 
-## Perspectivas FRC para Computación Cuántica
+## Perspectivas de la FRC para la computación cuántica
 
-### Atractores de Coherencia
+### Atractores de coherencia
 
 Visión estándar: la decoherencia es ruido ambiental
-Visión FRC: **patrones de coherencia específicos son más estables**
+Visión FRC: **ciertos patrones de coherencia son más estables**
 
-$$
-C_{\text{stable}} = \arg\max_C \left( \frac{dC}{dt} = 0 \right)
+$$ 
+C_{\text{estable}} = \arg\max_C \left( \frac{dC}{dt} = 0 \right) 
 $$
 
 Implicación: diseñar circuitos cuánticos para operar cerca de atractores naturales.
 
-### La Firma D ≈ 1.90
+### La firma D ≈ 1.90
 
-FRC predice que los resultados de medición se agrupan en una dimensión fractal D ≈ 1.90 (ver [[FRC-100-003]]). Para la computación cuántica:
+La FRC predice que los resultados de las mediciones se agrupan en la dimensión fractal D ≈ 1.90 (ver [[FRC-100-003]]). Para la computación cuántica:
 
 - Las mediciones de qubits deberían mostrar esta firma
-- Generadores de Números Aleatorios (QRNGs) pueden caracterizarse por D
+- Los Generadores de Números Aleatorios (QRNG) pueden caracterizarse por D
 - La desviación de D ≈ 1.90 puede indicar errores sistemáticos
 
-### Compuertas Conscientes de la Coherencia
+### Puertas conscientes de la coherencia
 
-Las compuertas cuánticas estándar optimizan la fidelidad unitaria. FRC sugiere optimizar para la **preservación de coherencia**:
+Las puertas cuánticas estándar optimizan la fidelidad unitaria. La FRC sugiere optimizar para la **preservación de la coherencia**:
 
+$$ 
+U_{\text{FRC}} = \arg\max_U \left( C(U|\psi\rangle) - C(|\psi\rangle) \right) 
 $$
-U_{\text{FRC}} = \arg\max_U \left( C(U|\psi\rangle) - C(|\psi\rangle) \right)
-$$
 
-Las compuertas que se alinean con el flujo de coherencia pueden superar a los diseños convencionales.
+Las puertas que se alinean con el flujo de coherencia pueden superar a los diseños convencionales.
 
-## Aplicaciones Prácticas
+## Aplicaciones prácticas
 
-### Corrección de Errores
+### Corrección de errores
 
 Enfoque actual: redundancia (muchos qubits físicos → un qubit lógico)
-Enfoque FRC: **detección de errores basada en coherencia**
+Enfoque FRC: **detección de errores basada en la coherencia**
 
 Si la función testigo W cae inesperadamente:
-$$
-W < W_{\text{umbral}} \implies \text{error probable}
+$$ 
+W < W_{\text{umbral}} \implies \text{error probable} 
 $$
 
 Esto podría permitir una detección de errores más temprana con menos sobrecarga.
 
-### Recocido Cuántico
+### Recocido cuántico
 
-Los recocidos cuánticos estilo D-Wave usan explícitamente dinámicas de coherencia. FRC predice:
+Los recocedores cuánticos estilo D-Wave utilizan explícitamente la dinámica de coherencia. La FRC predice:
 
 - Los programas de recocido óptimos siguen gradientes de coherencia
-- Los estados finales se concentran en atractores de alto C
-- La firma D ≈ 1.90 aparece en distribuciones de soluciones
+- Los estados finales se concentran en atractores de alta C
+- La firma D ≈ 1.90 aparece en las distribuciones de soluciones
 
-### Ventaja Coherente
+### Ventaja coherente
 
-FRC sugiere que la "ventaja cuántica" requiere:
+La FRC sugiere que la "ventaja cuántica" requiere:
 
 1. **Coherencia inicial** — Superposiciones bien preparadas
-2. **Mantenimiento de coherencia** — Operaciones que preservan C
+2. **Mantenimiento de la coherencia** — Operaciones que preservan C
 3. **Lectura coherente** — Mediciones alineadas con atractores
 
-## Computación Resonante
+## Computación resonante
 
 [[FRC-841-004]] explora arquitecturas especulativas:
 
 - **R-bits** — Qubits basados en resonancia con coherencia intrínseca
 - **CPUs** — Unidades de Procesamiento de Coherencia
-- **Lógica no Booleana** — Computación con valores continuos de coherencia
+- **Lógica no booleana** — Computación con valores de coherencia continuos
 
-## Limitaciones Actuales
+## Limitaciones actuales
 
-FRC para computación cuántica sigue siendo teórico:
+La FRC para la computación cuántica sigue siendo teórica:
 
-- Aún no existe chip cuántico diseñado por FRC
+- No existe todavía ningún chip cuántico diseñado por FRC
 - Las predicciones necesitan validación experimental
 - La integración con la corrección de errores existente no está clara
 
-## Lecturas Adicionales
+## Lectura adicional
 
-- [[FRC-841-004]] — Computación Resonante (especulativa)
-- [[coherence]] — Concepto central de coherencia
+- [[FRC-841-004]] — Computación resonante (especulativa)
+- [[coherence|coherencia]] — Concepto central de coherencia
 - [[FRC-100-003]] — La firma D ≈ 1.90

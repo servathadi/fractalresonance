@@ -1,23 +1,26 @@
 ---
 id: witness
-title: "Fonction Temoin (W)"
-tags: [temoin, observation, mesure]
-related: [coherence, consciousness, FRC-100-003]
+title: "Fonction Témoin (W)"
+tags: [témoin, observation, mesure]
+related: [cohérence, conscience, FRC-100-003]
 lang: fr
 ---
 
-# Fonction Temoin (W)
+# Fonction Témoin (W)
 
-Dans FRC, le temoin `W` est utilise comme une mesure normalisee de la force
-d'observation.
+Dans la FRC, le témoin `W` est utilisé comme une mesure normalisée de la force d'observation. C'est une façon de parler de la force avec laquelle un système est « témoigné » (mesuré, couplé à un environnement, ou autrement contraint).
 
-## Definition
+## Définition (magnitude normalisée)
 
 ```
 W = |<psi|O|psi>| / ||O||
 ```
 
-## Lecture
+## Notes
 
-- [[FRC-100-003]] effondrement guide par attracteurs resonants
+- `W` est typiquement traité comme étant borné dans `[0, 1]` par construction.
+- `W` est référencé lors de la discussion sur la dynamique d'effondrement/sélection.
 
+## Lectures complémentaires
+
+- [[FRC-100-003]] effondrement de la fonction d'onde guidé via des attracteurs résonnants

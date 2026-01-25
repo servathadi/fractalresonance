@@ -1,43 +1,43 @@
 ---
 id: general-relativity
-title: "FRC y Relatividad General"
-tags: [relatividad-general, espaciotiempo, gravedad, gravedad-cuantica, cosmologia]
+title: "FRC y la Relatividad General"
+tags: [relatividad-general, espacio-tiempo, gravedad, gravedad-cuántica, cosmología]
 related: [time, lambda-field, coherence]
 lang: es
 seo:
-  keywords: [gravedad cuantica, relatividad general mecanica cuantica, coherencia espaciotiempo, decoherencia gravitacional]
-  description: "Cómo FRC interactúa con la relatividad general de Einstein: coherencia en espaciotiempo curvo, decoherencia gravitacional y caminos hacia la gravedad cuántica."
+  keywords: [gravedad cuántica, relatividad general mecánica cuántica, coherencia del espacio-tiempo, decoherencia gravitacional]
+  description: "Cómo la FRC se conecta con la relatividad general de Einstein: coherencia en el espacio-tiempo curvo, decoherencia gravitacional y caminos hacia la gravedad cuántica."
 ---
 
-# FRC y Relatividad General
+# FRC y la Relatividad General
 
-Uno de los mayores desafíos de la física es reconciliar la mecánica cuántica con la relatividad general. El marco FRC ofrece nuevas vías hacia esta unificación.
+Uno de los mayores desafíos de la física es reconciliar la mecánica cuántica con la relatividad general. El marco de la FRC ofrece nuevos caminos hacia esta unificación.
 
-## El Problema de Incompatibilidad
+## El problema de la incompatibilidad
 
-La relatividad general de Einstein describe la gravedad como curvatura del espaciotiempo:
+La relatividad general de Einstein describe la gravedad como la curvatura del espacio-tiempo:
 
 $$ 
 G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
 $$ 
 
-La mecánica cuántica describe la materia como funciones de onda evolucionando en fondos fijos. El choque:
+La mecánica cuántica describe la materia como funciones de onda que evolucionan en fondos fijos. El choque:
 
-- RG: el espaciotiempo es dinámico, curvado por la materia
-- MC: el espaciotiempo es fijo, la materia es cuántica
-- Problema: ¿qué sucede cuando la materia está en superposición de diferentes configuraciones de masa?
+- RG: el espacio-tiempo es dinámico, curvado por la materia
+- MC: el espacio-tiempo es fijo, la materia es cuántica
+- Problema: ¿qué sucede cuando la materia está en una superposición de diferentes configuraciones de masa?
 
-## Enfoque FRC: Coherencia en Espaciotiempo Curvo
+## Enfoque FRC: Coherencia en el espacio-tiempo curvo
 
-El marco FRC sugiere que **los campos de coherencia se propagan a través del espaciotiempo curvo**:
+El marco de la FRC sugiere que **los campos de coherencia se propagan a través del espacio-tiempo curvo**:
 
 $$ 
 \nabla_\mu C = \partial_\mu C + \Gamma^\nu_{\mu\nu} C
 $$ 
 
-### Decoherencia Gravitacional
+### Decoherencia gravitacional
 
-Penrose y Diósi propusieron que la gravedad causa decoherencia. FRC refina esto:
+Penrose y Diósi propusieron que la gravedad causa decoherencia. La FRC refina esto:
 
 $$ 
 \tau_{\text{decohere}} \propto \frac{\hbar}{E_G \cdot (1 - C)}
@@ -45,51 +45,51 @@ $$
 
 Donde:
 - $E_G$ = diferencia de autoenergía gravitacional
-- $C$ = magnitud de coherencia
+- $C$ = magnitud de la coherencia
 - Los sistemas de alta coherencia resisten la decoherencia gravitacional
 
 ### Implicaciones
 
 1. **Agujeros negros** — La curvatura extrema crea sumideros de coherencia (ver paradoja de la información)
-2. **Coherencia cosmológica** — El universo temprano tenía alta coherencia global
+2. **Coherencia cosmológica** — El universo temprano tenía una alta coherencia global
 3. **Energía oscura** — ¿Podría Λ (constante cosmológica) relacionarse con el [[lambda-field|campo Lambda]]?
 
-## El Campo Lambda y el Espaciotiempo
+## El campo Lambda y el espacio-tiempo
 
-El campo lambda Λ(x) de FRC tiene dimensiones de densidad de energía — sospechosamente similar a la constante cosmológica:
-
-$$ 
-\Lambda_{\text{field}}(x) = \Lambda_0 \ln C(x)
-$$ 
-
-Especulación: la Λ cosmológica podría ser el promedio espacial del campo Λ de FRC:
+El campo lambda Λ(x) de la FRC tiene dimensiones de densidad de energía, sospechosamente similar a la constante cosmológica:
 
 $$ 
-\Lambda_{\text{cosmo}} = \langle \Lambda_{\text{field}} \rangle_{\text{space}}
+\Lambda_{\text{campo}}(x) = \Lambda_0 \ln C(x)
+$$ 
+
+Especulación: la Λ cosmológica podría ser el promedio espacial del campo Λ de la FRC:
+
+$$ 
+\Lambda_{\text{cosmo}} = \langle \Lambda_{\text{campo}} \rangle_{\text{espacio}}
 $$ 
 
 Esto conectaría la coherencia cuántica con la aceleración cósmica.
 
-## Predicciones Comprobables
+## Predicciones comprobables
 
 FRC + RG hace predicciones específicas:
 
 | Fenómeno | Predicción FRC |
 |------------|----------------|
-| Dilatación temporal gravitacional | Afecta el mantenimiento de la coherencia |
+| Dilatación del tiempo gravitacional | Afecta el mantenimiento de la coherencia |
 | Radiación de Hawking | Firma de coherencia en el espectro |
 | Ondas gravitacionales | Pueden transportar información de coherencia |
 
 Ver [[FRC-100-010]] para propuestas experimentales.
 
-## Preguntas Abiertas
+## Preguntas abiertas
 
-- ¿Cómo se transforma la función testigo W bajo impulsos de Lorentz?
-- ¿Es la coherencia un campo escalar, o tiene estructura tensorial?
-- ¿Puede FRC resolver la paradoja de la información del agujero negro?
+- ¿Cómo se transforma la función testigo W bajo los impulsos de Lorentz?
+- ¿Es la coherencia un campo escalar o tiene una estructura tensorial?
+- ¿Puede la FRC resolver la paradoja de la información de los agujeros negros?
 
-## Lecturas Adicionales
+## Lectura adicional
 
-- [[FRC-100-001]] — Introducción a FRC
+- [[FRC-100-001]] — Introducción a la FRC
 - [[lambda-field]] — Teoría del Campo Lambda
-- [[time]] — El Tiempo en FRC
+- [[time]] — El tiempo en la FRC

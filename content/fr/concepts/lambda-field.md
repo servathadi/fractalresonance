@@ -1,23 +1,21 @@
 ---
 id: lambda-field
 title: "Champ Lambda (Lambda(x))"
-tags: [champ-lambda, coherence, champ-scalaire]
-related: [coherence, FRC-100-007]
+tags: [champ-lambda, cohérence, champ-scalaire]
+related: [cohérence, FRC-100-007]
 lang: fr
 ---
 
 # Champ Lambda (Lambda(x))
 
-Le champ Lambda est un champ scalaire utilise dans FRC pour encoder la coherence
-via une transformation logarithmique.
+Le champ Lambda est un champ scalaire utilisé dans la FRC pour encoder la cohérence par une carte logarithmique.
 
-## Definition
+## Définition
 
 ```
 Lambda(x) = Lambda_0 * ln C(x)
 ```
 
-## Lecture
+## Lectures complémentaires
 
-- [[FRC-100-007]] formalise le champ Lambda
-
+- [[FRC-100-007]] introduit le formalisme du champ Lambda
