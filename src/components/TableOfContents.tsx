@@ -52,7 +52,7 @@ export function TableOfContents({ items, minBreakpoint = 'lg', title = 'On this 
         <h4 className="text-xs uppercase tracking-wider text-frc-steel mb-3">{title}</h4>
         <ul className="space-y-1 text-xs">
           {items.map(item => (
-            <li key={item.id} style={{ paddingLeft: `${(item.level - 2) * 0.75}rem` }}>
+            <li key={item.id} style={{ paddingLeft: `${Math.max(0, item.level - 2) * 0.75}rem` }}>
               <a
                 href={`#${item.id}`}
                 className={`block py-0.5 transition-colors ${

@@ -12,7 +12,6 @@ import {
   estimateReadTime,
   getBook,
   getBooks,
-  getBookChapters,
   getLanguages,
   toPaperMeta,
   buildBacklinks,
@@ -21,7 +20,8 @@ import {
   matchesPerspectiveView,
 } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
-import { renderMarkdown, extractH1Items, extractTocItems } from '@/lib/markdown';
+import { getChapterList } from '@/lib/bookChapters';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -87,7 +87,6 @@ export default async function RiverBookPage({ params }: Props) {
   const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
-  const chapters = getBookChapters(lang, id);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -97,8 +96,8 @@ export default async function RiverBookPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  const tocItems = extractTocItems(book.body).filter((t) => t.level === 2);
-  const chapterItems = extractH1Items(book.body);
+  const chapterItems = getChapterList(book.body);
+  const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (
     <>
@@ -150,7 +149,31 @@ export default async function RiverBookPage({ params }: Props) {
             readTime={readTime}
           />
 
-          <InlineToc items={tocItems} />
+          <InlineToc items={tocItems} title="Book index" />
+
+          {chapterItems.length > 0 && (
+            <section className="mb-8">
+              <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {chapterItems.map((c, idx) => (
+                  <Link
+                    key={c.slug}
+                    href={`${basePath}/books/${id}/chapter/${c.slug}`}
+                    className="card block p-4 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="font-mono text-xs text-frc-steel shrink-0 tabular-nums mt-0.5">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-sm text-frc-text group-hover:text-frc-gold transition-colors">
+                        {c.title}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Main Content */}
           <article className="prose prose-invert max-w-none">
@@ -182,4 +205,3 @@ export default async function RiverBookPage({ params }: Props) {
     </>
   );
 }
-

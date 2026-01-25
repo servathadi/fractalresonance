@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import { getBooks, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
-import type { TocItem } from '@/components/TableOfContents';
+import type { DerivedChapterMeta } from '@/lib/bookChapters';
 
 interface BooksSidebarProps {
   lang: string;
   currentId?: string;
-  chapters?: TocItem[];
+  chapters?: DerivedChapterMeta[];
+  activeChapterSlug?: string;
   basePath?: string;
   view?: PerspectiveView;
   variant?: 'desktop' | 'mobile';
 }
 
-export function BooksSidebar({ lang, currentId, chapters, basePath, view, variant = 'desktop' }: BooksSidebarProps) {
+export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, basePath, view, variant = 'desktop' }: BooksSidebarProps) {
   const books = getBooks(lang)
     .filter((b) => (view ? matchesPerspectiveView(b.frontmatter.perspective, view) : true))
     .sort((a, b) => (a.frontmatter.title || '').localeCompare(b.frontmatter.title || ''));
@@ -19,6 +20,12 @@ export function BooksSidebar({ lang, currentId, chapters, basePath, view, varian
   const base = basePath || `/${lang}`;
   const isMobile = variant === 'mobile';
   const bookPath = currentId ? `${base}/books/${currentId}` : '';
+  const showChapters = Boolean(
+    currentId &&
+      chapters &&
+      chapters.length > 0 &&
+      !(chapters.length === 1 && chapters[0]?.slug === 'full')
+  );
 
   return (
     <aside
@@ -57,19 +64,36 @@ export function BooksSidebar({ lang, currentId, chapters, basePath, view, varian
             </ul>
           </div>
 
-          {currentId && chapters && chapters.length > 0 && (
+          {showChapters && (
             <div className="mt-6 pt-4 border-t border-frc-blue">
               <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">In this book</h3>
               <ul className="space-y-0.5 max-h-[50vh] overflow-y-auto pr-1">
-                {chapters.map((c) => (
-                  <li key={c.id}>
-                    <a
-                      href={`${bookPath}#${c.id}`}
-                      className="block px-2 py-1 rounded transition-colors truncate text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20"
-                      title={c.text}
+                <li>
+                  <Link
+                    href={bookPath}
+                    className={`block px-2 py-1 rounded transition-colors truncate ${
+                      !activeChapterSlug
+                        ? 'text-frc-gold bg-frc-blue/30'
+                        : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20'
+                    }`}
+                    title="Full book"
+                  >
+                    Full book
+                  </Link>
+                </li>
+                {chapters?.map((c) => (
+                  <li key={c.anchorId}>
+                    <Link
+                      href={`${bookPath}/chapter/${c.slug}`}
+                      className={`block px-2 py-1 rounded transition-colors truncate ${
+                        activeChapterSlug === c.slug
+                          ? 'text-frc-gold bg-frc-blue/30'
+                          : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20'
+                      }`}
+                      title={c.title}
                     >
-                      {c.text}
-                    </a>
+                      {c.title}
+                    </Link>
                   </li>
                 ))}
               </ul>

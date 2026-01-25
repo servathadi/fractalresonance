@@ -8,9 +8,10 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
-import { renderMarkdown, extractH1Items, extractTocItems } from '@/lib/markdown';
+import { getChapterList } from '@/lib/bookChapters';
+import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -74,7 +75,6 @@ export default async function BookPage({ params }: Props) {
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
-  const chapters = getBookChapters(lang, id);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -84,9 +84,8 @@ export default async function BookPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  // For books, the "index" should be the main chapter-level headings (H2).
-  const tocItems = extractTocItems(book.body).filter((t) => t.level === 2);
-  const chapterItems = extractH1Items(book.body);
+  const chapterItems = getChapterList(book.body);
+  const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (
     <>
@@ -147,15 +146,15 @@ export default async function BookPage({ params }: Props) {
 
           <InlineToc items={tocItems} title="Book index" />
 
-          {/* Body */}
-          {chapters.length > 0 && (
+          {/* Chapter view */}
+          {chapterItems.length > 0 && (
             <section className="mb-8">
               <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
               <div className="grid sm:grid-cols-2 gap-3">
-                {chapters.map((c, idx) => (
-                  <a
-                    key={c.filename}
-                    href={`#${c.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()}`}
+                {chapterItems.map((c, idx) => (
+                  <Link
+                    key={c.slug}
+                    href={`${basePath}/books/${id}/chapter/${c.slug}`}
                     className="card block p-4 group"
                   >
                     <div className="flex items-start gap-3">
@@ -166,7 +165,7 @@ export default async function BookPage({ params }: Props) {
                         {c.title}
                       </span>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </section>
