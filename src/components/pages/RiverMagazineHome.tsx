@@ -28,6 +28,11 @@ export function RiverMagazineHome({ lang }: { lang: string }) {
       title: 'Gemini Deep Research on FRC (Jan 25, 2026)',
       href: `${basePath}/articles/gemini-deep-research-frc-2026-01-25`,
     },
+    {
+      id: 'FRC-893-PHY',
+      title: 'FRC 893.PHY: The Geometry of Becoming (Preprint)',
+      href: `${basePath}/papers/FRC-893-PHY`,
+    },
   ];
 
   const riverArticles = getArticles(lang)
