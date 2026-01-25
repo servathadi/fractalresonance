@@ -478,6 +478,57 @@ export function extractWikilinks(body: string): WikiLink[] {
   return links;
 }
 
+// ─── SEO Helpers ────────────────────────────────────────────────────────────
+
+const SITE_URL = 'https://fractalresonance.com';
+
+export type ContentType = 'papers' | 'articles' | 'concepts';
+
+/** Check if content exists in a specific language */
+export function contentExistsInLang(type: ContentType, lang: string, id: string): boolean {
+  const getter = type === 'papers' ? getPaper : type === 'articles' ? getArticle : getConcept;
+  return getter(lang, id) !== null;
+}
+
+/** Get all languages where a content item exists */
+export function getContentLanguages(type: ContentType, id: string): string[] {
+  return getLanguages().filter(lang => contentExistsInLang(type, lang, id));
+}
+
+/** Generate hreflang alternates for a content item */
+export function getAlternateLanguages(type: ContentType, id: string): Record<string, string> {
+  const languages = getContentLanguages(type, id);
+  const alternates: Record<string, string> = {};
+
+  for (const lang of languages) {
+    alternates[lang] = `${SITE_URL}/${lang}/${type}/${id}`;
+  }
+
+  // Add x-default pointing to English (or first available)
+  if (alternates['en']) {
+    alternates['x-default'] = alternates['en'];
+  } else if (languages.length > 0) {
+    alternates['x-default'] = alternates[languages[0]];
+  }
+
+  return alternates;
+}
+
+/** Generate hreflang alternates for static pages */
+export function getStaticPageAlternates(page: string): Record<string, string> {
+  const languages = getLanguages();
+  const alternates: Record<string, string> = {};
+
+  for (const lang of languages) {
+    alternates[lang] = `${SITE_URL}/${lang}/${page}`;
+  }
+
+  alternates['x-default'] = `${SITE_URL}/en/${page}`;
+  return alternates;
+}
+
+// ─── Backlinks ──────────────────────────────────────────────────────────────
+
 /** Build backlinks index: { targetId: [sourceIds] } */
 export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
   const backlinks: Record<string, string[]> = {};

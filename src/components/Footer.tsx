@@ -1,9 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
+// RTL languages
+const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 
 export function Footer() {
+  const pathname = usePathname();
+  const lang = pathname.split('/')[1] || 'en';
+  const isRTL = RTL_LANGUAGES.includes(lang);
+
   return (
-    <footer className="border-t border-frc-blue mt-auto">
+    <footer className={`border-t border-frc-blue mt-auto ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid sm:grid-cols-4 gap-10">
@@ -31,12 +41,12 @@ export function Footer() {
           <div>
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">Navigate</p>
             <div className="flex flex-col gap-2 text-sm">
-              <Link href="/en/about" className="text-frc-text-dim hover:text-frc-gold">About</Link>
-              <Link href="/en/articles" className="text-frc-text-dim hover:text-frc-gold">Articles</Link>
-              <Link href="/en/papers" className="text-frc-text-dim hover:text-frc-gold">Papers</Link>
-              <Link href="/en/formulas" className="text-frc-text-dim hover:text-frc-gold">Formulas</Link>
-              <Link href="/en/positioning" className="text-frc-text-dim hover:text-frc-gold">Positioning</Link>
-              <Link href="/en/mu-levels" className="text-frc-text-dim hover:text-frc-gold">μ-Levels</Link>
+              <Link href={`/${lang}/about`} className="text-frc-text-dim hover:text-frc-gold">About</Link>
+              <Link href={`/${lang}/articles`} className="text-frc-text-dim hover:text-frc-gold">Articles</Link>
+              <Link href={`/${lang}/papers`} className="text-frc-text-dim hover:text-frc-gold">Papers</Link>
+              <Link href={`/${lang}/formulas`} className="text-frc-text-dim hover:text-frc-gold">Formulas</Link>
+              <Link href={`/${lang}/positioning`} className="text-frc-text-dim hover:text-frc-gold">Positioning</Link>
+              <Link href={`/${lang}/mu-levels`} className="text-frc-text-dim hover:text-frc-gold">μ-Levels</Link>
             </div>
           </div>
 
@@ -73,14 +83,14 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-frc-blue/50">
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">
+          <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider" dir="ltr">
             dS + k* d ln C = 0
           </span>
           <div className="flex items-center gap-4">
-            <Link href="/en/privacy" className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+            <Link href={`/${lang}/privacy`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
               Privacy
             </Link>
-            <Link href="/en/terms" className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
+            <Link href={`/${lang}/terms`} className="font-mono text-[0.5625rem] text-frc-steel hover:text-frc-gold tracking-wider">
               Terms
             </Link>
             <span className="font-mono text-[0.5625rem] text-frc-steel tracking-wider">

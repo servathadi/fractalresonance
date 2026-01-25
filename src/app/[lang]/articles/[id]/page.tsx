@@ -7,7 +7,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { ReadingMode } from '@/components/ReadingMode';
-import { getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary } from '@/lib/content';
+import { getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -37,12 +37,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
+  const articleUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
+  const alternates = getAlternateLanguages('articles', fm.id);
 
   return {
     title: fm.title,
     description: fm.abstract,
     keywords: fm.tags,
     authors: [{ name: author }],
+    alternates: {
+      canonical: articleUrl,
+      languages: alternates,
+    },
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -50,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: fm.date,
       authors: [author],
       tags: fm.tags,
+      locale: lang,
     },
   };
 }

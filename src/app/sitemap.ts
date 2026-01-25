@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPapers, getArticles, getLanguages } from '@/lib/content';
+import { getPapers, getArticles, getConcepts, getLanguages, getAlternateLanguages, getStaticPageAlternates } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
@@ -9,47 +9,99 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const languages = getLanguages();
   const entries: MetadataRoute.Sitemap = [];
 
-  // Homepage
+  // Homepage with language alternates
+  const homeAlternates: Record<string, string> = {};
+  for (const lang of languages) {
+    homeAlternates[lang] = `${SITE_URL}/${lang}`;
+  }
   entries.push({
     url: SITE_URL,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 1.0,
+    alternates: { languages: homeAlternates },
   });
 
-  // Static pages per language
-  const staticPages = ['about', 'articles', 'papers', 'formulas', 'positioning', 'mu-levels', 'graph'];
+  // Static pages with language alternates
+  const staticPages = ['about', 'articles', 'papers', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms'];
 
-  for (const lang of languages) {
-    for (const page of staticPages) {
+  for (const page of staticPages) {
+    const alternates = getStaticPageAlternates(page);
+    for (const lang of languages) {
       entries.push({
         url: `${SITE_URL}/${lang}/${page}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
+        alternates: { languages: alternates },
       });
     }
+  }
 
-    // Paper pages
+  // Paper pages with language alternates
+  // Get unique paper IDs across all languages
+  const seenPaperIds = new Set<string>();
+  for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
-      entries.push({
-        url: `${SITE_URL}/${lang}/papers/${paper.frontmatter.id}`,
-        lastModified: paper.frontmatter.date ? new Date(paper.frontmatter.date) : new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.9,
-      });
-    }
+      const id = paper.frontmatter.id;
+      if (seenPaperIds.has(id)) continue;
+      seenPaperIds.add(id);
 
-    // Article pages
+      const alternates = getAlternateLanguages('papers', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/papers/${id}`,
+          lastModified: paper.frontmatter.date ? new Date(paper.frontmatter.date) : new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.9,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // Article pages with language alternates
+  const seenArticleIds = new Set<string>();
+  for (const lang of languages) {
     const articles = getArticles(lang);
     for (const article of articles) {
-      entries.push({
-        url: `${SITE_URL}/${lang}/articles/${article.frontmatter.id}`,
-        lastModified: article.frontmatter.date ? new Date(article.frontmatter.date) : new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.9,
-      });
+      const id = article.frontmatter.id;
+      if (seenArticleIds.has(id)) continue;
+      seenArticleIds.add(id);
+
+      const alternates = getAlternateLanguages('articles', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/articles/${id}`,
+          lastModified: article.frontmatter.date ? new Date(article.frontmatter.date) : new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.9,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // Concept pages with language alternates
+  const seenConceptIds = new Set<string>();
+  for (const lang of languages) {
+    const concepts = getConcepts(lang);
+    for (const concept of concepts) {
+      const id = concept.frontmatter.id;
+      if (seenConceptIds.has(id)) continue;
+      seenConceptIds.add(id);
+
+      const alternates = getAlternateLanguages('concepts', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/concepts/${id}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.85,
+          alternates: { languages: alternates },
+        });
+      }
     }
   }
 

@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
+// RTL languages
+const RTL_LANGUAGES = ['fa', 'ar', 'he'];
+
 // Language configuration
 const LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English' },
@@ -21,6 +24,7 @@ export function LanguageSelector() {
   const pathParts = pathname.split('/');
   const currentLangCode = pathParts[1] || 'en';
   const currentLang = LANGUAGES.find(l => l.code === currentLangCode) || LANGUAGES[0];
+  const isRTL = RTL_LANGUAGES.includes(currentLangCode);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -77,19 +81,20 @@ export function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 min-w-[140px] bg-frc-void border border-frc-blue z-50 animate-fade-in">
+        <div className={`absolute top-full mt-2 min-w-[140px] bg-frc-void border border-frc-blue z-50 animate-fade-in ${isRTL ? 'left-0' : 'right-0'}`}>
           {LANGUAGES.map(lang => (
             <button
               key={lang.code}
               onClick={() => switchLanguage(lang.code)}
-              className={`w-full px-3 py-2 text-left text-xs flex items-center justify-between gap-3 transition-colors ${
+              className={`w-full px-3 py-2 text-xs flex items-center justify-between gap-3 transition-colors ${
                 lang.code === currentLangCode
                   ? 'bg-frc-blue/20 text-frc-gold'
                   : 'text-frc-text-dim hover:bg-frc-blue/10 hover:text-frc-text'
               }`}
+              dir="ltr"
             >
               <span className="font-mono uppercase tracking-wider">{lang.code}</span>
-              <span className={lang.code === 'fa' ? 'font-farsi' : ''}>{lang.nativeName}</span>
+              <span className={lang.code === 'fa' ? 'font-farsi' : ''} dir={lang.code === 'fa' ? 'rtl' : 'ltr'}>{lang.nativeName}</span>
             </button>
           ))}
         </div>

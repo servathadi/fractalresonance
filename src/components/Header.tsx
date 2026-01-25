@@ -6,6 +6,9 @@ import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 
+// RTL languages
+const RTL_LANGUAGES = ['fa', 'ar', 'he'];
+
 // Navigation links (path relative to language)
 const NAV_LINKS = [
   { path: '/about', label: 'About' },
@@ -21,9 +24,10 @@ const NAV_LINKS = [
 export function Header() {
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'en';
+  const isRTL = RTL_LANGUAGES.includes(lang);
 
   return (
-    <header className="sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm">
+    <header className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Top micro-bar with coordinates */}
       <div className="border-b border-frc-blue/50">
         <div className="max-w-6xl mx-auto px-6 py-1 flex items-center justify-between">

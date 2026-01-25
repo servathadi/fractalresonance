@@ -1,34 +1,34 @@
 ---
-title: "Coherence (C)"
+title: "Cohérence (C)"
 id: coherence
-tags: [core-concept, scalar-gauge, dimensionless]
+tags: [concept-central, jauge-scalaire, adimensionnel]
 related: [entropy, witness, lambda]
 lang: fr
 ---
 
-# Coherence (C)
+# Cohérence (C)
 
-A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system.
+Une jauge scalaire adimensionnelle mesurant le degré d'ordre interne ou de verrouillage de motif dans un système.
 
-## Definition
+## Définition
 
-In the FRC framework, coherence C is defined through its reciprocal relationship with entropy:
+Dans le cadre FRC, la cohérence C est définie par sa relation réciproque avec l'entropie :
 
 ```
 S + k* ln C = const.
 ```
 
-Where k* is the coherence constant (1 in information layers, k_B in thermodynamic layers).
+Où k* est la constante de cohérence (1 dans les couches d'information, k_B dans les couches thermodynamiques).
 
-## Properties
+## Propriétés
 
-- **Dimensionless** — pure ratio, no units
-- **Bounded** — C in (0, 1] for normalized systems
-- **Reciprocal to entropy** — as S increases, C decreases (and vice versa)
-- **Gauge-invariant** — only ratios C_1/C_2 are physically meaningful
+- **Adimensionnel** — pur rapport, sans unités
+- **Borné** — C dans (0, 1] pour les systèmes normalisés
+- **Réciproque à l'entropie** — à mesure que S augmente, C diminue (et vice versa)
+- **Invariant de jauge** — seuls les rapports C_1/C_2 sont physiquement significatifs
 
-## Appears In
+## Apparaît Dans
 
-- [[FRC-566-001]] — Reciprocity law formalization
-- [[FRC-100-001]] — Original definition
-- [[FRC-200-001]] — Lambda operator context
+- [[FRC-566-001]] — Formalisation de la loi de réciprocité
+- [[FRC-100-001]] — Définition originale
+- [[FRC-200-001]] — Contexte de l'opérateur Lambda

@@ -635,11 +635,40 @@ a, button {
   flex-direction: row-reverse;
 }
 
-/* Keep LTR for code and equations */
+/* Sidebar RTL: border on left instead of right */
+[dir="rtl"] [data-sidebar] {
+  border-right: none;
+  border-left: 1px solid var(--color-frc-blue);
+}
+
+/* Table of Contents RTL: border on right instead of left */
+[dir="rtl"] [data-toc] {
+  border-left: none;
+  border-right: 1px solid var(--color-frc-blue);
+}
+
+/* Backlinks section border */
+[dir="rtl"] .backlinks {
+  border-top: 1px solid var(--color-frc-blue);
+}
+
+/* Tag alignment */
+[dir="rtl"] .tag {
+  direction: ltr;
+}
+
+/* Keep LTR for code, equations, and monospace */
 [dir="rtl"] pre,
 [dir="rtl"] code,
 [dir="rtl"] .equation-block span,
 [dir="rtl"] .font-mono {
   direction: ltr;
   text-align: left;
+}
+
+/* Keep math expressions LTR */
+[dir="rtl"] .katex,
+[dir="rtl"] .math,
+[dir="rtl"] mjx-container {
+  direction: ltr;
 }

@@ -5,7 +5,7 @@ import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { Sidebar } from '@/components/Sidebar';
 import { schemaConceptPage } from '@/lib/schema';
-import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary } from '@/lib/content';
+import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages } from '@/lib/content';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -35,11 +35,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = concept.frontmatter;
   const description = concept.body.split('\n\n').find(p => p && !p.startsWith('#')) || '';
+  const conceptUrl = `https://fractalresonance.com/${lang}/concepts/${fm.id}`;
+  const alternates = getAlternateLanguages('concepts', fm.id);
 
   return {
     title: `${fm.title} — FRC Concept`,
     description: description.slice(0, 160),
     keywords: fm.tags,
+    alternates: {
+      canonical: conceptUrl,
+      languages: alternates,
+    },
+    openGraph: {
+      type: 'article',
+      title: fm.title,
+      description: description.slice(0, 160),
+      locale: lang,
+    },
   };
 }
 
