@@ -18,7 +18,7 @@ export function Sidebar({ lang, currentId, basePath, view }: SidebarProps) {
   const series800 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-8'));
 
   return (
-    <aside data-sidebar className="w-56 shrink-0 border-r border-frc-blue overflow-y-auto hidden xl:block">
+    <aside data-sidebar className="w-52 shrink-0 border-r border-frc-blue overflow-y-auto hidden lg:block">
       <nav className="py-6 px-4 text-sm sticky top-0">
         <SidebarSection title="100 — Core Theory" items={series100} lang={lang} currentId={currentId} base={base} />
         <SidebarSection title="566 — Reciprocity" items={series566} lang={lang} currentId={currentId} base={base} />
@@ -69,6 +69,8 @@ function SidebarSection({
 }) {
   if (items.length === 0) return null;
 
+  const displayId = (id: string) => id.replace(/^FRC-/, '').replace(/-/g, '.');
+
   return (
     <div className="mb-4">
       <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">{title}</h3>
@@ -84,7 +86,7 @@ function SidebarSection({
               }`}
               title={paper.frontmatter.title}
             >
-              {paper.frontmatter.id.replace('FRC-', '')}
+              {displayId(paper.frontmatter.id)}
             </Link>
           </li>
         ))}
