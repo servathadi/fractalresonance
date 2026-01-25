@@ -2,7 +2,7 @@
 title: "The Illusion of Chance: Unmasking Quantum Randomness"
 date: 2026-03-01
 id: FRC-EP-005
-tags: [determinism, randomness, probability, FRC-100]
+tags: [determinism, randomness, probability, infographics, FRC-100]
 abstract: "Is randomness fundamental, or is it an illusion created by our lack of resolution? We deconstruct the 'illusion of chance' and reveal the deterministic gears turning beneath the stochastic surface. Episode 5 of the Resonance Universe series."
 video:
   url: "https://www.youtube.com/watch?v=Y2_85m-zVV0"

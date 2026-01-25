@@ -2,7 +2,7 @@
 title: "Unmasking Quantum Randomness"
 date: 2026-04-15
 id: FRC-EP-EXTRA-2
-tags: [quantum-randomness, determinism, philosophy, FRC-100]
+tags: [quantum-randomness, determinism, philosophy, infographics, FRC-100]
 abstract: "A critical look at the concept of 'true' randomness in quantum mechanics and the FRC alternative."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ---

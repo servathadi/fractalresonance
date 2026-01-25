@@ -2,7 +2,7 @@
 title: "Order in the Chaos: The Quantum Fingerprint of the Stadium Billiard"
 date: 2026-02-01
 id: FRC-EP-002
-tags: [quantum-chaos, stadium-billiard, fractal-dimension, FRC-100]
+tags: [quantum-chaos, stadium-billiard, fractal-dimension, infographics, FRC-100]
 abstract: "Investigating the 'haunted' pool table of the Bunimovich stadium. We find that what looks like random chaos is actually a deterministic fractal resonance with a signature dimension of D ≈ 1.90. Episode 2 of the Resonance Universe series."
 video:
   url: "https://www.youtube.com/watch?v=I77qlVunpRs"

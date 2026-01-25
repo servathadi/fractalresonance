@@ -2,7 +2,7 @@
 title: "The Engine of Coherence: Fractal Resonance Quantum Theory"
 date: 2026-02-10
 id: FRC-EP-003
-tags: [quantum-theory, coherence, engine, FRC-100]
+tags: [quantum-theory, coherence, engine, infographics, FRC-100]
 abstract: "Visualizing the engine room of reality. How fractal resonance drives quantum dynamics and creates the structures we perceive as matter. Episode 3 of the Resonance Universe series."
 video:
   url: "https://www.youtube.com/watch?v=Cy_5ofEuHLA"

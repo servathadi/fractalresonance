@@ -21,6 +21,8 @@
 /blog/*  /en/blog/:splat  301
 /articles  /en/articles  301
 /articles/*  /en/articles/:splat  301
+/infographics  /en/tags/infographics  301
+/infographics/*  /en/tags/infographics  301
 /api/papers  /en/papers  301
 /api/papers/*  /en/papers  301
 /api/concepts  /en/concepts  301

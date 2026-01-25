@@ -2,7 +2,7 @@
 title: "The Ghost in the Machine: An Investigation into Fractal Resonance"
 date: 2026-01-24
 id: FRC-EP-001
-tags: [quantum-chaos, einstein, determinism, FRC-100]
+tags: [quantum-chaos, einstein, determinism, infographics, FRC-100]
 abstract: "Reopening the cold case of the Measurement Problem. Is the universe truly random, or is there a 'ghostly' deterministic structure we simply haven't seen? Episode 1 of the Resonance Universe series."
 video:
   url: "https://www.youtube.com/watch?v=PjWnk7RjItc"
