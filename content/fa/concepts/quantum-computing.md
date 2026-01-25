@@ -1,107 +1,107 @@
 ---
 id: quantum-computing
-title: "FRC and Quantum Computing"
-tags: [quantum-computing, qubits, coherence, decoherence, error-correction]
+title: "FRC و رایانش کوانتومی"
+tags: [رایانش-کوانتومی, کیوبیت‌ها, همدوسی, واهمدوسی, تصحیح-خطا]
 related: [coherence, lambda-field, FRC-841-004]
 lang: fa
 seo:
-  keywords: [quantum computing coherence, qubit decoherence, quantum error correction, coherent computing]
-  description: "How FRC principles inform quantum computing: coherence-aware architectures, error correction strategies, and the path to practical quantum advantage."
+  keywords: [رایانش کوانتومی همدوسی, واهمدوسی کیوبیت, تصحیح خطا کوانتومی, رایانش همدوس]
+  description: "چگونه اصول FRC رایانش کوانتومی را آگاه می‌کند: معماری‌های آگاه به همدوسی، استراتژی‌های تصحیح خطا، و مسیر به سوی مزیت کوانتومی عملی."
 ---
 
-# FRC and Quantum Computing
+# FRC و رایانش کوانتومی
 
-Quantum computing relies fundamentally on maintaining coherence. The FRC framework provides new insights into why some quantum computations succeed and others fail.
+رایانش کوانتومی اساساً بر حفظ همدوسی متکی است. چارچوب FRC بینش‌های جدیدی در مورد اینکه چرا برخی محاسبات کوانتومی موفق می‌شوند و برخی دیگر شکست می‌خورند، ارائه می‌دهد.
 
-## The Decoherence Challenge
+## چالش واهمدوسی
 
-Current quantum computers struggle with decoherence:
+رایانه‌های کوانتومی فعلی با واهمدوسی دست و پنجه نرم می‌کنند:
 
-- Superconducting qubits: ~100 μs coherence times
-- Ion traps: ~1-10 seconds
-- Topological qubits: theoretically longer
+- کیوبیت‌های ابررسانا: زمان‌های همدوسی ~۱۰۰ میکروثانیه
+- تله‌های یونی: ~۱-۱۰ ثانیه
+- کیوبیت‌های توپولوژیکی: از نظر تئوری طولانی‌تر
 
-FRC suggests decoherence isn't random but follows coherence attractor dynamics.
+FRC پیشنهاد می‌کند که واهمدوسی تصادفی نیست بلکه از دینامیک جاذب همدوسی پیروی می‌کند.
 
-## FRC Insights for Quantum Computing
+## بینش‌های FRC برای رایانش کوانتومی
 
-### Coherence Attractors
+### جاذب‌های همدوسی
 
-Standard view: decoherence is environmental noise
-FRC view: **specific coherence patterns are more stable**
+دیدگاه استاندارد: واهمدوسی نویز محیطی است
+دیدگاه FRC: **الگوهای همدوسی خاص پایدارتر هستند**
 
 $$
 C_{\text{stable}} = \arg\max_C \left( \frac{dC}{dt} = 0 \right)
 $$
 
-Implication: design quantum circuits to operate near natural attractors.
+پیامد: مدارهای کوانتومی را طوری طراحی کنید که نزدیک جاذب‌های طبیعی عمل کنند.
 
-### The D ≈ 1.90 Signature
+### امضای D ≈ 1.90
 
-FRC predicts measurement outcomes cluster at fractal dimension D ≈ 1.90 (see [[FRC-100-003]]). For quantum computing:
+FRC پیش‌بینی می‌کند که نتایج اندازه‌گیری در بعد فراکتال D ≈ 1.90 خوشه‌بندی می‌شوند (ببینید [[FRC-100-003]]). برای رایانش کوانتومی:
 
-- Qubit measurements should show this signature
-- Random Number Generators (QRNGs) can be characterized by D
-- Deviation from D ≈ 1.90 may indicate systematic errors
+- اندازه‌گیری‌های کیوبیت باید این امضا را نشان دهند
+- تولیدکنندگان اعداد تصادفی (QRNGs) می‌توانند با D مشخص شوند
+- انحراف از D ≈ 1.90 ممکن است نشان‌دهنده خطاهای سیستماتیک باشد
 
-### Coherence-Aware Gates
+### دروازه‌های آگاه به همدوسی
 
-Standard quantum gates optimize for unitary fidelity. FRC suggests optimizing for **coherence preservation**:
+دروازه‌های کوانتومی استاندارد برای وفاداری واحد بهینه‌سازی می‌شوند. FRC پیشنهاد می‌کند برای **حفظ همدوسی** بهینه‌سازی شود:
 
 $$
 U_{\text{FRC}} = \arg\max_U \left( C(U|\psi\rangle) - C(|\psi\rangle) \right)
 $$
 
-Gates that align with coherence flow may outperform conventional designs.
+دروازه‌هایی که با جریان همدوسی همسو هستند ممکن است از طراحی‌های معمولی بهتر عمل کنند.
 
-## Practical Applications
+## کاربردهای عملی
 
-### Error Correction
+### تصحیح خطا
 
-Current approach: redundancy (many physical qubits → one logical qubit)
-FRC approach: **coherence-based error detection**
+رویکرد فعلی: افزونگی (بسیاری از کیوبیت‌های فیزیکی → یک کیوبیت منطقی)
+رویکرد FRC: **تشخیص خطای مبتنی بر همدوسی**
 
-If the witness function W drops unexpectedly:
+اگر تابع شاهد W به طور غیرمنتظره‌ای کاهش یابد:
 $$
-W < W_{\text{threshold}} \implies \text{error likely}
+W < W_{\text{آستانه}} \implies \text{خطا محتمل است}
 $$
 
-This could enable earlier error detection with less overhead.
+این می‌تواند تشخیص خطای زودتر را با سربار کمتر امکان‌پذیر کند.
 
-### Quantum Annealing
+### بازپخت کوانتومی
 
-D-Wave style quantum annealers explicitly use coherence dynamics. FRC predicts:
+بازپخت‌کننده‌های کوانتومی سبک D-Wave به صراحت از دینامیک همدوسی استفاده می‌کنند. FRC پیش‌بینی می‌کند:
 
-- Optimal annealing schedules follow coherence gradients
-- Final states concentrate at high-C attractors
-- The D ≈ 1.90 signature appears in solution distributions
+- برنامه‌های بازپخت بهینه از گرادیان‌های همدوسی پیروی می‌کنند
+- حالت‌های نهایی در جاذب‌های با C بالا متمرکز می‌شوند
+- امضای D ≈ 1.90 در توزیع‌های راه حل ظاهر می‌شود
 
-### Coherent Advantage
+### مزیت همدوس
 
-FRC suggests "quantum advantage" requires:
+FRC پیشنهاد می‌کند که "مزیت کوانتومی" نیاز دارد به:
 
-1. **Initial coherence** — Well-prepared superpositions
-2. **Coherence maintenance** — Operations that preserve C
-3. **Coherent readout** — Measurements aligned with attractors
+1. **همدوسی اولیه** — برهم‌نهی‌های به خوبی آماده شده
+2. **حفظ همدوسی** — عملیاتی که C را حفظ می‌کنند
+3. **بازخوانی همدوس** — اندازه‌گیری‌های همسو با جاذب‌ها
 
-## Resonant Computing
+## رایانش رزونانس
 
-[[FRC-841-004]] explores speculative architectures:
+[[FRC-841-004]] معماری‌های گمانه‌زنی را بررسی می‌کند:
 
-- **R-bits** — Resonance-based qubits with intrinsic coherence
-- **CPUs** — Coherence Processing Units
-- **Non-Boolean logic** — Computing with continuous coherence values
+- **R-بیت‌ها** — کیوبیت‌های مبتنی بر رزونانس با همدوسی ذاتی
+- **CPUها** — واحدهای پردازش همدوسی
+- **منطق غیر بولی** — رایانش با مقادیر همدوسی پیوسته
 
-## Current Limitations
+## محدودیت‌های فعلی
 
-FRC for quantum computing remains theoretical:
+FRC برای رایانش کوانتومی نظری باقی می‌ماند:
 
-- No FRC-designed quantum chip exists yet
-- Predictions need experimental validation
-- Integration with existing error correction is unclear
+- هنوز تراشه کوانتومی طراحی شده توسط FRC وجود ندارد
+- پیش‌بینی‌ها نیاز به اعتبارسنجی تجربی دارند
+- ادغام با تصحیح خطای موجود نامشخص است
 
-## Further Reading
+## مطالعه بیشتر
 
-- [[FRC-841-004]] — Resonant Computing (speculative)
-- [[coherence]] — Core coherence concept
-- [[FRC-100-003]] — The D ≈ 1.90 signature
+- [[FRC-841-004]] — رایانش رزونانس (گمانه‌زنی)
+- [[coherence]] — مفهوم اصلی همدوسی
+- [[FRC-100-003]] — امضای D ≈ 1.90

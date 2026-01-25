@@ -1,21 +1,21 @@
 ---
-title: "Unmasking Quantum Randomness"
+title: "Démasquer l'Aléatoire Quantique"
 date: 2026-04-15
 id: FRC-EP-EXTRA-2
-tags: [quantum-randomness, determinism, philosophy, FRC-100]
-abstract: "A critical look at the concept of 'true' randomness in quantum mechanics and the FRC alternative."
+tags: [aleatoire-quantique, determinisme, philosophie, FRC-100]
+abstract: "Un regard critique sur le concept de 'vrai' hasard en mécanique quantique et l'alternative FRC."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ---
 
-# Unmasking Quantum Randomness
+# Démasquer l'Aléatoire Quantique
 
-## Visual Essay
+## Essai Visuel
 
-### The Mask
-![Slide 1](/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png)
+### Le Masque
+![Diapositive 1](/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png)
 
-### Behind the Curtain
-![Slide 2](/images/slides_raw/Unmasking_Quantum_Randomness/slide_002.png)
+### Derrière le Rideau
+![Diapositive 2](/images/slides_raw/Unmasking_Quantum_Randomness/slide_002.png)
 
-### The Truth
-![Slide 3](/images/slides_raw/Unmasking_Quantum_Randomness/slide_003.png)
+### La Vérité
+![Diapositive 3](/images/slides_raw/Unmasking_Quantum_Randomness/slide_003.png)

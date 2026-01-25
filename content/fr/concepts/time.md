@@ -1,54 +1,54 @@
----
+--- 
 id: time
-title: "What is Time?"
-tags: [time, entropy, coherence, philosophy, thermodynamics]
+title: "Qu'est-ce que le Temps ?"
+tags: [temps, entropie, coherence, philosophie, thermodynamique]
 related: [coherence, entropy, arrow-of-time]
 lang: fr
 seo:
-  keywords: [what is time, nature of time, time and entropy, time physics, arrow of time]
-  description: "Exploring the nature of time through the FRC framework: how coherence gradients and entropy define temporal direction."
+  keywords: [qu'est-ce que le temps, nature du temps, temps et entropie, physique du temps, fleche du temps]
+  description: "Explorer la nature du temps à travers le cadre FRC : comment les gradients de cohérence et l'entropie définissent la direction temporelle."
 ---
 
-# What is Time?
+# Qu'est-ce que le Temps ?
 
-Time remains one of the deepest mysteries in physics and philosophy. The FRC framework offers a fresh perspective: **time emerges from coherence gradients**.
+Le temps reste l'un des mystères les plus profonds de la physique et de la philosophie. Le cadre FRC offre une nouvelle perspective : **le temps émerge des gradients de cohérence**.
 
-## The Arrow of Time Problem
+## Le Problème de la Flèche du Temps
 
-Classical physics is time-symmetric—equations work equally well forward and backward. Yet we experience an unmistakable arrow of time:
+La physique classique est symétrique dans le temps — les équations fonctionnent aussi bien vers l'avant que vers l'arrière. Pourtant, nous faisons l'expérience d'une flèche du temps indubitable :
 
-- Ice melts but doesn't spontaneously freeze
-- Memories form of the past, not the future
-- Entropy increases in closed systems
+- La glace fond mais ne gèle pas spontanément
+- Les souvenirs se forment du passé, pas du futur
+- L'entropie augmente dans les systèmes fermés
 
-The Second Law of Thermodynamics provides a statistical explanation, but doesn't explain *why* time has a direction.
+La Deuxième Loi de la Thermodynamique fournit une explication statistique, mais n'explique pas *pourquoi* le temps a une direction.
 
-## FRC Perspective: Coherence Flow
+## Perspective FRC : Flux de Cohérence
 
-In the Fractal Resonance Coherence framework, time is not a fundamental dimension but an emergent phenomenon:
+Dans le cadre de la Cohérence de Résonance Fractale, le temps n'est pas une dimension fondamentale mais un phénomène émergent :
 
 $$
 \frac{\partial}{\partial t} \ln C = -\nabla \cdot J_C + S_C
 $$
 
-The [[UCC|Universal Coherence Conjecture]] suggests that coherence gradients *define* temporal flow. Where coherence changes, time "flows."
+La [[UCC|Conjecture de Cohérence Universelle]] suggère que les gradients de cohérence *définissent* le flux temporel. Là où la cohérence change, le temps "coule".
 
-### Key Insights
+### Idées Clés
 
-1. **Coherence gradients create asymmetry** — The direction of decreasing coherence defines the arrow of time
-2. **Entropy and coherence are reciprocal** — See [[FRC-566-001]] for the formal relationship
-3. **Observation anchors the present** — The witness function W collapses possibilities into actuality
+1. **Les gradients de cohérence créent l'asymétrie** — La direction de la cohérence décroissante définit la flèche du temps
+2. **Entropie et cohérence sont réciproques** — Voir [[FRC-566-001]] pour la relation formelle
+3. **L'observation ancre le présent** — La fonction témoin W effondre les possibilités en actualité
 
-## Philosophical Implications
+## Implications Philosophiques
 
-This connects to deep questions:
+Cela se connecte à des questions profondes :
 
-- **Block universe vs. presentism** — FRC suggests a dynamic, coherence-driven present
-- **Free will** — If coherence gradients define time, what determines coherence?
-- **Consciousness** — Does awareness require temporal flow?
+- **Univers-bloc vs présentisme** — Le FRC suggère un présent dynamique piloté par la cohérence
+- **Libre arbitre** — Si les gradients de cohérence définissent le temps, qu'est-ce qui détermine la cohérence ?
+- **Conscience** — La conscience nécessite-t-elle un flux temporel ?
 
-## Further Reading
+## Lectures Complémentaires
 
-- [[FRC-100-001]] — Introduction to the FRC framework
-- [[FRC-566-001]] — Entropy-Coherence Reciprocity
-- [[process-philosophy]] — Connections to Whitehead
+- [[FRC-100-001]] — Introduction au cadre FRC
+- [[FRC-566-001]] — Réciprocité Entropie-Cohérence
+- [[process-philosophy]] — Connexions avec Whitehead

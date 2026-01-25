@@ -5,27 +5,28 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { getDictionary } from '@/lib/dictionaries';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
-
-// Navigation links (path relative to language)
-const NAV_LINKS = [
-  { path: '/about', label: 'About' },
-  { path: '/articles', label: 'Articles' },
-  { path: '/papers', label: 'Papers' },
-  { path: '/books', label: 'Books' },
-  { path: '/graph', label: 'Graph' },
-  { path: '/formulas', label: 'Formulas' },
-  { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: 'Ask AI' },
-  { path: '/positioning', label: 'Positioning' },
-  { path: '/mu-levels', label: 'μ-Levels' },
-];
 
 export function Header() {
   const pathname = usePathname();
   const lang = pathname.split('/')[1] || 'en';
   const isRTL = RTL_LANGUAGES.includes(lang);
+  const dict = getDictionary(lang);
+
+  const navLinks = [
+    { path: '/about', label: dict.nav.about },
+    { path: '/articles', label: dict.nav.articles },
+    { path: '/papers', label: dict.nav.papers },
+    { path: '/books', label: dict.nav.books },
+    { path: '/graph', label: dict.nav.graph },
+    { path: '/formulas', label: dict.nav.formulas },
+    { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
+    { path: '/positioning', label: dict.nav.positioning },
+    { path: '/mu-levels', label: dict.nav.muLevels },
+  ];
 
   return (
     <header className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
@@ -69,7 +70,7 @@ export function Header() {
           </Link>
 
           <nav className="flex items-center">
-            {NAV_LINKS.map(link => (
+            {navLinks.map(link => (
               link.path ? (
                 <Link
                   key={link.path}

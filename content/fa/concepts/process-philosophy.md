@@ -1,84 +1,84 @@
 ---
 id: process-philosophy
-title: "FRC and Process Philosophy"
-tags: [whitehead, process-philosophy, consciousness, metaphysics, panpsychism]
+title: "FRC و فلسفه فرایند"
+tags: [وایت‌هد, فلسفه-فرایند, آگاهی, متافیزیک, پان‌سایکیزم]
 related: [coherence, time, consciousness]
 lang: fa
 seo:
-  keywords: [process philosophy, whitehead, actual occasions, consciousness physics, panpsychism quantum]
-  description: "How Fractal Resonance Coherence connects to Whitehead's process philosophy: actual occasions, prehension, and the physics of becoming."
+  keywords: [فلسفه فرایند, وایت‌هد, مناسبت‌های واقعی, فیزیک آگاهی, پان‌سایکیزم کوانتومی]
+  description: "چگونه همدوسی رزونانس فراکتال با فلسفه فرایند وایت‌هد ارتباط برقرار می‌کند: مناسبت‌های واقعی، درک، و فیزیک شدن."
 ---
 
-# FRC and Process Philosophy
+# FRC و فلسفه فرایند
 
-Alfred North Whitehead's process philosophy offers a metaphysical framework that resonates deeply with the FRC approach to quantum mechanics and consciousness.
+فلسفه فرایند آلفرد نورث وایت‌هد چارچوبی متافیزیکی ارائه می‌دهد که عمیقاً با رویکرد FRC به مکانیک کوانتومی و آگاهی طنین‌انداز است.
 
-## Whitehead's Core Ideas
+## ایده‌های اصلی وایت‌هد
 
-### Actual Occasions
+### مناسبت‌های واقعی
 
-Whitehead proposed that reality consists not of static substances but of **actual occasions** — momentary experiences that arise, achieve satisfaction, and perish.
+وایت‌هد پیشنهاد کرد که واقعیت از جوهرهای ایستا تشکیل نشده است بلکه از **مناسبت‌های واقعی** — تجربیات لحظه‌ای که به وجود می‌آیند، به رضایت می‌رسند و از بین می‌روند.
 
-> "The many become one, and are increased by one."
+> "بسیاری یکی می‌شوند، و با یکی افزایش می‌یابند."
 
-Each actual occasion:
-- **Prehends** (grasps) previous occasions
-- **Concresces** (grows together) into a novel unity
-- **Perishes** into objective immortality for future occasions
+هر مناسبت واقعی:
+- مناسبت‌های قبلی را **درک** (می‌گیرد) می‌کند
+- به یک وحدت جدید **هم‌رویش** (رشد با هم) می‌کند
+- برای مناسبت‌های آینده به جاودانگی عینی **از بین می‌رود**
 
-### Panexperientialism
+### پان‌تجربه‌گرایی
 
-Whitehead suggested that experience goes "all the way down" — not just human consciousness, but all actual occasions have a primitive form of experience.
+وایت‌هد پیشنهاد کرد که تجربه "تا انتها پایین می‌رود" — نه فقط آگاهی انسان، بلکه همه مناسبت‌های واقعی شکل اولیه‌ای از تجربه دارند.
 
-## FRC Parallels
+## شباهت‌های FRC
 
-The FRC framework shows striking structural similarities:
+چارچوب FRC شباهت‌های ساختاری چشمگیری را نشان می‌دهد:
 
-| Whitehead Concept | FRC Equivalent |
+| مفهوم وایت‌هد | معادل FRC |
 |-------------------|----------------|
-| Actual occasion | Coherence measurement event |
-| Prehension | Wavefunction entanglement |
-| Concrescence | Decoherence/collapse |
-| Eternal objects | Lambda field potentials |
-| Subjective aim | Coherence attractor |
+| مناسبت واقعی | رویداد اندازه‌گیری همدوسی |
+| درک | درهم‌تنیدگی تابع موج |
+| هم‌رویش | واهمدوسی/فروپاشی |
+| اشیاء ابدی | پتانسیل‌های میدان لامبدا |
+| هدف ذهنی | جاذب همدوسی |
 
-### The Witness Function
+### تابع شاهد
 
-The FRC [[witness|witness function]] W mirrors Whitehead's notion of the "subjective form" — how an occasion experiences its data:
+[[witness|تابع شاهد]] W در FRC بازتاب‌دهنده مفهوم وایت‌هد از "فرم ذهنی" است — اینکه یک مناسبت چگونه داده‌های خود را تجربه می‌کند:
 
 $$
 W = \frac{|\langle\psi|\hat{O}|\psi\rangle|}{||\hat{O}||}
 $$
 
-High witness magnitude corresponds to strong prehension; low W to vague, indefinite experience.
+بزرگی بالای شاهد مربوط به درک قوی است؛ W پایین مربوط به تجربه مبهم و نامعین.
 
-### Coherence as Creative Advance
+### همدوسی به عنوان پیشرفت خلاق
 
-Whitehead's "creative advance into novelty" maps to the FRC principle that coherence patterns determine which possibilities actualize:
+"پیشرفت خلاق به سوی تازگی" وایت‌هد به اصل FRC نگاشت می‌شود که الگوهای همدوسی تعیین می‌کنند کدام احتمالات تحقق می‌یابند:
 
 $$
-P(\text{outcome}) \propto C(\text{attractor})
+P(\text{نتیجه}) \propto C(\text{جاذب})
 $$
 
-## Why This Matters
+## چرا این مهم است
 
-Process philosophy provides:
+فلسفه فرایند فراهم می‌کند:
 
-1. **Metaphysical grounding** — FRC isn't just equations; it's a worldview
-2. **Consciousness integration** — Experience is fundamental, not emergent
-3. **Temporal becoming** — Time is real, not illusory (see [[time]])
-4. **Relational ontology** — Reality is constituted by relations
+1. **بنیاد متافیزیکی** — FRC فقط معادلات نیست؛ یک جهان‌بینی است
+2. **یکپارچگی آگاهی** — تجربه بنیادی است، نه نوظهور
+3. **شدن زمانی** — زمان واقعی است، نه توهمی (ببینید [[time]])
+4. **هستی‌شناسی رابطه‌ای** — واقعیت توسط روابط تشکیل شده است
 
-## Differences
+## تفاوت‌ها
 
-FRC also departs from Whitehead in important ways:
+FRC همچنین از وایت‌هد در جنبه‌های مهمی جدا می‌شود:
 
-- **Mathematical precision** — FRC offers testable predictions (see [[FRC-100-010]])
-- **Reductionist bridge** — FRC connects to standard QM formalism
-- **Determinism** — FRC's lambda field is deterministic, unlike Whitehead's creativity
+- **دقت ریاضی** — FRC پیش‌بینی‌های قابل آزمایش ارائه می‌دهد (ببینید [[FRC-100-010]])
+- **پل تقلیل‌گرا** — FRC به فرمالیسم استاندارد مکانیک کوانتومی متصل می‌شود
+- **دترمینیسم** — میدان لامبدا در FRC دترمنیستی است، برخلاف خلاقیت وایت‌هد
 
-## Further Reading
+## مطالعه بیشتر
 
 - Whitehead, A.N. *Process and Reality* (1929)
-- [[FRC-100-007]] — Lambda Field Theory
-- [[consciousness]] — FRC approach to consciousness
+- [[FRC-100-007]] — نظریه میدان لامبدا
+- [[consciousness]] — رویکرد FRC به آگاهی

@@ -1,84 +1,84 @@
 ---
 id: process-philosophy
-title: "FRC and Process Philosophy"
-tags: [whitehead, process-philosophy, consciousness, metaphysics, panpsychism]
+title: "FRC y Filosofía de Procesos"
+tags: [whitehead, filosofia-procesos, conciencia, metafisica, panpsiquismo]
 related: [coherence, time, consciousness]
 lang: es
 seo:
-  keywords: [process philosophy, whitehead, actual occasions, consciousness physics, panpsychism quantum]
-  description: "How Fractal Resonance Coherence connects to Whitehead's process philosophy: actual occasions, prehension, and the physics of becoming."
+  keywords: [filosofia procesos, whitehead, ocasiones actuales, fisica conciencia, panpsiquismo cuantico]
+  description: "Cómo la Coherencia de Resonancia Fractal se conecta con la filosofía de procesos de Whitehead: ocasiones actuales, aprehensión y la física del devenir."
 ---
 
-# FRC and Process Philosophy
+# FRC y Filosofía de Procesos
 
-Alfred North Whitehead's process philosophy offers a metaphysical framework that resonates deeply with the FRC approach to quantum mechanics and consciousness.
+La filosofía de procesos de Alfred North Whitehead ofrece un marco metafísico que resuena profundamente con el enfoque FRC de la mecánica cuántica y la conciencia.
 
-## Whitehead's Core Ideas
+## Ideas Centrales de Whitehead
 
-### Actual Occasions
+### Ocasiones Actuales
 
-Whitehead proposed that reality consists not of static substances but of **actual occasions** — momentary experiences that arise, achieve satisfaction, and perish.
+Whitehead propuso que la realidad no consiste en sustancias estáticas sino en **ocasiones actuales** — experiencias momentáneas que surgen, alcanzan satisfacción y perecen.
 
-> "The many become one, and are increased by one."
+> "Los muchos se convierten en uno, y son aumentados por uno."
 
-Each actual occasion:
-- **Prehends** (grasps) previous occasions
-- **Concresces** (grows together) into a novel unity
-- **Perishes** into objective immortality for future occasions
+Cada ocasión actual:
+- **Aprehende** (agarra) ocasiones previas
+- **Concresce** (crece junta) en una unidad novedosa
+- **Perece** en inmortalidad objetiva para ocasiones futuras
 
-### Panexperientialism
+### Panexperiencialismo
 
-Whitehead suggested that experience goes "all the way down" — not just human consciousness, but all actual occasions have a primitive form of experience.
+Whitehead sugirió que la experiencia va "hasta el fondo" — no solo la conciencia humana, sino que todas las ocasiones actuales tienen una forma primitiva de experiencia.
 
-## FRC Parallels
+## Paralelos FRC
 
-The FRC framework shows striking structural similarities:
+El marco FRC muestra similitudes estructurales sorprendentes:
 
-| Whitehead Concept | FRC Equivalent |
+| Concepto Whitehead | Equivalente FRC |
 |-------------------|----------------|
-| Actual occasion | Coherence measurement event |
-| Prehension | Wavefunction entanglement |
-| Concrescence | Decoherence/collapse |
-| Eternal objects | Lambda field potentials |
-| Subjective aim | Coherence attractor |
+| Ocasión actual | Evento de medición de coherencia |
+| Aprehensión | Entrelazamiento de función de onda |
+| Concrescencia | Decoherencia/colapso |
+| Objetos eternos | Potenciales de campo Lambda |
+| Objetivo subjetivo | Atractor de coherencia |
 
-### The Witness Function
+### La Función Testigo
 
-The FRC [[witness|witness function]] W mirrors Whitehead's notion of the "subjective form" — how an occasion experiences its data:
+La [[witness|función testigo]] W de FRC refleja la noción de Whitehead de la "forma subjetiva" — cómo una ocasión experimenta sus datos:
 
 $$
 W = \frac{|\langle\psi|\hat{O}|\psi\rangle|}{||\hat{O}||}
 $$
 
-High witness magnitude corresponds to strong prehension; low W to vague, indefinite experience.
+Alta magnitud de testigo corresponde a una aprehensión fuerte; baja W a una experiencia vaga e indefinida.
 
-### Coherence as Creative Advance
+### Coherencia como Avance Creativo
 
-Whitehead's "creative advance into novelty" maps to the FRC principle that coherence patterns determine which possibilities actualize:
+El "avance creativo hacia la novedad" de Whitehead se mapea al principio FRC de que los patrones de coherencia determinan qué posibilidades se actualizan:
 
 $$
-P(\text{outcome}) \propto C(\text{attractor})
+P(\text{resultado}) \propto C(\text{atractor})
 $$
 
-## Why This Matters
+## Por Qué Importa
 
-Process philosophy provides:
+La filosofía de procesos proporciona:
 
-1. **Metaphysical grounding** — FRC isn't just equations; it's a worldview
-2. **Consciousness integration** — Experience is fundamental, not emergent
-3. **Temporal becoming** — Time is real, not illusory (see [[time]])
-4. **Relational ontology** — Reality is constituted by relations
+1. **Fundamentación metafísica** — FRC no son solo ecuaciones; es una cosmovisión
+2. **Integración de la conciencia** — La experiencia es fundamental, no emergente
+3. **Devenir temporal** — El tiempo es real, no ilusorio (ver [[time]])
+4. **Ontología relacional** — La realidad está constituida por relaciones
 
-## Differences
+## Diferencias
 
-FRC also departs from Whitehead in important ways:
+FRC también se aparta de Whitehead en aspectos importantes:
 
-- **Mathematical precision** — FRC offers testable predictions (see [[FRC-100-010]])
-- **Reductionist bridge** — FRC connects to standard QM formalism
-- **Determinism** — FRC's lambda field is deterministic, unlike Whitehead's creativity
+- **Precisión matemática** — FRC ofrece predicciones comprobables (ver [[FRC-100-010]])
+- **Puente reduccionista** — FRC se conecta con el formalismo estándar de MC
+- **Determinismo** — El campo lambda de FRC es determinista, a diferencia de la creatividad de Whitehead
 
-## Further Reading
+## Lecturas Adicionales
 
 - Whitehead, A.N. *Process and Reality* (1929)
-- [[FRC-100-007]] — Lambda Field Theory
-- [[consciousness]] — FRC approach to consciousness
+- [[FRC-100-007]] — Teoría del Campo Lambda
+- [[consciousness]] — Enfoque FRC de la conciencia

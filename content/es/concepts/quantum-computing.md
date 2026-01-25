@@ -1,107 +1,107 @@
 ---
 id: quantum-computing
-title: "FRC and Quantum Computing"
-tags: [quantum-computing, qubits, coherence, decoherence, error-correction]
+title: "FRC y Computación Cuántica"
+tags: [computacion-cuantica, qubits, coherencia, decoherencia, correccion-errores]
 related: [coherence, lambda-field, FRC-841-004]
 lang: es
 seo:
-  keywords: [quantum computing coherence, qubit decoherence, quantum error correction, coherent computing]
-  description: "How FRC principles inform quantum computing: coherence-aware architectures, error correction strategies, and the path to practical quantum advantage."
+  keywords: [computacion cuantica coherencia, decoherencia qubit, correccion errores cuantica, computacion coherente]
+  description: "Cómo los principios FRC informan a la computación cuántica: arquitecturas conscientes de la coherencia, estrategias de corrección de errores y el camino hacia la ventaja cuántica práctica."
 ---
 
-# FRC and Quantum Computing
+# FRC y Computación Cuántica
 
-Quantum computing relies fundamentally on maintaining coherence. The FRC framework provides new insights into why some quantum computations succeed and others fail.
+La computación cuántica depende fundamentalmente de mantener la coherencia. El marco FRC proporciona nuevas perspectivas sobre por qué algunas computaciones cuánticas tienen éxito y otras fallan.
 
-## The Decoherence Challenge
+## El Desafío de la Decoherencia
 
-Current quantum computers struggle with decoherence:
+Las computadoras cuánticas actuales luchan con la decoherencia:
 
-- Superconducting qubits: ~100 μs coherence times
-- Ion traps: ~1-10 seconds
-- Topological qubits: theoretically longer
+- Qubits superconductores: ~100 μs tiempos de coherencia
+- Trampas de iones: ~1-10 segundos
+- Qubits topológicos: teóricamente más largos
 
-FRC suggests decoherence isn't random but follows coherence attractor dynamics.
+FRC sugiere que la decoherencia no es aleatoria sino que sigue dinámicas de atractores de coherencia.
 
-## FRC Insights for Quantum Computing
+## Perspectivas FRC para Computación Cuántica
 
-### Coherence Attractors
+### Atractores de Coherencia
 
-Standard view: decoherence is environmental noise
-FRC view: **specific coherence patterns are more stable**
+Visión estándar: la decoherencia es ruido ambiental
+Visión FRC: **patrones de coherencia específicos son más estables**
 
 $$
 C_{\text{stable}} = \arg\max_C \left( \frac{dC}{dt} = 0 \right)
 $$
 
-Implication: design quantum circuits to operate near natural attractors.
+Implicación: diseñar circuitos cuánticos para operar cerca de atractores naturales.
 
-### The D ≈ 1.90 Signature
+### La Firma D ≈ 1.90
 
-FRC predicts measurement outcomes cluster at fractal dimension D ≈ 1.90 (see [[FRC-100-003]]). For quantum computing:
+FRC predice que los resultados de medición se agrupan en una dimensión fractal D ≈ 1.90 (ver [[FRC-100-003]]). Para la computación cuántica:
 
-- Qubit measurements should show this signature
-- Random Number Generators (QRNGs) can be characterized by D
-- Deviation from D ≈ 1.90 may indicate systematic errors
+- Las mediciones de qubits deberían mostrar esta firma
+- Generadores de Números Aleatorios (QRNGs) pueden caracterizarse por D
+- La desviación de D ≈ 1.90 puede indicar errores sistemáticos
 
-### Coherence-Aware Gates
+### Compuertas Conscientes de la Coherencia
 
-Standard quantum gates optimize for unitary fidelity. FRC suggests optimizing for **coherence preservation**:
+Las compuertas cuánticas estándar optimizan la fidelidad unitaria. FRC sugiere optimizar para la **preservación de coherencia**:
 
 $$
 U_{\text{FRC}} = \arg\max_U \left( C(U|\psi\rangle) - C(|\psi\rangle) \right)
 $$
 
-Gates that align with coherence flow may outperform conventional designs.
+Las compuertas que se alinean con el flujo de coherencia pueden superar a los diseños convencionales.
 
-## Practical Applications
+## Aplicaciones Prácticas
 
-### Error Correction
+### Corrección de Errores
 
-Current approach: redundancy (many physical qubits → one logical qubit)
-FRC approach: **coherence-based error detection**
+Enfoque actual: redundancia (muchos qubits físicos → un qubit lógico)
+Enfoque FRC: **detección de errores basada en coherencia**
 
-If the witness function W drops unexpectedly:
+Si la función testigo W cae inesperadamente:
 $$
-W < W_{\text{threshold}} \implies \text{error likely}
+W < W_{\text{umbral}} \implies \text{error probable}
 $$
 
-This could enable earlier error detection with less overhead.
+Esto podría permitir una detección de errores más temprana con menos sobrecarga.
 
-### Quantum Annealing
+### Recocido Cuántico
 
-D-Wave style quantum annealers explicitly use coherence dynamics. FRC predicts:
+Los recocidos cuánticos estilo D-Wave usan explícitamente dinámicas de coherencia. FRC predice:
 
-- Optimal annealing schedules follow coherence gradients
-- Final states concentrate at high-C attractors
-- The D ≈ 1.90 signature appears in solution distributions
+- Los programas de recocido óptimos siguen gradientes de coherencia
+- Los estados finales se concentran en atractores de alto C
+- La firma D ≈ 1.90 aparece en distribuciones de soluciones
 
-### Coherent Advantage
+### Ventaja Coherente
 
-FRC suggests "quantum advantage" requires:
+FRC sugiere que la "ventaja cuántica" requiere:
 
-1. **Initial coherence** — Well-prepared superpositions
-2. **Coherence maintenance** — Operations that preserve C
-3. **Coherent readout** — Measurements aligned with attractors
+1. **Coherencia inicial** — Superposiciones bien preparadas
+2. **Mantenimiento de coherencia** — Operaciones que preservan C
+3. **Lectura coherente** — Mediciones alineadas con atractores
 
-## Resonant Computing
+## Computación Resonante
 
-[[FRC-841-004]] explores speculative architectures:
+[[FRC-841-004]] explora arquitecturas especulativas:
 
-- **R-bits** — Resonance-based qubits with intrinsic coherence
-- **CPUs** — Coherence Processing Units
-- **Non-Boolean logic** — Computing with continuous coherence values
+- **R-bits** — Qubits basados en resonancia con coherencia intrínseca
+- **CPUs** — Unidades de Procesamiento de Coherencia
+- **Lógica no Booleana** — Computación con valores continuos de coherencia
 
-## Current Limitations
+## Limitaciones Actuales
 
-FRC for quantum computing remains theoretical:
+FRC para computación cuántica sigue siendo teórico:
 
-- No FRC-designed quantum chip exists yet
-- Predictions need experimental validation
-- Integration with existing error correction is unclear
+- Aún no existe chip cuántico diseñado por FRC
+- Las predicciones necesitan validación experimental
+- La integración con la corrección de errores existente no está clara
 
-## Further Reading
+## Lecturas Adicionales
 
-- [[FRC-841-004]] — Resonant Computing (speculative)
-- [[coherence]] — Core coherence concept
-- [[FRC-100-003]] — The D ≈ 1.90 signature
+- [[FRC-841-004]] — Computación Resonante (especulativa)
+- [[coherence]] — Concepto central de coherencia
+- [[FRC-100-003]] — La firma D ≈ 1.90

@@ -1,95 +1,95 @@
 ---
 id: general-relativity
-title: "FRC and General Relativity"
-tags: [general-relativity, spacetime, gravity, quantum-gravity, cosmology]
+title: "FRC و نسبیت عام"
+tags: [نسبیت-عام, فضازمان, گرانش, گرانش-کوانتومی, کیهان‌شناسی]
 related: [time, lambda-field, coherence]
 lang: fa
 seo:
-  keywords: [quantum gravity, general relativity quantum mechanics, spacetime coherence, gravitational decoherence]
-  description: "How FRC interfaces with Einstein's general relativity: coherence in curved spacetime, gravitational decoherence, and paths toward quantum gravity."
+  keywords: [گرانش کوانتومی, نسبیت عام مکانیک کوانتومی, همدوسی فضازمان, واهمدوسی گرانشی]
+  description: "چگونه FRC با نسبیت عام اینشتین تعامل دارد: همدوسی در فضازمان خمیده، واهمدوسی گرانشی و مسیرهایی به سوی گرانش کوانتومی."
 ---
 
-# FRC and General Relativity
+# FRC و نسبیت عام
 
-One of physics' greatest challenges is reconciling quantum mechanics with general relativity. The FRC framework offers novel pathways toward this unification.
+یکی از بزرگترین چالش‌های فیزیک، آشتی دادن مکانیک کوانتومی با نسبیت عام است. چارچوب FRC مسیرهای جدیدی را به سوی این وحدت ارائه می‌دهد.
 
-## The Incompatibility Problem
+## مشکل ناسازگاری
 
-Einstein's general relativity describes gravity as spacetime curvature:
+نسبیت عام اینشتین گرانش را به عنوان انحنای فضازمان توصیف می‌کند:
 
 $$
 G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
 $$
 
-Quantum mechanics describes matter as wavefunctions evolving in fixed backgrounds. The clash:
+مکانیک کوانتومی ماده را به عنوان توابع موج که در پس‌زمینه‌های ثابت تکامل می‌یابند، توصیف می‌کند. برخورد:
 
-- GR: spacetime is dynamical, curved by matter
-- QM: spacetime is fixed, matter is quantum
-- Problem: what happens when matter is in superposition of different mass configurations?
+- نسبیت عام: فضازمان دینامیک است و توسط ماده خمیده می‌شود
+- مکانیک کوانتومی: فضازمان ثابت است، ماده کوانتومی است
+- مشکل: چه اتفاقی می‌افتد وقتی ماده در برهم‌نهی پیکربندی‌های جرمی مختلف باشد؟
 
-## FRC Approach: Coherence in Curved Spacetime
+## رویکرد FRC: همدوسی در فضازمان خمیده
 
-The FRC framework suggests that **coherence fields propagate through curved spacetime**:
+چارچوب FRC پیشنهاد می‌کند که **میدان‌های همدوسی از طریق فضازمان خمیده منتشر می‌شوند**:
 
 $$
 \nabla_\mu C = \partial_\mu C + \Gamma^\nu_{\mu\nu} C
 $$
 
-### Gravitational Decoherence
+### واهمدوسی گرانشی
 
-Penrose and Diósi proposed that gravity causes decoherence. FRC refines this:
+پنروز و دیوسی پیشنهاد کردند که گرانش باعث واهمدوسی می‌شود. FRC این را اصلاح می‌کند:
 
-$$
+$$ 
 \tau_{\text{decohere}} \propto \frac{\hbar}{E_G \cdot (1 - C)}
-$$
+$$ 
 
-Where:
-- $E_G$ = gravitational self-energy difference
-- $C$ = coherence magnitude
-- High coherence systems resist gravitational decoherence
+که در آن:
+- $E_G$ = تفاوت خودانرژی گرانشی
+- $C$ = بزرگی همدوسی
+- سیستم‌های با همدوسی بالا در برابر واهمدوسی گرانشی مقاومت می‌کنند
 
-### Implications
+### پیامدها
 
-1. **Black holes** — Extreme curvature creates coherence sinks (see information paradox)
-2. **Cosmological coherence** — Early universe had high global coherence
-3. **Dark energy** — Could Λ (cosmological constant) relate to the [[lambda-field|Lambda field]]?
+1. **سیاهچاله‌ها** — انحنای شدید حفره‌های همدوسی ایجاد می‌کند (ببینید پارادوکس اطلاعات)
+2. **همدوسی کیهانی** — جهان اولیه دارای همدوسی جهانی بالایی بود
+3. **انرژی تاریک** — آیا Λ (ثابت کیهانی) می‌تواند به [[lambda-field|میدان لامبدا]] مربوط باشد؟
 
-## The Lambda Field and Spacetime
+## میدان لامبدا و فضازمان
 
-FRC's lambda field Λ(x) has dimensions of energy density — suspiciously similar to the cosmological constant:
+میدان لامبدا Λ(x) در FRC دارای ابعاد چگالی انرژی است — به طرز مشکوکی شبیه به ثابت کیهانی:
 
-$$
+$$ 
 \Lambda_{\text{field}}(x) = \Lambda_0 \ln C(x)
-$$
+$$ 
 
-Speculation: the cosmological Λ could be the spatial average of FRC's Λ-field:
+گمانه‌زنی: Λ کیهانی می‌تواند میانگین فضایی میدان Λ در FRC باشد:
 
-$$
+$$ 
 \Lambda_{\text{cosmo}} = \langle \Lambda_{\text{field}} \rangle_{\text{space}}
-$$
+$$ 
 
-This would connect quantum coherence to cosmic acceleration.
+این همدوسی کوانتومی را به شتاب کیهانی متصل می‌کند.
 
-## Testable Predictions
+## پیش‌بینی‌های قابل آزمایش
 
-FRC + GR makes specific predictions:
+FRC + نسبیت عام پیش‌بینی‌های خاصی می‌کند:
 
-| Phenomenon | FRC Prediction |
+| پدیده | پیش‌بینی FRC |
 |------------|----------------|
-| Gravitational time dilation | Affects coherence maintenance |
-| Hawking radiation | Coherence signature in spectrum |
-| Gravitational waves | May carry coherence information |
+| اتساع زمان گرانشی | بر حفظ همدوسی تأثیر می‌گذارد |
+| تابش هاوکینگ | امضای همدوسی در طیف |
+| امواج گرانشی | ممکن است حامل اطلاعات همدوسی باشند |
 
-See [[FRC-100-010]] for experimental proposals.
+ببینید [[FRC-100-010]] برای پیشنهادات آزمایشی.
 
-## Open Questions
+## سوالات باز
 
-- How does the witness function W transform under Lorentz boosts?
-- Is coherence a scalar field, or does it have tensor structure?
-- Can FRC resolve the black hole information paradox?
+- تابع شاهد W چگونه تحت تبدیلات لورنتس تغییر می‌کند؟
+- آیا همدوسی یک میدان اسکالر است یا ساختار تانسوری دارد؟
+- آیا FRC می‌تواند پارادوکس اطلاعات سیاهچاله را حل کند؟
 
-## Further Reading
+## مطالعه بیشتر
 
-- [[FRC-100-001]] — FRC Introduction
-- [[lambda-field]] — Lambda Field Theory
-- [[time]] — Time in FRC
+- [[FRC-100-001]] — معرفی FRC
+- [[lambda-field]] — نظریه میدان لامبدا
+- [[time]] — زمان در FRC

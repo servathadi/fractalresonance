@@ -1,24 +1,24 @@
 ---
-title: "The 190 Signature: Evidence of Fractal Order"
+title: "La Firma 190: Evidencia de Orden Fractal"
 date: 2026-04-01
 id: FRC-EP-EXTRA-1
-tags: [fractal-dimension, 190-signature, stadium-billiard, FRC-100]
-abstract: "Deep dive into the '1.90' fractal dimension signature found in the Quantum Stadium Billiard. This specific number is the fingerprint of the FRC potential."
+tags: [dimension-fractal, firma-190, billar-estadio, FRC-100]
+abstract: "Inmersión profunda en la firma de dimensión fractal '1.90' encontrada en el Billar Cuántico de Estadio. Este número específico es la huella dactilar del potencial FRC."
 thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
 ---
 
-# The 190 Signature
+# La Firma 190
 
-## Visual Essay
+## Ensayo Visual
 
-### The Signature
-![Slide 1](/images/slides_raw/The_190_Signature/slide_001.png)
+### La Firma
+![Diapositiva 1](/images/slides_raw/The_190_Signature/slide_001.png)
 
-### Analysis
-![Slide 2](/images/slides_raw/The_190_Signature/slide_002.png)
+### Análisis
+![Diapositiva 2](/images/slides_raw/The_190_Signature/slide_002.png)
 
-### The Data
-![Slide 3](/images/slides_raw/The_190_Signature/slide_003.png)
+### Los Datos
+![Diapositiva 3](/images/slides_raw/The_190_Signature/slide_003.png)
 
-### Confirmation
-![Slide 4](/images/slides_raw/The_190_Signature/slide_004.png)
+### Confirmación
+![Diapositiva 4](/images/slides_raw/The_190_Signature/slide_004.png)

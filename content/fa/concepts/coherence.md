@@ -1,34 +1,34 @@
 ---
-title: "Coherence (C)"
+title: "همدوسی (C)"
 id: coherence
-tags: [core-concept, scalar-gauge, dimensionless]
+tags: [مفهوم-اصلی, سنجه-اسکالر, بدون-بعد]
 related: [entropy, witness, lambda]
 lang: fa
 ---
 
-# Coherence (C)
+# همدوسی (C)
 
-A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system.
+یک سنجه اسکالر بدون بعد که درجه نظم داخلی یا قفل شدن الگو را در یک سیستم اندازه‌گیری می‌کند.
 
-## Definition
+## تعریف
 
-In the FRC framework, coherence C is defined through its reciprocal relationship with entropy:
+در چارچوب FRC، همدوسی C از طریق رابطه متقابل آن با آنتروپی تعریف می‌شود:
 
 ```
 S + k* ln C = const.
 ```
 
-Where k* is the coherence constant (1 in information layers, k_B in thermodynamic layers).
+که در آن k* ثابت همدوسی است (۱ در لایه‌های اطلاعاتی، k_B در لایه‌های ترمودینامیکی).
 
-## Properties
+## ویژگی‌ها
 
-- **Dimensionless** — pure ratio, no units
-- **Bounded** — C in (0, 1] for normalized systems
-- **Reciprocal to entropy** — as S increases, C decreases (and vice versa)
-- **Gauge-invariant** — only ratios C_1/C_2 are physically meaningful
+- **بدون بعد** — نسبت خالص، بدون واحد
+- **کراندار** — C در (0, 1] برای سیستم‌های نرمال شده
+- **متقابل با آنتروپی** — با افزایش S، C کاهش می‌یابد (و بالعکس)
+- **مستقل از پیمانه** — فقط نسبت‌های C_1/C_2 از نظر فیزیکی معنادار هستند
 
-## Appears In
+## ظاهر می‌شود در
 
-- [[FRC-566-001]] — Reciprocity law formalization
-- [[FRC-100-001]] — Original definition
-- [[FRC-200-001]] — Lambda operator context
+- [[FRC-566-001]] — فرمول‌بندی قانون متقابل
+- [[FRC-100-001]] — تعریف اصلی
+- [[FRC-200-001]] — زمینه عملگر لامبدا

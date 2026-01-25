@@ -1,54 +1,54 @@
 ---
 id: time
-title: "What is Time?"
-tags: [time, entropy, coherence, philosophy, thermodynamics]
+title: "زمان چیست؟"
+tags: [زمان, آنتروپی, همدوسی, فلسفه, ترمودینامیک]
 related: [coherence, entropy, arrow-of-time]
 lang: fa
 seo:
-  keywords: [what is time, nature of time, time and entropy, time physics, arrow of time]
-  description: "Exploring the nature of time through the FRC framework: how coherence gradients and entropy define temporal direction."
+  keywords: [زمان چیست, ماهیت زمان, زمان و آنتروپی, فیزیک زمان, پیکان زمان]
+  description: "کاوش در ماهیت زمان از طریق چارچوب FRC: چگونه گرادیان‌های همدوسی و آنتروپی جهت زمانی را تعریف می‌کنند."
 ---
 
-# What is Time?
+# زمان چیست؟
 
-Time remains one of the deepest mysteries in physics and philosophy. The FRC framework offers a fresh perspective: **time emerges from coherence gradients**.
+زمان یکی از عمیق‌ترین اسرار فیزیک و فلسفه باقی مانده است. چارچوب FRC دیدگاهی تازه ارائه می‌دهد: **زمان از گرادیان‌های همدوسی پدید می‌آید**.
 
-## The Arrow of Time Problem
+## مسئله پیکان زمان
 
-Classical physics is time-symmetric—equations work equally well forward and backward. Yet we experience an unmistakable arrow of time:
+فیزیک کلاسیک نسبت به زمان متقارن است—معادلات به همان خوبی به جلو و عقب کار می‌کنند. با این حال ما یک پیکان زمان غیرقابل اشتباه را تجربه می‌کنیم:
 
-- Ice melts but doesn't spontaneously freeze
-- Memories form of the past, not the future
-- Entropy increases in closed systems
+- یخ ذوب می‌شود اما خود به خود یخ نمی‌زند
+- خاطرات از گذشته شکل می‌گیرند، نه از آینده
+- آنتروپی در سیستم‌های بسته افزایش می‌یابد
 
-The Second Law of Thermodynamics provides a statistical explanation, but doesn't explain *why* time has a direction.
+قانون دوم ترمودینامیک توضیحی آماری ارائه می‌دهد، اما توضیح نمی‌دهد که *چرا* زمان جهت دارد.
 
-## FRC Perspective: Coherence Flow
+## دیدگاه FRC: جریان همدوسی
 
-In the Fractal Resonance Coherence framework, time is not a fundamental dimension but an emergent phenomenon:
+در چارچوب همدوسی رزونانس فراکتال، زمان یک بعد بنیادی نیست بلکه یک پدیده نوظهور است:
 
+$$ 
+\frac{\partial}{\partial t} \ln C = -\nabla \cdot J_C + S_C 
 $$
-\frac{\partial}{\partial t} \ln C = -\nabla \cdot J_C + S_C
-$$
 
-The [[UCC|Universal Coherence Conjecture]] suggests that coherence gradients *define* temporal flow. Where coherence changes, time "flows."
+[[UCC|حدس همدوسی جهانی]] پیشنهاد می‌کند که گرادیان‌های همدوسی جریان زمانی را *تعریف* می‌کنند. جایی که همدوسی تغییر می‌کند، زمان "جریان می‌یابد".
 
-### Key Insights
+### بینش‌های کلیدی
 
-1. **Coherence gradients create asymmetry** — The direction of decreasing coherence defines the arrow of time
-2. **Entropy and coherence are reciprocal** — See [[FRC-566-001]] for the formal relationship
-3. **Observation anchors the present** — The witness function W collapses possibilities into actuality
+1. **گرادیان‌های همدوسی عدم تقارن ایجاد می‌کنند** — جهت کاهش همدوسی پیکان زمان را تعریف می‌کند
+2. **آنتروپی و همدوسی متقابل هستند** — ببینید [[FRC-566-001]] برای رابطه رسمی
+3. **مشاهده حال را لنگر می‌اندازد** — تابع شاهد W احتمالات را به واقعیت فرو می‌پاشد
 
-## Philosophical Implications
+## پیامدهای فلسفی
 
-This connects to deep questions:
+این به سوالات عمیقی متصل می‌شود:
 
-- **Block universe vs. presentism** — FRC suggests a dynamic, coherence-driven present
-- **Free will** — If coherence gradients define time, what determines coherence?
-- **Consciousness** — Does awareness require temporal flow?
+- **جهان بلوک در مقابل حال‌گرایی** — FRC یک حال دینامیک و مبتنی بر همدوسی را پیشنهاد می‌کند
+- **اراده آزاد** — اگر گرادیان‌های همدوسی زمان را تعریف می‌کنند، چه چیزی همدوسی را تعیین می‌کند؟
+- **آگاهی** — آیا آگاهی نیاز به جریان زمانی دارد؟
 
-## Further Reading
+## مطالعه بیشتر
 
-- [[FRC-100-001]] — Introduction to the FRC framework
-- [[FRC-566-001]] — Entropy-Coherence Reciprocity
-- [[process-philosophy]] — Connections to Whitehead
+- [[FRC-100-001]] — معرفی چارچوب FRC
+- [[FRC-566-001]] — متقابل بودن آنتروپی-همدوسی
+- [[process-philosophy]] — ارتباطات با وایت‌هد
