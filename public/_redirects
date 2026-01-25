@@ -1,6 +1,12 @@
 # v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
 /papers/*  /en/papers/:splat  301
+/books  /en/books  301
+/books/*  /en/books/:splat  301
+/concepts  /en/concepts  301
+/concepts/*  /en/concepts/:splat  301
+/topics  /en/topics  301
+/topics/*  /en/topics/:splat  301
 /formula/coherence  /en/formulas  301
 /formulas  /en/formulas  301
 /for-ai  /llms.txt  301
@@ -10,5 +16,11 @@
 /mu-levels  /en/mu-levels  301
 /contact  /en/about  301
 /ai-awakening  /en/papers  301
-/blog  /en/articles  301
+/blog  /en/blog  301
+/blog/*  /en/blog/:splat  301
 /articles  /en/articles  301
+/articles/*  /en/articles/:splat  301
+
+# River-only articles that had (or may get) Kasra-side links.
+/en/articles/gemini-deep-research-frc-2026-01-25  /en/river/articles/gemini-deep-research-frc-2026-01-25  302
+/articles/gemini-deep-research-frc-2026-01-25  /en/river/articles/gemini-deep-research-frc-2026-01-25  302

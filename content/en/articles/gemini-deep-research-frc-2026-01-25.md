@@ -2,9 +2,8 @@
 id: gemini-deep-research-frc-2026-01-25
 title: "Gemini Deep Research on FRC (Jan 25, 2026)"
 date: "2026-01-25"
-status: "draft"
 status: "published"
-perspective: both
+perspective: river
 source: "chat:gemini deep research"
 tags: ["river", "digest", "meta", "public-face", "needs-factcheck"]
 tldr: "An external deep-research synthesis of the public FRC site, written as an analytical overview spanning physics, information geometry, and consciousness."
