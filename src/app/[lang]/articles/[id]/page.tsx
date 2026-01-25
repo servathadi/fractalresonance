@@ -5,7 +5,7 @@ import { SchemaScript } from '@/components/SchemaScript';
 import { schemaPaperPage } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
-import { Sidebar } from '@/components/Sidebar';
+import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { ReadingMode } from '@/components/ReadingMode';
@@ -92,8 +92,8 @@ export default async function ArticlePage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <main className="min-h-screen flex flex-col lg:flex-row">
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
-        <Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
+        <ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />
+        <ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />
         <article className="flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0">
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">

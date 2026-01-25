@@ -15,11 +15,13 @@ export function ArticlesIndex({
   basePath,
   view,
   includePapers = true,
+  embedded = false,
 }: {
   lang: string;
   basePath: string;
   view: PerspectiveView;
   includePapers?: boolean;
+  embedded?: boolean;
 }) {
   const papers = includePapers
     ? getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view))
@@ -44,8 +46,8 @@ export function ArticlesIndex({
     return { category: known?.category || 'Research', readTime };
   };
 
-  return (
-    <main className="max-w-6xl mx-auto px-6 py-16">
+  const content = (
+    <div className="max-w-6xl mx-auto px-6 py-16">
       {/* Header */}
       <header className="mb-16">
         <div className="flex items-center gap-4 mb-6">
@@ -199,6 +201,9 @@ export function ArticlesIndex({
           View on Zenodo &rarr;
         </a>
       </section>
-    </main>
+    </div>
   );
+
+  if (embedded) return content;
+  return <main>{content}</main>;
 }

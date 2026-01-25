@@ -12,7 +12,7 @@ export function InlineToc({
   if (!items || items.length === 0) return null;
 
   return (
-    <details className={`lg:hidden mb-6 border border-frc-blue rounded-lg ${className}`}>
+    <details className={`xl:hidden mb-6 border border-frc-blue rounded-lg ${className}`}>
       <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
         <span className="text-xs uppercase tracking-wider text-frc-steel">{title}</span>
       </summary>
@@ -30,4 +30,3 @@ export function InlineToc({
     </details>
   );
 }
-
