@@ -27,16 +27,11 @@ export function renderMarkdown(
   });
 
   // Headings (with IDs for TOC anchoring)
-  html = html.replace(/^(#{1,4}) (.+)$/gm, (_, hashes, text) => {
+  // Supports pandoc-style explicit anchors: `## Title {#my-id}`
+  html = html.replace(/^(#{1,4})\s+(.+)$/gm, (_, hashes, rawText) => {
     const level = hashes.length;
-    const id = text
-      .replace(/[*_`]/g, '')
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-    return `<h${level} id="${id}">${text}</h${level}>`;
+    const parsed = parseHeadingText(String(rawText || ''));
+    return `<h${level} id="${escapeHtml(parsed.id)}">${parsed.text}</h${level}>`;
   });
 
   // Blockquotes
@@ -235,17 +230,46 @@ export function extractTocItems(body: string): { id: string; text: string; level
     if (!heading) continue;
 
     const level = heading[1].length;
-    const text = heading[2].replace(/[*_`]/g, '');
-    const id = text
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
+    const parsed = parseHeadingText(String(heading[2] || ''));
+    const text = parsed.text.replace(/[*_`]/g, '');
+    const id = parsed.id;
     items.push({ id, text, level });
   }
 
   return items;
+}
+
+export function extractH1Items(body: string): { id: string; text: string; level: number }[] {
+  const items: { id: string; text: string; level: number }[] = [];
+  const lines = body.split('\n');
+
+  for (const line of lines) {
+    const heading = line.match(/^(#)\s+(.+)$/);
+    if (!heading) continue;
+    const parsed = parseHeadingText(String(heading[2] || ''));
+    items.push({ id: parsed.id, text: parsed.text.replace(/[*_`]/g, ''), level: 1 });
+  }
+
+  return items;
+}
+
+function parseHeadingText(raw: string): { text: string; id: string } {
+  const trimmed = (raw || '').trim();
+  const m = trimmed.match(/^(.*?)(?:\s*\{#([^\}]+)\}\s*)$/);
+  const text = (m ? m[1] : trimmed).trim();
+  const explicitId = (m ? m[2] : '').trim();
+  const id = explicitId || slugifyHeading(text);
+  return { text, id };
+}
+
+function slugifyHeading(text: string): string {
+  return (text || '')
+    .replace(/[*_`]/g, '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
 }
 
 /** Escape HTML special characters in code blocks */

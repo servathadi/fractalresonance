@@ -1,21 +1,24 @@
 import Link from 'next/link';
 import { getBooks, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
+import type { TocItem } from '@/components/TableOfContents';
 
 interface BooksSidebarProps {
   lang: string;
   currentId?: string;
+  chapters?: TocItem[];
   basePath?: string;
   view?: PerspectiveView;
   variant?: 'desktop' | 'mobile';
 }
 
-export function BooksSidebar({ lang, currentId, basePath, view, variant = 'desktop' }: BooksSidebarProps) {
+export function BooksSidebar({ lang, currentId, chapters, basePath, view, variant = 'desktop' }: BooksSidebarProps) {
   const books = getBooks(lang)
     .filter((b) => (view ? matchesPerspectiveView(b.frontmatter.perspective, view) : true))
     .sort((a, b) => (a.frontmatter.title || '').localeCompare(b.frontmatter.title || ''));
 
   const base = basePath || `/${lang}`;
   const isMobile = variant === 'mobile';
+  const bookPath = currentId ? `${base}/books/${currentId}` : '';
 
   return (
     <aside
@@ -53,6 +56,25 @@ export function BooksSidebar({ lang, currentId, basePath, view, variant = 'deskt
               ))}
             </ul>
           </div>
+
+          {currentId && chapters && chapters.length > 0 && (
+            <div className="mt-6 pt-4 border-t border-frc-blue">
+              <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">In this book</h3>
+              <ul className="space-y-0.5 max-h-[50vh] overflow-y-auto pr-1">
+                {chapters.map((c) => (
+                  <li key={c.id}>
+                    <a
+                      href={`${bookPath}#${c.id}`}
+                      className="block px-2 py-1 rounded transition-colors truncate text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20"
+                      title={c.text}
+                    >
+                      {c.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="mt-6 pt-4 border-t border-frc-blue">
             <Link href={`${base}/blog`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
               Blog

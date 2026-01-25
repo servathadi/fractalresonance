@@ -8,7 +8,18 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import {
+  estimateReadTime,
+  getBook,
+  getBooks,
+  getBookChapters,
+  getLanguages,
+  toPaperMeta,
+  buildBacklinks,
+  getGlossary,
+  getAlternateLanguages,
+  matchesPerspectiveView,
+} from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { renderMarkdown, extractH1Items, extractTocItems } from '@/lib/markdown';
 
@@ -23,7 +34,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const books = getBooks(lang);
     for (const book of books) {
-      if (book.frontmatter.id && matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) {
+      if (book.frontmatter.id && matchesPerspectiveView(book.frontmatter.perspective, 'river')) {
         params.push({ lang, id: book.frontmatter.id });
       }
     }
@@ -36,19 +47,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, id } = await params;
   const book = getBook(lang, id);
   if (!book) return { title: 'Not Found' };
+  if (!matchesPerspectiveView(book.frontmatter.perspective, 'river')) return { title: 'Not Found' };
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
+  const canonicalUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
   return {
-    title: fm.title,
+    title: `${fm.title} (River)`,
     description: fm.abstract,
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: bookUrl,
+      canonical: canonicalUrl,
       languages: alternates,
     },
     openGraph: {
@@ -62,21 +74,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BookPage({ params }: Props) {
+export default async function RiverBookPage({ params }: Props) {
   const { lang, id } = await params;
   const book = getBook(lang, id);
   if (!book) notFound();
+  if (!matchesPerspectiveView(book.frontmatter.perspective, 'river')) notFound();
 
-  const basePath = `/${lang}`;
+  const basePath = `/${lang}/river`;
   const meta = toPaperMeta(book);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
-  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
+  const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
   const chapters = getBookChapters(lang, id);
 
-  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
     if (staticTargets.has(pid)) return { id: pid, title: pid, href: `${basePath}/${pid}` };
     const item = glossary[pid];
@@ -84,7 +97,6 @@ export default async function BookPage({ params }: Props) {
   });
 
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  // For books, the "index" should be the main chapter-level headings (H2).
   const tocItems = extractTocItems(book.body).filter((t) => t.level === 2);
   const chapterItems = extractH1Items(book.body);
 
@@ -93,13 +105,13 @@ export default async function BookPage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <PageShell
-        leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" variant="mobile" />}
-        leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" />}
+        leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="river" variant="mobile" />}
+        leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="river" />}
         right={<TableOfContents items={tocItems} minBreakpoint="lg" title="Book index" />}
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
-            <a href={basePath} className="hover:text-frc-gold">FRC</a>
+            <a href={`/${lang}/river`} className="hover:text-frc-gold">River</a>
             <span className="mx-2">/</span>
             <a href={`${basePath}/books`} className="hover:text-frc-gold">Books</a>
             <span className="mx-2">/</span>
@@ -138,60 +150,26 @@ export default async function BookPage({ params }: Props) {
             readTime={readTime}
           />
 
-          {/* Abstract */}
-          {book.frontmatter.abstract && (
-            <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
-              {book.frontmatter.abstract}
-            </blockquote>
-          )}
+          <InlineToc items={tocItems} />
 
-          <InlineToc items={tocItems} title="Book index" />
-
-          {/* Body */}
-          {chapters.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {chapters.map((c, idx) => (
-                  <a
-                    key={c.filename}
-                    href={`#${c.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()}`}
-                    className="card block p-4 group"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="font-mono text-xs text-frc-steel shrink-0 tabular-nums mt-0.5">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span className="text-sm text-frc-text group-hover:text-frc-gold transition-colors">
-                        {c.title}
-                      </span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <div className="content-body" suppressHydrationWarning>
-            <MarkdownContent html={renderedBody} glossary={glossary} />
-          </div>
+          {/* Main Content */}
+          <article className="prose prose-invert max-w-none">
+            <MarkdownContent html={renderedBody} />
+          </article>
 
           {/* Backlinks */}
           {pageBacklinks.length > 0 && (
-            <section className="backlinks">
+            <section className="mt-12 pt-8 border-t border-frc-blue/30">
               <h3 className="text-sm font-medium text-frc-text-dim uppercase tracking-wider mb-3">
                 Linked from
               </h3>
               <ul className="space-y-1">
-                {pageBacklinks.map(linkId => {
+                {pageBacklinks.map((linkId) => {
                   const item = glossary[linkId];
-                  const href = item?.url || `${basePath}/papers/${linkId}`;
+                  const href = item?.url || `${basePath}/concepts/${linkId}`;
                   return (
                     <li key={linkId}>
-                      <a
-                        href={href}
-                        className="text-frc-gold hover:underline text-sm"
-                      >
+                      <a href={href} className="text-frc-gold hover:underline text-sm">
                         {item?.title || linkId}
                       </a>
                     </li>
@@ -204,3 +182,4 @@ export default async function BookPage({ params }: Props) {
     </>
   );
 }
+
