@@ -628,6 +628,9 @@ export function normalizeContentPerspective(p: unknown): ContentPerspective {
 
 export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boolean {
   const norm = normalizeContentPerspective(p);
+  // River view is a "digest layer" over the whole corpus: it includes Kasra + River content by default.
+  // Kasra view remains strict: only Kasra + Both.
+  if (view === 'river') return true;
   return norm === 'both' || norm === view;
 }
 
