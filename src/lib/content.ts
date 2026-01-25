@@ -384,13 +384,53 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return null;
 
+  const normalize = (rawId: string) => {
+    // Keep this intentionally forgiving to preserve legacy URLs like:
+    // - "FRC 100.001"
+    // - "FRC-100.001"
+    // - "frc 893.phy"
+    let s = (rawId || '').trim();
+    s = s.replace(/^frc\s+/i, 'FRC-'); // "FRC 100.001" -> "FRC-100.001"
+    s = s.replace(/^frc-/i, 'FRC-');
+    s = s.replace(/\s+/g, '-');
+    s = s.replace(/\./g, '-');
+    s = s.replace(/_+/g, '-');
+    s = s.replace(/-+/g, '-');
+    return s.toUpperCase();
+  };
+
+  const requested = normalize(id);
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
     if (parsed.frontmatter.id === id) return parsed;
+    if (normalize(parsed.frontmatter.id) === requested) return parsed;
   }
   return null;
+}
+
+export function getLegacyPaperIds(canonicalId: string): string[] {
+  const out: string[] = [];
+  const push = (s: string) => {
+    if (!s) return;
+    if (!out.includes(s)) out.push(s);
+  };
+
+  push(canonicalId);
+
+  const m = canonicalId.match(/^FRC-(.+)$/i);
+  if (!m) return out;
+
+  const rest = m[1]; // e.g. "100-001", "893-PHY"
+  const [series, ...suffixParts] = rest.split('-');
+  if (!series || suffixParts.length === 0) return out;
+
+  const suffix = suffixParts.join('-');
+  push(`FRC ${series}.${suffix}`);
+  push(`FRC-${series}.${suffix}`);
+
+  return out;
 }
 
 /** Get all books for a language */

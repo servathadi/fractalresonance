@@ -9,7 +9,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getLegacyPaperIds, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -19,12 +19,18 @@ interface Props {
 export async function generateStaticParams() {
   const languages = getLanguages();
   const params: { lang: string; id: string }[] = [];
+  const seen = new Set<string>();
 
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
       if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) {
-        params.push({ lang, id: paper.frontmatter.id });
+        for (const legacyId of getLegacyPaperIds(paper.frontmatter.id)) {
+          const key = `${lang}:${legacyId}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          params.push({ lang, id: legacyId });
+        }
       }
     }
   }
@@ -89,9 +95,10 @@ export default async function PaperPage({ params }: Props) {
   if (!matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;
+  const canonicalId = paper.frontmatter.id;
   const meta = toPaperMeta(paper);
   const backlinks = buildBacklinks(lang);
-  const pageBacklinks = backlinks[id] || [];
+  const pageBacklinks = backlinks[canonicalId] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = paper.frontmatter;
   const readTime = fm.read_time || estimateReadTime(paper.body);
@@ -113,8 +120,8 @@ export default async function PaperPage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <PageShell
-        leftMobile={<Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
-        leftDesktop={<Sidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
+        leftMobile={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} />}
       >
           {/* Breadcrumb */}
@@ -123,7 +130,7 @@ export default async function PaperPage({ params }: Props) {
             <span className="mx-2">/</span>
             <a href={`${basePath}/papers`} className="hover:text-frc-gold">Papers</a>
             <span className="mx-2">/</span>
-            <span className="text-frc-text">{paper.frontmatter.id}</span>
+            <span className="text-frc-text">{canonicalId}</span>
           </nav>
 
           {/* Header */}

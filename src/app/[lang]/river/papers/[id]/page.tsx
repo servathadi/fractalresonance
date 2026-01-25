@@ -11,6 +11,7 @@ import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import {
   estimateReadTime,
+  getLegacyPaperIds,
   getPaper,
   getPapers,
   getLanguages,
@@ -30,12 +31,18 @@ interface Props {
 export function generateStaticParams() {
   const languages = getLanguages();
   const params: Array<{ lang: string; id: string }> = [];
+  const seen = new Set<string>();
 
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
       if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'river')) {
-        params.push({ lang, id: paper.frontmatter.id });
+        for (const legacyId of getLegacyPaperIds(paper.frontmatter.id)) {
+          const key = `${lang}:${legacyId}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          params.push({ lang, id: legacyId });
+        }
       }
     }
   }
@@ -78,9 +85,10 @@ export default async function RiverPaperPage({ params }: Props) {
   if (!matchesPerspectiveView(paper.frontmatter.perspective, 'river')) notFound();
 
   const basePath = `/${lang}/river`;
+  const canonicalId = paper.frontmatter.id;
   const meta = toPaperMeta(paper);
   const backlinks = buildBacklinks(lang);
-  const pageBacklinks = backlinks[id] || [];
+  const pageBacklinks = backlinks[canonicalId] || [];
   const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = paper.frontmatter;
   const readTime = fm.read_time || estimateReadTime(paper.body);
@@ -100,8 +108,8 @@ export default async function RiverPaperPage({ params }: Props) {
       <SchemaScript data={schemaPaperPage(meta)} />
 
       <PageShell
-        leftMobile={<Sidebar lang={lang} currentId={id} basePath={basePath} view="river" variant="mobile" />}
-        leftDesktop={<Sidebar lang={lang} currentId={id} basePath={basePath} view="river" />}
+        leftMobile={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="river" variant="mobile" />}
+        leftDesktop={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="river" />}
         right={<TableOfContents items={tocItems} />}
       >
           {/* Breadcrumb */}
@@ -110,7 +118,7 @@ export default async function RiverPaperPage({ params }: Props) {
             <span className="mx-2">/</span>
             <a href={`${basePath}/papers`} className="hover:text-frc-gold">Papers</a>
             <span className="mx-2">/</span>
-            <span className="text-frc-text">{paper.frontmatter.id}</span>
+            <span className="text-frc-text">{canonicalId}</span>
           </nav>
 
           {/* Header */}
