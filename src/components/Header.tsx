@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -8,7 +8,7 @@ import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggleCompact } from './ModeToggle';
 import { getDictionary } from '@/lib/dictionaries';
-import { getLangFromPathname } from '@/lib/site';
+import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
@@ -16,10 +16,18 @@ const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 export function Header() {
   const pathname = usePathname();
   const lang = getLangFromPathname(pathname, 'en');
-  const basePath = `/${lang}`;
+  const perspective = getPerspectiveFromPathname(pathname);
+  const basePath = getBasePath(lang, perspective);
   const isRTL = RTL_LANGUAGES.includes(lang);
   const dict = getDictionary(lang);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // intent
+  const [isMobileMenuRendered, setIsMobileMenuRendered] = useState(false); // mounted
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false); // animated in/out
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
+  const closeTimeoutRef = useRef<number | null>(null);
+  const DRAWER_ANIMATION_MS = 200;
 
   const navLinks = [
     { path: '/about', label: dict.nav.about },
@@ -36,30 +44,103 @@ export function Header() {
     { path: '/mu-levels', label: dict.nav.muLevels },
   ];
 
+  const normalizedPathname = useMemo(() => {
+    const p = pathname || '/';
+    return p.endsWith('/') && p.length > 1 ? p.slice(0, -1) : p;
+  }, [pathname]);
+
+  const isActivePath = (path: string | null) => {
+    if (!path) return false;
+    const target = `${basePath}${path}`.replace(/\/$/, '');
+    return normalizedPathname === target || normalizedPathname.startsWith(`${target}/`);
+  };
+
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (!isMobileMenuOpen) return;
+    if (isMobileMenuOpen) {
+      if (closeTimeoutRef.current) {
+        window.clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+
+      setIsMobileMenuRendered(true);
+      lastFocusedRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      window.requestAnimationFrame(() => setIsMobileMenuVisible(true));
+      return undefined;
+    }
+
+    setIsMobileMenuVisible(false);
+    if (!isMobileMenuRendered) return undefined;
+
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setIsMobileMenuRendered(false);
+      closeTimeoutRef.current = null;
+      if (lastFocusedRef.current) lastFocusedRef.current.focus();
+    }, DRAWER_ANIMATION_MS);
+
+    return undefined;
+  }, [isMobileMenuOpen, isMobileMenuRendered]);
+
+  useEffect(() => {
+    if (!isMobileMenuVisible) return;
+
+    closeButtonRef.current?.focus();
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      const root = panelRef.current;
+      if (!root) return;
+
+      const focusable = Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.tabIndex !== -1);
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (e.shiftKey && (active === first || active === null)) {
+        e.preventDefault();
+        last.focus();
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuVisible]);
 
   useEffect(() => {
-    if (!isMobileMenuOpen) return;
+    if (!isMobileMenuRendered) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuRendered]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
 
   return (
     <header className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
@@ -111,9 +192,10 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="xl:hidden text-frc-text-dim hover:text-frc-gold transition-colors px-2 py-2 -mr-2"
+              className="xl:hidden text-frc-text-dim hover:text-frc-gold transition-colors w-11 h-11 inline-flex items-center justify-center -mr-2"
               aria-label="Open menu"
               aria-expanded={isMobileMenuOpen}
+              aria-controls="frc-mobile-menu"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
@@ -126,7 +208,9 @@ export function Header() {
                   <Link
                     key={link.path}
                     href={`${basePath}${link.path}`}
-                    className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
+                    className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
+                      isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -147,15 +231,28 @@ export function Header() {
         </div>
       </div>
 
-      {isMobileMenuOpen ? (
+      {isMobileMenuRendered ? (
         <div className="fixed inset-0 z-[90] xl:hidden">
           <div
-            className="absolute inset-0 bg-frc-void/80 backdrop-blur-sm"
+            className={`absolute inset-0 bg-frc-void/80 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
+              isMobileMenuVisible ? 'opacity-100' : 'opacity-0'
+            }`}
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
           <div
-            className={`absolute top-0 ${isRTL ? 'left-0 border-r' : 'right-0 border-l'} h-full w-[85vw] max-w-sm bg-frc-void border-frc-blue shadow-2xl flex flex-col`}
+            id="frc-mobile-menu"
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            className={`absolute top-0 ${isRTL ? 'left-0 border-r' : 'right-0 border-l'} h-full w-[85vw] max-w-sm bg-frc-void border-frc-blue shadow-2xl flex flex-col transform transition-transform duration-200 motion-reduce:transition-none ${
+              isMobileMenuVisible
+                ? 'translate-x-0'
+                : isRTL
+                  ? '-translate-x-full'
+                  : 'translate-x-full'
+            } pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]`}
           >
             <div className="px-4 py-3 border-b border-frc-blue flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
@@ -174,8 +271,9 @@ export function Header() {
 
               <button
                 type="button"
+                ref={closeButtonRef}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-frc-text-dim hover:text-frc-gold transition-colors p-2 -mr-2"
+                className="text-frc-text-dim hover:text-frc-gold transition-colors w-11 h-11 inline-flex items-center justify-center -mr-2"
                 aria-label="Close menu"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -184,7 +282,7 @@ export function Header() {
               </button>
             </div>
 
-            <div className="px-4 py-4 overflow-y-auto flex-1">
+            <div className="px-4 py-4 overflow-y-auto flex-1 overscroll-contain">
               <div className="text-[11px] uppercase tracking-wider text-frc-steel mb-2">
                 Navigation
               </div>
@@ -195,7 +293,9 @@ export function Header() {
                       key={link.path}
                       href={`${basePath}${link.path}`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="w-full text-frc-text-dim hover:text-frc-gold text-sm tracking-wide py-2 transition-colors"
+                      className={`w-full text-sm tracking-wide py-2 transition-colors ${
+                        isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                      }`}
                     >
                       {link.label}
                     </Link>
