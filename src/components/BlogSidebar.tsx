@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getBlogPosts, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
+import { getDictionary } from '@/lib/dictionaries';
 
 interface BlogSidebarProps {
   lang: string;
@@ -9,6 +10,13 @@ interface BlogSidebarProps {
   variant?: 'desktop' | 'mobile';
 }
 
+const SIDEBAR_DICT: Record<string, { browse: string; header: string }> = {
+  en: { browse: 'Browse blog', header: 'Blog' },
+  fa: { browse: 'مرور وبلاگ', header: 'وبلاگ' },
+  es: { browse: 'Explorar blog', header: 'Blog' },
+  fr: { browse: 'Parcourir le blog', header: 'Blog' },
+};
+
 export function BlogSidebar({ lang, currentId, basePath, view, variant = 'desktop' }: BlogSidebarProps) {
   const posts = getBlogPosts(lang)
     .filter((p) => (view ? matchesPerspectiveView(p.frontmatter.perspective, view) : true))
@@ -16,6 +24,8 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
 
   const base = basePath || `/${lang}`;
   const isMobile = variant === 'mobile';
+  const dict = getDictionary(lang);
+  const t = SIDEBAR_DICT[lang] || SIDEBAR_DICT['en'];
 
   return (
     <aside
@@ -29,12 +39,12 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
       <details open={!isMobile}>
         {isMobile && (
           <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
-            <span className="text-xs uppercase tracking-wider text-frc-steel">Browse blog</span>
+            <span className="text-xs uppercase tracking-wider text-frc-steel">{t.browse}</span>
           </summary>
         )}
         <nav className={isMobile ? 'py-3 px-4 text-sm' : 'py-6 px-4 text-sm sticky top-0'}>
           <div className="mb-4">
-            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Blog</h3>
+            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">{t.header}</h3>
             <ul className="space-y-0.5 max-h-[70vh] overflow-y-auto pr-1">
               {posts.map((post) => (
                 <li key={post.frontmatter.id}>
@@ -55,16 +65,16 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
           </div>
           <div className="mt-6 pt-4 border-t border-frc-blue">
             <Link href={`${base}/topics`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Topics
+              {dict.nav.topics}
             </Link>
             <Link href={`${base}/papers`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Papers
+              {dict.nav.papers}
             </Link>
             <Link href={`${base}/articles`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Articles
+              {dict.nav.articles}
             </Link>
             <Link href={`${base}/books`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Books
+              {dict.nav.books}
             </Link>
           </div>
         </nav>

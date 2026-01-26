@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import { getBooks, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 
+const DICT: Record<string, { title: string; desc: string; noBooks: string }> = {
+  en: { title: 'Books', desc: 'Longer-form writing (textbooks, primers, and narrative frames) for the FRC project.', noBooks: 'No books published yet.' },
+  fa: { title: 'کتاب‌ها', desc: 'نوشته‌های طولانی‌تر (کتاب‌های درسی، مقدمات و قاب‌های روایی) برای پروژه FRC.', noBooks: 'هنوز کتابی منتشر نشده است.' },
+  es: { title: 'Libros', desc: 'Escritos de formato más largo (libros de texto, manuales y marcos narrativos) para el proyecto FRC.', noBooks: 'Aún no hay libros publicados.' },
+  fr: { title: 'Livres', desc: 'Écrits de forme plus longue (manuels, abécédaires et cadres narratifs) pour le projet FRC.', noBooks: 'Pas encore de livres publiés.' },
+};
+
 export function BooksIndex({
   lang,
   basePath,
@@ -13,19 +20,20 @@ export function BooksIndex({
   embedded?: boolean;
 }) {
   const books = getBooks(lang).filter((b) => matchesPerspectiveView(b.frontmatter.perspective, view));
+  const t = DICT[lang] || DICT['en'];
 
   const content = (
     <div className="max-w-4xl mx-auto px-6 py-12">
       <header className="mb-12">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">Books</h1>
+        <h1 className="text-3xl font-light text-frc-gold mb-3">{t.title}</h1>
         <p className="text-frc-text-dim">
-          Longer-form writing (textbooks, primers, and narrative frames) for the FRC project.
+          {t.desc}
         </p>
       </header>
 
       {books.length === 0 ? (
         <div className="text-frc-text-dim text-sm border border-frc-blue rounded-lg p-6">
-          No books published yet.
+          {t.noBooks}
         </div>
       ) : (
         <div className="grid gap-4">

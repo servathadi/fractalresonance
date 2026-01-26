@@ -16,15 +16,23 @@ export interface BlogGridItem {
   ordinal: number;
 }
 
-export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
+const DICT: Record<string, { search: string; showing: string; of: string; allVoices: string; noResults: string; all: string }> = {
+  en: { search: 'Search blog posts…', showing: 'Showing', of: 'of', allVoices: 'All voices', noResults: 'No results. Try a different keyword or tag.', all: 'All' },
+  fa: { search: 'جستجوی پست‌های وبلاگ...', showing: 'نمایش', of: 'از', allVoices: 'تمام صداها', noResults: 'نتیجه‌ای یافت نشد. کلمه کلیدی یا برچسب دیگری را امتحان کنید.', all: 'همه' },
+  es: { search: 'Buscar publicaciones de blog...', showing: 'Mostrando', of: 'de', allVoices: 'Todas las voces', noResults: 'Sin resultados. Intenta con otra palabra clave o etiqueta.', all: 'Todo' },
+  fr: { search: 'Rechercher des articles de blog...', showing: 'Affichage de', of: 'sur', allVoices: 'Toutes les voix', noResults: 'Aucun résultat. Essayez un autre mot-clé ou une autre étiquette.', all: 'Tout' },
+};
+
+export function BlogGridClient({ items, lang = 'en' }: { items: BlogGridItem[]; lang?: string }) {
   const [query, setQuery] = useState('');
-  const [tag, setTag] = useState<string>('All');
-  const [voice, setVoice] = useState<string>('All');
+  const t = DICT[lang] || DICT['en'];
+  const [tag, setTag] = useState<string>(t.all);
+  const [voice, setVoice] = useState<string>(t.all);
 
   const tags = useMemo(() => {
-    const t = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
-    return ['All', ...t];
-  }, [items]);
+    const tgs = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
+    return [t.all, ...tgs];
+  }, [items, t.all]);
 
   const voices = useMemo(() => {
     const uniq = Array.from(new Set(items.map((i) => i.voice).filter(Boolean) as string[]));
@@ -34,19 +42,19 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
       .filter((v) => !known.includes(v))
       .sort((a, b) => a.localeCompare(b));
     const ordered = [...known.filter((k) => uniq.includes(k)), ...rest];
-    return ['All', ...ordered];
-  }, [items]);
+    return [t.all, ...ordered];
+  }, [items, t.all]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return items.filter((i) => {
-      if (tag !== 'All' && !(i.tags || []).includes(tag)) return false;
-      if (voice !== 'All' && i.voice !== voice) return false;
+      if (tag !== t.all && !(i.tags || []).includes(tag)) return false;
+      if (voice !== t.all && i.voice !== voice) return false;
       if (!q) return true;
       const hay = `${i.title} ${i.id} ${(i.abstract || '')}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [items, query, tag, voice]);
+  }, [items, query, tag, voice, t.all]);
 
   return (
     <section>
@@ -55,12 +63,12 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search blog posts…"
+            placeholder={t.search}
             className="w-full sm:max-w-md bg-frc-void-light border border-frc-blue rounded-md px-3 py-2 text-sm text-frc-text placeholder:text-frc-text-dim focus:outline-none focus:border-frc-gold"
             aria-label="Search blog posts"
           />
           <div className="text-xs text-frc-text-dim">
-            Showing <span className="text-frc-text">{filtered.length}</span> of{' '}
+            {t.showing} <span className="text-frc-text">{filtered.length}</span> {t.of}{' '}
             <span className="text-frc-text">{items.length}</span>
           </div>
         </div>
@@ -77,7 +85,7 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
                   : 'border-frc-blue text-frc-text-dim hover:text-frc-text hover:border-frc-gold-light'
               }`}
             >
-              {v === 'All' ? 'All voices' : v}
+              {v === t.all ? t.allVoices : v}
             </button>
           ))}
         </div>
@@ -104,7 +112,7 @@ export function BlogGridClient({ items }: { items: BlogGridItem[] }) {
 
       {filtered.length === 0 ? (
         <div className="border border-frc-blue rounded-lg p-6 text-sm text-frc-text-dim">
-          No results. Try a different keyword or tag.
+          {t.noResults}
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 gap-5">

@@ -14,14 +14,77 @@ export interface PapersGridItem {
   doiSuffix?: string;
 }
 
-export function PapersGridClient({ items }: { items: PapersGridItem[] }) {
+const DICT: Record<string, {
+  search: string;
+  showing: string;
+  of: string;
+  allSeries: string;
+  allTags: string;
+  noResults: string;
+  coreTheory: string;
+  reciprocity: string;
+  applications: string;
+  other: string;
+}> = {
+  en: {
+    search: 'Search papers…',
+    showing: 'Showing',
+    of: 'of',
+    allSeries: 'All series',
+    allTags: 'All tags',
+    noResults: 'No results. Try a different keyword, series, or tag.',
+    coreTheory: 'Core Theory',
+    reciprocity: 'Reciprocity & UCC',
+    applications: 'Applications',
+    other: 'Other',
+  },
+  fa: {
+    search: 'جستجوی مقالات...',
+    showing: 'نمایش',
+    of: 'از',
+    allSeries: 'تمام سری‌ها',
+    allTags: 'تمام برچسب‌ها',
+    noResults: 'نتیجه‌ای یافت نشد. کلمه کلیدی، سری یا برچسب دیگری را امتحان کنید.',
+    coreTheory: 'نظریه اصلی',
+    reciprocity: 'تقابل و UCC',
+    applications: 'کاربردها',
+    other: 'سایر',
+  },
+  es: {
+    search: 'Buscar artículos...',
+    showing: 'Mostrando',
+    of: 'de',
+    allSeries: 'Todas las series',
+    allTags: 'Todas las etiquetas',
+    noResults: 'Sin resultados. Intenta con otra palabra clave, serie o etiqueta.',
+    coreTheory: 'Teoría Central',
+    reciprocity: 'Reciprocidad y UCC',
+    applications: 'Aplicaciones',
+    other: 'Otros',
+  },
+  fr: {
+    search: 'Rechercher des articles...',
+    showing: 'Affichage de',
+    of: 'sur',
+    allSeries: 'Toutes les séries',
+    allTags: 'Toutes les étiquettes',
+    noResults: 'Aucun résultat. Essayez un autre mot-clé, série ou étiquette.',
+    coreTheory: 'Théorie Centrale',
+    reciprocity: 'Réciprocité et UCC',
+    applications: 'Applications',
+    other: 'Autre',
+  },
+};
+
+export function PapersGridClient({ items, lang = 'en' }: { items: PapersGridItem[]; lang?: string }) {
   const [query, setQuery] = useState('');
   const [series, setSeries] = useState<'All' | PapersGridItem['series']>('All');
   const [tag, setTag] = useState<string>('All');
+  const t = DICT[lang] || DICT['en'];
 
   const tags = useMemo(() => {
-    const t = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
-    return ['All', ...t];
+    const tgs = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
+    return ['All', ...tgs];
   }, [items]);
 
   const filtered = useMemo(() => {
@@ -42,10 +105,10 @@ export function PapersGridClient({ items }: { items: PapersGridItem[] }) {
   }, [filtered]);
 
   const seriesLabel: Record<PapersGridItem['series'], string> = {
-    '100': 'Core Theory',
-    '566': 'Reciprocity & UCC',
-    '800': 'Applications',
-    other: 'Other',
+    '100': t.coreTheory,
+    '566': t.reciprocity,
+    '800': t.applications,
+    other: t.other,
   };
 
   const seriesBadge: Record<PapersGridItem['series'], string> = {
@@ -62,12 +125,12 @@ export function PapersGridClient({ items }: { items: PapersGridItem[] }) {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search papers…"
+            placeholder={t.search}
             className="w-full sm:max-w-md bg-frc-void-light border border-frc-blue rounded-md px-3 py-2 text-sm text-frc-text placeholder:text-frc-text-dim focus:outline-none focus:border-frc-gold"
             aria-label="Search papers"
           />
           <div className="text-xs text-frc-text-dim">
-            Showing <span className="text-frc-text">{filtered.length}</span> of{' '}
+            {t.showing} <span className="text-frc-text">{filtered.length}</span> {t.of}{' '}
             <span className="text-frc-text">{items.length}</span>
           </div>
         </div>
@@ -84,7 +147,7 @@ export function PapersGridClient({ items }: { items: PapersGridItem[] }) {
                   : 'border-frc-blue text-frc-text-dim hover:text-frc-text hover:border-frc-gold-light'
               }`}
             >
-              {s === 'All' ? 'All series' : seriesBadge[s as PapersGridItem['series']]}
+              {s === 'All' ? t.allSeries : seriesBadge[s as PapersGridItem['series']]}
             </button>
           ))}
         </div>
@@ -111,7 +174,7 @@ export function PapersGridClient({ items }: { items: PapersGridItem[] }) {
 
       {filtered.length === 0 ? (
         <div className="border border-frc-blue rounded-lg p-6 text-sm text-frc-text-dim">
-          No results. Try a different keyword, series, or tag.
+          {t.noResults}
         </div>
       ) : (
         (['100', '566', '800', 'other'] as const).map((k) => {

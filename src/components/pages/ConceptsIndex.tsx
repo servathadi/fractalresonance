@@ -1,6 +1,13 @@
 import { getConcepts, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 import { ConceptsGridClient, type ConceptsGridItem } from '@/components/pages/ConceptsGridClient';
 
+const DICT: Record<string, { title: string; desc: string; noConcepts: string }> = {
+  en: { title: 'Concepts', desc: 'Short definitions and connective tissue between papers, books, and articles.', noConcepts: 'No concepts published yet.' },
+  fa: { title: 'مفاهیم', desc: 'تعاریف کوتاه و بافت پیوندی بین مقالات، کتاب‌ها و نوشته‌ها.', noConcepts: 'هنوز مفهومی منتشر نشده است.' },
+  es: { title: 'Conceptos', desc: 'Definiciones breves y tejido conectivo entre artículos, libros y escritos.', noConcepts: 'Aún no hay conceptos publicados.' },
+  fr: { title: 'Concepts', desc: 'Courtes définitions et tissu conjonctif entre articles, livres et écrits.', noConcepts: 'Pas encore de concepts publiés.' },
+};
+
 export function ConceptsIndex({
   lang,
   basePath,
@@ -30,21 +37,23 @@ export function ConceptsIndex({
     };
   });
 
+  const t = DICT[lang] || DICT['en'];
+
   const content = (
     <div className="max-w-4xl mx-auto px-6 py-12">
       <header className="mb-12">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">Concepts</h1>
+        <h1 className="text-3xl font-light text-frc-gold mb-3">{t.title}</h1>
         <p className="text-frc-text-dim">
-          Short definitions and connective tissue between papers, books, and articles.
+          {t.desc}
         </p>
       </header>
 
       {concepts.length === 0 ? (
         <div className="text-frc-text-dim text-sm border border-frc-blue rounded-lg p-6">
-          No concepts published yet.
+          {t.noConcepts}
         </div>
       ) : (
-        <ConceptsGridClient items={items} />
+        <ConceptsGridClient items={items} lang={lang} />
       )}
     </div>
   );
