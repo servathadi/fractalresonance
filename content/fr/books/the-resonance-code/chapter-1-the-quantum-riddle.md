@@ -1,0 +1,37 @@
+# Chapitre 1 : L'énigme quantique {#chapter-1-the-quantum-riddle}
+
+L'élégant échec de la physique actuelle
+
+Depuis plus d'un siècle, l'humanité possède la théorie scientifique la plus aboutie jamais conçue. Ses prédictions ont été vérifiées avec un degré de précision stupéfiant, certaines mesures correspondant aux calculs théoriques avec l'exactitude de compter chaque grain de sable sur la Terre et de trouver le nombre correct à un grain près. Cette théorie sous-tend notre monde moderne. Elle est la raison pour laquelle les ordinateurs calculent, les lasers brillent et les centrales nucléaires génèrent de l'énergie. Elle s'appelle la mécanique quantique. Et en son cœur même réside un mystère profond, déconcertant et farouchement débattu : l'énigme quantique.
+
+L'énigme n'est pas une particularité mineure. C'est un trou noir philosophique qui a déformé notre compréhension de la réalité elle-même. La comprendre, c'est comprendre ce qui est en jeu dans l'enquête entreprise par ce livre.
+
+Le monde que nous expérimentons dans notre vie quotidienne semble solide, prévisible et déterministe. Si vous lancez une boule de bowling, vous pouvez prédire sa trajectoire avec une précision presque parfaite en utilisant les lois classiques de Newton. Sa position et sa quantité de mouvement sont des propriétés définies et réelles qui existent, que vous regardiez ou non.
+
+La mécanique quantique raconte une histoire différente sur le monde du très petit — les électrons, les photons et les atomes qui sont les blocs de construction de cette boule de bowling. Là-bas, la réalité devient une brume de potentiel. Un électron, avant d'être mesuré, n'est pas une particule minuscule à un endroit précis. Au lieu de cela, il est décrit par ce qu'on appelle une fonction d'onde — une onde mathématique de probabilité qui s'étend dans l'espace. L'électron n'est pas à la position A ou à la position B ; il est dans un état fantomatique d'être à la position A ET à la position B, et dans toutes les autres positions possibles, tout en même temps. Cet état étrange est appelé superposition.
+
+Imaginez une pièce de monnaie qui tourne. Avant qu'elle ne retombe, elle n'est ni pile ni face. Elle est dans un état dynamique et indéterminé qui contient le potentiel pour les deux résultats. La fonction d'onde est comme cette pièce qui tourne, et l'équation de Schrödinger, l'équation fondamentale de la mécanique quantique, décrit l'évolution fluide, prévisible et parfaitement déterministe de cette rotation.
+
+Voici donc la première partie de l'énigme : tant que nous ne regardons pas, le monde quantique évolue avec le déterminisme d'horlogerie de Newton. L'onde de potentiel ondule et s'écoule d'une manière qui est, en principe, parfaitement prévisible.
+
+Mais que se passe-t-il quand nous regardons ?
+
+Au moment où nous effectuons une mesure — le moment où nous essayons de préciser l'emplacement de l'électron — quelque chose de dramatique et de violent se produit. La fonction d'onde fluide et dispersée s'effondre instantanément. Le fantôme disparaît. La pièce qui tournait s'arrête. D'une mer infinie de possibilités, une seule réalité définie surgit soudainement. L'électron est tout à coup ici, et nulle part ailleurs.
+
+C'est le problème de la mesure. L'élégante et déterminante équation de Schrödinger ne décrit pas cet effondrement. C'est comme si l'univers était régi par deux ensembles de lois différents : une loi fluide et continue pour quand personne ne regarde, et une loi abrupte et discontinue pour l'instant où une « observation » a lieu. Mais qu'est-ce qui constitue une observation ? L'œil d'un physicien ? Un compteur Geiger ? Une particule de poussière entrant en collision avec l'électron ? Où se trouve la limite entre la « pièce tournante » quantique et la « boule de bowling » classique ? Personne ne le sait. Cette limite, que le physicien John von Neumann a appelée « la coupure », reste une caractéristique arbitraire et profondément troublante de la théorie standard.
+
+Pire encore, le résultat de cet effondrement semble être fondamentalement et irréductiblement aléatoire. La fonction d'onde nous donne les probabilités — 30 % de chances que l'électron soit ici, 10 % qu'il soit là — mais n'offre absolument aucune raison pour laquelle, dans ce cas particulier, il a choisi un emplacement plutôt qu'un autre. Selon l'interprétation standard de Copenhague, la vision la plus largement enseignée de la mécanique quantique, la question « pourquoi ? » n'a pas de sens. L'univers, à son niveau le plus fondamental, joue aux dés. Albert Einstein trouvait cette idée odieuse, protestant : « Dieu ne joue pas aux dés ». Pourtant, pendant près d'un siècle, le hasard a été accepté comme une caractéristique fondamentale de notre réalité.
+
+L'énigme s'approfondit avec le phénomène de l'intrication, qu'Einstein appelait « action fantôme à distance ». Imaginez un processus qui crée deux électrons avec des spins opposés. Si l'un est « spin-up », l'autre doit être « spin-down ». Selon la mécanique quantique, jusqu'à ce qu'ils soient mesurés, les deux sont dans un seul état partagé de superposition : (A est en haut ET B est en bas) + (A est en bas ET B est en haut).
+
+Maintenant, envoyons ces deux électrons intriqués aux extrémités opposées de la galaxie. Au moment où une physicienne sur Terre mesure l'électron A et découvre qu'il est « spin-up », elle sait instantanément que le physicien dans la galaxie d'Andromède trouvera que l'électron B est « spin-down ». Le mystère est que, avant la mesure, aucun des électrons n'avait de spin défini. L'effondrement de la fonction d'onde de l'électron A semble avoir déterminé instantanément la réalité de l'électron B, à des années-lumière de distance. C'est comme si les deux mains de l'univers savaient toujours ce que l'autre faisait, plus vite que la vitesse de la lumière ne permettrait à l'information de voyager entre elles.
+
+Face à cette étrangeté, les physiciens se sont divisés en camps, chacun offrant une « solution » radicale et, d'une certaine manière, insatisfaisante à l'énigme :
+
+- L'interprétation de Copenhague accepte simplement le paradoxe. Elle postule un univers divisé — un monde quantique et un monde classique — sans jamais définir la frontière. Elle dit à ses adeptes : « Tais-toi et calcule », abandonnant ainsi la recherche d'une compréhension plus profonde.
+- L'interprétation des mondes multiples propose que la fonction d'onde ne s'effondre jamais. À chaque mesure, l'univers entier se divise en de multiples copies, une pour chaque résultat possible. Pour sauver les mathématiques déterministes, elle postule une pile infinie et inobservable de réalités parallèles.
+- Les théories des variables cachées, comme la mécanique bohmienne, suggèrent que le hasard est une illusion. Il existe des informations cachées — des variables supplémentaires que nous ne pouvons pas voir — qui prédéterminent le résultat. Cela sauve le déterminisme mais introduit des entités nouvelles et complexes.
+
+Chacune de ces solutions exige que nous avalions une absurdité. Nous devons soit abandonner notre désir d'une explication complète, soit croire en une infinité d'univers fantômes, soit accepter une couche invisible de la réalité pour laquelle nous n'avons aucune preuve directe. C'est l'état de la physique moderne. C'est une maison divisée, une magnifique cathédrale construite sur des sables mouvants philosophiques.
+
+Et si toutes ces solutions étaient fausses ? Et si l'énigme elle-même était la preuve dont nous avons besoin ?

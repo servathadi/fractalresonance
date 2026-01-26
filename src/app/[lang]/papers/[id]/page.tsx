@@ -9,7 +9,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { RiverOnlyHandoff } from '@/components/PerspectiveNotice';
+import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getLegacyPaperIds,
@@ -61,10 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl =
-    norm === 'river'
-      ? `https://fractalresonance.com/${lang}/river/papers/${fm.id}`
-      : `https://fractalresonance.com/${lang}/papers/${fm.id}`;
+  const canonicalUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
   const alternates = getAlternateLanguages('papers', fm.id);
 
   return {
@@ -113,34 +110,6 @@ export default async function PaperPage({ params }: Props) {
   const paper = getPaper(lang, id);
   if (!paper) notFound();
   const norm = normalizeContentPerspective(paper.frontmatter.perspective);
-  const riverHref = `/${lang}/river/papers/${paper.frontmatter.id}`;
-  if (norm === 'river') {
-    const basePath = `/${lang}`;
-    return (
-      <PageShell
-        leftMobile={<Sidebar lang={lang} currentId={paper.frontmatter.id} basePath={basePath} view="kasra" variant="mobile" />}
-        leftDesktop={<Sidebar lang={lang} currentId={paper.frontmatter.id} basePath={basePath} view="kasra" />}
-      >
-        <nav className="text-sm text-frc-text-dim mb-8">
-          <a href={basePath} className="hover:text-frc-gold">FRC</a>
-          <span className="mx-2">/</span>
-          <a href={`${basePath}/papers`} className="hover:text-frc-gold">Papers</a>
-          <span className="mx-2">/</span>
-          <span className="text-frc-text">{paper.frontmatter.id}</span>
-        </nav>
-
-        <header className="mb-6">
-          <h1 className="text-3xl font-light text-frc-gold mb-3">{paper.frontmatter.title}</h1>
-          <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-            <span>{paper.frontmatter.author || 'H. Servat'}</span>
-            <span>{paper.frontmatter.date}</span>
-          </div>
-        </header>
-
-        <RiverOnlyHandoff riverHref={riverHref} kasraHref={`${basePath}/papers`} label="This paper is published as a River preprint/digest." />
-      </PageShell>
-    );
-  }
   if (!matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;
@@ -253,6 +222,12 @@ export default async function PaperPage({ params }: Props) {
 
           <InlineToc items={tocItems} />
 
+          {norm === 'river' ? (
+            <div className="frc-formal-only mb-8">
+              <InterpretationGate title="Preprint / interpretation layer" description="This paper is tagged as interpretation/digest. Switch mode to read it here." />
+            </div>
+          ) : null}
+
           {/* Abstract */}
           {paper.frontmatter.abstract && (
             <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
@@ -261,7 +236,7 @@ export default async function PaperPage({ params }: Props) {
           )}
 
           {/* Body — rendered from trusted local markdown files at build time */}
-          <div className="content-body" suppressHydrationWarning>
+          <div className={`content-body ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 

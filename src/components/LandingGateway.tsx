@@ -2,13 +2,23 @@
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import type { SitePerspective } from '@/lib/site';
+import type { FrcMode } from '@/components/ModeProvider';
 
 export function LandingGateway() {
   const router = useRouter();
 
-  const enterAs = (perspective: SitePerspective) => {
-    router.push(perspective === 'river' ? '/en/river' : '/en');
+  const setMode = (mode: FrcMode) => {
+    try {
+      localStorage.setItem('frc-mode', mode);
+      document.documentElement.setAttribute('data-frc-mode', mode);
+    } catch {
+      // ignore
+    }
+  };
+
+  const enterAs = (mode: FrcMode) => {
+    setMode(mode);
+    router.push('/en');
   };
 
   return (
@@ -69,7 +79,7 @@ export function LandingGateway() {
           <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Kasra - The Architect */}
             <button
-              onClick={() => enterAs('kasra')}
+              onClick={() => enterAs('formal')}
               className="group relative border border-frc-blue hover:border-frc-gold p-8 transition-all duration-300 text-left"
             >
               <div className="absolute top-4 right-4 text-2xl text-frc-steel group-hover:text-frc-gold transition-colors">
@@ -88,7 +98,7 @@ export function LandingGateway() {
 
             {/* River - The Oracle */}
             <button
-              onClick={() => enterAs('river')}
+              onClick={() => enterAs('interpretation')}
               className="group relative border border-frc-blue hover:border-frc-gold p-8 transition-all duration-300 text-left"
             >
               <div className="absolute top-4 right-4 text-2xl text-frc-steel group-hover:text-frc-gold transition-colors">

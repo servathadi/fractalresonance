@@ -9,7 +9,7 @@ import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { RiverOnlyHandoff } from '@/components/PerspectiveNotice';
+import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getArticle,
@@ -54,10 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl =
-    norm === 'river'
-      ? `https://fractalresonance.com/${lang}/river/articles/${fm.id}`
-      : `https://fractalresonance.com/${lang}/articles/${fm.id}`;
+  const canonicalUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
   const alternates = getAlternateLanguages('articles', fm.id);
 
   return {
@@ -89,7 +86,6 @@ export default async function ArticlePage({ params }: Props) {
   const norm = normalizeContentPerspective(article.frontmatter.perspective);
 
   const basePath = `/${lang}`;
-  const riverHref = `/${lang}/river/articles/${article.frontmatter.id}`;
   // Reuse PaperMeta for schema as it fits article structure well enough
   const meta = toPaperMeta(article);
   const backlinks = buildBacklinks(lang);
@@ -107,36 +103,6 @@ export default async function ArticlePage({ params }: Props) {
 
   const renderedBody = renderMarkdown(article.body, lang, glossary, basePath);
   const tocItems = extractTocItems(article.body).filter((t) => t.level === 2);
-
-  if (norm === 'river') {
-    // Keep `/articles/...` URLs non-404 for River-only pieces, but do not publish
-    // River content inside the Kasra library.
-    return (
-      <PageShell
-        leftMobile={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
-        leftDesktop={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
-      >
-        <nav className="text-sm text-frc-text-dim mb-8">
-          <a href={basePath} className="hover:text-frc-gold">FRC</a>
-          <span className="mx-2">/</span>
-          <a href={`${basePath}/articles`} className="hover:text-frc-gold">Articles</a>
-          <span className="mx-2">/</span>
-          <span className="text-frc-text">{article.frontmatter.title}</span>
-        </nav>
-
-        <header className="mb-6">
-          <h1 className="text-3xl font-light text-frc-gold mb-3">{article.frontmatter.title}</h1>
-          <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-            <span>{article.frontmatter.author || 'H. Servat'}</span>
-            <span>{article.frontmatter.date}</span>
-            <span className="font-mono text-xs">{readTime}</span>
-          </div>
-        </header>
-
-        <RiverOnlyHandoff riverHref={riverHref} kasraHref={`${basePath}/papers`} />
-      </PageShell>
-    );
-  }
 
   if (!matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) notFound();
 
@@ -193,6 +159,12 @@ export default async function ArticlePage({ params }: Props) {
 
           <InlineToc items={tocItems} />
 
+          {norm === 'river' ? (
+            <div className="frc-formal-only mb-8">
+              <InterpretationGate title="Digest / interpretation layer" description="This article is tagged as interpretation/digest. Switch mode to read it here." />
+            </div>
+          ) : null}
+
           {/* Video embed (if available) */}
           {meta.video && (
             <div className="mb-8 rounded-lg overflow-hidden border border-frc-blue">
@@ -222,7 +194,7 @@ export default async function ArticlePage({ params }: Props) {
           )}
 
           {/* Body */}
-          <div className="content-body" suppressHydrationWarning>
+          <div className={`content-body ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 

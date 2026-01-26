@@ -64,6 +64,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ═══════════════════════════════════════════════════
+   MODE: Formal / Interpretation / Both
+   Single canonical URL; the mode controls visibility.
+   Default is Formal (if the attribute isn't set yet).
+   ═══════════════════════════════════════════════════ */
+
+html:not([data-frc-mode]) .frc-interpretation-only {
+  display: none !important;
+}
+
+html[data-frc-mode="formal"] .frc-interpretation-only {
+  display: none !important;
+}
+
+html[data-frc-mode="interpretation"] .frc-formal-only {
+  display: none !important;
+}
+
 ::selection {
   background-color: color-mix(in srgb, var(--color-frc-gold) 25%, transparent);
   color: var(--color-frc-text);
