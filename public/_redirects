@@ -1,3 +1,6 @@
+# Default language entrypoint
+/  /en  302
+
 # v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
 /papers/*  /en/papers/:splat  301
