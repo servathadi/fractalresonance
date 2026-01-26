@@ -108,7 +108,8 @@ export default async function BookChapterPage({ params }: Props) {
   const next = idx >= 0 && idx + 1 < derived.length ? derived[idx + 1] : null;
 
   const renderedBody = renderMarkdown(current.markdown, lang, glossary, basePath);
-  const tocItems = extractTocItems(current.markdown).filter((t) => t.level === 2);
+  // Target level 3 headings (sections) because level 2 is now the Chapter Title itself.
+  const tocItems = extractTocItems(current.markdown).filter((t) => t.level === 3);
   const chapterItems = getChapterList(book.body);
 
   return (
