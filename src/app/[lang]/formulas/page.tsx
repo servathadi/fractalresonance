@@ -11,9 +11,40 @@ export function generateStaticParams() {
   return getLanguages().map(lang => ({ lang }));
 }
 
+const DICT: Record<string, Record<string, string>> = {
+  en: {
+    title: 'Formulas',
+    desc: 'Core equations of the FRC framework with paper references.',
+    secCore: 'Core Theory (100 Series)',
+    secRecip: 'Reciprocity (566 Series)',
+    secConst: 'Key Constants',
+  },
+  fa: {
+    title: 'فرمول‌ها',
+    desc: 'معادلات اصلی چارچوب FRC با ارجاع به مقالات.',
+    secCore: 'نظریه اصلی (سری ۱۰۰)',
+    secRecip: 'تقابل (سری ۵۶۶)',
+    secConst: 'ثابت‌های کلیدی',
+  },
+  es: {
+    title: 'Fórmulas',
+    desc: 'Ecuaciones centrales del marco FRC con referencias a artículos.',
+    secCore: 'Teoría Central (Serie 100)',
+    secRecip: 'Reciprocidad (Serie 566)',
+    secConst: 'Constantes Clave',
+  },
+  fr: {
+    title: 'Formules',
+    desc: 'Équations centrales du cadre FRC avec références aux articles.',
+    secCore: 'Théorie Centrale (Série 100)',
+    secRecip: 'Réciprocité (Série 566)',
+    secConst: 'Constantes Clés',
+  },
+};
+
 const FORMULAS = [
   {
-    section: 'Core Theory (100 Series)',
+    sectionKey: 'secCore',
     items: [
       {
         name: 'Coherence (C)',
@@ -54,7 +85,7 @@ const FORMULAS = [
     ],
   },
   {
-    section: 'Reciprocity (566 Series)',
+    sectionKey: 'secRecip',
     items: [
       {
         name: 'Entropy–Coherence Reciprocity',
@@ -103,19 +134,26 @@ const CONSTANTS = [
   { symbol: 'δP', value: '10⁻⁴ – 10⁻³', description: 'Born rule deviation magnitude' },
 ];
 
-export default function FormulasPage() {
+interface Props {
+  params: Promise<{ lang: string }>;
+}
+
+export default async function FormulasPage({ params }: Props) {
+  const { lang } = await params;
+  const t = (key: string) => DICT[lang]?.[key] || DICT['en'][key];
+
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
       <header className="mb-12">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">Formulas</h1>
+        <h1 className="text-3xl font-light text-frc-gold mb-3">{t('title')}</h1>
         <p className="text-frc-text-dim">
-          Core equations of the FRC framework with paper references.
+          {t('desc')}
         </p>
       </header>
 
       {FORMULAS.map(section => (
-        <section key={section.section} className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4">{section.section}</h2>
+        <section key={section.sectionKey} className="mb-12">
+          <h2 className="text-lg text-frc-text font-medium mb-4">{t(section.sectionKey)}</h2>
           <div className="space-y-4">
             {section.items.map(item => (
               <div key={item.name} className="border border-frc-blue rounded-lg px-5 py-4">
@@ -123,7 +161,7 @@ export default function FormulasPage() {
                   <h3 className="text-sm text-frc-text-dim">{item.name}</h3>
                   <span className="text-xs font-mono text-frc-steel shrink-0">{item.paper}</span>
                 </div>
-                <p className="font-mono text-sm text-frc-text mt-2 break-all">{item.equation}</p>
+                <p className="font-mono text-sm text-frc-text mt-2 break-all" dir="ltr">{item.equation}</p>
                 <p className="text-xs text-frc-text-dim mt-2 mb-4">{item.description}</p>
                 {item.name === 'Coherence (C)' && (
                   <div className="mt-4">
@@ -137,13 +175,13 @@ export default function FormulasPage() {
       ))}
 
       <section className="border-t border-frc-blue pt-8">
-        <h2 className="text-lg text-frc-text font-medium mb-4">Key Constants</h2>
+        <h2 className="text-lg text-frc-text font-medium mb-4">{t('secConst')}</h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {CONSTANTS.map(c => (
             <div key={c.symbol} className="flex items-center gap-3 text-sm border border-frc-blue rounded-lg px-4 py-3">
-              <span className="font-mono text-frc-gold shrink-0 w-12">{c.symbol}</span>
+              <span className="font-mono text-frc-gold shrink-0 w-12" dir="ltr">{c.symbol}</span>
               <div>
-                <span className="text-frc-text font-mono">{c.value}</span>
+                <span className="text-frc-text font-mono" dir="ltr">{c.value}</span>
                 <p className="text-xs text-frc-text-dim">{c.description}</p>
               </div>
             </div>
