@@ -942,7 +942,7 @@ export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
 export interface GraphNode {
   id: string;
   title: string;
-  type: 'paper' | 'concept';
+  type: 'paper' | 'concept' | 'article' | 'blog' | 'book' | 'topic' | 'person';
   val: number; // radius based on connections
 }
 
@@ -957,44 +957,61 @@ export interface GraphData {
 }
 
 /** Generate graph data for visualization */
-export function getGraphData(lang: string = 'en'): GraphData {
+export function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra'): GraphData {
   const nodes: GraphNode[] = [];
   const links: GraphLink[] = [];
   const nodeIds = new Set<string>();
+  const idLowerToCanonical: Record<string, string> = {};
 
-  const papers = getPapers(lang);
-  const concepts = getConcepts(lang);
-  const allContent = [...papers, ...concepts];
+  const sources: Array<{ type: GraphNode['type']; items: ParsedContent[] }> = [
+    { type: 'paper', items: getPapers(lang) },
+    { type: 'concept', items: getConcepts(lang) },
+    { type: 'topic', items: getTopics(lang) },
+    { type: 'article', items: getArticles(lang) },
+    { type: 'blog', items: getBlogPosts(lang) },
+    { type: 'book', items: getBooks(lang) },
+    { type: 'person', items: getPeople(lang) },
+  ];
 
   // 1. Create Nodes
-  for (const c of allContent) {
-    const id = c.frontmatter.id;
-    if (!nodeIds.has(id)) {
+  for (const src of sources) {
+    for (const c of src.items) {
+      const id = c.frontmatter.id;
+      if (!id) continue;
+      if (!matchesPerspectiveView(c.frontmatter.perspective, view)) continue;
+      if (nodeIds.has(id)) continue;
       nodes.push({
         id,
         title: c.frontmatter.title,
-        type: c.frontmatter.id.startsWith('FRC') ? 'paper' : 'concept',
+        type: src.type,
         val: 1 // base size
       });
       nodeIds.add(id);
+      idLowerToCanonical[String(id).toLowerCase()] = id;
     }
   }
 
   // 2. Create Links
+  const allContent: ParsedContent[] = sources.flatMap((s) => s.items);
   for (const c of allContent) {
     const sourceId = c.frontmatter.id;
+    if (!sourceId) continue;
+    if (!nodeIds.has(sourceId)) continue;
     const extracted = extractWikilinks(c.body);
     
     // Dedup links per file
     const targetIds = new Set(extracted.map(l => l.id.split('#')[0]));
 
     for (const targetId of targetIds) {
+      const norm = canonicalizeFrcLikeIdForGraph(targetId);
+      const canonicalTarget = idLowerToCanonical[String(norm).toLowerCase()] || idLowerToCanonical[String(targetId).toLowerCase()];
+
       // Only link if target exists in our content (internal links)
-      if (nodeIds.has(targetId) && sourceId !== targetId) {
-        links.push({ source: sourceId, target: targetId });
+      if (canonicalTarget && nodeIds.has(canonicalTarget) && sourceId !== canonicalTarget) {
+        links.push({ source: sourceId, target: canonicalTarget });
         
         // Increase size of target node (centrality)
-        const targetNode = nodes.find(n => n.id === targetId);
+        const targetNode = nodes.find(n => n.id === canonicalTarget);
         if (targetNode) targetNode.val += 0.5;
         
         // Increase size of source node
@@ -1005,6 +1022,25 @@ export function getGraphData(lang: string = 'en'): GraphData {
   }
 
   return { nodes, links };
+}
+
+function canonicalizeFrcLikeIdForGraph(raw: string): string {
+  const s = String(raw || '').trim();
+  if (!s) return s;
+  if (s.match(/^FRC-\d/i)) return s;
+
+  // Accept forms like:
+  // - "FRC 100.001"
+  // - "FRC-100.001"
+  // - "FRC 100.001 - Title"
+  // - "FRC 893.PHY"
+  const m = s.match(/^(FRC)\s*[- ]?\s*(\d{2,4})\.(\d+(?:\.\d+)*|[A-Za-z]+)(?:\b|[^A-Za-z0-9].*)$/i);
+  if (!m) return s;
+
+  const series = m[2];
+  const suffix = m[3];
+  const normSuffix = suffix.replace(/\./g, '-').toUpperCase();
+  return `FRC-${series}-${normSuffix}`;
 }
 
 // ─── Wikilink Processing ───────────────────────────────────────────────────

@@ -17,7 +17,7 @@ interface Props {
 
 export default async function GraphPage({ params }: Props) {
   const { lang } = await params;
-  const graphData = getGraphData(lang);
+  const graphData = getGraphData(lang, 'kasra');
 
   return (
     <main className="min-h-screen flex flex-col">
