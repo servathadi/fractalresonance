@@ -9,7 +9,20 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getLegacyPaperIds, getPaper, getPapers, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { RiverOnlyHandoff } from '@/components/PerspectiveNotice';
+import {
+  estimateReadTime,
+  getLegacyPaperIds,
+  getPaper,
+  getPapers,
+  getLanguages,
+  toPaperMeta,
+  buildBacklinks,
+  getGlossary,
+  getAlternateLanguages,
+  normalizeContentPerspective,
+  matchesPerspectiveView,
+} from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -24,7 +37,9 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
-      if (paper.frontmatter.id && matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) {
+      // Include all items (Kasra + River) so we can gracefully hand off River-only
+      // content instead of producing static 404s for `/papers/...` URLs.
+      if (paper.frontmatter.id) {
         for (const legacyId of getLegacyPaperIds(paper.frontmatter.id)) {
           const key = `${lang}:${legacyId}`;
           if (seen.has(key)) continue;
@@ -45,7 +60,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
-  const paperUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/papers/${fm.id}`
+      : `https://fractalresonance.com/${lang}/papers/${fm.id}`;
   const alternates = getAlternateLanguages('papers', fm.id);
 
   return {
@@ -54,9 +73,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: paperUrl,
+      canonical: canonicalUrl,
       languages: alternates,
     },
+    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -73,7 +93,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...(fm.date && { 'citation_publication_date': fm.date }),
       'citation_journal_title': 'Fractal Resonance Coherence',
       ...(fm.doi && { 'citation_doi': fm.doi }),
-      'citation_abstract_html_url': paperUrl,
+      'citation_abstract_html_url': canonicalUrl,
       'citation_language': lang,
       ...(fm.id && { 'citation_technical_report_number': fm.id }),
       // Dublin Core for additional discoverability
@@ -92,6 +112,35 @@ export default async function PaperPage({ params }: Props) {
   const { lang, id } = await params;
   const paper = getPaper(lang, id);
   if (!paper) notFound();
+  const norm = normalizeContentPerspective(paper.frontmatter.perspective);
+  const riverHref = `/${lang}/river/papers/${paper.frontmatter.id}`;
+  if (norm === 'river') {
+    const basePath = `/${lang}`;
+    return (
+      <PageShell
+        leftMobile={<Sidebar lang={lang} currentId={paper.frontmatter.id} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<Sidebar lang={lang} currentId={paper.frontmatter.id} basePath={basePath} view="kasra" />}
+      >
+        <nav className="text-sm text-frc-text-dim mb-8">
+          <a href={basePath} className="hover:text-frc-gold">FRC</a>
+          <span className="mx-2">/</span>
+          <a href={`${basePath}/papers`} className="hover:text-frc-gold">Papers</a>
+          <span className="mx-2">/</span>
+          <span className="text-frc-text">{paper.frontmatter.id}</span>
+        </nav>
+
+        <header className="mb-6">
+          <h1 className="text-3xl font-light text-frc-gold mb-3">{paper.frontmatter.title}</h1>
+          <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
+            <span>{paper.frontmatter.author || 'H. Servat'}</span>
+            <span>{paper.frontmatter.date}</span>
+          </div>
+        </header>
+
+        <RiverOnlyHandoff riverHref={riverHref} kasraHref={`${basePath}/papers`} label="This paper is published as a River preprint/digest." />
+      </PageShell>
+    );
+  }
   if (!matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;

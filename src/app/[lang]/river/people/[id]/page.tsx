@@ -6,6 +6,7 @@ import { PeopleSidebar } from '@/components/PeopleSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
 import {
   estimateReadTime,
   getPerson,
@@ -14,6 +15,7 @@ import {
   buildBacklinks,
   getGlossary,
   matchesPerspectiveView,
+  normalizeContentPerspective,
   getWorkForPerson,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -45,6 +47,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const person = getPerson(lang, id);
   if (!person) return { title: 'Not Found' };
   const fm = person.frontmatter;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/people/${fm.id}`
+      : `https://fractalresonance.com/${lang}/people/${fm.id}`;
 
   return {
     title: fm.title,
@@ -52,8 +59,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: fm.title }],
     alternates: {
-      canonical: `https://fractalresonance.com/${lang}/river/people/${fm.id}`,
+      canonical: canonicalUrl,
     },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'profile',
       title: fm.title,
@@ -75,6 +83,8 @@ export default async function RiverPersonPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(person.body);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `/${lang}/people/${fm.id}`;
 
   const renderedBody = renderMarkdown(person.body, lang, glossary, basePath);
   const tocItems = extractTocItems(person.body).filter((t) => t.level === 2);
@@ -129,6 +139,8 @@ export default async function RiverPersonPage({ params }: Props) {
           </div>
         )}
       </header>
+
+      {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
 
       <InlineToc items={tocItems} />
 

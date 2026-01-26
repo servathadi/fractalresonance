@@ -89,6 +89,23 @@ export function renderMarkdown(
       if (!trimmed) return '';
       if (trimmed.startsWith('<')) return trimmed;
       if (trimmed.startsWith('<!--CODE_BLOCK_')) return trimmed;
+      // Avoid invalid HTML like `<p>text <ul>...</ul></p>` when a paragraph
+      // directly precedes a list/table without a blank line.
+      if (trimmed.includes('<ul>') || trimmed.includes('<ol>') || trimmed.includes('<table>')) {
+        const parts: string[] = [];
+        const re = /(<(?:ul|ol|table)>[\s\S]*?<\/(?:ul|ol|table)>)/g;
+        const chunks = trimmed.split(re).filter(Boolean);
+        for (const chunk of chunks) {
+          const c = chunk.trim();
+          if (!c) continue;
+          if (c.startsWith('<ul>') || c.startsWith('<ol>') || c.startsWith('<table>')) {
+            parts.push(c);
+          } else {
+            parts.push(`<p>${c.replace(/\n/g, ' ')}</p>`);
+          }
+        }
+        return parts.join('\n');
+      }
       return `<p>${trimmed.replace(/\n/g, ' ')}</p>`;
     })
     .join('\n');

@@ -46,11 +46,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { tag } = await params;
+  const { lang, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
   return {
     title: `Tag: ${decodedTag}`,
     description: `River-side items tagged with "${decodedTag}".`,
+    alternates: {
+      canonical: `https://fractalresonance.com/${lang}/tags/${encodeURIComponent(decodedTag)}`,
+    },
+    robots: { index: false, follow: true },
   };
 }
 
@@ -122,4 +126,3 @@ export default async function RiverTagPage({ params }: Props) {
     </main>
   );
 }
-

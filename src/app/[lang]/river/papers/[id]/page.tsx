@@ -9,6 +9,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
 import {
   estimateReadTime,
   getLegacyPaperIds,
@@ -18,6 +19,7 @@ import {
   toPaperMeta,
   buildBacklinks,
   getGlossary,
+  normalizeContentPerspective,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -58,14 +60,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
-  const paperUrl = `https://fractalresonance.com/${lang}/river/papers/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/papers/${fm.id}`
+      : `https://fractalresonance.com/${lang}/papers/${fm.id}`;
 
   return {
     title: fm.title,
     description: fm.abstract,
     keywords: fm.tags,
     authors: [{ name: author }],
-    alternates: { canonical: paperUrl },
+    alternates: { canonical: canonicalUrl },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -92,6 +99,8 @@ export default async function RiverPaperPage({ params }: Props) {
   const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = paper.frontmatter;
   const readTime = fm.read_time || estimateReadTime(paper.body);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `/${lang}/papers/${canonicalId}`;
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -148,6 +157,8 @@ export default async function RiverPaperPage({ params }: Props) {
               </div>
             )}
           </header>
+
+          {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
 
           <ContentDigest
             tldr={fm.tldr}

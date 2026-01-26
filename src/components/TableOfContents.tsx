@@ -10,7 +10,7 @@ export interface TocItem {
 
 interface TableOfContentsProps {
   items: TocItem[];
-  minBreakpoint?: 'lg' | 'xl' | '2xl';
+  minBreakpoint?: 'md' | 'lg' | 'xl' | '2xl';
   title?: string;
 }
 
@@ -40,7 +40,9 @@ export function TableOfContents({ items, minBreakpoint = 'lg', title = 'On this 
   if (items.length === 0) return null;
 
   const breakpointClass =
-    minBreakpoint === 'lg'
+    minBreakpoint === 'md'
+      ? 'hidden md:block'
+      : minBreakpoint === 'lg'
       ? 'hidden lg:block'
       : minBreakpoint === 'xl'
         ? 'hidden xl:block'

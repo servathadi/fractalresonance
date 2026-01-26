@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
 import {
   estimateReadTime,
   getBook,
@@ -17,11 +17,11 @@ import {
   buildBacklinks,
   getGlossary,
   getAlternateLanguages,
+  normalizeContentPerspective,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { getChapterList } from '@/lib/bookChapters';
-import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -51,7 +51,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const canonicalUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/books/${fm.id}`
+      : `https://fractalresonance.com/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
   return {
@@ -63,6 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: canonicalUrl,
       languages: alternates,
     },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'book',
       title: fm.title,
@@ -81,12 +86,15 @@ export default async function RiverBookPage({ params }: Props) {
   if (!matchesPerspectiveView(book.frontmatter.perspective, 'river')) notFound();
 
   const basePath = `/${lang}/river`;
+  const kasraBase = `/${lang}`;
   const meta = toPaperMeta(book);
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = book.frontmatter;
   const readTime = fm.read_time || estimateReadTime(book.body);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `${kasraBase}/books/${fm.id}`;
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -95,9 +103,9 @@ export default async function RiverBookPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
-  const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
   const chapterItems = getChapterList(book.body);
   const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
+  const startChapter = chapterItems[0]?.slug;
 
   return (
     <>
@@ -106,7 +114,7 @@ export default async function RiverBookPage({ params }: Props) {
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="river" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="river" />}
-        right={<TableOfContents items={tocItems} minBreakpoint="lg" title="Book index" />}
+        right={<TableOfContents items={tocItems} minBreakpoint="md" title="Book index" />}
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -142,6 +150,8 @@ export default async function RiverBookPage({ params }: Props) {
             )}
           </header>
 
+          {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
+
           <ContentDigest
             tldr={fm.tldr}
             keyPoints={fm.key_points}
@@ -150,6 +160,28 @@ export default async function RiverBookPage({ params }: Props) {
           />
 
           <InlineToc items={tocItems} title="Book index" />
+
+          <section className="mb-10">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-xs text-frc-steel uppercase tracking-widest">Reading</h2>
+              <div className="flex flex-wrap gap-3">
+                {startChapter ? (
+                  <Link
+                    href={`${basePath}/books/${id}/chapter/${startChapter}`}
+                    className="px-4 py-2 border border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-xs uppercase tracking-wider transition-colors"
+                  >
+                    Start reading
+                  </Link>
+                ) : null}
+                <Link
+                  href={canonicalHref}
+                  className="px-4 py-2 border border-frc-blue text-frc-text-dim hover:text-frc-gold hover:border-frc-gold text-xs uppercase tracking-wider transition-colors"
+                >
+                  Full book (Kasra)
+                </Link>
+              </div>
+            </div>
+          </section>
 
           {chapterItems.length > 0 && (
             <section className="mb-8">
@@ -174,11 +206,6 @@ export default async function RiverBookPage({ params }: Props) {
               </div>
             </section>
           )}
-
-          {/* Main Content */}
-          <article className="prose prose-invert max-w-none">
-            <MarkdownContent html={renderedBody} />
-          </article>
 
           {/* Backlinks */}
           {pageBacklinks.length > 0 && (

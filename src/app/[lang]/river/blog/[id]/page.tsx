@@ -10,7 +10,8 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { VoiceTag } from '@/components/VoiceTag';
-import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
+import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, toPaperMeta, buildBacklinks, getGlossary, normalizeContentPerspective, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 export const dynamicParams = false;
@@ -42,13 +43,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!matchesPerspectiveView(post.frontmatter.perspective, 'river')) return { title: 'Not Found' };
 
   const fm = post.frontmatter;
-  const postUrl = `https://fractalresonance.com/${lang}/river/blog/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/blog/${fm.id}`
+      : `https://fractalresonance.com/${lang}/blog/${fm.id}`;
 
   return {
     title: fm.title,
     description: fm.abstract,
     keywords: fm.tags,
-    alternates: { canonical: postUrl },
+    alternates: { canonical: canonicalUrl },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -83,6 +89,8 @@ export default async function RiverBlogPostPage({ params }: Props) {
   });
 
   const voice = fm.voice || (fm.perspective === 'river' ? 'river' : fm.perspective === 'kasra' ? 'kasra' : undefined);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `/${lang}/blog/${fm.id}`;
 
   return (
     <>
@@ -124,6 +132,8 @@ export default async function RiverBlogPostPage({ params }: Props) {
             </div>
           )}
         </header>
+
+        {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
 
         <ContentDigest
           tldr={fm.tldr}

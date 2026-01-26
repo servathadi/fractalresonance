@@ -24,6 +24,8 @@ interface RawFrontmatter {
   perspective?: 'kasra' | 'river' | 'both';
   // Authorial voice used for labeling content (independent of visibility perspective).
   voice?: string;
+  // Multiple voices (preferred over `voice` when present).
+  voices?: string[];
   // Topic/Q&A fields (used by Topics pages).
   question?: string;
   short_answer?: string;
@@ -688,6 +690,17 @@ function fieldMatchesAny(field: unknown, keys: string[]): boolean {
   return false;
 }
 
+function fieldMatchesAnyMulti(field: unknown, keys: string[]): boolean {
+  if (typeof field === 'string') return fieldMatchesAny(field, keys);
+  if (Array.isArray(field)) {
+    for (const v of field) {
+      if (typeof v !== 'string') continue;
+      if (fieldMatchesAny(v, keys)) return true;
+    }
+  }
+  return false;
+}
+
 /** Collect content items authored/voiced by a person profile. */
 export function getWorkForPerson(
   lang: string,
@@ -711,8 +724,9 @@ export function getWorkForPerson(
       const fm = item.frontmatter as RawFrontmatter;
       if (!matchesPerspectiveView(fm.perspective, view)) continue;
       const isMatch =
-        fieldMatchesAny(fm.author, keys) ||
-        fieldMatchesAny(fm.voice, keys) ||
+        fieldMatchesAnyMulti(fm.author, keys) ||
+        fieldMatchesAnyMulti(fm.voice, keys) ||
+        fieldMatchesAnyMulti(fm.voices, keys) ||
         (typeof fm.voice === 'string' && normalizeKey(fm.voice) === normalizeKey(personFrontmatter.id));
       if (!isMatch) continue;
       results.push(mk(item, type));

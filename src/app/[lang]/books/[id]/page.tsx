@@ -94,7 +94,7 @@ export default async function BookPage({ params }: Props) {
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" />}
-        right={<TableOfContents items={tocItems} minBreakpoint="lg" title="Book index" />}
+        right={<TableOfContents items={tocItems} minBreakpoint="md" title="Book index" />}
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">

@@ -9,7 +9,8 @@ import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, matchesPerspectiveView } from '@/lib/content';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
+import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, normalizeContentPerspective, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 export const dynamicParams = false;
@@ -41,7 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
-  const articleUrl = `https://fractalresonance.com/${lang}/river/articles/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/articles/${fm.id}`
+      : `https://fractalresonance.com/${lang}/articles/${fm.id}`;
 
   return {
     title: fm.title,
@@ -49,8 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: articleUrl,
+      canonical: canonicalUrl,
     },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -75,6 +81,8 @@ export default async function RiverArticlePage({ params }: Props) {
   const glossary = getGlossary(lang, { basePath, view: 'river' });
   const fm = article.frontmatter;
   const readTime = fm.read_time || estimateReadTime(article.body);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `/${lang}/articles/${fm.id}`;
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -129,6 +137,8 @@ export default async function RiverArticlePage({ params }: Props) {
               </div>
             )}
           </header>
+
+          {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
 
           <ContentDigest
             tldr={fm.tldr}

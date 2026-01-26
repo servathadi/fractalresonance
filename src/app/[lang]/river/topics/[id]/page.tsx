@@ -10,6 +10,7 @@ import { TopicsSidebar } from '@/components/TopicsSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RiverInterpretationNotice } from '@/components/PerspectiveNotice';
 import {
   estimateReadTime,
   getTopic,
@@ -18,6 +19,7 @@ import {
   getLanguages,
   buildBacklinks,
   getGlossary,
+  normalizeContentPerspective,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -52,7 +54,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = topic.frontmatter;
   const author = fm.author || 'FRC';
-  const url = `https://fractalresonance.com/${lang}/river/topics/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/topics/${fm.id}`
+      : `https://fractalresonance.com/${lang}/topics/${fm.id}`;
 
   return {
     title: fm.title,
@@ -60,8 +66,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
     },
+    ...(norm === 'river' ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -95,6 +102,8 @@ export default async function RiverTopicPage({ params }: Props) {
   const backlinks = buildBacklinks(lang);
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalHref = `/${lang}/topics/${fm.id}`;
   const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
   const voicePerson = voiceId ? (getPerson(lang, voiceId) || getPerson('en', voiceId)) : null;
 
@@ -197,6 +206,8 @@ export default async function RiverTopicPage({ params }: Props) {
             </div>
           )}
         </header>
+
+        {norm !== 'river' ? <RiverInterpretationNotice canonicalHref={canonicalHref} /> : null}
 
         <ContentDigest tldr={fm.tldr} keyPoints={fm.key_points} prerequisites={prereqLinks} readTime={readTime} />
 

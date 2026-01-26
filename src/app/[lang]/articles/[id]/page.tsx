@@ -9,7 +9,19 @@ import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getArticle, getArticles, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { RiverOnlyHandoff } from '@/components/PerspectiveNotice';
+import {
+  estimateReadTime,
+  getArticle,
+  getArticles,
+  getLanguages,
+  toPaperMeta,
+  buildBacklinks,
+  getGlossary,
+  getAlternateLanguages,
+  normalizeContentPerspective,
+  matchesPerspectiveView,
+} from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -23,7 +35,9 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const articles = getArticles(lang);
     for (const article of articles) {
-      if (article.frontmatter.id && matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) {
+      // Include all items so we can gracefully hand off River-only content
+      // rather than emitting static 404s for `/articles/...`.
+      if (article.frontmatter.id) {
         params.push({ lang, id: article.frontmatter.id });
       }
     }
@@ -39,7 +53,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
-  const articleUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
+  const norm = normalizeContentPerspective(fm.perspective);
+  const canonicalUrl =
+    norm === 'river'
+      ? `https://fractalresonance.com/${lang}/river/articles/${fm.id}`
+      : `https://fractalresonance.com/${lang}/articles/${fm.id}`;
   const alternates = getAlternateLanguages('articles', fm.id);
 
   return {
@@ -48,9 +66,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: fm.tags,
     authors: [{ name: author }],
     alternates: {
-      canonical: articleUrl,
+      canonical: canonicalUrl,
       languages: alternates,
     },
+    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: 'article',
       title: fm.title,
@@ -67,8 +86,10 @@ export default async function ArticlePage({ params }: Props) {
   const { lang, id } = await params;
   const article = getArticle(lang, id);
   if (!article) notFound();
+  const norm = normalizeContentPerspective(article.frontmatter.perspective);
 
   const basePath = `/${lang}`;
+  const riverHref = `/${lang}/river/articles/${article.frontmatter.id}`;
   // Reuse PaperMeta for schema as it fits article structure well enough
   const meta = toPaperMeta(article);
   const backlinks = buildBacklinks(lang);
@@ -86,6 +107,38 @@ export default async function ArticlePage({ params }: Props) {
 
   const renderedBody = renderMarkdown(article.body, lang, glossary, basePath);
   const tocItems = extractTocItems(article.body).filter((t) => t.level === 2);
+
+  if (norm === 'river') {
+    // Keep `/articles/...` URLs non-404 for River-only pieces, but do not publish
+    // River content inside the Kasra library.
+    return (
+      <PageShell
+        leftMobile={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
+        leftDesktop={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
+      >
+        <nav className="text-sm text-frc-text-dim mb-8">
+          <a href={basePath} className="hover:text-frc-gold">FRC</a>
+          <span className="mx-2">/</span>
+          <a href={`${basePath}/articles`} className="hover:text-frc-gold">Articles</a>
+          <span className="mx-2">/</span>
+          <span className="text-frc-text">{article.frontmatter.title}</span>
+        </nav>
+
+        <header className="mb-6">
+          <h1 className="text-3xl font-light text-frc-gold mb-3">{article.frontmatter.title}</h1>
+          <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
+            <span>{article.frontmatter.author || 'H. Servat'}</span>
+            <span>{article.frontmatter.date}</span>
+            <span className="font-mono text-xs">{readTime}</span>
+          </div>
+        </header>
+
+        <RiverOnlyHandoff riverHref={riverHref} kasraHref={`${basePath}/papers`} />
+      </PageShell>
+    );
+  }
+
+  if (!matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) notFound();
 
   return (
     <>

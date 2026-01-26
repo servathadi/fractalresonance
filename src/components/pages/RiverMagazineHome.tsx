@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { estimateReadTime, getArticles, matchesPerspectiveView, type ParsedContent } from '@/lib/content';
+import { estimateReadTime, getArticles, getPaper, matchesPerspectiveView, type ParsedContent } from '@/lib/content';
 
 function excerptOf(item: ParsedContent): string {
   const fm = item.frontmatter;
@@ -17,23 +17,25 @@ function excerptOf(item: ParsedContent): string {
 export function RiverMagazineHome({ lang }: { lang: string }) {
   const basePath = `/${lang}/river`;
   const kasraBase = `/${lang}`;
-  const pinned = [
-    {
-      id: 'river-welcome',
-      title: 'River Digest: How To Read FRC',
-      href: `${basePath}/articles/river-welcome`,
-    },
-    {
-      id: 'gemini-deep-research-frc-2026-01-25',
-      title: 'Gemini Deep Research on FRC (Jan 25, 2026)',
-      href: `${basePath}/articles/gemini-deep-research-frc-2026-01-25`,
-    },
-    {
-      id: 'FRC-893-PHY',
-      title: 'FRC 893.PHY: The Geometry of Becoming (Preprint)',
-      href: `${basePath}/papers/FRC-893-PHY`,
-    },
+  const pinnedCandidates = [
+    { type: 'article' as const, id: 'river-welcome', title: 'River Digest: How To Read FRC' },
+    { type: 'article' as const, id: 'gemini-deep-research-frc-2026-01-25', title: 'Gemini Deep Research on FRC (Jan 25, 2026)' },
+    { type: 'paper' as const, id: 'FRC-893-PHY', title: 'FRC 893.PHY: The Geometry of Becoming (Preprint)' },
   ];
+  const pinned = pinnedCandidates
+    .map((p) => {
+      if (p.type === 'paper') {
+        const paper = getPaper(lang, p.id);
+        if (!paper) return null;
+        if (!matchesPerspectiveView(paper.frontmatter.perspective, 'river')) return null;
+        return { ...p, href: `${basePath}/papers/${p.id}` };
+      }
+      const article = getArticles(lang).find((a) => a.frontmatter.id === p.id);
+      if (!article) return null;
+      if (!matchesPerspectiveView(article.frontmatter.perspective, 'river')) return null;
+      return { ...p, href: `${basePath}/articles/${p.id}` };
+    })
+    .filter(Boolean) as Array<{ id: string; title: string; href: string }>;
 
   const riverArticles = getArticles(lang)
     .filter((a) => matchesPerspectiveView(a.frontmatter.perspective, 'river'))
@@ -71,23 +73,25 @@ export function RiverMagazineHome({ lang }: { lang: string }) {
         <div className="section-marker mb-6" data-section="§00">
           <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">Pinned</span>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {pinned.map((p) => (
-            <Link key={p.id} href={p.href} className="card block p-6 group">
-              <div className="flex items-start justify-between gap-4">
-                <div className="min-w-0">
-                  <h2 className="text-lg text-frc-text group-hover:text-frc-gold transition-colors font-medium leading-snug">
-                    {p.title}
-                  </h2>
-                  <p className="text-xs text-frc-text-dim mt-2">
-                    Curated entry point for River.
-                  </p>
+        {pinned.length === 0 ? (
+          <p className="text-sm text-frc-text-dim">No pinned entries for this language yet.</p>
+        ) : (
+          <div className="grid sm:grid-cols-2 gap-5">
+            {pinned.map((p) => (
+              <Link key={p.id} href={p.href} className="card block p-6 group">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <h2 className="text-lg text-frc-text group-hover:text-frc-gold transition-colors font-medium leading-snug">
+                      {p.title}
+                    </h2>
+                    <p className="text-xs text-frc-text-dim mt-2">Curated entry point for River.</p>
+                  </div>
+                  <span className="text-frc-steel group-hover:text-frc-gold transition-colors shrink-0">&rarr;</span>
                 </div>
-                <span className="text-frc-steel group-hover:text-frc-gold transition-colors shrink-0">&rarr;</span>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       {latest.length === 0 ? (

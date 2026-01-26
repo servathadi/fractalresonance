@@ -22,11 +22,23 @@ export interface DerivedChapter extends DerivedChapterMeta {
 export function deriveChaptersFromMarkdown(body: string): DerivedChapter[] {
   const lines = (body || '').split('\n');
 
-  const headingIdxs: Array<{ idx: number; raw: string }> = [];
+  // Prefer explicit markdown H1 (`# ...`). If absent, fall back to "book-style"
+  // separators like `Chapter 1: ...`, `Part II: ...`, `Appendix A: ...`, etc.
+  const headingIdxs: Array<{ idx: number; raw: string; kind: 'h1' | 'line' }> = [];
   for (let i = 0; i < lines.length; i++) {
     const m = lines[i].match(/^(#)\s+(.+)$/);
     if (!m) continue;
-    headingIdxs.push({ idx: i, raw: m[2] });
+    headingIdxs.push({ idx: i, raw: m[2], kind: 'h1' });
+  }
+
+  if (headingIdxs.length === 0) {
+    for (let i = 0; i < lines.length; i++) {
+      const line = (lines[i] || '').trim();
+      if (!line) continue;
+      if (looksLikeChapterSeparator(line)) {
+        headingIdxs.push({ idx: i, raw: line, kind: 'line' });
+      }
+    }
   }
 
   if (headingIdxs.length === 0) {
@@ -46,11 +58,19 @@ export function deriveChaptersFromMarkdown(body: string): DerivedChapter[] {
     const start = headingIdxs[i].idx;
     const end = i + 1 < headingIdxs.length ? headingIdxs[i + 1].idx : lines.length;
     const parsed = parseHeadingText(headingIdxs[i].raw);
+
+    const slice = lines.slice(start, end);
+    // If we derived chapters from "plain" lines like `Chapter 12: ...`, upgrade the
+    // first line to a markdown heading so it becomes navigable and styled like a chapter.
+    if (headingIdxs[i].kind === 'line' && slice.length > 0) {
+      slice[0] = `# ${headingIdxs[i].raw}`;
+    }
+
     chapters.push({
       anchorId: parsed.id,
       title: parsed.text,
       slug: toUrlSlug(parsed.id || parsed.text),
-      markdown: lines.slice(start, end).join('\n').trim() + '\n',
+      markdown: slice.join('\n').trim() + '\n',
     });
   }
 
@@ -104,3 +124,24 @@ function toUrlSlug(text: string): string {
     .trim();
 }
 
+function looksLikeChapterSeparator(line: string): boolean {
+  // Intentionally conservative to avoid matching narrative sentences.
+  // We require ":" after the number/label to reduce false positives.
+  if (/^preface$/i.test(line)) return true;
+  if (/^introduction\b.*$/i.test(line) && line.includes(':')) return true;
+  if (/^reader'?s overture\b.*$/i.test(line)) return true;
+
+  // English
+  if (/^part\s+[ivxlcdm0-9]+\s*:/i.test(line)) return true;
+  if (/^chapter\s+\d+\s*:/i.test(line)) return true;
+  if (/^appendix\s+[a-z0-9]+\s*:/i.test(line)) return true;
+
+  // French / Spanish (common translations)
+  if (/^chapitre\s+\d+\s*[:—-]/i.test(line)) return true;
+  if (/^cap[ií]tulo\s+\d+\s*[:—-]/i.test(line)) return true;
+
+  // Persian
+  if (/^\u0641\u0635\u0644\s*\d+\s*[:\u2014-]/.test(line)) return true;
+
+  return false;
+}
