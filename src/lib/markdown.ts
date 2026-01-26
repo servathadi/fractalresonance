@@ -313,7 +313,7 @@ function renderTableHtml(
     })
     .join('');
 
-  return `<table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+  return `<div class="table-wrap"><table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
 }
 
 /** Extract table-of-contents items from markdown heading lines */

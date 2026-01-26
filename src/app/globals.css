@@ -322,6 +322,9 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   border: 1px solid var(--color-frc-blue);
   border-left: 3px solid var(--color-frc-gold);
   padding: 1.5rem 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
   color: var(--color-frc-gold);
   position: relative;
   margin: 2rem 0;
@@ -434,6 +437,8 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   text-decoration: none;
   border-bottom: 1px solid color-mix(in srgb, var(--color-frc-gold) 30%, transparent);
   transition: border-bottom-color 0.2s ease;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .content-body a:hover {
@@ -478,6 +483,22 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
+.content-body .table-wrap {
+  margin: 2.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-frc-blue);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--color-frc-void-light) 35%, transparent);
+}
+
+.content-body .table-wrap table {
+  margin: 0;
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
 .content-body table {
   width: 100%;
   border-collapse: collapse;
@@ -511,6 +532,13 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   color: var(--color-frc-text-dim);
   font-style: italic;
   font-size: 1.125rem;
+}
+
+.content-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -595,6 +623,11 @@ a, button {
 
   .section-marker::before {
     display: none;
+  }
+
+  .equation-block {
+    padding: 1.25rem 1.25rem;
+    font-size: 1rem;
   }
 }
 
