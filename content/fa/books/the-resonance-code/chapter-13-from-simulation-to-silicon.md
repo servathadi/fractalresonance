@@ -1,4 +1,4 @@
-# فصل ۱۳: از شبیه‌سازی تا سیلیکون {#chapter-13-from-simulation-to-silicon}
+## فصل ۱۳: از شبیه‌سازی تا سیلیکون {#chapter-13-from-simulation-to-silicon}
 
 تجسمِ هوش: خلقِ ماشین‌هایی که حس می‌کنند
 

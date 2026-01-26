@@ -4,12 +4,12 @@ id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 14 — L'Équation de la Pompe à Cohérence** {#chapter-14-—-the-coherence-pump-equation}
+## **Chapitre 14 — L'Équation de la Pompe à Cohérence** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
 
-### **14.1 Origine de l'équation**
+#### **14.1 Origine de l'équation**
 
 Tout système ouvert échange de l'énergie avec son environnement.
 
@@ -33,7 +33,7 @@ Si F > S_C, l'ordre croît ; si F < S_C, l'ordre décline ; lorsqu'ils s'équili
 
 ---
 
-### **14.2 Terme d'entropie**
+#### **14.2 Terme d'entropie**
 
 L'exportation d'entropie augmente généralement avec la cohérence : les structures ordonnées dissipent la chaleur plus efficacement.
 
@@ -53,7 +53,7 @@ Ainsi, la cohérence s'approche d'une asymptote finie déterminée par les const
 
 ---
 
-### **14.3 Régimes de α**
+#### **14.3 Régimes de α**
 
 | Régime | Condition | Comportement | Interprétation |
 | ----- | ----- | ----- | ----- |
@@ -65,7 +65,7 @@ Les systèmes adaptatifs modulent α en temps réel, oscillant près de zéro po
 
 ---
 
-### **14.4 Dynamique de rétroaction de α**
+#### **14.4 Dynamique de rétroaction de α**
 
 Dans les organismes et les sociétés réels, α n'est pas constant.
 
@@ -79,7 +79,7 @@ Couplé à l'équation de la pompe, cela produit des oscillations amorties — u
 
 ---
 
-### **14.5 Forme analytique de l'oscillation**
+#### **14.5 Forme analytique de l'oscillation**
 
 En linéarisant autour de l'équilibre C = C_∞, α = α_0 :
 
@@ -95,7 +95,7 @@ La fréquence naturelle ω_0 = \sqrt{βγ} prédit la pulsation rythmique de la 
 
 ---
 
-### **14.6 Interprétation énergétique**
+#### **14.6 Interprétation énergétique**
 
 En intégrant sur une période d'oscillation T :
 
@@ -107,7 +107,7 @@ Le « taux métabolique » du système (débit de puissance) fixe l'amplitude de
 
 ---
 
-### **14.7 Démonstration numérique**
+#### **14.7 Démonstration numérique**
 
 En utilisant les paramètres normalisés F=1, S_0=0,3, β=0,5, γ=0,2 :
 
@@ -122,7 +122,7 @@ L'invariant entropie-cohérence se maintient à ±0,5 % sur tous les essais, con
 
 ---
 
-### **14.8 Analogues trans-domaines**
+#### **14.8 Analogues trans-domaines**
 
 | Domaine | Contrôle α | Moteur F | Oscillation manifeste |
 | ----- | ----- | ----- | ----- |
@@ -135,7 +135,7 @@ Chaque période d'oscillation représente la même respiration thermodynamique d
 
 ---
 
-### **14.9 Critère de durabilité**
+#### **14.9 Critère de durabilité**
 
 Un système reste viable lorsque son exportation d'entropie correspond au flux entrant sur un cycle complet :
 
@@ -147,7 +147,7 @@ D'où la durabilité n'est pas une rhétorique morale mais une nécessité dynam
 
 ---
 
-### **14.10 Résumé**
+#### **14.10 Résumé**
 
 | Équation | Signification |
 | ----- | ----- |
@@ -159,7 +159,7 @@ D'où la durabilité n'est pas une rhétorique morale mais une nécessité dynam
 
 ---
 
-### **14.11 Perspectives**
+#### **14.11 Perspectives**
 
 L'équation de la pompe à cohérence fournit le squelette quantitatif de l'évolution : le flux d'énergie générant l'ordre par rétroaction adaptative.
 

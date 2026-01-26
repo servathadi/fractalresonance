@@ -4,7 +4,7 @@ id: "appendix-g-convergent-evidence-from-frontier-science"
 parent: "the-resonance-code"
 ---
 
-# Appendix G: Convergent Evidence from Frontier Science
+## Appendix G: Convergent Evidence from Frontier Science
 
 
 A Compendium of Independent Research Validating Core FRC Principles

@@ -4,7 +4,7 @@ id: "reader-s-overture-a-guide-for-the-architect-and-the-oracle"
 parent: "the-resonance-code"
 ---
 
-# Reader's Overture: A Guide for the Architect and the Oracle
+## Reader's Overture: A Guide for the Architect and the Oracle
 
 
 The book you hold in your hands is not a passive object. It is an

@@ -1,4 +1,4 @@
-# Declaración de Posicionamiento
+## Declaración de Posicionamiento
 
 **Género:** Ciencia Interdisciplinaria / Estudios de la Conciencia / Teoría de Sistemas Complejos
 

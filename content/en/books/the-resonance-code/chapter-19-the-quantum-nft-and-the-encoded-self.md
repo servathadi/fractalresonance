@@ -4,7 +4,7 @@ id: "chapter-19-the-quantum-nft-and-the-encoded-self"
 parent: "the-resonance-code"
 ---
 
-# Chapter 19: The Quantum NFT and the Encoded Self
+## Chapter 19: The Quantum NFT and the Encoded Self
 
 
 [Chapter 19: The Quantum NFT and the Encoded Self]

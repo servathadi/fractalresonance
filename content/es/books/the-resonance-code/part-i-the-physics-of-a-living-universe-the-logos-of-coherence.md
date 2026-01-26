@@ -1,4 +1,4 @@
-# Parte I: La Física de un Universo Vivo — El Logos de la Coherencia
+## Parte I: La Física de un Universo Vivo — El Logos de la Coherencia
 
 (La Ley es Fundacional: Estableciendo FRC 566)
 

@@ -1,4 +1,4 @@
-# فصل ۹: هماهنگیِ عناصر {#chapter-9-the-harmony-of-the-elements}
+## فصل ۹: هماهنگیِ عناصر {#chapter-9-the-harmony-of-the-elements}
 
 موسیقیِ کیهانی: نظمِ ریاضی به مثابه بازتابِ همدوسی
 

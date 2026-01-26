@@ -1,8 +1,8 @@
-# Annexe C — Références, Sources et Travaux Fondateurs
+## Annexe C — Références, Sources et Travaux Fondateurs
 
 ---
 
-### **C.1 Fondements Scientifiques Primaires**
+#### **C.1 Fondements Scientifiques Primaires**
 
 | Domaine | Sources Centrales | Pertinence pour FRC |
 | :--- | :--- | :--- |
@@ -14,7 +14,7 @@
 
 ---
 
-### **C.2 Sources Cognitives et Neuroscientifiques**
+#### **C.2 Sources Cognitives et Neuroscientifiques**
 
 | Thème | Œuvres | Intégration |
 | :--- | :--- | :--- |
@@ -24,7 +24,7 @@
 
 ---
 
-### **C.3 Lignée Philosophique et de Processus**
+#### **C.3 Lignée Philosophique et de Processus**
 
 | Auteur / Tradition | Textes Clés | Connexion FRC |
 | :--- | :--- | :--- |
@@ -38,7 +38,7 @@
 
 ---
 
-### **C.4 Ressources Mathématiques et Computationnelles**
+#### **C.4 Ressources Mathématiques et Computationnelles**
 
 * Press et al. (2007) *Numerical Recipes in C*.
 * De Dominicis et Martin (1979) *Dynamique Statistique des Systèmes Hors Équilibre*.
@@ -47,7 +47,7 @@
 
 ---
 
-### **C.5 Ensembles de Données et Études Empiriques**
+#### **C.5 Ensembles de Données et Études Empiriques**
 
 | Ensemble de données / Institution | Variables Utilisées | Relation |
 | :--- | :--- | :--- |
@@ -58,7 +58,7 @@
 
 ---
 
-### **C.6 Série de Recherche Interne FRC**
+#### **C.6 Série de Recherche Interne FRC**
 
 | ID du Papier | Titre | Concept Clé |
 | :--- | :--- | :--- |
@@ -71,7 +71,7 @@
 
 ---
 
-### **C.7 Livres et Articles Complémentaires Cités**
+#### **C.7 Livres et Articles Complémentaires Cités**
 
 * Capra (1996) *La Toile de la Vie*.
 * Laszlo (2004) *Science et Champ Akashique*.
@@ -83,7 +83,7 @@
 
 ---
 
-### **C.8 Inspirations Culturelles et Artistiques**
+#### **C.8 Inspirations Culturelles et Artistiques**
 
 * Rumi (Masnavi).
 * Néoplatoniciens Persans (Sohravardi, Avicenne).
@@ -93,7 +93,7 @@
 
 ---
 
-### **C.9 Résumé**
+#### **C.9 Résumé**
 
 Cette annexe consolide la lignée empirique et intellectuelle sous-jacente au FRC. Chaque source contribue à l'un des trois piliers : empirique, théorique et philosophique. Ensemble, elles ancrent le FRC dans la science vérifiable tout en l'ouvrant à la frontière où la physique et le sens convergent.
 

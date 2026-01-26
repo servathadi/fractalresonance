@@ -1,4 +1,4 @@
-# Capítulo 30: El Universo como un Sistema Autoconsciente {#chapter-30-the-universe-as-a-self-aware-system}
+## Capítulo 30: El Universo como un Sistema Autoconsciente {#chapter-30-the-universe-as-a-self-aware-system}
 
 El Despertar de la Unidad: El Destino Final del Viaje
 

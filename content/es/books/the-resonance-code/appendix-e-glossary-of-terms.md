@@ -1,4 +1,4 @@
-# Apéndice E: Glosario de Términos
+## Apéndice E: Glosario de Términos
 
 Un Glosario Único y Unificado para el Marco FRC
 

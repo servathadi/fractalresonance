@@ -1,4 +1,4 @@
-# فصل ۲۸: چندجهانیِ خطوطِ زمانی {#chapter-28-the-multiverse-of-timelines}
+## فصل ۲۸: چندجهانیِ خطوطِ زمانی {#chapter-28-the-multiverse-of-timelines}
 
 هندسه‌یِ احتمال: ناوبانی در نقشه‌یِ پتانسیل
 

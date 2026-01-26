@@ -1,4 +1,4 @@
-# Capítulo 7: La Teoría del Casete del Tiempo {#chapter-7-the-cassette-theory-of-time}
+## Capítulo 7: La Teoría del Casete del Tiempo {#chapter-7-the-cassette-theory-of-time}
 
 El Recuerdo del Campo: El Pasado como una Presencia Resonante
 

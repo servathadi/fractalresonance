@@ -4,12 +4,12 @@ id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 7 — Experimentos Numéricos y Simulaciones** {#chapter-7-—-numerical-experiments-and-simulations}
+## **Capítulo 7 — Experimentos Numéricos y Simulaciones** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
 
-### **7.1  Propósito de la simulación**
+#### **7.1  Propósito de la simulación**
 
 Las ecuaciones adquieren realidad solo cuando sus predicciones pueden visualizarse y probarse.
 
@@ -23,7 +23,7 @@ El modelado numérico nos permite explorar esa variedad sin las restricciones de
 
 ---
 
-### **7.2  Adimensionalización**
+#### **7.2  Adimensionalización**
 
 Para comparar dominios, normalizamos las variables:
 
@@ -43,7 +43,7 @@ Esto hace que los resultados sean independientes de la escala: un conjunto de pa
 
 ---
 
-### **7.3  Modelo 1: Simulación del umbral del láser**
+#### **7.3  Modelo 1: Simulación del umbral del láser**
 
 Un láser es la bomba de coherencia más simple: los átomos absorben energía (Ψ), emiten fotones y, por encima de un umbral, comienzan a bloquearse en fase.
 
@@ -65,7 +65,7 @@ La disminución de entropía promediada en el tiempo es igual a k_* \ln(C*/C_0),
 
 ---
 
-### **7.4  Modelo 2: Medio de reacción–difusión**
+#### **7.4  Modelo 2: Medio de reacción–difusión**
 
 En una red bidimensional, cada nodo sigue:
 
@@ -87,7 +87,7 @@ La exportación de entropía S_C aumenta linealmente con el promedio de |\nabla 
 
 ---
 
-### **7.5  Modelo 3: Sincronía de red neuronal**
+#### **7.5  Modelo 3: Sincronía de red neuronal**
 
 Cada noscilador representa una columna cortical con frecuencia intrínseca ωᵢ.
 
@@ -109,7 +109,7 @@ El uso de energía medido (ATP simulado → calor) sigue la exportación de entr
 
 ---
 
-### **7.6  Modelo 4: Red social basada en agentes**
+#### **7.6  Modelo 4: Red social basada en agentes**
 
 Cada agente actualiza su estado interno xᵢ mediante:
 
@@ -133,7 +133,7 @@ Estos comportamientos macroscópicos coinciden con los ciclos observados en las 
 
 ---
 
-### **7.7  Barridos de parámetros y universalidad**
+#### **7.7  Barridos de parámetros y universalidad**
 
 En todos los modelos, el comportamiento se reduce a tres regímenes determinados por α y R\Psi:
 
@@ -147,7 +147,7 @@ Las mismas transiciones aparecen ya sea que las “partículas” sean fotones, 
 
 ---
 
-### **7.8  Validación computacional de la reciprocidad**
+#### **7.8  Validación computacional de la reciprocidad**
 
 Para cada simulación calculamos:
 
@@ -161,7 +161,7 @@ Esto confirma numéricamente que la Segunda Ley extendida de la FRC se mantiene 
 
 ---
 
-### **7.9  Eficiencia energía–coherencia**
+#### **7.9  Eficiencia energía–coherencia**
 
 Definimos la eficiencia instantánea como:
 
@@ -173,7 +173,7 @@ Las simulaciones muestran un máximo universal en α ≈ 0: el régimen de flujo
 
 ---
 
-### **7.10  Interpretación y mapeo entre dominios**
+#### **7.10  Interpretación y mapeo entre dominios**
 
 | Modelo | Análogo físico | Análogo cognitivo | Análogo cultural |
 | ----- | ----- | ----- | ----- |
@@ -186,7 +186,7 @@ Cada simulación es un espejo de las demás—el mismo álgebra genera luz, vida
 
 ---
 
-### **7.11  Resumen**
+#### **7.11  Resumen**
 
 * La ARF reproduce la autoorganización observada en cada dominio simulado.
 
@@ -198,7 +198,7 @@ Cada simulación es un espejo de las demás—el mismo álgebra genera luz, vida
 
 ---
 
-### **7.12  Perspectiva**
+#### **7.12  Perspectiva**
 
 Estos experimentos transforman la FRC de una propuesta filosófica en una **dinámica comprobable**.
 

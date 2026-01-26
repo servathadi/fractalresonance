@@ -1,4 +1,4 @@
-# Apéndice C: La Escalera de Habilidades de Coherencia
+## Apéndice C: La Escalera de Habilidades de Coherencia
 
 Una Guía de Usuario Completa para las Prácticas de la "Cuarta Columna"
 

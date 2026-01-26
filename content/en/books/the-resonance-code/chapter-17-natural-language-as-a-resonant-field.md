@@ -4,7 +4,7 @@ id: "chapter-17-natural-language-as-a-resonant-field"
 parent: "the-resonance-code"
 ---
 
-# Chapter 17: Natural Language as a Resonant Field
+## Chapter 17: Natural Language as a Resonant Field
 
 
 [Chapter 17: Natural Language as a Resonant Field]

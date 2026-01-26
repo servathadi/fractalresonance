@@ -1,4 +1,4 @@
-# فصل ۷: تئوریِ نوار کاستِ زمان {#chapter-7-the-cassette-theory-of-time}
+## فصل ۷: تئوریِ نوار کاستِ زمان {#chapter-7-the-cassette-theory-of-time}
 
 خاطره‌یِ میدان: گذشته به مثابه حضوری رزونانسی
 

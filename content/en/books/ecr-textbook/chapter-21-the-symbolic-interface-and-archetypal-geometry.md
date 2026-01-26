@@ -4,12 +4,12 @@ id: "chapter-21-the-symbolic-interface-and-archetypal-geometry"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 21 — The Symbolic Interface and Archetypal Geometry** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
+## **Chapter 21 — The Symbolic Interface and Archetypal Geometry** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
 
 
 ---
 
-### **21.1  Symbols as phase-bridges**
+#### **21.1  Symbols as phase-bridges**
 
 In the FRC ontology, a **symbol** is not merely a sign or representation — it is a *structural interface* between μ-levels.
 
@@ -25,7 +25,7 @@ Thus symbols are the equilibrium geometries of cross-level resonance — persist
 
 ---
 
-### **21.2  Archetypes as attractors**
+#### **21.2  Archetypes as attractors**
 
 Over long timescales, recurring symbols converge toward attractor-geometries in the coherence field.
 
@@ -44,7 +44,7 @@ Archetypes persist because they minimize the total field curvature ∇²φ, achi
 
 ---
 
-### **21.3  Symbolic metabolism**
+#### **21.3  Symbolic metabolism**
 
 The psyche continually metabolizes symbols much as the body metabolizes energy.
 
@@ -66,7 +66,7 @@ Healthy culture keeps α ≈ 0 — dynamic equilibrium between renewal and tradi
 
 ---
 
-### **21.4  Language as resonance lattice**
+#### **21.4  Language as resonance lattice**
 
 Words are quantized symbols forming a discrete lattice within the μ₅ field.
 
@@ -76,7 +76,7 @@ Poetry and mantra temporarily raise C\_{\\text{ling}} toward μ₆ resonance, pr
 
 ---
 
-### **21.5  Mathematical and artistic isomorphy**
+#### **21.5  Mathematical and artistic isomorphy**
 
 Mathematics and art both explore the same archetypal geometries:
 
@@ -92,7 +92,7 @@ This explains the aesthetic universality of the golden ratio, fractals, and harm
 
 ---
 
-### **21.6  The cognitive interface**
+#### **21.6  The cognitive interface**
 
 Conscious thought arises at the interface where symbolic coherence (C\_{μ₅}) modulates perceptual coherence (C\_{μ₄}).
 
@@ -106,7 +106,7 @@ Dreams, hallucinations, and visions occur when R\_{45} grows large, decoupling �
 
 ---
 
-### **21.7  Cultural resonance networks**
+#### **21.7  Cultural resonance networks**
 
 When many minds share symbols, their μ₅ fields synchronize through collective coupling T\_{ij}^{(\\text{soc})}.
 
@@ -120,7 +120,7 @@ The health of a culture can thus be read thermodynamically through the coherence
 
 ---
 
-### **21.8  Archetypal field geometry**
+#### **21.8  Archetypal field geometry**
 
 Mathematically, archetypes occupy minima of the potential
 
@@ -136,7 +136,7 @@ Mythic cycles correspond to closed orbits in the archetypal phase space — reso
 
 ---
 
-### **21.9  Measurement and prediction**
+#### **21.9  Measurement and prediction**
 
 Empirical validation is possible via:
 
@@ -150,7 +150,7 @@ Empirical validation is possible via:
 
 ---
 
-### **21.10  Philosophical implication**
+#### **21.10  Philosophical implication**
 
 Symbols are not arbitrary; they are the *grammar of coherence* by which the universe communicates with itself.
 
@@ -164,7 +164,7 @@ Thus, technology is the latest layer of the symbolic geometry, not its antithesi
 
 ---
 
-### **21.11  Summary**
+#### **21.11  Summary**
 
 | Concept | Equation / Principle | Interpretation |
 | ----- | ----- | ----- |
@@ -176,7 +176,7 @@ Thus, technology is the latest layer of the symbolic geometry, not its antithesi
 
 ---
 
-### **21.12  Outlook**
+#### **21.12  Outlook**
 
 Having defined the symbolic architecture of consciousness, the next chapter — **Chapter 22: The Noetic Field and Collective Consciousness** — will expand the scope from individual and cultural resonance to the global μ₆–μ₇ field, examining how shared attention, collective emotion, and planetary intelligence emerge as coherent modes of the same universal resonance geometry.
 

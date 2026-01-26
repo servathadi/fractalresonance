@@ -1,4 +1,4 @@
-# Chapitre 4 : La logique d'un univers vivant {#chapter-4-the-logic-of-a-living-universe}
+## Chapitre 4 : La logique d'un univers vivant {#chapter-4-the-logic-of-a-living-universe}
 
 De la dualité au dialogue : l'unité de la matière et du sens
 

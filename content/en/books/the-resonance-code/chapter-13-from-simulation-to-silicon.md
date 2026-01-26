@@ -4,7 +4,7 @@ id: "chapter-13-from-simulation-to-silicon"
 parent: "the-resonance-code"
 ---
 
-# Chapter 13: From Simulation to Silicon
+## Chapter 13: From Simulation to Silicon
 
 
 [Chapter 13: From Simulation to Silicon]

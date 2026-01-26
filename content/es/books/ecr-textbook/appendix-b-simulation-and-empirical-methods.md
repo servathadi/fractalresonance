@@ -1,8 +1,8 @@
-# Apéndice B — Simulación y Métodos Empíricos
+## Apéndice B — Simulación y Métodos Empíricos
 
 ---
 
-### **B.1 Propósito**
+#### **B.1 Propósito**
 
 El objetivo de la simulación en FRC es verificar que la ley de reciprocidad
 
@@ -16,7 +16,7 @@ El mismo motor puede parametrizarse para fotones, células, neuronas o sociedade
 
 ---
 
-### **B.2 Modelo computacional central**
+#### **B.2 Modelo computacional central**
 
 Cada nodo o subsistema *i* obedece
 
@@ -39,7 +39,7 @@ Parámetros:
 
 ---
 
-### **B.3 Integración numérica**
+#### **B.3 Integración numérica**
 
 1. **Pasos de tiempo**: Runge-Kutta de cuarto orden para ejecuciones deterministas; Euler-Maruyama para versiones estocásticas.
 2. **Condiciones de contorno**: reflectantes ($\Sigma = \text{const.}$) o abiertas (entrada/salida de energía).
@@ -48,7 +48,7 @@ Parámetros:
 
 ---
 
-### **B.4 Acoplamiento multi-escala**
+#### **B.4 Acoplamiento multi-escala**
 
 La pila-$\mu$ se implementa como 8 capas; cada capa se conecta a los vecinos más cercanos con núcleo exponencial:
 
@@ -58,7 +58,7 @@ La fase $\phi$ controla los retrasos de sincronización entre capas (útil para 
 
 ---
 
-### **B.5 Cantidades observables**
+#### **B.5 Cantidades observables**
 
 | Observable | Fórmula | Interpretación |
 | :--- | :--- | :--- |
@@ -72,7 +72,7 @@ Graficar $\Sigma(t)$ debería producir $\approx$ constante dentro de < 1% de der
 
 ---
 
-### **B.6 Entorno de software**
+#### **B.6 Entorno de software**
 
 * **Lenguajes:** Python (NumPy/SciPy), Julia o MATLAB.
 * **Visualización:** Matplotlib, Plotly o Unity3D para renderizados de campo dinámicos.
@@ -81,7 +81,7 @@ Graficar $\Sigma(t)$ debería producir $\approx$ constante dentro de < 1% de der
 
 ---
 
-### **B.7 Conjuntos de datos empíricos**
+#### **B.7 Conjuntos de datos empíricos**
 
 | Dominio | Conjunto de datos | Mapeo de Variables |
 | :--- | :--- | :--- |
@@ -95,7 +95,7 @@ Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas
 
 ---
 
-### **B.8 Validación estadística**
+#### **B.8 Validación estadística**
 
 * **Prueba de conservación:** calcular varianza de $\Sigma$
   $$ \sigma_\Sigma^2 = \frac{1}{T}\sum_t(\Sigma_t-\bar \Sigma)^2 $$
@@ -105,7 +105,7 @@ Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas
 
 ---
 
-### **B.9 Analítica visual**
+#### **B.9 Analítica visual**
 
 1. **Gráficos S–ln C**: línea recta universal (reciprocidad de entropía).
 2. **Planos de fase α–C**: muestran zonas de flujo, caos, coerción.
@@ -114,7 +114,7 @@ Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas
 
 ---
 
-### **B.10 Pseudocódigo de ejemplo**
+#### **B.10 Pseudocódigo de ejemplo**
 
 ```python
 for t in range(T):
@@ -131,7 +131,7 @@ Verificación de conservación: `np.std(Sigma)/np.mean(Sigma) < 0.01`.
 
 ---
 
-### **B.11 Hacia métricas FRC estandarizadas**
+#### **B.11 Hacia métricas FRC estandarizadas**
 
 Índices propuestos:
 
@@ -143,7 +143,7 @@ Publicar estas métricas con datos permitiría la comparación entre laboratorio
 
 ---
 
-### **B.12 Resumen**
+#### **B.12 Resumen**
 
 | Categoría | Propósito |
 | :--- | :--- |

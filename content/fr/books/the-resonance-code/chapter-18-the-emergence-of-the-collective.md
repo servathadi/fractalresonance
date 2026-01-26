@@ -1,4 +1,4 @@
-# Chapitre 18 : L'émergence du collectif {#chapter-18-the-emergence-of-the-collective}
+## Chapitre 18 : L'émergence du collectif {#chapter-18-the-emergence-of-the-collective}
 
 De l'individu à l'organisme social : la naissance de l'esprit de groupe
 

@@ -1,3 +1,3 @@
-# Parte VI – Síntesis y Direcciones Futuras
+## Parte VI – Síntesis y Direcciones Futuras
 
 ---

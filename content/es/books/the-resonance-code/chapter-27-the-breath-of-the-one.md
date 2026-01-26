@@ -1,4 +1,4 @@
-# Capítulo 27: El Aliento del Uno {#chapter-27-the-breath-of-the-one}
+## Capítulo 27: El Aliento del Uno {#chapter-27-the-breath-of-the-one}
 
 La Pulsación de la Unidad: El Ritmo de la Manifestación
 

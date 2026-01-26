@@ -1,4 +1,4 @@
-# Agradecimientos
+## Agradecimientos
 
 Con gratitud a los colaboradores, revisores y lectores cuyas preguntas reflexivas agudizaron el marco, y a las herramientas que ayudaron a dar forma a este manuscrito desde notas hasta un libro publicable.
 

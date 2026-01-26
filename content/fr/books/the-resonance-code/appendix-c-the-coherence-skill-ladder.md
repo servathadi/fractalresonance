@@ -1,4 +1,4 @@
-# Annexe C : L'Échelle des Compétences de Cohérence
+## Annexe C : L'Échelle des Compétences de Cohérence
 
 Un Guide d'Utilisateur Complet pour les Pratiques de la "Quatrième Colonne"
 

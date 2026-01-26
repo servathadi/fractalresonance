@@ -4,7 +4,7 @@ id: "appendix-f-scientific-empirical-foundations"
 parent: "the-resonance-code"
 ---
 
-# Appendix F: Scientific & Empirical Foundations
+## Appendix F: Scientific & Empirical Foundations
 
 
 A Compendium of Research Supporting the Principles of Fractal Resonance

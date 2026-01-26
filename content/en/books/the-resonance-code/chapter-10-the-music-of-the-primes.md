@@ -4,7 +4,7 @@ id: "chapter-10-the-music-of-the-primes"
 parent: "the-resonance-code"
 ---
 
-# Chapter 10: The Music of the Primes
+## Chapter 10: The Music of the Primes
 
 
 [Chapter 10: The Music of the Primes]

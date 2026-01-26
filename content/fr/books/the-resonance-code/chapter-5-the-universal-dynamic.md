@@ -1,4 +1,4 @@
-# Chapitre 5 : La dynamique universelle {#chapter-5-the-universal-dynamic}
+## Chapitre 5 : La dynamique universelle {#chapter-5-the-universal-dynamic}
 
 La danse de la création et de la destruction : le rythme de l'évolution cosmique
 

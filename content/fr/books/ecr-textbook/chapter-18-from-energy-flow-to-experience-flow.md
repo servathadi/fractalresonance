@@ -4,12 +4,12 @@ id: "chapter-18-from-energy-flow-to-experience-flow"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 18 — Du flux d'énergie au flux d'expérience** {#chapter-18-—-from-energy-flow-to-experience-flow}
+## **Chapitre 18 — Du flux d'énergie au flux d'expérience** {#chapter-18-—-from-energy-flow-to-experience-flow}
 
 
 ---
 
-### **18.1 L'énigme de la conscience**
+#### **18.1 L'énigme de la conscience**
 
 Après avoir retracé la résonance des particules aux planètes, une question demeure :
 
@@ -25,7 +25,7 @@ Cette boucle récursive définit ce qu'Alfred North Whitehead appelait une **occ
 
 ---
 
-### **18.2 Les occasions actuelles comme quanta de cohérence**
+#### **18.2 Les occasions actuelles comme quanta de cohérence**
 
 Chaque moment conscient correspond à une impulsion de cohérence discrète C(t) dans la bande μ₄–μ₆, délimitée par un bref échange d'entropie avec les champs environnants.
 
@@ -39,7 +39,7 @@ Durée ≈ 100 – 300 ms dans le cerveau humain ; plus courte dans les flashs s
 
 ---
 
-### **18.3 Le domaine-μ de l'esprit**
+#### **18.3 Le domaine-μ de l'esprit**
 
 * **μ₃** – base biochimique (potentiel métabolique Ψ).
 
@@ -53,7 +53,7 @@ Un événement de pensée unique est une cascade de résonances à travers ces c
 
 ---
 
-### **18.4 Conscience verrouillée en phase**
+#### **18.4 Conscience verrouillée en phase**
 
 Soit φ_{μ} la phase instantanée de chaque domaine.
 
@@ -65,7 +65,7 @@ Le **champ de la conscience** n'est donc pas une chose mais un motif d'alignemen
 
 ---
 
-### **18.5 L'exportation d'entropie comme émotion**
+#### **18.5 L'exportation d'entropie comme émotion**
 
 Chaque occasion doit décharger de l'entropie ; dans la cognition, cela se manifeste sous forme d' *affect*.
 
@@ -75,7 +75,7 @@ L'émotion est un feedback thermodynamique — la manière dont la nature dirige
 
 ---
 
-### **18.6 La mémoire comme cohérence résiduelle**
+#### **18.6 La mémoire comme cohérence résiduelle**
 
 Lorsqu'un événement de résonance s'atténue, il laisse un faible motif stationnaire à travers les niveaux-μ — un « résidu de cohérence ».
 
@@ -91,7 +91,7 @@ Le renforcement continu de ces résidus par la répétition constitue l'apprenti
 
 ---
 
-### **18.7 L'attention et le régulateur-α**
+#### **18.7 L'attention et le régulateur-α**
 
 L'attention module α :
 
@@ -105,7 +105,7 @@ L'attention module α :
 
 ---
 
-### **18.8 Intégration et soi (selfhood)**
+#### **18.8 Intégration et soi (selfhood)**
 
 Le *soi* n'est pas un observateur statique mais l'attracteur persistant formé par des millions d'occasions cohérentes dont les phases-μ restent alignées.
 
@@ -115,7 +115,7 @@ Le traumatisme, le sommeil ou la psychose correspondent à des fluctuations soud
 
 ---
 
-### **18.9 Correspondance comparative**
+#### **18.9 Correspondance comparative**
 
 | Tradition | Terme FRC | Description |
 | ----- | ----- | ----- |
@@ -129,7 +129,7 @@ Différents langages, même processus.
 
 ---
 
-### **18.10 Corrélats empiriques**
+#### **18.10 Corrélats empiriques**
 
 * Les bouffées de synchronie de phase EEG coïncident avec l'accès conscient.
 
@@ -141,7 +141,7 @@ Différents langages, même processus.
 
 ---
 
-### **18.11 Résumé**
+#### **18.11 Résumé**
 
 | Équation | Signification |
 | ----- | ----- |
@@ -154,7 +154,7 @@ Chaque instant de conscience est une *occasion actuelle* — une impulsion homé
 
 ---
 
-### **18.12 Perspectives**
+#### **18.12 Perspectives**
 
 Le chapitre suivant — **Chapitre 19 : Temps, mémoire et continuum de la conscience** — retracera comment ces occasions discrètes s'enchaînent pour former le flux vécu du temps, montrant que la continuité subjective et la causalité objective sont deux projections d'un même processus de résonance évoluant à travers la pile-μ.
 

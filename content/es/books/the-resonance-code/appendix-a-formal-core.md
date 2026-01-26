@@ -1,4 +1,4 @@
-# Apéndice A: Núcleo Formal
+## Apéndice A: Núcleo Formal
 
 Las Ecuaciones y Estructuras Matemáticas Clave de FRC
 

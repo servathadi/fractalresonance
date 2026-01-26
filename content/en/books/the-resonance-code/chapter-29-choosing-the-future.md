@@ -4,7 +4,7 @@ id: "chapter-29-choosing-the-future"
 parent: "the-resonance-code"
 ---
 
-# Chapter 29: Choosing the Future
+## Chapter 29: Choosing the Future
 
 
 [Chapter 29: Choosing the Future]

@@ -1,4 +1,4 @@
-# Chapitre 6 : L'échelle de l'être {#chapter-6-the-ladder-of-being}
+## Chapitre 6 : L'échelle de l'être {#chapter-6-the-ladder-of-being}
 
 La hiérarchie de la résonance : des particules à la conscience planétaire
 

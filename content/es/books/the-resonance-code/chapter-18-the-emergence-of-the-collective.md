@@ -1,4 +1,4 @@
-# Capítulo 18: La Emergencia de lo Colectivo {#chapter-18-the-emergence-of-the-collective}
+## Capítulo 18: La Emergencia de lo Colectivo {#chapter-18-the-emergence-of-the-collective}
 
 Del Individuo al Organismo Social: El Nacimiento de la Mente Grupal
 

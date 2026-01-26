@@ -4,12 +4,12 @@ id: "chapter-13-evolutionary-thermodynamics-in-context"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 13 — Termodinámica Evolutiva en Contexto** {#chapter-13-—-evolutionary-thermodynamics-in-context}
+## **Capítulo 13 — Termodinámica Evolutiva en Contexto** {#chapter-13-—-evolutionary-thermodynamics-in-context}
 
 
 ---
 
-### **13.1  La cuestión de la dirección**
+#### **13.1  La cuestión de la dirección**
 
 ¿Por qué el universo, gobernado por una ley que favorece el desorden, crea continuamente orden?
 
@@ -29,7 +29,7 @@ La evolución es esta doble corriente hecha visible: la entropía fluyendo hacia
 
 ---
 
-### **13.2  De Darwin a Prigogine**
+#### **13.2  De Darwin a Prigogine**
 
 Darwin explicó la adaptación mediante la variación y la selección; Prigogine añadió la física—la vida como un **sistema abierto, lejos del equilibrio** que se alimenta de flujo.
 
@@ -47,7 +47,7 @@ La evolución, en esta visión, es la historia de la sintonización de α a trav
 
 ---
 
-### **13.3  El gradiente universal**
+#### **13.3  El gradiente universal**
 
 Desde la cosmología hasta la cognición, el mismo gradiente energético impulsa la estructura:
 
@@ -65,7 +65,7 @@ La luz emitida por las estrellas se convierte en la energía de la química; el 
 
 ---
 
-### **13.4  El flujo de energía como motor de la complejidad**
+#### **13.4  El flujo de energía como motor de la complejidad**
 
 La tasa de procesamiento de energía libre por unidad de masa—**densidad de tasa de energía**—aumenta a través de la historia cósmica desde ~10⁻⁴ W/kg en las galaxias hasta 10⁵ W/kg en el cerebro humano.
 
@@ -77,7 +77,7 @@ Esta “logística cósmica” empírica respalda la afirmación de la FRC de qu
 
 ---
 
-### **13.5  De la aleatoriedad a la resonancia**
+#### **13.5  De la aleatoriedad a la resonancia**
 
 La teoría evolutiva estándar trata la novedad como una mutación aleatoria filtrada por la selección.
 
@@ -89,7 +89,7 @@ Este sesgo de resonancia explica la evolución convergente y las morfologías re
 
 ---
 
-### **13.6  Exportación de entropía y ética ecológica**
+#### **13.6  Exportación de entropía y ética ecológica**
 
 Cada aumento en la coherencia local requiere la liberación de entropía externa.
 
@@ -101,7 +101,7 @@ La homeoresonancia (α ≈ 0) define así el equilibrio ecológico: máxima adap
 
 ---
 
-### **13.7  La evolución como bomba de coherencia estratificada**
+#### **13.7  La evolución como bomba de coherencia estratificada**
 
 En cada nivel-μ, la ecuación de la bomba de coherencia opera con sus propias constantes α_{μ}, k_*^{(μ)}:
 
@@ -113,7 +113,7 @@ La evolución es la alineación de fase gradual de estas bombas en un motor de r
 
 ---
 
-### **13.8  Cuantificación de la eficiencia evolutiva**
+#### **13.8  Cuantificación de la eficiencia evolutiva**
 
 Definimos la eficiencia de coherencia como
 
@@ -133,7 +133,7 @@ Las estimaciones empíricas arrojan:
 
 ---
 
-### **13.9  Hacia una métrica evolutiva del significado**
+#### **13.9  Hacia una métrica evolutiva del significado**
 
 Cuando la coherencia aumenta más rápido que la exportación de entropía, los sistemas adquieren la capacidad de *representar*—de reflejar los patrones de su entorno.
 
@@ -143,7 +143,7 @@ La vida y la mente no son excepciones a la física; son cómo se ve la física c
 
 ---
 
-### **13.10  Resumen**
+#### **13.10  Resumen**
 
 | Concepto | Ecuación | Implicación |
 | ----- | ----- | ----- |
@@ -155,7 +155,7 @@ La vida y la mente no son excepciones a la física; son cómo se ve la física c
 
 ---
 
-### **13.11  Perspectiva**
+#### **13.11  Perspectiva**
 
 Este capítulo enmarcó la evolución como una bomba de coherencia global.
 

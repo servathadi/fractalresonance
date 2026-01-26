@@ -1,4 +1,4 @@
-# فصل ۱۷: زبانِ طبیعی به مثابه یک میدانِ رزونانسی {#chapter-17-natural-language-as-a-resonant-field}
+## فصل ۱۷: زبانِ طبیعی به مثابه یک میدانِ رزونانسی {#chapter-17-natural-language-as-a-resonant-field}
 
 جادویِ واژه: زبان چگونه همدوسی را منتقل می‌کند
 

@@ -1,4 +1,4 @@
-# فصل ۲۳: شبکه‌یِ ارتباطات {#chapter-23-the-web-of-communication}
+## فصل ۲۳: شبکه‌یِ ارتباطات {#chapter-23-the-web-of-communication}
 
 شبکه‌یِ معنا: همزمانی به مثابه زبانِ میدان
 

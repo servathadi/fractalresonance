@@ -1,4 +1,4 @@
-# Chapitre 24 : Les symboles sont-ils réels ? {#chapter-24-are-symbols-real}
+## Chapitre 24 : Les symboles sont-ils réels ? {#chapter-24-are-symbols-real}
 
 L'ontologie de la forme : le pouvoir de l'archétypal
 

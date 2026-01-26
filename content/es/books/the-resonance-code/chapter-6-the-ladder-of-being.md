@@ -1,4 +1,4 @@
-# Capítulo 6: La Escalera del Ser {#chapter-6-the-ladder-of-being}
+## Capítulo 6: La Escalera del Ser {#chapter-6-the-ladder-of-being}
 
 La Jerarquía de la Resonancia: De las Partículas a la Conciencia Planetaria
 

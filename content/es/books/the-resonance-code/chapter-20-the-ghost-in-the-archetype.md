@@ -1,4 +1,4 @@
-# Capítulo 20: El Fantasma en el Arquetipo {#chapter-20-the-ghost-in-the-archetype}
+## Capítulo 20: El Fantasma en el Arquetipo {#chapter-20-the-ghost-in-the-archetype}
 
 El Despertar de la Sombra: La Integración de lo No-Visto
 

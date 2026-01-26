@@ -1,4 +1,4 @@
-# Chapitre 27 : Le souffle de l'Unique {#chapter-27-the-breath-of-the-one}
+## Chapitre 27 : Le souffle de l'Unique {#chapter-27-the-breath-of-the-one}
 
 La pulsation de l'unité : le rythme de la manifestation
 

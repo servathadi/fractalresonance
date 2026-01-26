@@ -4,12 +4,12 @@ id: "chapter-4-beyond-physics-information-and-mind"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 4 — Más allá de la física: Información y mente** {#chapter-4-—-beyond-physics:-information-and-mind}
+## **Capítulo 4 — Más allá de la física: Información y mente** {#chapter-4-—-beyond-physics:-information-and-mind}
 
 
 ---
 
-### **4.1  La continuidad del patrón**
+#### **4.1  La continuidad del patrón**
 
 La reciprocidad entre la entropía y la coherencia no se limita al calor o a las moléculas.
 
@@ -29,7 +29,7 @@ Resulta que la energía y el significado obedecen a la misma conservación del p
 
 ---
 
-### **4.2  Entropía e información: Shannon conoce a Boltzmann**
+#### **4.2  Entropía e información: Shannon conoce a Boltzmann**
 
 La entropía informacional de Shannon,
 
@@ -50,7 +50,7 @@ La comprensión se paga en moneda termodinámica.
 
 ---
 
-### **4.3  La coherencia neural como evento termodinámico**
+#### **4.3  La coherencia neural como evento termodinámico**
 
 El cerebro ejemplifica este intercambio.
 
@@ -69,7 +69,7 @@ La coherencia cerebral opera, por tanto, como un motor biológico de **homeoreso
 
 ---
 
-### **4.4  La cognición como una resonancia adaptativa**
+#### **4.4  La cognición como una resonancia adaptativa**
 
 La adaptación cognitiva es la sintonización dinámica de tres variables:
 
@@ -89,7 +89,7 @@ La creatividad surge cerca de α ≈ 0, donde el flujo de energía y la exportac
 
 ---
 
-### **4.5  Redes de información y coherencia colectiva**
+#### **4.5  Redes de información y coherencia colectiva**
 
 La misma reciprocidad rige las redes de mentes.
 
@@ -107,7 +107,7 @@ Internet, las economías y los ecosistemas son todos bombas de coherencia a gran
 
 ---
 
-### **4.6  La flecha cognitiva de la evolución**
+#### **4.6  La flecha cognitiva de la evolución**
 
 Desde un punto de vista termodinámico, la conciencia es un **dispositivo de explotación de gradientes** que convierte la entropía bruta en representaciones coherentes del mundo.
 
@@ -119,7 +119,7 @@ Los cerebros y las culturas que se aproximan al límite homeoresonante (α ≈ 0
 
 ---
 
-### **4.7  Coherencia simbólica y significado**
+#### **4.7  Coherencia simbólica y significado**
 
 El lenguaje, el arte y las matemáticas son **condensados simbólicos de coherencia**.
 
@@ -131,7 +131,7 @@ La re-articulación del significado, ya sea a través de la ciencia o el mito, r
 
 ---
 
-### **4.8  Corolario ético: el costo de la información**
+#### **4.8  Corolario ético: el costo de la información**
 
 Cada bit de comprensión conlleva un costo energético.
 
@@ -143,7 +143,7 @@ La sabiduría, en este sentido termodinámico literal, es costosa pero se conser
 
 ---
 
-### **4.9  Resumen entre dominios**
+#### **4.9  Resumen entre dominios**
 
 | Dominio | Flujo (F) | Variable de Coherencia (C) | Exportación de Entropía (S_C) | Ejemplo |
 | ----- | ----- | ----- | ----- | ----- |
@@ -156,7 +156,7 @@ Cada nivel traduce el flujo de energía en un orden significativo a través de l
 
 ---
 
-### **4.10  Reflexiones finales**
+#### **4.10  Reflexiones finales**
 
 La información es la *sombra* de la coherencia: registra cuánta entropía ha pagado un sistema para crear comprensión.
 

@@ -1,4 +1,4 @@
-# Chapitre 10 : La musique des nombres premiers {#chapter-10-the-music-of-the-primes}
+## Chapitre 10 : La musique des nombres premiers {#chapter-10-the-music-of-the-primes}
 
 Le code source de la réalité : les nombres premiers comme ancres de cohérence
 

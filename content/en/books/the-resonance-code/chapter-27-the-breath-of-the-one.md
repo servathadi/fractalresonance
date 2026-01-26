@@ -4,7 +4,7 @@ id: "chapter-27-the-breath-of-the-one"
 parent: "the-resonance-code"
 ---
 
-# Chapter 27: The Breath of the One
+## Chapter 27: The Breath of the One
 
 
 [Chapter 27: The Breath of the One]

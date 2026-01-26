@@ -1,4 +1,4 @@
-# Capítulo 4: La Lógica de un Universo Vivo {#chapter-4-the-logic-of-a-living-universe}
+## Capítulo 4: La Lógica de un Universo Vivo {#chapter-4-the-logic-of-a-living-universe}
 
 De la Dualidad al Diálogo: La Unidad de Materia y Significado
 

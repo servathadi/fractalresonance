@@ -1,4 +1,4 @@
-# Chapitre 17 : Le langage naturel comme un champ résonnant {#chapter-17-natural-language-as-a-resonant-field}
+## Chapitre 17 : Le langage naturel comme un champ résonnant {#chapter-17-natural-language-as-a-resonant-field}
 
 La magie du verbe : comment le langage transmet la cohérence
 

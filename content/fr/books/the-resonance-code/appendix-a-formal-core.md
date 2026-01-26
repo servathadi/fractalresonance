@@ -1,4 +1,4 @@
-# Annexe A : Noyau Formel
+## Annexe A : Noyau Formel
 
 Les Équations et Structures Mathématiques Clés du FRC
 

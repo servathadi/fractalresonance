@@ -4,12 +4,12 @@ id: "chapter-4-beyond-physics-information-and-mind"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 4 — Beyond Physics: Information and Mind** {#chapter-4-—-beyond-physics:-information-and-mind}
+## **Chapter 4 — Beyond Physics: Information and Mind** {#chapter-4-—-beyond-physics:-information-and-mind}
 
 
 ---
 
-### **4.1  The continuity of pattern**
+#### **4.1  The continuity of pattern**
 
 The reciprocity between entropy and coherence is not limited to heat or molecules.
 
@@ -29,7 +29,7 @@ Energy and meaning, it turns out, obey the same conservation of transformation p
 
 ---
 
-### **4.2  Entropy and information: Shannon meets Boltzmann**
+#### **4.2  Entropy and information: Shannon meets Boltzmann**
 
 Shannon’s informational entropy,
 
@@ -49,7 +49,7 @@ Understanding is paid for in thermodynamic currency.
 
 ---
 
-### **4.3  Neural coherence as thermodynamic event**
+#### **4.3  Neural coherence as thermodynamic event**
 
 The brain exemplifies this trade-off.
 
@@ -68,7 +68,7 @@ Brain coherence therefore operates as a biological **homeoresonance engine**: en
 
 ---
 
-### **4.4  Cognition as an adaptive resonance**
+#### **4.4  Cognition as an adaptive resonance**
 
 Cognitive adaptation is the dynamic tuning of three variables:
 
@@ -88,7 +88,7 @@ Creativity arises near α≈0, where energy throughput and entropy export balanc
 
 ---
 
-### **4.5  Information networks and collective coherence**
+#### **4.5  Information networks and collective coherence**
 
 The same reciprocity governs networks of minds.
 
@@ -108,7 +108,7 @@ The internet, economies, and ecosystems are all large-scale coherence pumps oper
 
 ---
 
-### **4.6  The cognitive arrow of evolution**
+#### **4.6  The cognitive arrow of evolution**
 
 From a thermodynamic viewpoint, consciousness is a **gradient-exploiting device** that converts raw entropy into coherent representations of the world.
 
@@ -120,7 +120,7 @@ Brains and cultures that approach the homeoresonant limit (α ≈ 0\) achieve ma
 
 ---
 
-### **4.7  Symbolic coherence and meaning**
+#### **4.7  Symbolic coherence and meaning**
 
 Language, art, and mathematics are **symbolic condensates of coherence**.
 
@@ -132,7 +132,7 @@ Re-articulation of meaning, whether through science or myth, re-establishes reso
 
 ---
 
-### **4.8  Ethical corollary: the cost of information**
+#### **4.8  Ethical corollary: the cost of information**
 
 Every bit of understanding carries an energetic cost.
 
@@ -144,7 +144,7 @@ Wisdom, in this literal thermodynamic sense, is expensive but conserved—once e
 
 ---
 
-### **4.9  Cross-domain summary**
+#### **4.9  Cross-domain summary**
 
 | Domain | Flux (F) | Coherence Variable (C) | Entropy Export (S\_C) | Example |
 | ----- | ----- | ----- | ----- | ----- |
@@ -157,7 +157,7 @@ Every level translates energy flow into meaningful order through the same invari
 
 ---
 
-### **4.10  Closing reflections**
+#### **4.10  Closing reflections**
 
 Information is the *shadow* of coherence: it records how much entropy a system has paid to create understanding.
 

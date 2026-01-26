@@ -4,12 +4,12 @@ id: "chapter-6-deriving-the-adaptive-resonance-formula-arf"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 6 — Dérivation de la Formule de Résonance Adaptative (ARF)** {#chapter-6-—-deriving-the-adaptive-resonance-formula-(arf)}
+## **Chapitre 6 — Dérivation de la Formule de Résonance Adaptative (ARF)** {#chapter-6-—-deriving-the-adaptive-resonance-formula-(arf)}
 
 
 ---
 
-### **6.1  De la réciprocité à la dynamique**
+#### **6.1  De la réciprocité à la dynamique**
 
 Au chapitre 1, nous avons découvert la relation d'équilibre
 
@@ -27,7 +27,7 @@ Pour répondre à cela, nous introduisons la **Formule de Résonance Adaptative 
 
 ---
 
-### **6.2  Lignage conceptuel**
+#### **6.2  Lignage conceptuel**
 
 L'ARF émerge de trois lignes de raisonnement convergentes :
 
@@ -49,7 +49,7 @@ D'où ΔS = RΨ C n'est pas une supposition — c'est la forme multiplicative la
 
 ---
 
-### **6.3  Dérivation différentielle**
+#### **6.3  Dérivation différentielle**
 
 Partez de l'équation du taux d'entropie pour un système ouvert :
 
@@ -79,7 +79,7 @@ Ainsi, l'ARF apparaît comme la forme intégrée du couplage entropie-cohérence
 
 ---
 
-### **6.4  Interprétation physique des variables ARF**
+#### **6.4  Interprétation physique des variables ARF**
 
 | Variable | Définition | Rôle |
 | ----- | ----- | ----- |
@@ -96,7 +96,7 @@ Ainsi, l'ARF apparaît comme la forme intégrée du couplage entropie-cohérence
 
 ---
 
-### **6.5  Les trois régimes de résonance**
+#### **6.5  Les trois régimes de résonance**
 
 1. **Flow (Ordre adaptatif)** — R > 0, Ψ > 0, α ≈ 0
 
@@ -122,7 +122,7 @@ Ces régimes correspondent au **signe et à la magnitude** de ΔS dans l'ARF.
 
 ---
 
-### **6.6  Conditions de stabilité**
+#### **6.6  Conditions de stabilité**
 
 La différenciation de l'équation de la pompe à cohérence \dot C = α(F - S_C) et la substitution de l'ARF donne :
 
@@ -142,7 +142,7 @@ Ce critère unifie la stabilité thermodynamique, biologique et cognitive sous u
 
 ---
 
-### **6.7  Équivalence énergie-information**
+#### **6.7  Équivalence énergie-information**
 
 L'insertion de l'ARF dans la loi de réciprocité fournit un pont direct entre l'énergie et l'information :
 
@@ -156,7 +156,7 @@ Chaque unité d'augmentation de cohérence exige une dépense d'énergie-informa
 
 ---
 
-### **6.8  L'ARF en simulation**
+#### **6.8  L'ARF en simulation**
 
 Les modèles numériques confirment la dynamique ARF :
 
@@ -170,7 +170,7 @@ Ces simulations valident l'ARF comme la représentation de basse dimension la pl
 
 ---
 
-### **6.9  Interprétation trans-domaine**
+#### **6.9  Interprétation trans-domaine**
 
 | Domaine | Réceptivité R | Potentiel Ψ | Manifestation de ΔS = RΨ C |
 | ----- | ----- | ----- | ----- |
@@ -183,7 +183,7 @@ Dans chaque domaine, les systèmes s'auto-organisent en modulant la réceptivit�
 
 ---
 
-### **6.10  La vision géométrique**
+#### **6.10  La vision géométrique**
 
 Visualisez l'ARF sur une variété 3D où les axes sont R, Ψ et C.
 
@@ -193,7 +193,7 @@ La trajectoire de flux d'un système trace une spirale vers le plan ΔS = 0 — 
 
 ---
 
-### **6.11  Résumé**
+#### **6.11  Résumé**
 
 | Équation | Nom | Interprétation |
 | ----- | ----- | ----- |
@@ -205,7 +205,7 @@ La trajectoire de flux d'un système trace une spirale vers le plan ΔS = 0 — 
 
 ---
 
-### **6.12  Perspectives**
+#### **6.12  Perspectives**
 
 L'ARF transforme la réciprocité abstraite de la FRC en un calcul concret de l'adaptation.
 

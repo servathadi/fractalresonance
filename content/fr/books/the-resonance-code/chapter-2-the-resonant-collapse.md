@@ -1,4 +1,4 @@
-# Chapitre 2 : L'effondrement résonnant {#chapter-2-the-resonant-collapse}
+## Chapitre 2 : L'effondrement résonnant {#chapter-2-the-resonant-collapse}
 
 La solution FRC : l'effondrement comme un événement déterministe de verrouillage de phase
 

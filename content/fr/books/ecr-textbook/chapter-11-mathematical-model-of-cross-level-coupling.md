@@ -4,12 +4,12 @@ id: "chapter-11-mathematical-model-of-cross-level-coupling"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 11 — Modèle mathématique du couplage inter-niveaux** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
+## **Chapitre 11 — Modèle mathématique du couplage inter-niveaux** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
 
 
 ---
 
-### **11.1  De la dynamique à un niveau à la dynamique multi-niveaux**
+#### **11.1  De la dynamique à un niveau à la dynamique multi-niveaux**
 
 Chaque domaine-μ obéit à la loi de réciprocité :
 
@@ -29,7 +29,7 @@ Ici, T_{μ,j} représente la **force de couplage** entre les niveaux-μ ; elle a
 
 ---
 
-### **11.2  Noyau de couplage et distance de résonance**
+#### **11.2  Noyau de couplage et distance de résonance**
 
 Empiriquement, l'échange de cohérence décroît avec la « distance de résonance » |μ – j|.
 
@@ -45,7 +45,7 @@ Ce noyau fait que la pile-μ se comporte comme un **réseau en échelle résonan
 
 ---
 
-### **11.3  Conservation à travers la pile**
+#### **11.3  Conservation à travers la pile**
 
 La sommation sur tous les niveaux-μ donne l'invariant global :
 
@@ -59,7 +59,7 @@ D'où le potentiel de transformation total est conservé — la constante de ré
 
 ---
 
-### **11.4  Stabilité linéaire et modes propres**
+#### **11.4  Stabilité linéaire et modes propres**
 
 La linéarisation près de l'équilibre C_{μ}=C_{μ}^{0}+δC_{μ} donne :
 
@@ -79,7 +79,7 @@ Les valeurs propres avec Re(λₖ)=0 définissent des oscillations entretenues �
 
 ---
 
-### **11.5  Équations de flux énergie–entropie**
+#### **11.5  Équations de flux énergie–entropie**
 
 Pour chaque niveau,
 
@@ -91,7 +91,7 @@ Ceci rend explicite le fait que **l'énergie monte sous forme d'entropie**, tand
 
 ---
 
-### **11.6  Intégration numérique du système complet**
+#### **11.6  Intégration numérique du système complet**
 
 La simulation de huit équations couplées (μ₀–μ₇) avec des paramètres typiques :
 
@@ -109,7 +109,7 @@ L'invariant Σ = ∑(S₍μ₎ + k_*^{(μ)} ln C₍μ₎) reste constant à 0,3 
 
 ---
 
-### **11.7  Interprétation : cascade de cohérence**
+#### **11.7  Interprétation : cascade de cohérence**
 
 Cette simulation illustre la **cascade de cohérence** — l'information descendant à travers la pile comme une forme et remontant comme une conscience.
 
@@ -119,7 +119,7 @@ L'impulsion de cohérence est le corrélat physique d'un « événement d'expér
 
 ---
 
-### **11.8  Signatures empiriques**
+#### **11.8  Signatures empiriques**
 
 * **Physique :** les oscillations multi-échelles dans la turbulence du plasma reflètent les spectres de couplage-μ.
 
@@ -133,7 +133,7 @@ Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaph
 
 ---
 
-### **11.9  Résumé mathématique**
+#### **11.9  Résumé mathématique**
 
 | Équation | Interprétation |
 | ----- | ----- |
@@ -145,7 +145,7 @@ Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaph
 
 ---
 
-### **11.10  Synthèse conceptuelle**
+#### **11.10  Synthèse conceptuelle**
 
 * Le couplage inter-niveaux transforme la pile-μ en un **continuum résonant** plutôt qu'en couches discrètes.
 
@@ -155,7 +155,7 @@ Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaph
 
 ---
 
-### **11.11  Perspectives**
+#### **11.11  Perspectives**
 
 Ayant formalisé les mathématiques du couplage inter-niveaux, le chapitre suivant — **« Exemples cognitifs et culturels »** — traduira cette machinerie abstraite en termes expérientiels et sociétaux.
 

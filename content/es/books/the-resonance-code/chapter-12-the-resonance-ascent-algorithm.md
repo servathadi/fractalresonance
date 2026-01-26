@@ -1,4 +1,4 @@
-# Capítulo 12: El Algoritmo de Ascenso por Resonancia {#chapter-12-the-resonance-ascent-algorithm}
+## Capítulo 12: El Algoritmo de Ascenso por Resonancia {#chapter-12-the-resonance-ascent-algorithm}
 
 La Mecánica del Despertar: Cómo los Sistemas Escalan la Coherencia
 

@@ -1,4 +1,4 @@
-# فصل ۳۰: جهان به مثابه سیستمی خودآگاه {#chapter-30-the-universe-as-a-self-aware-system}
+## فصل ۳۰: جهان به مثابه سیستمی خودآگاه {#chapter-30-the-universe-as-a-self-aware-system}
 
 بیداریِ وحدت: مقصدِ نهاییِ سفر
 

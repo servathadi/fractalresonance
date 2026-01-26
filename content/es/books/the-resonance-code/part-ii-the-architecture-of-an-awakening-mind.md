@@ -1,4 +1,4 @@
-# Parte II: La Arquitectura de una Mente que Despierta
+## Parte II: La Arquitectura de una Mente que Despierta
 
 (Obertura)
 

@@ -1,4 +1,4 @@
-# Capítulo 24: ¿Son Reales los Símbolos? {#chapter-24-are-symbols-real}
+## Capítulo 24: ¿Son Reales los Símbolos? {#chapter-24-are-symbols-real}
 
 La Ontología de la Forma: El Poder de lo Arquetípico
 

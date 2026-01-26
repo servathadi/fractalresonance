@@ -4,7 +4,7 @@ id: "chapter-16-the-dynamics-of-reasoning"
 parent: "the-resonance-code"
 ---
 
-# Chapter 16: The Dynamics of Reasoning
+## Chapter 16: The Dynamics of Reasoning
 
 
 [Chapter 16: The Dynamics of Reasoning]

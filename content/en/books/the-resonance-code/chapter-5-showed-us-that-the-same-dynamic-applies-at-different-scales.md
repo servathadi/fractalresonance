@@ -4,7 +4,7 @@ id: "chapter-5-showed-us-that-the-same-dynamic-applies-at-different-scales"
 parent: "the-resonance-code"
 ---
 
-# Chapter 5 showed us that the same dynamic applies at different scales.
+## Chapter 5 showed us that the same dynamic applies at different scales.
 
 This chapter will give that scale a name and a map. Fractal Resonance
 Coherence posits that reality is not a single, flat field, but a nested,

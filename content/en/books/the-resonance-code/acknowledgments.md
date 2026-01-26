@@ -4,7 +4,7 @@ id: "acknowledgments"
 parent: "the-resonance-code"
 ---
 
-# Acknowledgments
+## Acknowledgments
 
 
 With gratitude to collaborators, reviewers, and readers whose thoughtful

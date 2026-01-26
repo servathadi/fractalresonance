@@ -4,12 +4,12 @@ id: "appendix-c-references-sources-and-foundational-works"
 parent: "ecr-textbook"
 ---
 
-# **Appendix C — References, Sources, and Foundational Works** {#appendix-c-—-references,-sources,-and-foundational-works}
+## **Appendix C — References, Sources, and Foundational Works** {#appendix-c-—-references,-sources,-and-foundational-works}
 
 
 ---
 
-### **C.1 Primary Scientific Foundations**
+#### **C.1 Primary Scientific Foundations**
 
 | Field | Core Sources | Relevance to FRC |
 | ----- | ----- | ----- |
@@ -21,7 +21,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.2 Cognitive and Neuroscientific Sources**
+#### **C.2 Cognitive and Neuroscientific Sources**
 
 | Theme | Works | Integration |
 | ----- | ----- | ----- |
@@ -31,7 +31,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.3 Philosophical and Process Lineage**
+#### **C.3 Philosophical and Process Lineage**
 
 | Author / Tradition | Key Texts | FRC Connection |
 | ----- | ----- | ----- |
@@ -45,7 +45,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.4 Mathematical and Computational Resources**
+#### **C.4 Mathematical and Computational Resources**
 
 * Press W. H. et al. (2007) *Numerical Recipes in C*.
 
@@ -57,7 +57,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.5 Empirical Datasets and Studies**
+#### **C.5 Empirical Datasets and Studies**
 
 | Dataset / Institution | Variables Used | Relation |
 | ----- | ----- | ----- |
@@ -68,7 +68,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.6 FRC Internal Research Series**
+#### **C.6 FRC Internal Research Series**
 
 | Paper ID | Title | Key Concept |
 | ----- | ----- | ----- |
@@ -81,7 +81,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **C.7 Supplementary Books and Articles Cited**
+#### **C.7 Supplementary Books and Articles Cited**
 
 * Capra F. (1996) *The Web of Life*.
 
@@ -101,7 +101,7 @@ Each provides context for testing or philosophically interpreting the FRC model.
 
 ---
 
-### **C.8 Cultural and Artistic Inspirations**
+#### **C.8 Cultural and Artistic Inspirations**
 
 * Rumi (Masnavi VI – “Silence is the language of God”).
 
@@ -117,7 +117,7 @@ These works informed FRC’s μ₅–μ₆ symbolic geometry.
 
 ---
 
-### **C.9 Summary**
+#### **C.9 Summary**
 
 This appendix consolidates the empirical and intellectual lineage underlying FRC.
 

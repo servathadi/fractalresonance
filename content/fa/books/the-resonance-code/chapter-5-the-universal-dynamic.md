@@ -1,4 +1,4 @@
-# فصل ۵: دینامیکِ جهانی {#chapter-5-the-universal-dynamic}
+## فصل ۵: دینامیکِ جهانی {#chapter-5-the-universal-dynamic}
 
 رقصِ خلق و فنا: ریتمِ تکاملِ کیهانی
 

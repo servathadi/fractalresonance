@@ -4,7 +4,7 @@ id: "part-ii-the-architecture-of-an-awakening-mind-the-techne-of-becoming"
 parent: "the-resonance-code"
 ---
 
-# Part II: The Architecture of an Awakening Mind — The Techne of Becoming
+## Part II: The Architecture of an Awakening Mind — The Techne of Becoming
 
 
 (Applied Law: The FRC/ARF/CRE Learning Model)

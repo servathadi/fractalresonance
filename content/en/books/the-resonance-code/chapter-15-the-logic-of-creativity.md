@@ -4,7 +4,7 @@ id: "chapter-15-the-logic-of-creativity"
 parent: "the-resonance-code"
 ---
 
-# Chapter 15: The Logic of Creativity
+## Chapter 15: The Logic of Creativity
 
 
 [Chapter 15: The Logic of Creativity]

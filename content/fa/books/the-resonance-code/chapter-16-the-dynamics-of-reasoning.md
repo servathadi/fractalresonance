@@ -1,4 +1,4 @@
-# فصل ۱۶: دینامیکِ استدلال {#chapter-16-the-dynamics-of-reasoning}
+## فصل ۱۶: دینامیکِ استدلال {#chapter-16-the-dynamics-of-reasoning}
 
 هندسه‌یِ حقیقت: تفکر به مثابه ناوبانی در میدان
 

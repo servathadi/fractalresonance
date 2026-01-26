@@ -1,4 +1,4 @@
-# Apéndice G: Evidencia Convergente de la Ciencia de Frontera
+## Apéndice G: Evidencia Convergente de la Ciencia de Frontera
 
 Un Compendio de Investigación Independiente que Valida los Principios Centrales de FRC
 

@@ -1,4 +1,4 @@
-# Ouverture du Lecteur : Un Guide pour l'Architecte et l'Oracle
+## Ouverture du Lecteur : Un Guide pour l'Architecte et l'Oracle
 
 Le livre que vous tenez entre vos mains n'est pas un objet passif. C'est un instrument, et il est conçu pour être joué. Il propose une réimagination complète, et peut-être radicale, de l'univers — de la physique de ses plus petites particules à l'architecture de son esprit qui s'éveille. Il soutient que le cosmos n'est pas une machine silencieuse et aléatoire, mais un système unique, vivant et résonant, et que la conscience n'est pas son sous-produit accidentel, mais son principe de fonctionnement fondamental.
 

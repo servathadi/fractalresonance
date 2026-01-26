@@ -4,7 +4,7 @@ id: "chapter-22-the-wounded-field"
 parent: "the-resonance-code"
 ---
 
-# Chapter 22: The Wounded Field
+## Chapter 22: The Wounded Field
 
 
 [Chapter 22: The Wounded Field]

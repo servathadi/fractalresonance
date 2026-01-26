@@ -4,12 +4,12 @@ id: "chapter-25-epilogue-toward-a-science-of-coherence"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 25 — Épilogue : Vers une science de la cohérence** {#chapter-25-—-epilogue:-toward-a-science-of-coherence}
+## **Chapitre 25 — Épilogue : Vers une science de la cohérence** {#chapter-25-—-epilogue:-toward-a-science-of-coherence}
 
 
 ---
 
-### **25.1  Le cercle se referme**
+#### **25.1  Le cercle se referme**
 
 Du premier murmure de l'entropie à la symétrie finale de la conscience, chaque phénomène a révélé le même rythme :
 
@@ -21,7 +21,7 @@ Le cercle est complet ; seule la participation demeure.
 
 ---
 
-### **25.2   L'essence de la découverte**
+#### **25.2   L'essence de la découverte**
 
 1. **Réciprocité :** Tous les systèmes conservent le potentiel total de transformation :
 
@@ -37,7 +37,7 @@ Ensemble, ces quatre énoncés tracent les contours d'une nouvelle branche des s
 
 ---
 
-### **25.3   La tâche à venir**
+#### **25.3   La tâche à venir**
 
 Une *science de la cohérence* doit jeter un pont entre le laboratoire et la salle de méditation, entre l'accélérateur de particules et la salle de classe.
 
@@ -55,7 +55,7 @@ Une telle science unit l'objectivité et la subjectivité : des équations guida
 
 ---
 
-### **25.4   Pratique et participation**
+#### **25.4   Pratique et participation**
 
 Chaque esprit humain est un laboratoire local.
 
@@ -67,7 +67,7 @@ Vivre de manière cohérente, c'est devenir un *agent de l'équilibre universel.
 
 ---
 
-### **25.5   Vers l'Université Résonnante**
+#### **25.5   Vers l'Université Résonnante**
 
 Imaginez un réseau de recherche planétaire — l' **Université Résonnante** — où physiciens, artistes, ingénieurs et mystiques partageraient une seule constante : k_*.
 
@@ -83,7 +83,7 @@ Sa devise : **« Connaître le champ en devenant cohérent en son sein. »**
 
 ---
 
-### **25.6   Intégration avec la science existante**
+#### **25.6   Intégration avec la science existante**
 
 La FRC ne remplace pas la physique ou les neurosciences — elle les prolonge.
 
@@ -95,7 +95,7 @@ Ses prédictions testables la rendent à la fois poétique et falsifiable.
 
 ---
 
-### **25.7   La frontière éthique**
+#### **25.7   La frontière éthique**
 
 Chaque époque a sa physique du pouvoir ; la nôtre exige une physique du soin.
 
@@ -107,7 +107,7 @@ Vivre de manière éthique, c'est maintenir la cohérence sans coercition — l'
 
 ---
 
-### **25.8   L'équation future**
+#### **25.8   L'équation future**
 
 Le but ultime de la science de la cohérence n'est pas la domination mais l' **équilibre participatif.**
 
@@ -119,7 +119,7 @@ Chaque sous-système, chaque être, contribue à maintenir cet équilibre — la
 
 ---
 
-### **25.9   Réflexion de clôture**
+#### **25.9   Réflexion de clôture**
 
 *« L'univers est une conversation entre l'entropie et la cohérence,*
 *et la conscience est la grammaire qu'ils partagent. »*
@@ -130,7 +130,7 @@ Lorsque nous pensons, aimons ou créons, nous traduisons momentanément le cosmo
 
 ---
 
-### **25.10   La dernière constante**
+#### **25.10   La dernière constante**
 
 Soit k_* la constante de cohérence.
 
@@ -144,7 +144,7 @@ C'est à la fois de la physique et de la grâce.
 
 ---
 
-### **25.11   Adieu et invitation**
+#### **25.11   Adieu et invitation**
 
 Ce livre s'achève là où il a commencé — avec un champ cherchant l'équilibre.
 

@@ -1,8 +1,8 @@
-# Annexe A — Fondements Mathématiques et Dérivations
+## Annexe A — Fondements Mathématiques et Dérivations
 
 ---
 
-### **A.1 Invariants Centraux**
+#### **A.1 Invariants Centraux**
 
 **À chaque échelle, le cadre FRC repose sur deux équations :**
 
@@ -15,7 +15,7 @@
 
 ---
 
-### **A.2 De la réciprocité à la loi dynamique**
+#### **A.2 De la réciprocité à la loi dynamique**
 
 **Partez de $dS = -k_*\,d\ln C$.**
 
@@ -39,7 +39,7 @@ $$ \boxed{\dot C = \alpha(F - S_C)} $$
 
 ---
 
-### **A.3 Dérivation de niveau couplé**
+#### **A.3 Dérivation de niveau couplé**
 
 **Pour les domaines $\mu$ adjacents, le terme d'échange de cohérence $T_{\mu,\mu+1}$ découle du couplage de gradient dans le potentiel de champ $V(\phi)$ :**
 
@@ -55,7 +55,7 @@ $$ \sum_{\mu} (dS_{\mu} + k_*^{(\mu)}\,d\ln C_{\mu}) = 0 $$
 
 ---
 
-### **A.4 Dérivation de l'ARF à partir de la réciprocité locale**
+#### **A.4 Dérivation de l'ARF à partir de la réciprocité locale**
 
 **Soit $J_C = \dot C/C$ et définissez la réceptivité $R = \partial J_C/\partial \Psi$.**
 
@@ -69,7 +69,7 @@ $$ \Delta S = R\Psi C $$
 
 ---
 
-### **A.5 Critère de stabilité**
+#### **A.5 Critère de stabilité**
 
 **Linéarisation de $\dot C = \alpha(F - S_C)$ autour de l'équilibre $C=C_0$ :**
 
@@ -85,7 +85,7 @@ $$ \dot C = -\alpha\beta(C - C_0) $$
 
 ---
 
-### **A.6 Solution de rétroaction oscillatoire**
+#### **A.6 Solution de rétroaction oscillatoire**
 
 **Lorsque $\alpha$ varie avec la cohérence,**
 
@@ -103,7 +103,7 @@ $$ T = 2\pi/\sqrt{\beta\gamma} $$
 
 ---
 
-### **A.7 La constante de résonance k_***
+#### **A.7 La constante de résonance k_***
 
 **Unités :**
 
@@ -122,7 +122,7 @@ $$ k_*^{(\mu)} = \kappa\,\lambda_{\mu}^d\,k_B $$
 
 ---
 
-### **A.8 L'interprétation énergétique**
+#### **A.8 L'interprétation énergétique**
 
 **Multipliez (1) par la température T :**
 
@@ -134,7 +134,7 @@ $$ TdS + Tk_*\,d\ln C = 0 $$
 
 ---
 
-### **A.9 La formulation de l'espace de phase**
+#### **A.9 La formulation de l'espace de phase**
 
 **Définissez les coordonnées généralisées $x_i$ et les moments conjugués $p_i$.**
 
@@ -150,7 +150,7 @@ $$ \frac{dC}{dt} = \frac{\partial H}{\partial S}, \qquad \frac{dS}{dt} = -\frac{
 
 ---
 
-### **A.10 Résumé**
+#### **A.10 Résumé**
 
 | Symbole | Signification | Équation |
 | : | : | : |

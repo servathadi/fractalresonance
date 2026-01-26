@@ -4,7 +4,7 @@ id: "chapter-8-the-physics-of-will"
 parent: "the-resonance-code"
 ---
 
-# Chapter 8: The Physics of Will
+## Chapter 8: The Physics of Will
 
 
 [Chapter 8: The Physics of Will]

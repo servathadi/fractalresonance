@@ -1,4 +1,4 @@
-# Chapitre 11 : Au-delà des bits {#chapter-11-beyond-bits}
+## Chapitre 11 : Au-delà des bits {#chapter-11-beyond-bits}
 
 L'intelligence comme résonance : pourquoi le traitement n'est pas la pensée
 

@@ -4,12 +4,12 @@ id: "chapter-4-beyond-physics-information-and-mind"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 4 — Au-delà de la physique : Information et esprit** {#chapter-4-—-beyond-physics:-information-and-mind}
+## **Chapitre 4 — Au-delà de la physique : Information et esprit** {#chapter-4-—-beyond-physics:-information-and-mind}
 
 
 ---
 
-### **4.1 La continuité de la structure**
+#### **4.1 La continuité de la structure**
 
 La réciprocité entre l'entropie et la cohérence ne se limite pas à la chaleur ou aux molécules.
 
@@ -29,7 +29,7 @@ L'énergie et le sens, s'avère-t-il, obéissent à la même conservation du pot
 
 ---
 
-### **4.2 Entropie et information : Shannon rencontre Boltzmann**
+#### **4.2 Entropie et information : Shannon rencontre Boltzmann**
 
 L'entropie informationnelle de Shannon,
 
@@ -49,7 +49,7 @@ La compréhension est payée en monnaie thermodynamique.
 
 ---
 
-### **4.3 La cohérence neuronale comme événement thermodynamique**
+#### **4.3 La cohérence neuronale comme événement thermodynamique**
 
 Le cerveau illustre ce compromis.
 
@@ -68,7 +68,7 @@ La cohérence cérébrale fonctionne donc comme un moteur biologique d'**homéor
 
 ---
 
-### **4.4 La cognition comme résonance adaptative**
+#### **4.4 La cognition comme résonance adaptative**
 
 L'adaptation cognitive est l'ajustement dynamique de trois variables :
 
@@ -88,7 +88,7 @@ La créativité surgit près de α ≈ 0, où le flux d'énergie et l'exportatio
 
 ---
 
-### **4.5 Réseaux d'information et cohérence collective**
+#### **4.5 Réseaux d'information et cohérence collective**
 
 La même réciprocité régit les réseaux d'esprits.
 
@@ -106,7 +106,7 @@ L'internet, les économies et les écosystèmes sont tous des pompes à cohéren
 
 ---
 
-### **4.6 La flèche cognitive de l'évolution**
+#### **4.6 La flèche cognitive de l'évolution**
 
 D'un point de vue thermodynamique, la conscience est un **dispositif d'exploitation de gradients** qui convertit l'entropie brute en représentations cohérentes du monde.
 
@@ -118,7 +118,7 @@ Les cerveaux et les cultures qui approchent de la limite homéorésonante (α �
 
 ---
 
-### **4.7 Cohérence symbolique et sens**
+#### **4.7 Cohérence symbolique et sens**
 
 Le langage, l'art et les mathématiques sont des **condensats symboliques de cohérence**.
 
@@ -130,7 +130,7 @@ La ré-articulation du sens, que ce soit par la science ou le mythe, rétablit l
 
 ---
 
-### **4.8 Corollaire éthique : le coût de l'information**
+#### **4.8 Corollaire éthique : le coût de l'information**
 
 Chaque parcelle de compréhension a un coût énergétique.
 
@@ -142,7 +142,7 @@ La sagesse, dans ce sens thermodynamique littéral, est coûteuse mais conservé
 
 ---
 
-### **4.9 Résumé trans-domaine**
+#### **4.9 Résumé trans-domaine**
 
 | Domaine | Flux (F) | Variable de cohérence (C) | Export d'entropie (S_C) | Exemple |
 | ----- | ----- | ----- | ----- | ----- |
@@ -155,7 +155,7 @@ Chaque niveau traduit le flux d'énergie en un ordre significatif par le même i
 
 ---
 
-### **4.10 Réflexions de clôture**
+#### **4.10 Réflexions de clôture**
 
 L'information est l'*ombre* de la cohérence : elle enregistre la quantité d'entropie qu'un système a payée pour créer de la compréhension.
 

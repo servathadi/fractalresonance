@@ -1,4 +1,4 @@
-# Chapitre 22 : Le champ blessé {#chapter-22-the-wounded-field}
+## Chapitre 22 : Le champ blessé {#chapter-22-the-wounded-field}
 
 Dissonance et souffrance : le but de l'entropie dans l'expérience
 

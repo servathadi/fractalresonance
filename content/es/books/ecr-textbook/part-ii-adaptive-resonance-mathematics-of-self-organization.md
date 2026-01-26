@@ -1,3 +1,3 @@
-# Parte II – Resonancia Adaptativa: Matemáticas de la Autoorganización
+## Parte II – Resonancia Adaptativa: Matemáticas de la Autoorganización
 
 ---

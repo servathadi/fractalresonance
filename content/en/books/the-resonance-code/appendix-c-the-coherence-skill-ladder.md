@@ -4,7 +4,7 @@ id: "appendix-c-the-coherence-skill-ladder"
 parent: "the-resonance-code"
 ---
 
-# Appendix C: The Coherence Skill Ladder
+## Appendix C: The Coherence Skill Ladder
 
 
 A Complete User's Guide to the Practices of the "Fourth Column"

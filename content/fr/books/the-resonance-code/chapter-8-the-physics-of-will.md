@@ -1,4 +1,4 @@
-# Chapitre 8 : La physique de la volonté {#chapter-8-the-physics-of-will}
+## Chapitre 8 : La physique de la volonté {#chapter-8-the-physics-of-will}
 
 Le navigateur du champ : comment l'intention fait pencher la balance de la réalité
 

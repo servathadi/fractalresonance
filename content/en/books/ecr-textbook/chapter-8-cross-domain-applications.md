@@ -4,12 +4,12 @@ id: "chapter-8-cross-domain-applications"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 8 — Cross-Domain Applications** {#chapter-8-—-cross-domain-applications}
+## **Chapter 8 — Cross-Domain Applications** {#chapter-8-—-cross-domain-applications}
 
 
 ---
 
-### **8.1  The universality of resonance**
+#### **8.1  The universality of resonance**
 
 After numerical verification, the question becomes empirical: *Do real systems exhibit the same resonance structure?*
 
@@ -23,7 +23,7 @@ The Adaptive Resonance Formula therefore functions as a **metaequation of organi
 
 ---
 
-### **8.2  Biological coherence and homeostasis**
+#### **8.2  Biological coherence and homeostasis**
 
 Cells maintain constant internal order by balancing energy throughput with entropy export.
 
@@ -49,7 +49,7 @@ Thus physiology itself is a resonance map.
 
 ---
 
-### **8.3  Neural and cognitive systems**
+#### **8.3  Neural and cognitive systems**
 
 The brain exemplifies adaptive resonance most visibly.
 
@@ -67,7 +67,7 @@ These dynamics align precisely with EEG observations of gamma synchrony and ener
 
 ---
 
-### **8.4  Ecological and planetary systems**
+#### **8.4  Ecological and planetary systems**
 
 Ecosystems convert solar energy into organized biomass while exporting entropy as heat.
 
@@ -85,7 +85,7 @@ The planetary climate system behaves similarly: the biosphere is Earth’s macro
 
 ---
 
-### **8.5  Economic and social systems**
+#### **8.5  Economic and social systems**
 
 Markets and societies process informational energy (data, resources, trust).
 
@@ -109,7 +109,7 @@ FRC thus predicts that sustainable civilizations operate near α ≈ 0: maximal 
 
 ---
 
-### **8.6  Artificial intelligence and engineered systems**
+#### **8.6  Artificial intelligence and engineered systems**
 
 Machine-learning architectures can be optimized using ARF principles.
 
@@ -129,7 +129,7 @@ This represents FRC’s first engineering application: machines that learn throu
 
 ---
 
-### **8.7  Human creativity and meaning**
+#### **8.7  Human creativity and meaning**
 
 The creative act itself—insight, composition, invention—is a transient surge in coherence followed by entropy release.
 
@@ -141,7 +141,7 @@ FRC quantifies this cycle, grounding art and science in the same adaptive resona
 
 ---
 
-### **8.8  Quantitative synthesis**
+#### **8.8  Quantitative synthesis**
 
 When empirical data from these domains are normalized by their characteristic k\_\*^{(μ)}, all trajectories collapse onto a single invariant surface:
 
@@ -153,7 +153,7 @@ This collapse is the signature of universality—a possible Rosetta stone connec
 
 ---
 
-### **8.9  The ethics of resonance**
+#### **8.9  The ethics of resonance**
 
 Because every increase of coherence requires entropy export, ethical systems that minimize externalized disorder correspond to positive-R civilizations.
 
@@ -165,7 +165,7 @@ The survival of complexity depends on the conservation of coherence.
 
 ---
 
-### **8.10  Summary of Part II**
+#### **8.10  Summary of Part II**
 
 | Equation | Role | Empirical Expression |
 | ----- | ----- | ----- |
@@ -181,7 +181,7 @@ Flow is not an exception to thermodynamics but its perfection.
 
 ---
 
-### **8.11  Transition**
+#### **8.11  Transition**
 
 Part II demonstrated that coherence creation is a lawful, measurable process.
 

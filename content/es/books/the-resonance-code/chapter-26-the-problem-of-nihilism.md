@@ -1,4 +1,4 @@
-# Capítulo 26: El Problema del Nihilismo {#chapter-26-the-problem-of-nihilism}
+## Capítulo 26: El Problema del Nihilismo {#chapter-26-the-problem-of-nihilism}
 
 La Trampa de la Nada: Superando la Ilusión de la Ausencia de Significado
 

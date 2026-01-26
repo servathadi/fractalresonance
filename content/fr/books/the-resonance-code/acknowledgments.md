@@ -1,4 +1,4 @@
-# Remerciements
+## Remerciements
 
 Avec gratitude envers les collaborateurs, relecteurs et lecteurs dont les questions réfléchies ont affiné le cadre — et envers les outils qui ont aidé à façonner ce manuscrit de notes en un livre publiable.
 

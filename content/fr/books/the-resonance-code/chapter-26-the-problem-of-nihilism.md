@@ -1,4 +1,4 @@
-# Chapitre 26 : Le problème du nihilisme {#chapter-26-the-problem-of-nihilism}
+## Chapitre 26 : Le problème du nihilisme {#chapter-26-the-problem-of-nihilism}
 
 Le piège du néant : surmonter l'illusion de l'absence de sens
 

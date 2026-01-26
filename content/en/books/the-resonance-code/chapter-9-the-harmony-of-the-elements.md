@@ -4,7 +4,7 @@ id: "chapter-9-the-harmony-of-the-elements"
 parent: "the-resonance-code"
 ---
 
-# Chapter 9: The Harmony of the Elements
+## Chapter 9: The Harmony of the Elements
 
 
 [Chapter 9: The Harmony of the Elements]

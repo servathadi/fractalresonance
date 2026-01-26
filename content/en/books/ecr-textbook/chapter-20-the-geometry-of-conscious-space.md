@@ -4,12 +4,12 @@ id: "chapter-20-the-geometry-of-conscious-space"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 20 — The Geometry of Conscious Space** {#chapter-20-—-the-geometry-of-conscious-space}
+## **Chapter 20 — The Geometry of Conscious Space** {#chapter-20-—-the-geometry-of-conscious-space}
 
 
 ---
 
-### **20.1 From time to extension**
+#### **20.1 From time to extension**
 
 Time in FRC is the rhythm of successive coherence events.
 
@@ -27,7 +27,7 @@ Every perceptual scene is therefore a dynamically stabilized interference patter
 
 ---
 
-### **20.2 Phase-lattice of awareness**
+#### **20.2 Phase-lattice of awareness**
 
 Let φ\_i denote the instantaneous phase of local neural oscillators and φ\_j of symbolic/archetypal fields.
 
@@ -43,7 +43,7 @@ Spatial geometry is thus a *metric of phase alignment* inside the coherence fiel
 
 ---
 
-### **20.3 The perceptual manifold**
+#### **20.3 The perceptual manifold**
 
 Neuroscience observes that visual and sensory maps (retinotopy, somatotopy) emerge through synchronization gradients.
 
@@ -59,7 +59,7 @@ Areas of high curvature (rapid φ variation) are perceived as *edges* or *bounda
 
 ---
 
-### **20.4 Dimensional emergence**
+#### **20.4 Dimensional emergence**
 
 At low coherence (μ₃–μ₄), only simple topologies—1-D or 2-D—stabilize (lines, surfaces).
 
@@ -76,7 +76,7 @@ Each new dimension reflects an additional degree of phase freedom in the resonan
 
 ---
 
-### **20.5 Topology of imagination**
+#### **20.5 Topology of imagination**
 
 When coherence stabilizes in μ₆ without projection to μ₄, the resulting phase-lattice is experienced internally as **imaginal space**—dream, visualization, or visionary perception.
 
@@ -88,7 +88,7 @@ Hence dream space feels elastic—its curvature reflects freedom of phase coupli
 
 ---
 
-### **20.6 Spatial binding and the unity of perception**
+#### **20.6 Spatial binding and the unity of perception**
 
 The “binding problem” of neuroscience—how separate sensory features combine into unified objects—is solved naturally here.
 
@@ -102,7 +102,7 @@ Spatial unity is not computed—it is *cohered.*
 
 ---
 
-### **20.7 Geometry and meaning**
+#### **20.7 Geometry and meaning**
 
 Archetypal symbols, mandalas, and sacred architecture replicate the same geometry that underlies perception: balanced phase symmetry (Δφ ≈ 0\) around a coherence center.
 
@@ -114,7 +114,7 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
 
 ---
 
-### **20.8 Mathematical summary**
+#### **20.8 Mathematical summary**
 
 | Quantity | Expression | Interpretation |
 | ----- | ----- | ----- |
@@ -125,7 +125,7 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
 
 ---
 
-### **20.9 Empirical correlates**
+#### **20.9 Empirical correlates**
 
 * Gamma-band synchrony defines visual field integrity.
 
@@ -137,7 +137,7 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
 
 ---
 
-### **20.10 Philosophical reflection**
+#### **20.10 Philosophical reflection**
 
 Space and time are complementary projections of one resonance field:
 
@@ -149,7 +149,7 @@ Space and time are complementary projections of one resonance field:
 
 ---
 
-### **20.11 Summary**
+#### **20.11 Summary**
 
 | Concept | Essence |
 | ----- | ----- |
@@ -161,7 +161,7 @@ Space and time are complementary projections of one resonance field:
 
 ---
 
-### **20.12 Outlook**
+#### **20.12 Outlook**
 
 With time and space now unified as products of resonance, the next chapter—**Chapter 21: The Symbolic Interface and Archetypal Geometry**—will explore how symbols act as *bridges* across μ-levels, translating coherence into meaning and guiding both cognition and civilization through archetypal attractors embedded in this conscious geometry.
 

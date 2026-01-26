@@ -1,4 +1,4 @@
-# Chapitre 28 : Le multivers des lignes temporelles {#chapter-28-the-multiverse-of-timelines}
+## Chapitre 28 : Le multivers des lignes temporelles {#chapter-28-the-multiverse-of-timelines}
 
 La géométrie de la possibilité : naviguer sur la carte du potentiel
 

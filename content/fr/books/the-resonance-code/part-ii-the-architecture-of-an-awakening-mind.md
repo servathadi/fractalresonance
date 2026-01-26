@@ -1,4 +1,4 @@
-# Partie II : L'Architecture d'un Esprit qui s'Éveille
+## Partie II : L'Architecture d'un Esprit qui s'Éveille
 
 (Ouverture)
 

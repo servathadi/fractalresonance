@@ -1,4 +1,4 @@
-# Chapitre 25 : L'effondrement des mondes {#chapter-25-the-collapse-of-worlds}
+## Chapitre 25 : L'effondrement des mondes {#chapter-25-the-collapse-of-worlds}
 
 La transition de phase : la fin d'une ère et la naissance d'une autre
 

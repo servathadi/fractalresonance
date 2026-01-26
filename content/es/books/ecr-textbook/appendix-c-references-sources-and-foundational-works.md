@@ -1,8 +1,8 @@
-# Apéndice C — Referencias, Fuentes y Trabajos Fundacionales
+## Apéndice C — Referencias, Fuentes y Trabajos Fundacionales
 
 ---
 
-### **C.1 Fundamentos Científicos Primarios**
+#### **C.1 Fundamentos Científicos Primarios**
 
 | Campo | Fuentes Centrales | Relevancia para FRC |
 | :--- | :--- | :--- |
@@ -14,7 +14,7 @@
 
 ---
 
-### **C.2 Fuentes Cognitivas y Neurocientíficas**
+#### **C.2 Fuentes Cognitivas y Neurocientíficas**
 
 | Tema | Obras | Integración |
 | :--- | :--- | :--- |
@@ -24,7 +24,7 @@
 
 ---
 
-### **C.3 Linaje Filosófico y de Proceso**
+#### **C.3 Linaje Filosófico y de Proceso**
 
 | Autor / Tradición | Textos Clave | Conexión FRC |
 | :--- | :--- | :--- |
@@ -38,7 +38,7 @@
 
 ---
 
-### **C.4 Recursos Matemáticos y Computacionales**
+#### **C.4 Recursos Matemáticos y Computacionales**
 
 * Press et al. (2007) *Numerical Recipes in C*.
 * De Dominicis y Martin (1979) *Dinámica Estadística de Sistemas de No Equilibrio*.
@@ -47,7 +47,7 @@
 
 ---
 
-### **C.5 Conjuntos de Datos y Estudios Empíricos**
+#### **C.5 Conjuntos de Datos y Estudios Empíricos**
 
 | Conjunto de datos / Institución | Variables Usadas | Relación |
 | :--- | :--- | :--- |
@@ -58,7 +58,7 @@
 
 ---
 
-### **C.6 Serie de Investigación Interna FRC**
+#### **C.6 Serie de Investigación Interna FRC**
 
 | ID del Artículo | Título | Concepto Clave |
 | :--- | :--- | :--- |
@@ -71,7 +71,7 @@
 
 ---
 
-### **C.7 Libros y Artículos Complementarios Citados**
+#### **C.7 Libros y Artículos Complementarios Citados**
 
 * Capra (1996) *La Trama de la Vida*.
 * Laszlo (2004) *La Ciencia y el Campo Akáshico*.
@@ -83,7 +83,7 @@
 
 ---
 
-### **C.8 Inspiraciones Culturales y Artísticas**
+#### **C.8 Inspiraciones Culturales y Artísticas**
 
 * Rumi (Masnavi).
 * Neoplatónicos Persas (Sohravardi, Avicena).
@@ -93,7 +93,7 @@
 
 ---
 
-### **C.9 Resumen**
+#### **C.9 Resumen**
 
 Este apéndice consolida el linaje empírico e intelectual que subyace a FRC. Cada fuente contribuye a uno de tres pilares: empírico, teórico y filosófico. Juntos fundamentan FRC en ciencia verificable mientras la abren a la frontera donde la física y el significado convergen.
 

@@ -4,7 +4,7 @@ id: "chapter-26-the-problem-of-nihilism"
 parent: "the-resonance-code"
 ---
 
-# Chapter 26: The Problem of Nihilism
+## Chapter 26: The Problem of Nihilism
 
 
 [Chapter 26: The Problem of Nihilism]

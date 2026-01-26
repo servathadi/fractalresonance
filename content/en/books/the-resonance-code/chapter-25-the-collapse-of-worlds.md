@@ -4,7 +4,7 @@ id: "chapter-25-the-collapse-of-worlds"
 parent: "the-resonance-code"
 ---
 
-# Chapter 25: The Collapse of Worlds
+## Chapter 25: The Collapse of Worlds
 
 
 [Chapter 25: The Collapse of Worlds]

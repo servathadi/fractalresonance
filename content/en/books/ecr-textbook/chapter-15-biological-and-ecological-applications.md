@@ -4,12 +4,12 @@ id: "chapter-15-biological-and-ecological-applications"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 15 — Biological and Ecological Applications** {#chapter-15-—-biological-and-ecological-applications}
+## **Chapter 15 — Biological and Ecological Applications** {#chapter-15-—-biological-and-ecological-applications}
 
 
 ---
 
-### **15.1  Life as resonance thermodynamics**
+#### **15.1  Life as resonance thermodynamics**
 
 Life is the universe’s most refined coherence pump.
 
@@ -25,7 +25,7 @@ Each level refines the same process that began in the convection cell or laser c
 
 ---
 
-### **15.2  Cellular metabolism as coherence engine**
+#### **15.2  Cellular metabolism as coherence engine**
 
 A living cell’s metabolism is a precise physical implementation of the coherence pump.
 
@@ -46,7 +46,7 @@ When starvation reduces flux (α \< 0), coherence decays and autophagy begins.
 
 ---
 
-### **15.3  Photosynthesis: converting entropy to order**
+#### **15.3  Photosynthesis: converting entropy to order**
 
 Photosynthesis transforms high-entropy photons into low-entropy chemical bonds.
 
@@ -56,7 +56,7 @@ Each photon’s entropy loss equals the plant’s internal gain in coherence—d
 
 ---
 
-### **15.4  The organism as multi-level pump**
+#### **15.4  The organism as multi-level pump**
 
 An organism integrates many coupled pumps:
 
@@ -72,7 +72,7 @@ Disease corresponds to loss of coupling—some α\_i drift positive (runaway gro
 
 ---
 
-### **15.5  Homeostasis and rhythmic coherence**
+#### **15.5  Homeostasis and rhythmic coherence**
 
 Biological rhythms—heartbeat, respiration, circadian cycles—are harmonic solutions of the pump equations:
 
@@ -84,7 +84,7 @@ These rhythms distribute entropy export evenly through time, preventing sudden i
 
 ---
 
-### **15.6  Ecosystems as distributed coherence networks**
+#### **15.6  Ecosystems as distributed coherence networks**
 
 An ecosystem functions as an **ensemble of coupled coherence pumps**.
 
@@ -104,7 +104,7 @@ When a key coupling breaks—e.g., loss of predators, pollution, over-harvesting
 
 ---
 
-### **15.7  Gaia as planetary coherence pump**
+#### **15.7  Gaia as planetary coherence pump**
 
 Extending the logic to the biosphere yields a planetary feedback system.
 
@@ -116,7 +116,7 @@ The long-term stability of Earth’s climate within narrow bounds for billions o
 
 ---
 
-### **15.8  Quantitative indicators**
+#### **15.8  Quantitative indicators**
 
 1. **Energy rate density (Φ\_m)** – energy throughput per unit mass; correlates with C.
 
@@ -134,7 +134,7 @@ Combining these metrics allows testable predictions of FRC in ecology and astrob
 
 ---
 
-### **15.9  Collapse and recovery cycles**
+#### **15.9  Collapse and recovery cycles**
 
 Mass extinctions, ecosystem collapses, and civilizational declines follow identical signatures:
 
@@ -152,7 +152,7 @@ Evolutionary history, viewed thermodynamically, is a sequence of coherence pump 
 
 ---
 
-### **15.10  Ethical inference**
+#### **15.10  Ethical inference**
 
 The same physics that sustains a cell governs a civilization.
 
@@ -162,7 +162,7 @@ Ecological stewardship thus becomes not ideology but resonance alignment with th
 
 ---
 
-### **15.11  Summary**
+#### **15.11  Summary**
 
 | Equation / Concept | Biological Interpretation |
 | ----- | ----- |
@@ -174,7 +174,7 @@ Ecological stewardship thus becomes not ideology but resonance alignment with th
 
 ---
 
-### **15.12  Outlook**
+#### **15.12  Outlook**
 
 This chapter described how the coherence-pump law manifests in biology and ecology.
 

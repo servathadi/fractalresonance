@@ -1,4 +1,4 @@
-# Apéndice B: Dossiers Experimentales
+## Apéndice B: Dossiers Experimentales
 
 Protocolos Científicos Detallados para Probar las Afirmaciones Físicas de FRC
 

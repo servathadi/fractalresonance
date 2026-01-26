@@ -1,4 +1,4 @@
-# Capítulo 1: El Enigma Cuántico {#chapter-1-the-quantum-riddle}
+## Capítulo 1: El Enigma Cuántico {#chapter-1-the-quantum-riddle}
 
 El Fracaso Elegante de la Física Actual
 

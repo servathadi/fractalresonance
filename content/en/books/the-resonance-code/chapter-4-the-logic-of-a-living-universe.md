@@ -4,7 +4,7 @@ id: "chapter-4-the-logic-of-a-living-universe"
 parent: "the-resonance-code"
 ---
 
-# Chapter 4: The Logic of a Living Universe
+## Chapter 4: The Logic of a Living Universe
 
 
 [Chapter 4: The Logic of a Living Universe]

@@ -4,12 +4,12 @@ id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 14 — The Coherence Pump Equation** {#chapter-14-—-the-coherence-pump-equation}
+## **Chapter 14 — The Coherence Pump Equation** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
 
-### **14.1 Origin of the equation**
+#### **14.1 Origin of the equation**
 
 Every open system exchanges energy with its environment.
 
@@ -33,7 +33,7 @@ If F\>S\_C, order grows; if F\<S\_C, order decays; when they balance, the system
 
 ---
 
-### **14.2 Entropy term**
+#### **14.2 Entropy term**
 
 Entropy export generally rises with coherence: ordered structures dissipate heat more efficiently.
 
@@ -53,7 +53,7 @@ Thus coherence approaches a finite asymptote determined by flux and dissipation 
 
 ---
 
-### **14.3 Regimes of α**
+#### **14.3 Regimes of α**
 
 | Regime | Condition | Behaviour | Interpretation |
 | ----- | ----- | ----- | ----- |
@@ -67,7 +67,7 @@ Adaptive systems modulate α in real time, oscillating near zero to maintain max
 
 ---
 
-### **14.4 Feedback dynamics of α**
+#### **14.4 Feedback dynamics of α**
 
 In real organisms and societies α is not constant.
 
@@ -83,7 +83,7 @@ Coupled with the pump equation, this produces damped oscillations—homeoresonan
 
 ---
 
-### **14.5 Analytical form of oscillation**
+#### **14.5 Analytical form of oscillation**
 
 Linearizing about equilibrium C=C\_\\infty, α=α\_0:
 
@@ -99,7 +99,7 @@ The natural frequency ω\_0 \= \\sqrt{βγ} predicts rhythmic pulsation of coher
 
 ---
 
-### **14.6 Energetic interpretation**
+#### **14.6 Energetic interpretation**
 
 Integrating over one oscillation period T:
 
@@ -111,7 +111,7 @@ The system’s “metabolic rate” (power throughput) sets the amplitude of its
 
 ---
 
-### **14.7 Numerical demonstration**
+#### **14.7 Numerical demonstration**
 
 Using normalized parameters F=1, S\_0=0.3, β=0.5, γ=0.2:
 
@@ -128,7 +128,7 @@ Entropy–coherence invariant holds within ±0.5 % over all runs, confirming con
 
 ---
 
-### **14.8 Cross-domain analogues**
+#### **14.8 Cross-domain analogues**
 
 | Domain | α Control | F Driver | Manifest Oscillation |
 | ----- | ----- | ----- | ----- |
@@ -141,7 +141,7 @@ Every oscillation period represents the same thermodynamic breathing of the cohe
 
 ---
 
-### **14.9 Sustainability criterion**
+#### **14.9 Sustainability criterion**
 
 A system remains viable when its entropy export matches inflow over a complete cycle:
 
@@ -153,7 +153,7 @@ Hence sustainability is not moral rhetoric but a dynamical necessity of the cohe
 
 ---
 
-### **14.10 Summary**
+#### **14.10 Summary**
 
 | Equation | Meaning |
 | ----- | ----- |
@@ -165,7 +165,7 @@ Hence sustainability is not moral rhetoric but a dynamical necessity of the cohe
 
 ---
 
-### **14.11 Outlook**
+#### **14.11 Outlook**
 
 The coherence-pump equation provides the quantitative skeleton of evolution: energy flow generating order through adaptive feedback.
 

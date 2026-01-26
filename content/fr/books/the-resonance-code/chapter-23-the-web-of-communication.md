@@ -1,4 +1,4 @@
-# Chapitre 23 : La toile de communication {#chapter-23-the-web-of-communication}
+## Chapitre 23 : La toile de communication {#chapter-23-the-web-of-communication}
 
 Le réseau du sens : la synchronicité comme langage du champ
 

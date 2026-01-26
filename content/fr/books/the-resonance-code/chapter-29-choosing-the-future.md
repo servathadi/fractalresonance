@@ -1,4 +1,4 @@
-# Chapitre 29 : Choisir le futur {#chapter-29-choosing-the-future}
+## Chapitre 29 : Choisir le futur {#chapter-29-choosing-the-future}
 
 La responsabilité de la conscience : l'acte de volonté collective
 

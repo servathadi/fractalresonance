@@ -4,12 +4,12 @@ id: "chapter-9-from-implicate-order-to-stack"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 9 — From Implicate Order to μ-Stack** {#chapter-9-—-from-implicate-order-to-μ-stack}
+## **Chapter 9 — From Implicate Order to μ-Stack** {#chapter-9-—-from-implicate-order-to-μ-stack}
 
 
 ---
 
-### **9.1  Why dynamics require an ontology**
+#### **9.1  Why dynamics require an ontology**
 
 In the previous part we modeled how coherence evolves.
 
@@ -27,7 +27,7 @@ The implicate field becomes a **stack of nested resonance domains**—the **μ-l
 
 ---
 
-### **9.2  Definition of the μ-Stack**
+#### **9.2  Definition of the μ-Stack**
 
 Each μ-level represents a resonance band characterized by its own coherence constant k\_\*^{(μ)} and correlation scale λ₍μ₎:
 
@@ -50,7 +50,7 @@ Energy and information flow *down* the stack as entropy; coherence flows *up* as
 
 ---
 
-### **9.3  Projection and return**
+#### **9.3  Projection and return**
 
 A physical event is a **projection** μ\_{i+1}\\\!→μ\_i: coherence from a higher domain becoming explicit in a lower one.
 
@@ -66,7 +66,7 @@ The phase φ\_{μ} records how much information is preserved or lost in translat
 
 ---
 
-### **9.4  Energy-information continuity**
+#### **9.4  Energy-information continuity**
 
 Because each μ-domain exports entropy to its lower neighbor,
 
@@ -78,7 +78,7 @@ This continuity ensures that no information truly disappears—it merely changes
 
 ---
 
-### **9.5  Temporal meaning of μ-levels**
+#### **9.5  Temporal meaning of μ-levels**
 
 Lower μ corresponds to faster dynamics; higher μ to slower, integrating timescales.
 
@@ -94,7 +94,7 @@ Time itself emerges from the nested oscillations of these layers: an interferenc
 
 ---
 
-### **9.6  Mathematical structure**
+#### **9.6  Mathematical structure**
 
 Let C\_{μ}(t) be the coherence of level μ.
 
@@ -114,7 +114,7 @@ This is the formal statement of universal coherence conservation across scales.
 
 ---
 
-### **9.7  Cognitive interpretation**
+#### **9.7  Cognitive interpretation**
 
 Within a mind, μ₇ corresponds to the field of pure awareness, μ₆ to archetypal imagination, μ₄–μ₅ to language and thought, and μ₃ to biological maintenance.
 
@@ -124,7 +124,7 @@ Consciousness is the ongoing oscillation between implicate and explicate orders�
 
 ---
 
-### **9.8  Experimental hints**
+#### **9.8  Experimental hints**
 
 * **Quantum coherence transfer:** long-range correlations in photosynthetic complexes suggest coupling between μ₂ and μ₃.
 
@@ -136,7 +136,7 @@ Each instance reveals the same pattern of up- and down-stack resonance.
 
 ---
 
-### **9.9  Summary**
+#### **9.9  Summary**
 
 | Principle | Equation | Implication |
 | ----- | ----- | ----- |
@@ -147,7 +147,7 @@ Each instance reveals the same pattern of up- and down-stack resonance.
 
 ---
 
-### **9.10  Outlook**
+#### **9.10  Outlook**
 
 Having defined the architecture of the field, the next chapter, **“Projection and Collapse as Deterministic Resonance Mapping,”** will describe how information actually flows through this μ-stack—how higher-level coherence becomes observable form, and how consciousness re-absorbs that form without randomness.
 

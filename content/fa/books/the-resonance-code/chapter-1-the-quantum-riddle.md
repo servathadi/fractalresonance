@@ -1,4 +1,4 @@
-# فصل ۱: معمای کوانتومی {#chapter-1-the-quantum-riddle}
+## فصل ۱: معمای کوانتومی {#chapter-1-the-quantum-riddle}
 
 شکستِ باشکوهِ فیزیک فعلی
 

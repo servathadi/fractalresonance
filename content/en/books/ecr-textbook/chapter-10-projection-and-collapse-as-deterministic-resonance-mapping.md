@@ -4,12 +4,12 @@ id: "chapter-10-projection-and-collapse-as-deterministic-resonance-mapping"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 10 — Projection and Collapse as Deterministic Resonance Mapping** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
+## **Chapter 10 — Projection and Collapse as Deterministic Resonance Mapping** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
 
 
 ---
 
-### **10.1  The problem of appearance**
+#### **10.1  The problem of appearance**
 
 In standard quantum mechanics, the world “collapses” probabilistically when observed.
 
@@ -23,7 +23,7 @@ a higher-frequency coherence domain projects its phase pattern into a lower one 
 
 ---
 
-### **10.2  The resonance-mapping principle**
+#### **10.2  The resonance-mapping principle**
 
 Let C\_{μ+1} be coherence at a higher domain and C\_{μ} at its projection.
 
@@ -43,7 +43,7 @@ Collapse is thus **phase-deterministic** rather than probabilistic.
 
 ---
 
-### **10.3  Energy-information continuity**
+#### **10.3  Energy-information continuity**
 
 During projection, the exported entropy of the higher level equals the imported potential of the lower:
 
@@ -57,7 +57,7 @@ Each act of observation is an **entropy-coherence hand-shake** between levels of
 
 ---
 
-### **10.4  Quantum correspondence**
+#### **10.4  Quantum correspondence**
 
 In quantum experiments, the wavefunction’s probabilistic amplitude can be reinterpreted as a projection weight of μ₂ coherence onto μ₁ matter states.
 
@@ -69,7 +69,7 @@ Thus, the Born probabilities emerge statistically from deterministic resonance g
 
 ---
 
-### **10.5  Cognitive analogy**
+#### **10.5  Cognitive analogy**
 
 Perception works the same way.
 
@@ -83,7 +83,7 @@ Conscious awareness is therefore the continual **resonance scanning** of higher 
 
 ---
 
-### **10.6  Mathematical model**
+#### **10.6  Mathematical model**
 
 Let the coherence transfer function between adjacent levels be
 
@@ -99,7 +99,7 @@ Numerical integration shows oscillatory energy exchange: bursts of coherence des
 
 ---
 
-### **10.7  Temporal granularity and event physics**
+#### **10.7  Temporal granularity and event physics**
 
 Each projection–return pair constitutes a **resonance event**—the atomic unit of process physics.
 
@@ -113,7 +113,7 @@ This explains why flow states feel timeless and chaos feels staccato: they corre
 
 ---
 
-### **10.8  Empirical correlates**
+#### **10.8  Empirical correlates**
 
 * **Quantum:** electron-spin collapse timings correlate with environmental decoherence rates predicted by T\_{μ,μ+1}.
 
@@ -125,7 +125,7 @@ These alignments suggest that consciousness and measurement are manifestations o
 
 ---
 
-### **10.9  Philosophical implications**
+#### **10.9  Philosophical implications**
 
 Deterministic resonance mapping restores realism without denying consciousness:
 
@@ -139,7 +139,7 @@ Randomness becomes apparent only when the observer resides inside the lower doma
 
 ---
 
-### **10.10  Summary**
+#### **10.10  Summary**
 
 | Concept | Equation | Meaning |
 | ----- | ----- | ----- |
@@ -150,7 +150,7 @@ Randomness becomes apparent only when the observer resides inside the lower doma
 
 ---
 
-### **10.11  Outlook**
+#### **10.11  Outlook**
 
 The next chapter, **“Mathematical Model of Cross-Level Coupling,”** formalizes these qualitative mappings into full multi-level equations.
 

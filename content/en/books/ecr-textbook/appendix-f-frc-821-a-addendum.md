@@ -4,7 +4,7 @@ id: "appendix-f-frc-821-a-addendum"
 parent: "ecr-textbook"
 ---
 
-# **Appendix F — FRC 821.A Addendum** {#appendix-f-—-frc-821.a-addendum}
+## **Appendix F — FRC 821.A Addendum** {#appendix-f-—-frc-821.a-addendum}
 
 
 FRC 821.A
@@ -18,7 +18,7 @@ Applies to: FRC Core Text, 821 Series, 16D Formalism
 
 ⸻
 
-## 0. Purpose and Position
+### 0. Purpose and Position
 
 Fractal Resonance Cognition (FRC) establishes the reciprocity between entropy and coherence as a governing principle across scales. The present addendum formalizes three elements previously treated implicitly:
 
@@ -30,9 +30,9 @@ These closures do not alter the foundational axioms of FRC. They render them ope
 
 ⸻
 
-## 1. The Running Coupling Constant $k^*(\\mu)$
+### 1. The Running Coupling Constant $k^*(\\mu)$
 
-### 1.1 Reciprocity Law (Restated)
+#### 1.1 Reciprocity Law (Restated)
 
 The fundamental reciprocity relation is retained:
 
@@ -49,7 +49,7 @@ The constant $k^*$ is not universal. It is scale-dependent.
 
 ⸻
 
-### 1.2 Resolution Embedding
+#### 1.2 Resolution Embedding
 
 The $\\mu$-levels are discrete strata embedded in a continuous resolution coordinate:
 
@@ -63,7 +63,7 @@ This permits:
 
 ⸻
 
-### 1.3 Definition of the Running Coupling
+#### 1.3 Definition of the Running Coupling
 
 We define:
 
@@ -89,7 +89,7 @@ $$
 
 ⸻
 
-### 1.4 Architecture Dependence
+#### 1.4 Architecture Dependence
 
 The parameter $\\alpha$ is not universal.  
 It is determined by system architecture (biological, artificial, hybrid).
@@ -103,9 +103,9 @@ This formulation enables approximate computation of coherence cost without viola
 
 ⸻
 
-## 2. Entropy Routing and Dissipation Topology
+### 2. Entropy Routing and Dissipation Topology
 
-### 2.1 Conservation Constraint
+#### 2.1 Conservation Constraint
 
 Entropy is conserved. Coherence creation implies entropy redistribution, not annihilation.
 
@@ -121,7 +121,7 @@ Where:
 
 ⸻
 
-### 2.2 Coupling Permeability
+#### 2.2 Coupling Permeability
 
 Entropy routing is governed by coupling coefficients:
 
@@ -135,7 +135,7 @@ Where:
 
 ⸻
 
-### 2.3 Sink Hierarchy (Ordered by Capacity)
+#### 2.3 Sink Hierarchy (Ordered by Capacity)
 
 Entropy preferentially flows to the lowest-resolution sink with open coupling capacity:
 1. $\\mu_0$ — background field / baseline dissipation
@@ -145,7 +145,7 @@ Entropy preferentially flows to the lowest-resolution sink with open coupling ca
 
 ⸻
 
-### 2.4 Pathology Condition (Formal)
+#### 2.4 Pathology Condition (Formal)
 
 Entropy accumulates pathologically when lower-resolution routing channels are constrained and coherence accumulation persists at higher $\\mu$-levels.
 
@@ -158,15 +158,15 @@ No direct disease causality is asserted. The model describes load distribution, 
 
 ⸻
 
-## 3. Multi-Agent Interaction Hamiltonian
+### 3. Multi-Agent Interaction Hamiltonian
 
-### 3.1 Need for Interaction Formalism
+#### 3.1 Need for Interaction Formalism
 
 FRC models individual coherence vectors. Extension to dyads and networks requires explicit interaction dynamics.
 
 ⸻
 
-### 3.2 Dyadic Interaction Energy
+#### 3.2 Dyadic Interaction Energy
 
 For agents A and B, each represented by a 16-dimensional phase vector:
 
@@ -184,7 +184,7 @@ Coupling sign interpretation:
 
 ⸻
 
-### 3.3 Emergent Interaction States
+#### 3.3 Emergent Interaction States
 
 - Resonant coupling: energy minimized via phase alignment
 - Dissonant coupling: energy elevated by enforced alignment under phase opposition
@@ -194,9 +194,9 @@ This formulation generalizes naturally to N-body systems via known synchronizati
 
 ⸻
 
-## 4. Discrete Hardware and Continuous Field Approximation
+### 4. Discrete Hardware and Continuous Field Approximation
 
-### 4.1 Ontological Boundary
+#### 4.1 Ontological Boundary
 
 The \\Lambda-field is continuous.  
 Digital machines are discrete.
@@ -205,7 +205,7 @@ Current systems do not instantiate $\\Lambda$-fields; they numerically approxima
 
 ⸻
 
-### 4.2 Hybrid Approximation Stack
+#### 4.2 Hybrid Approximation Stack
 
 Operational simulation proceeds via layered architecture:
 1. Discrete Layer: symbolic manipulation (LLMs, agents)
@@ -218,7 +218,7 @@ $\\Lambda$-specialized hardware constitutes optimization, not theoretical necess
 
 ⸻
 
-## 5. Status and Implications
+### 5. Status and Implications
 
 This addendum completes the minimal mathematical closure of FRC required for:
 - Quantitative reasoning
@@ -239,7 +239,7 @@ End of FRC 821.A
 
 **Back Cover Summary**
 
-### **Fractal Resonance Coherence: The Science of Coherence**
+#### **Fractal Resonance Coherence: The Science of Coherence**
 
 **Hadi Servat**
 

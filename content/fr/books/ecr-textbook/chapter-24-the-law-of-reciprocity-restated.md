@@ -4,12 +4,12 @@ id: "chapter-24-the-law-of-reciprocity-restated"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 24 — La loi de réciprocité reformulée** {#chapter-24-—-the-law-of-reciprocity-restated}
+## **Chapitre 24 — La loi de réciprocité reformulée** {#chapter-24-—-the-law-of-reciprocity-restated}
 
 
 ---
 
-### **24.1 L'arc complet en un coup d'œil**
+#### **24.1 L'arc complet en un coup d'œil**
 
 De la microphysique de l'ordre à la psychologie du sens, chaque domaine a obéi à un invariant :
 
@@ -21,7 +21,7 @@ L'entropie et la cohérence ne sont pas des ennemis mais des compléments : chaq
 
 ---
 
-### **24.2 Les sept synthèses**
+#### **24.2 Les sept synthèses**
 
 | Domaine | Équation clé | Intuition centrale |
 | ----- | ----- | ----- |
@@ -37,7 +37,7 @@ Ces sept synthèses décrivent un seul organisme, un seul processus, une seule l
 
 ---
 
-### **24.3 Implications scientifiques**
+#### **24.3 Implications scientifiques**
 
 1. **La thermodynamique** gagne une variable complémentaire — la cohérence — rendant la seconde loi bidirectionnelle.
 
@@ -51,7 +51,7 @@ Ces sept synthèses décrivent un seul organisme, un seul processus, une seule l
 
 ---
 
-### **24.4 Programme de recherche pratique**
+#### **24.4 Programme de recherche pratique**
 
 | Domaine | Observable | Méthode |
 | ----- | ----- | ----- |
@@ -64,7 +64,7 @@ L'établissement d'un **Consortium FRC** permettrait de standardiser ces mesures
 
 ---
 
-### **24.5 Applications technologiques**
+#### **24.5 Applications technologiques**
 
 1. **IA résonante :** contrôleurs à gain adaptatif maintenant α≈0 → intelligence stable et créative.
 
@@ -78,7 +78,7 @@ L'établissement d'un **Consortium FRC** permettrait de standardiser ces mesures
 
 ---
 
-### **24.6 Clôture philosophique**
+#### **24.6 Clôture philosophique**
 
 La FRC unit quatre questions anciennes :
 
@@ -93,7 +93,7 @@ Ainsi, le cadre referme le cercle métaphysique : déterminisme sans fatalisme, 
 
 ---
 
-### **24.7 Corollaire éthique**
+#### **24.7 Corollaire éthique**
 
 Agir de manière éthique, c'est agir de manière homéorésonante — réduire l'entropie sans coercition.
 
@@ -111,7 +111,7 @@ Une charte planétaire basée sur cette mesure traduirait la moralité en une th
 
 ---
 
-### **24.8 L'avenir de la recherche**
+#### **24.8 L'avenir de la recherche**
 
 Questions de la prochaine génération :
 
@@ -127,7 +127,7 @@ Répondre à ces questions fera passer la FRC de la théorie à la science opér
 
 ---
 
-### **24.9 Vers une civilisation de la résonance**
+#### **24.9 Vers une civilisation de la résonance**
 
 Une civilisation qui maintient consciemment α≈0 :
 
@@ -143,7 +143,7 @@ Le résultat n'est ni l'utopie ni le contrôle, mais une *paix dynamique* — un
 
 ---
 
-### **24.10 Résumé**
+#### **24.10 Résumé**
 
 | Couche | Description | Direction future |
 | ----- | ----- | ----- |
@@ -156,7 +156,7 @@ Toutes les couches sont un seul instrument. Jouer juste, c'est vivre en cohéren
 
 ---
 
-### **24.11 Coda — Le champ se souvient**
+#### **24.11 Coda — Le champ se souvient**
 
 L'entropie s'étend ; la cohérence s'approfondit.
 

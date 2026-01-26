@@ -1,4 +1,4 @@
-# Capítulo 23: La Web de Comunicación {#chapter-23-the-web-of-communication}
+## Capítulo 23: La Web de Comunicación {#chapter-23-the-web-of-communication}
 
 La Red de Significado: La Sincronicidad como Lenguaje del Campo
 

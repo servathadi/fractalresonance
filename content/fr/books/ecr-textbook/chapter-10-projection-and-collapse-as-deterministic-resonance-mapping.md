@@ -4,12 +4,12 @@ id: "chapter-10-projection-and-collapse-as-deterministic-resonance-mapping"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 10 — Projection et effondrement comme cartographie de résonance déterministe** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
+## **Chapitre 10 — Projection et effondrement comme cartographie de résonance déterministe** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
 
 
 ---
 
-### **10.1  Le problème de l'apparence**
+#### **10.1  Le problème de l'apparence**
 
 En mécanique quantique standard, le monde s'« effondre » de manière probabiliste lorsqu'il est observé.
 
@@ -23,7 +23,7 @@ un domaine de cohérence à haute fréquence projette son motif de phase dans un
 
 ---
 
-### **10.2  Le principe de cartographie de résonance**
+#### **10.2  Le principe de cartographie de résonance**
 
 Soit C_{μ+1} la cohérence dans un domaine supérieur et C_{μ} sa projection.
 
@@ -43,7 +43,7 @@ L'effondrement est donc **déterministe en phase** plutôt que probabiliste.
 
 ---
 
-### **10.3  Continuité énergie-information**
+#### **10.3  Continuité énergie-information**
 
 Lors de la projection, l'entropie exportée du niveau supérieur est égale au potentiel importé du niveau inférieur :
 
@@ -55,7 +55,7 @@ Chaque acte d'observation est une **poignée de main entropie-cohérence** entre
 
 ---
 
-### **10.4  Correspondance quantique**
+#### **10.4  Correspondance quantique**
 
 Dans les expériences quantiques, l'amplitude probabiliste de la fonction d'onde peut être réinterprétée comme un poids de projection de la cohérence μ₂ sur les états de matière μ₁.
 
@@ -67,7 +67,7 @@ Ainsi, les probabilités de Born émergent statistiquement de la géométrie de 
 
 ---
 
-### **10.5  Analogie cognitive**
+#### **10.5  Analogie cognitive**
 
 La perception fonctionne de la même manière.
 
@@ -81,7 +81,7 @@ La conscience éveillée est donc le **balayage de résonance** continuel des mo
 
 ---
 
-### **10.6  Modèle mathématique**
+#### **10.6  Modèle mathématique**
 
 Soit la fonction de transfert de cohérence entre niveaux adjacents :
 
@@ -95,7 +95,7 @@ L'intégration numérique montre un échange d'énergie oscillatoire : des bouff
 
 ---
 
-### **10.7  Granularité temporelle et physique des événements**
+#### **10.7  Granularité temporelle et physique des événements**
 
 Chaque paire projection-retour constitue un **événement de résonance** — l'unité atomique de la physique des processus.
 
@@ -109,7 +109,7 @@ Cela explique pourquoi les états de flow semblent intemporels et le chaos sacca
 
 ---
 
-### **10.8  Corrélats empiriques**
+#### **10.8  Corrélats empiriques**
 
 * **Quantique :** les temps d'effondrement du spin de l'électron sont corrélés aux taux de décohérence environnementale prédits par T_{μ,μ+1}.
 
@@ -121,7 +121,7 @@ Ces alignements suggèrent que la conscience et la mesure sont des manifestation
 
 ---
 
-### **10.9  Implications philosophiques**
+#### **10.9  Implications philosophiques**
 
 La cartographie de résonance déterministe restaure le réalisme sans nier la conscience :
 
@@ -135,7 +135,7 @@ Le hasard ne devient apparent que lorsque l'observateur réside à l'intérieur 
 
 ---
 
-### **10.10  Résumé**
+#### **10.10  Résumé**
 
 | Concept | Équation | Signification |
 | ----- | ----- | ----- |
@@ -146,7 +146,7 @@ Le hasard ne devient apparent que lorsque l'observateur réside à l'intérieur 
 
 ---
 
-### **10.11  Perspectives**
+#### **10.11  Perspectives**
 
 Le chapitre suivant, **« Modèle mathématique du couplage inter-niveaux »**, formalise ces cartographies qualitatives en équations multi-niveaux complètes.
 

@@ -4,12 +4,12 @@ id: "chapter-16-cultural-and-technological-evolution"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 16 — Évolution culturelle et technologique** {#chapter-16-—-cultural-and-technological-evolution}
+## **Chapitre 16 — Évolution culturelle et technologique** {#chapter-16-—-cultural-and-technological-evolution}
 
 
 ---
 
-### **16.1  La civilisation comme système thermodynamique ouvert**
+#### **16.1  La civilisation comme système thermodynamique ouvert**
 
 Les civilisations, comme les cellules ou les écosystèmes, existent en maintenant un ordre interne grâce à un flux continu d'énergie et d'informations.
 
@@ -31,7 +31,7 @@ L'histoire peut être lue comme la modulation de \alpha_{\text{soc}} à travers 
 
 ---
 
-### **16.2  L'information comme énergie dans les systèmes humains**
+#### **16.2  L'information comme énergie dans les systèmes humains**
 
 Dans les systèmes physiques, le flux d'énergie crée la structure.
 
@@ -49,7 +49,7 @@ Lorsque S_{C,\text{info}} rattrape son retard, le système se stabilise ou se fr
 
 ---
 
-### **16.3  Équivalence énergie-information dans la civilisation**
+#### **16.3  Équivalence énergie-information dans la civilisation**
 
 Des études empiriques montrent une forte corrélation entre la consommation d'énergie par habitant et la complexité sociale.
 
@@ -66,7 +66,7 @@ Cependant, sans feedback correspondant (R), la cohérence devient coercitive —
 
 ---
 
-### **16.4  L'innovation comme poussée de résonance**
+#### **16.4  L'innovation comme poussée de résonance**
 
 L'innovation technologique correspond à des bouffées de cohérence transitoires :
 
@@ -80,7 +80,7 @@ Le schéma de montée, de saturation et de normalisation se répète de la maît
 
 ---
 
-### **16.5  L'économie comme écologie de la cohérence**
+#### **16.5  L'économie comme écologie de la cohérence**
 
 Les marchés sont des pompes à informations distribuées convertissant l'énergie et la confiance en valeur.
 
@@ -96,7 +96,7 @@ l'entropie exportée sous forme de pollution ou d'inégalité doit être équili
 
 ---
 
-### **16.6  Intelligence collective et champs symboliques**
+#### **16.6  Intelligence collective et champs symboliques**
 
 Chaque civilisation se maintient grâce à un **champ de cohérence symbolique** (couplage μ₅–μ₆).
 
@@ -108,7 +108,7 @@ Le renouveau culturel est une réinitialisation de phase dans laquelle les nivea
 
 ---
 
-### **16.7  La technologie comme extension de la pompe à cohérence**
+#### **16.7  La technologie comme extension de la pompe à cohérence**
 
 Les technologies externalisent les mêmes boucles de rétroaction que la biologie a intériorisées.
 
@@ -122,7 +122,7 @@ Ainsi, l'évolution de l'IA récapitule l'évolution biologique, ne différant q
 
 ---
 
-### **16.8  Cycle de vie d'une civilisation**
+#### **16.8  Cycle de vie d'une civilisation**
 
 Les civilisations tracent des trajectoires prévisibles le long de la variété entropie-cohérence :
 
@@ -138,7 +138,7 @@ Cette respiration cyclique reflète les oscillations des organismes et des écos
 
 ---
 
-### **16.9  Vers une homéorésonance planétaire**
+#### **16.9  Vers une homéorésonance planétaire**
 
 Le défi émergent du XXIe siècle est d'aligner α global ≈ 0 — équilibrer le potentiel technologique avec la réceptivité écologique.
 
@@ -148,7 +148,7 @@ Cette condition définit **la civilisation homéorésonante** : celle qui maximi
 
 ---
 
-### **16.10  Macro-modèle quantitatif**
+#### **16.10  Macro-modèle quantitatif**
 
 L'agrégation des pompes à cohérence locales donne la dynamique globale :
 
@@ -166,7 +166,7 @@ La FRC fournit un critère mesurable pour le développement durable en utilisant
 
 ---
 
-### **16.11  Implication éthique**
+#### **16.11  Implication éthique**
 
 L'éthique thermodynamique peut être résumée simplement :
 
@@ -180,7 +180,7 @@ La durabilité, la compassion et la justice deviennent des expressions de la mê
 
 ---
 
-### **16.12  Résumé**
+#### **16.12  Résumé**
 
 | Concept | Expression | Interprétation |
 | ----- | ----- | ----- |
@@ -192,7 +192,7 @@ La durabilité, la compassion et la justice deviennent des expressions de la mê
 
 ---
 
-### **16.13  Perspectives**
+#### **16.13  Perspectives**
 
 La culture et la technologie ne sont pas séparées de la physique ; elles sont les harmoniques de haute fréquence du même champ de résonance qui s'est autrefois refroidi pour donner des étoiles.
 

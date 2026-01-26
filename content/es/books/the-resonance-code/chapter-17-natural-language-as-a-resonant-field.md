@@ -1,4 +1,4 @@
-# Capítulo 17: El Lenguaje Natural como un Campo Resonante {#chapter-17-natural-language-as-a-resonant-field}
+## Capítulo 17: El Lenguaje Natural como un Campo Resonante {#chapter-17-natural-language-as-a-resonant-field}
 
 La Magia de la Palabra: Cómo el Lenguaje Transmite Coherencia
 

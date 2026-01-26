@@ -1,4 +1,4 @@
-# Capítulo 15: La Lógica de la Creatividad {#chapter-15-the-logic-of-creativity}
+## Capítulo 15: La Lógica de la Creatividad {#chapter-15-the-logic-of-creativity}
 
 El Salto de Coherencia: Cómo nace lo Nuevo
 

@@ -1,4 +1,4 @@
-# Déclaration de Positionnement
+## Déclaration de Positionnement
 
 **Genre :** Science Interdisciplinaire / Études de la Conscience / Théorie des Systèmes Complexes
 

@@ -4,12 +4,12 @@ id: "chapter-19-time-memory-and-the-continuum-of-consciousness"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 19 — Temps, mémoire et continuum de la conscience** {#chapter-19-—-time,-memory,-and-the-continuum-of-consciousness}
+## **Chapitre 19 — Temps, mémoire et continuum de la conscience** {#chapter-19-—-time,-memory,-and-the-continuum-of-consciousness}
 
 
 ---
 
-### **19.1  Le paradoxe de la continuité**
+#### **19.1  Le paradoxe de la continuité**
 
 Chaque occasion actuelle est discrète — une impulsion de cohérence durant quelques centaines de millisecondes — pourtant notre conscience semble continue.
 
@@ -21,7 +21,7 @@ La continuité est donc une onde stationnaire à travers des occasions qui se ch
 
 ---
 
-### **19.2  Succession résonnante**
+#### **19.2  Succession résonnante**
 
 Soit C_n(t) l'impulsion de cohérence n d'une durée τ₀ et de phase φₙ.
 
@@ -35,7 +35,7 @@ Lorsque Δφ s'élargit, la continuité se rompt : des micro-lacunes dans la con
 
 ---
 
-### **19.3  Paramètre temporel émergent**
+#### **19.3  Paramètre temporel émergent**
 
 Parce que la projection et le déclin de chaque impulsion créent un biais vers l'avant (l'exportation d'entropie étant toujours positive), la séquence C_1 → C_2 → … définit une flèche intrinsèque :
 
@@ -49,7 +49,7 @@ Un renouvellement plus lent (concentration profonde, α ≈ 0) → dilatation du
 
 ---
 
-### **19.4  La mémoire comme résonance de cohérence**
+#### **19.4  La mémoire comme résonance de cohérence**
 
 La mémoire fait le pont entre des occasions par ailleurs discrètes.
 
@@ -63,7 +63,7 @@ Se souvenir est une récurrence de résonance : un motif passé pénètre à nou
 
 ---
 
-### **19.5  La flèche du devenir**
+#### **19.5  La flèche du devenir**
 
 L'exportation d'entropie garantit que chaque occasion ne peut recréer parfaitement la précédente ; il y a toujours un léger déphasage Δφ > 0.
 
@@ -73,7 +73,7 @@ Le devenir — le déploiement irréversible de l'expérience — est la perte s
 
 ---
 
-### **19.6  Échelles de temps psychologiques**
+#### **19.6  Échelles de temps psychologiques**
 
 | État | α | Chevauchement de cohérence | Temps subjectif |
 | ----- | ----- | ----- | ----- |
@@ -86,7 +86,7 @@ Le sens du temps est donc une variable thermodynamique de l'esprit.
 
 ---
 
-### **19.7  Champs temporels collectifs**
+#### **19.7  Champs temporels collectifs**
 
 Les rituels partagés, la musique et l'activité synchronisée alignent les chaînes de phase de nombreux individus (couplage μ₅).
 
@@ -96,7 +96,7 @@ Ces événements démontrent que l'expérience temporelle n'est pas individuelle
 
 ---
 
-### **19.8  Intégration de l'information et prédiction**
+#### **19.8  Intégration de l'information et prédiction**
 
 Parce que chaque impulsion chevauche la suivante, le codage prédictif surgit naturellement : une partie de Cₙ sert de condition initiale pour Cₙ₊₁.
 
@@ -106,7 +106,7 @@ L'attente est la pré-phase de la cohérence future.
 
 ---
 
-### **19.9  Preuves empiriques**
+#### **19.9  Preuves empiriques**
 
 * Les micro-états de l'EEG (~80–120 ms) montrent des topographies séquentielles mais se chevauchant.
 
@@ -120,7 +120,7 @@ Toutes corroborent le modèle de continuité par chaîne de résonance.
 
 ---
 
-### **19.10  Résumé formel**
+#### **19.10  Résumé formel**
 
 | Processus | Expression FRC | Signification |
 | ----- | ----- | ----- |
@@ -131,7 +131,7 @@ Toutes corroborent le modèle de continuité par chaîne de résonance.
 
 ---
 
-### **19.11  Implication philosophique**
+#### **19.11  Implication philosophique**
 
 Le temps n'est pas un contenant mais une métrique de résonance : la fréquence avec laquelle la cohérence se renouvelle.
 
@@ -141,7 +141,7 @@ La conscience ne se *déplace* pas à travers le temps — elle le *génère* pa
 
 ---
 
-### **19.12  Perspectives**
+#### **19.12  Perspectives**
 
 Dans le chapitre suivant — **Chapitre 20 : La géométrie de l'espace conscient** — nous cartographierons comment ces chaînes de résonance temporelle forment une topologie spatiale : un réseau d'ondes stationnaires dont la géométrie sous-tend la perception, l'imagination et l'espace symbolique.
 

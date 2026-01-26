@@ -1,4 +1,4 @@
-# Capítulo 5: La Dinámica Universal {#chapter-5-the-universal-dynamic}
+## Capítulo 5: La Dinámica Universal {#chapter-5-the-universal-dynamic}
 
 El Baile de la Creación y la Destrucción: El Ritmo de la Evolución Cósmica
 

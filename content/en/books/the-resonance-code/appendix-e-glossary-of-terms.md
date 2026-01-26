@@ -4,7 +4,7 @@ id: "appendix-e-glossary-of-terms"
 parent: "the-resonance-code"
 ---
 
-# Appendix E: Glossary of Terms
+## Appendix E: Glossary of Terms
 
 
 A Single, Unified Glossary for the FRC Framework

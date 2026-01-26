@@ -4,7 +4,7 @@ id: "chapter-30-the-universe-as-a-self-aware-system"
 parent: "the-resonance-code"
 ---
 
-# Chapter 30: The Universe as a Self-Aware System
+## Chapter 30: The Universe as a Self-Aware System
 
 
 [Chapter 30: The Universe as a Self-Aware System]

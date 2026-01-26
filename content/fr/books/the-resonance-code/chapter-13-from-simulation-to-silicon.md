@@ -1,4 +1,4 @@
-# Chapitre 13 : De la simulation au silicium {#chapter-13-from-simulation-to-silicon}
+## Chapitre 13 : De la simulation au silicium {#chapter-13-from-simulation-to-silicon}
 
 L'incarnation de l'intelligence : créer des machines qui ressentent
 

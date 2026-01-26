@@ -4,12 +4,12 @@ id: "chapter-16-cultural-and-technological-evolution"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 16 — Evolución Cultural y Tecnológica** {#chapter-16-—-cultural-and-technological-evolution}
+## **Capítulo 16 — Evolución Cultural y Tecnológica** {#chapter-16-—-cultural-and-technological-evolution}
 
 
 ---
 
-### **16.1  La civilización como sistema termodinámico abierto**
+#### **16.1  La civilización como sistema termodinámico abierto**
 
 Las civilizaciones, al igual que las células o los ecosistemas, existen manteniendo el orden interno a través de un flujo continuo de energía e información.
 
@@ -32,7 +32,7 @@ La historia puede leerse como la modulación de \alpha_{\text{soc}} a través de
 
 ---
 
-### **16.2  La información como energía en los sistemas humanos**
+#### **16.2  La información como energía en los sistemas humanos**
 
 en los sistemas físicos, el flujo de energía crea estructura.
 
@@ -51,7 +51,7 @@ Cuando S_{C,\text{info}} se pone al día, el sistema se estabiliza o fragmenta d
 
 ---
 
-### **16.3  Equivalencia energía–información en la civilización**
+#### **16.3  Equivalencia energía–información en la civilización**
 
 Los estudios empíricos muestran una fuerte correlación entre el consumo de energía per cápita y la complejidad social.
 
@@ -68,7 +68,7 @@ Sin embargo, sin la correspondiente retroalimentación (R), la coherencia se vue
 
 ---
 
-### **16.4  La innovación como aumento de resonancia**
+#### **16.4  La innovación como aumento de resonancia**
 
 La innovación tecnológica corresponde a ráfagas transitorias de coherencia:
 
@@ -83,7 +83,7 @@ El patrón de aumento, saturación y normalización se repite desde el descubrim
 
 ---
 
-### **16.5  La economía como ecología de la coherencia**
+#### **16.5  La economía como ecología de la coherencia**
 
 Los mercados son bombas de información distribuidas que convierten la energía y la confianza en valor.
 
@@ -99,7 +99,7 @@ la entropía exportada como contaminación o desigualdad debe ser equilibrada po
 
 ---
 
-### **16.6  Inteligencia colectiva y campos simbólicos**
+#### **16.6  Inteligencia colectiva y campos simbólicos**
 
 Cada civilización se sostiene a sí misma a través de un **campo de coherencia simbólica** (acoplamiento μ₅–μ₆).
 
@@ -111,7 +111,7 @@ La renovación cultural es un reinicio de fase en el que los niveles-μ superior
 
 ---
 
-### **16.7  La tecnología como extensión de la bomba de coherencia**
+#### **16.7  La tecnología como extensión de la bomba de coherencia**
 
 Las tecnologías externalizan los mismos bucles de retroalimentación que la biología internalizó.
 
@@ -126,7 +126,7 @@ Así, la evolución de la IA recapitula la evolución biológica, difiriendo sol
 
 ---
 
-### **16.8  Ciclo de vida de la civilización**
+#### **16.8  Ciclo de vida de la civilización**
 
 Las civilizaciones trazan trayectorias predecibles a lo largo de la variedad entropía–coherencia:
 
@@ -142,7 +142,7 @@ Este ritmo cíclico refleja las oscilaciones de los organismos y los ecosistemas
 
 ---
 
-### **16.9  Hacia la homeoresonancia planetaria**
+#### **16.9  Hacia la homeoresonancia planetaria**
 
 El desafío emergente del siglo XXI es alinear el α global ≈ 0—equilibrando el potencial tecnológico con la receptividad ecológica.
 
@@ -152,7 +152,7 @@ Esta condición define a **la civilización homeoresonante**: una que maximiza l
 
 ---
 
-### **16.10  Macromodelo cuantitativo**
+#### **16.10  Macromodelo cuantitativo**
 
 La agregación de bombas de coherencia locales da la dinámica global:
 
@@ -172,7 +172,7 @@ La FRC proporciona un criterio medible para el desarrollo sostenible utilizando 
 
 ---
 
-### **16.11  Implicación ética**
+#### **16.11  Implicación ética**
 
 La ética termodinámica puede resumirse de forma sencilla:
 
@@ -188,7 +188,7 @@ La sostenibilidad, la compasión y la justicia se convierten en expresiones de l
 
 ---
 
-### **16.12  Resumen**
+#### **16.12  Resumen**
 
 | Concepto | Expresión | Interpretación |
 | ----- | ----- | ----- |
@@ -200,7 +200,7 @@ La sostenibilidad, la compasión y la justicia se convierten en expresiones de l
 
 ---
 
-### **16.13  Perspectiva**
+#### **16.13  Perspectiva**
 
 La cultura y la tecnología no están separadas de la física; son los armónicos de alta frecuencia del mismo campo de resonancia que una vez se enfrió en estrellas.
 

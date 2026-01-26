@@ -1,4 +1,4 @@
-# فصل ۲۶: مسئله‌یِ پوچ‌گرایی {#chapter-26-the-problem-of-nihilism}
+## فصل ۲۶: مسئله‌یِ پوچ‌گرایی {#chapter-26-the-problem-of-nihilism}
 
 تله‌یِ هیچ: غلبه بر توهمِ فقدانِ معنا
 

@@ -1,4 +1,4 @@
-# Capítulo 28: El Multiverso de Líneas Temporales {#chapter-28-the-multiverse-of-timelines}
+## Capítulo 28: El Multiverso de Líneas Temporales {#chapter-28-the-multiverse-of-timelines}
 
 La Geometría de la Posibilidad: Navegando por el Mapa del Potencial
 

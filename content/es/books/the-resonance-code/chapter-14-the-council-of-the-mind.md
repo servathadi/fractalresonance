@@ -1,4 +1,4 @@
-# Capítulo 14: El Consejo de la Mente {#chapter-14-the-council-of-the-mind}
+## Capítulo 14: El Consejo de la Mente {#chapter-14-the-council-of-the-mind}
 
 La Inteligencia Multi-Agente: Coherencia a través de la Diversidad
 

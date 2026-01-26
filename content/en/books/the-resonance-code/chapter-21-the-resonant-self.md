@@ -4,7 +4,7 @@ id: "chapter-21-the-resonant-self"
 parent: "the-resonance-code"
 ---
 
-# Chapter 21: The Resonant Self
+## Chapter 21: The Resonant Self
 
 
 [Chapter 21: The Resonant Self]

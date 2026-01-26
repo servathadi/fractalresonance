@@ -1,4 +1,4 @@
-# فصل ۴: منطقِ یک جهانِ زنده {#chapter-4-the-logic-of-a-living-universe}
+## فصل ۴: منطقِ یک جهانِ زنده {#chapter-4-the-logic-of-a-living-universe}
 
 از دوگانگی تا گفتگو: وحدتِ ماده و معنا
 

@@ -1,8 +1,8 @@
-# Apéndice E — Glosario y Tabla de Constantes
+## Apéndice E — Glosario y Tabla de Constantes
 
 ---
 
-## **E.1 Variables y Constantes Centrales**
+### **E.1 Variables y Constantes Centrales**
 
 | Símbolo | Nombre | Definición / Interpretación | Unidades / Rango Típico |
 | :--- | :--- | :--- | :--- |
@@ -21,7 +21,7 @@
 
 ---
 
-## **E.2 Ecuaciones Canónicas**
+### **E.2 Ecuaciones Canónicas**
 
 1. **Reciprocidad Entropía-Coherencia:** $dS + k_* d\ln C = 0$
 2. **Bomba de Coherencia (Forma Dinámica):** $\dot C = \alpha (F - S_C)$
@@ -31,7 +31,7 @@
 
 ---
 
-## **E.3 Referencia Rápida de Nivel-μ**
+### **E.3 Referencia Rápida de Nivel-μ**
 
 | Nivel-μ | Dominio | Escala Característica | Proceso Dominante | Régimen α Típico |
 | :--- | :--- | :--- | :--- | :--- |
@@ -46,7 +46,7 @@
 
 ---
 
-## **E.4 Términos Conceptuales Clave**
+### **E.4 Términos Conceptuales Clave**
 
 | Término | Definición Concisa |
 | :--- | :--- |
@@ -61,7 +61,7 @@
 
 ---
 
-## **E.5 Constantes y Estimaciones Empíricas**
+### **E.5 Constantes y Estimaciones Empíricas**
 
 | Constante | Definición | Valor Aproximado / Rango |
 | :--- | :--- | :--- |
@@ -74,7 +74,7 @@
 
 ---
 
-## **E.6 Tabla de Traducción Inter-Dominio**
+### **E.6 Tabla de Traducción Inter-Dominio**
 
 | Dominio Científico | Cantidad Común | Equivalente FRC |
 | :--- | :--- | :--- |
@@ -87,7 +87,7 @@
 
 ---
 
-### **E.8 Nota Final**
+#### **E.8 Nota Final**
 
 Esta tabla condensa el núcleo operativo de FRC. La estructura es estable: la gramática de la coherencia es universal.
 

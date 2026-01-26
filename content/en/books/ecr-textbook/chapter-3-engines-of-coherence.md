@@ -4,12 +4,12 @@ id: "chapter-3-engines-of-coherence"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 3 — Engines of Coherence** {#chapter-3-—-engines-of-coherence}
+## **Chapter 3 — Engines of Coherence** {#chapter-3-—-engines-of-coherence}
 
 
 ---
 
-### **3.1  Order from flow**
+#### **3.1  Order from flow**
 
 The decisive question of thermodynamics is no longer *why systems decay* but *how they sustain pattern while decaying.*
 
@@ -29,7 +29,7 @@ where S\_C is the rate of entropy export and α the adaptive gain controlling ho
 
 ---
 
-### **3.2  The convection cell as prototype**
+#### **3.2  The convection cell as prototype**
 
 Consider a thin layer of fluid heated from below.
 
@@ -49,7 +49,7 @@ The Bénard cell thus acts as a laboratory-scale **coherence engine**: it extrac
 
 ---
 
-### **3.3  Chemical oscillations and biological analogues**
+#### **3.3  Chemical oscillations and biological analogues**
 
 The same dynamics appear in the **Belousov–Zhabotinsky reaction**.
 
@@ -71,7 +71,7 @@ In cells:
 
 ---
 
-### **3.4  Hierarchy of coherence engines**
+#### **3.4  Hierarchy of coherence engines**
 
 | Scale | Example | Primary Gradient F | Export S\_C | Coherence Product C |
 | ----- | ----- | ----- | ----- | ----- |
@@ -86,7 +86,7 @@ Every level converts energy flux into structured correlation; the same law appli
 
 ---
 
-### **3.5  Energy, receptivity, and potential**
+#### **3.5  Energy, receptivity, and potential**
 
 Not all systems with energy input self-organize.
 
@@ -106,7 +106,7 @@ The healthiest systems balance R and Ψ so that ΔS oscillates near zero, contin
 
 ---
 
-### **3.6  Empirical illustrations**
+#### **3.6  Empirical illustrations**
 
 **Lasers.** At threshold, random emission suddenly phase-locks; C rises sharply as entropy of photons decreases.
 
@@ -118,7 +118,7 @@ These systems, though disparate, share identical trajectories on the S–\\ln C 
 
 ---
 
-### **3.7  The feedback architecture of life**
+#### **3.7  The feedback architecture of life**
 
 Energy enters, drives pattern, exits as entropy.
 
@@ -136,7 +136,7 @@ Homeostasis is simply dynamic α-regulation—a universal architecture from enzy
 
 ---
 
-### **3.8  Entropy export as ethical principle**
+#### **3.8  Entropy export as ethical principle**
 
 Because any rise in local order must be paid for by external entropy, sustainability requires minimizing exported disorder.
 
@@ -148,7 +148,7 @@ The reciprocity law thus underwrites not only thermodynamics but ethics: coheren
 
 ---
 
-### **3.9  Mathematical summary**
+#### **3.9  Mathematical summary**
 
 | Equation | Meaning |
 | ----- | ----- |
@@ -159,7 +159,7 @@ The reciprocity law thus underwrites not only thermodynamics but ethics: coheren
 
 ---
 
-### **3.10  Outlook**
+#### **3.10  Outlook**
 
 Every organized system is an **engine of coherence**:
 

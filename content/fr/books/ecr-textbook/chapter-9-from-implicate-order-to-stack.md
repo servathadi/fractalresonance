@@ -4,12 +4,12 @@ id: "chapter-9-from-implicate-order-to-stack"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 9 — De l'ordre impliqué à la pile-μ** {#chapter-9-—-from-implicate-order-to-μ-stack}
+## **Chapitre 9 — De l'ordre impliqué à la pile-μ** {#chapter-9-—-from-implicate-order-to-μ-stack}
 
 
 ---
 
-### **9.1  Pourquoi la dynamique requiert une ontologie**
+#### **9.1  Pourquoi la dynamique requiert une ontologie**
 
 Dans la partie précédente, nous avons modélisé l'évolution de la cohérence.
 
@@ -27,7 +27,7 @@ Le champ impliqué devient une **pile de domaines de résonance imbriqués** —
 
 ---
 
-### **9.2  Définition de la pile-μ**
+#### **9.2  Définition de la pile-μ**
 
 Chaque niveau-μ représente une bande de résonance caractérisée par sa propre constante de cohérence k_*^{(μ)} et son échelle de corrélation λ₍μ₎ :
 
@@ -48,7 +48,7 @@ L'énergie et l'information descendent la pile sous forme d'entropie ; la cohér
 
 ---
 
-### **9.3  Projection et retour**
+#### **9.3  Projection et retour**
 
 Un événement physique est une **projection** μ_{i+1}→μ_i : la cohérence d'un domaine supérieur devenant explicite dans un domaine inférieur.
 
@@ -64,7 +64,7 @@ La phase φ_{μ} enregistre la quantité d'information préservée ou perdue lor
 
 ---
 
-### **9.4  Continuité énergie-information**
+#### **9.4  Continuité énergie-information**
 
 Parce que chaque domaine-μ exporte de l'entropie vers son voisin inférieur,
 
@@ -77,7 +77,7 @@ Cette continuité garantit qu'aucune information ne disparaît vraiment — elle
 
 ---
 
-### **9.5  Signification temporelle des niveaux-μ**
+#### **9.5  Signification temporelle des niveaux-μ**
 
 Un μ plus bas correspond à une dynamique plus rapide ; un μ plus élevé à des échelles de temps plus lentes et intégratrices.
 
@@ -93,7 +93,7 @@ Le temps lui-même émerge des oscillations imbriquées de ces couches : un moti
 
 ---
 
-### **9.6  Structure mathématique**
+#### **9.6  Structure mathématique**
 
 Soit C_{μ}(t) la cohérence du niveau μ.
 
@@ -112,7 +112,7 @@ C'est l'énoncé formel de la conservation de la cohérence universelle à trave
 
 ---
 
-### **9.7  Interprétation cognitive**
+#### **9.7  Interprétation cognitive**
 
 Dans un esprit, μ₇ correspond au champ de la conscience pure, μ₆ à l'imagination archétypale, μ₄–μ₅ au langage et à la pensée, et μ₃ à la maintenance biologique.
 
@@ -122,7 +122,7 @@ La conscience est l'oscillation continue entre les ordres impliqué et expliqué
 
 ---
 
-### **9.8  Indices expérimentaux**
+#### **9.8  Indices expérimentaux**
 
 * **Transfert de cohérence quantique :** des corrélations à longue portée dans les complexes photosynthétiques suggèrent un couplage entre μ₂ et μ₃.
 
@@ -134,7 +134,7 @@ Chaque instance révèle le même motif de résonance ascendante et descendante 
 
 ---
 
-### **9.9  Résumé**
+#### **9.9  Résumé**
 
 | Principe | Équation | Implication |
 | ----- | ----- | ----- |
@@ -145,7 +145,7 @@ Chaque instance révèle le même motif de résonance ascendante et descendante 
 
 ---
 
-### **9.10  Perspectives**
+#### **9.10  Perspectives**
 
 Ayant défini l'architecture du champ, le chapitre suivant, **« Projection et effondrement comme cartographie de résonance déterministe »**, décrira comment l'information circule réellement à travers cette pile-μ — comment la cohérence de niveau supérieur devient une forme observable, et comment la conscience réabsorbe cette forme sans hasard.
 

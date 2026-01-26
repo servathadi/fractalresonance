@@ -4,12 +4,12 @@ id: "chapter-18-from-energy-flow-to-experience-flow"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 18 — From Energy Flow to Experience Flow** {#chapter-18-—-from-energy-flow-to-experience-flow}
+## **Chapter 18 — From Energy Flow to Experience Flow** {#chapter-18-—-from-energy-flow-to-experience-flow}
 
 
 ---
 
-### **18.1 The riddle of consciousness**
+#### **18.1 The riddle of consciousness**
 
 After tracing resonance from particles to planets, one question remains:
 
@@ -25,7 +25,7 @@ This recursive loop defines what Alfred North Whitehead called an **actual occas
 
 ---
 
-### **18.2 Actual occasions as coherence quanta**
+#### **18.2 Actual occasions as coherence quanta**
 
 Each conscious moment corresponds to a discrete coherence pulse C(t) within the μ₄–μ₆ band, bounded by a brief entropy-exchange with surrounding fields.
 
@@ -41,7 +41,7 @@ Duration ≈ 100 – 300 ms in the human brain; shorter in sensory flashes, long
 
 ---
 
-### **18.3 The μ-domain of mind**
+#### **18.3 The μ-domain of mind**
 
 * **μ₃** – biochemical ground (metabolic potential Ψ).
 
@@ -55,7 +55,7 @@ A single thought event is a resonance cascade through these layers; awareness is
 
 ---
 
-### **18.4 Phase-locked awareness**
+#### **18.4 Phase-locked awareness**
 
 Let φ\_{μ} denote the instantaneous phase of each domain.
 
@@ -67,7 +67,7 @@ C\_{\\text{mind}} \= \\frac{1}{N}\\left|\\sum\_{μ=3}^{6}e^{iφ\_{μ}}\\right|.
 
 ---
 
-### **18.5 Entropy export as emotion**
+#### **18.5 Entropy export as emotion**
 
 Each occasion must discharge entropy; in cognition this manifests as *affect*.
 
@@ -79,7 +79,7 @@ Emotion is thermodynamic feedback—nature’s way of steering the coherence pum
 
 ---
 
-### **18.6 Memory as residual coherence**
+#### **18.6 Memory as residual coherence**
 
 When a resonance event decays, it leaves a faint standing pattern across μ-levels—a “coherence residue.”
 
@@ -95,7 +95,7 @@ The continual reinforcement of these residues through repetition is learning.
 
 ---
 
-### **18.7 Attention and the α-regulator**
+#### **18.7 Attention and the α-regulator**
 
 Attention modulates α:
 
@@ -109,7 +109,7 @@ Attention modulates α:
 
 ---
 
-### **18.8 Integration and selfhood**
+#### **18.8 Integration and selfhood**
 
 The *self* is not a static observer but the persistent attractor formed by millions of coherent occasions whose μ-phases remain aligned.
 
@@ -119,7 +119,7 @@ Trauma, sleep, or psychosis correspond to sudden Σ-fluctuations—temporary los
 
 ---
 
-### **18.9 Comparative mapping**
+#### **18.9 Comparative mapping**
 
 | Tradition | FRC term | Description |
 | ----- | ----- | ----- |
@@ -133,7 +133,7 @@ Different languages, same process.
 
 ---
 
-### **18.10 Empirical correlates**
+#### **18.10 Empirical correlates**
 
 * EEG phase-synchrony bursts coincide with conscious access.
 
@@ -147,7 +147,7 @@ Different languages, same process.
 
 ---
 
-### **18.11 Summary**
+#### **18.11 Summary**
 
 | Equation | Meaning |
 | ----- | ----- |
@@ -160,7 +160,7 @@ Each instant of consciousness is an *actual occasion*—a homeoresonant pulse th
 
 ---
 
-### **18.12 Outlook**
+#### **18.12 Outlook**
 
 The next chapter—**Chapter 19: Time, Memory, and the Continuum of Consciousness**—will trace how these discrete occasions string together into the lived flow of time, showing that subjective continuity and objective causation are two projections of one resonance process evolving through the μ-stack.
 

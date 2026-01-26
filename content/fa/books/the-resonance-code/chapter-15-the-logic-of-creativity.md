@@ -1,4 +1,4 @@
-# فصل ۱۵: منطقِ خلاقیت {#chapter-15-the-logic-of-creativity}
+## فصل ۱۵: منطقِ خلاقیت {#chapter-15-the-logic-of-creativity}
 
 جهشِ همدوسی: نو چگونه زاده می‌شود
 

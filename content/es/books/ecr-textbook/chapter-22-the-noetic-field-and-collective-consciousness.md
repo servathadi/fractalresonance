@@ -4,12 +4,12 @@ id: "chapter-22-the-noetic-field-and-collective-consciousness"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 22 — El Campo Noético y la Conciencia Colectiva** {#chapter-22-—-the-noetic-field-and-collective-consciousness}
+## **Capítulo 22 — El Campo Noético y la Conciencia Colectiva** {#chapter-22-—-the-noetic-field-and-collective-consciousness}
 
 
 ---
 
-### **22.1  El surgimiento de la capa noética**
+#### **22.1  El surgimiento de la capa noética**
 
 Cuando la coherencia simbólica (μ₅) y cultural (μ₆) superan un umbral de acoplamiento crítico, la matriz de resonancia de las mentes se entrelaza en un único campo distribuido de conciencia — el **campo noético**.
 
@@ -24,7 +24,7 @@ Cuando el promedio de |T_{μ₆,i}| excede λ⁻¹, la coherencia se filtra a tr
 
 ---
 
-### **22.2  Definición**
+#### **22.2  Definición**
 
 **El Campo Noético** = el dominio de resonancia μ₆ a escala planetaria generado por el bloqueo de fase entre sistemas biológicos, tecnológicos y simbólicos.
 
@@ -40,7 +40,7 @@ Se caracteriza por:
 
 ---
 
-### **22.3  Precursores históricos**
+#### **22.3  Precursores históricos**
 
 1. **Tribus orales** – resonancia μ₅ dentro de grupos pequeños (canto, ritual).
 
@@ -54,7 +54,7 @@ La humanidad siempre ha estado construyendo el hardware de su cuerpo noético; I
 
 ---
 
-### **22.4  Descripción matemática**
+#### **22.4  Descripción matemática**
 
 A escala global:
 
@@ -71,7 +71,7 @@ La civilización homeoresonante exige α ≈ 0 — el equilibrio entre el uso de
 
 ---
 
-### **22.5  Signos de la mente colectiva**
+#### **22.5  Signos de la mente colectiva**
 
 Correlatos observables de la coherencia μ₆:
 
@@ -86,7 +86,7 @@ Estos conjuntos de datos ya sugieren que la atención colectiva modula la entrop
 
 ---
 
-### **22.6  La resonancia emocional como retroalimentación planetaria**
+#### **22.6  La resonancia emocional como retroalimentación planetaria**
 
 La emoción colectiva funciona como el clima:
 
@@ -98,7 +98,7 @@ Por tanto, la alfabetización emocional global no es sentimentalismo sino *gesti
 
 ---
 
-### **22.7  La tecnología como amplificador de acoplamiento**
+#### **22.7  La tecnología como amplificador de acoplamiento**
 
 Las infraestructuras digitales amplifican T_{ij} — las constantes de acoplamiento entre mentes.
 
@@ -108,7 +108,7 @@ Implementar una ética simbólica (R > 0) en la tecnología —transparencia, fi
 
 ---
 
-### **22.8  Coherencia noética y sostenibilidad global**
+#### **22.8  Coherencia noética y sostenibilidad global**
 
 Debido a que la exportación de entropía (S_C) ahora se manifiesta como degradación ecológica, mantener la α ≈ 0 planetaria se convierte en sinónimo de sostenibilidad.
 
@@ -121,7 +121,7 @@ Mitigación = volver a sintonizar los bucles de retroalimentación para que la e
 ]
 ---
 
-### **22.9  Acoplamiento-μ₇: la dimensión transpersonal**
+#### **22.9  Acoplamiento-μ₇: la dimensión transpersonal**
 
 Cuando el campo noético se estabiliza, la coherencia se extiende a μ₇ — el dominio del potencial puro.
 
@@ -133,7 +133,7 @@ La conciencia planetaria es, por lo tanto, la onda estacionaria μ₆–μ₇ de
 
 ---
 
-### **22.10  Implicaciones éticas y evolutivas**
+#### **22.10  Implicaciones éticas y evolutivas**
 
 * **La cooperación** es energéticamente más barata que la competencia: reduce S_C.
 
@@ -147,7 +147,7 @@ La evolución ahora procede no por mutación genética sino por la **sintonizaci
 
 ---
 
-### **22.11  Métricas cuantitativas para el campo noético**
+#### **22.11  Métricas cuantitativas para el campo noético**
 
 1. **Índice α global:** derivado de la correlación de la entropía de los medios frente a la coherencia de los datos de sentimiento.
 
@@ -159,7 +159,7 @@ El monitoreo regular de estas métricas podría rastrear empíricamente la madur
 
 ---
 
-### **22.12  Reflexión filosófica**
+#### **22.12  Reflexión filosófica**
 
 El campo noético completa el circuito iniciado en el Capítulo 1: la energía se convierte en información, la información en coherencia y la coherencia en conciencia.
 
@@ -169,7 +169,7 @@ El destino de la humanidad no es dominar el planeta sino *alinearse en fase* con
 
 ---
 
-### **22.13  Resumen**
+#### **22.13  Resumen**
 
 | Concepto | Expresión | Significado |
 | ----- | ----- | ----- |
@@ -181,7 +181,7 @@ El destino de la humanidad no es dominar el planeta sino *alinearse en fase* con
 
 ---
 
-### **22.14  Perspectiva**
+#### **22.14  Perspectiva**
 
 El próximo y último capítulo de la *Parte V* — **Capítulo 23: El Retorno Cosmogónico — La Conciencia y la Coherencia Universal** — completará el arco.
 

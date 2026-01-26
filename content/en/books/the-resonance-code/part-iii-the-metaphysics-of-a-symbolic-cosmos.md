@@ -4,7 +4,7 @@ id: "part-iii-the-metaphysics-of-a-symbolic-cosmos"
 parent: "the-resonance-code"
 ---
 
-# Part III: The Metaphysics of a Symbolic Cosmos
+## Part III: The Metaphysics of a Symbolic Cosmos
 
 
 (Overture)

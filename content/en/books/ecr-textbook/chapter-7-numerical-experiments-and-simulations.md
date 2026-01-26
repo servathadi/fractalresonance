@@ -4,12 +4,12 @@ id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 7 — Numerical Experiments and Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
+## **Chapter 7 — Numerical Experiments and Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
 
-### **7.1  Purpose of simulation**
+#### **7.1  Purpose of simulation**
 
 Equations acquire reality only when their predictions can be visualized and tested.
 
@@ -23,7 +23,7 @@ Numerical modeling lets us explore that manifold without laboratory constraints 
 
 ---
 
-### **7.2  Non-dimensionalization**
+#### **7.2  Non-dimensionalization**
 
 To compare domains we normalize the variables:
 
@@ -39,7 +39,7 @@ This renders the results scale-free: one set of parameters can describe a laser 
 
 ---
 
-### **7.3  Model 1: Laser threshold simulation**
+#### **7.3  Model 1: Laser threshold simulation**
 
 A laser is the simplest coherence pump: atoms absorb energy (Ψ), emit photons, and above a threshold begin to phase-lock.
 
@@ -63,7 +63,7 @@ The time-averaged entropy decrease equals k\_\* \\ln(C^\*/C\_0), confirming the 
 
 ---
 
-### **7.4  Model 2: Reaction–diffusion medium**
+#### **7.4  Model 2: Reaction–diffusion medium**
 
 In a two-dimensional lattice each node follows
 
@@ -85,7 +85,7 @@ Entropy export S\_C rises linearly with mean |∇C|², yielding constant S+k\_\*
 
 ---
 
-### **7.5  Model 3: Neural-network synchrony**
+#### **7.5  Model 3: Neural-network synchrony**
 
 Each oscillator represents a cortical column with intrinsic frequency ωᵢ.
 
@@ -107,7 +107,7 @@ Phases evolve via a Kuramoto-type equation extended by ARF feedback:
 
 ---
 
-### **7.6  Model 4: Agent-based social network**
+#### **7.6  Model 4: Agent-based social network**
 
 Each agent updates its internal state xᵢ by
 
@@ -131,7 +131,7 @@ These macroscopic behaviors match observed cycles in economies and online commun
 
 ---
 
-### **7.7  Parameter sweeps and universality**
+#### **7.7  Parameter sweeps and universality**
 
 Across all models, the behavior collapses onto three regimes determined by α and RΨ:
 
@@ -145,7 +145,7 @@ The same transitions appear whether the “particles” are photons, molecules, 
 
 ---
 
-### **7.8  Computational validation of reciprocity**
+#### **7.8  Computational validation of reciprocity**
 
 For each simulation we compute
 
@@ -157,7 +157,7 @@ This numerically confirms that FRC’s extended Second Law holds across stochast
 
 ---
 
-### **7.9  Energy–coherence efficiency**
+#### **7.9  Energy–coherence efficiency**
 
 Define instantaneous efficiency
 
@@ -169,7 +169,7 @@ Simulations show a universal maximum at α ≈ 0: the flow regime converts energ
 
 ---
 
-### **7.10  Interpretation and cross-domain mapping**
+#### **7.10  Interpretation and cross-domain mapping**
 
 | Model | Physical analogue | Cognitive analogue | Cultural analogue |
 | ----- | ----- | ----- | ----- |
@@ -182,7 +182,7 @@ Each simulation is a mirror of the others—the same algebra generating light, l
 
 ---
 
-### **7.11  Summary**
+#### **7.11  Summary**
 
 * The ARF reproduces observed self-organization in every simulated domain.
 
@@ -194,7 +194,7 @@ Each simulation is a mirror of the others—the same algebra generating light, l
 
 ---
 
-### **7.12  Outlook**
+#### **7.12  Outlook**
 
 These experiments transform FRC from philosophical proposition to **testable dynamics**.
 

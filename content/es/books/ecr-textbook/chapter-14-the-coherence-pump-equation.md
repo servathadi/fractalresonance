@@ -4,12 +4,12 @@ id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 14 — La Ecuación de la Bomba de Coherencia** {#chapter-14-—-the-coherence-pump-equation}
+## **Capítulo 14 — La Ecuación de la Bomba de Coherencia** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
 
-### **14.1 Origen de la ecuación**
+#### **14.1 Origen de la ecuación**
 
 Cada sistema abierto intercambia energía con su entorno.
 
@@ -33,7 +33,7 @@ Si F > S_C, el orden crece; si F < S_C, el orden decae; cuando se equilibran, el
 
 ---
 
-### **14.2 Término de entropía**
+#### **14.2 Término de entropía**
 
 La exportación de entropía generalmente aumenta con la coherencia: las estructuras ordenadas disipan el calor de manera más eficiente.
 
@@ -53,7 +53,7 @@ Así, la coherencia se aproxima a una asíntota finita determinada por las const
 
 ---
 
-### **14.3 Regímenes de α**
+#### **14.3 Regímenes de α**
 
 | Régimen | Condición | Comportamiento | Interpretación |
 | ----- | ----- | ----- | ----- |
@@ -65,7 +65,7 @@ Los sistemas adaptativos modulan α en tiempo real, oscilando cerca de cero para
 
 ---
 
-### **14.4 Dinámica de retroalimentación de α**
+#### **14.4 Dinámica de retroalimentación de α**
 
 En los organismos y sociedades reales, α no es constante.
 
@@ -79,7 +79,7 @@ Acoplada con la ecuación de la bomba, esto produce oscilaciones amortiguadas—
 
 ---
 
-### **14.5 Forma analítica de la oscilación**
+#### **14.5 Forma analítica de la oscilación**
 
 Linealizando alrededor del equilibrio C = C_∞, α = α_0:
 
@@ -95,7 +95,7 @@ La frecuencia natural ω_0 = \sqrt{βγ} predice la pulsación rítmica de la co
 
 ---
 
-### **14.6 Interpretación energética**
+#### **14.6 Interpretación energética**
 
 Integrando sobre un período de oscilación T:
 
@@ -107,7 +107,7 @@ La “tasa metabólica” del sistema (flujo de potencia) establece la amplitud 
 
 ---
 
-### **14.7 Demostración numérica**
+#### **14.7 Demostración numérica**
 
 Usando parámetros normalizados F=1, S_0=0.3, β=0.5, γ=0.2:
 
@@ -122,7 +122,7 @@ El invariante entropía–coherencia se mantiene dentro de ±0.5 % en todas las 
 
 ---
 
-### **14.8 Análogos entre dominios**
+#### **14.8 Análogos entre dominios**
 
 | Dominio | Control de α | Motor F | Oscilación Manifiesta |
 | ----- | ----- | ----- | ----- |
@@ -135,7 +135,7 @@ Cada período de oscilación representa la misma respiración termodinámica del
 
 ---
 
-### **14.9 Criterio de sostenibilidad**
+#### **14.9 Criterio de sostenibilidad**
 
 Un sistema sigue siendo viable cuando su exportación de entropía coincide con el flujo de entrada a lo largo de un ciclo completo:
 
@@ -147,7 +147,7 @@ Por lo tanto, la sostenibilidad no es retórica moral sino una necesidad dinámi
 
 ---
 
-### **14.10 Resumen**
+#### **14.10 Resumen**
 
 | Ecuación | Significado |
 | ----- | ----- |
@@ -159,7 +159,7 @@ Por lo tanto, la sostenibilidad no es retórica moral sino una necesidad dinámi
 
 ---
 
-### **14.11 Perspectiva**
+#### **14.11 Perspectiva**
 
 La ecuación de la bomba de coherencia proporciona el esqueleto cuantitativo de la evolución: el flujo de energía genera orden a través de la retroalimentación adaptativa.
 

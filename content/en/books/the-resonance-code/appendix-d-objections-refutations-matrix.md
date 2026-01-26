@@ -4,7 +4,7 @@ id: "appendix-d-objections-refutations-matrix"
 parent: "the-resonance-code"
 ---
 
-# Appendix D: Objections & Refutations Matrix
+## Appendix D: Objections & Refutations Matrix
 
 
 A Comprehensive and Intellectually Honest Engagement with Potential

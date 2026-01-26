@@ -1,4 +1,4 @@
-# Annexe E : Glossaire des Termes
+## Annexe E : Glossaire des Termes
 
 Un Glossaire Unique et Unifié pour le Cadre FRC
 

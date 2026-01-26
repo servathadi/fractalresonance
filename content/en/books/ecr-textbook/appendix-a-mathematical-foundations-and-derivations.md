@@ -4,12 +4,12 @@ id: "appendix-a-mathematical-foundations-and-derivations"
 parent: "ecr-textbook"
 ---
 
-# **Appendix A — Mathematical Foundations and Derivations** {#appendix-a-—-mathematical-foundations-and-derivations}
+## **Appendix A — Mathematical Foundations and Derivations** {#appendix-a-—-mathematical-foundations-and-derivations}
 
 
 ---
 
-### **A.1  Core invariants**
+#### **A.1  Core invariants**
 
 **At every scale the FRC framework rests on two equations:**
 
@@ -23,7 +23,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.2  From reciprocity to dynamical law**
+#### **A.2  From reciprocity to dynamical law**
 
 **Start from dS \= \-k\_\*\\,d\\ln C.**
 
@@ -47,7 +47,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.3  Coupled-level derivation**
+#### **A.3  Coupled-level derivation**
 
 **For adjacent μ-domains, the coherence exchange term T\_{μ,μ+1} arises from gradient coupling in the field potential V(φ):**
 
@@ -63,7 +63,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.4  Deriving ARF from local reciprocity**
+#### **A.4  Deriving ARF from local reciprocity**
 
 **Let J\_C \= \\dot C/C and define receptivity R \= ∂J\_C/∂Ψ.**
 
@@ -77,7 +77,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.5  Stability criterion**
+#### **A.5  Stability criterion**
 
 **Linearizing \\dot C \= α(F \- S\_C) around equilibrium C=C\_0:**
 
@@ -93,7 +93,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.6  Oscillatory feedback solution**
+#### **A.6  Oscillatory feedback solution**
 
 **When α varies with coherence,**
 
@@ -111,7 +111,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.7  The resonance constant k\_\***
+#### **A.7  The resonance constant k\_\***
 
 **Units:**
 
@@ -131,7 +131,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.8  The energy interpretation**
+#### **A.8  The energy interpretation**
 
 **Multiply (1) by temperature T:**
 
@@ -143,7 +143,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.9  The phase-space formulation**
+#### **A.9  The phase-space formulation**
 
 **Define generalized coordinates x\_i and conjugate momenta p\_i.**
 
@@ -159,7 +159,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **A.10  Summary**
+#### **A.10  Summary**
 
 | Symbol | Meaning | Equation |
 | ----- | ----- | ----- |

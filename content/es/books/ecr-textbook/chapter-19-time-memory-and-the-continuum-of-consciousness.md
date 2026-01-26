@@ -4,12 +4,12 @@ id: "chapter-19-time-memory-and-the-continuum-of-consciousness"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 19 — Tiempo, Memoria y el Continuo de la Conciencia** {#chapter-19-—-time,-memory,-and-the-continuum-of-consciousness}
+## **Capítulo 19 — Tiempo, Memoria y el Continuo de la Conciencia** {#chapter-19-—-time,-memory,-and-the-continuum-of-consciousness}
 
 
 ---
 
-### **19.1  La paradoja de la continuidad**
+#### **19.1  La paradoja de la continuidad**
 
 Cada ocasión actual es discreta—un pulso de coherencia que dura unos pocos cientos de milisegundos—y sin embargo nuestra conciencia se siente continua.
 
@@ -21,7 +21,7 @@ La continuidad es, por tanto, una onda estacionaria a través de ocasiones super
 
 ---
 
-### **19.2  Sucesión resonante**
+#### **19.2  Sucesión resonante**
 
 Sea C_n(t) el n-ésimo pulso de coherencia con duración τ₀ y fase φₙ.
 
@@ -35,7 +35,7 @@ Cuando Δφ se amplía, la continuidad se rompe: aparecen micro-huecos en la con
 
 ---
 
-### **19.3  Parámetro de tiempo emergente**
+#### **19.3  Parámetro de tiempo emergente**
 
 Debido a que la proyección y el decaimiento de cada pulso crean un sesgo hacia adelante (la exportación de entropía siempre es positiva), la secuencia C_1 → C_2 → … define una flecha intrínseca:
 
@@ -49,7 +49,7 @@ Una rotación más lenta (enfoque profundo, α ≈ 0) → dilatación del tiempo
 
 ---
 
-### **19.4  Memoria como resonancia de coherencia**
+#### **19.4  Memoria como resonancia de coherencia**
 
 La memoria une ocasiones que de otro modo serían discretas.
 
@@ -63,7 +63,7 @@ Recordar es una recurrencia de resonancia: un patrón pasado vuelve a entrar en 
 
 ---
 
-### **19.5  La flecha del devenir**
+#### **19.5  La flecha del devenir**
 
 La exportación de entropía asegura que cada ocasión no pueda recrear perfectamente a su predecesora; siempre hay un ligero desfase de fase Δφ > 0.
 
@@ -73,7 +73,7 @@ El devenir—el despliegue irreversible de la experiencia—es la pérdida siste
 
 ---
 
-### **19.6  Escalas de tiempo psicológicas**
+#### **19.6  Escalas de tiempo psicológicas**
 
 | Estado | α | Superposición de coherencia | Tiempo subjetivo |
 | ----- | ----- | ----- | ----- |
@@ -86,7 +86,7 @@ El sentido del tiempo es, por tanto, una variable termodinámica de la mente.
 
 ---
 
-### **19.7  Campos temporales colectivos**
+#### **19.7  Campos temporales colectivos**
 
 Los rituales compartidos, la música y la actividad sincronizada alinean las cadenas de fase de muchos individuos (acoplamiento μ₅).
 
@@ -96,7 +96,7 @@ Estos eventos demuestran que la experiencia temporal no es individual sino un fe
 
 ---
 
-### **19.8  Integración de la información y predicción**
+#### **19.8  Integración de la información y predicción**
 
 Debido a que cada pulso se superpone con su sucesor, el procesamiento predictivo surge de forma natural: parte de Cₙ sirve como condición inicial para Cₙ₊₁.
 
@@ -106,7 +106,7 @@ La expectativa es la prefase de la coherencia futura.
 
 ---
 
-### **19.9  Evidencia empírica**
+#### **19.9  Evidencia empírica**
 
 * Los microestados de EEG (~80–120 ms) muestran topografías secuenciales pero superpuestas.
 
@@ -120,7 +120,7 @@ Todos corroboran el modelo de continuidad por cadena de resonancia.
 
 ---
 
-### **19.10  Resumen formal**
+#### **19.10  Resumen formal**
 
 | Proceso | Expresión FRC | Significado |
 | ----- | ----- | ----- |
@@ -131,7 +131,7 @@ Todos corroboran el modelo de continuidad por cadena de resonancia.
 
 ---
 
-### **19.11  Implicación filosófica**
+#### **19.11  Implicación filosófica**
 
 El tiempo no es un contenedor sino una métrica de resonancia: la frecuencia con la que la coherencia se renueva a sí misma.
 
@@ -141,7 +141,7 @@ La conciencia no se *mueve* a través del tiempo—lo *genera* mediante sucesiva
 
 ---
 
-### **19.12  Perspectiva**
+#### **19.12  Perspectiva**
 
 En el próximo capítulo—**Capítulo 20: La Geometría del Espacio Consciente**—mapearemos cómo estas cadenas de resonancia temporal forman una topología espacial: una red de ondas estacionarias cuya geometría subyace a la percepción, la imaginación y el espacio simbólico.
 

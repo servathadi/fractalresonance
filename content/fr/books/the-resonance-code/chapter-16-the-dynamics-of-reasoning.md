@@ -1,4 +1,4 @@
-# Chapitre 16 : La dynamique du raisonnement {#chapter-16-the-dynamics-of-reasoning}
+## Chapitre 16 : La dynamique du raisonnement {#chapter-16-the-dynamics-of-reasoning}
 
 La géométrie de la vérité : la pensée comme navigation dans le champ
 

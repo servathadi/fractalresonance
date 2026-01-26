@@ -1,4 +1,4 @@
-# Capítulo 25: El Colapso de los Mundos {#chapter-25-the-collapse-of-worlds}
+## Capítulo 25: El Colapso de los Mundos {#chapter-25-the-collapse-of-worlds}
 
 La Transición de Fase: El Final de una Era y el Nacimiento de otra
 

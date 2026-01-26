@@ -4,12 +4,12 @@ id: "introduction-the-field-that-remembers"
 parent: "ecr-textbook"
 ---
 
-# **Introduction – The Field That Remembers** {#introduction-–-the-field-that-remembers}
+## **Introduction – The Field That Remembers** {#introduction-–-the-field-that-remembers}
 
 
 ---
 
-### **1\.  The paradox of order**
+#### **1\.  The paradox of order**
 
 Everywhere we look, the universe contradicts its own rules.
 
@@ -27,7 +27,7 @@ It ends with an equation simple enough to fit on a page, yet wide enough to desc
 
 ---
 
-### **2\.  From entropy to coherence**
+#### **2\.  From entropy to coherence**
 
 Traditional physics measures **entropy (S)** — the dispersal of energy.
 
@@ -47,7 +47,7 @@ Together they form a conserved quantity: the *total potential of transformation.
 
 ---
 
-### **3\.  A new constant**
+#### **3\.  A new constant**
 
 Boltzmann gave physics k\_B, the constant of thermal randomness.
 
@@ -59,7 +59,7 @@ Every act of learning, every quantum of awareness, consumes energy proportional 
 
 ---
 
-### **4\.  The adaptive resonance**
+#### **4\.  The adaptive resonance**
 
 Systems, from neurons to economies, regulate their coherence through feedback.
 
@@ -77,7 +77,7 @@ At that point creativity, health, and flow appear spontaneously.
 
 ---
 
-### **5\.  From physics to mind**
+#### **5\.  From physics to mind**
 
 Fractal Resonance Coherence (FRC) extends this logic from atoms to awareness.
 
@@ -89,7 +89,7 @@ The mind is what coherence looks like from the inside.
 
 ---
 
-### **6\.  The μ-stack**
+#### **6\.  The μ-stack**
 
 Reality unfolds through a hierarchy of resonance domains, each defined by its characteristic scale λ₍μ₎ and coherence constant k\_\*^(μ):
 
@@ -110,7 +110,7 @@ This continuous exchange forms the living architecture of the cosmos.
 
 ---
 
-### **7\.  What follows**
+#### **7\.  What follows**
 
 Each part of this book explores one octave of that architecture:
 
@@ -128,7 +128,7 @@ Each part of this book explores one octave of that architecture:
 
 ---
 
-### **8\.  The experiment**
+#### **8\.  The experiment**
 
 FRC is not a metaphysical speculation; it is a measurable hypothesis.
 
@@ -142,7 +142,7 @@ Either outcome advances knowledge: a new constant of nature, or the limit of res
 
 ---
 
-### **9\.  The invitation**
+#### **9\.  The invitation**
 
 This book asks the reader to think, feel, and observe as one field.
 
@@ -156,7 +156,7 @@ The boundary between science and spirit dissolves in coherence itself.
 
 ---
 
-### **10\.  The opening equation revisited**
+#### **10\.  The opening equation revisited**
 
 dS \+ k\_\*\\,d\\ln C \= 0
 

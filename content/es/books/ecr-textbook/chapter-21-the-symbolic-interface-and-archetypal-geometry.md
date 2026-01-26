@@ -4,12 +4,12 @@ id: "chapter-21-the-symbolic-interface-and-archetypal-geometry"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 21 — El Interfaz Simbólico y la Geometría Arquetípica** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
+## **Capítulo 21 — El Interfaz Simbólico y la Geometría Arquetípica** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
 
 
 ---
 
-### **21.1  Símbolos como puentes de fase**
+#### **21.1  Símbolos como puentes de fase**
 
 En la ontología de la FRC, un **símbolo** no es simplemente un signo o representación — es un *interfaz estructural* entre los niveles-μ.
 
@@ -23,7 +23,7 @@ Por tanto, los símbolos son las geometrías de equilibrio de la resonancia entr
 
 ---
 
-### **21.2  Arquetipos como atractores**
+#### **21.2  Arquetipos como atractores**
 
 En escalas de tiempo largas, los símbolos recurrentes convergen hacia geometrías-atractoras en el campo de coherencia.
 
@@ -42,7 +42,7 @@ Los arquetipos persisten porque minimizan la curvatura total del campo ∇²φ, 
 
 ---
 
-### **21.3  Metabolismo simbólico**
+#### **21.3  Metabolismo simbólico**
 
 La psique metaboliza continuamente los símbolos de la misma manera que el cuerpo metaboliza la energía.
 
@@ -62,7 +62,7 @@ La cultura sana mantiene α ≈ 0 — equilibrio dinámico entre renovación y t
 
 ---
 
-### **21.4  El lenguaje como red de resonancia**
+#### **21.4  El lenguaje como red de resonancia**
 
 Las palabras son símbolos cuantizados que forman una red discreta dentro del campo μ₅.
 
@@ -72,7 +72,7 @@ La poesía y el mantra elevan temporalmente C_{\text{ling}} hacia la resonancia 
 
 ---
 
-### **21.5  Isomorfismo matemático y artístico**
+#### **21.5  Isomorfismo matemático y artístico**
 
 Las matemáticas y el arte exploran las mismas geometrías arquetípicas:
 
@@ -86,7 +86,7 @@ Esto explica la universalidad estética de la proporción áurea, los fractales 
 
 ---
 
-### **21.6  El interfaz cognitivo**
+#### **21.6  El interfaz cognitivo**
 
 El pensamiento consciente surge en el interfaz donde la coherencia simbólica (C_{μ₅}) modula la coherencia perceptiva (C_{μ₄}).
 
@@ -100,7 +100,7 @@ Los sueños, las alucinaciones y las visiones ocurren cuando R_{45} aumenta, des
 
 ---
 
-### **21.7  Redes de resonancia cultural**
+#### **21.7  Redes de resonancia cultural**
 
 Cuando muchas mentes comparten símbolos, sus campos μ₅ se sincronizan a través del acoplamiento colectivo T_{ij}^{(\text{soc})}.
 
@@ -114,7 +114,7 @@ La salud de una cultura puede, por tanto, leerse termodinámicamente a través d
 
 ---
 
-### **21.8  Geometría del campo arquetípico**
+#### **21.8  Geometría del campo arquetípico**
 
 Matemáticamente, los arquetipos ocupan mínimos del potencial
 
@@ -128,7 +128,7 @@ Los ciclos míticos corresponden a órbitas cerradas en el espacio de fase arque
 
 ---
 
-### **21.9  Medición y predicción**
+#### **21.9  Medición y predicción**
 
 La validación empírica es posible a través de:
 
@@ -142,7 +142,7 @@ La validación empírica es posible a través de:
 
 ---
 
-### **21.10  Implicación filosófica**
+#### **21.10  Implicación filosófica**
 
 Los símbolos no son arbitrarios; son la *gramática de la coherencia* mediante la cual el universo se comunica consigo mismo.
 
@@ -156,7 +156,7 @@ Por lo tanto, la tecnología es la capa más reciente de la geometría simbólic
 
 ---
 
-### **21.11  Resumen**
+#### **21.11  Resumen**
 
 | Concepto | Ecuación / Principio | Interpretación |
 | ----- | ----- | ----- |
@@ -168,7 +168,7 @@ Por lo tanto, la tecnología es la capa más reciente de la geometría simbólic
 
 ---
 
-### **21.12  Perspectiva**
+#### **21.12  Perspectiva**
 
 Habiendo definido la arquitectura simbólica de la conciencia, el próximo capítulo — **Capítulo 22: El Campo Noético y la Conciencia Colectiva** — ampliará el alcance de la resonancia individual y cultural al campo global μ₆–μ₇, examinando cómo la atención compartida, la emoción colectiva y la inteligencia planetaria emergen como modos coherentes de la misma geometría de resonancia universal.
 

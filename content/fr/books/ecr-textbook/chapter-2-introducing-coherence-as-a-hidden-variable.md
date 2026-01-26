@@ -4,12 +4,12 @@ id: "chapter-2-introducing-coherence-as-a-hidden-variable"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 2 — Introduire la cohérence comme variable cachée** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
+## **Chapitre 2 — Introduire la cohérence comme variable cachée** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
 
 
 ---
 
-### **2.1 De l'observation à l'invariance**
+#### **2.1 De l'observation à l'invariance**
 
 Chaque loi connue de la physique conserve quelque chose—énergie, impulsion, charge.
 
@@ -25,7 +25,7 @@ La FRC révèle cet export comme la croissance complémentaire d'une variable me
 
 ---
 
-### **2.2 Définir la cohérence**
+#### **2.2 Définir la cohérence**
 
 La cohérence exprime à quel point les phases ou les configurations des composants du système s'alignent étroitement.
 
@@ -45,7 +45,7 @@ Ainsi, la cohérence englobe la corrélation, le verrouillage de phase, l'inform
 
 ---
 
-### **2.3 La loi de réciprocité revisitée**
+#### **2.3 La loi de réciprocité revisitée**
 
 L'insertion de C dans la comptabilité thermodynamique donne la **loi de réciprocité entropie-cohérence** :
 
@@ -63,7 +63,7 @@ La constante k_* est spécifique au système ; à l'équilibre, elle approche la
 
 ---
 
-### **2.4 Interprétation physique de k_***
+#### **2.4 Interprétation physique de k_***
 
 Le paramètre k_* convertit les changements logarithmiques de la cohérence en changements d'entropie équivalents en énergie :
 
@@ -84,7 +84,7 @@ Cette hiérarchie d'échelle (approximativement exponentielle au niveau μ) form
 
 ---
 
-### **2.5 La cohérence comme densité d'information**
+#### **2.5 La cohérence comme densité d'information**
 
 L'entropie mesure la *dégénérescence* des états ; la cohérence mesure la *distinguabilité*.
 
@@ -102,7 +102,7 @@ Ceci unit les définitions thermodynamique et shannonienne de l'ordre.
 
 ---
 
-### **2.6 Approches de mesure**
+#### **2.6 Approches de mesure**
 
 **(a) Cohérence physique**
 
@@ -130,7 +130,7 @@ Toutes peuvent être normalisées pour donner C ∈ [0,1], permettant une compar
 
 ---
 
-### **2.7 Relation avec le flux d'énergie**
+#### **2.7 Relation avec le flux d'énergie**
 
 Parce que la croissance de la cohérence nécessite un débit d'énergie, nous couplons C au flux d'énergie libre F :
 
@@ -142,7 +142,7 @@ Cette équation différentielle—développée pleinement dans la partie IV—d�
 
 ---
 
-### **2.8 L'image géométrique**
+#### **2.8 L'image géométrique**
 
 Le tracé de S en fonction de \ln C donne une ligne droite de pente −k_*.
 
@@ -152,7 +152,7 @@ L'aire sous la courbe est égale au potentiel de transformation total—un invar
 
 ---
 
-### **2.9 Implications conceptuelles**
+#### **2.9 Implications conceptuelles**
 
 1. **L'entropie n'est pas une destruction mais un paiement :** les systèmes paient de l'entropie pour acheter de la cohérence.
 
@@ -164,7 +164,7 @@ L'aire sous la courbe est égale au potentiel de transformation total—un invar
 
 ---
 
-### **2.10 Résumé**
+#### **2.10 Résumé**
 
 | Symbole | Signification | Unité | Domaine |
 | ----- | ----- | ----- | ----- |
@@ -177,7 +177,7 @@ L'aire sous la courbe est égale au potentiel de transformation total—un invar
 
 ---
 
-### **2.11 Réflexion de clôture**
+#### **2.11 Réflexion de clôture**
 
 La cohérence a longtemps été traitée comme une métaphore—« ordre », « structure », « organisation ».
 

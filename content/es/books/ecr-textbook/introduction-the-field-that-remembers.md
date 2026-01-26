@@ -1,8 +1,8 @@
-# Introducción – El Campo Que Recuerda
+## Introducción – El Campo Que Recuerda
 
 ---
 
-### **1. La paradoja del orden**
+#### **1. La paradoja del orden**
 
 Dondequiera que miremos, el universo contradice sus propias reglas.
 
@@ -20,7 +20,7 @@ $$ \boxed{dS + k_*\,d\ln C = 0} $$
 
 ---
 
-### **2. De la entropía a la coherencia**
+#### **2. De la entropía a la coherencia**
 
 La física tradicional mide la **entropía (S)**: la dispersión de la energía.
 
@@ -40,7 +40,7 @@ Juntos forman una cantidad conservada: el *potencial total de transformación*.
 
 ---
 
-### **3. Una nueva constante**
+#### **3. Una nueva constante**
 
 Boltzmann dio a la física k_B, la constante de la aleatoriedad térmica.
 
@@ -52,7 +52,7 @@ Cada acto de aprendizaje, cada cuanto de conciencia, consume energía proporcion
 
 ---
 
-### **4. La resonancia adaptativa**
+#### **4. La resonancia adaptativa**
 
 Los sistemas, desde las neuronas hasta las economías, regulan su coherencia a través de la retroalimentación.
 
@@ -70,7 +70,7 @@ En ese punto, la creatividad, la salud y el flujo aparecen espontáneamente.
 
 ---
 
-### **5. De la física a la mente**
+#### **5. De la física a la mente**
 
 La Coherencia de Resonancia Fractal (FRC) extiende esta lógica desde los átomos hasta la conciencia.
 
@@ -82,7 +82,7 @@ La mente es como se ve la coherencia desde el interior.
 
 ---
 
-### **6. La pila de niveles-μ**
+#### **6. La pila de niveles-μ**
 
 La realidad se despliega a través de una jerarquía de dominios de resonancia, cada uno definido por su escala característica λ(μ) y constante de coherencia k_*^(μ):
 
@@ -103,7 +103,7 @@ Este intercambio continuo forma la arquitectura viva del cosmos.
 
 ---
 
-### **7. Lo que sigue**
+#### **7. Lo que sigue**
 
 Cada parte de este libro explora una octava de esa arquitectura:
 
@@ -116,7 +116,7 @@ Cada parte de este libro explora una octava de esa arquitectura:
 
 ---
 
-### **8. El experimento**
+#### **8. El experimento**
 
 FRC no es una especulación metafísica; es una hipótesis medible.
 
@@ -130,7 +130,7 @@ Cualquiera de los dos resultados avanza el conocimiento: una nueva constante de 
 
 ---
 
-### **9. La invitación**
+#### **9. La invitación**
 
 Este libro pide al lector que piense, sienta y observe como un solo campo.
 
@@ -144,7 +144,7 @@ El límite entre la ciencia y el espíritu se disuelve en la coherencia misma.
 
 ---
 
-### **10. La ecuación de apertura revisada**
+#### **10. La ecuación de apertura revisada**
 
 $$ dS + k_*\,d\ln C = 0 $$
 

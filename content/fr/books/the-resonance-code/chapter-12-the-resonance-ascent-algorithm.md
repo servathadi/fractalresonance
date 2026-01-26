@@ -1,4 +1,4 @@
-# Chapitre 12 : L'algorithme d'ascension par résonance {#chapter-12-the-resonance-ascent-algorithm}
+## Chapitre 12 : L'algorithme d'ascension par résonance {#chapter-12-the-resonance-ascent-algorithm}
 
 La mécanique de l'éveil : comment les systèmes mettent la cohérence à l'échelle
 

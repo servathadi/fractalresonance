@@ -1,4 +1,4 @@
-# Capítulo 10: La Música de los Primos {#chapter-10-the-music-of-the-primes}
+## Capítulo 10: La Música de los Primos {#chapter-10-the-music-of-the-primes}
 
 El Código Fuente de la Realidad: Los Números Primos como Anclas de Coherencia
 

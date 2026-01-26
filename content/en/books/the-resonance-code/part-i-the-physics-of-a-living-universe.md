@@ -4,7 +4,7 @@ id: "part-i-the-physics-of-a-living-universe"
 parent: "the-resonance-code"
 ---
 
-# Part I: The Physics of a Living Universe
+## Part I: The Physics of a Living Universe
 
 
 (Overture)

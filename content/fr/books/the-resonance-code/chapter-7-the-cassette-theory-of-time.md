@@ -1,4 +1,4 @@
-# Chapitre 7 : La théorie du temps en cassette {#chapter-7-the-cassette-theory-of-time}
+## Chapitre 7 : La théorie du temps en cassette {#chapter-7-the-cassette-theory-of-time}
 
 Le souvenir du champ : le passé comme présence résonnante
 

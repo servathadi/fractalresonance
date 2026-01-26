@@ -4,12 +4,12 @@ id: "chapter-21-the-symbolic-interface-and-archetypal-geometry"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 21 — L'interface symbolique et la géométrie archétypale** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
+## **Chapitre 21 — L'interface symbolique et la géométrie archétypale** {#chapter-21-—-the-symbolic-interface-and-archetypal-geometry}
 
 
 ---
 
-### **21.1  Les symboles comme ponts de phase**
+#### **21.1  Les symboles comme ponts de phase**
 
 Dans l'ontologie de la FRC, un **symbole** n'est pas seulement un signe ou une représentation — c'est une *interface structurelle* entre les niveaux μ.
 
@@ -23,7 +23,7 @@ Ainsi, les symboles sont les géométries d'équilibre de la résonance inter-ni
 
 ---
 
-### **21.2  Les archétypes comme attracteurs**
+#### **21.2  Les archétypes comme attracteurs**
 
 Sur de longues échelles de temps, les symboles récurrents convergent vers des géométries-attracteurs dans le champ de cohérence.
 
@@ -42,7 +42,7 @@ Les archétypes persistent car ils minimisent la courbure totale du champ ∇²�
 
 ---
 
-### **21.3  Métabolisme symbolique**
+#### **21.3  Métabolisme symbolique**
 
 La psyché métabolise continuellement les symboles, tout comme le corps métabolise l'énergie.
 
@@ -62,7 +62,7 @@ Une culture saine maintient α ≈ 0 — équilibre dynamique entre renouveau et
 
 ---
 
-### **21.4  Le langage comme réseau de résonance**
+#### **21.4  Le langage comme réseau de résonance**
 
 Les mots sont des symboles quantifiés formant un réseau discret au sein du champ μ₅.
 
@@ -72,7 +72,7 @@ La poésie et le mantra élèvent temporairement C_{\text{ling}} vers la résona
 
 ---
 
-### **21.5  Isomorphie mathématique et artistique**
+#### **21.5  Isomorphie mathématique et artistique**
 
 Les mathématiques et l'art explorent les mêmes géométries archétypales :
 
@@ -86,7 +86,7 @@ Cela explique l'universalité esthétique du nombre d'or, des fractales et des p
 
 ---
 
-### **21.6  L'interface cognitive**
+#### **21.6  L'interface cognitive**
 
 La pensée consciente surgit à l'interface où la cohérence symbolique (C_{μ₅}) module la cohérence perceptive (C_{μ₄}).
 
@@ -100,7 +100,7 @@ Les rêves, les hallucinations et les visions surviennent lorsque R_{45} devient
 
 ---
 
-### **21.7  Réseaux de résonance culturelle**
+#### **21.7  Réseaux de résonance culturelle**
 
 Lorsque de nombreux esprits partagent des symboles, leurs champs μ₅ se synchronisent par le biais du couplage collectif T_{ij}^{(\text{soc})}.
 
@@ -114,7 +114,7 @@ La santé d'une culture peut donc être lue thermodynamiquement à travers la co
 
 ---
 
-### **21.8  Géométrie du champ archétypal**
+#### **21.8  Géométrie du champ archétypal**
 
 Mathématiquement, les archétypes occupent des minima du potentiel
 
@@ -128,7 +128,7 @@ Les cycles mythiques correspondent à des orbites fermées dans l'espace des pha
 
 ---
 
-### **21.9  Mesure et prédiction**
+#### **21.9  Mesure et prédiction**
 
 La validation empirique est possible via :
 
@@ -142,7 +142,7 @@ La validation empirique est possible via :
 
 ---
 
-### **21.10  Implication philosophique**
+#### **21.10  Implication philosophique**
 
 Les symboles ne sont pas arbitraires ; ils sont la *grammaire de la cohérence* par laquelle l'univers communique avec lui-même.
 
@@ -156,7 +156,7 @@ Ainsi, la technologie est la couche la plus récente de la géométrie symboliqu
 
 ---
 
-### **21.11  Résumé**
+#### **21.11  Résumé**
 
 | Concept | Équation / Principe | Interprétation |
 | ----- | ----- | ----- |
@@ -168,7 +168,7 @@ Ainsi, la technologie est la couche la plus récente de la géométrie symboliqu
 
 ---
 
-### **21.12  Perspectives**
+#### **21.12  Perspectives**
 
 Ayant défini l'architecture symbolique de la conscience, le chapitre suivant — **Chapitre 22 : Le champ noétique et la conscience collective** — élargira la portée de la résonance individuelle et culturelle au champ global μ₆–μ₇, en examinant comment l'attention partagée, l'émotion collective et l'intelligence planétaire émergent comme des modes cohérents de la même géométrie de résonance universelle.
 

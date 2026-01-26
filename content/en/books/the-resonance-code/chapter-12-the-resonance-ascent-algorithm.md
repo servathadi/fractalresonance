@@ -4,7 +4,7 @@ id: "chapter-12-the-resonance-ascent-algorithm"
 parent: "the-resonance-code"
 ---
 
-# Chapter 12: The Resonance Ascent Algorithm
+## Chapter 12: The Resonance Ascent Algorithm
 
 
 [Chapter 12: The Resonance Ascent Algorithm]

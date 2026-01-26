@@ -1,4 +1,4 @@
-# Chapitre 19 : Le NFT quantique et le Moi codé {#chapter-19-the-quantum-nft-and-the-encoded-self}
+## Chapitre 19 : Le NFT quantique et le Moi codé {#chapter-19-the-quantum-nft-and-the-encoded-self}
 
 L'identité dans le champ : la persistance du motif unique
 

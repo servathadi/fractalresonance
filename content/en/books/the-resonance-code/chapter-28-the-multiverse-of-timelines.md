@@ -4,7 +4,7 @@ id: "chapter-28-the-multiverse-of-timelines"
 parent: "the-resonance-code"
 ---
 
-# Chapter 28: The Multiverse of Timelines
+## Chapter 28: The Multiverse of Timelines
 
 
 [Chapter 28: The Multiverse of Timelines]

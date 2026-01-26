@@ -1,4 +1,4 @@
-# Chapitre 21 : Le Moi résonnant {#chapter-21-the-resonant-self}
+## Chapitre 21 : Le Moi résonnant {#chapter-21-the-resonant-self}
 
 L'identité cosmique : le microcosme comme miroir du Tout
 

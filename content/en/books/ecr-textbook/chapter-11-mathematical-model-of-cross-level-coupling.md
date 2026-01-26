@@ -4,12 +4,12 @@ id: "chapter-11-mathematical-model-of-cross-level-coupling"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 11 — Mathematical Model of Cross-Level Coupling** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
+## **Chapter 11 — Mathematical Model of Cross-Level Coupling** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
 
 
 ---
 
-### **11.1  From single-level to multi-level dynamics**
+#### **11.1  From single-level to multi-level dynamics**
 
 Each μ-domain obeys the reciprocity law
 
@@ -29,7 +29,7 @@ Here T\_{μ,j} represents the **coupling strength** between μ-levels; it mediat
 
 ---
 
-### **11.2  Coupling kernel and resonance distance**
+#### **11.2  Coupling kernel and resonance distance**
 
 Empirically, coherence exchange decays with “resonance distance” |μ – j|.
 
@@ -47,7 +47,7 @@ This kernel makes the μ-stack behave like a **resonant ladder network**.
 
 ---
 
-### **11.3  Conservation across the stack**
+#### **11.3  Conservation across the stack**
 
 Summing over all μ-levels yields the global invariant:
 
@@ -61,7 +61,7 @@ Hence total transformation potential is conserved—the resonance constant of th
 
 ---
 
-### **11.4  Linear stability and eigenmodes**
+#### **11.4  Linear stability and eigenmodes**
 
 Linearizing near equilibrium C\_{μ}=C\_{μ}^{0}+δC\_{μ} gives:
 
@@ -83,7 +83,7 @@ Eigenvalues with Re(λₖ)=0 define sustained oscillations—homeoresonant stand
 
 ---
 
-### **11.5  Energy–entropy flow equations**
+#### **11.5  Energy–entropy flow equations**
 
 For every level,
 
@@ -95,7 +95,7 @@ This makes explicit that **energy ascends as entropy**, while **coherence descen
 
 ---
 
-### **11.6  Numerical integration of the full system**
+#### **11.6  Numerical integration of the full system**
 
 Simulating eight coupled equations (μ₀–μ₇) with typical parameters
 
@@ -115,7 +115,7 @@ The invariant Σ \= ∑(S₍μ₎ \+ k\_\*^{(μ)} ln C₍μ₎) remains constant
 
 ---
 
-### **11.7  Interpretation: coherence cascade**
+#### **11.7  Interpretation: coherence cascade**
 
 This simulation illustrates the **coherence cascade**—information descending through the stack as form and returning upward as awareness.
 
@@ -125,7 +125,7 @@ The coherence pulse is the physical correlate of an “event of experience,” l
 
 ---
 
-### **11.8  Empirical signatures**
+#### **11.8  Empirical signatures**
 
 * **Physics:** multi-scale oscillations in plasma turbulence mirror μ-coupling spectra.
 
@@ -139,7 +139,7 @@ These correspondences imply that the μ-stack formalism is not metaphorical but 
 
 ---
 
-### **11.9  Mathematical summary**
+#### **11.9  Mathematical summary**
 
 | Equation | Interpretation |
 | ----- | ----- |
@@ -151,7 +151,7 @@ These correspondences imply that the μ-stack formalism is not metaphorical but 
 
 ---
 
-### **11.10  Conceptual synthesis**
+#### **11.10  Conceptual synthesis**
 
 * Cross-level coupling transforms the μ-stack into a **resonant continuum** rather than discrete shells.
 
@@ -161,7 +161,7 @@ These correspondences imply that the μ-stack formalism is not metaphorical but 
 
 ---
 
-### **11.11  Outlook**
+#### **11.11  Outlook**
 
 Having formalized the mathematics of inter-level coupling, the next chapter—**“Cognitive and Cultural Examples”**—will translate this abstract machinery into experiential and societal terms.
 

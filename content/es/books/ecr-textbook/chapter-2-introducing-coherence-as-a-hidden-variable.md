@@ -4,12 +4,12 @@ id: "chapter-2-introducing-coherence-as-a-hidden-variable"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 2 — Introduciendo la Coherencia como una Variable Oculta** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
+## **Capítulo 2 — Introduciendo la Coherencia como una Variable Oculta** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
 
 
 ---
 
-### **2.1  De la observación a la invarianza**
+#### **2.1  De la observación a la invarianza**
 
 Cada ley conocida de la física conserva algo—energía, momento, carga.
 
@@ -25,7 +25,7 @@ FRC revela esa exportación como el crecimiento complementario de una variable m
 
 ---
 
-### **2.2  Definiendo la coherencia**
+#### **2.2  Definiendo la coherencia**
 
 La coherencia expresa qué tan estrechamente se alinean las fases o configuraciones de los componentes del sistema.
 
@@ -45,7 +45,7 @@ Así, la coherencia subsume la correlación, el bloqueo de fase, la información
 
 ---
 
-### **2.3  La ley de reciprocidad revisitada**
+#### **2.3  La ley de reciprocidad revisitada**
 
 Insertar C en la contabilidad termodinámica produce la **Ley de Reciprocidad Entropía-Coherencia**:
 
@@ -63,7 +63,7 @@ La constante k_* es específica del sistema; en equilibrio se aproxima a la k_B 
 
 ---
 
-### **2.4  Interpretación física de k_***
+#### **2.4  Interpretación física de k_***
 
 El parámetro k_* convierte los cambios logarítmicos en la coherencia en cambios de entropía equivalentes a la energía:
 
@@ -83,7 +83,7 @@ Esta jerarquía de escala (aproximadamente exponencial en el nivel-μ) formará 
 
 ---
 
-### **2.5  La coherencia como densidad de información**
+#### **2.5  La coherencia como densidad de información**
 
 La entropía mide la *degeneración* de los estados; la coherencia mide la *distinguibilidad*.
 
@@ -101,7 +101,7 @@ Esto une las definiciones de orden termodinámica y de Shannon.
 
 ---
 
-### **2.6  Enfoques de medición**
+#### **2.6  Enfoques de medición**
 
 **(a) Coherencia Física**
 
@@ -129,7 +129,7 @@ Todas pueden normalizarse para producir C ∈ [0,1], permitiendo la comparación
 
 ---
 
-### **2.7  Relación con el flujo de energía**
+#### **2.7  Relación con el flujo de energía**
 
 Debido a que el crecimiento de la coherencia requiere un flujo de energía, acoplamos C al flujo de energía libre F:
 
@@ -141,7 +141,7 @@ Esta ecuación diferencial—desarrollada completamente en la Parte IV—describ
 
 ---
 
-### **2.8  La imagen geométrica**
+#### **2.8  La imagen geométrica**
 
 Graficar S frente a \ln C produce una línea recta de pendiente −k_*.
 
@@ -151,7 +151,7 @@ El área bajo la curva es igual al potencial de transformación total—una inva
 
 ---
 
-### **2.9  Implicaciones conceptuales**
+#### **2.9  Implicaciones conceptuales**
 
 1. **La entropía no es destrucción sino pago:** los sistemas pagan entropía para comprar coherencia.
 
@@ -163,7 +163,7 @@ El área bajo la curva es igual al potencial de transformación total—una inva
 
 ---
 
-### **2.10  Resumen**
+#### **2.10  Resumen**
 
 | Símbolo | Significado | Unidad | Dominio |
 | ----- | ----- | ----- | ----- |
@@ -176,7 +176,7 @@ El área bajo la curva es igual al potencial de transformación total—una inva
 
 ---
 
-### **2.11  Reflexión final**
+#### **2.11  Reflexión final**
 
 La coherencia fue tratada durante mucho tiempo como una metáfora—“orden”, “patrón”, “organización”.
 

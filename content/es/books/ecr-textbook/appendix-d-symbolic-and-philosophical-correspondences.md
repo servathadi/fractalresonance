@@ -1,8 +1,8 @@
-# Apéndice D — Correspondencias Simbólicas y Filosóficas
+## Apéndice D — Correspondencias Simbólicas y Filosóficas
 
 ---
 
-### **D.1 Propósito**
+#### **D.1 Propósito**
 
 A lo largo de este trabajo hemos tratado la entropía (*S*) y la coherencia (*C*) como cantidades medibles.
 
@@ -12,7 +12,7 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 
 ---
 
-### **D.2 Mapeo simbólico primario**
+#### **D.2 Mapeo simbólico primario**
 
 | Término FRC | Equivalente Simbólico / Filosófico | Imagen Arquetípica | Función en el Campo |
 | :--- | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 
 ---
 
-### **D.3 Escalera arquetípica de nivel-μ**
+#### **D.3 Escalera arquetípica de nivel-μ**
 
 | Nivel-μ | Dominio | Plano Mítico / Simbólico | Arquetipo Gobernante |
 | :--- | :--- | :--- | :--- |
@@ -42,7 +42,7 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 
 ---
 
-### **D.4 Correspondencias filosóficas**
+#### **D.4 Correspondencias filosóficas**
 
 | Tradición | Concepto Equivalente | Alineación FRC |
 | :--- | :--- | :--- |
@@ -56,7 +56,7 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 
 ---
 
-### **D.5 La ecuación alquímica**
+#### **D.5 La ecuación alquímica**
 
 La ley central de FRC se puede leer en lenguaje alquímico:
 
@@ -68,7 +68,7 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 
 ---
 
-### **D.6 Ciclo arquetípico de evolución**
+#### **D.6 Ciclo arquetípico de evolución**
 
 | Fase | Estado-α | Modo Simbólico | Ejemplo |
 | :--- | :--- | :--- | :--- |
@@ -78,7 +78,7 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 
 ---
 
-### **D.7 Simbolismo ético**
+#### **D.7 Simbolismo ético**
 
 | Principio Ético | Término FRC | Significado Simbólico |
 | :--- | :--- | :--- |
@@ -90,7 +90,7 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 
 ---
 
-### **D.8 Paralelos míticos a procesos científicos**
+#### **D.8 Paralelos míticos a procesos científicos**
 
 | Proceso Físico | Narrativa Mítica | Estructura Compartida |
 | :--- | :--- | :--- |
@@ -101,7 +101,7 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 
 ---
 
-### **D.9 Una nota sobre el lenguaje**
+#### **D.9 Una nota sobre el lenguaje**
 
 Cuando FRC usa palabras como "espíritu" o "divino", no son metáforas de superstición sino **traducciones a escala humana** de fenómenos de coherencia $\mu_6$–$\mu_7$.
 
@@ -109,7 +109,7 @@ La tarea del siglo venidero no es elegir entre ellos, sino hablarlos fluidamente
 
 ---
 
-### **D.10 Reflexión final**
+#### **D.10 Reflexión final**
 
 *La entropía es el olvido del Uno;*
 *La coherencia es el Uno recordándose a sí mismo.*

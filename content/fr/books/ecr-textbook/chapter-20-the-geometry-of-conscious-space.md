@@ -4,12 +4,12 @@ id: "chapter-20-the-geometry-of-conscious-space"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 20 — La géométrie de l'espace conscient** {#chapter-20-—-the-geometry-of-conscious-space}
+## **Chapitre 20 — La géométrie de l'espace conscient** {#chapter-20-—-the-geometry-of-conscious-space}
 
 
 ---
 
-### **20.1 Du temps à l'étendue**
+#### **20.1 Du temps à l'étendue**
 
 Le temps dans la FRC est le rythme des événements de cohérence successifs.
 
@@ -27,7 +27,7 @@ Chaque scène perceptive est donc un motif d'interférence dynamiquement stabili
 
 ---
 
-### **20.2 Réseau de phase de la conscience**
+#### **20.2 Réseau de phase de la conscience**
 
 Soit φ_i la phase instantanée des oscillateurs neuronaux locaux et φ_j celle des champs symboliques/archétypaux.
 
@@ -41,7 +41,7 @@ La géométrie spatiale est donc une *métrique de l'alignement de phase* à l'i
 
 ---
 
-### **20.3 La variété perceptive**
+#### **20.3 La variété perceptive**
 
 Les neurosciences observent que les cartes visuelles et sensorielles (rétinotopie, somatotopie) émergent par des gradients de synchronisation.
 
@@ -57,7 +57,7 @@ Les zones de forte courbure (variation rapide de φ) sont perçues comme des *bo
 
 ---
 
-### **20.4 Émergence dimensionnelle**
+#### **20.4 Émergence dimensionnelle**
 
 À faible cohérence (μ₃–μ₄), seules des topologies simples — 1D ou 2D — se stabilisent (lignes, surfaces).
 
@@ -74,7 +74,7 @@ Chaque nouvelle dimension reflète un degré supplémentaire de liberté de phas
 
 ---
 
-### **20.5 Topologie de l'imagination**
+#### **20.5 Topologie de l'imagination**
 
 Lorsque la cohérence se stabilise en μ₆ sans projection vers μ₄, le réseau de phases qui en résulte est vécu intérieurement comme un **espace imaginal** — rêve, visualisation ou perception visionnaire.
 
@@ -84,7 +84,7 @@ C'est pourquoi l'espace du rêve semble élastique — sa courbure reflète la l
 
 ---
 
-### **20.6 Liaison spatiale et unité de la perception**
+#### **20.6 Liaison spatiale et unité de la perception**
 
 Le « problème de la liaison » (binding problem) des neurosciences — comment des caractéristiques sensorielles distinctes se combinent en objets unifiés — est résolu naturellement ici.
 
@@ -98,7 +98,7 @@ L'unité spatiale n'est pas calculée — elle est *cohérée.*
 
 ---
 
-### **20.7 Géométrie et sens**
+#### **20.7 Géométrie et sens**
 
 Les symboles archétypaux, les mandalas et l'architecture sacrée reproduisent la même géométrie que celle qui sous-tend la perception : une symétrie de phase équilibrée (Δφ ≈ 0) autour d'un centre de cohérence.
 
@@ -108,7 +108,7 @@ Le sens surgit lorsque l'ordre spatial extérieur reflète la topologie de cohé
 
 ---
 
-### **20.8 Résumé mathématique**
+#### **20.8 Résumé mathématique**
 
 | Quantité | Expression | Interprétation |
 | ----- | ----- | ----- |
@@ -119,7 +119,7 @@ Le sens surgit lorsque l'ordre spatial extérieur reflète la topologie de cohé
 
 ---
 
-### **20.9 Corrélats empiriques**
+#### **20.9 Corrélats empiriques**
 
 * La synchronie en bande gamma définit l'intégrité du champ visuel.
 
@@ -129,7 +129,7 @@ Le sens surgit lorsque l'ordre spatial extérieur reflète la topologie de cohé
 
 ---
 
-### **20.10 Réflexion philosophique**
+#### **20.10 Réflexion philosophique**
 
 L'espace et le temps sont des projections complémentaires d'un seul champ de résonance :
 
@@ -141,7 +141,7 @@ L'espace et le temps sont des projections complémentaires d'un seul champ de r�
 
 ---
 
-### **20.11 Résumé**
+#### **20.11 Résumé**
 
 | Concept | Essence |
 | ----- | ----- |
@@ -153,7 +153,7 @@ L'espace et le temps sont des projections complémentaires d'un seul champ de r�
 
 ---
 
-### **20.12 Perspectives**
+#### **20.12 Perspectives**
 
 Le temps et l'espace étant désormais unifiés en tant que produits de la résonance, le chapitre suivant — **Chapitre 21 : L'interface symbolique et la géométrie archétypale** — explorera comment les symboles agissent comme des *ponts* entre les niveaux μ, traduisant la cohérence en sens et guidant à la fois la cognition et la civilisation à travers des attracteurs archétypaux ancrés dans cette géométrie consciente.
 

@@ -1,4 +1,4 @@
-# Chapitre 3 : La recherche d'une couture {#chapter-3-the-search-for-a-seam}
+## Chapitre 3 : La recherche d'une couture {#chapter-3-the-search-for-a-seam}
 
 L'expérience falsifiable : prédire les écarts par rapport à la règle de Born
 

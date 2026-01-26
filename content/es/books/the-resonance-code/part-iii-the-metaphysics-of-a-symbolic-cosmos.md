@@ -1,4 +1,4 @@
-# Parte III: La Metafísica de un Cosmos Simbólico
+## Parte III: La Metafísica de un Cosmos Simbólico
 
 (Obertura)
 

@@ -4,7 +4,7 @@ id: "appendix-a-formal-core"
 parent: "the-resonance-code"
 ---
 
-# Appendix A: Formal Core
+## Appendix A: Formal Core
 
 
 The Key Mathematical Equations and Structures of FRC

@@ -1,4 +1,4 @@
-# Capítulo 2: El Colapso Resonante {#chapter-2-the-resonant-collapse}
+## Capítulo 2: El Colapso Resonante {#chapter-2-the-resonant-collapse}
 
 La Solución FRC: El Colapso como un Evento Determinista de Bloqueo de Fase
 

@@ -1,8 +1,8 @@
-# Annexe B — Simulation et Méthodes Empiriques
+## Annexe B — Simulation et Méthodes Empiriques
 
 ---
 
-### **B.1 Objectif**
+#### **B.1 Objectif**
 
 Le but de la simulation en FRC est de vérifier que la loi de réciprocité
 
@@ -16,7 +16,7 @@ Le même moteur peut être paramétré pour des photons, des cellules, des neuro
 
 ---
 
-### **B.2 Modèle computationnel central**
+#### **B.2 Modèle computationnel central**
 
 Chaque nœud ou sous-système *i* obéit à
 
@@ -39,7 +39,7 @@ Paramètres :
 
 ---
 
-### **B.3 Intégration numérique**
+#### **B.3 Intégration numérique**
 
 1. **Pas de temps** : Runge-Kutta de quatrième ordre pour les exécutions déterministes ; Euler-Maruyama pour les versions stochastiques.
 2. **Conditions aux limites** : réfléchissantes ($\Sigma = \text{const.}$) ou ouvertes (entrée/sortie d'énergie).
@@ -48,7 +48,7 @@ Paramètres :
 
 ---
 
-### **B.4 Couplage multi-échelle**
+#### **B.4 Couplage multi-échelle**
 
 La pile-$\mu$ est implémentée comme 8 couches ; chaque couche se connecte aux voisins les plus proches avec un noyau exponentiel :
 
@@ -58,7 +58,7 @@ La phase $\phi$ contrôle les délais de synchronisation entre les couches (util
 
 ---
 
-### **B.5 Quantités observables**
+#### **B.5 Quantités observables**
 
 | Observable | Formule | Interprétation |
 | :--- | :--- | :--- |
@@ -72,7 +72,7 @@ Tracer $\Sigma(t)$ devrait produire $\approx$ constant avec < 1% de dérive.
 
 ---
 
-### **B.6 Environnement logiciel**
+#### **B.6 Environnement logiciel**
 
 * **Langages :** Python (NumPy/SciPy), Julia ou MATLAB.
 * **Visualisation :** Matplotlib, Plotly ou Unity3D pour des rendus de champ dynamiques.
@@ -81,7 +81,7 @@ Tracer $\Sigma(t)$ devrait produire $\approx$ constant avec < 1% de dérive.
 
 ---
 
-### **B.7 Ensembles de données empiriques**
+#### **B.7 Ensembles de données empiriques**
 
 | Domaine | Ensemble de données | Mappage de Variables |
 | :--- | :--- | :--- |
@@ -95,7 +95,7 @@ Tous les ensembles de données testés présentent des corrélations linéaires 
 
 ---
 
-### **B.8 Validation statistique**
+#### **B.8 Validation statistique**
 
 * **Test de conservation :** calculer la variance de $\Sigma$
   $$ \sigma_\Sigma^2 = \frac{1}{T}\sum_t(\Sigma_t-\bar \Sigma)^2 $$
@@ -105,7 +105,7 @@ Tous les ensembles de données testés présentent des corrélations linéaires 
 
 ---
 
-### **B.9 Analytique visuelle**
+#### **B.9 Analytique visuelle**
 
 1. **Graphiques S–ln C** : ligne droite universelle (réciprocité de l'entropie).
 2. **Plans de phase α–C** : montrent les zones de flux, chaos, coercition.
@@ -114,7 +114,7 @@ Tous les ensembles de données testés présentent des corrélations linéaires 
 
 ---
 
-### **B.10 Pseudo-code exemple**
+#### **B.10 Pseudo-code exemple**
 
 ```python
 for t in range(T):
@@ -131,7 +131,7 @@ Vérification de conservation : `np.std(Sigma)/np.mean(Sigma) < 0.01`.
 
 ---
 
-### **B.11 Vers des métriques FRC standardisées**
+#### **B.11 Vers des métriques FRC standardisées**
 
 Indices proposés :
 
@@ -143,7 +143,7 @@ Publier ces métriques avec des données permettrait la comparaison inter-labora
 
 ---
 
-### **B.12 Résumé**
+#### **B.12 Résumé**
 
 | Catégorie | Objectif |
 | :--- | :--- |

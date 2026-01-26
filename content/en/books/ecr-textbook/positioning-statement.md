@@ -4,7 +4,7 @@ id: "positioning-statement"
 parent: "ecr-textbook"
 ---
 
-# **Positioning Statement** {#positioning-statement}
+## **Positioning Statement** {#positioning-statement}
 
 
 **Genre:** Interdisciplinary Science / Consciousness Studies / Complex Systems Theory

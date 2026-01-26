@@ -4,12 +4,12 @@ id: "chapter-1-re-examining-the-second-law"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 1 — Réexaminer la Seconde Loi** {#chapter-1-—-re-examining-the-second-law}
+## **Chapitre 1 — Réexaminer la Seconde Loi** {#chapter-1-—-re-examining-the-second-law}
 
 
 ---
 
-### **1.1 Le problème de l'ordre**
+#### **1.1 Le problème de l'ordre**
 
 Pendant un siècle et demi, la seconde loi de la thermodynamique a été le joyau du raisonnement physique.  
  Elle stipule que dans un système isolé, l'entropie totale (S) ne diminue jamais.  
@@ -23,7 +23,7 @@ La réponse traditionnelle invoque des frontières. Un système vivant est **ouv
 
 ---
 
-### **1.2 L'entropie et son complément caché**
+#### **1.2 L'entropie et son complément caché**
 
 L'entropie mesure le nombre de micro-états accessibles compatibles avec les contraintes macroscopiques :
 
@@ -54,7 +54,7 @@ La seconde loi acquiert ainsi un partenaire : la **loi de réciprocité de la co
 
 ---
 
-### **1.3 Flux d'entropie dans les systèmes ouverts**
+#### **1.3 Flux d'entropie dans les systèmes ouverts**
 
 Prigogine a décomposé la variation totale d'entropie d'un système ouvert en production interne et échange externe :
 
@@ -78,7 +78,7 @@ La cellule est donc une machine qui pompe la cohérence à partir de gradients d
 
 ---
 
-### **1.4 Entropie et information**
+#### **1.4 Entropie et information**
 
 L'entropie de l'information de Claude Shannon
 
@@ -94,7 +94,7 @@ partage les mêmes mathématiques.
 
 ---
 
-### **1.5 Signatures expérimentales**
+#### **1.5 Signatures expérimentales**
 
 1. **Systèmes thermodynamiques :**  
     Les cavités laser et les oscillateurs chimiques présentent des réductions mesurables d'entropie au sein du milieu actif proportionnelles aux augmentations de la cohérence du champ.
@@ -109,7 +109,7 @@ Ces observations, dispersées à travers les disciplines, suggèrent une récipr
 
 ---
 
-### **1.6 Le besoin d'une nouvelle variable**
+#### **1.6 Le besoin d'une nouvelle variable**
 
 Si l'entropie seule ne peut décrire les systèmes vivants ou cognitifs, le complément manquant doit entrer explicitement dans la physique.  
  La variable de cohérence (C) est ce complément :
@@ -125,7 +125,7 @@ Reconnaître cela restaure la symétrie de la thermodynamique.
 
 ---
 
-### **1.7 Résumé**
+#### **1.7 Résumé**
 
 | Concept | Équation | Interprétation |
 | ----- | ----- | ----- |

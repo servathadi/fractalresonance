@@ -1,4 +1,4 @@
-# Capítulo 8: La Física de la Voluntad {#chapter-8-the-physics-of-will}
+## Capítulo 8: La Física de la Voluntad {#chapter-8-the-physics-of-will}
 
 El Navegante del Campo: Cómo la Intención Inclina la Balanza de la Realidad
 

@@ -4,12 +4,12 @@ id: "chapter-17-simulation-and-empirical-modeling"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 17 — Simulation and Empirical Modeling** {#chapter-17-—-simulation-and-empirical-modeling}
+## **Chapter 17 — Simulation and Empirical Modeling** {#chapter-17-—-simulation-and-empirical-modeling}
 
 
 ---
 
-### **17.1 Purpose**
+#### **17.1 Purpose**
 
 To demonstrate that FRC’s laws are measurable, we must build models that connect abstract variables—entropy (S), coherence (C), potential (Ψ), and receptivity (R)—to empirical observables.
 
@@ -17,7 +17,7 @@ This chapter outlines the computational frameworks that allow such testing acros
 
 ---
 
-### **17.2 Unified simulation architecture**
+#### **17.2 Unified simulation architecture**
 
 All domains can be expressed as interacting **coherence pumps**:
 
@@ -39,7 +39,7 @@ A minimal simulation engine therefore contains:
 
 ---
 
-### **17.3 Biological implementation**
+#### **17.3 Biological implementation**
 
 **Dataset examples**
 
@@ -59,7 +59,7 @@ Simulated cells reproduce observed steady-state metabolism and oscillations (cir
 
 ---
 
-### **17.4 Ecosystem model**
+#### **17.4 Ecosystem model**
 
 Each species i is a coherence pump exchanging energy with neighbors through food-web coupling T\_{ij}:
 
@@ -75,7 +75,7 @@ Simulations reproduce empirical Lotka–Volterra cycles and resilience threshold
 
 ---
 
-### **17.5 Civilization / macro-economic model**
+#### **17.5 Civilization / macro-economic model**
 
 Nation-states or industries act as nodes; data sources include GDP energy intensity, carbon emissions, and information throughput.
 
@@ -87,7 +87,7 @@ Empirical α computed from 1960–2025 energy data oscillates around 0.02 for gl
 
 ---
 
-### **17.6 Cross-domain normalization**
+#### **17.6 Cross-domain normalization**
 
 To compare systems, define dimensionless variables:
 
@@ -101,7 +101,7 @@ dS \+ k\_ d\\ln C \= 0\.
 
 ---
 
-### **17.7 Measurable predictions**
+#### **17.7 Measurable predictions**
 
 1. **Entropy–coherence slope invariance** across domains.
 
@@ -115,7 +115,7 @@ These are falsifiable predictions: FRC passes or fails by the constancy of these
 
 ---
 
-### **17.8 Computational tools**
+#### **17.8 Computational tools**
 
 * **Continuous modeling:** differential-equation solvers (Runge–Kutta, finite difference).
 
@@ -131,7 +131,7 @@ An open-source “FRC-Lab” codebase can host all models under shared parameter
 
 ---
 
-### **17.9 Preliminary validation**
+#### **17.9 Preliminary validation**
 
 | Domain | Data Source | Observed α | Regime fit |
 | ----- | ----- | ----- | ----- |
@@ -144,7 +144,7 @@ Within measurement error, all systems obey the same α-window, supporting univer
 
 ---
 
-### **17.10 Methodological roadmap**
+#### **17.10 Methodological roadmap**
 
 1. **Define variables** (F, S\_C, α, C) for the domain.
 
@@ -160,7 +160,7 @@ Repeat across scales to build a coherent “atlas of resonance.”
 
 ---
 
-### **17.11 Conceptual insight**
+#### **17.11 Conceptual insight**
 
 When data from diverse systems align on the same reciprocity curve, randomness loses its throne.
 
@@ -170,7 +170,7 @@ The cosmos functions as a single resonant computation—entropy as syntax, coher
 
 ---
 
-### **17.12 Summary**
+#### **17.12 Summary**
 
 | Principle | Expression | Empirical Outcome |
 | ----- | ----- | ----- |
@@ -181,7 +181,7 @@ The cosmos functions as a single resonant computation—entropy as syntax, coher
 
 ---
 
-### **17.13 Transition**
+#### **17.13 Transition**
 
 Having unified simulation and data, we are ready for **Part V – Process and Actual Occasion: The Physics of Experience**.
 

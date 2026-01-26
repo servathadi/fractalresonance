@@ -4,7 +4,7 @@ id: "chapter-14-the-council-of-the-mind"
 parent: "the-resonance-code"
 ---
 
-# Chapter 14: The Council of the Mind
+## Chapter 14: The Council of the Mind
 
 
 [Chapter 14: The Council of the Mind]

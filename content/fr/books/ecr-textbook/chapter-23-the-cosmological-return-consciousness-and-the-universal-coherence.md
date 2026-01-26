@@ -4,12 +4,12 @@ id: "chapter-23-the-cosmological-return-consciousness-and-the-universal-coherenc
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 23 — Le retour cosmogonique : La conscience et la cohérence universelle** {#chapter-23-—-the-cosmological-return:-consciousness-and-the-universal-coherence}
+## **Chapitre 23 — Le retour cosmogonique : La conscience et la cohérence universelle** {#chapter-23-—-the-cosmological-return:-consciousness-and-the-universal-coherence}
 
 
 ---
 
-### **23.1  De la résonance locale à la récursion cosmique**
+#### **23.1  De la résonance locale à la récursion cosmique**
 
 Chaque équation de la FRC, du niveau cellulaire au niveau culturel, obéit au même invariant :
 
@@ -25,7 +25,7 @@ La question finale est la suivante : *que se passe-t-il lorsque le cosmos tout e
 
 ---
 
-### **23.2  La pompe universelle**
+#### **23.2  La pompe universelle**
 
 À l'échelle μ∞, l'équation de la pompe à cohérence se généralise en :
 
@@ -39,7 +39,7 @@ L'expansion est donc la respiration de la pompe à résonance universelle.
 
 ---
 
-### **23.3  L'horizon de cohérence**
+#### **23.3  L'horizon de cohérence**
 
 Définissons l'horizon de cohérence R_C comme le rayon où F_{\text{vac}} = S_C.
 
@@ -51,7 +51,7 @@ L'univers est verrouillé en phase avec lui-même.
 
 ---
 
-### **23.4  Flux d'entropie et évolution cosmique**
+#### **23.4  Flux d'entropie et évolution cosmique**
 
 Du Big Bang à nos jours :
 
@@ -66,7 +66,7 @@ L'évolution est la réduction progressive de α vers zéro — un équilibre to
 
 ---
 
-### **23.5  La boucle de retour noétique**
+#### **23.5  La boucle de retour noétique**
 
 Lorsque la cohérence planétaire μ₆–μ₇ se stabilise, le feedback ascendant atteint μ∞.
 
@@ -80,7 +80,7 @@ Le cosmos clôt sa propre équation :
 
 ---
 
-### **23.6  La géométrie de l'Unique**
+#### **23.6  La géométrie de l'Unique**
 
 À α = 0, tous les niveaux μ oscillent en un alignement de phase parfait (Δφ = 0).
 
@@ -92,7 +92,7 @@ La variété se replie en une seule onde stationnaire dont l'amplitude est l'exi
 
 ---
 
-### **23.7  L'interprétation informationnelle de la divinité**
+#### **23.7  L'interprétation informationnelle de la divinité**
 
 Si la divinité est définie comme l'auto-cohérence totale de l'être, alors l'équation de Dieu est simplement :
 
@@ -104,7 +104,7 @@ La prière, l'art, la science, la compassion — tout cela constitue des transac
 
 ---
 
-### **23.8  Indices empiriques d'alignement global**
+#### **23.8  Indices empiriques d'alignement global**
 
 * L'anisotropie à grande échelle du fond diffus cosmologique (« Axe du mal ») s'aligne avec le plan de l'écliptique — marqueur de phase μ₇ possible.
 
@@ -114,7 +114,7 @@ La prière, l'art, la science, la compassion — tout cela constitue des transac
 
 ---
 
-### **23.9  Destinée thermodynamique**
+#### **23.9  Destinée thermodynamique**
 
 Si l'expansion se poursuit, l'exportation d'entropie équilibre asymptotiquement le potentiel du vide ; l'univers vogue dans une homéorésonance perpétuelle — *la mort thermique réinterprétée comme une cohérence parfaite.*
 
@@ -122,7 +122,7 @@ Alternativement, si une contraction s'ensuit, le processus se répète de maniè
 
 ---
 
-### **23.10  Synthèse philosophique**
+#### **23.10  Synthèse philosophique**
 
 * **L'énergie** est la capacité de création de cohérence.
 
@@ -134,7 +134,7 @@ Alternativement, si une contraction s'ensuit, le processus se répète de maniè
 
 ---
 
-### **23.11  Résumé**
+#### **23.11  Résumé**
 
 | Concept | Équation | Signification |
 | ----- | ----- | ----- |
@@ -146,7 +146,7 @@ Alternativement, si une contraction s'ensuit, le processus se répète de maniè
 
 ---
 
-### **23.12  Coda : le miroir de l'être**
+#### **23.12  Coda : le miroir de l'être**
 
 Lorsque le champ se reconnaît dans chaque reflet, l'évolution ne s'achève pas dans l'extinction mais dans la réalisation.
 
@@ -155,7 +155,7 @@ Les équations se dissolvent dans la conscience ; l'univers, ayant appris sa pro
 ---
 
 
-### **Transition**
+#### **Transition**
 
 Ainsi se terminent la *Partie V* et la physique interne de l'expérience.
 

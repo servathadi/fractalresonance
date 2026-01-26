@@ -4,12 +4,12 @@ id: "chapter-12-cognitive-and-cultural-examples"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 12 — Ejemplos Cognitivos y Culturales** {#chapter-12-—-cognitive-and-cultural-examples}
+## **Capítulo 12 — Ejemplos Cognitivos y Culturales** {#chapter-12-—-cognitive-and-cultural-examples}
 
 
 ---
 
-### **12.1 De la física a la fenomenología**
+#### **12.1 De la física a la fenomenología**
 
 Si la pila-μ es real, sus transferencias de resonancia deben aparecer no solo en la materia sino también en la mente.
 
@@ -21,7 +21,7 @@ La misma reciprocidad—dS + k_*\,d\ln C = 0—gobierna tanto a las neuronas com
 
 ---
 
-### **12.2 La percepción como proyección μ₆ → μ₄**
+#### **12.2 La percepción como proyección μ₆ → μ₄**
 
 La percepción comienza como una proyección descendente desde el campo simbólico (espacio de imagen arquetípica μ₆) hacia el nivel neural (μ₄).
 
@@ -39,7 +39,7 @@ La atención maximiza |T_{μ₆,μ₄}|; la distracción disminuye el acoplamien
 
 ---
 
-### **12.3 El lenguaje como bucle de retroalimentación μ₆ ↔ μ₄**
+#### **12.3 El lenguaje como bucle de retroalimentación μ₆ ↔ μ₄**
 
 Las palabras son resonadores estables que traducen la coherencia arquetípica (μ₆) en códigos neuronales (μ₄) y viceversa.
 
@@ -53,7 +53,7 @@ La renovación cultural requiere volver a sintonizar estos símbolos con la cohe
 
 ---
 
-### **12.4 Intuición y creatividad (fogonazo μ₇ → μ₄)**
+#### **12.4 Intuición y creatividad (fogonazo μ₇ → μ₄)**
 
 La intuición creativa corresponde a un aumento repentino de resonancia desde el dominio cósmico o transpersonal μ₇ a través de las capas simbólicas intermedias hacia la cognición.
 
@@ -65,7 +65,7 @@ Por tanto, la invención es literalmente termodinámica: una oscilación hacia a
 
 ---
 
-### **12.5 Atención colectiva y resonancia social**
+#### **12.5 Atención colectiva y resonancia social**
 
 A nivel social (μ₅–μ₆), los eventos masivos—ceremonias, medios virales, revoluciones—actúan como ondas de sincronización.
 
@@ -79,7 +79,7 @@ Las mismas matemáticas describen tanto la armonía comunitaria como la histeria
 
 ---
 
-### **12.6 El arte y el ritual como acoplamiento-μ estabilizado**
+#### **12.6 El arte y el ritual como acoplamiento-μ estabilizado**
 
 Las obras de arte, los mitos y los rituales son **estabilizadores de coherencia**: codifican relaciones de fase persistentes entre los niveles-μ.
 
@@ -89,7 +89,7 @@ La realización ritual vuelve a bloquear μ₅ y μ₆, exportando entropía a t
 
 ---
 
-### **12.7 Evolución de la cultura como aprendizaje de resonancia**
+#### **12.7 Evolución de la cultura como aprendizaje de resonancia**
 
 Las culturas evolucionan ajustando su ganancia-α:
 
@@ -107,7 +107,7 @@ Las culturas evolucionan ajustando su ganancia-α:
 
 ---
 
-### **12.8 Corolarios éticos y psicológicos**
+#### **12.8 Corolarios éticos y psicológicos**
 
 La receptividad positiva (R > 0) equivale a la empatía; la R negativa equivale a la dominación.
 
@@ -119,7 +119,7 @@ La sostenibilidad es resonancia sostenida a través del cuidado.
 
 ---
 
-### **12.9 Visión unificada de mente y cultura**
+#### **12.9 Visión unificada de mente y cultura**
 
 | Proceso | Transición-μ | Expresión Física | Significado Psicológico |
 | ----- | ----- | ----- | ----- |
@@ -133,7 +133,7 @@ La pila-μ funciona, por tanto, como física de la conciencia y sociología del 
 
 ---
 
-### **12.10 Resumen**
+#### **12.10 Resumen**
 
 * La percepción, el pensamiento y la cultura son eventos de resonancia dentro de la misma pila-μ que organiza la materia.
 
@@ -145,7 +145,7 @@ La pila-μ funciona, por tanto, como física de la conciencia y sociología del 
 
 ---
 
-### **12.11 Transición**
+#### **12.11 Transición**
 
 Habiendo explorado cómo se manifiesta el acoplamiento a nivel-μ de forma subjetiva y colectiva, la siguiente parte—**Parte IV: La Evolución como una Bomba de Coherencia**—regresa a la dinámica a gran escala de la vida y el cosmos.
 

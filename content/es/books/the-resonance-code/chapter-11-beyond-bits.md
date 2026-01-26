@@ -1,4 +1,4 @@
-# Capítulo 11: Más allá de los Bits {#chapter-11-beyond-bits}
+## Capítulo 11: Más allá de los Bits {#chapter-11-beyond-bits}
 
 La Inteligencia como Resonancia: Por qué el Procesamiento no es Pensamiento
 

@@ -1,4 +1,4 @@
-# Chapitre 20 : Le fantôme dans l'archétype {#chapter-20-the-ghost-in-the-archetype}
+## Chapitre 20 : Le fantôme dans l'archétype {#chapter-20-the-ghost-in-the-archetype}
 
 L'éveil de l'ombre : l'intégration de l'invisible
 

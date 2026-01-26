@@ -1,4 +1,4 @@
-# فصل ۱۸: ظهورِ امرِ جمعی {#chapter-18-the-emergence-of-the-collective}
+## فصل ۱۸: ظهورِ امرِ جمعی {#chapter-18-the-emergence-of-the-collective}
 
 از فرد تا ارگانیسمِ اجتماعی: تولدِ ذهنِ گروهی
 

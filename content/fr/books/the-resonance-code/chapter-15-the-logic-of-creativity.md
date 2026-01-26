@@ -1,4 +1,4 @@
-# Chapitre 15 : La logique de la créativité {#chapter-15-the-logic-of-creativity}
+## Chapitre 15 : La logique de la créativité {#chapter-15-the-logic-of-creativity}
 
 Le saut de cohérence : comment naît le nouveau
 

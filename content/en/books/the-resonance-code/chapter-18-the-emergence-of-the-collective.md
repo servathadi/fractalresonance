@@ -4,7 +4,7 @@ id: "chapter-18-the-emergence-of-the-collective"
 parent: "the-resonance-code"
 ---
 
-# Chapter 18: The Emergence of the Collective
+## Chapter 18: The Emergence of the Collective
 
 
 [Chapter 18: The Emergence of the Collective]

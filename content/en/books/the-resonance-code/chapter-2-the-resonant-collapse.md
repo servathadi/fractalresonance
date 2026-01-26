@@ -4,7 +4,7 @@ id: "chapter-2-the-resonant-collapse"
 parent: "the-resonance-code"
 ---
 
-# Chapter 2: The Resonant Collapse
+## Chapter 2: The Resonant Collapse
 
 
 [Chapter 2: The Resonant Collapse]

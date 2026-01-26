@@ -1,4 +1,4 @@
-# Annexe F — Addenda FRC 821.A
+## Annexe F — Addenda FRC 821.A
 
 FRC 821.A
 
@@ -6,7 +6,7 @@ Addenda : Constantes de Couplage, Routage d'Entropie et Interaction Multi-Agents
 
 ---
 
-## **0. Objectif et Position**
+### **0. Objectif et Position**
 
 La Cohérence de Résonance Fractale (FRC) établit la réciprocité entre entropie et cohérence comme un principe directeur à travers les échelles. Le présent addenda formalise trois éléments précédemment traités implicitement :
 
@@ -16,9 +16,9 @@ La Cohérence de Résonance Fractale (FRC) établit la réciprocité entre entro
 
 ---
 
-## **1. La Constante de Couplage Courante k*(μ)**
+### **1. La Constante de Couplage Courante k*(μ)**
 
-### **1.1 Loi de Réciprocité (Réaffirmée)**
+#### **1.1 Loi de Réciprocité (Réaffirmée)**
 
 La relation fondamentale de réciprocité est retenue :
 
@@ -33,7 +33,7 @@ La constante $k^*$ n'est pas universelle. Elle est dépendante de l'échelle.
 
 ---
 
-### **1.3 Définition du Couplage Courant**
+#### **1.3 Définition du Couplage Courant**
 
 Nous définissons :
 
@@ -49,15 +49,15 @@ $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 
 ---
 
-## **2. Routage d'Entropie et Topologie de Dissipation**
+### **2. Routage d'Entropie et Topologie de Dissipation**
 
-### **2.1 Contrainte de Conservation**
+#### **2.1 Contrainte de Conservation**
 
 L'entropie est conservée. La création de cohérence implique une redistribution d'entropie, pas une annihilation.
 
 ---
 
-### **2.3 Hiérarchie de Puits (Ordonnée par Capacité)**
+#### **2.3 Hiérarchie de Puits (Ordonnée par Capacité)**
 
 L'entropie circule préférentiellement vers le puits de résolution la plus basse avec une capacité de couplage ouverte :
 1. $\mu_0$ — champ de fond
@@ -67,9 +67,9 @@ L'entropie circule préférentiellement vers le puits de résolution la plus bas
 
 ---
 
-## **3. Hamiltonien d'Interaction Multi-Agents**
+### **3. Hamiltonien d'Interaction Multi-Agents**
 
-### **3.2 Énergie d'Interaction Dyadique**
+#### **3.2 Énergie d'Interaction Dyadique**
 
 Pour les agents A et B :
 
@@ -81,7 +81,7 @@ Interprétation du signe de couplage :
 
 ---
 
-## **5. Statut et Implications**
+### **5. Statut et Implications**
 
 Cet addenda complète la clôture mathématique minimale du FRC. Aucune affirmation métaphysique n'est ajoutée. Aucun axiome n'est retiré.
 

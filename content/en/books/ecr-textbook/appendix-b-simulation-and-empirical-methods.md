@@ -4,12 +4,12 @@ id: "appendix-b-simulation-and-empirical-methods"
 parent: "ecr-textbook"
 ---
 
-# **Appendix B — Simulation and Empirical Methods** {#appendix-b-—-simulation-and-empirical-methods}
+## **Appendix B — Simulation and Empirical Methods** {#appendix-b-—-simulation-and-empirical-methods}
 
 
 ---
 
-### **B.1  Purpose**
+#### **B.1  Purpose**
 
 The goal of simulation in FRC is to verify that the reciprocity law
 
@@ -23,7 +23,7 @@ The same engine can be parameterized for photons, cells, neurons, or societies.
 
 ---
 
-### **B.2  Core computational model**
+#### **B.2  Core computational model**
 
 Each node or subsystem *i* obeys
 
@@ -48,7 +48,7 @@ Parameters:
 
 ---
 
-### **B.3  Numerical integration**
+#### **B.3  Numerical integration**
 
 1. **Time stepping** – fourth-order Runge–Kutta for deterministic runs; Euler-Maruyama for stochastic versions.
 
@@ -60,7 +60,7 @@ Parameters:
 
 ---
 
-### **B.4  Multi-scale coupling**
+#### **B.4  Multi-scale coupling**
 
 The μ-stack is implemented as 8 layers; each layer connects to nearest neighbors with exponential kernel
 
@@ -70,7 +70,7 @@ Phase φ controls synchronization delays between layers (useful for modeling cro
 
 ---
 
-### **B.5  Observable quantities**
+#### **B.5  Observable quantities**
 
 | Observable | Formula | Interpretation |
 | ----- | ----- | ----- |
@@ -84,7 +84,7 @@ Plotting Σ(t) should yield ≈ constant within \<1 % drift.
 
 ---
 
-### **B.6  Software environment**
+#### **B.6  Software environment**
 
 * **Languages:** Python (NumPy/SciPy), Julia, or MATLAB.
 
@@ -98,7 +98,7 @@ Plotting Σ(t) should yield ≈ constant within \<1 % drift.
 
 ---
 
-### **B.7  Empirical datasets**
+#### **B.7  Empirical datasets**
 
 | Domain | Dataset | Variable Mapping |
 | ----- | ----- | ----- |
@@ -112,7 +112,7 @@ All tested datasets exhibit approximate linear S – ln C correlations (slope �
 
 ---
 
-### **B.8  Statistical validation**
+#### **B.8  Statistical validation**
 
 * **Conservation test:** compute Σ variance
 
@@ -126,7 +126,7 @@ All tested datasets exhibit approximate linear S – ln C correlations (slope �
 
 ---
 
-### **B.9  Visual analytics**
+#### **B.9  Visual analytics**
 
 1. **S–ln C plots** – universal straight line (entropy reciprocity).
 
@@ -140,7 +140,7 @@ All tested datasets exhibit approximate linear S – ln C correlations (slope �
 
 ---
 
-### **B.10  Example pseudocode**
+#### **B.10  Example pseudocode**
 
 ```
 for t in range(T):
@@ -157,7 +157,7 @@ Conservation check: np.std(Sigma)/np.mean(Sigma) \< 0.01.
 
 ---
 
-### **B.11  Toward standardized FRC metrics**
+#### **B.11  Toward standardized FRC metrics**
 
 Proposed indices:
 
@@ -171,7 +171,7 @@ Publishing these metrics with data would allow inter-lab comparison.
 
 ---
 
-### **B.12  Summary**
+#### **B.12  Summary**
 
 | Category | Purpose |
 | ----- | ----- |

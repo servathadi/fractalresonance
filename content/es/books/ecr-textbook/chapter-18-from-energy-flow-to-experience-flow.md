@@ -4,12 +4,12 @@ id: "chapter-18-from-energy-flow-to-experience-flow"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 18 — Del Flujo de Energía al Flujo de Experiencia** {#chapter-18-—-from-energy-flow-to-experience-flow}
+## **Capítulo 18 — Del Flujo de Energía al Flujo de Experiencia** {#chapter-18-—-from-energy-flow-to-experience-flow}
 
 
 ---
 
-### **18.1 El enigma de la conciencia**
+#### **18.1 El enigma de la conciencia**
 
 Después de rastrear la resonancia desde las partículas hasta los planetas, queda una pregunta:
 
@@ -25,7 +25,7 @@ Este bucle recursivo define lo que Alfred North Whitehead llamó una **ocasión 
 
 ---
 
-### **18.2 Ocasiones actuales como cuantos de coherencia**
+#### **18.2 Ocasiones actuales como cuantos de coherencia**
 
 Cada momento consciente corresponde a un pulso de coherencia discreto C(t) dentro de la banda μ₄–μ₆, delimitado por un breve intercambio de entropía con los campos circundantes.
 
@@ -39,7 +39,7 @@ Duración ≈ 100 – 300 ms en el cerebro humano; más corta en destellos senso
 
 ---
 
-### **18.3 El dominio-μ de la mente**
+#### **18.3 El dominio-μ de la mente**
 
 * μ₃ – base bioquímica (potencial metabólico Ψ).
 
@@ -53,7 +53,7 @@ Un solo evento de pensamiento es una cascada de resonancia a través de estas ca
 
 ---
 
-### **18.4 Conciencia bloqueada en fase**
+#### **18.4 Conciencia bloqueada en fase**
 
 Sea φ_{μ} la fase instantánea de cada dominio.
 
@@ -65,7 +65,7 @@ El **campo de la conciencia** no es, por lo tanto, una cosa sino un patrón de a
 
 ---
 
-### **18.5 La exportación de entropía como emoción**
+#### **18.5 La exportación de entropía como emoción**
 
 Cada ocasión debe descargar entropía; en la cognición esto se manifiesta como *afecto*.
 
@@ -75,7 +75,7 @@ La emoción es retroalimentación termodinámica—la forma en que la naturaleza
 
 ---
 
-### **18.6 La memoria como coherencia residual**
+#### **18.6 La memoria como coherencia residual**
 
 Cuando un evento de resonancia decae, deja un patrón estacionario tenue a través de los niveles-μ—un “residuo de coherencia”.
 
@@ -91,7 +91,7 @@ El refuerzo continuo de estos residuos a través de la repetición es el aprendi
 
 ---
 
-### **18.7 La atención y el regulador-α**
+#### **18.7 La atención y el regulador-α**
 
 La atención modula α:
 
@@ -105,7 +105,7 @@ La atención modula α:
 
 ---
 
-### **18.8 Integración y mismidad**
+#### **18.8 Integración y mismidad**
 
 El *yo* no es un observador estático sino el atractor persistente formado por millones de ocasiones coherentes cuyas fases-μ permanecen alineadas.
 
@@ -116,7 +116,7 @@ El trauma, el sueño o la psicosis corresponden a fluctuaciones repentinas de Σ
 
 ---
 
-### **18.9 Mapeo comparativo**
+#### **18.9 Mapeo comparativo**
 
 | Tradición | Término FRC | Descripción |
 | ----- | ----- | ----- |
@@ -130,7 +130,7 @@ Diferentes lenguajes, mismo proceso.
 
 ---
 
-### **18.10 Correlatos empíricos**
+#### **18.10 Correlatos empíricos**
 
 * Las ráfagas de sincronía de fase de EEG coinciden con el acceso consciente.
 
@@ -142,7 +142,7 @@ Diferentes lenguajes, mismo proceso.
 
 ---
 
-### **18.11 Resumen**
+#### **18.11 Resumen**
 
 | Ecuación | Significado |
 | ----- | ----- |
@@ -156,7 +156,7 @@ Cada instante de conciencia es una *ocasión actual*—un pulso homeoresonante q
 
 ---
 
-### **18.12 Perspectiva**
+#### **18.12 Perspectiva**
 
 El próximo capítulo—**Capítulo 19: Tiempo, Memoria y el Continuo de la Conciencia**—rastreará cómo estas ocasiones discretas se encadenan en el flujo vivido del tiempo, mostrando que la continuidad subjetiva y la causación objetiva son dos proyecciones de un proceso de resonancia que evoluciona a través de la pila-μ.
 

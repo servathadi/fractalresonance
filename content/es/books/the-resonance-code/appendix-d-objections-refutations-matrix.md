@@ -1,4 +1,4 @@
-# Apéndice D: Matriz de Objeciones y Refutaciones
+## Apéndice D: Matriz de Objeciones y Refutaciones
 
 Un Compromiso Integral e Intelectualmente Honesto con las Críticas Potenciales
 

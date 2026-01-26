@@ -1,4 +1,4 @@
-# Capítulo 21: El Ser Resonante {#chapter-21-the-resonant-self}
+## Capítulo 21: El Ser Resonante {#chapter-21-the-resonant-self}
 
 La Identidad Cósmica: El Microcosmos como Espejo del Todo
 

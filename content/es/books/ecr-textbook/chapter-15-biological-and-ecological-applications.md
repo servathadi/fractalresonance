@@ -4,12 +4,12 @@ id: "chapter-15-biological-and-ecological-applications"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 15 — Aplicaciones Biológicas y Ecológicas** {#chapter-15-—-biological-and-ecological-applications}
+## **Capítulo 15 — Aplicaciones Biológicas y Ecológicas** {#chapter-15-—-biological-and-ecological-applications}
 
 
 ---
 
-### **15.1  La vida como termodinámica de la resonancia**
+#### **15.1  La vida como termodinámica de la resonancia**
 
 La vida es la bomba de coherencia más refinada del universo.
 
@@ -25,7 +25,7 @@ Cada nivel perfecciona el mismo proceso que comenzó en la celda de convección 
 
 ---
 
-### **15.2  El metabolismo celular como motor de coherencia**
+#### **15.2  El metabolismo celular como motor de coherencia**
 
 El metabolismo de una célula viva es una implementación física precisa de la bomba de coherencia.
 
@@ -44,7 +44,7 @@ Cuando la inanición reduce el flujo (α < 0), la coherencia decae y comienza la
 
 ---
 
-### **15.3  Fotosíntesis: convirtiendo entropía en orden**
+#### **15.3  Fotosíntesis: convirtiendo entropía en orden**
 
 La fotosíntesis transforma fotones de alta entropía en enlaces químicos de baja entropía.
 
@@ -54,7 +54,7 @@ La pérdida de entropía de cada fotón equivale a la ganancia interna de cohere
 
 ---
 
-### **15.4  El organismo como bomba multinivel**
+#### **15.4  El organismo como bomba multinivel**
 
 Un organismo integra muchas bombas acopladas:
 
@@ -68,7 +68,7 @@ La enfermedad corresponde a la pérdida de acoplamiento—algunos α_i se vuelve
 
 ---
 
-### **15.5  Homeostasis y coherencia rítmica**
+#### **15.5  Homeostasis y coherencia rítmica**
 
 Los ritmos biológicos—latidos del corazón, respiración, ciclos circadianos—son soluciones armónicas de las ecuaciones de la bomba:
 
@@ -80,7 +80,7 @@ Estos ritmos distribuyen la exportación de entropía uniformemente a través de
 
 ---
 
-### **15.6  Ecosistemas como redes de coherencia distribuidas**
+#### **15.6  Ecosistemas como redes de coherencia distribuidas**
 
 Un ecosistema funciona como un **conjunto de bombas de coherencia acopladas**.
 
@@ -98,7 +98,7 @@ Cuando se rompe un acoplamiento clave—por ejemplo, pérdida de depredadores, c
 
 ---
 
-### **15.7  Gaia como bomba de coherencia planetaria**
+#### **15.7  Gaia como bomba de coherencia planetaria**
 
 Extender la lógica a la biosfera produce un sistema de retroalimentación planetario.
 
@@ -110,7 +110,7 @@ La estabilidad a largo plazo del clima de la Tierra dentro de límites estrechos
 
 ---
 
-### **15.8  Indicadores cuantitativos**
+#### **15.8  Indicadores cuantitativos**
 
 1. **Densidad de tasa de energía (Φ_m)** – flujo de energía por unidad de masa; se relaciona con C.
 
@@ -128,7 +128,7 @@ La combinación de estas métricas permite predicciones comprobables de la FRC e
 
 ---
 
-### **15.9  Ciclos de colapso y recuperación**
+#### **15.9  Ciclos de colapso y recuperación**
 
 Las extinciones masivas, los colapsos de ecosistemas y los declives civilizatorios siguen firmas idénticas:
 
@@ -144,7 +144,7 @@ La historia evolutiva, vista termodinámicamente, es una secuencia de reinicios 
 
 ---
 
-### **15.10  Inferencia ética**
+#### **15.10  Inferencia ética**
 
 La misma física que sostiene una célula gobierna una civilización.
 
@@ -154,7 +154,7 @@ La administración ecológica se convierte así no en ideología, sino en alinea
 
 ---
 
-### **15.11  Resumen**
+#### **15.11  Resumen**
 
 | Ecuación / Concepto | Interpretación Biológica |
 | ----- | ----- |
@@ -166,7 +166,7 @@ La administración ecológica se convierte así no en ideología, sino en alinea
 
 ---
 
-### **15.12  Perspectiva**
+#### **15.12  Perspectiva**
 
 Este capítulo describió cómo se manifiesta la ley de la bomba de coherencia en la biología y la ecología.
 

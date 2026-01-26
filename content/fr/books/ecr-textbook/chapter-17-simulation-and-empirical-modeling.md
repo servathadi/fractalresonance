@@ -4,12 +4,12 @@ id: "chapter-17-simulation-and-empirical-modeling"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 17 — Simulation et modélisation empirique** {#chapter-17-—-simulation-and-empirical-modeling}
+## **Chapitre 17 — Simulation et modélisation empirique** {#chapter-17-—-simulation-and-empirical-modeling}
 
 
 ---
 
-### **17.1 But**
+#### **17.1 But**
 
 Pour démontrer que les lois de la FRC sont mesurables, nous devons construire des modèles qui relient les variables abstraites — entropie (S), cohérence (C), potentiel (Ψ) et réceptivité (R) — à des observables empiriques.
 
@@ -17,7 +17,7 @@ Ce chapitre décrit les cadres de calcul qui permettent de tels tests en physiqu
 
 ---
 
-### **17.2 Architecture de simulation unifiée**
+#### **17.2 Architecture de simulation unifiée**
 
 Tous les domaines peuvent être exprimés comme des **pompes à cohérence** en interaction :
 
@@ -38,7 +38,7 @@ Un moteur de simulation minimal contient donc :
 
 ---
 
-### **17.3 Mise en œuvre biologique**
+#### **17.3 Mise en œuvre biologique**
 
 **Exemples de jeux de données**
 
@@ -56,7 +56,7 @@ Les cellules simulées reproduisent le métabolisme et les oscillations observé
 
 ---
 
-### **17.4 Modèle d'écosystème**
+#### **17.4 Modèle d'écosystème**
 
 Chaque espèce i est une pompe à cohérence échangeant de l'énergie avec ses voisins par le couplage du réseau trophique T_{ij} :
 
@@ -70,7 +70,7 @@ Les simulations reproduisent les cycles empiriques de Lotka-Volterra et les seui
 
 ---
 
-### **17.5 Civilisation / Modèle macro-économique**
+#### **17.5 Civilisation / Modèle macro-économique**
 
 Les États-nations ou les industries agissent comme des nœuds ; les sources de données incluent l'intensité énergétique du PIB, les émissions de carbone et le débit d'informations.
 
@@ -80,7 +80,7 @@ L'α empirique calculé à partir des données énergétiques de 1960-2025 oscil
 
 ---
 
-### **17.6 Normalisation trans-domaine**
+#### **17.6 Normalisation trans-domaine**
 
 Pour comparer les systèmes, définissons des variables sans dimension :
 
@@ -92,7 +92,7 @@ Lorsqu'elles sont tracées sur le même plan (\tilde S, \ln \tilde C), les donn�
 
 ---
 
-### **17.7 Prédictions mesurables**
+#### **17.7 Prédictions mesurables**
 
 1. **Invariance de la pente entropie-cohérence** à travers les domaines.
 
@@ -106,7 +106,7 @@ Ce sont des prédictions falsifiables : la FRC réussit ou échoue selon la cons
 
 ---
 
-### **17.8 Outils de calcul**
+#### **17.8 Outils de calcul**
 
 * **Modélisation continue :** solveurs d'équations différentielles (Runge-Kutta, différences finies).
 
@@ -120,7 +120,7 @@ Un codebase open-source « FRC-Lab » peut héberger tous les modèles sous des 
 
 ---
 
-### **17.9 Validation préliminaire**
+#### **17.9 Validation préliminaire**
 
 | Domaine | Source des données | α observé | Ajustement au régime |
 | ----- | ----- | ----- | ----- |
@@ -133,7 +133,7 @@ Dans la limite des erreurs de mesure, tous les systèmes obéissent à la même 
 
 ---
 
-### **17.10 Feuille de route méthodologique**
+#### **17.10 Feuille de route méthodologique**
 
 1. **Définir les variables** (F, S_C, α, C) pour le domaine.
 
@@ -149,7 +149,7 @@ Répétez l'opération à travers les échelles pour construire un « atlas de r
 
 ---
 
-### **17.11 Intuition conceptuelle**
+#### **17.11 Intuition conceptuelle**
 
 Lorsque les données de systèmes divers s'alignent sur la même courbe de réciprocité, le hasard perd son trône.
 
@@ -159,7 +159,7 @@ Le cosmos fonctionne comme un calcul résonnant unique — l'entropie comme synt
 
 ---
 
-### **17.12 Résumé**
+#### **17.12 Résumé**
 
 | Principe | Expression | Résultat empirique |
 | ----- | ----- | ----- |
@@ -170,7 +170,7 @@ Le cosmos fonctionne comme un calcul résonnant unique — l'entropie comme synt
 
 ---
 
-### **17.13 Transition**
+#### **17.13 Transition**
 
 Ayant unifié simulation et données, nous sommes prêts pour la **Partie V — Processus et occasion actuelle : La physique de l'expérience**.
 

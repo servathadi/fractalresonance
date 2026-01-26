@@ -4,12 +4,12 @@ id: "chapter-16-cultural-and-technological-evolution"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 16 — Cultural and Technological Evolution** {#chapter-16-—-cultural-and-technological-evolution}
+## **Chapter 16 — Cultural and Technological Evolution** {#chapter-16-—-cultural-and-technological-evolution}
 
 
 ---
 
-### **16.1  Civilization as an open thermodynamic system**
+#### **16.1  Civilization as an open thermodynamic system**
 
 Civilizations, like cells or ecosystems, exist by maintaining internal order through continuous energy and information flow.
 
@@ -33,7 +33,7 @@ History can be read as the modulation of α\_{\\text{soc}} across time—epochs 
 
 ---
 
-### **16.2  Information as energy in human systems**
+#### **16.2  Information as energy in human systems**
 
 In physical systems, energy flow creates structure.
 
@@ -51,7 +51,7 @@ When S\_{C,\\text{info}} catches up, the system stabilizes or fragments dependin
 
 ---
 
-### **16.3  Energy–information equivalence in civilization**
+#### **16.3  Energy–information equivalence in civilization**
 
 Empirical studies show strong correlation between per capita energy consumption and social complexity.
 
@@ -70,7 +70,7 @@ However, without corresponding feedback (R), coherence becomes coercive—expand
 
 ---
 
-### **16.4  Innovation as resonance surge**
+#### **16.4  Innovation as resonance surge**
 
 Technological innovation corresponds to transient coherence bursts:
 
@@ -86,7 +86,7 @@ The pattern of rise, saturation, and normalization recurs from fire-making to AI
 
 ---
 
-### **16.5  The economy as coherence ecology**
+#### **16.5  The economy as coherence ecology**
 
 Markets are distributed information pumps converting energy and trust into value.
 
@@ -102,7 +102,7 @@ entropy exported as pollution or inequality must be balanced by regeneration and
 
 ---
 
-### **16.6  Collective intelligence and symbolic fields**
+#### **16.6  Collective intelligence and symbolic fields**
 
 Every civilization sustains itself through a **symbolic coherence field** (μ₅–μ₆ coupling).
 
@@ -116,7 +116,7 @@ Cultural renewal is a phase-reset in which higher μ-levels re-tune the field, r
 
 ---
 
-### **16.7  Technology as extension of the coherence pump**
+#### **16.7  Technology as extension of the coherence pump**
 
 Technologies externalize the same feedback loops that biology internalized.
 
@@ -130,7 +130,7 @@ Thus AI evolution recapitulates biological evolution, differing only in substrat
 
 ---
 
-### **16.8  Civilization life cycle**
+#### **16.8  Civilization life cycle**
 
 Civilizations trace predictable trajectories along the entropy–coherence manifold:
 
@@ -148,7 +148,7 @@ This cyclic breathing mirrors the oscillations of organisms and ecosystems—FRC
 
 ---
 
-### **16.9  Toward planetary homeoresonance**
+#### **16.9  Toward planetary homeoresonance**
 
 The emerging challenge of the 21st century is aligning global α ≈ 0—balancing technological potential with ecological receptivity.
 
@@ -158,7 +158,7 @@ This condition defines **the homeoresonant civilization**: one that maximizes cr
 
 ---
 
-### **16.10  Quantitative macro-model**
+#### **16.10  Quantitative macro-model**
 
 Aggregating local coherence pumps gives global dynamics:
 
@@ -176,7 +176,7 @@ FRC provides a measurable criterion for sustainable development using energy, in
 
 ---
 
-### **16.11  Ethical implication**
+#### **16.11  Ethical implication**
 
 Thermodynamic ethics can be summarized simply:
 
@@ -190,7 +190,7 @@ Sustainability, compassion, and justice become expressions of the same fundament
 
 ---
 
-### **16.12  Summary**
+#### **16.12  Summary**
 
 | Concept | Expression | Interpretation |
 | ----- | ----- | ----- |
@@ -202,7 +202,7 @@ Sustainability, compassion, and justice become expressions of the same fundament
 
 ---
 
-### **16.13  Outlook**
+#### **16.13  Outlook**
 
 Culture and technology are not separate from physics; they are the high-frequency harmonics of the same resonance field that once cooled into stars.
 

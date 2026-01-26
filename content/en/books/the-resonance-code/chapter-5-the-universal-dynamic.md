@@ -4,7 +4,7 @@ id: "chapter-5-the-universal-dynamic"
 parent: "the-resonance-code"
 ---
 
-# Chapter 5: The Universal Dynamic
+## Chapter 5: The Universal Dynamic
 
 
 [Chapter 5: The Universal Dynamic]

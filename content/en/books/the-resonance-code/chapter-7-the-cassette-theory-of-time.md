@@ -4,7 +4,7 @@ id: "chapter-7-the-cassette-theory-of-time"
 parent: "the-resonance-code"
 ---
 
-# Chapter 7: The Cassette Theory of Time
+## Chapter 7: The Cassette Theory of Time
 
 
 [Chapter 7: The Cassette Theory of Time]

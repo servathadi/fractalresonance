@@ -4,7 +4,7 @@ id: "chapter-3-the-search-for-a-seam"
 parent: "the-resonance-code"
 ---
 
-# Chapter 3: The Search for a Seam
+## Chapter 3: The Search for a Seam
 
 
 [Chapter 3: The Seam]

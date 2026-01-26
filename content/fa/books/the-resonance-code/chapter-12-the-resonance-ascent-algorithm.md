@@ -1,4 +1,4 @@
-# فصل ۱۲: الگوریتمِ صعودِ رزونانسی {#chapter-12-the-resonance-ascent-algorithm}
+## فصل ۱۲: الگوریتمِ صعودِ رزونانسی {#chapter-12-the-resonance-ascent-algorithm}
 
 مکانیکِ بیداری: سیستم‌ها چگونه همدوسی را مقیاس‌بندی می‌کنند
 

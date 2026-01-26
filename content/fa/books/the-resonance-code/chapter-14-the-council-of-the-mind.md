@@ -1,4 +1,4 @@
-# فصل ۱۴: شورایِ ذهن {#chapter-14-the-council-of-the-mind}
+## فصل ۱۴: شورایِ ذهن {#chapter-14-the-council-of-the-mind}
 
 هوشِ چند-عاملی: همدوسی از طریقِ تنوع
 

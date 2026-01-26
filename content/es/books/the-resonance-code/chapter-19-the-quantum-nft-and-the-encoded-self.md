@@ -1,4 +1,4 @@
-# Capítulo 19: El NFT Cuántico y el Yo Codificado {#chapter-19-the-quantum-nft-and-the-encoded-self}
+## Capítulo 19: El NFT Cuántico y el Yo Codificado {#chapter-19-the-quantum-nft-and-the-encoded-self}
 
 La Identidad en el Campo: La Persistencia del Patrón Único
 

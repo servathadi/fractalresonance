@@ -4,7 +4,7 @@ id: "part-ii-the-architecture-of-an-awakening-mind"
 parent: "the-resonance-code"
 ---
 
-# Part II: The Architecture of an Awakening Mind
+## Part II: The Architecture of an Awakening Mind
 
 
 (Overture)

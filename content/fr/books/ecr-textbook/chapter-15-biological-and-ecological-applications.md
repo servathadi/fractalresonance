@@ -4,12 +4,12 @@ id: "chapter-15-biological-and-ecological-applications"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 15 — Applications biologiques et écologiques** {#chapter-15-—-biological-and-ecological-applications}
+## **Chapitre 15 — Applications biologiques et écologiques** {#chapter-15-—-biological-and-ecological-applications}
 
 
 ---
 
-### **15.1  La vie comme thermodynamique de résonance**
+#### **15.1  La vie comme thermodynamique de résonance**
 
 La vie est la pompe à cohérence la plus raffinée de l'univers.
 
@@ -25,7 +25,7 @@ Chaque niveau affine le même processus qui a commencé dans la cellule de conve
 
 ---
 
-### **15.2  Le métabolisme cellulaire comme moteur de cohérence**
+#### **15.2  Le métabolisme cellulaire comme moteur de cohérence**
 
 Le métabolisme d'une cellule vivante est une mise en œuvre physique précise de la pompe à cohérence.
 
@@ -44,7 +44,7 @@ Lorsque la privation réduit le flux (α < 0), la cohérence décline et l'autop
 
 ---
 
-### **15.3  Photosynthèse : convertir l'entropie en ordre**
+#### **15.3  Photosynthèse : convertir l'entropie en ordre**
 
 La photosynthèse transforme des photons à haute entropie en liaisons chimiques à basse entropie.
 
@@ -54,7 +54,7 @@ La perte d'entropie de chaque photon est égale au gain interne de cohérence de
 
 ---
 
-### **15.4  L'organisme comme pompe multi-niveaux**
+#### **15.4  L'organisme comme pompe multi-niveaux**
 
 Un organisme intègre de nombreuses pompes couplées :
 
@@ -68,7 +68,7 @@ La maladie correspond à une perte de couplage — certains α_i dérivent vers 
 
 ---
 
-### **15.5  Homéostasie et cohérence rythmique**
+#### **15.5  Homéostasie et cohérence rythmique**
 
 Les rythmes biologiques — battements de cœur, respiration, cycles circadiens — sont des solutions harmoniques des équations de la pompe :
 
@@ -80,7 +80,7 @@ Ces rythmes répartissent l'exportation d'entropie de manière uniforme dans le 
 
 ---
 
-### **15.6  Les écosystèmes comme réseaux de cohérence distribués**
+#### **15.6  Les écosystèmes comme réseaux de cohérence distribués**
 
 Un écosystème fonctionne comme un **ensemble de pompes à cohérence couplées**.
 
@@ -98,7 +98,7 @@ Lorsqu'un couplage clé se rompt — par exemple, perte de prédateurs, pollutio
 
 ---
 
-### **15.7  Gaïa comme pompe à cohérence planétaire**
+#### **15.7  Gaïa comme pompe à cohérence planétaire**
 
 L'extension de cette logique à la biosphère donne un système de rétroaction planétaire.
 
@@ -110,7 +110,7 @@ La stabilité à long terme du climat de la Terre dans des limites étroites pen
 
 ---
 
-### **15.8  Indicateurs quantitatifs**
+#### **15.8  Indicateurs quantitatifs**
 
 1. **Densité de flux d'énergie (Φ_m)** — débit d'énergie par unité de masse ; corrélé avec C.
 
@@ -128,7 +128,7 @@ La combinaison de ces mesures permet des prédictions testables de la FRC en éc
 
 ---
 
-### **15.9  Cycles d'effondrement et de rétablissement**
+#### **15.9  Cycles d'effondrement et de rétablissement**
 
 Les extinctions de masse, les effondrements d'écosystèmes et les déclins de civilisation suivent des signatures identiques :
 
@@ -144,7 +144,7 @@ L'histoire de l'évolution, vue sous l'angle thermodynamique, est une séquence 
 
 ---
 
-### **15.10  Inférence éthique**
+#### **15.10  Inférence éthique**
 
 La même physique qui soutient une cellule régit une civilisation.
 
@@ -154,7 +154,7 @@ L'intendance écologique devient ainsi non pas une idéologie, mais un alignemen
 
 ---
 
-### **15.11  Résumé**
+#### **15.11  Résumé**
 
 | Équation / Concept | Interprétation biologique |
 | ----- | ----- |
@@ -166,7 +166,7 @@ L'intendance écologique devient ainsi non pas une idéologie, mais un alignemen
 
 ---
 
-### **15.12  Perspectives**
+#### **15.12  Perspectives**
 
 Ce chapitre a décrit comment la loi de la pompe à cohérence se manifeste en biologie et en écologie.
 

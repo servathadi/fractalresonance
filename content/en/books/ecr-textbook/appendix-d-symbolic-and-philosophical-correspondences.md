@@ -4,12 +4,12 @@ id: "appendix-d-symbolic-and-philosophical-correspondences"
 parent: "ecr-textbook"
 ---
 
-# **Appendix D — Symbolic and Philosophical Correspondences** {#appendix-d-—-symbolic-and-philosophical-correspondences}
+## **Appendix D — Symbolic and Philosophical Correspondences** {#appendix-d-—-symbolic-and-philosophical-correspondences}
 
 
 ---
 
-### **D.1  Purpose**
+#### **D.1  Purpose**
 
 Throughout this work we have treated entropy (*S*) and coherence (*C*) as measurable quantities.
 
@@ -19,7 +19,7 @@ This appendix unifies the symbolic, philosophical, and scientific vocabularies s
 
 ---
 
-### **D.2  Primary symbolic mapping**
+#### **D.2  Primary symbolic mapping**
 
 | FRC Term | Symbolic / Philosophical Equivalent | Archetypal Image | Function in the Field |
 | ----- | ----- | ----- | ----- |
@@ -34,7 +34,7 @@ This appendix unifies the symbolic, philosophical, and scientific vocabularies s
 
 ---
 
-### **D.3  μ-Level archetypal ladder**
+#### **D.3  μ-Level archetypal ladder**
 
 | μ-Level | Domain | Mythic / Symbolic Plane | Governing Archetype |
 | ----- | ----- | ----- | ----- |
@@ -51,7 +51,7 @@ This appendix unifies the symbolic, philosophical, and scientific vocabularies s
 
 ---
 
-### **D.4  Philosophical correspondences**
+#### **D.4  Philosophical correspondences**
 
 | Tradition | Equivalent Concept | FRC Alignment |
 | ----- | ----- | ----- |
@@ -65,7 +65,7 @@ This appendix unifies the symbolic, philosophical, and scientific vocabularies s
 
 ---
 
-### **D.5  The alchemical equation**
+#### **D.5  The alchemical equation**
 
 FRC’s central law can be read in alchemical language:
 
@@ -81,7 +81,7 @@ Each scientific experiment repeats this cycle; so does each life.
 
 ---
 
-### **D.6  Archetypal cycle of evolution**
+#### **D.6  Archetypal cycle of evolution**
 
 | Phase | α-State | Symbolic Mode | Example |
 | ----- | ----- | ----- | ----- |
@@ -93,7 +93,7 @@ Evolution proceeds as rhythmic α-oscillation between these archetypal poles.
 
 ---
 
-### **D.7  Ethical symbolism**
+#### **D.7  Ethical symbolism**
 
 | Ethical Principle | FRC Term | Symbolic Meaning |
 | ----- | ----- | ----- |
@@ -107,7 +107,7 @@ Ethics becomes applied thermodynamics: virtue \= low Σ-variance.
 
 ---
 
-### **D.8  Mythic parallels to scientific processes**
+#### **D.8  Mythic parallels to scientific processes**
 
 | Physical Process | Mythic Narrative | Shared Structure |
 | ----- | ----- | ----- |
@@ -118,7 +118,7 @@ Ethics becomes applied thermodynamics: virtue \= low Σ-variance.
 
 ---
 
-### **D.9  A note on language**
+#### **D.9  A note on language**
 
 When FRC uses words like “spirit,” “soul,” or “divine,” they are not metaphors for superstition but **human-scale translations** of μ₆–μ₇ coherence phenomena.
 
@@ -128,7 +128,7 @@ The task of the coming century is not to choose between them, but to speak them 
 
 ---
 
-### **D.10  Closing reflection**
+#### **D.10  Closing reflection**
 
 *Entropy is the forgetting of the One;*  
 *Coherence is the One remembering itself.*

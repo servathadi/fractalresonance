@@ -4,12 +4,12 @@ id: "chapter-13-evolutionary-thermodynamics-in-context"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 13 — La thermodynamique évolutive en contexte** {#chapter-13-—-evolutionary-thermodynamics-in-context}
+## **Chapitre 13 — La thermodynamique évolutive en contexte** {#chapter-13-—-evolutionary-thermodynamics-in-context}
 
 
 ---
 
-### **13.1  La question de la direction**
+#### **13.1  La question de la direction**
 
 Pourquoi l'univers, régi par une loi qui favorise le désordre, crée-t-il continuellement de l'ordre ?
 
@@ -29,7 +29,7 @@ L'évolution est ce double courant rendu visible : l'entropie s'écoulant vers l
 
 ---
 
-### **13.2  De Darwin à Prigogine**
+#### **13.2  De Darwin à Prigogine**
 
 Darwin a expliqué l'adaptation par la variation et la sélection ; Prigogine a ajouté la physique — la vie comme un **système ouvert, loin de l'équilibre** qui se nourrit de flux.
 
@@ -47,7 +47,7 @@ L'évolution, dans cette perspective, est l'histoire du réglage de α à traver
 
 ---
 
-### **13.3  Le gradient universel**
+#### **13.3  Le gradient universel**
 
 De la cosmologie à la cognition, le même gradient énergétique moteur la structure :
 
@@ -65,7 +65,7 @@ La lumière diffusée par les étoiles devient l'énergie de la chimie ; l'ordre
 
 ---
 
-### **13.4  Le débit d'énergie comme moteur de la complexité**
+#### **13.4  Le débit d'énergie comme moteur de la complexité**
 
 Le taux de traitement de l'énergie libre par unité de masse — **densité de flux d'énergie** — augmente à travers l'histoire cosmique, passant de ~10⁻⁴ W/kg dans les galaxies à 10⁵ W/kg dans le cerveau humain.
 
@@ -77,7 +77,7 @@ Cette « logistique cosmique » empirique soutient l'affirmation de la FRC selon
 
 ---
 
-### **13.5  Du hasard à la résonance**
+#### **13.5  Du hasard à la résonance**
 
 La théorie de l'évolution standard traite la nouveauté comme une mutation aléatoire filtrée par la sélection.
 
@@ -89,7 +89,7 @@ Ce biais de résonance explique l'évolution convergente et les morphologies ré
 
 ---
 
-### **13.6  Exportation d'entropie et éthique écologique**
+#### **13.6  Exportation d'entropie et éthique écologique**
 
 Toute élévation de la cohérence locale nécessite une libération d'entropie externe.
 
@@ -101,7 +101,7 @@ L'homéorésonance (α ≈ 0) définit ainsi l'équilibre écologique : adaptati
 
 ---
 
-### **13.7  L'évolution comme pompe à cohérence stratifiée**
+#### **13.7  L'évolution comme pompe à cohérence stratifiée**
 
 À chaque niveau-μ, l'équation de la pompe à cohérence fonctionne avec ses propres constantes α_{μ}, k_*^{(μ)} :
 
@@ -113,7 +113,7 @@ L'évolution est l'alignement de phase progressif de ces pompes en un moteur de 
 
 ---
 
-### **13.8  Quantifier l'efficacité évolutive**
+#### **13.8  Quantifier l'efficacité évolutive**
 
 Définissons l'efficacité de la cohérence par :
 
@@ -133,7 +133,7 @@ Les estimations empiriques donnent :
 
 ---
 
-### **13.9  Vers une métrique évolutive du sens**
+#### **13.9  Vers une métrique évolutive du sens**
 
 Lorsque la cohérence augmente plus vite que l'exportation d'entropie, les systèmes acquièrent la capacité de *représenter* — de refléter les motifs de leur environnement.
 
@@ -143,7 +143,7 @@ La vie et l'esprit ne sont pas des exceptions à la physique ; ils sont ce à qu
 
 ---
 
-### **13.10  Résumé**
+#### **13.10  Résumé**
 
 | Concept | Équation | Implication |
 | ----- | ----- | ----- |
@@ -155,7 +155,7 @@ La vie et l'esprit ne sont pas des exceptions à la physique ; ils sont ce à qu
 
 ---
 
-### **13.11  Perspectives**
+#### **13.11  Perspectives**
 
 Ce chapitre a présenté l'évolution comme une pompe à cohérence globale.
 

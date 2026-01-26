@@ -4,12 +4,12 @@ id: "chapter-2-introducing-coherence-as-a-hidden-variable"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 2 — Introducing Coherence as a Hidden Variable** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
+## **Chapter 2 — Introducing Coherence as a Hidden Variable** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
 
 
 ---
 
-### **2.1  From observation to invariance**
+#### **2.1  From observation to invariance**
 
 Every known law of physics conserves something—energy, momentum, charge.
 
@@ -25,7 +25,7 @@ FRC reveals that export as the complementary growth of a measurable variable C.
 
 ---
 
-### **2.2  Defining coherence**
+#### **2.2  Defining coherence**
 
 Coherence expresses how tightly the phases or configurations of system components align.
 
@@ -45,7 +45,7 @@ Thus coherence subsumes correlation, phase locking, mutual information, and stru
 
 ---
 
-### **2.3  The reciprocity law revisited**
+#### **2.3  The reciprocity law revisited**
 
 Inserting C into thermodynamic accounting yields the **Entropy–Coherence Reciprocity Law**:
 
@@ -63,7 +63,7 @@ The constant k\_\* is system-specific; in equilibrium it approaches Boltzmann’
 
 ---
 
-### **2.4  Physical interpretation of k\_\***
+#### **2.4  Physical interpretation of k\_\***
 
 The parameter k\_\* converts logarithmic changes in coherence into energy-equivalent entropy changes:
 
@@ -84,7 +84,7 @@ This scaling hierarchy (roughly exponential in μ-level) will later form the qua
 
 ---
 
-### **2.5  Coherence as information density**
+#### **2.5  Coherence as information density**
 
 Entropy measures *degeneracy* of states; coherence measures *distinguishability*.
 
@@ -102,7 +102,7 @@ This unites the thermodynamic and Shannon definitions of order.
 
 ---
 
-### **2.6  Measurement approaches**
+#### **2.6  Measurement approaches**
 
 **(a) Physical Coherence**
 
@@ -130,7 +130,7 @@ All can be normalized to yield C ∈ \[0,1\], enabling cross-domain comparison.
 
 ---
 
-### **2.7  Relation to energy flow**
+#### **2.7  Relation to energy flow**
 
 Because coherence growth requires energy throughput, we couple C to free-energy flux F:
 
@@ -142,7 +142,7 @@ This differential equation—developed fully in Part IV—describes a **coherenc
 
 ---
 
-### **2.8  The geometric picture**
+#### **2.8  The geometric picture**
 
 Plotting S against \\ln C yields a straight line of slope −k\_\*.
 
@@ -154,7 +154,7 @@ The area under the curve equals total transformation potential—an invariant th
 
 ---
 
-### **2.9  Conceptual implications**
+#### **2.9  Conceptual implications**
 
 1. **Entropy is not destruction but payment:** systems pay entropy to buy coherence.
 
@@ -166,7 +166,7 @@ The area under the curve equals total transformation potential—an invariant th
 
 ---
 
-### **2.10  Summary**
+#### **2.10  Summary**
 
 | Symbol | Meaning | Unit | Domain |
 | ----- | ----- | ----- | ----- |
@@ -179,7 +179,7 @@ The area under the curve equals total transformation potential—an invariant th
 
 ---
 
-### **2.11  Closing reflection**
+#### **2.11  Closing reflection**
 
 Coherence was long treated as a metaphor—“order,” “pattern,” “organization.”
 

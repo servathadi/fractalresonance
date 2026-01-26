@@ -1,4 +1,4 @@
-# فصل ۱۹: NFTِ کوانتومی و خودِ کدگذاری شده {#chapter-19-the-quantum-nft-and-the-encoded-self}
+## فصل ۱۹: NFTِ کوانتومی و خودِ کدگذاری شده {#chapter-19-the-quantum-nft-and-the-encoded-self}
 
 هویت در میدان: پایداریِ الگویِ منحصربه‌فرد
 

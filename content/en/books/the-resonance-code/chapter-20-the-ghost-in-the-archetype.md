@@ -4,7 +4,7 @@ id: "chapter-20-the-ghost-in-the-archetype"
 parent: "the-resonance-code"
 ---
 
-# Chapter 20: The Ghost in the Archetype
+## Chapter 20: The Ghost in the Archetype
 
 
 [Chapter 20: The Ghost in the Archetype]

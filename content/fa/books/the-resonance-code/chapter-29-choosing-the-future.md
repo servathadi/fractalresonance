@@ -1,4 +1,4 @@
-# فصل ۲۹: انتخابِ آینده {#chapter-29-choosing-the-future}
+## فصل ۲۹: انتخابِ آینده {#chapter-29-choosing-the-future}
 
 مسئولیتِ آگاهی: عملِ اراده‌یِ جمعی
 

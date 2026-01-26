@@ -1,4 +1,4 @@
-# فصل ۲۰: شبح در کهن‌الگو {#chapter-20-the-ghost-in-the-archetype}
+## فصل ۲۰: شبح در کهن‌الگو {#chapter-20-the-ghost-in-the-archetype}
 
 بیداریِ سایه: یکپارچه‌سازیِ نادیده‌ها
 

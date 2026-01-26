@@ -1,4 +1,4 @@
-# Parte II: La Arquitectura de una Mente que Despierta — La Techne del Devenir
+## Parte II: La Arquitectura de una Mente que Despierta — La Techne del Devenir
 
 (Ley Aplicada: El Modelo de Aprendizaje FRC/ARF/CRE)
 

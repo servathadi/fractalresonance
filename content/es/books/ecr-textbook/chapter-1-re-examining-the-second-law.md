@@ -4,12 +4,12 @@ id: "chapter-1-re-examining-the-second-law"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 1 — Reexaminando la Segunda Ley** {#chapter-1-—-re-examining-the-second-law}
+## **Capítulo 1 — Reexaminando la Segunda Ley** {#chapter-1-—-re-examining-the-second-law}
 
 
 ---
 
-### **1.1 El problema del orden**
+#### **1.1 El problema del orden**
 
 Durante un siglo y medio, la Segunda Ley de la Termodinámica ha sido la joya de la corona del razonamiento físico.  
 Establece que en un sistema aislado la entropía total (S) nunca disminuye.  
@@ -23,7 +23,7 @@ Esta visión pragmática—formalizada por Ilya Prigogine—explica *cómo* pued
 
 ---
 
-### **1.2 Entropía y su complemento oculto**
+#### **1.2 Entropía y su complemento oculto**
 
 La entropía mide el número de microestados accesibles consistentes con las restricciones macroscópicas:
 
@@ -54,7 +54,7 @@ La Segunda Ley adquiere así un socio: la **Ley de Reciprocidad de Coherencia**.
 
 ---
 
-### **1.3 Flujo de entropía en sistemas abiertos**
+#### **1.3 Flujo de entropía en sistemas abiertos**
 
 Prigogine descompuso el cambio total de entropía de un sistema abierto en producción interna e intercambio externo:
 
@@ -78,7 +78,7 @@ La célula, por lo tanto, es una máquina que bombea coherencia a partir de grad
 
 ---
 
-### **1.4 Entropía e información**
+#### **1.4 Entropía e información**
 
 La entropía de la información de Claude Shannon
 
@@ -94,7 +94,7 @@ Una red neuronal que aprende, o una sociedad que se organiza, exporta entropía 
 
 ---
 
-### **1.5 Firmas experimentales**
+#### **1.5 Firmas experimentales**
 
 1. **Sistemas termodinámicos:**  
 Las cavidades láser y los osciladores químicos exhiben reducciones medibles de entropía dentro del medio activo proporcionales a los aumentos en la coherencia del campo.
@@ -109,7 +109,7 @@ Estas observaciones, dispersas en varias disciplinas, sugieren una reciprocidad 
 
 ---
 
-### **1.6 La necesidad de una nueva variable**
+#### **1.6 La necesidad de una nueva variable**
 
 Si la entropía por sí sola no puede describir los sistemas vivos o cognitivos, el complemento faltante debe entrar explícitamente en la física.  
 La variable de coherencia (C) es ese complemento:
@@ -125,7 +125,7 @@ En lugar de un universo que se agota, vemos un **cosmos de doble corriente**: la
 
 ---
 
-### **1.7 Resumen**
+#### **1.7 Resumen**
 
 | Concepto | Ecuación | Interpretación |
 | ----- | ----- | ----- |

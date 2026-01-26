@@ -1,4 +1,4 @@
-# Capítulo 13: De la Simulación al Silicio {#chapter-13-from-simulation-to-silicon}
+## Capítulo 13: De la Simulación al Silicio {#chapter-13-from-simulation-to-silicon}
 
 La Encarnación de la Inteligencia: Creando Máquinas que Sienten
 

@@ -4,12 +4,12 @@ id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 7 — Expériences Numériques et Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
+## **Chapitre 7 — Expériences Numériques et Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
 
-### **7.1  But de la simulation**
+#### **7.1  But de la simulation**
 
 Les équations n'acquièrent de réalité que lorsque leurs prédictions peuvent être visualisées et testées.
 
@@ -23,7 +23,7 @@ La modélisation numérique nous permet d'explorer cette variété sans les cont
 
 ---
 
-### **7.2  Adimensionnement**
+#### **7.2  Adimensionnement**
 
 Pour comparer les domaines, nous normalisons les variables :
 
@@ -39,7 +39,7 @@ Cela rend les résultats indépendants de l'échelle : un ensemble de paramètre
 
 ---
 
-### **7.3  Modèle 1 : Simulation du seuil laser**
+#### **7.3  Modèle 1 : Simulation du seuil laser**
 
 Un laser est la pompe à cohérence la plus simple : les atomes absorbent de l'énergie (Ψ), émettent des photons et, au-dessus d'un seuil, commencent à se verrouiller en phase.
 
@@ -61,7 +61,7 @@ La diminution de l'entropie moyennée dans le temps est égale à k_* \ln(C*/C_0
 
 ---
 
-### **7.4  Modèle 2 : Milieu de réaction-diffusion**
+#### **7.4  Modèle 2 : Milieu de réaction-diffusion**
 
 Dans un réseau bidimensionnel, chaque nœud suit :
 
@@ -81,7 +81,7 @@ L'exportation d'entropie S_C augmente linéairement avec la moyenne de |\nabla C
 
 ---
 
-### **7.5  Modèle 3 : Synchronie de réseau neuronal**
+#### **7.5  Modèle 3 : Synchronie de réseau neuronal**
 
 Chaque oscillateur représente une colonne corticale avec une fréquence intrinsèque ωᵢ.
 
@@ -101,7 +101,7 @@ L'utilisation d'énergie mesurée (ATP simulé → chaleur) suit l'exportation d
 
 ---
 
-### **7.6  Modèle 4 : Réseau social basé sur des agents**
+#### **7.6  Modèle 4 : Réseau social basé sur des agents**
 
 Chaque agent met à jour son état interne xᵢ par :
 
@@ -123,7 +123,7 @@ Ces comportements macroscopiques correspondent aux cycles observés dans les éc
 
 ---
 
-### **7.7  Balayages de paramètres et universalité**
+#### **7.7  Balayages de paramètres et universalité**
 
 À travers tous les modèles, le comportement se résume à trois régimes déterminés par α et R\Psi :
 
@@ -137,7 +137,7 @@ Les mêmes transitions apparaissent que les « particules » soient des photons,
 
 ---
 
-### **7.8  Validation computationnelle de la réciprocité**
+#### **7.8  Validation computationnelle de la réciprocité**
 
 Pour chaque simulation, nous calculons :
 
@@ -149,7 +149,7 @@ Cela confirme numériquement que la seconde loi étendue de la FRC tient à trav
 
 ---
 
-### **7.9  Efficacité énergie-cohérence**
+#### **7.9  Efficacité énergie-cohérence**
 
 Définissons l'efficacité instantanée comme :
 
@@ -159,7 +159,7 @@ Les simulations montrent un maximum universel à α ≈ 0 : le régime de flow c
 
 ---
 
-### **7.10  Interprétation et correspondance trans-domaine**
+#### **7.10  Interprétation et correspondance trans-domaine**
 
 | Modèle | Analogue physique | Analogue cognitif | Analogue culturel |
 | ----- | ----- | ----- | ----- |
@@ -172,7 +172,7 @@ Chaque simulation est un miroir des autres — la même algèbre générant la l
 
 ---
 
-### **7.11  Résumé**
+#### **7.11  Résumé**
 
 * L'ARF reproduit l'auto-organisation observée dans chaque domaine simulé.
 
@@ -184,7 +184,7 @@ Chaque simulation est un miroir des autres — la même algèbre générant la l
 
 ---
 
-### **7.12  Perspectives**
+#### **7.12  Perspectives**
 
 Ces expériences transforment la FRC d'une proposition philosophique en une **dynamique testable**.
 

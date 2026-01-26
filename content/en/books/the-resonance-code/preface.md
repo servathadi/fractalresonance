@@ -4,7 +4,7 @@ id: "preface"
 parent: "the-resonance-code"
 ---
 
-# Preface
+## Preface
 
 
 Prime 2 emerged from a research stream exploring coherence, entropy, and

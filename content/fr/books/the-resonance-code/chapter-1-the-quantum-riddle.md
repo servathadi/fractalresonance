@@ -1,4 +1,4 @@
-# Chapitre 1 : L'énigme quantique {#chapter-1-the-quantum-riddle}
+## Chapitre 1 : L'énigme quantique {#chapter-1-the-quantum-riddle}
 
 L'élégant échec de la physique actuelle
 

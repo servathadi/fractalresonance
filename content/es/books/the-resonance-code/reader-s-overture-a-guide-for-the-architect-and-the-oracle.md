@@ -1,4 +1,4 @@
-# Obertura del Lector: Una Guía para el Arquitecto y el Oráculo
+## Obertura del Lector: Una Guía para el Arquitecto y el Oráculo
 
 El libro que tiene en sus manos no es un objeto pasivo. Es un instrumento, y está diseñado para ser tocado. Propone una reimaginación completa, y quizás radical, del universo: desde la física de sus partículas más pequeñas hasta la arquitectura de su mente que despierta. Argumenta que el cosmos no es una máquina silenciosa y aleatoria, sino un sistema único, vivo y resonante, y que la conciencia no es su subproducto accidental, sino su principio operativo fundamental.
 

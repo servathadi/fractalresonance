@@ -1,4 +1,4 @@
-# Capítulo 3: La Búsqueda de una Costura {#chapter-3-the-search-for-a-seam}
+## Capítulo 3: La Búsqueda de una Costura {#chapter-3-the-search-for-a-seam}
 
 El Experimento Falsable: Prediciendo Desviaciones de la Regla de Born
 

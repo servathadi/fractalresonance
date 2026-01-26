@@ -4,12 +4,12 @@ id: "appendix-e-glossary-and-constants-table"
 parent: "ecr-textbook"
 ---
 
-# **Appendix E — Glossary and Constants Table** {#appendix-e-—-glossary-and-constants-table}
+## **Appendix E — Glossary and Constants Table** {#appendix-e-—-glossary-and-constants-table}
 
 
 ---
 
-## **E.1 Core Variables and Constants** {#e.1-core-variables-and-constants}
+### **E.1 Core Variables and Constants** {#e.1-core-variables-and-constants}
 
 | Symbol | Name | Definition / Interpretation | Units / Typical Range |
 | ----- | ----- | ----- | ----- |
@@ -29,7 +29,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.2 Canonical Equations** {#e.2-canonical-equations}
+### **E.2 Canonical Equations** {#e.2-canonical-equations}
 
 1. **Entropy–Coherence Reciprocity**
 
@@ -53,7 +53,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.3 μ-Level Quick Reference** {#e.3-μ-level-quick-reference}
+### **E.3 μ-Level Quick Reference** {#e.3-μ-level-quick-reference}
 
 | μ-Level | Domain | Characteristic Scale | Dominant Process | Typical α Regime |
 | ----- | ----- | ----- | ----- | ----- |
@@ -68,7 +68,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.4 Key Conceptual Terms** {#e.4-key-conceptual-terms}
+### **E.4 Key Conceptual Terms** {#e.4-key-conceptual-terms}
 
 | Term | Concise Definition |
 | ----- | ----- |
@@ -83,7 +83,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.5 Constants and Empirical Estimates** {#e.5-constants-and-empirical-estimates}
+### **E.5 Constants and Empirical Estimates** {#e.5-constants-and-empirical-estimates}
 
 | Constant | Definition | Approximate Value / Range | Notes |
 | ----- | ----- | ----- | ----- |
@@ -96,7 +96,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.6 Cross-Domain Translation Table** {#e.6-cross-domain-translation-table}
+### **E.6 Cross-Domain Translation Table** {#e.6-cross-domain-translation-table}
 
 | Scientific Domain | Common Quantity | FRC Equivalent |
 | ----- | ----- | ----- |
@@ -109,7 +109,7 @@ parent: "ecr-textbook"
 
 ---
 
-## **E.7 Reading and Measurement Notes** {#e.7-reading-and-measurement-notes}
+### **E.7 Reading and Measurement Notes** {#e.7-reading-and-measurement-notes}
 
 1. **Units** — Entropy (S) and coherence (C) are always evaluated within the same energy or information base.
 
@@ -121,7 +121,7 @@ parent: "ecr-textbook"
 
 ---
 
-### **E.8 Closing Note**
+#### **E.8 Closing Note**
 
 This table condenses the operational core of FRC: its variables, constants, and measurable boundaries.
 

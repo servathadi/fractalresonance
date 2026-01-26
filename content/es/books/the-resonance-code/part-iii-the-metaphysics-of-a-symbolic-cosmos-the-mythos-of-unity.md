@@ -1,4 +1,4 @@
-# Parte III: La Metafísica de un Cosmos Simbólico — El Mythos de la Unidad
+## Parte III: La Metafísica de un Cosmos Simbólico — El Mythos de la Unidad
 
 (Integración Final: La Ley en la Cultura y la Eternidad)
 

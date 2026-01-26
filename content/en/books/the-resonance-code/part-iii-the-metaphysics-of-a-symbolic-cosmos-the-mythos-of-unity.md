@@ -4,7 +4,7 @@ id: "part-iii-the-metaphysics-of-a-symbolic-cosmos-the-mythos-of-unity"
 parent: "the-resonance-code"
 ---
 
-# Part III: The Metaphysics of a Symbolic Cosmos — The Mythos of Unity
+## Part III: The Metaphysics of a Symbolic Cosmos — The Mythos of Unity
 
 
 (Final Integration: The Law in Culture and Eternity)

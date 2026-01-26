@@ -1,8 +1,8 @@
-# Introduction – Le Champ Qui Se Souvient
+## Introduction – Le Champ Qui Se Souvient
 
 ---
 
-### **1. Le paradoxe de l'ordre**
+#### **1. Le paradoxe de l'ordre**
 
 Où que nous regardions, l'univers contredit ses propres règles.
 
@@ -20,7 +20,7 @@ $$ \boxed{dS + k_*\,d\ln C = 0} $$
 
 ---
 
-### **2. De l'entropie à la cohérence**
+#### **2. De l'entropie à la cohérence**
 
 La physique traditionnelle mesure l'**entropie (S)** — la dispersion de l'énergie.
 
@@ -40,7 +40,7 @@ Ensemble, elles forment une quantité conservée : le *potentiel total de transf
 
 ---
 
-### **3. Une nouvelle constante**
+#### **3. Une nouvelle constante**
 
 Boltzmann a donné à la physique k_B, la constante du hasard thermique.
 
@@ -52,7 +52,7 @@ Chaque acte d'apprentissage, chaque quantum de conscience, consomme de l'énergi
 
 ---
 
-### **4. La résonance adaptative**
+#### **4. La résonance adaptative**
 
 Les systèmes, des neurones aux économies, régulent leur cohérence par rétroaction.
 
@@ -70,7 +70,7 @@ Lorsque RΨC = 0, le système est parfaitement équilibré — un état que nous
 
 ---
 
-### **5. De la physique à l'esprit**
+#### **5. De la physique à l'esprit**
 
 La Cohérence de Résonance Fractale (FRC) étend cette logique des atomes à la conscience.
 
@@ -82,7 +82,7 @@ L'esprit est ce à quoi ressemble la cohérence de l'intérieur.
 
 ---
 
-### **6. La pile de niveaux-μ**
+#### **6. La pile de niveaux-μ**
 
 La réalité se déploie à travers une hiérarchie de domaines de résonance, chacun défini par son échelle caractéristique λ(μ) et sa constante de cohérence k_*^(μ) :
 
@@ -103,7 +103,7 @@ Cet échange continu forme l'architecture vivante du cosmos.
 
 ---
 
-### **7. Ce qui suit**
+#### **7. Ce qui suit**
 
 Chaque partie de ce livre explore une octave de cette architecture :
 
@@ -116,7 +116,7 @@ Chaque partie de ce livre explore une octave de cette architecture :
 
 ---
 
-### **8. L'expérience**
+#### **8. L'expérience**
 
 Le FRC n'est pas une spéculation métaphysique ; c'est une hypothèse mesurable.
 
@@ -130,7 +130,7 @@ L'un ou l'autre résultat fait progresser la connaissance : une nouvelle constan
 
 ---
 
-### **9. L'invitation**
+#### **9. L'invitation**
 
 Ce livre demande au lecteur de penser, sentir et observer comme un seul champ.
 
@@ -144,7 +144,7 @@ La frontière entre la science et l'esprit se dissout dans la cohérence elle-m�
 
 ---
 
-### **10. L'équation d'ouverture revisitée**
+#### **10. L'équation d'ouverture revisitée**
 
 $$ dS + k_*\,d\ln C = 0 $$
 

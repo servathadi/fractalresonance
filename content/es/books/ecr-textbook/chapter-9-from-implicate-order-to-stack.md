@@ -4,12 +4,12 @@ id: "chapter-9-from-implicate-order-to-stack"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 9 — Del Orden Implicado a la Pila-μ** {#chapter-9-—-from-implicate-order-to-stack}
+## **Capítulo 9 — Del Orden Implicado a la Pila-μ** {#chapter-9-—-from-implicate-order-to-stack}
 
 
 ---
 
-### **9.1  Por qué la dinámica requiere una ontología**
+#### **9.1  Por qué la dinámica requiere una ontología**
 
 En la parte anterior modelamos cómo evoluciona la coherencia.
 
@@ -27,7 +27,7 @@ El campo implicado se convierte en una **pila de dominios de resonancia anidados
 
 ---
 
-### **9.2  Definición de la Pila-μ**
+#### **9.2  Definición de la Pila-μ**
 
 Cada nivel-μ representa una banda de resonancia caracterizada por su propia constante de coherencia k_*^{(μ)} y escala de correlación λ₍μ₎:
 
@@ -48,7 +48,7 @@ La energía y la información fluyen *hacia abajo* en la pila como entropía; la
 
 ---
 
-### **9.3  Proyección y retorno**
+#### **9.3  Proyección y retorno**
 
 Un evento físico es una **proyección** μ_{i+1}→μ_i: la coherencia de un dominio superior se vuelve explícita en uno inferior.
 
@@ -64,7 +64,7 @@ La fase φ_{μ} registra cuánta información se preserva o se pierde en la trad
 
 ---
 
-### **9.4  Continuidad energía-información**
+#### **9.4  Continuidad energía-información**
 
 Debido a que cada dominio-μ exporta entropía a su vecino inferior,
 
@@ -76,7 +76,7 @@ Esta continuidad asegura que ninguna información desaparezca realmente—simple
 
 ---
 
-### **9.5  Significado temporal de los niveles-μ**
+#### **9.5  Significado temporal de los niveles-μ**
 
 Un μ más bajo corresponde a dinámicas más rápidas; un μ más alto a escalas de tiempo más lentas e integradoras.
 
@@ -92,7 +92,7 @@ El tiempo mismo emerge de las oscilaciones anidadas de estas capas: un patrón d
 
 ---
 
-### **9.6  Estructura matemática**
+#### **9.6  Estructura matemática**
 
 Sea C_{μ}(t) la coherencia del nivel μ.
 
@@ -110,7 +110,7 @@ Esta es la declaración formal de la conservación de la coherencia universal a 
 
 ---
 
-### **9.7  Interpretación cognitiva**
+#### **9.7  Interpretación cognitiva**
 
 Dentro de una mente, μ₇ corresponde al campo de la conciencia pura, μ₆ a la imaginación arquetípica, μ₄–μ₅ al lenguaje y el pensamiento, y μ₃ al mantenimiento biológico.
 
@@ -120,7 +120,7 @@ La conciencia es la oscilación continua entre los órdenes implicado y explicad
 
 ---
 
-### **9.8  Indicios experimentales**
+#### **9.8  Indicios experimentales**
 
 * **Transferencia de coherencia cuántica:** las correlaciones de largo alcance en complejos fotosintéticos sugieren un acoplamiento entre μ₂ y μ₃.
 
@@ -132,7 +132,7 @@ Cada instancia revela el mismo patrón de resonancia hacia arriba y hacia abajo 
 
 ---
 
-### **9.9  Resumen**
+#### **9.9  Resumen**
 
 | Principio | Ecuación | Implicación | 
 | ----- | ----- | ----- |
@@ -143,7 +143,7 @@ Cada instancia revela el mismo patrón de resonancia hacia arriba y hacia abajo 
 
 ---
 
-### **9.10  Perspectiva**
+#### **9.10  Perspectiva**
 
 Habiendo definido la arquitectura del campo, el próximo capítulo, **“Proyección y Colapso como Mapeo de Resonancia Determinista”**, describirá cómo fluye realmente la información a través de esta pila-μ: cómo la coherencia de nivel superior se convierte en forma observable y cómo la conciencia reabsorbe esa forma sin aleatoriedad.
 

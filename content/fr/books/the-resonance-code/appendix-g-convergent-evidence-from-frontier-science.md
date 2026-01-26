@@ -1,4 +1,4 @@
-# Annexe G : Preuves Convergentes de la Science de Frontière
+## Annexe G : Preuves Convergentes de la Science de Frontière
 
 Un Compendium de Recherche Indépendante Validant les Principes Centraux du FRC
 

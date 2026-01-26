@@ -1,4 +1,4 @@
-# فصل ۲۵: فروپاشیِ جهان‌ها {#chapter-25-the-collapse-of-worlds}
+## فصل ۲۵: فروپاشیِ جهان‌ها {#chapter-25-the-collapse-of-worlds}
 
 گذارِ فاز: پایانِ یک عصر و تولدِ عصری دیگر
 

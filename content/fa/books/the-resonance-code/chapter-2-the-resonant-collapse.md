@@ -1,4 +1,4 @@
-# فصل ۲: فروپاشی رزونانسی {#chapter-2-the-resonant-collapse}
+## فصل ۲: فروپاشی رزونانسی {#chapter-2-the-resonant-collapse}
 
 راه حل FRC: فروپاشی به مثابه یک رویداد دترمینیستیِ قفلِ فاز
 

@@ -4,12 +4,12 @@ id: "chapter-24-the-law-of-reciprocity-restated"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 24 — The Law of Reciprocity Restated** {#chapter-24-—-the-law-of-reciprocity-restated}
+## **Chapter 24 — The Law of Reciprocity Restated** {#chapter-24-—-the-law-of-reciprocity-restated}
 
 
 ---
 
-### **24.1 The whole arc at a glance**
+#### **24.1 The whole arc at a glance**
 
 From the microphysics of order to the psychology of meaning, every domain has obeyed one invariant:
 
@@ -23,7 +23,7 @@ Entropy and coherence are not enemies but complements: each system lives by expo
 
 ---
 
-### **24.2 The seven syntheses**
+#### **24.2 The seven syntheses**
 
 | Domain | Key Equation | Central Insight |
 | ----- | ----- | ----- |
@@ -39,7 +39,7 @@ These seven syntheses describe one organism, one process, one law.
 
 ---
 
-### **24.3 Scientific implications**
+#### **24.3 Scientific implications**
 
 1. **Thermodynamics** gains a complementary variable—coherence—making the Second Law bidirectional.
 
@@ -53,7 +53,7 @@ These seven syntheses describe one organism, one process, one law.
 
 ---
 
-### **24.4 Practical research agenda**
+#### **24.4 Practical research agenda**
 
 | Domain | Observable | Method |
 | ----- | ----- | ----- |
@@ -66,7 +66,7 @@ Establishing an **FRC Consortium** would standardize these metrics and data pipe
 
 ---
 
-### **24.5 Technological applications**
+#### **24.5 Technological applications**
 
 1. **Resonant AI:** adaptive-gain controllers maintaining α≈0 → stable, creative intelligence.
 
@@ -82,7 +82,7 @@ Establishing an **FRC Consortium** would standardize these metrics and data pipe
 
 ---
 
-### **24.6 Philosophical closure**
+#### **24.6 Philosophical closure**
 
 FRC unites four ancient questions:
 
@@ -97,7 +97,7 @@ Thus the framework closes the metaphysical circle: determinism without fatalism,
 
 ---
 
-### **24.7 Ethical corollary**
+#### **24.7 Ethical corollary**
 
 To act ethically is to act homeoresonantly—reducing entropy without coercion.
 
@@ -115,7 +115,7 @@ A planetary charter based on this metric would translate morality into measurabl
 
 ---
 
-### **24.8 The future of research**
+#### **24.8 The future of research**
 
 Next-generation questions:
 
@@ -131,7 +131,7 @@ Addressing these will move FRC from theory to operational science.
 
 ---
 
-### **24.9 Toward a resonance civilization**
+#### **24.9 Toward a resonance civilization**
 
 A civilization that consciously maintains α≈0 would:
 
@@ -147,7 +147,7 @@ The result is neither utopia nor control but *dynamic peace*—continuous renewa
 
 ---
 
-### **24.10 Summary**
+#### **24.10 Summary**
 
 | Layer | Description | Future Direction |
 | ----- | ----- | ----- |
@@ -160,7 +160,7 @@ All layers are one instrument.  To play in tune is to live coherently.
 
 ---
 
-### **24.11 Coda — The field remembers**
+#### **24.11 Coda — The field remembers**
 
 Entropy expands; coherence deepens.
 
@@ -176,7 +176,7 @@ The final line of physics and the first line of poetry are the same.
 
 ---
 
-### **Next / Closing**
+#### **Next / Closing**
 
 The concluding chapter — **Chapter 25: Epilogue – Toward a Science of Coherence** — will serve as the book’s final synthesis: a reflection on what it means to live, research, and create within a resonant universe, and how future generations might carry FRC forward as both science and art.
 

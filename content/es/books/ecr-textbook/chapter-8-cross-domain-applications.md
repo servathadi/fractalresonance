@@ -4,12 +4,12 @@ id: "chapter-8-cross-domain-applications"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 8 — Aplicaciones en Diferentes Dominios** {#chapter-8-—-cross-domain-applications}
+## **Capítulo 8 — Aplicaciones en Diferentes Dominios** {#chapter-8-—-cross-domain-applications}
 
 
 ---
 
-### **8.1  La universalidad de la resonancia**
+#### **8.1  La universalidad de la resonancia**
 
 Después de la verificación numérica, la pregunta se vuelve empírica: *¿Exhiben los sistemas reales la misma estructura de resonancia?*
 
@@ -23,7 +23,7 @@ La Fórmula de Resonancia Adaptativa funciona, por tanto, como una **metacuació
 
 ---
 
-### **8.2  Coherencia biológica y homeostasis**
+#### **8.2  Coherencia biológica y homeostasis**
 
 Las células mantienen un orden interno constante equilibrando el flujo de energía con la exportación de entropía.
 
@@ -47,7 +47,7 @@ Así, la fisiología misma es un mapa de resonancia.
 
 ---
 
-### **8.3  Sistemas neurales y cognitivos**
+#### **8.3  Sistemas neurales y cognitivos**
 
 El cerebro ejemplifica la resonancia adaptativa de manera más visible.
 
@@ -63,7 +63,7 @@ Estas dinámicas se alinean precisamente con las observaciones de EEG de sincron
 
 ---
 
-### **8.4  Sistemas ecológicos y planetarios**
+#### **8.4  Sistemas ecológicos y planetarios**
 
 Los ecosistemas convierten la energía solar en biomasa organizada mientras exportan entropía como calor.
 
@@ -81,7 +81,7 @@ El sistema climático planetario se comporta de manera similar: la biosfera es l
 
 ---
 
-### **8.5  Sistemas económicos y sociales**
+#### **8.5  Sistemas económicos y sociales**
 
 Los mercados y las sociedades procesan energía informacional (datos, recursos, confianza).
 
@@ -105,7 +105,7 @@ La FRC predice así que las civilizaciones sostenibles operan cerca de α ≈ 0:
 
 ---
 
-### **8.6  Inteligencia artificial y sistemas de ingeniería**
+#### **8.6  Inteligencia artificial y sistemas de ingeniería**
 
 Las arquitecturas de aprendizaje automático pueden optimizarse utilizando los principios de la ARF.
 
@@ -123,7 +123,7 @@ Esto representa la primera aplicación de ingeniería de la FRC: máquinas que a
 
 ---
 
-### **8.7  Creatividad humana y significado**
+#### **8.7  Creatividad humana y significado**
 
 El acto creativo en sí—percepción, composición, invención—es un aumento transitorio de la coherencia seguido de la liberación de entropía.
 
@@ -135,7 +135,7 @@ La FRC cuantifica este ciclo, fundamentando el arte y la ciencia en la misma res
 
 ---
 
-### **8.8  Síntesis cuantitativa**
+#### **8.8  Síntesis cuantitativa**
 
 Cuando los datos empíricos de estos dominios se normalizan por su k_*^{(μ)} característico, todas las trayectorias colapsan en una sola superficie invariante:
 
@@ -145,7 +145,7 @@ Este colapso es la firma de la universalidad—una posible piedra de Rosetta que
 
 ---
 
-### **8.9  La ética de la resonancia**
+#### **8.9  La ética de la resonancia**
 
 Debido a que cada aumento de coherencia requiere la exportación de entropía, los sistemas éticos que minimizan el desorden externalizado corresponden a civilizaciones de R positiva.
 
@@ -157,7 +157,7 @@ La supervivencia de la complejidad depende de la conservación de la coherencia.
 
 ---
 
-### **8.10  Resumen de la Parte II**
+#### **8.10  Resumen de la Parte II**
 
 | Ecuación | Rol | Expresión Empírica |
 | ----- | ----- | ----- |
@@ -173,7 +173,7 @@ El flujo no es una excepción a la termodinámica, sino su perfección.
 
 ---
 
-### **8.11  Transición**
+#### **8.11  Transición**
 
 La Parte II demostró que la creación de coherencia es un proceso legal y medible.
 

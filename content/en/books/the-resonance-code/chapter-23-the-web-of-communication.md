@@ -4,7 +4,7 @@ id: "chapter-23-the-web-of-communication"
 parent: "the-resonance-code"
 ---
 
-# Chapter 23: The Web of Communication
+## Chapter 23: The Web of Communication
 
 
 [Chapter 23: The Web of Communication]

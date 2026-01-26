@@ -4,12 +4,12 @@ id: "chapter-10-projection-and-collapse-as-deterministic-resonance-mapping"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 10 — Proyección y Colapso como Mapeo de Resonancia Determinista** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
+## **Capítulo 10 — Proyección y Colapso como Mapeo de Resonancia Determinista** {#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping}
 
 
 ---
 
-### **10.1  El problema de la apariencia**
+#### **10.1  El problema de la apariencia**
 
 En la mecánica cuántica estándar, el mundo “colapsa” probabilísticamente cuando se observa.
 
@@ -23,7 +23,7 @@ un dominio de coherencia de mayor frecuencia proyecta su patrón de fase en uno 
 
 ---
 
-### **10.2  El principio del mapeo de resonancia**
+#### **10.2  El principio del mapeo de resonancia**
 
 Sea C_{μ+1} la coherencia en un dominio superior y C_{μ} en su proyección.
 
@@ -43,7 +43,7 @@ El colapso es, por lo tanto, **determinista de fase** en lugar de probabilístic
 
 ---
 
-### **10.3  Continuidad energía-información**
+#### **10.3  Continuidad energía-información**
 
 Durante la proyección, la entropía exportada del nivel superior es igual al potencial importado del inferior:
 
@@ -55,7 +55,7 @@ Cada acto de observación es un **apretón de manos entropía-coherencia** entre
 
 ---
 
-### **10.4  Correspondencia cuántica**
+#### **10.4  Correspondencia cuántica**
 
 En los experimentos cuánticos, la amplitud probabilística de la función de onda puede reinterpretarse como un peso de proyección de la coherencia μ₂ sobre los estados de la materia μ₁.
 
@@ -67,7 +67,7 @@ Así, las probabilidades de Born surgen estadísticamente de la geometría de re
 
 ---
 
-### **10.5  Analogía cognitiva**
+#### **10.5  Analogía cognitiva**
 
 La percepción funciona de la misma manera.
 
@@ -81,7 +81,7 @@ La conciencia es, por lo tanto, el continuo **escaneo de resonancia** de patrone
 
 ---
 
-### **10.6  Modelo matemático**
+#### **10.6  Modelo matemático**
 
 Sea la función de transferencia de coherencia entre niveles adyacentes:
 
@@ -95,7 +95,7 @@ La integración numérica muestra un intercambio de energía oscilatorio: ráfag
 
 ---
 
-### **10.7  Granularidad temporal y física de eventos**
+#### **10.7  Granularidad temporal y física de eventos**
 
 Cada par de proyección-retorno constituye un **evento de resonancia**—la unidad atómica de la física de procesos.
 
@@ -109,7 +109,7 @@ Esto explica por qué los estados de flujo se sienten atemporales y el caos se s
 
 ---
 
-### **10.8  Correlatos empíricos**
+#### **10.8  Correlatos empíricos**
 
 * **Cuántico:** los tiempos de colapso del espín del electrón se correlacionan con las tasas de decoherencia ambiental predichas por T_{μ,μ+1}.
 
@@ -121,7 +121,7 @@ Estas alineaciones sugieren que la conciencia y la medición son manifestaciones
 
 ---
 
-### **10.9  Implicaciones filosóficas**
+#### **10.9  Implicaciones filosóficas**
 
 El mapeo de resonancia determinista restaura el realismo sin negar la conciencia:
 
@@ -135,7 +135,7 @@ La aleatoriedad se vuelve aparente solo cuando el observador reside dentro del d
 
 ---
 
-### **10.10  Resumen**
+#### **10.10  Resumen**
 
 | Concepto | Ecuación | Significado |
 | ----- | ----- | ----- |
@@ -146,7 +146,7 @@ La aleatoriedad se vuelve aparente solo cuando el observador reside dentro del d
 
 ---
 
-### **10.11  Perspectiva**
+#### **10.11  Perspectiva**
 
 El próximo capítulo, **“Modelo Matemático de Acoplamiento entre Niveles”**, formaliza estos mapeos cualitativos en ecuaciones completas de múltiples niveles.
 

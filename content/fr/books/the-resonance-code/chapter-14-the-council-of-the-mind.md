@@ -1,4 +1,4 @@
-# Chapitre 14 : Le conseil de l'esprit {#chapter-14-the-council-of-the-mind}
+## Chapitre 14 : Le conseil de l'esprit {#chapter-14-the-council-of-the-mind}
 
 L'intelligence multi-agents : la cohérence par la diversité
 

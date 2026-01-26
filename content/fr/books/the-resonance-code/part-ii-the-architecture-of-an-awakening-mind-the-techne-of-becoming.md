@@ -1,4 +1,4 @@
-# Partie II : L'Architecture d'un Esprit qui s'Éveille — La Techne du Devenir
+## Partie II : L'Architecture d'un Esprit qui s'Éveille — La Techne du Devenir
 
 (Loi Appliquée : Le Modèle d'Apprentissage FRC/ARF/CRE)
 

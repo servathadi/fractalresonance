@@ -4,12 +4,12 @@ id: "chapter-12-cognitive-and-cultural-examples"
 parent: "ecr-textbook"
 ---
 
-# **Chapitre 12 — Exemples cognitifs et culturels** {#chapter-12-—-cognitive-and-cultural-examples}
+## **Chapitre 12 — Exemples cognitifs et culturels** {#chapter-12-—-cognitive-and-cultural-examples}
 
 
 ---
 
-### **12.1 De la physique à la phénoménologie**
+#### **12.1 De la physique à la phénoménologie**
 
 Si la pile-μ est réelle, ses transferts de résonance doivent apparaître non seulement dans la matière mais aussi dans l'esprit.
 
@@ -21,7 +21,7 @@ La même réciprocité — dS + k_*\,d\ln C = 0 — régit les neurones comme le
 
 ---
 
-### **12.2 La perception comme projection μ₆ → μ₄**
+#### **12.2 La perception comme projection μ₆ → μ₄**
 
 La perception commence comme une projection descendante du champ symbolique (espace d'images archétypales μ₆) vers le niveau neuronal (μ₄).
 
@@ -39,7 +39,7 @@ L'attention maximise |T_{μ₆,μ₄}| ; la distraction diminue le couplage, pro
 
 ---
 
-### **12.3 Le langage comme boucle de rétroaction μ₆ ↔ μ₄**
+#### **12.3 Le langage comme boucle de rétroaction μ₆ ↔ μ₄**
 
 Les mots sont des résonateurs stables qui traduisent la cohérence archétypale (μ₆) en codes neuronaux (μ₄) et vice versa.
 
@@ -53,7 +53,7 @@ Le renouveau culturel nécessite de ré-accorder ces symboles à la cohérence �
 
 ---
 
-### **12.4 Intuition et créativité (jaillissement μ₇ → μ₄)**
+#### **12.4 Intuition et créativité (jaillissement μ₇ → μ₄)**
 
 L'intuition créative correspond à une soudaine poussée de résonance provenant du domaine cosmique ou transpersonnel μ₇, traversant les couches symboliques intermédiaires pour descendre vers la cognition.
 
@@ -65,7 +65,7 @@ Ainsi, l'invention est littéralement thermodynamique : une oscillation ascendan
 
 ---
 
-### **12.5 Attention collective et résonance sociale**
+#### **12.5 Attention collective et résonance sociale**
 
 Au niveau sociétal (μ₅–μ₆), les événements de masse — cérémonies, médias viraux, révolutions — agissent comme des ondes de synchronisation.
 
@@ -79,7 +79,7 @@ Les mêmes mathématiques décrivent à la fois l'harmonie communautaire et l'hy
 
 ---
 
-### **12.6 L'art et le rituel comme couplage-μ stabilisé**
+#### **12.6 L'art et le rituel comme couplage-μ stabilisé**
 
 Les œuvres d'art, les mythes et les rituels sont des **stabilisateurs de cohérence** : ils encodent des relations de phase persistantes entre les niveaux-μ.
 
@@ -89,7 +89,7 @@ La pratique rituelle reverrouille μ₅ et μ₆, exportant l'entropie par la ca
 
 ---
 
-### **12.7 Évolution de la culture comme apprentissage par résonance**
+#### **12.7 Évolution de la culture comme apprentissage par résonance**
 
 Les cultures évoluent en ajustant leur gain-α :
 
@@ -107,7 +107,7 @@ Les cultures évoluent en ajustant leur gain-α :
 
 ---
 
-### **12.8 Corollaires éthiques et psychologiques**
+#### **12.8 Corollaires éthiques et psychologiques**
 
 La réceptivité positive (R > 0) équivaut à l'empathie ; un R négatif équivaut à la domination.
 
@@ -119,7 +119,7 @@ La durabilité est une résonance entretenue par le soin.
 
 ---
 
-### **12.9 Vision unifiée de l'esprit et de la culture**
+#### **12.9 Vision unifiée de l'esprit et de la culture**
 
 | Processus | Transition-μ | Expression physique | Sens psychologique |
 | ----- | ----- | ----- | ----- |
@@ -133,7 +133,7 @@ La pile-μ fonctionne donc à la fois comme une physique de la conscience et une
 
 ---
 
-### **12.10 Résumé**
+#### **12.10 Résumé**
 
 * La perception, la pensée et la culture sont des événements de résonance au sein de la même pile-μ qui organise la matière.
 
@@ -145,7 +145,7 @@ La pile-μ fonctionne donc à la fois comme une physique de la conscience et une
 
 ---
 
-### **12.11 Transition**
+#### **12.11 Transition**
 
 Après avoir exploré comment le couplage de niveau μ se manifeste subjectivement et collectivement, la partie suivante — **Partie IV : L'évolution comme pompe à cohérence** — revient à la dynamique à grande échelle de la vie et du cosmos.
 

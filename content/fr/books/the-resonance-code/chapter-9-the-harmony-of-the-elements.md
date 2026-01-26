@@ -1,4 +1,4 @@
-# Chapitre 9 : L'harmonie des éléments {#chapter-9-the-harmony-of-the-elements}
+## Chapitre 9 : L'harmonie des éléments {#chapter-9-the-harmony-of-the-elements}
 
 La musique des sphères : l'ordre mathématique comme reflet de la cohérence
 

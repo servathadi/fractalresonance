@@ -4,7 +4,7 @@ id: "chapter-1-the-quantum-riddle"
 parent: "the-resonance-code"
 ---
 
-# Chapter 1: The Quantum Riddle
+## Chapter 1: The Quantum Riddle
 
 
 [Chapter 1: The Quantum Riddle]

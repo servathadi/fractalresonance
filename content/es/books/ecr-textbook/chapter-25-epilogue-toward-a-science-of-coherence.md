@@ -4,12 +4,12 @@ id: "chapter-25-epilogue-toward-a-science-of-coherence"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 25 — Epílogo: Hacia una Ciencia de la Coherencia** {#chapter-25-—-epilogue:-toward-a-science-of-coherence}
+## **Capítulo 25 — Epílogo: Hacia una Ciencia de la Coherencia** {#chapter-25-—-epilogue:-toward-a-science-of-coherence}
 
 
 ---
 
-### **25.1  El círculo se cierra**
+#### **25.1  El círculo se cierra**
 
 Desde el primer susurro de la entropía hasta la simetría final de la conciencia, cada fenómeno ha revelado el mismo ritmo:
 
@@ -21,7 +21,7 @@ El círculo está completo; solo queda la participación.
 
 ---
 
-### **25.2   La esencia del descubrimiento**
+#### **25.2   La esencia del descubrimiento**
 
 1. **Reciprocidad:** Todos los sistemas conservan el potencial total de transformación:
 
@@ -37,7 +37,7 @@ Juntas, estas cuatro declaraciones delinean una nueva rama de la ciencia natural
 
 ---
 
-### **25.3   La tarea por delante**
+#### **25.3   La tarea por delante**
 
 Una *ciencia de la coherencia* debe tender un puente entre el laboratorio y la sala de meditación, el acelerador de partículas y el aula.
 
@@ -55,7 +55,7 @@ Tal ciencia une la objetividad y la subjetividad: ecuaciones que guían la empat
 
 ---
 
-### **25.4   Práctica y participación**
+#### **25.4   Práctica y participación**
 
 Cada mente humana es un laboratorio local.
 
@@ -67,7 +67,7 @@ Vivir coherentemente es convertirse en un *agente del equilibrio universal.*
 
 ---
 
-### **25.5   Hacia la Universidad Resonante**
+#### **25.5   Hacia la Universidad Resonante**
 
 Imagine una red de investigación planetaria—la **Universidad Resonante**—donde físicos, artistas, ingenieros y místicos compartan una constante: k_*.
 
@@ -83,7 +83,7 @@ Su lema: **“Conoce el campo volviéndote coherente dentro de él.”**
 
 ---
 
-### **25.6   Integración con la ciencia existente**
+#### **25.6   Integración con la ciencia existente**
 
 La FRC no reemplaza a la física ni a la neurociencia—las extiende.
 
@@ -95,7 +95,7 @@ Sus predicciones comprobables la hacen tanto poética como falsable.
 
 ---
 
-### **25.7   La frontera ética**
+#### **25.7   La frontera ética**
 
 Cada era tiene su física del poder; la nuestra exige una física del cuidado.
 
@@ -107,7 +107,7 @@ Vivir éticamente es mantener la coherencia sin coerción—*homeoresonancia en 
 
 ---
 
-### **25.8   La ecuación futura**
+#### **25.8   La ecuación futura**
 
 El objetivo último de la Ciencia de la Coherencia no es la dominación sino el **equilibrio participativo.**
 
@@ -119,7 +119,7 @@ Cada subsistema, cada ser, contribuye a mantener esa suma equilibrada—la músi
 
 ---
 
-### **25.9   Reflexión final**
+#### **25.9   Reflexión final**
 
 *“El universo es una conversación entre la entropía y la coherencia,*
 *y la conciencia es la gramática que comparten”.*
@@ -130,7 +130,7 @@ Estudiar la FRC es recordar esta gramática, vivir con fluidez dentro de ella y 
 
 ---
 
-### **25.10   La última constante**
+#### **25.10   La última constante**
 
 Sea k_* la constante de coherencia.
 
@@ -144,7 +144,7 @@ Eso es tanto física como gracia.
 
 ---
 
-### **25.11   Despedida e invitación**
+#### **25.11   Despedida e invitación**
 
 Este libro termina donde comenzó—con un campo buscando el equilibrio.
 

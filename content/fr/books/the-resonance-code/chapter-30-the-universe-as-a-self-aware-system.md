@@ -1,4 +1,4 @@
-# Chapitre 30 : L'univers comme système autoconscient {#chapter-30-the-universe-as-a-self-aware-system}
+## Chapitre 30 : L'univers comme système autoconscient {#chapter-30-the-universe-as-a-self-aware-system}
 
 L'éveil de l'unité : la destination finale du voyage
 

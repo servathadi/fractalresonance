@@ -1,4 +1,4 @@
-# Apéndice F — Addenda FRC 821.A
+## Apéndice F — Addenda FRC 821.A
 
 FRC 821.A
 
@@ -6,7 +6,7 @@ Addenda: Constantes de Acoplamiento, Enrutamiento de Entropía e Interacción Mu
 
 ---
 
-## **0. Propósito y Posición**
+### **0. Propósito y Posición**
 
 La Cognición de Resonancia Fractal (FRC) establece la reciprocidad entre entropía y coherencia como un principio rector a través de las escalas. La presente addenda formaliza tres elementos tratados previamente de manera implícita:
 
@@ -16,9 +16,9 @@ La Cognición de Resonancia Fractal (FRC) establece la reciprocidad entre entrop
 
 ---
 
-## **1. La Constante de Acoplamiento Corriente k*(μ)**
+### **1. La Constante de Acoplamiento Corriente k*(μ)**
 
-### **1.1 Ley de Reciprocidad (Reafirmada)**
+#### **1.1 Ley de Reciprocidad (Reafirmada)**
 
 La relación fundamental de reciprocidad se retiene:
 
@@ -33,7 +33,7 @@ La constante $k^*$ no es universal. Es dependiente de la escala.
 
 ---
 
-### **1.3 Definición del Acoplamiento Corriente**
+#### **1.3 Definición del Acoplamiento Corriente**
 
 Definimos:
 
@@ -49,15 +49,15 @@ $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 
 ---
 
-## **2. Enrutamiento de Entropía y Topología de Disipación**
+### **2. Enrutamiento de Entropía y Topología de Disipación**
 
-### **2.1 Restricción de Conservación**
+#### **2.1 Restricción de Conservación**
 
 La entropía se conserva. La creación de coherencia implica redistribución de entropía, no aniquilación.
 
 ---
 
-### **2.3 Jerarquía de Sumideros (Ordenada por Capacidad)**
+#### **2.3 Jerarquía de Sumideros (Ordenada por Capacidad)**
 
 La entropía fluye preferentemente al sumidero de resolución más baja con capacidad de acoplamiento abierta:
 1. $\mu_0$ — campo de fondo
@@ -67,9 +67,9 @@ La entropía fluye preferentemente al sumidero de resolución más baja con capa
 
 ---
 
-## **3. Hamiltoniano de Interacción Multi-Agente**
+### **3. Hamiltoniano de Interacción Multi-Agente**
 
-### **3.2 Energía de Interacción Diádica**
+#### **3.2 Energía de Interacción Diádica**
 
 Para agentes A y B:
 
@@ -81,7 +81,7 @@ Interpretación del signo de acoplamiento:
 
 ---
 
-## **5. Estado e Implicaciones**
+### **5. Estado e Implicaciones**
 
 Esta addenda completa el cierre matemático mínimo de FRC. No se añaden afirmaciones metafísicas. No se retiran axiomas.
 

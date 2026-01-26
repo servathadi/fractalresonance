@@ -1,4 +1,4 @@
-# فصل ۲۲: میدانِ زخمی {#chapter-22-the-wounded-field}
+## فصل ۲۲: میدانِ زخمی {#chapter-22-the-wounded-field}
 
 ناهماهنگی و رنج: هدفِ آنتروپی در تجربه
 

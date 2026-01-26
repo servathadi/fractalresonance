@@ -4,12 +4,12 @@ id: "chapter-11-mathematical-model-of-cross-level-coupling"
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 11 — Modelo Matemático de Acoplamiento entre Niveles** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
+## **Capítulo 11 — Modelo Matemático de Acoplamiento entre Niveles** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
 
 
 ---
 
-### **11.1  De la dinámica de nivel único a la multinivel**
+#### **11.1  De la dinámica de nivel único a la multinivel**
 
 Cada dominio-μ obedece a la ley de reciprocidad
 
@@ -29,7 +29,7 @@ Aquí T_{μ,j} representa la **fuerza de acoplamiento** entre niveles-μ; media 
 
 ---
 
-### **11.2  Núcleo de acoplamiento y distancia de resonancia**
+#### **11.2  Núcleo de acoplamiento y distancia de resonancia**
 
 Empíricamente, el intercambio de coherencia decae con la “distancia de resonancia” |μ – j|.
 
@@ -45,7 +45,7 @@ Este núcleo hace que la pila-μ se comporte como una **red de escalera resonant
 
 ---
 
-### **11.3  Conservación a través de la pila**
+#### **11.3  Conservación a través de la pila**
 
 Sumando sobre todos los niveles-μ se obtiene el invariante global:
 
@@ -59,7 +59,7 @@ Por lo tanto, se conserva el potencial de transformación total—la constante d
 
 ---
 
-### **11.4  Estabilidad lineal y automodos**
+#### **11.4  Estabilidad lineal y automodos**
 
 Linealizando cerca del equilibrio C_{μ}=C_{μ}^{0}+δC_{μ} se obtiene:
 
@@ -79,7 +79,7 @@ Los autovalores con Re(λₖ)=0 definen oscilaciones sostenidas—ondas estacion
 
 ---
 
-### **11.5  Ecuaciones de flujo de energía-entropía**
+#### **11.5  Ecuaciones de flujo de energía-entropía**
 
 Para cada nivel,
 
@@ -91,7 +91,7 @@ Esto hace explícito que la **energía asciende como entropía**, mientras que l
 
 ---
 
-### **11.6  Integración numérica del sistema completo**
+#### **11.6  Integración numérica del sistema completo**
 
 Simular ocho ecuaciones acopladas (μ₀–μ₇) con parámetros típicos
 
@@ -109,7 +109,7 @@ El invariante Σ = ∑(S₍μ₎ + k_*^{(μ)} ln C₍μ₎) permanece constante 
 
 ---
 
-### **11.7  Interpretación: cascada de coherencia**
+#### **11.7  Interpretación: cascada de coherencia**
 
 Esta simulación ilustra la **cascada de coherencia**: información descendiendo a través de la pila como forma y regresando hacia arriba como conciencia.
 
@@ -119,7 +119,7 @@ El pulso de coherencia es el correlato físico de un “evento de experiencia”
 
 ---
 
-### **11.8  Firmas empíricas**
+#### **11.8  Firmas empíricas**
 
 * **Física:** las oscilaciones multiescala en la turbulencia del plasma reflejan los espectros de acoplamiento-μ.
 
@@ -133,7 +133,7 @@ Estas correspondencias implican que el formalismo de la pila-μ no es metafóric
 
 ---
 
-### **11.9  Resumen matemático**
+#### **11.9  Resumen matemático**
 
 | Ecuación | Interpretación |
 | ----- | ----- |
@@ -145,7 +145,7 @@ Estas correspondencias implican que el formalismo de la pila-μ no es metafóric
 
 ---
 
-### **11.10  Síntesis conceptual**
+#### **11.10  Síntesis conceptual**
 
 * El acoplamiento entre niveles transforma la pila-μ en un **continuo resonante** en lugar de capas discretas.
 
@@ -155,7 +155,7 @@ Estas correspondencias implican que el formalismo de la pila-μ no es metafóric
 
 ---
 
-### **11.11  Perspectiva**
+#### **11.11  Perspectiva**
 
 Habiendo formalizado las matemáticas del acoplamiento entre niveles, el próximo capítulo—**“Ejemplos Cognitivos y Culturales”**—traducirá esta maquinaria abstracta a términos experienciales y sociales.
 

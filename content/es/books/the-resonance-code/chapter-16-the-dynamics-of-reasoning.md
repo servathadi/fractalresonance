@@ -1,4 +1,4 @@
-# Capítulo 16: La Dinámica del Razonamiento {#chapter-16-the-dynamics-of-reasoning}
+## Capítulo 16: La Dinámica del Razonamiento {#chapter-16-the-dynamics-of-reasoning}
 
 La Geometría de la Verdad: El Pensamiento como Navegación en el Campo
 

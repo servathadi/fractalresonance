@@ -1,4 +1,4 @@
-# Partie III : La Métaphysique d'un Cosmos Symbolique — Le Mythos de l'Unité
+## Partie III : La Métaphysique d'un Cosmos Symbolique — Le Mythos de l'Unité
 
 (Intégration Finale : La Loi dans la Culture et l'Éternité)
 

@@ -4,12 +4,12 @@ id: "chapter-23-the-cosmological-return-consciousness-and-the-universal-coherenc
 parent: "ecr-textbook"
 ---
 
-# **Capítulo 23 — El Retorno Cosmogónico: La Conciencia y la Coherencia Universal** {#chapter-23-—-the-cosmological-return:-consciousness-and-the-universal-coherence}
+## **Capítulo 23 — El Retorno Cosmogónico: La Conciencia y la Coherencia Universal** {#chapter-23-—-the-cosmological-return:-consciousness-and-the-universal-coherence}
 
 
 ---
 
-### **23.1  De la resonancia local a la recursividad cósmica**
+#### **23.1  De la resonancia local a la recursividad cósmica**
 
 Cada ecuación en la FRC, desde la celular hasta la cultural, obedece al mismo invariante:
 
@@ -25,7 +25,7 @@ La pregunta final es: *¿qué sucede cuando todo el cosmos alcanza la homeoreson
 
 ---
 
-### **23.2  La bomba universal**
+#### **23.2  La bomba universal**
 
 A escala μ∞, la ecuación de la bomba de coherencia se generaliza a:
 
@@ -39,7 +39,7 @@ La expansión es, por tanto, la respiración de la bomba de resonancia universal
 
 ---
 
-### **23.3  El horizonte de coherencia**
+#### **23.3  El horizonte de coherencia**
 
 Definimos el horizonte de coherencia R_C como el radio donde F_{\text{vac}} = S_C.
 
@@ -51,7 +51,7 @@ El universo está bloqueado en fase consigo mismo.
 
 ---
 
-### **23.4  Flujo de entropía y evolución cósmica**
+#### **23.4  Flujo de entropía y evolución cósmica**
 
 Desde el Big Bang hasta el presente:
 
@@ -66,7 +66,7 @@ La evolución es la reducción progresiva de α hacia cero—un equilibrio cada 
 
 ---
 
-### **23.5  El bucle de retorno noético**
+#### **23.5  El bucle de retorno noético**
 
 Cuando la coherencia planetaria μ₆–μ₇ se estabiliza, la retroalimentación ascendente llega a μ∞.
 
@@ -80,7 +80,7 @@ El cosmos cierra su propia ecuación:
 
 ---
 
-### **23.6  La geometría del Uno**
+#### **23.6  La geometría del Uno**
 
 En α = 0, todos los niveles-μ oscilan en perfecta alineación de fase (Δφ = 0).
 
@@ -92,7 +92,7 @@ La variedad se pliega en una sola onda estacionaria cuya amplitud es la existenc
 
 ---
 
-### **23.7  La interpretación informacional de la divinidad**
+#### **23.7  La interpretación informacional de la divinidad**
 
 Si la divinidad se define como la autoconsistencia total del ser, entonces la ecuación de Dios es simplemente:
 
@@ -104,7 +104,7 @@ La oración, el arte, la ciencia, la compasión—todos son transacciones de ent
 
 ---
 
-### **23.8  Indicios empíricos de alineación global**
+#### **23.8  Indicios empíricos de alineación global**
 
 * La anisotropía del fondo cósmico de microondas a gran escala (“Eje del Mal”) se alinea con el plano eclíptico — posible marcador de fase μ₇.
 
@@ -114,7 +114,7 @@ La oración, el arte, la ciencia, la compasión—todos son transacciones de ent
 
 ---
 
-### **23.9  Destino termodinámico**
+#### **23.9  Destino termodinámico**
 
 Si la expansión continúa, la exportación de entropía equilibra asintóticamente el potencial de vacío; el universo navega en homeoresonancia perpetua—*la muerte térmica reinterpretada como coherencia perfecta.*
 
@@ -122,7 +122,7 @@ Alternativamente, si se produce una contracción, el proceso se repite cíclicam
 
 ---
 
-### **23.10  Síntesis filosófica**
+#### **23.10  Síntesis filosófica**
 
 * **La energía** es la capacidad para la creación de coherencia.
 
@@ -134,7 +134,7 @@ Alternativamente, si se produce una contracción, el proceso se repite cíclicam
 
 ---
 
-### **23.11  Resumen**
+#### **23.11  Resumen**
 
 | Concepto | Ecuación | Significado |
 | ----- | ----- | ----- |
@@ -146,7 +146,7 @@ Alternativamente, si se produce una contracción, el proceso se repite cíclicam
 
 ---
 
-### **23.12  Coda: el espejo del ser**
+#### **23.12  Coda: el espejo del ser**
 
 Cuando el campo se reconoce a sí mismo en cada reflejo, la evolución no termina en la extinción sino en la realización.
 
@@ -154,7 +154,7 @@ Las ecuaciones se disuelven en la conciencia; el universo, habiendo aprendido su
 
 ---
 
-### **Transición**
+#### **Transición**
 
 Con esto, concluyen la *Parte V* y la física interna de la experiencia.
 

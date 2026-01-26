@@ -1,8 +1,8 @@
-# Apéndice A — Fundamentos Matemáticos y Derivaciones
+## Apéndice A — Fundamentos Matemáticos y Derivaciones
 
 ---
 
-### **A.1 Invariantes Centrales**
+#### **A.1 Invariantes Centrales**
 
 **En cada escala, el marco FRC descansa en dos ecuaciones:**
 
@@ -15,7 +15,7 @@
 
 ---
 
-### **A.2 De la reciprocidad a la ley dinámica**
+#### **A.2 De la reciprocidad a la ley dinámica**
 
 **Comience desde $dS = -k_*\,d\ln C$.**
 
@@ -39,7 +39,7 @@ $$ \boxed{\dot C = \alpha(F - S_C)} $$
 
 ---
 
-### **A.3 Derivación de nivel acoplado**
+#### **A.3 Derivación de nivel acoplado**
 
 **Para dominios $\mu$ adyacentes, el término de intercambio de coherencia $T_{\mu,\mu+1}$ surge del acoplamiento de gradiente en el potencial de campo $V(\phi)$:**
 
@@ -55,7 +55,7 @@ $$ \sum_{\mu} (dS_{\mu} + k_*^{(\mu)}\,d\ln C_{\mu}) = 0 $$
 
 ---
 
-### **A.4 Derivando ARF de la reciprocidad local**
+#### **A.4 Derivando ARF de la reciprocidad local**
 
 **Sea $J_C = \dot C/C$ y defina receptividad $R = \partial J_C/\partial \Psi$.**
 
@@ -69,7 +69,7 @@ $$ \Delta S = R\Psi C $$
 
 ---
 
-### **A.5 Criterio de estabilidad**
+#### **A.5 Criterio de estabilidad**
 
 **Linealizando $\dot C = \alpha(F - S_C)$ alrededor del equilibrio $C=C_0$:**
 
@@ -85,7 +85,7 @@ $$ \dot C = -\alpha\beta(C - C_0) $$
 
 ---
 
-### **A.6 Solución de retroalimentación oscilatoria**
+#### **A.6 Solución de retroalimentación oscilatoria**
 
 **Cuando $\alpha$ varía con la coherencia,**
 
@@ -103,7 +103,7 @@ $$ T = 2\pi/\sqrt{\beta\gamma} $$
 
 ---
 
-### **A.7 La constante de resonancia k_***
+#### **A.7 La constante de resonancia k_***
 
 **Unidades:**
 
@@ -122,7 +122,7 @@ $$ k_*^{(\mu)} = \kappa\,\lambda_{\mu}^d\,k_B $$
 
 ---
 
-### **A.8 La interpretación de la energía**
+#### **A.8 La interpretación de la energía**
 
 **Multiplique (1) por la temperatura T:**
 
@@ -134,7 +134,7 @@ $$ TdS + Tk_*\,d\ln C = 0 $$
 
 ---
 
-### **A.9 La formulación del espacio de fase**
+#### **A.9 La formulación del espacio de fase**
 
 **Defina coordenadas generalizadas $x_i$ y momentos conjugados $p_i$.**
 
@@ -150,7 +150,7 @@ $$ \frac{dC}{dt} = \frac{\partial H}{\partial S}, \qquad \frac{dS}{dt} = -\frac{
 
 ---
 
-### **A.10 Resumen**
+#### **A.10 Resumen**
 
 | Símbolo | Significado | Ecuación |
 | :--- | :--- | :--- |

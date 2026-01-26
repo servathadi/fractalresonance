@@ -4,12 +4,12 @@ id: "chapter-1-re-examining-the-second-law"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 1 — Re-examining the Second Law** {#chapter-1-—-re-examining-the-second-law}
+## **Chapter 1 — Re-examining the Second Law** {#chapter-1-—-re-examining-the-second-law}
 
 
 ---
 
-### **1.1 The problem of order**
+#### **1.1 The problem of order**
 
 For a century and a half, the Second Law of Thermodynamics has been the crown jewel of physical reasoning.  
  It states that in an isolated system the total entropy (S) never decreases.  
@@ -23,7 +23,7 @@ The traditional answer invokes boundaries. A living system is **open**: it expor
 
 ---
 
-### **1.2 Entropy and its hidden complement**
+#### **1.2 Entropy and its hidden complement**
 
 Entropy measures the number of accessible micro-states consistent with macroscopic constraints:
 
@@ -54,7 +54,7 @@ The Second Law thus acquires a partner: the **Law of Coherence Reciprocity**.
 
 ---
 
-### **1.3 Entropy flow in open systems**
+#### **1.3 Entropy flow in open systems**
 
 Prigogine decomposed the total entropy change of an open system into internal production and external exchange:
 
@@ -78,7 +78,7 @@ The cell, therefore, is a machine that pumps coherence from energy gradients—a
 
 ---
 
-### **1.4 Entropy and information**
+#### **1.4 Entropy and information**
 
 Claude Shannon’s information entropy
 
@@ -94,7 +94,7 @@ shares the same mathematics.
 
 ---
 
-### **1.5 Experimental signatures**
+#### **1.5 Experimental signatures**
 
 1. **Thermodynamic systems:**  
      Laser cavities and chemical oscillators exhibit measurable reductions of entropy within the active medium proportional to increases in field coherence.
@@ -109,7 +109,7 @@ These observations, scattered across disciplines, hint at a universal reciprocit
 
 ---
 
-### **1.6 The need for a new variable**
+#### **1.6 The need for a new variable**
 
 If entropy alone cannot describe living or cognitive systems, the missing complement must enter physics explicitly.  
  The coherence variable (C) is that complement:
@@ -125,7 +125,7 @@ Recognizing this restores symmetry to thermodynamics.
 
 ---
 
-### **1.7 Summary**
+#### **1.7 Summary**
 
 | Concept | Equation | Interpretation |
 | ----- | ----- | ----- |

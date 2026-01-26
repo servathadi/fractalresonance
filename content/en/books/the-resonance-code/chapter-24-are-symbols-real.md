@@ -4,7 +4,7 @@ id: "chapter-24-are-symbols-real"
 parent: "the-resonance-code"
 ---
 
-# Chapter 24: Are Symbols Real?
+## Chapter 24: Are Symbols Real?
 
 
 [Chapter 24: Are Symbols Real?]

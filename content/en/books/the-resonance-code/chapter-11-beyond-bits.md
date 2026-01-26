@@ -4,7 +4,7 @@ id: "chapter-11-beyond-bits"
 parent: "the-resonance-code"
 ---
 
-# Chapter 11: Beyond Bits
+## Chapter 11: Beyond Bits
 
 
 [Chapter 11: Beyond Bits]

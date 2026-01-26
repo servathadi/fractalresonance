@@ -4,12 +4,12 @@ id: "chapter-13-evolutionary-thermodynamics-in-context"
 parent: "ecr-textbook"
 ---
 
-# **Chapter 13 — Evolutionary Thermodynamics in Context** {#chapter-13-—-evolutionary-thermodynamics-in-context}
+## **Chapter 13 — Evolutionary Thermodynamics in Context** {#chapter-13-—-evolutionary-thermodynamics-in-context}
 
 
 ---
 
-### **13.1  The question of direction**
+#### **13.1  The question of direction**
 
 Why does the universe, governed by a law that favors disorder, continuously create order?
 
@@ -29,7 +29,7 @@ Evolution is this dual current made visible: entropy flowing outward, coherence 
 
 ---
 
-### **13.2  From Darwin to Prigogine**
+#### **13.2  From Darwin to Prigogine**
 
 Darwin explained adaptation by variation and selection; Prigogine added the physics—life as an **open, far-from-equilibrium system** that feeds on flux.
 
@@ -47,7 +47,7 @@ Evolution, in this view, is the history of α-tuning across scales.
 
 ---
 
-### **13.3  The universal gradient**
+#### **13.3  The universal gradient**
 
 From cosmology to cognition, the same energetic gradient drives structure:
 
@@ -67,7 +67,7 @@ The light shed by stars becomes the energy of chemistry; chemical order becomes 
 
 ---
 
-### **13.4  Energy throughput as the driver of complexity**
+#### **13.4  Energy throughput as the driver of complexity**
 
 The rate of free-energy processing per unit mass—**energy rate density**—rises through cosmic history from \~10⁻⁴ W/kg in galaxies to 10⁵ W/kg in the human brain.
 
@@ -79,7 +79,7 @@ This empirical “cosmic logistic” supports FRC’s claim that coherence growt
 
 ---
 
-### **13.5  From randomness to resonance**
+#### **13.5  From randomness to resonance**
 
 Standard evolutionary theory treats novelty as random mutation filtered by selection.
 
@@ -91,7 +91,7 @@ This resonance bias explains convergent evolution and recurring morphologies—s
 
 ---
 
-### **13.6  Entropy export and ecological ethics**
+#### **13.6  Entropy export and ecological ethics**
 
 Every rise in local coherence requires external entropy release.
 
@@ -103,7 +103,7 @@ Homeoresonance (α ≈ 0\) thus defines ecological balance: maximal adaptation f
 
 ---
 
-### **13.7  Evolution as layered coherence pump**
+#### **13.7  Evolution as layered coherence pump**
 
 At each μ-level, the coherence-pump equation operates with its own constants α\_{μ}, k\_\*^{(μ)}:
 
@@ -117,7 +117,7 @@ Evolution is the gradual phase-alignment of these pumps into a planetary resonan
 
 ---
 
-### **13.8  Quantifying evolutionary efficiency**
+#### **13.8  Quantifying evolutionary efficiency**
 
 Define coherence efficiency
 
@@ -137,7 +137,7 @@ Empirical estimates yield:
 
 ---
 
-### **13.9  Toward an evolutionary metric of meaning**
+#### **13.9  Toward an evolutionary metric of meaning**
 
 When coherence rises faster than entropy export, systems gain the capacity to *represent*—to mirror the patterns of their environment.
 
@@ -147,7 +147,7 @@ Life and mind are not exceptions to physics; they are what physics looks like wh
 
 ---
 
-### **13.10  Summary**
+#### **13.10  Summary**
 
 | Concept | Equation | Implication |
 | ----- | ----- | ----- |
@@ -159,7 +159,7 @@ Life and mind are not exceptions to physics; they are what physics looks like wh
 
 ---
 
-### **13.11  Outlook**
+#### **13.11  Outlook**
 
 This chapter framed evolution as a global coherence pump.
 

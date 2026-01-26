@@ -1,4 +1,4 @@
-# Capítulo 9: La Armonía de los Elementos {#chapter-9-the-harmony-of-the-elements}
+## Capítulo 9: La Armonía de los Elementos {#chapter-9-the-harmony-of-the-elements}
 
 La Música de las Esferas: El Orden Matemático como Reflejo de la Coherencia
 

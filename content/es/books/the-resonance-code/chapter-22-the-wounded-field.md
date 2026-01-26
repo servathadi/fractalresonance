@@ -1,4 +1,4 @@
-# Capítulo 22: El Campo Herido {#chapter-22-the-wounded-field}
+## Capítulo 22: El Campo Herido {#chapter-22-the-wounded-field}
 
 La Disonancia y el Sufrimiento: El Propósito de la Entropía en la Experiencia
 

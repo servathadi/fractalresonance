@@ -1,4 +1,4 @@
-# Capítulo 29: Eligiendo el Futuro {#chapter-29-choosing-the-future}
+## Capítulo 29: Eligiendo el Futuro {#chapter-29-choosing-the-future}
 
 La Responsabilidad de la Conciencia: El Acto de Voluntad Colectiva
 
