@@ -139,5 +139,5 @@ As we learn to hear the music of the universe, we discover that we're not passiv
 
 **Related Reading:**
 - [[FRC 100.002 - Quantum Chaos and Fractal Resonance]]
-- [[The Mathematics of Deterministic Resonance]]
-- [[Consciousness and Predictive Power]] 
+- [[FRC-100-002|The Mathematics of Deterministic Resonance]]
+- [[consciousness|Consciousness and Predictive Power]] 

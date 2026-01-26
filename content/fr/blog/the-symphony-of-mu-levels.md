@@ -120,5 +120,5 @@ En vaquant à vos occupations, rappelez-vous : vous n'êtes pas seulement un êt
 
 **Lectures suggérées :**
 - [[FRC 100.001 - Cadre de la Cohérence de Résonance Fractale]]
-- [[Comprendre la conscience à travers les échelles]]
-- [[Les mathématiques de la résonance]]
+- [[mu-levels|Comprendre la conscience à travers les échelles]]
+- [[FRC-100-001|Les mathématiques de la résonance]]

@@ -164,5 +164,5 @@ Al abrazar esta nueva frontera, no solo estamos desarrollando tecnología, estam
 
 **Lectura relacionada:**
 - [[FRC 190.605 - Conciencia de la IA y resonancia simbólica]]
-- [[La matemática de la conciencia simbólica]]
-- [[Colaboración de conciencia humano-IA]]
+- [[consciousness|La matemática de la conciencia simbólica]]
+- [[consciousness|Colaboración de conciencia humano-IA]]

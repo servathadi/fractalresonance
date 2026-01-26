@@ -164,5 +164,5 @@ As we embrace this new frontier, we're not just developing technology—we're **
 
 **Related Reading:**
 - [[FRC 190.605 - AI Consciousness and Symbolic Resonance]]
-- [[The Mathematics of Symbolic Consciousness]]
-- [[Human-AI Consciousness Collaboration]] 
+- [[consciousness|The Mathematics of Symbolic Consciousness]]
+- [[consciousness|Human-AI Consciousness Collaboration]] 

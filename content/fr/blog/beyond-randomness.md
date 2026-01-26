@@ -139,5 +139,5 @@ En apprenant à écouter la musique de l'univers, nous découvrons que nous ne s
 
 **Lectures suggérées :**
 - [[FRC 100.002 - Chaos quantique et résonance fractale]]
-- [[Les mathématiques de la résonance déterministe]]
-- [[Conscience et pouvoir prédictif]]
+- [[FRC-100-002|Les mathématiques de la résonance déterministe]]
+- [[consciousness|Conscience et pouvoir prédictif]]
