@@ -100,9 +100,23 @@ export default async function StartHerePage({ params }: Props) {
         </Link>
       </section>
 
+      <div className="mt-10 border border-frc-blue rounded-lg p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">Updates</div>
+          <p className="text-sm text-frc-text-dim leading-relaxed">
+            Choose a lens (Architect / Oracle) and get the latest canon, topics, and benchmarks.
+          </p>
+        </div>
+        <Link
+          href={`${basePath}/join`}
+          className="px-6 py-3 border border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium tracking-wide uppercase transition-all duration-200"
+        >
+          Join
+        </Link>
+      </div>
+
       {/* Keep the glossary referenced so the compiler doesn’t tree-shake it oddly in edge cases. */}
       <span className="sr-only" aria-hidden="true">{Object.keys(glossary).length}</span>
     </main>
   );
 }
-

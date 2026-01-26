@@ -60,6 +60,9 @@ export function Footer() {
           <div>
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.external}</p>
             <div className="flex flex-col gap-2 text-sm">
+              <Link href={`${basePath}/join`} className="text-frc-text-dim hover:text-frc-gold">
+                {dict.nav.join}
+              </Link>
               <a href="https://zenodo.org/communities/frc" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 Zenodo
               </a>
