@@ -16,26 +16,59 @@ interface CommandPaletteProps {
   items: SearchItem[];
 }
 
+const DICT: Record<string, { placeholder: string; noResults: string; kb: string; select: string; navigate: string }> = {
+  en: {
+    placeholder: 'Search papers, concepts, books, topics, voices, blog...',
+    noResults: 'No results found for',
+    kb: 'Knowledge Base',
+    select: 'Select',
+    navigate: 'Navigate',
+  },
+  fa: {
+    placeholder: 'جستجوی مقالات، مفاهیم، کتاب‌ها، موضوعات، صداها، بلاگ...',
+    noResults: 'نتیجه‌ای یافت نشد برای',
+    kb: 'پایگاه دانش',
+    select: 'انتخاب',
+    navigate: 'ناوبری',
+  },
+  es: {
+    placeholder: 'Buscar artículos, conceptos, libros, temas, voces, blog...',
+    noResults: 'No se encontraron resultados para',
+    kb: 'Base de Conocimiento',
+    select: 'Seleccionar',
+    navigate: 'Navegar',
+  },
+  fr: {
+    placeholder: 'Rechercher articles, concepts, livres, sujets, voix, blog...',
+    noResults: 'Aucun résultat trouvé pour',
+    kb: 'Base de Connaissances',
+    select: 'Sélectionner',
+    navigate: 'Naviguer',
+  },
+};
+
 export function CommandPalette({ items }: CommandPaletteProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const router = useRouter();
   const pathname = usePathname();
+  const lang = getLangFromPathname(pathname, 'en');
+  const t = DICT[lang] || DICT['en'];
 
   const navigate = (url: string) => {
     // Preserve River/Kasra context when navigating internal routes.
-    const lang = getLangFromPathname(pathname, 'en');
+    const currentLang = getLangFromPathname(pathname, 'en');
     const perspective = getPerspectiveFromPathname(pathname);
-    const basePath = getBasePath(lang, perspective);
+    const basePath = getBasePath(currentLang, perspective);
 
     if (url.startsWith('http://') || url.startsWith('https://')) {
       window.open(url, '_blank', 'noopener,noreferrer');
       return;
     }
 
-    if (url.startsWith(`/${lang}/`)) {
-      const tail = url.slice(`/${lang}`.length);
+    if (url.startsWith(`/${currentLang}/`)) {
+      const tail = url.slice(`/${currentLang}`.length);
       router.push(`${basePath}${tail}`);
       return;
     }
@@ -117,7 +150,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
             <input
               autoFocus
               type="text"
-              placeholder="Search papers, concepts, books, topics, voices, blog..."
+              placeholder={t.placeholder}
               className="flex-1 bg-transparent border-none outline-none text-frc-text placeholder-frc-text-dim text-lg"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -130,7 +163,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
         <div className="py-2 max-h-[60vh] overflow-y-auto">
           {filteredItems.length === 0 ? (
             <div className="px-4 py-8 text-center text-frc-text-dim text-sm">
-              No results found for "{query}"
+              {t.noResults} "{query}"
             </div>
           ) : (
             <ul className="text-sm">
@@ -175,11 +208,11 @@ export function CommandPalette({ items }: CommandPaletteProps) {
         {/* Footer */}
         <div className="bg-frc-blue/5 px-4 py-2 border-t border-frc-blue/30 flex justify-between items-center text-[10px] text-frc-steel">
            <span>
-             <strong className="text-frc-text-dim">FRC</strong> Knowledge Base
+             <strong className="text-frc-text-dim">FRC</strong> {t.kb}
            </span>
            <div className="flex gap-3">
-             <span>Select <kbd className="font-sans">↵</kbd></span>
-             <span>Navigate <kbd className="font-sans">↑↓</kbd></span>
+             <span>{t.select} <kbd className="font-sans">↵</kbd></span>
+             <span>{t.navigate} <kbd className="font-sans">↑↓</kbd></span>
            </div>
         </div>
       </div>
