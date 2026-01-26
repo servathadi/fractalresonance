@@ -111,11 +111,6 @@ Appendices: The Ammunition (The Falsifiable Core)
 - Appendix D: Objections & Refutations Matrix (Updated with FRC 566.211
   Protocol, addressing the ambiguity challenge).
 
-Understood. I will provide the Reader's Overture and the Overture to
-Part I, setting the foundational tone and explicitly introducing the FRC
-566 Law as the central theme of the entire work. I will then pause for
-your command for the next chapter.
-
 ---
 
 📘 The Resonance Code: Physics of Conscious Order (Version 2.0)

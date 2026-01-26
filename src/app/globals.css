@@ -14,6 +14,7 @@
   --color-frc-steel: var(--frc-steel);
 
   --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Charter', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-farsi: 'Vazirmatn', 'Inter', system-ui, sans-serif;
 }
@@ -26,7 +27,7 @@
   --frc-void: #FAFBFC;
   --frc-void-light: #F0F2F5;
   --frc-text: #1A1D23;
-  --frc-text-dim: #5A6170;
+  --frc-text-dim: #4B5563;
   --frc-blue: #CBD5E1;
   --frc-blue-light: #94A3B8;
   --frc-gold: #96780A;
@@ -59,6 +60,8 @@ body {
   color: var(--color-frc-text);
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -255,10 +258,12 @@ body {
   border: 1px solid var(--color-frc-blue);
   position: relative;
   transition: border-color 0.2s ease;
+  background-color: color-mix(in srgb, var(--color-frc-void-light) 40%, transparent);
 }
 
 .card:hover {
   border-color: var(--color-frc-gold-light);
+  background-color: color-mix(in srgb, var(--color-frc-void-light) 80%, transparent);
 }
 
 .card-featured {
@@ -298,9 +303,13 @@ body {
   background-color: var(--color-frc-void-light);
   border: 1px solid var(--color-frc-blue);
   border-left: 3px solid var(--color-frc-gold);
-  padding: 1.25rem 1.5rem;
-  color: var(--color-frc-gold-light);
+  padding: 1.5rem 2rem;
+  color: var(--color-frc-gold);
   position: relative;
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 1.125rem;
+  box-shadow: inset 0 0 20px color-mix(in srgb, var(--color-frc-blue) 10%, transparent);
 }
 
 .equation-block::after {
@@ -310,6 +319,7 @@ body {
   bottom: 0.5rem;
   font-size: 0.625rem;
   color: var(--color-frc-steel);
+  font-family: var(--font-sans);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -318,64 +328,75 @@ body {
 
 .content-body {
   max-width: 720px;
-  line-height: 1.8;
-  font-size: 0.9375rem;
+  line-height: 1.85;
+  font-size: 1.0625rem;
+  font-family: var(--font-serif);
 }
 
 .content-body h1 {
   scroll-margin-top: 6rem;
   color: var(--color-frc-gold);
+  font-family: var(--font-sans);
   font-weight: 300;
-  font-size: 1.75rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  font-size: 2.25rem;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--color-frc-blue);
+  letter-spacing: -0.02em;
 }
 
 .content-body h2 {
   scroll-margin-top: 6rem;
   color: var(--color-frc-text);
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 1.375rem;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 
 .content-body h3 {
   scroll-margin-top: 6rem;
   color: var(--color-frc-text);
+  font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .content-body h4 {
   scroll-margin-top: 6rem;
   color: var(--color-frc-text-dim);
-  font-weight: 500;
-  font-size: 0.95rem;
-  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .content-body p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-body ul,
 .content-body ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
 }
 
 .content-body li {
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem;
 }
 
 .content-body li::marker {
   color: var(--color-frc-gold);
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 .content-body strong {
@@ -386,13 +407,15 @@ body {
 .content-body hr {
   border: none;
   border-top: 1px solid var(--color-frc-blue);
-  margin: 2rem 0;
+  margin: 3.5rem 0;
+  opacity: 0.6;
 }
 
 .content-body a {
   color: var(--color-frc-gold);
   text-decoration: none;
   border-bottom: 1px solid color-mix(in srgb, var(--color-frc-gold) 30%, transparent);
+  transition: border-bottom-color 0.2s ease;
 }
 
 .content-body a:hover {
@@ -401,55 +424,62 @@ body {
 
 .content-body code {
   font-family: var(--font-mono);
-  background-color: color-mix(in srgb, var(--color-frc-blue) 30%, transparent);
+  background-color: color-mix(in srgb, var(--color-frc-blue) 20%, transparent);
   padding: 0.125rem 0.375rem;
   font-size: 0.875em;
+  border-radius: 3px;
+  color: var(--color-frc-gold-light);
 }
 
 .content-body pre {
   background-color: var(--color-frc-void-light);
   border: 1px solid var(--color-frc-blue);
   border-left: 3px solid var(--color-frc-gold);
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem;
   overflow-x: auto;
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  margin: 1.5rem 0;
-  color: var(--color-frc-gold-light);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  color: var(--color-frc-text);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
 .content-body pre code {
   background: none;
   padding: 0;
   color: inherit;
+  font-size: inherit;
 }
 
 .content-body img {
   display: block;
   max-width: 100%;
   border: 1px solid var(--color-frc-blue);
-  margin: 1.5rem 0;
+  margin: 2.5rem auto;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
 .content-body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
+  margin: 2.5rem 0;
+  font-size: 0.9375rem;
+  font-family: var(--font-sans);
 }
 
 .content-body th,
 .content-body td {
   border: 1px solid var(--color-frc-blue);
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   vertical-align: top;
 }
 
 .content-body th {
   font-weight: 600;
   color: var(--color-frc-text);
-  background: color-mix(in srgb, var(--color-frc-blue) 18%, transparent);
+  background: color-mix(in srgb, var(--color-frc-blue) 15%, transparent);
+  text-align: left;
 }
 
 .content-body td {
@@ -457,10 +487,12 @@ body {
 }
 
 .content-body blockquote {
-  border-left: 3px solid var(--color-frc-gold);
-  padding-left: 1rem;
+  border-left: 4px solid var(--color-frc-gold);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2rem 0;
   color: var(--color-frc-text-dim);
   font-style: italic;
+  font-size: 1.125rem;
 }
 
 /* ═══════════════════════════════════════════════════

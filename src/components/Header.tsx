@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
-import { PerspectiveToggleCompact } from './PerspectiveToggle';
+import { ModeToggleCompact } from './ModeToggle';
 import { getDictionary } from '@/lib/dictionaries';
-import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
+import { getLangFromPathname } from '@/lib/site';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
@@ -15,8 +15,7 @@ const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 export function Header() {
   const pathname = usePathname();
   const lang = getLangFromPathname(pathname, 'en');
-  const perspective = getPerspectiveFromPathname(pathname);
-  const basePath = getBasePath(lang, perspective);
+  const basePath = `/${lang}`;
   const isRTL = RTL_LANGUAGES.includes(lang);
   const dict = getDictionary(lang);
 
@@ -53,7 +52,7 @@ export function Header() {
               ORCID:0009-0004-7412-5129
             </a>
             <span className="text-frc-blue hidden sm:block">|</span>
-            <PerspectiveToggleCompact />
+            <ModeToggleCompact />
             <span className="text-frc-blue">|</span>
             <LanguageSelector />
             <span className="text-frc-blue">|</span>
