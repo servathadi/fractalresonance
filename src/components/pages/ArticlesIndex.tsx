@@ -2,9 +2,84 @@ import Link from 'next/link';
 import { estimateReadTime, getArticles, getPapers, matchesPerspectiveView, type ParsedContent, type PerspectiveView } from '@/lib/content';
 import { ArticlesGridClient, type ArticlesGridItem } from '@/components/pages/ArticlesGridClient';
 
-const ARTICLE_EXTRAS: Record<string, { category: string; readTime?: string }> = {
-  'FRC-566-001': { category: 'Foundation' },
-  'FRC-100-001': { category: 'Core Theory' },
+const ARTICLE_EXTRAS: Record<string, { categoryKey: string; readTime?: string }> = {
+  'FRC-566-001': { categoryKey: 'foundation' },
+  'FRC-100-001': { categoryKey: 'coreTheory' },
+};
+
+const DICT: Record<string, Record<string, string>> = {
+  en: {
+    title: 'Articles',
+    desc: 'Research publications exploring the Fractal Resonance Cognition framework. Each article presents a component of the unified theory connecting quantum mechanics, thermodynamics, and consciousness.',
+    featured: 'Featured',
+    videoTitle: 'Introduction to Fractal Resonance Coherence',
+    videoDesc: 'A comprehensive video introduction covering the core concepts of entropy-coherence reciprocity, the Lambda field, and multi-scale consciousness architecture.',
+    videoLabel: 'VIDEO',
+    overview: 'Overview',
+    latest: 'Latest',
+    read: 'Read →',
+    zenodoTitle: 'Complete catalog on Zenodo',
+    zenodoDesc: '9 papers published with DOI under CC BY-NC-ND 4.0',
+    viewZenodo: 'View on Zenodo →',
+    foundation: 'Foundation',
+    coreTheory: 'Core Theory',
+    research: 'Research',
+    readLabel: 'read',
+  },
+  fa: {
+    title: 'مقالات',
+    desc: 'انتشارات پژوهشی که چارچوب همدوسی رزونانس فراکتال را کاوش می‌کنند. هر مقاله مؤلفه‌ای از نظریه یکپارچه را ارائه می‌دهد که مکانیک کوانتومی، ترمودینامیک و آگاهی را به هم متصل می‌کند.',
+    featured: 'ویژه',
+    videoTitle: 'مقدمه‌ای بر همدوسی رزونانس فراکتال',
+    videoDesc: 'یک مقدمه ویدئویی جامع که مفاهیم اصلی تقابل آنتروپی-همدوسی، میدان لاندا و معماری آگاهی چند-مقیاسی را پوشش می‌دهد.',
+    videoLabel: 'ویدئو',
+    overview: 'نمای کلی',
+    latest: 'جدیدترین',
+    read: 'خواندن ←',
+    zenodoTitle: 'کاتالوگ کامل در Zenodo',
+    zenodoDesc: '۹ مقاله منتشر شده با DOI تحت مجوز CC BY-NC-ND 4.0',
+    viewZenodo: 'مشاهده در Zenodo ←',
+    foundation: 'بنیاد',
+    coreTheory: 'نظریه اصلی',
+    research: 'پژوهش',
+    readLabel: 'مطالعه',
+  },
+  es: {
+    title: 'Artículos',
+    desc: 'Publicaciones de investigación que exploran el marco de Coherencia de Resonancia Fractal. Cada artículo presenta un componente de la teoría unificada que conecta la mecánica cuántica, la termodinámica y la conciencia.',
+    featured: 'Destacado',
+    videoTitle: 'Introducción a la Coherencia de Resonancia Fractal',
+    videoDesc: 'Una introducción completa en video que cubre los conceptos centrales de reciprocidad entropía-coherencia, el campo Lambda y la arquitectura de conciencia a múltiples escalas.',
+    videoLabel: 'VIDEO',
+    overview: 'Descripción general',
+    latest: 'Último',
+    read: 'Leer →',
+    zenodoTitle: 'Catálogo completo en Zenodo',
+    zenodoDesc: '9 artículos publicados con DOI bajo CC BY-NC-ND 4.0',
+    viewZenodo: 'Ver en Zenodo →',
+    foundation: 'Fundación',
+    coreTheory: 'Teoría Central',
+    research: 'Investigación',
+    readLabel: 'de lectura',
+  },
+  fr: {
+    title: 'Articles',
+    desc: 'Publications de recherche explorant le cadre de la Cohérence de Résonance Fractale. Chaque article présente une composante de la théorie unifiée reliant la mécanique quantique, la thermodynamique et la conscience.',
+    featured: 'En vedette',
+    videoTitle: 'Introduction à la Cohérence de Résonance Fractale',
+    videoDesc: 'Une introduction vidéo complète couvrant les concepts fondamentaux de la réciprocité entropie-cohérence, le champ Lambda et l\'architecture de la conscience à plusieurs échelles.',
+    videoLabel: 'VIDÉO',
+    overview: 'Vue d\'ensemble',
+    latest: 'Dernier',
+    read: 'Lire →',
+    zenodoTitle: 'Catalogue complet sur Zenodo',
+    zenodoDesc: '9 articles publiés avec DOI sous CC BY-NC-ND 4.0',
+    viewZenodo: 'Voir sur Zenodo →',
+    foundation: 'Fondation',
+    coreTheory: 'Théorie Centrale',
+    research: 'Recherche',
+    readLabel: 'de lecture',
+  },
 };
 
 function getHref(basePath: string, isPaper: boolean, id: string): string {
@@ -24,6 +99,7 @@ export function ArticlesIndex({
   includePapers?: boolean;
   embedded?: boolean;
 }) {
+  const t = DICT[lang] || DICT['en'];
   const papers = includePapers
     ? getPapers(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view))
     : [];
@@ -43,8 +119,10 @@ export function ArticlesIndex({
     const fm = item.frontmatter;
     const id = fm.id;
     const known = ARTICLE_EXTRAS[id];
+    const categoryKey = known?.categoryKey || 'research';
+    const category = t[categoryKey];
     const readTime = known?.readTime || fm.read_time || estimateReadTime(item.body);
-    return { category: known?.category || 'Research', readTime };
+    return { category, readTime };
   }
 
   const gridItems: ArticlesGridItem[] = rest.map((item, i) => {
@@ -68,20 +146,18 @@ export function ArticlesIndex({
       {/* Header */}
       <header className="mb-16">
         <div className="flex items-center gap-4 mb-6">
-          <h1 className="text-3xl font-light text-frc-gold tracking-tight">Articles</h1>
+          <h1 className="text-3xl font-light text-frc-gold tracking-tight">{t.title}</h1>
           <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
         </div>
         <p className="text-frc-text-dim max-w-2xl leading-relaxed">
-          Research publications exploring the Fractal Resonance Cognition framework.
-          Each article presents a component of the unified theory connecting quantum mechanics,
-          thermodynamics, and consciousness.
+          {t.desc}
         </p>
       </header>
 
       {/* Featured: Video */}
       <section className="mb-20">
         <div className="section-marker mb-6" data-section="§01">
-          <span className="font-mono text-[0.625rem] text-frc-gold uppercase tracking-widest">Featured</span>
+          <span className="font-mono text-[0.625rem] text-frc-gold uppercase tracking-widest">{t.featured}</span>
         </div>
         <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
@@ -99,17 +175,15 @@ export function ArticlesIndex({
           </div>
           <div className="lg:col-span-2 flex flex-col justify-center">
             <h2 className="text-xl text-frc-text font-medium mb-3 leading-snug">
-              Introduction to Fractal Resonance Coherence
+              {t.videoTitle}
             </h2>
             <p className="text-frc-text-dim text-sm leading-relaxed mb-4">
-              A comprehensive video introduction covering the core concepts of
-              entropy-coherence reciprocity, the Lambda field, and multi-scale
-              consciousness architecture.
+              {t.videoDesc}
             </p>
             <div className="flex items-center gap-3 text-xs text-frc-steel">
-              <span className="font-mono">VIDEO</span>
+              <span className="font-mono">{t.videoLabel}</span>
               <span className="text-frc-blue">|</span>
-              <span>Overview</span>
+              <span>{t.overview}</span>
             </div>
           </div>
         </div>
@@ -119,7 +193,7 @@ export function ArticlesIndex({
       {featured && (
         <section className="mb-16">
           <div className="section-marker mb-6" data-section="§02">
-            <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">Latest</span>
+            <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">{t.latest}</span>
           </div>
 
           {(() => {
@@ -132,7 +206,7 @@ export function ArticlesIndex({
                   <div className="sm:col-span-2">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="tag">{extras.category}</span>
-                      <span className="text-xs text-frc-steel">{extras.readTime} read</span>
+                      <span className="text-xs text-frc-steel">{extras.readTime} {t.readLabel}</span>
                     </div>
                     <h3 className="text-xl text-frc-text group-hover:text-frc-gold transition-colors font-medium mb-3 leading-snug">
                       {fm.title}
@@ -147,7 +221,7 @@ export function ArticlesIndex({
                     <span className="font-mono text-xs text-frc-steel">{fm.id}</span>
                     <span className="text-xs text-frc-steel mt-1">{fm.date}</span>
                     <span className="text-sm text-frc-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      Read &rarr;
+                      {t.read}
                     </span>
                   </div>
                 </div>
@@ -157,14 +231,14 @@ export function ArticlesIndex({
         </section>
       )}
 
-      <ArticlesGridClient items={gridItems} />
+      <ArticlesGridClient items={gridItems} lang={lang} />
 
       {/* Zenodo CTA */}
       <div className="ruled-line" />
       <section className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
-          <p className="text-frc-text text-sm font-medium mb-1">Complete catalog on Zenodo</p>
-          <p className="text-frc-text-dim text-xs">9 papers published with DOI under CC BY-NC-ND 4.0</p>
+          <p className="text-frc-text text-sm font-medium mb-1">{t.zenodoTitle}</p>
+          <p className="text-frc-text-dim text-xs">{t.zenodoDesc}</p>
         </div>
         <a
           href="https://zenodo.org/communities/frc"
@@ -172,7 +246,7 @@ export function ArticlesIndex({
           rel="noopener noreferrer"
           className="px-6 py-3 border border-frc-blue hover:border-frc-gold text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider transition-all"
         >
-          View on Zenodo &rarr;
+          {t.viewZenodo}
         </a>
       </section>
     </div>

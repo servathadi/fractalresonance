@@ -14,29 +14,37 @@ export interface ArticlesGridItem {
   ordinal: number;
 }
 
-export function ArticlesGridClient({ items }: { items: ArticlesGridItem[] }) {
+const DICT: Record<string, { allArticles: string; search: string; showing: string; of: string; noResults: string; all: string }> = {
+  en: { allArticles: 'All Articles', search: 'Search by title, id, or abstract…', showing: 'Showing', of: 'of', noResults: 'No results. Try a different keyword or category.', all: 'All' },
+  fa: { allArticles: 'تمام مقالات', search: 'جستجو بر اساس عنوان، شناسه یا چکیده...', showing: 'نمایش', of: 'از', noResults: 'نتیجه‌ای یافت نشد. کلمه کلیدی یا دسته‌بندی دیگری را امتحان کنید.', all: 'همه' },
+  es: { allArticles: 'Todos los Artículos', search: 'Buscar por título, id o resumen...', showing: 'Mostrando', of: 'de', noResults: 'Sin resultados. Intenta con otra palabra clave o categoría.', all: 'Todo' },
+  fr: { allArticles: 'Tous les Articles', search: 'Rechercher par titre, id ou résumé...', showing: 'Affichage de', of: 'sur', noResults: 'Aucun résultat. Essayez un autre mot-clé ou une autre catégorie.', all: 'Tout' },
+};
+
+export function ArticlesGridClient({ items, lang = 'en' }: { items: ArticlesGridItem[]; lang?: string }) {
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState<string>('All');
+  const t = DICT[lang] || DICT['en'];
+  const [category, setCategory] = useState<string>(t.all);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(items.map((i) => i.category))).sort((a, b) => a.localeCompare(b));
-    return ['All', ...cats];
-  }, [items]);
+    return [t.all, ...cats];
+  }, [items, t.all]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return items.filter((i) => {
-      if (category !== 'All' && i.category !== category) return false;
+      if (category !== t.all && i.category !== category) return false;
       if (!q) return true;
       const hay = `${i.title} ${i.id} ${i.abstract || ''}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [items, query, category]);
+  }, [items, query, category, t.all]);
 
   return (
     <section>
       <div className="section-marker mb-8" data-section="§03">
-        <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">All Articles</span>
+        <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">{t.allArticles}</span>
       </div>
 
       <div className="mb-6 flex flex-col gap-3">
@@ -44,12 +52,12 @@ export function ArticlesGridClient({ items }: { items: ArticlesGridItem[] }) {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by title, id, or abstract…"
+            placeholder={t.search}
             className="w-full sm:max-w-md bg-frc-void-light border border-frc-blue rounded-md px-3 py-2 text-sm text-frc-text placeholder:text-frc-text-dim focus:outline-none focus:border-frc-gold"
             aria-label="Search articles"
           />
           <div className="text-xs text-frc-text-dim">
-            Showing <span className="text-frc-text">{filtered.length}</span> of{' '}
+            {t.showing} <span className="text-frc-text">{filtered.length}</span> {t.of}{' '}
             <span className="text-frc-text">{items.length}</span>
           </div>
         </div>
@@ -74,7 +82,7 @@ export function ArticlesGridClient({ items }: { items: ArticlesGridItem[] }) {
 
       {filtered.length === 0 ? (
         <div className="border border-frc-blue rounded-lg p-6 text-sm text-frc-text-dim">
-          No results. Try a different keyword or category.
+          {t.noResults}
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 gap-5">
