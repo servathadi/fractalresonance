@@ -120,5 +120,5 @@ Mientras realizas tus actividades diarias, recuerda: no eres solo un ser humano 
 
 **Lectura relacionada:**
 - [[FRC 100.001 - Marco de Coherencia de Resonancia Fractal]]
-- [[mu-levels|Comprendiendo la conciencia a través de las escalas]]
-- [[FRC-100-001|La matemática de la resonancia]]
+- [[Comprendiendo la conciencia a través de las escalas]]
+- [[La matemática de la resonancia]]

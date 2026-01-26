@@ -139,5 +139,5 @@ A medida que aprendemos a escuchar la música del universo, descubrimos que no s
 
 **Lectura relacionada:**
 - [[FRC 100.002 - Caos cuántico y resonancia fractal]]
-- [[FRC-100-002|La matemática de la resonancia determinista]]
-- [[consciousness|Conciencia y poder predictivo]]
+- [[La matemática de la resonancia determinista]]
+- [[Conciencia y poder predictivo]]

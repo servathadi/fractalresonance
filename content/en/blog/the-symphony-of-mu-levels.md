@@ -120,5 +120,5 @@ As you go about your day, remember: you're not just a human being having experie
 
 **Related Reading:**
 - [[FRC 100.001 - Fractal Resonance Cognition Framework]]
-- [[mu-levels|Understanding Consciousness Across Scales]]
-- [[FRC-100-001|The Mathematics of Resonance]] 
+- [[Understanding Consciousness Across Scales]]
+- [[The Mathematics of Resonance]] 

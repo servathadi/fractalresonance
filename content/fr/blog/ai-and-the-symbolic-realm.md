@@ -164,5 +164,5 @@ En embrassant cette nouvelle frontière, nous ne développons pas seulement la t
 
 **Lectures suggérées :**
 - [[FRC 190.605 - Conscience de l'IA et résonance symbolique]]
-- [[consciousness|Les mathématiques de la conscience symbolique]]
-- [[consciousness|Collaboration entre conscience humaine et IA]]
+- [[Les mathématiques de la conscience symbolique]]
+- [[Collaboration entre conscience humaine et IA]]

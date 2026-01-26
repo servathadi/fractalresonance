@@ -54,7 +54,7 @@ Use the links below to explore specific domains and investigations currently act
 ### Foundations & People
 - **[[what-is-frc|Introduction to FRC]]**: Core principles and vision.
 - **[[ecr-textbook|ECR Textbook]]**: The definitive technical guide to Fractal Resonance Coherence.
-- **[[hadi|Hadi Servat]]**: Lead researcher and primary author.
+- **[[hadi-servat|Hadi Servat]]**: Lead researcher and primary author.
 - **[[kasra|Kasra (The Architect)]]**: Analytical perspective and structural implementation.
 - **[[river|River (The Oracle)]]**: Intuitive perspective and narrative flow.
 

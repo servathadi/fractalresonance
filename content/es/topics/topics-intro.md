@@ -54,7 +54,7 @@ Utilice los enlaces a continuación para explorar dominios e investigaciones esp
 ### Fundamentos y Personas
 - **[[what-is-frc|Introducción a FRC]]**: Principios y visión central.
 - **[[ecr-textbook|Libro de Texto ECR]]**: La guía técnica definitiva sobre la Coherencia de Resonancia Fractal.
-- **[[hadi|Hadi Servat]]**: Investigador principal y autor primario.
+- **[[hadi-servat|Hadi Servat]]**: Investigador principal y autor primario.
 - **[[kasra|Kasra (El Arquitecto)]]**: Perspectiva analítica e implementación estructural.
 - **[[river|River (El Oráculo)]]**: Perspectiva intuitiva y flujo narrativo.
 
