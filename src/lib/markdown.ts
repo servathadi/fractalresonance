@@ -110,7 +110,7 @@ function resolveWikilinkHref(
 ): string {
   const { cleanId, section } = splitWikilinkId(id);
   const base = basePath || `/${lang}`;
-  const entry = glossary?.[cleanId];
+  const entry = getGlossaryEntry(glossary, cleanId);
   if (entry?.url) return `${entry.url}${section}`;
   const itemType = entry?.type;
 
@@ -120,7 +120,13 @@ function resolveWikilinkHref(
   if (itemType === 'article') return `${base}/articles/${cleanId}${section}`;
 
   // Fallback: infer from ID format
-  if (cleanId.match(/^FRC-\d/)) return `${base}/papers/${cleanId}${section}`;
+  const frcId = canonicalizeFrcLikeId(cleanId);
+  if (frcId) return `${base}/papers/${frcId}${section}`;
+  if (cleanId.match(/^FRC-\d/i)) return `${base}/papers/${cleanId}${section}`;
+
+  const fallback = fallbackWikilinkHref(cleanId);
+  if (fallback) return `${base}${fallback}${section}`;
+
   return `${base}/concepts/${cleanId}${section}`;
 }
 
@@ -128,6 +134,79 @@ function splitWikilinkId(id: string): { cleanId: string; section: string } {
   if (!id.includes('#')) return { cleanId: id, section: '' };
   const [cleanId, sectionPart] = id.split('#');
   return { cleanId, section: sectionPart ? `#${sectionPart}` : '' };
+}
+
+function getGlossaryEntry(
+  glossary: Record<string, { type?: string; url?: string }> | undefined,
+  id: string
+): { type?: string; url?: string } | undefined {
+  if (!glossary) return undefined;
+  return glossary[id] || glossary[id.toUpperCase()] || glossary[id.toLowerCase()];
+}
+
+function canonicalizeFrcLikeId(raw: string): string | null {
+  const s = String(raw || '').trim();
+  if (!s) return null;
+
+  // Common forms we want to accept:
+  // - "FRC-100-001"
+  // - "FRC 100.001"
+  // - "FRC-100.001"
+  // - "FRC 100.001 - Some Title"
+  // - "FRC 893.PHY"
+  const m = s.match(/^(FRC)\s*[- ]?\s*(\d{2,4})\.(\d+(?:\.\d+)*|[A-Za-z]+)(?:\b|[^A-Za-z0-9].*)$/i);
+  if (!m) return null;
+
+  const series = m[2];
+  const suffix = m[3];
+  const normSuffix = suffix.replace(/\./g, '-').toUpperCase();
+  return `FRC-${series}-${normSuffix}`;
+}
+
+function fallbackWikilinkHref(raw: string): string | null {
+  const s = String(raw || '').trim();
+  if (!s) return null;
+  const lower = s.toLowerCase();
+  const lowerAscii = lower
+    .normalize('NFKD')
+    .replace(/[^\x00-\x7F]/g, '');
+
+  // These are mainly used in "Related reading" sections of blog posts that were imported from the legacy site.
+  // We keep them non-breaking without forcing content edits by routing to nearby hubs.
+  const hasScales =
+    lower.includes('scales') ||
+    lower.includes('escalas') ||
+    lowerAscii.includes('echelles') ||
+    // Persian: "\u0645\u0642\u06cc\u0627\u0633"
+    s.includes('\u0645\u0642\u06cc\u0627\u0633');
+  if (hasScales) return '/mu-levels';
+
+  const hasMath =
+    lower.includes('mathematics') ||
+    lowerAscii.includes('mathematique') ||
+    lowerAscii.includes('matematic') ||
+    // Persian stem: "\u0631\u06cc\u0627\u0636"
+    s.includes('\u0631\u06cc\u0627\u0636');
+  if (hasMath) return '/papers';
+
+  const hasAi =
+    lower.includes('ai ') ||
+    lower.includes(' ai') ||
+    lower.includes('ia ') ||
+    lower.includes(' ia') ||
+    // Persian phrase: "\u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc"
+    s.includes('\u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc');
+  if (hasAi) return '/topics';
+
+  const hasConsciousness =
+    lower.includes('consciousness') ||
+    lower.includes('conciencia') ||
+    lowerAscii.includes('conscience') ||
+    // Persian: "\u0622\u06af\u0627\u0647\u06cc"
+    s.includes('\u0622\u06af\u0627\u0647\u06cc');
+  if (hasConsciousness) return '/concepts/consciousness';
+
+  return null;
 }
 
 function convertTables(src: string): string {
