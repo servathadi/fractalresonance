@@ -10,26 +10,22 @@ function getBasePath(lang: string, view: PerspectiveView): string {
 
 const DICT: Record<string, Record<string, string>> = {
   en: {
-    title: 'Fractal Resonance\nCoherence',
-    subtitle: 'A unified framework linking quantum mechanics, thermodynamics, and consciousness through coherence.',
+    title: 'Fractal Resonance\nCognition',
+    subtitle: 'A Physics-First Architecture for Synthetic Intelligence. Replacing Tokenization with Resonance.',
     readPapers: 'Read Papers',
     about: 'About FRC',
     startHere: 'Start Here',
     riverGuide: 'River guide',
     kasraGuide: 'Kasra guide',
     intro: 'Introduction',
-    introDesc: 'How Fractal Resonance Coherence connects quantum mechanics, thermodynamics, and consciousness through the language of coherence.',
+    introDesc: 'How Fractal Resonance Cognition (FRC) replaces the statistical prediction of tokens with the geometric alignment of continuous fields.',
     keyConcepts: 'Key Concepts',
-    coherence: 'Coherence',
-    coherenceDesc: 'Phase alignment across oscillators. Scalar from 0 to 1.',
-    lambdaField: 'Lambda Field',
-    lambdaDesc: 'Real scalar field: Λ(x) = Λ₀ ln C(x)',
-    scaleLevels: 'Scale Levels',
-    scaleDesc: 'Eight nested scales from quantum to universal.',
-    predictions: 'Predictions',
-    predictionsDesc: 'Falsifiable: δP ∈ [10⁻⁴, 10⁻³] under resonant driving.',
-    fractalImperative: 'Fractal Imperative',
-    fractalImperativeDesc: 'Why FRC applies to all scales, from Higgs to Black Holes.',
+    resonanceOverTokens: 'Resonance over Tokens',
+    resonanceOverTokensDesc: 'Why discrete symbol processing is a lossy compression of reality.',
+    universalVector: 'The Universal Vector',
+    universalVectorDesc: 'A 16D geometric protocol for modeling state, trajectory, and alignment.',
+    entropicOptimization: 'Entropic Optimization',
+    entropicOptimizationDesc: 'Intelligence is the minimization of relative entropy via phase-locking.',
     coreEquations: 'Core Equations',
     allFormulas: 'All formulas →',
     eqCoherence: 'Coherence Measure',
@@ -341,46 +337,35 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
               <h2 className="text-lg text-frc-text font-medium tracking-wide">{t('keyConcepts')}</h2>
             </div>
             <div className="space-y-4">
-              <Link href={`${basePath}/formulas`} className="card block p-5 group">
+              <Link href={`${basePath}/papers/FRC-840-001`} className="card block p-5 group">
                 <div className="flex items-start gap-4">
-                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">C</span>
+                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">R</span>
                   <div>
-                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('coherence')}</h3>
+                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('resonanceOverTokens')}</h3>
                     <p className="text-frc-text-dim text-xs leading-relaxed">
-                      {t('coherenceDesc')}
+                      {t('resonanceOverTokensDesc')}
                     </p>
                   </div>
                 </div>
               </Link>
-              <Link href={`${basePath}/formulas`} className="card block p-5 group">
+              <Link href={`${basePath}/papers/FRC-16D-001`} className="card block p-5 group">
                 <div className="flex items-start gap-4">
-                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">&Lambda;</span>
+                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">U</span>
                   <div>
-                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('lambdaField')}</h3>
-                    <p className="text-frc-text-dim text-xs leading-relaxed" dir="ltr">
-                      {t('lambdaDesc')}
+                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('universalVector')}</h3>
+                    <p className="text-frc-text-dim text-xs leading-relaxed">
+                      {t('universalVectorDesc')}
                     </p>
                   </div>
                 </div>
               </Link>
-              <Link href={`${basePath}/mu-levels`} className="card block p-5 group">
+              <Link href={`${basePath}/papers/FRC-566-001`} className="card block p-5 group">
                 <div className="flex items-start gap-4">
-                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">&mu;</span>
+                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">S</span>
                   <div>
-                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('scaleLevels')}</h3>
+                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('entropicOptimization')}</h3>
                     <p className="text-frc-text-dim text-xs leading-relaxed">
-                      {t('scaleDesc')}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link href={`${basePath}/concepts/fractal-imperative`} className="card block p-5 group">
-                <div className="flex items-start gap-4">
-                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">&Phi;</span>
-                  <div>
-                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('fractalImperative')}</h3>
-                    <p className="text-frc-text-dim text-xs leading-relaxed">
-                      {t('fractalImperativeDesc')}
+                      {t('entropicOptimizationDesc')}
                     </p>
                   </div>
                 </div>

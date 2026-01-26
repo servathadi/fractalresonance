@@ -33,9 +33,9 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
 
   const nav = (
     <nav className={navClass}>
-      <SidebarSection title="100 — Core Theory" items={series100} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open100 : true} />
+      <SidebarSection title="800 — Cognitive Architecture" items={series800} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open800 : true} />
+      <SidebarSection title="100 — Physical Foundations" items={series100} currentId={currentId} base={base} openByDefault={open100} />
       <SidebarSection title="566 — Reciprocity" items={series566} currentId={currentId} base={base} openByDefault={open566} />
-      <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800Default} />
       {concepts.length > 0 && (
         <div className="mt-6">
           <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
