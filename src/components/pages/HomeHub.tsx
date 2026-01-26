@@ -13,6 +13,7 @@ const DICT: Record<string, Record<string, string>> = {
     title: 'Fractal Resonance\nCognition',
     subtitle: 'A Physics-First Architecture for Synthetic Intelligence. Replacing Tokenization with Resonance.',
     readPapers: 'Read Papers',
+    startHereCta: 'Start Here',
     about: 'About FRC',
     startHere: 'Start Here',
     riverGuide: 'River guide',
@@ -51,6 +52,7 @@ const DICT: Record<string, Record<string, string>> = {
     title: 'همدوسی رزونانس\nفراکتال',
     subtitle: 'چارچوبی یکپارچه که مکانیک کوانتومی، ترمودینامیک و آگاهی را از طریق همدوسی به هم پیوند می‌دهد.',
     readPapers: 'خواندن مقالات',
+    startHereCta: 'شروع از اینجا',
     about: 'درباره FRC',
     startHere: 'شروع از اینجا',
     riverGuide: 'راهنمای ریور',
@@ -91,6 +93,7 @@ const DICT: Record<string, Record<string, string>> = {
     title: 'Coherencia de Resonancia\nFractal',
     subtitle: 'Un marco unificado que vincula la mecánica cuántica, la termodinámica y la conciencia a través de la coherencia.',
     readPapers: 'Leer Artículos',
+    startHereCta: 'Empezar aquí',
     about: 'Sobre FRC',
     startHere: 'Empezar Aquí',
     riverGuide: 'Guía River',
@@ -131,6 +134,7 @@ const DICT: Record<string, Record<string, string>> = {
     title: 'Cohérence de Résonance\nFractale',
     subtitle: 'Un cadre unifié reliant la mécanique quantique, la thermodynamique et la conscience par la cohérence.',
     readPapers: 'Lire les Articles',
+    startHereCta: 'Commencer ici',
     about: 'À propos de FRC',
     startHere: 'Commencer Ici',
     riverGuide: 'Guide River',
@@ -263,6 +267,12 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
                 className="px-6 py-3 border-2 border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium tracking-wide uppercase transition-all duration-200"
               >
                 {t('readPapers')}
+              </Link>
+              <Link
+                href={`${basePath}/start-here`}
+                className="px-6 py-3 border border-frc-blue hover:border-frc-text-dim text-frc-text-dim hover:text-frc-text text-sm tracking-wide uppercase transition-all duration-200"
+              >
+                {t('startHereCta')}
               </Link>
               <Link
                 href={`${basePath}/about`}
