@@ -1084,13 +1084,32 @@ export function getContentLanguages(type: ContentType, id: string): string[] {
   return getLanguages().filter(lang => contentExistsInLang(type, lang, id));
 }
 
+function getContentItemByType(type: ContentType, lang: string, id: string): ParsedContent | null {
+  const getters: Record<ContentType, (lang: string, id: string) => ParsedContent | null> = {
+    papers: getPaper,
+    articles: getArticle,
+    concepts: getConcept,
+    books: getBook,
+    blog: getBlogPost,
+    topics: getTopic,
+    people: getPerson,
+  };
+  return getters[type](lang, id);
+}
+
 /** Generate hreflang alternates for a content item */
 export function getAlternateLanguages(type: ContentType, id: string): Record<string, string> {
   const languages = getContentLanguages(type, id);
   const alternates: Record<string, string> = {};
 
   for (const lang of languages) {
-    alternates[lang] = `${SITE_URL}/${lang}/${type}/${id}`;
+    // Match canonical strategy:
+    // - River-only content lives under `/${lang}/river/...`
+    // - Everything else lives under `/${lang}/...`
+    const item = getContentItemByType(type, lang, id);
+    const norm = normalizeContentPerspective(item?.frontmatter?.perspective);
+    const base = norm === 'river' ? `${SITE_URL}/${lang}/river` : `${SITE_URL}/${lang}`;
+    alternates[lang] = `${base}/${type}/${id}`;
   }
 
   // Add x-default pointing to English (or first available)

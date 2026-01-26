@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const alternates = getAlternateLanguages('papers', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
-          url: `${SITE_URL}/${altLang}/papers/${id}`,
+          url: alternates[altLang],
           lastModified: paper.frontmatter.date ? new Date(paper.frontmatter.date) : new Date(),
           changeFrequency: 'monthly',
           priority: 0.9,
@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const alternates = getAlternateLanguages('articles', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
-          url: `${SITE_URL}/${altLang}/articles/${id}`,
+          url: alternates[altLang],
           lastModified: article.frontmatter.date ? new Date(article.frontmatter.date) : new Date(),
           changeFrequency: 'monthly',
           priority: 0.9,
@@ -95,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const alternates = getAlternateLanguages('concepts', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
-          url: `${SITE_URL}/${altLang}/concepts/${id}`,
+          url: alternates[altLang],
           lastModified: new Date(),
           changeFrequency: 'monthly',
           priority: 0.85,
@@ -117,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const alternates = getAlternateLanguages('books', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
-          url: `${SITE_URL}/${altLang}/books/${id}`,
+          url: alternates[altLang],
           lastModified: book.frontmatter.date ? new Date(book.frontmatter.date) : new Date(),
           changeFrequency: 'monthly',
           priority: 0.9,
