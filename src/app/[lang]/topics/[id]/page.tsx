@@ -101,7 +101,7 @@ export default async function TopicPage({ params }: Props) {
   const basePath = `/${lang}`;
   const fm = topic.frontmatter;
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
   const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';

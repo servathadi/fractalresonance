@@ -72,7 +72,7 @@ export default async function PersonPage({ params }: Props) {
   const basePath = `/${lang}`;
   const fm = person.frontmatter;
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(person.body);
 

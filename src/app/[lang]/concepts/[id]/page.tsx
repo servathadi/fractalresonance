@@ -66,7 +66,7 @@ export default async function ConceptPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const meta = toConceptMeta(concept);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = concept.frontmatter;

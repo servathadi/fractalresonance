@@ -754,9 +754,7 @@ export type ContentPerspective = 'kasra' | 'river' | 'both';
 export type PerspectiveView = 'kasra' | 'river';
 
 export function normalizeContentPerspective(p: unknown): ContentPerspective {
-  if (p === 'kasra' || p === 'both') return p;
-  // River view is currently not published; treat River-tagged items as Kasra-side content.
-  if (p === 'river') return 'kasra';
+  if (p === 'kasra' || p === 'river' || p === 'both') return p;
   // Default: treat as Kasra unless explicitly marked otherwise.
   return 'kasra';
 }
@@ -777,20 +775,19 @@ export function getGlossary(
   const glossary: Record<string, GlossaryItem> = {};
   const basePath = opts?.basePath || `/${lang}`;
   const view = opts?.view;
-  const otherBasePath = view === 'river' ? `/${lang}` : `/${lang}/river`;
-  const pickBase = (p: unknown) => (view ? (matchesPerspectiveView(p, view) ? basePath : otherBasePath) : basePath);
+  const shouldInclude = (p: unknown) => (view ? matchesPerspectiveView(p, view) : true);
   
   // Process Papers
   const papers = getPapers(lang);
   for (const p of papers) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No abstract available.',
       type: 'paper',
-      url: `${urlBase}/papers/${fm.id}`,
+      url: `${basePath}/papers/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -799,7 +796,7 @@ export function getGlossary(
   const concepts = getConcepts(lang);
   for (const c of concepts) {
     const fm = c.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     // Use first paragraph as excerpt
     const firstPara = c.body
       .split('\n\n')
@@ -812,7 +809,7 @@ export function getGlossary(
       title: fm.title,
       excerpt: firstPara,
       type: 'concept',
-      url: fm.id === 'mu-levels' ? `${urlBase}/mu-levels` : `${urlBase}/concepts/${fm.id}`,
+      url: fm.id === 'mu-levels' ? `${basePath}/mu-levels` : `${basePath}/concepts/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -821,13 +818,13 @@ export function getGlossary(
   const books = getBooks(lang);
   for (const b of books) {
     const fm = b.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'book',
-      url: `${urlBase}/books/${fm.id}`,
+      url: `${basePath}/books/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -836,13 +833,13 @@ export function getGlossary(
   const articles = getArticles(lang);
   for (const a of articles) {
     const fm = a.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'article',
-      url: `${urlBase}/articles/${fm.id}`,
+      url: `${basePath}/articles/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -851,13 +848,13 @@ export function getGlossary(
   const posts = getBlogPosts(lang);
   for (const p of posts) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'blog',
-      url: `${urlBase}/blog/${fm.id}`,
+      url: `${basePath}/blog/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -866,13 +863,13 @@ export function getGlossary(
   const topics = getTopics(lang);
   for (const t of topics) {
     const fm = t.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || fm.short_answer || 'No description available.',
       type: 'topic',
-      url: `${urlBase}/topics/${fm.id}`,
+      url: `${basePath}/topics/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -881,13 +878,13 @@ export function getGlossary(
   const people = getPeople(lang);
   for (const p of people) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.tagline || fm.abstract || 'Profile.',
       type: 'person',
-      url: `${urlBase}/people/${fm.id}`,
+      url: `${basePath}/people/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -1156,7 +1153,7 @@ export function getStaticPageAlternates(page: string): Record<string, string> {
 // ─── Backlinks ──────────────────────────────────────────────────────────────
 
 /** Build backlinks index: { targetId: [sourceIds] } */
-export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
+export function buildBacklinks(lang: string = 'en', view: PerspectiveView = 'kasra'): Record<string, string[]> {
   const backlinks: Record<string, string[]> = {};
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
@@ -1164,10 +1161,13 @@ export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
   const articles = getArticles(lang);
   const topics = getTopics(lang);
   const people = getPeople(lang);
-  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics, ...people];
+  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics, ...people].filter((c) =>
+    matchesPerspectiveView(c.frontmatter.perspective, view)
+  );
 
   for (const content of allContent) {
     const sourceId = content.frontmatter.id;
+    if (!sourceId) continue;
     const links = extractWikilinks(content.body);
 
     for (const link of links) {

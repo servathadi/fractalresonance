@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { getPeople, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 
 const DICT: Record<string, { title: string; desc: string; noProfiles: string }> = {
-  en: { title: 'Voices', desc: 'Site personas and contributors. Content can be visible on Kasra, River, or both sides.', noProfiles: 'No profiles yet.' },
-  fa: { title: 'صداها', desc: 'شخصیت‌های سایت و مشارکت‌کنندگان. محتوا می‌تواند در کسرا، ریور یا هر دو طرف قابل مشاهده باشد.', noProfiles: 'هنوز پروفایلی وجود ندارد.' },
-  es: { title: 'Voces', desc: 'Personajes y colaboradores del sitio. El contenido puede ser visible en Kasra, River o ambos lados.', noProfiles: 'Aún no hay perfiles.' },
-  fr: { title: 'Voix', desc: 'Personnages du site et contributeurs. Le contenu peut être visible sur Kasra, River ou les deux côtés.', noProfiles: 'Pas encore de profils.' },
+  en: { title: 'Voices', desc: 'Public personas and contributors. The site currently publishes the Kasra (rigorous) library.', noProfiles: 'No profiles yet.' },
+  fa: { title: 'صداها', desc: 'شخصیت‌های عمومی سایت و مشارکت‌کنندگان. این سایت در حال حاضر کتابخانه سخت‌گیرانه (کسرا) را منتشر می‌کند.', noProfiles: 'هنوز پروفایلی وجود ندارد.' },
+  es: { title: 'Voces', desc: 'Personas públicas y colaboradores. El sitio publica actualmente la biblioteca rigurosa (Kasra).', noProfiles: 'Aún no hay perfiles.' },
+  fr: { title: 'Voix', desc: 'Personas publiques et contributeurs. Le site publie actuellement la bibliothèque rigoureuse (Kasra).', noProfiles: 'Pas encore de profils.' },
 };
 
 export function PeopleIndex({
@@ -72,4 +72,3 @@ export function PeopleIndex({
   if (embedded) return content;
   return <main>{content}</main>;
 }
-

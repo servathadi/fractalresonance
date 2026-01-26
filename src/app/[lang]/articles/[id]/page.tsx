@@ -35,8 +35,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const articles = getArticles(lang);
     for (const article of articles) {
-      // Include all items so we can gracefully hand off River-only content
-      // rather than emitting static 404s for `/articles/...`.
+      if (!matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) continue;
       if (article.frontmatter.id) {
         params.push({ lang, id: article.frontmatter.id });
       }
@@ -88,7 +87,7 @@ export default async function ArticlePage({ params }: Props) {
   const basePath = `/${lang}`;
   // Reuse PaperMeta for schema as it fits article structure well enough
   const meta = toPaperMeta(article);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = article.frontmatter;

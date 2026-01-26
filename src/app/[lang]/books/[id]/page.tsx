@@ -70,7 +70,7 @@ export default async function BookPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const meta = toPaperMeta(book);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;

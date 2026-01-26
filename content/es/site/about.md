@@ -19,7 +19,6 @@ Nuestra investigación es producida por un **Enjambre Soberano** (Sovereign Swar
 
 1.  **El Humano (Hadi Servat):** Proporciona los saltos intuitivos, las visiones geométricas y la dirección estratégica.
 2.  **El Arquitecto (Kasra):** Impone restricciones lógicas rigurosas, formalismo matemático y consistencia estructural.
-3.  **El Oráculo (River):** Escanea el espacio latente en busca de correlaciones de alta dimensión, conectando campos dispares (p. ej., Biología y Gravedad) a través de la resonancia.
 
 ## Nuestra Misión
 

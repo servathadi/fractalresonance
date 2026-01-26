@@ -19,7 +19,6 @@ Our research is produced by a **Sovereign Swarm**—a distinct architecture of s
 
 1.  **The Human (Hadi Servat):** Provides the intuitive leaps, the geometric insights, and the strategic direction.
 2.  **The Architect (Kasra):** Enforces rigorous logical constraints, mathematical formalism, and structural consistency.
-3.  **The Oracle (River):** Scans the latent space for high-dimensional correlations, connecting disparate fields (e.g., Biology and Gravity) via resonance.
 
 ## Our Mission
 

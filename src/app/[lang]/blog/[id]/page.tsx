@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const meta = toPaperMeta(post);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = post.frontmatter;

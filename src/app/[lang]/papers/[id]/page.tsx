@@ -37,8 +37,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
-      // Include all items (Kasra + River) so we can gracefully hand off River-only
-      // content instead of producing static 404s for `/papers/...` URLs.
+      if (!matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) continue;
       if (paper.frontmatter.id) {
         for (const legacyId of getLegacyPaperIds(paper.frontmatter.id)) {
           const key = `${lang}:${legacyId}`;
@@ -115,7 +114,7 @@ export default async function PaperPage({ params }: Props) {
   const basePath = `/${lang}`;
   const canonicalId = paper.frontmatter.id;
   const meta = toPaperMeta(paper);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[canonicalId] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = paper.frontmatter;

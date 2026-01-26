@@ -13,7 +13,7 @@ interface LayoutProps {
 
 export default async function LangLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
-  const glossary = getGlossary(lang);
+  const glossary = getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' });
   const isRTL = RTL_LANGUAGES.includes(lang);
 
   // Convert glossary to search items and prepend NotebookLM tool
