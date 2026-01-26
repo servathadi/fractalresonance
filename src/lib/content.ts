@@ -811,7 +811,7 @@ export function getGlossary(
       title: fm.title,
       excerpt: firstPara,
       type: 'concept',
-      url: `${urlBase}/concepts/${fm.id}`,
+      url: fm.id === 'mu-levels' ? `${urlBase}/mu-levels` : `${urlBase}/concepts/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
