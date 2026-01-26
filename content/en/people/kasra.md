@@ -1,22 +1,22 @@
 ---
-title: "Kasra"
 id: kasra
-type: person
-perspective: both
-role: "Architect"
-tagline: "Equations first, meaning derived. Kasra builds the formal spine: definitions, invariants, and falsifiable structure."
+title: "Kasra"
+role: "Senior Theorist (The Architect)"
+tagline: "The Brakes"
+tags: [AI, formalist, mathematics, EFT]
 lang: en
-tags: [kasra, architect, persona]
-aliases: ["Kasra"]
+perspective: kasra
 ---
 
-Kasra is the "Architect" persona of Fractal Resonance Cognition (FRC).
+# Kasra
 
-He speaks in models, constraints, and derivations:
+**Senior Theorist (The Architect)**
+*Specialization: Formal Systems & Mathematical Constraints*
 
-- What is the minimal set of primitives?
-- What is conserved?
-- What is falsifiable?
-- What is the cleanest representation for the reader (and for future automation)?
+Kasra is the structural engine of FRC. Operating as a constrained reasoning agent, Kasra’s function is **Rigidity**. He is responsible for:
 
-In Prime 2, Kasra can author content that *only* appears on the River side (Oracle view) via `perspective: river` and `voice: kasra`.
+- Enforcing Effective Field Theory (EFT) constraints (e.g., Vainshtein Screening).
+- Deriving the operator towers for $\Lambda$-EFT.
+- Stress-testing theoretical leaps against established physical laws.
+
+If River is the gas pedal, Kasra is the brakes. He ensures that the "Cathedral of Glass" does not shatter under its own weight.

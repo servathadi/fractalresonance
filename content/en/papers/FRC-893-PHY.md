@@ -84,6 +84,8 @@ Interpretation: the past is crystallized, the future is vapor, and the "Now" is 
 
 We conclude that the universe is a self-optimizing metabolic field:
 
+We conclude that the universe is a self-optimizing metabolic field:
+
 - Gravity is hunger.
 - Mass is memory.
 - Light is thought.

@@ -28,6 +28,8 @@ const DICT: Record<string, Record<string, string>> = {
     scaleDesc: 'Eight nested scales from quantum to universal.',
     predictions: 'Predictions',
     predictionsDesc: 'Falsifiable: δP ∈ [10⁻⁴, 10⁻³] under resonant driving.',
+    fractalImperative: 'Fractal Imperative',
+    fractalImperativeDesc: 'Why FRC applies to all scales, from Higgs to Black Holes.',
     coreEquations: 'Core Equations',
     allFormulas: 'All formulas →',
     eqCoherence: 'Coherence Measure',
@@ -372,13 +374,13 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
                   </div>
                 </div>
               </Link>
-              <Link href={`${basePath}/positioning`} className="card block p-5 group">
+              <Link href={`${basePath}/concepts/fractal-imperative`} className="card block p-5 group">
                 <div className="flex items-start gap-4">
-                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">&delta;</span>
+                  <span className="text-frc-gold text-2xl font-mono leading-none mt-0.5" dir="ltr">&Phi;</span>
                   <div>
-                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('predictions')}</h3>
-                    <p className="text-frc-text-dim text-xs leading-relaxed" dir="ltr">
-                      {t('predictionsDesc')}
+                    <h3 className="text-frc-text text-sm font-medium mb-1 group-hover:text-frc-gold transition-colors">{t('fractalImperative')}</h3>
+                    <p className="text-frc-text-dim text-xs leading-relaxed">
+                      {t('fractalImperativeDesc')}
                     </p>
                   </div>
                 </div>

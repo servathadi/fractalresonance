@@ -1,5 +1,5 @@
-import { LandingGateway } from '@/components/LandingGateway';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <LandingGateway />;
+  redirect('/en');
 }

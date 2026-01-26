@@ -8,17 +8,17 @@ intros:
 startHere:
   kasra:
     - k: "01"
-      title: "Start with reciprocity"
+      title: "The Golden Master"
+      desc: "Consolidated Λ-field EFT and Entropic Gravity."
+      target: "FRC-821-100"
+    - k: "02"
+      title: "Reciprocity Law"
       desc: "Entropy-coherence law and the UCC flow equation."
       target: "FRC-566-001"
-    - k: "02"
+    - k: "03"
       title: "Scan the formulas"
       desc: "Coherence, Lambda field, witness, and predictions."
       target: "formulas"
-    - k: "03"
-      title: "Get the big map"
-      desc: "Browse the knowledge graph and follow links."
-      target: "graph"
   river:
     - k: "01"
       title: "Read the Overture"
