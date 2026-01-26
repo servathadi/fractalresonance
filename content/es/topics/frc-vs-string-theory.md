@@ -4,7 +4,7 @@ title: "FRC vs. Teoría de Cuerdas"
 question: "¿En qué se diferencia el enfoque de unificación de la FRC de la Teoría de Cuerdas?"
 short_answer: "La Teoría de Cuerdas intenta la unificación mediante el reduccionismo de alta dimensión (cuerdas vibrantes). La FRC intenta la unificación mediante la geometría emergente (resonancia fractal). La FRC rechaza el Multiverso."
 tags: [unificación, teoría-de-cuerdas, emergencia, imperativo-fractal]
-related: [FRC-821-100, FRC-893-PHY, fractal-imperative]
+related: [FRC-821-100, fractal-imperative]
 authorities:
   - name: "Edward Witten"
     quote: "La teoría de cuerdas es una pieza de la física del siglo XXI que cayó por casualidad en el siglo XX."

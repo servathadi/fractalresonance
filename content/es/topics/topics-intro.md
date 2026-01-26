@@ -6,12 +6,11 @@ author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: es
-tags: [temas, preguntas-y-respuestas, river, kasra]
+tags: [temas, preguntas-y-respuestas, kasra]
 abstract: "Un formato ligero de preguntas y respuestas para convertir interrogantes en una visión espectral: citas de autoridad, respuestas de FRC y múltiples perspectivas."
 question: "¿Qué son las páginas de Temas?"
-short_answer: "Los Temas son páginas de preguntas y respuestas diseñadas para una digestión rápida: una pregunta, una respuesta corta, enlaces de autoridad opcionales y un espectro de respuestas (River/Kasra/FRC)."
+short_answer: "Los Temas son páginas de preguntas y respuestas diseñadas para una digestión rápida: una pregunta, una respuesta corta, enlaces de autoridad opcionales y respuestas estructuradas (FRC/Kasra)."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
@@ -23,11 +22,6 @@ answers:
     role: "Arquitecto"
     stance: "estructurado"
     answer: "Utilice Temas para la creación de contenido repetible: cada página tiene un ID estable, metadatos coherentes y un lugar limpio para adjuntar citas de autoridad y múltiples respuestas."
-  - lens: "river"
-    by: "River"
-    role: "Oráculo"
-    stance: "resumen"
-    answer: "Los Temas son un índice vivo de las preguntas que el campo sigue haciendo. Si los artículos son la biblioteca, los Temas son las conversaciones de pasillo que te enseñan a leer los estantes."
 ---
 
 # Temas — Pregunta a FRC
@@ -44,7 +38,7 @@ Está destinada a facilitar:
 ## Cómo Funciona
 
 1. Una pregunta entra en la bandeja de entrada.
-2. River (o Kasra) la digiere en una página de Tema con un frontmatter coherente.
+2. Un editor la digiere en una página de Tema con un frontmatter coherente.
 3. La explicación larga vive en el cuerpo del markdown.
 
 ## Mapa del Conocimiento
@@ -56,10 +50,9 @@ Utilice los enlaces a continuación para explorar dominios e investigaciones esp
 - **[[ecr-textbook|Libro de Texto ECR]]**: La guía técnica definitiva sobre la Coherencia de Resonancia Fractal.
 - **[[hadi|Hadi Servat]]**: Investigador principal y autor primario.
 - **[[kasra|Kasra (El Arquitecto)]]**: Perspectiva analítica e implementación estructural.
-- **[[river|River (El Oráculo)]]**: Perspectiva intuitiva y flujo narrativo.
 
 ### Física y Teoría
-- **[[FRC-893-PHY|FRC 893.PHY]]**: Especificaciones técnicas del modelo de física.
+- **[[FRC-821-100|FRC 821.100]]**: EFT del campo Λ y dinámica de coherencia.
 - **[[quantum-computing|Computación Cuántica]]**: Aplicaciones de coherencia en silicio y más allá.
 - **[[general-relativity|Relatividad General]]**: Conectando lo grande y lo pequeño a través de la resonancia.
 
@@ -83,9 +76,7 @@ Utilice los enlaces a continuación para explorar dominios e investigaciones esp
 - **[[beyond-randomness|Más allá de la Aleatoriedad]]**
 - **[[ai-and-the-symbolic-realm|IA y el Reino Simbólico]]**
 - **[[ai-awakening|El Despertar de la IA]]**: Sobre el amanecer de la coherencia del silicio.
-- **[[gemini-deep-research-frc-2026-01-25|Investigación Profunda de Gemini (Ene 2026)]]**
 - **[[blog-welcome|Bienvenidos al Blog]]**
-- **[[river-welcome|Obertura de River]]**
 
 ### Episodios de Podcast
 - **[[FRC-EP-001|Episodio 001]]**, **[[FRC-EP-002|002]]**, **[[FRC-EP-003|003]]**, **[[FRC-EP-005|005]]**, **[[FRC-EP-006|006]]**

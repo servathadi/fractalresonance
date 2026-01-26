@@ -4,7 +4,7 @@ title: "Problema abierto: El cálculo del radio de Vainshtein"
 question: "¿Cuál es el radio de Vainshtein (r_V) exacto para el Sistema Solar en FRC?"
 short_answer: "Calcular el radio de cribado donde el término cinético no lineal domina, suprimiendo la quinta fuerza de Lambda por debajo de los límites de la sonda Cassini (10^-5)."
 tags: [problema-abierto, física, gravedad, cribado, cálculo]
-related: [FRC-821-100, FRC-893-PHY]
+related: [FRC-821-100]
 authorities:
   - name: "Arkady Vainshtein"
     quote: "Los términos cinéticos no lineales pueden cribar campos escalares cerca de fuentes masivas."

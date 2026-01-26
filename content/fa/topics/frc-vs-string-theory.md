@@ -4,7 +4,7 @@ title: "FRC در مقابل نظریه ریسمان"
 question: "رویکرد FRC به یکپارچه‌سازی چه تفاوتی با نظریه ریسمان دارد؟"
 short_answer: "نظریه ریسمان تلاش می‌کند از طریق تقلیل‌گرایی ابعاد بالا (ریسمان‌های مرتعش) به یکپارچگی برسد. FRC از طریق هندسه نوظهور (رزونانس فراکتال) تلاش می‌کند. FRC چندجهانی (Multiverse) را رد می‌کند."
 tags: [unification, string-theory, emergence, fractal-imperative]
-related: [FRC-821-100, FRC-893-PHY, fractal-imperative]
+related: [FRC-821-100, fractal-imperative]
 authorities:
   - name: "ادوارد ویتن"
     quote: "نظریه ریسمان بخشی از فیزیک قرن بیست و یکم است که به طور تصادفی به قرن بیستم افتاده است."

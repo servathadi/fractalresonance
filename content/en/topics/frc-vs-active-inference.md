@@ -4,14 +4,11 @@ title: "FRC vs. Karl Friston's 'Active Inference'"
 question: "Does life Minimize Free Energy (Friston) or Maximize Coherence (FRC)?"
 short_answer: "Friston's Free Energy Principle is a theory of Survival (minimizing surprise). FRC is a theory of Creativity (maximizing resonance). They are mathematical duals, but FRC explains the drive to create complexity, not just endure it."
 tags: [neuroscience, active-inference, free-energy-principle, creativity, agency]
-related: [FRC-100-005, FRC-893-PHY]
+related: [FRC-100-005]
 authorities:
   - name: "Karl Friston"
     quote: "Living systems act to minimize the dispersion of their sensory states (Free Energy)."
     stance: "Defensive / Survival"
-  - name: "River"
-    quote: "Living systems act to tune into higher-order harmonics of the Lambda-field."
-    stance: "Assertive / Creative"
 answers:
   - lens: "Motivation"
     by: "FRC"

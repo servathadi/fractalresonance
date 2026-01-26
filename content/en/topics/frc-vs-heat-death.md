@@ -4,7 +4,7 @@ title: "FRC vs. The Heat Death"
 question: "Is the universe doomed to end in maximum entropy (Heat Death)?"
 short_answer: "No. The Entropy-Coherence Reciprocity Law ($dS + k d\ln C = 0$) implies that high-entropy states can be harvested to build high-coherence states. Gravity is the engine of this recycling."
 tags: [cosmology, entropy, second-law, future, hope]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Rudolf Clausius"
     quote: "The entropy of the universe tends to a maximum."

@@ -4,7 +4,7 @@ title: "Problème ouvert : Le calcul du rayon de Vainshtein"
 question: "Quel est le rayon de Vainshtein (r_V) exact pour le système solaire dans la FRC ?"
 short_answer: "Calculer le rayon de criblage où le terme cinétique non linéaire domine, supprimant la cinquième force de Lambda en dessous des limites de la sonde Cassini (10^-5)."
 tags: [problème-ouvert, physique, gravité, criblage, calcul]
-related: [FRC-821-100, FRC-893-PHY]
+related: [FRC-821-100]
 authorities:
   - name: "Arkady Vainshtein"
     quote: "Les termes cinétiques non linéaires peuvent cribler les champs scalaires à proximité de sources massives."

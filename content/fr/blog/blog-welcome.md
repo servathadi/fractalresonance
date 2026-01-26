@@ -6,7 +6,6 @@ author: "H. Servat"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: fr
 tags: [blog, notes-de-terrain]
 abstract: "Un flux de blog terre-à-terre pour les expériences, les notes et les mises à jour."
@@ -14,7 +13,7 @@ tldr: "Écrits courts et pratiques aux côtés des articles formels."
 key_points:
   - "Les articles de blog sont informels et itératifs."
   - "Ils renvoient aux articles techniques si nécessaire."
-  - "La voix peut être Kasra (Architecte) ou River (Oracle)."
+  - "Gardez les notes ancrées et reliez aux papiers pour les affirmations techniques."
 ---
 
 # Blog — Notes de terrain
@@ -29,4 +28,4 @@ Cette section est destinée aux notes pratiques : expériences, mises à jour de
 
 ## Comment écrire ici
 
-Utilisez `voice : kasra` pour les conseils techniques et `voice : river` pour un récit axé sur le sens.
+Restez pratique et reliez aux papiers lorsque vous faites des affirmations techniques.

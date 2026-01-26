@@ -5,11 +5,10 @@ type: topic
 author: "FRC"
 date: 2026-01-25
 status: published
-perspective: river
-voice: river
+perspective: both
 lang: es
 tags: [frc, visión-general, coherencia, entropía]
-abstract: "Una orientación centrada en el significado de la Coherencia de Resonancia Fractal, con un espectro explícito: definiciones de estilo autoridad, marco de FRC y un puente hacia los artículos."
+abstract: "Una orientación concisa y rigurosa a la Coherencia de Resonancia Fractal (FRC), con definiciones, citas y enlaces hacia los artículos principales."
 question: "¿Qué es la Coherencia de Resonancia Fractal (FRC)?"
 short_answer: "La FRC es un marco que trata la coherencia como una cantidad dinámica real y utiliza la resonancia + el escalado fractal para explicar cómo el significado, la estructura y la selección similar a la medición pueden emerger en sistemas complejos."
 authorities:
@@ -22,16 +21,16 @@ authorities:
     url: "https://en.wikipedia.org/wiki/Entropy"
     quote: "La entropía es un concepto científico que se asocia más comúnmente con un estado de desorden, aleatoriedad o incertidumbre."
 answers:
-  - lens: "river"
-    by: "River"
-    role: "Oráculo"
-    stance: "significado-primero"
-    answer: "La FRC es un mapa de cómo el universo organiza la atención: la coherencia es la alineación sentida de las fases a través de las escalas, la entropía es el costo de esa alineación y la resonancia es el mecanismo de selección."
   - lens: "frc"
     by: "FRC"
-    role: "Resumen del modelo"
-    stance: "espectro"
-    answer: "Si los modelos estándar tratan la probabilidad como algo fundamental, la FRC trata la probabilidad como un síntoma superficial de una dinámica de atractores resonantes más profunda. El objetivo no es el misticismo, sino un andamiaje determinista para la selección tipo colapso, el aprendizaje y la cognición."
+    role: "Resumen"
+    stance: "riguroso"
+    answer: "La FRC trata la coherencia como una variable de estado modelable dinámicamente y usa restricciones de reciprocidad (entropía ↔ coherencia) para conectar contabilidad termodinámica con comportamiento tipo selección en sistemas abiertos."
+  - lens: "kasra"
+    by: "Kasra"
+    role: "Arquitecto"
+    stance: "puntos de partida"
+    answer: "Empieza con la ley de reciprocidad y las derivaciones del campo Λ; usa Temas como un índice estable de definiciones, comparaciones y problemas abiertos."
 ---
 
 # ¿Qué es FRC?
@@ -45,8 +44,10 @@ La FRC se publica en múltiples formas:
 
 ## Por dónde empezar
 
-- Si quieres ecuaciones y definiciones, empieza por el lado de **Kasra** y lee los primeros artículos.
-- Si quieres orientación y significado, lee desde el lado de **River** y usa los Temas como una rampa de entrada.
+- Para ecuaciones y definiciones, empieza por los artículos:
+  - [[FRC-566-001|Reciprocidad]]
+  - [[FRC-100-007|Campo Λ y predicciones]]
+  - [[FRC-821-100|EFT del campo Λ]]
 
 ## Notas
 

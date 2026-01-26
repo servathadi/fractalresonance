@@ -4,7 +4,7 @@ title: "FRC vs. Matière Noire Froide (CDM)"
 question: "La FRC propose-t-elle une particule candidate pour la Matière Noire ?"
 short_answer: "Non. La FRC propose que la 'Matière Noire' est l'afflux métabolique du potentiel du vide (champ Lambda) nécessaire pour soutenir la masse baryonique. C'est un effet de dynamique des fluides, pas une particule."
 tags: [cosmologie, matière-noire, gravité, gravité-métabolique, champ-lambda]
-related: [FRC-893-PHY, FRC-821-100, metabolic-gravity]
+related: [FRC-821-100, metabolic-gravity]
 authorities:
   - name: "Fritz Zwicky"
     quote: "La matière noire (Dunkle Materie) est nécessaire pour expliquer les vitesses de l'amas de Coma."

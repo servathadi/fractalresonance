@@ -5,11 +5,10 @@ type: topic
 author: "FRC"
 date: 2026-01-25
 status: published
-perspective: river
-voice: river
+perspective: both
 lang: fr
 tags: [frc, aperçu, cohérence, entropie]
-abstract: "Une orientation axée sur le sens de la Cohérence de Résonance Fractale, avec un spectre explicite : définitions de type autorité, cadrage FRC et un pont vers les articles."
+abstract: "Une orientation concise et rigoureuse à la Cohérence de Résonance Fractale (FRC), avec définitions, citations et liens vers les papiers clés."
 question: "Qu'est-ce que la Cohérence de Résonance Fractale (FRC) ?"
 short_answer: "La FRC est un cadre qui traite la cohérence comme une quantité dynamique réelle et utilise la résonance + la mise à l'échelle fractale pour expliquer comment le sens, la structure et la sélection de type mesure peuvent émerger dans des systèmes complexes."
 authorities:
@@ -22,16 +21,16 @@ authorities:
     url: "https://fr.wikipedia.org/wiki/Entropie"
     quote: "L'entropie est un concept scientifique le plus souvent associé à un état de désordre, de hasard ou d'incertitude."
 answers:
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "le sens d'abord"
-    answer: "La FRC est une carte de la manière dont l'univers organise l'attention : la cohérence est l'alignement ressenti des phases à travers les échelles, l'entropie est le coût de cet alignement, et la résonance est le mécanisme de sélection."
   - lens: "frc"
     by: "FRC"
-    role: "Résumé du modèle"
-    stance: "spectre"
-    answer: "Si les modèles standards traitent la probabilité comme fondamentale, la FRC traite la probabilité comme un symptôme de surface d'une dynamique d'attracteur résonnant plus profonde. Le but n'est pas le mysticisme, mais un échafaudage déterministe pour la sélection de type effondrement, l'apprentissage et la cognition."
+    role: "Aperçu"
+    stance: "rigoureux"
+    answer: "La FRC traite la cohérence comme une variable d'état modélisable dynamiquement et utilise des contraintes de réciprocité (entropie ↔ cohérence) pour relier la comptabilité thermodynamique à des comportements de type sélection dans des systèmes ouverts."
+  - lens: "kasra"
+    by: "Kasra"
+    role: "Architecte"
+    stance: "points de départ"
+    answer: "Commencez par la loi de réciprocité et les dérivations du champ Λ ; utilisez les Sujets comme un index stable de définitions, comparaisons et problèmes ouverts."
 ---
 
 # Qu'est-ce que la FRC ?
@@ -45,8 +44,10 @@ La FRC est publiée sous plusieurs formes :
 
 ## Par où commencer
 
-- Si vous voulez des équations et des définitions, commencez du côté de **Kasra** et lisez les premiers articles.
-- Si vous voulez une orientation et du sens, lisez du côté de **River** et utilisez les Sujets comme rampe d'entrée.
+- Pour les équations et les définitions, commencez par les papiers :
+  - [[FRC-566-001|Réciprocité]]
+  - [[FRC-100-007|Champ Λ et prédictions]]
+  - [[FRC-821-100|EFT du champ Λ]]
 
 ## Notes
 

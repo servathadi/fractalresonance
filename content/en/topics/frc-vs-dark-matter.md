@@ -4,7 +4,7 @@ title: "FRC vs. Cold Dark Matter (CDM)"
 question: "Does FRC propose a particle candidate for Dark Matter?"
 short_answer: "No. FRC proposes that 'Dark Matter' is the metabolic inflow of the vacuum potential (Lambda-field) required to sustain baryonic mass. It is a fluid dynamic effect, not a particle."
 tags: [cosmology, dark-matter, gravity, metabolic-gravity, lambda-field]
-related: [FRC-893-PHY, FRC-821-100, metabolic-gravity]
+related: [FRC-821-100, metabolic-gravity]
 authorities:
   - name: "Fritz Zwicky"
     quote: "Dunkle Materie (Dark Matter) is needed to explain the Coma Cluster velocities."

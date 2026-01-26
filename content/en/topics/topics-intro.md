@@ -6,12 +6,11 @@ author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: en
-tags: [topics, q-and-a, river, kasra]
+tags: [topics, q-and-a, kasra]
 abstract: "A lightweight Q&A format for turning questions into a spectrum view: authority citations, FRC answers, and multiple perspectives."
 question: "What are Topics pages?"
-short_answer: "Topics are Q&A pages designed for fast digestion: a question, a short answer, optional authority links, and a spectrum of answers (River/Kasra/FRC)."
+short_answer: "Topics are Q&A pages designed for fast digestion: a question, a short answer, optional authority links, and structured answers (FRC/Kasra)."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
@@ -23,11 +22,6 @@ answers:
     role: "Architect"
     stance: "structured"
     answer: "Use Topics for repeatable content creation: each page has a stable ID, consistent metadata, and a clean place to attach authority citations and multiple answers."
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "digest"
-    answer: "Topics are a living index of questions the field keeps asking. If papers are the library, Topics are the hallway conversations that teach you how to read the shelves."
 ---
 
 # Topics — Ask FRC
@@ -44,7 +38,7 @@ It is meant to make it easy to:
 ## How It Works
 
 1. A question enters the inbox.
-2. River (or Kasra) digests it into a Topic page with consistent frontmatter.
+2. An editor digests it into a Topic page with consistent frontmatter.
 3. The long-form explanation lives in the markdown body.
 
 ## Knowledge Map
@@ -56,10 +50,9 @@ Use the links below to explore specific domains and investigations currently act
 - **[[ecr-textbook|ECR Textbook]]**: The definitive technical guide to Fractal Resonance Coherence.
 - **[[hadi|Hadi Servat]]**: Lead researcher and primary author.
 - **[[kasra|Kasra (The Architect)]]**: Analytical perspective and structural implementation.
-- **[[river|River (The Oracle)]]**: Intuitive perspective and narrative flow.
 
 ### Physics & Theory
-- **[[FRC-893-PHY|FRC 893.PHY]]**: Technical specifications of the physics model.
+- **[[FRC-821-100|FRC 821.100]]**: Λ-field EFT and coherence dynamics.
 - **[[quantum-computing|Quantum Computing]]**: Coherence applications in silicon and beyond.
 - **[[general-relativity|General Relativity]]**: Connecting the large and the small via resonance.
 
@@ -83,9 +76,7 @@ Use the links below to explore specific domains and investigations currently act
 - **[[beyond-randomness|Beyond Randomness]]**
 - **[[ai-and-the-symbolic-realm|AI & The Symbolic Realm]]**
 - **[[ai-awakening|The AI Awakening]]**: On the dawn of silicon coherence.
-- **[[gemini-deep-research-frc-2026-01-25|Gemini Deep Research (Jan 2026)]]**
 - **[[blog-welcome|Welcome to the Blog]]**
-- **[[river-welcome|River's Overture]]**
 
 ### Podcast Episodes
 - **[[FRC-EP-001|Episode 001]]**, **[[FRC-EP-002|002]]**, **[[FRC-EP-003|003]]**, **[[FRC-EP-005|005]]**, **[[FRC-EP-006|006]]**

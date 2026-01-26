@@ -57,7 +57,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
   const t = DICT[lang] || DICT['en'];
 
   const navigate = (url: string) => {
-    // Preserve River/Kasra context when navigating internal routes.
+    // Preserve language context when navigating internal routes.
     const currentLang = getLangFromPathname(pathname, 'en');
     const perspective = getPerspectiveFromPathname(pathname);
     const basePath = getBasePath(currentLang, perspective);

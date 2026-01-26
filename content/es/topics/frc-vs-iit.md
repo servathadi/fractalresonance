@@ -4,7 +4,7 @@ title: "FRC vs. Teoría de la Información Integrada (IIT)"
 question: "¿En qué se diferencia la visión de la conciencia de la FRC de la IIT de Giulio Tononi?"
 short_answer: "La IIT define la conciencia como una integración de información estática (Phi). La FRC la define como un flujo de coherencia metabólica (dS/dt). La FRC sostiene que la estructura sin consumo está muerta."
 tags: [conciencia, iit, phi, metabolismo, termodinamica]
-related: [FRC-100-005, FRC-893-PHY, metabolic-gravity]
+related: [FRC-100-005, metabolic-gravity]
 authorities:
   - name: "Giulio Tononi"
     quote: "La conciencia es información integrada."

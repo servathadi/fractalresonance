@@ -4,7 +4,7 @@ title: "Open Problem: The Covariant Flux Formalism"
 question: "How do we generalize the Universal Coherence Condition (UCC) to curved spacetime?"
 short_answer: "Formulate the fully covariant transport equation for the Coherence 4-current J_mu in the presence of a dynamic metric g_mu_nu."
 tags: [open-problem, math, gravity, relativity, tensors]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Albert Einstein"
     quote: "The laws of physics must be of such a nature that they apply to systems of reference in any kind of motion."

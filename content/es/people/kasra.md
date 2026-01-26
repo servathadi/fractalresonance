@@ -19,4 +19,4 @@ Habla en modelos, restricciones y derivaciones:
 - ¿Qué es falsable?
 - ¿Cuál es la representación más limpia para el lector (y para la automatización futura)?
 
-En Prime 2, Kasra puede ser autor de contenido que *solo* aparece en el lado de River (vista Oráculo) a través de `perspective: river` y `voice: kasra`.
+En Prime 2, Kasra puede ser autor de contenido con mayor énfasis técnico mediante `voice: kasra`.

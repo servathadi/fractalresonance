@@ -5,11 +5,10 @@ type: topic
 author: "FRC"
 date: 2026-01-25
 status: published
-perspective: river
-voice: river
+perspective: both
 lang: en
 tags: [frc, overview, coherence, entropy]
-abstract: "A meaning-first orientation to Fractal Resonance Cognition, with an explicit spectrum: authority-style definitions, FRC framing, and a bridge into the papers."
+abstract: "A concise, rigorous orientation to Fractal Resonance Cognition (FRC), with definitions, citations, and links into the core papers."
 question: "What is Fractal Resonance Cognition (FRC)?"
 short_answer: "FRC is a framework that treats coherence as a real dynamical quantity and uses resonance + fractal scaling to explain how meaning, structure, and measurement-like selection can emerge in complex systems."
 authorities:
@@ -22,16 +21,16 @@ authorities:
     url: "https://en.wikipedia.org/wiki/Entropy"
     quote: "Entropy is a scientific concept that is most commonly associated with a state of disorder, randomness, or uncertainty."
 answers:
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "meaning-first"
-    answer: "FRC is a map of how the universe organizes attention: coherence is the felt alignment of phases across scales, entropy is the cost of that alignment, and resonance is the mechanism of selection."
   - lens: "frc"
     by: "FRC"
-    role: "Model digest"
-    stance: "spectrum"
-    answer: "If standard models treat probability as fundamental, FRC treats probability as a surface symptom of deeper resonant attractor dynamics. The goal is not mysticism, but a deterministic scaffold for collapse-like selection, learning, and cognition."
+    role: "Overview"
+    stance: "rigorous"
+    answer: "FRC treats coherence as a state variable that can be modeled dynamically, and uses reciprocity constraints (entropy ↔ coherence) to connect thermodynamic bookkeeping with selection-like behavior in open systems."
+  - lens: "kasra"
+    by: "Kasra"
+    role: "Architect"
+    stance: "pointers"
+    answer: "Start with the reciprocity law and the Λ-field derivations, then use Topics as a stable index of definitions, comparisons, and open problems."
 ---
 
 # What is FRC?
@@ -45,8 +44,10 @@ FRC is published in multiple forms:
 
 ## Where To Start
 
-- If you want equations and definitions, start from the **Kasra** side and read the early papers.
-- If you want orientation and meaning, read from the **River** side and use Topics as an entry ramp.
+- For equations and definitions, start from the papers:
+  - [[FRC-566-001|Reciprocity]]
+  - [[FRC-100-007|Λ-field and predictions]]
+  - [[FRC-821-100|Λ-field EFT]]
 
 ## Notes
 

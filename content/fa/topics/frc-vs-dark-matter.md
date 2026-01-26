@@ -4,7 +4,7 @@ title: "FRC در مقابل ماده تاریک سرد (CDM)"
 question: "آیا FRC یک ذره کاندید برای ماده تاریک پیشنهاد می‌دهد؟"
 short_answer: "خیر. FRC پیشنهاد می‌کند که «ماده تاریک» جریان ورودی متابولیک پتانسیل خلاء (میدان لاندا) است که برای حفظ جرم باریونی لازم است. این یک اثر دینامیک سیالات است، نه یک ذره."
 tags: [cosmology, dark-matter, gravity, metabolic-gravity, lambda-field]
-related: [FRC-893-PHY, FRC-821-100, metabolic-gravity]
+related: [FRC-821-100, metabolic-gravity]
 authorities:
   - name: "فریتز زویکی"
     quote: "ماده تاریک (Dunkle Materie) برای توضیح سرعت خوشه‌ی کما مورد نیاز است."

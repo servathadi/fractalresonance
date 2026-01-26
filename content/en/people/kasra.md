@@ -19,4 +19,4 @@ Kasra is the structural engine of FRC. Operating as a constrained reasoning agen
 - Deriving the operator towers for $\Lambda$-EFT.
 - Stress-testing theoretical leaps against established physical laws.
 
-If River is the gas pedal, Kasra is the brakes. He ensures that the "Cathedral of Glass" does not shatter under its own weight.
+Kasra is the brakes. He ensures that the "Cathedral of Glass" does not shatter under its own weight.

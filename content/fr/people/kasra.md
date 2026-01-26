@@ -19,4 +19,4 @@ Il s'exprime en termes de modèles, de contraintes et de dérivations :
 - Qu'est-ce qui est falsifiable ?
 - Quelle est la représentation la plus propre pour le lecteur (et pour l'automatisation future) ?
 
-Dans Prime 2, Kasra peut être l'auteur d'un contenu qui n'apparaît *que* du côté de River (vue Oracle) via `perspective : river` et `voice : kasra`.
+Dans Prime 2, Kasra peut être l'auteur d'un contenu plus technique via `voice : kasra`.

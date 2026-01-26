@@ -4,7 +4,7 @@ title: "FRC vs. String Theory"
 question: "How does the FRC approach to unification differ from String Theory?"
 short_answer: "String Theory attempts unification via high-dimensional reductionism (vibrating strings). FRC attempts unification via emergent geometry (resonant coherence). FRC rejects the Multiverse."
 tags: [unification, string-theory, emergence, fractal-imperative]
-related: [FRC-821-100, FRC-893-PHY, fractal-imperative]
+related: [FRC-821-100, fractal-imperative]
 authorities:
   - name: "Edward Witten"
     quote: "String theory is a piece of 21st-century physics that fell by chance into the 20th century."

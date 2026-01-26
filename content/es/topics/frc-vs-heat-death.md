@@ -4,7 +4,7 @@ title: "FRC vs. La Muerte Térmica"
 question: "¿Está el universo condenado a terminar en la máxima entropía (Muerte Térmica)?"
 short_answer: "No. La Ley de Reciprocidad Entropía-Coherencia ($dS + k d\ln C = 0$) implica que los estados de alta entropía pueden ser cosechados para construir estados de alta coherencia. La gravedad es el motor de este reciclaje."
 tags: [cosmología, entropía, segunda-ley, futuro, esperanza]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Rudolf Clausius"
     quote: "La entropía del universo tiende a un máximo."

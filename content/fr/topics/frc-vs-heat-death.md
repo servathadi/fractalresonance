@@ -4,7 +4,7 @@ title: "FRC vs La Mort Thermique"
 question: "L'univers est-il condamné à finir dans l'entropie maximale (mort thermique) ?"
 short_answer: "Non. La loi de réciprocité entropie-cohérence ($dS + k d\ln C = 0$) implique que les états de haute entropie peuvent être récoltés pour construire des états de haute cohérence. La gravité est le moteur de ce recyclage."
 tags: [cosmologie, entropie, seconde-loi, futur, espoir]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Rudolf Clausius"
     quote: "L'entropie de l'univers tend vers un maximum."

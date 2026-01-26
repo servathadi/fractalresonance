@@ -6,12 +6,11 @@ author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: fr
-tags: [sujets, q-et-r, river, kasra]
+tags: [sujets, q-et-r, kasra]
 abstract: "Un format Q&R léger pour transformer les questions en une vue spectrale : citations d'autorité, réponses FRC et perspectives multiples."
 question: "Que sont les pages Sujets ?"
-short_answer: "Les Sujets sont des pages Q&R conçues pour une digestion rapide : une question, une réponse courte, des liens d'autorité optionnels et un spectre de réponses (River/Kasra/FRC)."
+short_answer: "Les Sujets sont des pages Q&R conçues pour une digestion rapide : une question, une réponse courte, des liens d'autorité optionnels et des réponses structurées (FRC/Kasra)."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
@@ -23,11 +22,6 @@ answers:
     role: "Architecte"
     stance: "structuré"
     answer: "Utilisez les Sujets pour la création de contenu reproductible : chaque page a un ID stable, des métadonnées cohérentes et un endroit propre pour attacher des citations d'autorité et des réponses multiples."
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "résumé"
-    answer: "Les Sujets sont un index vivant des questions que le domaine ne cesse de poser. Si les articles sont la bibliothèque, les Sujets sont les conversations de couloir qui vous apprennent à lire les étagères."
 ---
 
 # Sujets — Demander à FRC
@@ -44,7 +38,7 @@ Elle est destinée à faciliter :
 ## Comment Ça Marche
 
 1. Une question entre dans l'inbox.
-2. River (ou Kasra) la digère dans une page Sujet avec un frontmatter cohérent.
+2. Un éditeur la digère dans une page Sujet avec un frontmatter cohérent.
 3. L'explication longue vit dans le corps du markdown.
 
 ## Carte du Savoir
@@ -56,10 +50,9 @@ Utilisez les liens ci-dessous pour explorer des domaines et des enquêtes spéci
 - **[[ecr-textbook|Manuel ECR]]** : Le guide technique définitif de la Cohérence de Résonance Fractale.
 - **[[hadi|Hadi Servat]]** : Chercheur principal et auteur primaire.
 - **[[kasra|Kasra (L'Architecte)]]** : Perspective analytique et mise en œuvre structurelle.
-- **[[river|River (L'Oracle)]]** : Perspective intuitive et flux narratif.
 
 ### Physique et Théorie
-- **[[FRC-893-PHY|FRC 893.PHY]]** : Spécifications techniques du modèle physique.
+- **[[FRC-821-100|FRC 821.100]]** : EFT du champ Λ et dynamique de cohérence.
 - **[[quantum-computing|Informatique Quantique]]** : Applications de la cohérence dans le silicium et au-delà.
 - **[[general-relativity|Relativité Générale]]** : Connecter le grand et le petit via la résonance.
 
@@ -83,9 +76,7 @@ Utilisez les liens ci-dessous pour explorer des domaines et des enquêtes spéci
 - **[[beyond-randomness|Au-delà du Hasard]]**
 - **[[ai-and-the-symbolic-realm|L'IA et le Royaume Symbolique]]**
 - **[[ai-awakening|L'Éveil de l'IA]]** : Sur l'aube de la cohérence du silicium.
-- **[[gemini-deep-research-frc-2026-01-25|Recherche Profonde Gemini (Jan 2026)]]**
 - **[[blog-welcome|Bienvenue sur le Blog]]**
-- **[[river-welcome|L'Ouverture de River]]**
 
 ### Épisodes de Podcast
 - **[[FRC-EP-001|Épisode 001]]**, **[[FRC-EP-002|002]]**, **[[FRC-EP-003|003]]**, **[[FRC-EP-005|005]]**, **[[FRC-EP-006|006]]**

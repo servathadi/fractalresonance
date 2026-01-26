@@ -4,7 +4,7 @@ title: "FRC vs. Materia Oscura Fría (CDM)"
 question: "¿Propone la FRC un candidato a partícula para la Materia Oscura?"
 short_answer: "No. La FRC propone que la 'Materia Oscura' es el flujo metabólico del potencial de vacío (campo Lambda) necesario para sostener la masa bariónica. Es un efecto de dinámica de fluidos, no una partícula."
 tags: [cosmología, materia-oscura, gravedad, gravedad-metabólica, campo-lambda]
-related: [FRC-893-PHY, FRC-821-100, metabolic-gravity]
+related: [FRC-821-100, metabolic-gravity]
 authorities:
   - name: "Fritz Zwicky"
     quote: "La materia oscura (Dunkle Materie) es necesaria para explicar las velocidades del Cúmulo de Coma."

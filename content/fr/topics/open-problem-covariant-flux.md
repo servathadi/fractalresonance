@@ -4,7 +4,7 @@ title: "Problème ouvert : Le formalisme du flux covariant"
 question: "Comment généraliser la condition de cohérence universelle (UCC) à l'espace-temps courbe ?"
 short_answer: "Formuler l'équation de transport entièrement covariante pour le 4-courant de cohérence J_mu en présence d'une métrique dynamique g_mu_nu."
 tags: [problème-ouvert, math, gravité, relativité, tenseurs]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Albert Einstein"
     quote: "Les lois de la physique doivent être de telle nature qu'elles s'appliquent aux systèmes de référence dans n'importe quel type de mouvement."

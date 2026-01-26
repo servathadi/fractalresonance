@@ -1,6 +1,16 @@
 # Default language entrypoint
 /  /en  302
 
+# Remove River view (legacy URLs)
+/en/river  /en  301
+/en/river/*  /en/:splat  301
+/es/river  /es  301
+/es/river/*  /es/:splat  301
+/fr/river  /fr  301
+/fr/river/*  /fr/:splat  301
+/fa/river  /fa  301
+/fa/river/*  /fa/:splat  301
+
 # v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
 /papers/*  /en/papers/:splat  301
@@ -32,7 +42,3 @@
 /api/concepts/*  /en/concepts  301
 /api/graph  /en/graph  301
 /api/graph/*  /en/graph  301
-
-# River-only articles that had (or may get) Kasra-side links.
-/en/articles/gemini-deep-research-frc-2026-01-25  /en/river/articles/gemini-deep-research-frc-2026-01-25  302
-/articles/gemini-deep-research-frc-2026-01-25  /en/river/articles/gemini-deep-research-frc-2026-01-25  302

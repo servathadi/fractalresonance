@@ -4,7 +4,7 @@ title: "Problema abierto: El formalismo de flujo covariante"
 question: "¿Cómo generalizamos la Condición de Coherencia Universal (UCC) al espacio-tiempo curvo?"
 short_answer: "Formular la ecuación de transporte totalmente covariante para la 4-corriente de coherencia J_mu en presencia de una métrica dinámica g_mu_nu."
 tags: [problema-abierto, matemáticas, gravedad, relatividad, tensores]
-related: [FRC-566-001, FRC-893-PHY]
+related: [FRC-566-001]
 authorities:
   - name: "Albert Einstein"
     quote: "Las leyes de la física deben ser de tal naturaleza que se apliquen a los sistemas de referencia en cualquier tipo de movimiento."

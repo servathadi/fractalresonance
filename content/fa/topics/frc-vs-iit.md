@@ -4,7 +4,7 @@ title: "FRC در مقابل نظریه اطلاعات ادغام شده (IIT)"
 question: "تفاوت دیدگاه FRC در مورد آگاهی با IIT جولیو تونونی چیست؟"
 short_answer: "نظریه IIT آگاهی را به عنوان ادغام اطلاعات ایستا (Phi) تعریف می‌کند. FRC آن را به عنوان جریان همدوسی متابولیک (dS/dt) تعریف می‌کند. FRC استدلال می‌کند که ساختار بدون مصرف، مرده است."
 tags: [consciousness, iit, phi, metabolism, thermodynamics]
-related: [FRC-100-005, FRC-893-PHY, metabolic-gravity]
+related: [FRC-100-005, metabolic-gravity]
 authorities:
   - name: "جولیو تونونی"
     quote: "آگاهی، اطلاعات ادغام شده است."

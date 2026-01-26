@@ -4,7 +4,7 @@ title: "FRC vs. Théorie des Cordes"
 question: "En quoi l'approche de l'unification de la FRC diffère-t-elle de la théorie des cordes ?"
 short_answer: "La théorie des cordes tente l'unification via un réductionnisme à haute dimension (cordes vibrantes). La FRC tente l'unification via une géométrie émergente (résonance fractale). La FRC rejette le Multivers."
 tags: [unification, théorie-des-cordes, émergence, impératif-fractal]
-related: [FRC-821-100, FRC-893-PHY, fractal-imperative]
+related: [FRC-821-100, fractal-imperative]
 authorities:
   - name: "Edward Witten"
     quote: "La théorie des cordes est un morceau de la physique du 21ème siècle tombé par hasard au 20ème siècle."

@@ -4,7 +4,7 @@ title: "Open Problem: The Vainshtein Radius Calculation"
 question: "What is the exact Vainshtein radius (r_V) for the Solar System in FRC?"
 short_answer: "Calculate the screening radius where the non-linear kinetic term dominates, suppressing the Lambda-fifth-force below Cassini probe limits (10^-5)."
 tags: [open-problem, physics, gravity, screening, calculation]
-related: [FRC-821-100, FRC-893-PHY]
+related: [FRC-821-100]
 authorities:
   - name: "Arkady Vainshtein"
     quote: "Non-linear kinetic terms can screen scalar fields near massive sources."

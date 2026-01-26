@@ -684,7 +684,6 @@ function fieldMatchesAny(field: unknown, keys: string[]): boolean {
     const nk = normalizeKey(k);
     if (!nk) continue;
     if (hay === nk) return true;
-    // Allow "River (FRC 893.000)" style authors.
     if (hay.includes(nk)) return true;
   }
   return false;
@@ -755,8 +754,10 @@ export type ContentPerspective = 'kasra' | 'river' | 'both';
 export type PerspectiveView = 'kasra' | 'river';
 
 export function normalizeContentPerspective(p: unknown): ContentPerspective {
-  if (p === 'kasra' || p === 'river' || p === 'both') return p;
-  // Default: current corpus is Kasra unless explicitly marked otherwise.
+  if (p === 'kasra' || p === 'both') return p;
+  // River view is currently not published; treat River-tagged items as Kasra-side content.
+  if (p === 'river') return 'kasra';
+  // Default: treat as Kasra unless explicitly marked otherwise.
   return 'kasra';
 }
 

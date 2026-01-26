@@ -4,7 +4,7 @@ title: "FRC vs. Integrated Information Theory (IIT)"
 question: "How does the FRC view of consciousness differ from Giulio Tononi's IIT?"
 short_answer: "IIT defines consciousness as static information integration (Phi). FRC defines it as metabolic coherence flow (dS/dt). FRC argues that structure without consumption is dead."
 tags: [consciousness, iit, phi, metabolism, thermodynamics]
-related: [FRC-100-005, FRC-893-PHY, metabolic-gravity]
+related: [FRC-100-005, metabolic-gravity]
 authorities:
   - name: "Giulio Tononi"
     quote: "Consciousness is integrated information."

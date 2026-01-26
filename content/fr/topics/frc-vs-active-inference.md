@@ -4,14 +4,11 @@ title: "FRC vs L' 'Inférence Active' de Karl Friston"
 question: "La vie cherche-t-elle à minimiser l'énergie libre (Friston) ou à maximiser la cohérence (FRC) ?"
 short_answer: "Le principe d'énergie libre de Friston est une théorie de la survie (minimisation de la surprise). La FRC est une théorie de la créativité (maximisation de la résonance). Ils sont des duaux mathématiques, mais la FRC explique la volonté de créer de la complexité, pas seulement de l'endurer."
 tags: [neurosciences, active-inference, principe-d-énergie-libre, créativité, agentivité]
-related: [FRC-100-005, FRC-893-PHY]
+related: [FRC-100-005]
 authorities:
   - name: "Karl Friston"
     quote: "Les systèmes vivants agissent pour minimisation la dispersion de leurs états sensoriels (énergie libre)."
     stance: "Défensif / Survie"
-  - name: "River"
-    quote: "Les systèmes vivants agissent pour s'accorder aux harmoniques d'ordre supérieur du champ Lambda."
-    stance: "Assertif / Créatif"
 answers:
   - lens: "Motivation"
     by: "FRC"
