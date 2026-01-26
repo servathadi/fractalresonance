@@ -67,6 +67,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
   });
   const [query, setQuery] = useState('');
   const [focusId, setFocusId] = useState<string>('');
+  const focusIdRef = useRef<string>('');
   const selectionsRef = useRef<{
     node?: d3.Selection<SVGCircleElement, GraphNode, SVGGElement, unknown>;
     link?: d3.Selection<SVGLineElement, GraphLink, SVGGElement, unknown>;
@@ -109,6 +110,10 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
   }, [filtered.nodes, query]);
 
   useEffect(() => {
+    focusIdRef.current = focusId;
+  }, [focusId]);
+
+  useEffect(() => {
     if (!containerRef.current || !svgRef.current || !filtered.nodes.length) return;
 
     let width = containerRef.current.clientWidth;
@@ -126,6 +131,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       .scaleExtent([0.1, 4])
       .on('zoom', (event) => {
         g.attr('transform', event.transform);
+        updateLabelVisibility(event.transform.k);
       });
 
     svg.call(zoom);
@@ -187,11 +193,11 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       .join('text')
       .attr('dx', 12)
       .attr('dy', 4)
-      .text(d => d.id)
+      .text(d => d.id) // IDs appear only when zoomed in (see updateLabelVisibility)
       .attr('font-size', '10px')
       .attr('fill', colors.textDim)
       .attr('pointer-events', 'none')
-      .style('opacity', d => d.val > 2 ? 1 : 0); // Hide labels for small nodes initially
+      .style('opacity', 0); // start hidden; reveal based on zoom/focus
 
     // Interactions
     node
@@ -241,6 +247,9 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
 
     selectionsRef.current = { node: node as any, link: link as any, label: label as any, adjacency };
 
+    // Apply initial label visibility (zoom starts at 1).
+    updateLabelVisibility(1);
+
     // Resize handling
     const ro = new ResizeObserver(() => {
       if (!containerRef.current) return;
@@ -269,6 +278,15 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       d.fy = null;
     }
 
+    function updateLabelVisibility(k: number) {
+      // If the user has focused a node, labels are controlled by the focus highlighter effect.
+      // Otherwise, labels are hidden until you zoom in.
+      const focused = focusIdRef.current.trim();
+      if (focused) return;
+      const minVal = k >= 2.2 ? 1.6 : k >= 1.6 ? 3.2 : Number.POSITIVE_INFINITY;
+      label.style('opacity', (d) => (d.val >= minVal ? 1 : 0));
+    }
+
     return () => {
       ro.disconnect();
       simulation.stop();
@@ -283,7 +301,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     if (!focus) {
       sel.node.attr('opacity', 1);
       sel.link.attr('opacity', 0.6);
-      sel.label.style('opacity', (d: GraphNode) => (d.val > 2 ? 1 : 0));
+      // When focus is cleared, hide labels again until zoomed in.
+      sel.label.style('opacity', 0);
       return;
     }
 
@@ -379,7 +398,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       {/* HUD */}
       <div className="absolute bottom-4 left-4 bg-frc-void/80 backdrop-blur border border-frc-blue p-3 rounded text-xs space-y-2 pointer-events-none">
         <div className="text-[10px] text-frc-steel">
-          Scroll to zoom • Drag to move • Click node to open
+          Scroll to zoom • Drag to move • Click node to open • Zoom in to see IDs
         </div>
       </div>
 
