@@ -47,7 +47,7 @@ Le cadre de la FRC présente des similitudes structurelles frappantes :
 La [[witness|fonction témoin]] W de la FRC reflète la notion de Whitehead de « forme subjective » — la manière dont une occasion expérimente ses données :
 
 $$ 
-W = rac{|<͈||͈>|}{||||} 
+W = rac{|<͈||͈>|}{||||} 
 $$ 
 
 Une magnitude de témoin élevée correspond à une préhension forte ; un W faible à une expérience vague et indéfinie.
@@ -57,7 +57,7 @@ Une magnitude de témoin élevée correspond à une préhension forte ; un W fai
 L'« avancée créative vers la nouveauté » de Whitehead correspond au principe de la FRC selon lequel les motifs de cohérence déterminent quelles possibilités s'actualisent :
 
 $$ 
-P(	ext{résultat})  C(	ext{attracteur}) 
+P(	ext{résultat})  C(	ext{attracteur}) 
 $$ 
 
 ## Pourquoi c'est important

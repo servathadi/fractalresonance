@@ -47,7 +47,7 @@ El marco de la FRC muestra similitudes estructurales sorprendentes:
 La [[witness|función testigo]] W de la FRC refleja la noción de Whitehead de la "forma subjetiva" — cómo una ocasión experimenta sus datos:
 
 $$
-W = rac{|\langle\psi|\hat{O}|\psi\rangle|}{|| \hat{O} ||}
+W = rac{|\langle\psi|\hat{O}|\psi\rangle|}{|| \hat{O} ||}
 $$
 
 Una alta magnitud de testigo corresponde a una prensión fuerte; una baja W a una experiencia vaga e indefinida.

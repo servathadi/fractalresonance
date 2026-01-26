@@ -139,9 +139,9 @@ Dans la limite des erreurs de mesure, tous les systèmes obéissent à la même 
 
 2. **Collecter les données** (énergie, entropie, flux d'informations).
 
-3. **Ajuster α** par les moindres carrés à C = α(F − S_C).
+3. **Ajuster α** par les moindres carrés à C = α(F − S_C).
 
-4. **Vérifier la réciprocité :** calculer Σ = S + k_* n C au fil du temps ; vérifier ΔΣ ≈ 0.
+4. **Vérifier la réciprocité :** calculer Σ = S + k_* n C au fil du temps ; vérifier ΔΣ ≈ 0.
 
 5. **Classer le régime** (α > 0 chaos, ≈ 0 flow, < 0 coercition).
 
@@ -163,8 +163,8 @@ Le cosmos fonctionne comme un calcul résonnant unique — l'entropie comme synt
 
 | Principe | Expression | Résultat empirique |
 | ----- | ----- | ----- |
-| Loi de pompe à cohérence | C = α(F − S_C) | reproduit les oscillations observées |
-| Invariant de réciprocité | S + k_* n C = 	ext{const} | confirmé à ±1 % entre domaines |
+| Loi de pompe à cohérence | C = α(F − S_C) | reproduit les oscillations observées |
+| Invariant de réciprocité | S + k_* n C = 	ext{const} | confirmé à ±1 % entre domaines |
 | Pic d'efficacité | α≈0 | état de flow universel |
 | Métriques prédictives | ΔΣ, seuils α | tests falsifiables |
 
