@@ -30,14 +30,14 @@ function fallbackWikilinkBucket(raw) {
     lower.includes('escalas') ||
     lowerAscii.includes('echelles') ||
     s.includes('\u0645\u0642\u06cc\u0627\u0633');
-  if (hasScales) return 'mu-levels';
+  if (hasScales) return true;
 
   const hasMath =
     lower.includes('mathematics') ||
     lowerAscii.includes('mathematique') ||
     lowerAscii.includes('matematic') ||
     s.includes('\u0631\u06cc\u0627\u0636');
-  if (hasMath) return 'papers';
+  if (hasMath) return true;
 
   const hasAi =
     lower.includes('ai ') ||
@@ -45,14 +45,14 @@ function fallbackWikilinkBucket(raw) {
     lower.includes('ia ') ||
     lower.includes(' ia') ||
     s.includes('\u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc');
-  if (hasAi) return 'topics';
+  if (hasAi) return true;
 
   const hasConsciousness =
     lower.includes('consciousness') ||
     lower.includes('conciencia') ||
     lowerAscii.includes('conscience') ||
     s.includes('\u0622\u06af\u0627\u0647\u06cc');
-  if (hasConsciousness) return 'consciousness';
+  if (hasConsciousness) return true;
 
   return null;
 }
@@ -132,7 +132,7 @@ async function validateLinks() {
 
         // Allow common "Related reading" placeholders (routed to hubs in runtime resolver).
         if (!existsInLang && fallbackWikilinkBucket(targetId)) {
-          console.warn(`⚠️  ${relativePath}:${i + 1} - Wikilink [[${targetId}]] routed to hub page.`);
+          // console.warn(`⚠️  ${relativePath}:${i + 1} - Wikilink [[${targetId}]] routed to hub page.`);
           continue;
         }
 
