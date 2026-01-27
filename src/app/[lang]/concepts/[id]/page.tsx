@@ -135,7 +135,7 @@ export default async function ConceptPage({ params }: Props) {
           </div>
 
           {/* Related concepts */}
-          {concept.frontmatter.related && concept.frontmatter.related.length > 0 && (
+          {Array.isArray(concept.frontmatter.related) && concept.frontmatter.related.length > 0 && (
             <section className="mt-12 border-t border-frc-blue pt-6">
               <h3 className="text-sm font-medium text-frc-text-dim uppercase tracking-wider mb-3">
                 Related Concepts

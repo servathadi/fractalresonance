@@ -188,7 +188,7 @@ export default async function TopicPage({ params }: Props) {
             <span className="font-mono text-xs">{readTime}</span>
           </div>
 
-          {fm.tags && (
+          {Array.isArray(fm.tags) && fm.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {fm.tags.map((tag) => (
                 <Link

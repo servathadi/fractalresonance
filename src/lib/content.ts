@@ -691,7 +691,6 @@ export function getArticle(lang: string, id: string): ParsedContent | null {
 
 // ─── Schema Converters ─────────────────────────────────────────────────────
 
-/** Convert parsed frontmatter to PaperMeta for schema generation */
 export function toPaperMeta(parsed: ParsedContent): PaperMeta {
   const fm = parsed.frontmatter;
   return {
@@ -699,9 +698,9 @@ export function toPaperMeta(parsed: ParsedContent): PaperMeta {
     title: fm.title,
     series: fm.series || 'FRC',
     author: fm.author || 'H. Servat',
-    date: fm.date || new Date().toISOString().split('T')[0],
+    date: String(fm.date || new Date().toISOString().split('T')[0]),
     abstract: fm.abstract || '',
-    tags: fm.tags || [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
     lang: fm.lang || 'en',
     doi: fm.doi,
     video: fm.video,
@@ -722,8 +721,8 @@ export function toConceptMeta(parsed: ParsedContent): ConceptMeta {
     id: fm.id,
     title: fm.title,
     description: firstPara || '',
-    tags: fm.tags || [],
-    related: fm.related || [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    related: Array.isArray(fm.related) ? fm.related : [],
     lang: fm.lang || 'en',
   };
 }
