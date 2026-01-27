@@ -65,9 +65,9 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════
-   MODE: Formal / Interpretation / Both
+   MODE GATE
    Single canonical URL; the mode controls visibility.
-   Default is Formal (if the attribute isn't set yet).
+   (Mode selector UI removed; default is formal.)
    ═══════════════════════════════════════════════════ */
 
 html:not([data-frc-mode]) .frc-interpretation-only {

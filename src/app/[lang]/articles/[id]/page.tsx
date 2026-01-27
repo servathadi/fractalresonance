@@ -9,7 +9,6 @@ import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getArticle,
@@ -159,9 +158,7 @@ export default async function ArticlePage({ params }: Props) {
           <InlineToc items={tocItems} />
 
           {norm === 'river' ? (
-            <div className="frc-formal-only mb-8">
-              <InterpretationGate title="Digest / interpretation layer" description="This article is tagged as interpretation/digest. Switch mode to read it here." />
-            </div>
+            <div className="frc-formal-only mb-8" />
           ) : null}
 
           {/* Video embed (if available) */}

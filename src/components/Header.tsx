@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
-import { ModeToggleCompact } from './ModeToggle';
 import { getDictionary } from '@/lib/dictionaries';
 import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
@@ -219,10 +218,6 @@ export function Header() {
             >
               ORCID:0009-0004-7412-5129
             </a>
-            <span className="text-frc-blue hidden sm:block">|</span>
-            <div className="hidden sm:block">
-              <ModeToggleCompact />
-            </div>
             <span className="text-frc-blue hidden sm:block">|</span>
             <LanguageSelector />
             <span className="text-frc-blue">|</span>
@@ -474,7 +469,6 @@ export function Header() {
                   Settings
                 </div>
                 <div className={`flex flex-col gap-4 ${isRTL ? 'items-end' : 'items-start'}`}>
-                  <ModeToggleCompact />
                   <div className="flex items-center gap-3">
                     <LanguageSelector />
                     <span className="text-frc-blue">|</span>

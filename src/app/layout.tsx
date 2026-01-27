@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { ModeProvider } from '@/components/ModeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
@@ -43,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-frc-mode="formal">
       <head>
         <link rel="icon" href="/brand/sigil-32.png" type="image/png" />
         <link rel="apple-touch-icon" href="/brand/sigil-64.png" />
@@ -59,14 +58,12 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
-          <ModeProvider>
-            <Header />
-            <div className="flex-1">
-              {children}
-            </div>
-            <Footer />
-            <TextSharePopover />
-          </ModeProvider>
+          <Header />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+          <TextSharePopover />
         </ThemeProvider>
       </body>
     </html>

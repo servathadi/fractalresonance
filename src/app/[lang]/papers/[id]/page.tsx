@@ -9,7 +9,6 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getLegacyPaperIds,
@@ -222,9 +221,7 @@ export default async function PaperPage({ params }: Props) {
           <InlineToc items={tocItems} />
 
           {norm === 'river' ? (
-            <div className="frc-formal-only mb-8">
-              <InterpretationGate title="Preprint / interpretation layer" description="This paper is tagged as interpretation/digest. Switch mode to read it here." />
-            </div>
+            <div className="frc-formal-only mb-8" />
           ) : null}
 
           {/* Abstract */}
