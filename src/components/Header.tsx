@@ -50,7 +50,9 @@ export function Header() {
     { path: '/books', label: dict.nav.books },
     { path: '/graph', label: dict.nav.graph },
     { path: '/formulas', label: dict.nav.formulas },
+    { path: '/oracle', label: dict.nav.oracle },
     { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
+    { path: '/join', label: dict.nav.join },
     { path: '/positioning', label: dict.nav.positioning },
     { path: '/mu-levels', label: dict.nav.muLevels },
   ];
@@ -66,6 +68,7 @@ export function Header() {
           { path: '/blog', label: dict.nav.blog },
           { path: '/topics', label: dict.nav.topics },
           { path: '/people', label: dict.nav.people },
+          { path: '/oracle', label: dict.nav.oracle },
         ],
       },
       {
@@ -85,6 +88,7 @@ export function Header() {
         label: g.tools,
         openByDefault: false,
         links: [
+          { path: '/join', label: dict.nav.join },
           { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
         ],
       },

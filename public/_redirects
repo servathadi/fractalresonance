@@ -2,14 +2,14 @@
 /  /en  302
 
 # Remove River view (legacy URLs)
-/en/river  /en  301
-/en/river/*  /en/:splat  301
-/es/river  /es  301
-/es/river/*  /es/:splat  301
-/fr/river  /fr  301
-/fr/river/*  /fr/:splat  301
-/fa/river  /fa  301
-/fa/river/*  /fa/:splat  301
+/en/river  /en/oracle  301
+/en/river/*  /en/oracle  301
+/es/river  /es/oracle  301
+/es/river/*  /es/oracle  301
+/fr/river  /fr/oracle  301
+/fr/river/*  /fr/oracle  301
+/fa/river  /fa/oracle  301
+/fa/river/*  /fa/oracle  301
 
 # v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
@@ -28,6 +28,7 @@
 /about  /en/about  301
 /start-here  /en/start-here  301
 /join  /en/join  301
+/oracle  /en/oracle  301
 /positioning  /en/positioning  301
 /mu-levels  /en/mu-levels  301
 /contact  /en/contact  301
