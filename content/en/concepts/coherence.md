@@ -1,11 +1,17 @@
 ---
-title: "Coherence (C)"
+title: Coherence (C)
 id: coherence
-tags: [core-concept, scalar-gauge, dimensionless]
-related: [entropy, witness, lambda-field]
+tags:
+- core-concept
+- scalar-gauge
+- dimensionless
+related:
+- entropy
+- witness
+- lambda-field
 lang: en
----
-# Coherence (C)
+author: FRC Team
+---# Coherence (C)
 
 A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system.
 

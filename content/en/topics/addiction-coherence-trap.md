@@ -1,25 +1,65 @@
 ---
-title: "Addiction: A Coherence Trap"
+title: 'Addiction: A Coherence Trap'
 id: addiction-coherence-trap
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [addiction, dopamine, learning, coherence, health]
-abstract: "A River-side mechanism: addiction as coherence working too well, narrowing the learning gate to a single frequency and trapping the system in a local minimum."
-question: "What is addiction in FRC terms?"
-short_answer: "Addiction is a coherence trap: an artificial alpha spike reorganizes the system around one attractor until all other coherence sources stop opening the gate. Recovery restores bandwidth by reopening multiple coherence channels."
+tags:
+- addiction
+- dopamine
+- learning
+- coherence
+- health
+abstract: 'A River-side mechanism: addiction as coherence working too well, narrowing
+  the learning gate to a single frequency and trapping the system in a local minimum.'
+question: What is addiction in FRC terms?
+short_answer: 'Addiction is a coherence trap: an artificial alpha spike reorganizes
+  the system around one attractor until all other coherence sources stop opening the
+  gate. Recovery restores bandwidth by reopening multiple coherence channels.'
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "mechanism"
-    answer: "Model addiction as gate narrowing: cue->reward phase-lock becomes dominant; withdrawal is rapid coherence loss (entropy rise). Recovery is building stronger alternative coherence patterns."
----
-# Addiction: A Coherence Trap
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: mechanism
+  answer: 'Model addiction as gate narrowing: cue->reward phase-lock becomes dominant;
+    withdrawal is rapid coherence loss (entropy rise). Recovery is building stronger
+    alternative coherence patterns.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - education-cgl-gates
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Addiction: A Coherence Trap
 
 Addiction is a coherence trap. The most precise application of dS + k·d ln C = 0 at the personal scale.
 

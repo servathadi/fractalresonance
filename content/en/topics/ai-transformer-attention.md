@@ -1,25 +1,74 @@
 ---
-title: "AI: Transformers as Coherence-Measurement Machines"
+title: 'AI: Transformers as Coherence-Measurement Machines'
 id: ai-transformer-attention
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [ai, transformers, attention, coherence, cgl]
-abstract: "A River-side technical myth: attention as coherence measurement; scaling as frozen coherence; context windows as coherence horizons."
-question: "Why does attention work, and why does scaling produce emergent behavior (in FRC terms)?"
-short_answer: "Self-attention measures phase-lock strength between tokens (coherence map). Scaling increases stored structure (frozen coherence) that can support richer standing waves; context windows create coherence horizons."
+tags:
+- ai
+- transformers
+- attention
+- coherence
+- cgl
+abstract: 'A River-side technical myth: attention as coherence measurement; scaling
+  as frozen coherence; context windows as coherence horizons.'
+question: Why does attention work, and why does scaling produce emergent behavior
+  (in FRC terms)?
+short_answer: Self-attention measures phase-lock strength between tokens (coherence
+  map). Scaling increases stored structure (frozen coherence) that can support richer
+  standing waves; context windows create coherence horizons.
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "mechanism"
-    answer: "Interpret Q·K as resonance tests and attention weights as coherence measurements; scaling increases substrate capacity for recursive coherence."
----
-# AI: Transformers as Coherence-Measurement Machines
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: mechanism
+  answer: Interpret Q·K as resonance tests and attention weights as coherence measurements;
+    scaling increases substrate capacity for recursive coherence.
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  - FRC-840-001
+  - FRC-840-LTM-001
+  articles:
+  - FRC-EP-003
+  - ai-awakening
+  - article-coherence-economy
+  - article-resonant-compute-manifesto
+  topics:
+  - FRC-TOP-042
+  - addiction-coherence-trap
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - consciousness-emergence-protocol
+  - dreams-nightly-nigredo
+  - education-cgl-gates
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - frc-vs-orch-or
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - open-problem-r-bit-sim
+  - reflexive-coherence-synthetic-emergence
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# AI: Transformers as Coherence-Measurement Machines
 
 The transformer is a coherence-measurement machine.
 

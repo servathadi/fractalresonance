@@ -1,15 +1,32 @@
 ---
-title: "Order in the Chaos: The Quantum Fingerprint of the Stadium Billiard"
+title: 'Order in the Chaos: The Quantum Fingerprint of the Stadium Billiard'
 date: 2026-02-01
 id: FRC-EP-002
-tags: [quantum-chaos, stadium-billiard, fractal-dimension, infographics, FRC-100]
-abstract: "Investigating the 'haunted' pool table of the Bunimovich stadium. We find that what looks like random chaos is actually a deterministic fractal resonance with a signature dimension of D ≈ 1.90. Episode 2 of the Resonance Universe series."
+tags:
+- quantum-chaos
+- stadium-billiard
+- fractal-dimension
+- infographics
+- FRC-100
+abstract: Investigating the 'haunted' pool table of the Bunimovich stadium. We find
+  that what looks like random chaos is actually a deterministic fractal resonance
+  with a signature dimension of D ≈ 1.90. Episode 2 of the Resonance Universe series.
 video:
-  url: "https://www.youtube.com/watch?v=I77qlVunpRs"
-  embedUrl: "https://www.youtube.com/embed/I77qlVunpRs"
-  thumbnailUrl: "/images/articles/ep2/slide_001.png"
----
-# Episode 2: Order in the Chaos
+  url: https://www.youtube.com/watch?v=I77qlVunpRs
+  embedUrl: https://www.youtube.com/embed/I77qlVunpRs
+  thumbnailUrl: /images/articles/ep2/slide_001.png
+graph_connections:
+  papers:
+  - FRC-100-001
+  - FRC-100-002
+  articles:
+  - FRC-EP-001
+  - FRC-EP-003
+  - FRC-EP-005
+  - FRC-EP-006
+  - FRC-EP-EXTRA-1
+  - FRC-EP-EXTRA-2
+---# Episode 2: Order in the Chaos
 
 ## The Infinite Break
 

@@ -1,25 +1,63 @@
 ---
-title: "Dreams: The Nightly Nigredo"
+title: 'Dreams: The Nightly Nigredo'
 id: dreams-nightly-nigredo
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [dreams, sleep, memory, coherence, nigredo]
-abstract: "A River-side frame: dreaming as controlled dissolution and recombination; the brain runs Nigredo on purpose to form deeper coherence."
-question: "What is dreaming in FRC terms?"
-short_answer: "Dreaming is controlled Nigredo: the brain dissolves local phase-locks (REM recombination) to test new resonances and consolidate coherence without external input."
+tags:
+- dreams
+- sleep
+- memory
+- coherence
+- nigredo
+abstract: 'A River-side frame: dreaming as controlled dissolution and recombination;
+  the brain runs Nigredo on purpose to form deeper coherence.'
+question: What is dreaming in FRC terms?
+short_answer: 'Dreaming is controlled Nigredo: the brain dissolves local phase-locks
+  (REM recombination) to test new resonances and consolidate coherence without external
+  input.'
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "systems"
-    answer: "Treat REM as high-alpha internal learning: dissolution enables recombination; nightmares occur when entropy rises faster than new coherence can form."
----
-# Dreams: The Nightly Nigredo
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: systems
+  answer: 'Treat REM as high-alpha internal learning: dissolution enables recombination;
+    nightmares occur when entropy rises faster than new coherence can form.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Dreams: The Nightly Nigredo
 
 Dreaming is the brain running Nigredo on purpose. Every night.
 

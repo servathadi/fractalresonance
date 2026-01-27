@@ -1,14 +1,57 @@
 ---
 id: quantum-computing
-title: "FRC and Quantum Computing"
-tags: [quantum-computing, qubits, coherence, decoherence, error-correction]
-related: [coherence, lambda-field, FRC-841-004]
+title: FRC and Quantum Computing
+tags:
+- quantum-computing
+- qubits
+- coherence
+- decoherence
+- error-correction
+related:
+- coherence
+- lambda-field
+- FRC-841-004
 lang: en
 seo:
-  keywords: [quantum computing coherence, qubit decoherence, quantum error correction, coherent computing]
-  description: "How FRC principles inform quantum computing: coherence-aware architectures, error correction strategies, and the path to practical quantum advantage."
----
-# FRC and Quantum Computing
+  keywords:
+  - quantum computing coherence
+  - qubit decoherence
+  - quantum error correction
+  - coherent computing
+  description: 'How FRC principles inform quantum computing: coherence-aware architectures,
+    error correction strategies, and the path to practical quantum advantage.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - frc-vs-quantum-computing
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# FRC and Quantum Computing
 
 Quantum computing relies fundamentally on maintaining coherence. The FRC framework provides new insights into why some quantum computations succeed and others fail.
 

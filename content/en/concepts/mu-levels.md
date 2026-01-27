@@ -1,11 +1,25 @@
 ---
-title: "μ-Levels"
+title: μ-Levels
 id: mu-levels
-tags: [scale-invariance, hierarchy, ontology]
-related: [fractal-imperative, lambda-field, coherence]
+tags:
+- scale-invariance
+- hierarchy
+- ontology
+related:
+- fractal-imperative
+- lambda-field
+- coherence
 lang: en
----
-# μ-Levels
+graph_connections:
+  papers:
+  - FRC-100-004
+  - FRC-100-010
+  topics:
+  - frc-vs-copenhagen
+  - frc-vs-simulation-hypothesis
+  concepts:
+  - fractal-imperative
+---# μ-Levels
 
 The μ-levels represent the eight nested scales of consciousness and coherence in the FRC framework, spanning from the Planck scale to the universal horizon.
 

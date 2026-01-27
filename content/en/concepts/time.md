@@ -1,14 +1,62 @@
 ---
 id: time
-title: "What is Time?"
-tags: [time, entropy, coherence, philosophy, thermodynamics]
-related: [coherence, entropy, arrow-of-time]
+title: What is Time?
+tags:
+- time
+- entropy
+- coherence
+- philosophy
+- thermodynamics
+related:
+- coherence
+- entropy
+- arrow-of-time
 lang: en
 seo:
-  keywords: [what is time, nature of time, time and entropy, time physics, arrow of time]
-  description: "Exploring the nature of time through the FRC framework: how coherence gradients and entropy define temporal direction."
----
-# What is Time?
+  keywords:
+  - what is time
+  - nature of time
+  - time and entropy
+  - time physics
+  - arrow of time
+  description: 'Exploring the nature of time through the FRC framework: how coherence
+    gradients and entropy define temporal direction.'
+graph_connections:
+  papers:
+  - FRC-100-005
+  - FRC-100-007
+  - FRC-100-010
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - FRC-EP-EXTRA-2
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-bohmian-mechanics
+  - frc-vs-iit
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# What is Time?
 
 Time remains one of the deepest mysteries in physics and philosophy. The FRC framework offers a fresh perspective: **time emerges from coherence gradients**.
 

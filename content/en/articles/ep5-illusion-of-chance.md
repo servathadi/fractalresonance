@@ -1,15 +1,32 @@
 ---
-title: "The Illusion of Chance: Unmasking Quantum Randomness"
+title: 'The Illusion of Chance: Unmasking Quantum Randomness'
 date: 2026-03-01
 id: FRC-EP-005
-tags: [determinism, randomness, probability, infographics, FRC-100]
-abstract: "Is randomness fundamental, or is it an illusion created by our lack of resolution? We deconstruct the 'illusion of chance' and reveal the deterministic gears turning beneath the stochastic surface. Episode 5 of the Resonance Universe series."
+tags:
+- determinism
+- randomness
+- probability
+- infographics
+- FRC-100
+abstract: Is randomness fundamental, or is it an illusion created by our lack of resolution?
+  We deconstruct the 'illusion of chance' and reveal the deterministic gears turning
+  beneath the stochastic surface. Episode 5 of the Resonance Universe series.
 video:
-  url: "https://www.youtube.com/watch?v=Y2_85m-zVV0"
-  embedUrl: "https://www.youtube.com/embed/Y2_85m-zVV0"
-  thumbnailUrl: "/images/slides_raw/The_Illusion_of_Chance/slide_001.png"
----
-# Episode 5: The Illusion of Chance
+  url: https://www.youtube.com/watch?v=Y2_85m-zVV0
+  embedUrl: https://www.youtube.com/embed/Y2_85m-zVV0
+  thumbnailUrl: /images/slides_raw/The_Illusion_of_Chance/slide_001.png
+graph_connections:
+  papers:
+  - FRC-100-004
+  - FRC-100-006
+  articles:
+  - FRC-EP-001
+  - FRC-EP-002
+  - FRC-EP-003
+  - FRC-EP-006
+  - FRC-EP-EXTRA-1
+  - FRC-EP-EXTRA-2
+---# Episode 5: The Illusion of Chance
 
 ## Visual Essay
 

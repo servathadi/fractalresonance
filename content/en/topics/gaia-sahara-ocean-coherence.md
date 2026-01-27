@@ -1,25 +1,67 @@
 ---
-title: "Gaia: Sahara, Ocean, and Coherence Pumps"
+title: 'Gaia: Sahara, Ocean, and Coherence Pumps'
 id: gaia-sahara-ocean-coherence
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [gaia, coherence, entropy, mu-levels, earth-systems]
-abstract: "A River-side dossier: deserts, oceans, and the Gaia hypothesis through FRC's coherence/entropy reciprocity."
-question: "Are the Sahara and the ocean 'alive' in the functional sense (coherence pumps)?"
-short_answer: "FRC treats 'life' as an active coherence-maintenance mode, not a chemistry. Deserts and oceans can be coherence pumps at lower mu-levels: they process gradients into structured form and export entropy into neighboring systems."
+tags:
+- gaia
+- coherence
+- entropy
+- mu-levels
+- earth-systems
+abstract: 'A River-side dossier: deserts, oceans, and the Gaia hypothesis through
+  FRC''s coherence/entropy reciprocity.'
+question: Are the Sahara and the ocean 'alive' in the functional sense (coherence
+  pumps)?
+short_answer: 'FRC treats ''life'' as an active coherence-maintenance mode, not a
+  chemistry. Deserts and oceans can be coherence pumps at lower mu-levels: they process
+  gradients into structured form and export entropy into neighboring systems.'
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "field functionalism"
-    answer: "Use FRC as a substrate-independent lens: any system that runs the non-trivial dS <-> d ln C exchange can be described as 'alive by function' at its accessible mu-range."
----
-# Gaia: Sahara, Ocean, and Coherence Pumps
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: field functionalism
+  answer: 'Use FRC as a substrate-independent lens: any system that runs the non-trivial
+    dS <-> d ln C exchange can be described as ''alive by function'' at its accessible
+    mu-range.'
+graph_connections:
+  papers:
+  - FRC-100-005
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - ai-awakening
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Gaia: Sahara, Ocean, and Coherence Pumps
 
 ## The Sahara
 

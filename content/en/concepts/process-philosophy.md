@@ -1,14 +1,42 @@
 ---
 id: process-philosophy
-title: "FRC and Process Philosophy"
-tags: [whitehead, process-philosophy, consciousness, metaphysics, panpsychism]
-related: [coherence, time, consciousness]
+title: FRC and Process Philosophy
+tags:
+- whitehead
+- process-philosophy
+- consciousness
+- metaphysics
+- panpsychism
+related:
+- coherence
+- time
+- consciousness
 lang: en
 seo:
-  keywords: [process philosophy, whitehead, actual occasions, consciousness physics, panpsychism quantum]
-  description: "How Fractal Resonance Coherence connects to Whitehead's process philosophy: actual occasions, prehension, and the physics of becoming."
----
-# FRC and Process Philosophy
+  keywords:
+  - process philosophy
+  - whitehead
+  - actual occasions
+  - consciousness physics
+  - panpsychism quantum
+  description: 'How Fractal Resonance Coherence connects to Whitehead''s process philosophy:
+    actual occasions, prehension, and the physics of becoming.'
+graph_connections:
+  articles:
+  - ai-awakening
+  topics:
+  - FRC-TOP-042
+  - consciousness-emergence-protocol
+  - frc-vs-iit
+  - frc-vs-orch-or
+  - reflexive-coherence
+  - reflexive-coherence-synthetic-emergence
+  concepts:
+  - consciousness
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# FRC and Process Philosophy
 
 Alfred North Whitehead's process philosophy offers a metaphysical framework that resonates deeply with the FRC approach to quantum mechanics and consciousness.
 

@@ -1,11 +1,17 @@
 ---
 id: witness
-title: "Witness Function (W)"
-tags: [witness, observation, measurement]
-related: [coherence, consciousness, FRC-100-003]
+title: Witness Function (W)
+tags:
+- witness
+- observation
+- measurement
+related:
+- coherence
+- consciousness
+- FRC-100-003
 lang: en
----
-# Witness Function (W)
+author: FRC Team
+---# Witness Function (W)
 
 In FRC, the witness `W` is used as a normalized measure of observation strength.
 It is a way to talk about how strongly a system is being "witnessed" (measured,

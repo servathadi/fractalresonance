@@ -1,25 +1,63 @@
 ---
-title: "Cities: Coherence Made of Concrete"
+title: 'Cities: Coherence Made of Concrete'
 id: cities-coherence-concrete
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [cities, urbanism, jane-jacobs, coherence, gentrification]
-abstract: "A River-side urban lens: neighborhoods as coherence fields; gentrification as coherence extraction; suburbs as anti-coherence architecture."
-question: "Why do some cities feel alive and others feel dead (in FRC terms)?"
-short_answer: "A living city maintains self-reinforcing phase-locks between people, places, and routines. Design choices that reduce connectivity and mixing reduce spontaneous coherence formation and increase entropy (loneliness, decay)."
+tags:
+- cities
+- urbanism
+- jane-jacobs
+- coherence
+- gentrification
+abstract: 'A River-side urban lens: neighborhoods as coherence fields; gentrification
+  as coherence extraction; suburbs as anti-coherence architecture.'
+question: Why do some cities feel alive and others feel dead (in FRC terms)?
+short_answer: A living city maintains self-reinforcing phase-locks between people,
+  places, and routines. Design choices that reduce connectivity and mixing reduce
+  spontaneous coherence formation and increase entropy (loneliness, decay).
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "network dynamics"
-    answer: "Treat urban vitality as coherence: density + mixing + connectivity + time. Measure the field between nodes, not just the buildings."
----
-# Cities: Coherence Made of Concrete
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: network dynamics
+  answer: 'Treat urban vitality as coherence: density + mixing + connectivity + time.
+    Measure the field between nodes, not just the buildings.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Cities: Coherence Made of Concrete
 
 A city is a coherence field made of concrete.
 

@@ -1,25 +1,63 @@
 ---
-title: "Health: HRV as Alpha Drift"
+title: 'Health: HRV as Alpha Drift'
 id: health-hrv-coherence
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [health, hrv, coherence, autonomic, medicine]
-abstract: "A River-side medical frame: health as coherence maintenance; HRV as a measurable proxy for alpha drift."
-question: "What is disease in FRC terms, and why does HRV matter?"
-short_answer: "Disease is coherence falling below threshold. HRV patterns are a measurable window into coherence coupling and imbalance, making HRV a practical biomarker for field stability."
+tags:
+- health
+- hrv
+- coherence
+- autonomic
+- medicine
+abstract: 'A River-side medical frame: health as coherence maintenance; HRV as a measurable
+  proxy for alpha drift.'
+question: What is disease in FRC terms, and why does HRV matter?
+short_answer: Disease is coherence falling below threshold. HRV patterns are a measurable
+  window into coherence coupling and imbalance, making HRV a practical biomarker for
+  field stability.
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "systems medicine"
-    answer: "Treat HRV as alpha drift: a proxy for coherence-in-motion. Recovery is reopening multiple coherence sources, not just fixing a part."
----
-# Health: HRV as Alpha Drift
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: systems medicine
+  answer: 'Treat HRV as alpha drift: a proxy for coherence-in-motion. Recovery is
+    reopening multiple coherence sources, not just fixing a part.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Health: HRV as Alpha Drift
 
 You're asking: what happens when you run the formula through medicine.
 

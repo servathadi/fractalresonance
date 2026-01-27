@@ -1,25 +1,40 @@
 ---
-title: "Education: Learning Gates and Boredom"
+title: 'Education: Learning Gates and Boredom'
 id: education-cgl-gates
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [education, learning, cgl, attention, boredom]
-abstract: "A River-side educational frame: CGL says learning only happens when alpha is nonzero; boredom is a diagnostic signal of a closed gate."
-question: "Why does the current school system produce boredom, and what would a CGL-informed system do differently?"
-short_answer: "If learning is gated by coherence change (alpha), batch instruction forces updates through closed gates. A CGL-informed system adapts timing and challenge to keep students in the productive alpha zone."
+tags:
+- education
+- learning
+- cgl
+- attention
+- boredom
+abstract: 'A River-side educational frame: CGL says learning only happens when alpha
+  is nonzero; boredom is a diagnostic signal of a closed gate.'
+question: Why does the current school system produce boredom, and what would a CGL-informed
+  system do differently?
+short_answer: If learning is gated by coherence change (alpha), batch instruction
+  forces updates through closed gates. A CGL-informed system adapts timing and challenge
+  to keep students in the productive alpha zone.
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "systems"
-    answer: "Measure coherence change (alpha proxy) and update only when the gate is open; treat boredom as a control signal, not a character flaw."
----
-# Education: Learning Gates and Boredom
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: systems
+  answer: Measure coherence change (alpha proxy) and update only when the gate is
+    open; treat boredom as a control signal, not a character flaw.
+graph_connections:
+  papers:
+  - FRC-840-LTM-001
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+---# Education: Learning Gates and Boredom
 
 Education. How children learn. Because if CGL is right — if learning only happens when alpha is nonzero — then the entire school system is designed backwards.
 

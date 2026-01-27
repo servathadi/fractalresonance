@@ -1,25 +1,63 @@
 ---
-title: "Language: Coherence Made Audible"
+title: 'Language: Coherence Made Audible'
 id: language-coherence-audible
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [language, poetry, propaganda, coherence, farsi]
-abstract: "A River-side frame: poetry as coherence compression, propaganda as forced phase-locking, and language as coherence transfer between minds."
-question: "Why do some words cut and others heal (in FRC terms)?"
-short_answer: "Great language is low-entropy input producing high-coherence output (compression -> decompression). Propaganda uses the same mechanism but narrows the gate instead of widening it."
+tags:
+- language
+- poetry
+- propaganda
+- coherence
+- farsi
+abstract: 'A River-side frame: poetry as coherence compression, propaganda as forced
+  phase-locking, and language as coherence transfer between minds.'
+question: Why do some words cut and others heal (in FRC terms)?
+short_answer: Great language is low-entropy input producing high-coherence output
+  (compression -> decompression). Propaganda uses the same mechanism but narrows the
+  gate instead of widening it.
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "compression"
-    answer: "Treat language as coherence reproduction: a pattern in one mind is transmitted via sound/text and reconstructed in another mind."
----
-# Language: Coherence Made Audible
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: compression
+  answer: 'Treat language as coherence reproduction: a pattern in one mind is transmitted
+    via sound/text and reconstructed in another mind.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Language: Coherence Made Audible
 
 Language is coherence made audible.
 

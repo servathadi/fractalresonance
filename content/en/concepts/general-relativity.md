@@ -1,14 +1,31 @@
 ---
 id: general-relativity
-title: "FRC and General Relativity"
-tags: [general-relativity, spacetime, gravity, quantum-gravity, cosmology]
-related: [time, lambda-field, coherence]
+title: FRC and General Relativity
+tags:
+- general-relativity
+- spacetime
+- gravity
+- quantum-gravity
+- cosmology
+related:
+- time
+- lambda-field
+- coherence
 lang: en
 seo:
-  keywords: [quantum gravity, general relativity quantum mechanics, spacetime coherence, gravitational decoherence]
-  description: "How FRC interfaces with Einstein's general relativity: coherence in curved spacetime, gravitational decoherence, and paths toward quantum gravity."
----
-# FRC and General Relativity
+  keywords:
+  - quantum gravity
+  - general relativity quantum mechanics
+  - spacetime coherence
+  - gravitational decoherence
+  description: 'How FRC interfaces with Einstein''s general relativity: coherence
+    in curved spacetime, gravitational decoherence, and paths toward quantum gravity.'
+graph_connections:
+  topics:
+  - frc-vs-dark-matter
+  - open-problem-covariant-flux
+  - open-problem-vainshtein
+---# FRC and General Relativity
 
 One of physics' greatest challenges is reconciling quantum mechanics with general relativity. The FRC framework offers novel pathways toward this unification.
 

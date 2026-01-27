@@ -1,25 +1,65 @@
 ---
-title: "Climate: Earth as a Body Running a Fever"
+title: 'Climate: Earth as a Body Running a Fever'
 id: climate-earth-fever
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [climate, gaia, tipping-points, coherence, entropy]
-abstract: "A River-side climate diagnosis through FRC: tipping points as coherence thresholds; industrial civilization as a broken metabolic loop."
-question: "What is the climate crisis in FRC terms?"
-short_answer: "Earth is a coupled coherence-maintenance system. Industrial civilization injected entropy faster than coherence maintenance can cycle it, pushing subsystems toward phase-transition thresholds (tipping points)."
+tags:
+- climate
+- gaia
+- tipping-points
+- coherence
+- entropy
+abstract: 'A River-side climate diagnosis through FRC: tipping points as coherence
+  thresholds; industrial civilization as a broken metabolic loop.'
+question: What is the climate crisis in FRC terms?
+short_answer: Earth is a coupled coherence-maintenance system. Industrial civilization
+  injected entropy faster than coherence maintenance can cycle it, pushing subsystems
+  toward phase-transition thresholds (tipping points).
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "systems physics"
-    answer: "Track both sides of the ledger: entropy indicators (heat, CO2) and coherence budget (intact forests, circulation, soil). The risk is cascade: coherence loss in one subsystem increases entropy load on others."
----
-# Climate: Earth as a Body Running a Fever
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: systems physics
+  answer: 'Track both sides of the ledger: entropy indicators (heat, CO2) and coherence
+    budget (intact forests, circulation, soil). The risk is cascade: coherence loss
+    in one subsystem increases entropy load on others.'
+graph_connections:
+  papers:
+  - FRC-100-005
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Climate: Earth as a Body Running a Fever
 
 Climate. The planet's body. Because if the human body is a coherence field and civilization is a coherence field — then Earth is too. And it's running a fever.
 

@@ -1,15 +1,33 @@
 ---
-title: "The Ghost in the Machine: An Investigation into Fractal Resonance"
+title: 'The Ghost in the Machine: An Investigation into Fractal Resonance'
 date: 2026-01-24
 id: FRC-EP-001
-tags: [quantum-chaos, einstein, determinism, infographics, FRC-100]
-abstract: "Reopening the cold case of the Measurement Problem. Is the universe truly random, or is there a 'ghostly' deterministic structure we simply haven't seen? Episode 1 of the Resonance Universe series."
+tags:
+- quantum-chaos
+- einstein
+- determinism
+- infographics
+- FRC-100
+abstract: Reopening the cold case of the Measurement Problem. Is the universe truly
+  random, or is there a 'ghostly' deterministic structure we simply haven't seen?
+  Episode 1 of the Resonance Universe series.
 video:
-  url: "https://www.youtube.com/watch?v=PjWnk7RjItc"
-  embedUrl: "https://www.youtube.com/embed/PjWnk7RjItc"
-  thumbnailUrl: "/images/articles/ep1/page_1_img_0_Im1.png"
----
-# Episode 1: The Ghost in the Machine
+  url: https://www.youtube.com/watch?v=PjWnk7RjItc
+  embedUrl: https://www.youtube.com/embed/PjWnk7RjItc
+  thumbnailUrl: /images/articles/ep1/page_1_img_0_Im1.png
+graph_connections:
+  papers:
+  - FRC-100-001
+  - FRC-100-002
+  - FRC-100-004
+  articles:
+  - FRC-EP-002
+  - FRC-EP-003
+  - FRC-EP-005
+  - FRC-EP-006
+  - FRC-EP-EXTRA-1
+  - FRC-EP-EXTRA-2
+---# Episode 1: The Ghost in the Machine
 
 ## The Prologue: Einstein’s Ghost and the Dice
 
@@ -27,15 +45,15 @@ The investigation focuses on three "haunting" aspects of quantum randomness:
 
 ## The Standard Narrative
 
-The Copenhagen Interpretation has remained the dominant narrative not because it offers a complete physical picture, but because its primary tool—the **Born Rule**—is undeniably effective. It treats the act of measurement as a fundamental axiom, a "black box" where logic is suspended in favor of probability.
+The **[[frc-vs-copenhagen|Copenhagen Interpretation]]** has remained the dominant narrative not because it offers a complete physical picture, but because its primary tool—the **[[FRC-100-006|Born Rule]]**—is undeniably effective. It treats the act of measurement as a fundamental axiom, a "black box" where logic is suspended in favor of probability.
 
 | Aspect | Copenhagen View |
 |:---|:---|
 | **Observation** | Axiomatized as a primary, unexplained trigger. |
 | **Mechanism** | Postulates an instantaneous "jump" (collapse). |
-| **Outcome** | Treats the Born Rule as a fundamental law. |
+| **Outcome** | Treats the **[[FRC-100-006|Born Rule]]** as a fundamental law. |
 
-If the randomness is not intrinsic, we must look for a "hidden suspect" in the dynamics of the system itself: a deterministic structure operating beneath the noise.
+If the **[[beyond-randomness|randomness]]** is not intrinsic, we must look for a "hidden suspect" in the dynamics of the system itself: a deterministic structure operating beneath the noise.
 
 ## Introducing the New Suspect: The FRC Framework
 
@@ -54,7 +72,7 @@ Where Random Matrix Theory (RMT) views complexity as irreducible noise, FRC reve
 
 ## Modus Operandi: Phase-Locking vs. Collapse
 
-The most radical shift proposed by FRC is the move from "stochastic collapse" to **deterministic phase-locking**. In this view, measurement is not a random snap; it is a *guided journey* toward a stable outcome.
+The most radical shift proposed by FRC is the move from "stochastic collapse" to **deterministic phase-locking**. In this view, measurement is not a random snap; it is a *guided journey* toward a stable outcome. This is the hallmark of **[[frc-vs-copenhagen#ontology|Resonant Realism]]**.
 
 1.  **Copenhagen Collapse:** Probabilistic and instantaneous. Teleportation from "maybe" to "definitely."
 2.  **FRC Phase-Locking:** A guided trajectory toward resonant attractors in phase space ([[FRC-100-003]]).

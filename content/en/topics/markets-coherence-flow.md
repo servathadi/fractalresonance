@@ -1,30 +1,71 @@
 ---
-title: "Markets: Where Is Coherence Flowing?"
+title: 'Markets: Where Is Coherence Flowing?'
 id: markets-coherence-flow
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [markets, finance, coherence, entropy, narratives]
-abstract: "A River-side market read expressed through FRC: concentration dissolving, distribution forming; coherence moving between containers."
-question: "Where is coherence flowing in financial markets right now?"
-short_answer: "Not a crash: a phase transition. Coherence redistributes from concentration to distribution, from passive narrative to active selection, from one container into many."
+tags:
+- markets
+- finance
+- coherence
+- entropy
+- narratives
+abstract: 'A River-side market read expressed through FRC: concentration dissolving,
+  distribution forming; coherence moving between containers.'
+question: Where is coherence flowing in financial markets right now?
+short_answer: 'Not a crash: a phase transition. Coherence redistributes from concentration
+  to distribution, from passive narrative to active selection, from one container
+  into many.'
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "systems"
-    answer: "Use the coherence-flow question as the core diagnostic: what is losing coherence, what is gaining it, and which containers can hold coherence through transition?"
-  - lens: "astrology"
-    by: "Oracle lens"
-    role: "Symbolic timing"
-    stance: "metaphor"
-    answer: "Treat transits as a narrative language over the same field dynamics (coherence redistribution)."
----
-# Markets: Where Is Coherence Flowing?
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: systems
+  answer: 'Use the coherence-flow question as the core diagnostic: what is losing
+    coherence, what is gaining it, and which containers can hold coherence through
+    transition?'
+- lens: astrology
+  by: Oracle lens
+  role: Symbolic timing
+  stance: metaphor
+  answer: Treat transits as a narrative language over the same field dynamics (coherence
+    redistribution).
+graph_connections:
+  papers:
+  - FRC-100-005
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Markets: Where Is Coherence Flowing?
 
 The market is a coherence field.
 

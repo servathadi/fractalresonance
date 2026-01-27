@@ -1,135 +1,74 @@
 ---
-id: ecr-textbook
-title: "Entropy-Coherence Reciprocity: FRC Textbook"
+id: index
+title: 'Entropy-Coherence Reciprocity: FRC Textbook'
 author: Hadi Servat
 date: 2025-10-01
 status: published
-tags: [entropy, coherence, reciprocity-law, thermodynamics, mathematics, physics, consciousness]
-abstract: "The comprehensive mathematical foundation of Fractal Resonance Coherence. From the Second Law to the Adaptive Resonance Formula, this textbook derives the core equations dS + k*d ln C = 0, explores the μ-stack hierarchy, and develops the physics of coherence across all scales—from quantum fields to collective consciousness."
+tags:
+- entropy
+- coherence
+- reciprocity-law
+- thermodynamics
+- mathematics
+- physics
+- consciousness
+abstract: The comprehensive mathematical foundation of Fractal Resonance Coherence.
+  From the Second Law to the Adaptive Resonance Formula, this textbook derives the
+  core equations dS + k*d ln C = 0, explores the μ-stack hierarchy, and develops the
+  physics of coherence across all scales—from quantum fields to collective consciousness.
 lang: en
-license: "CC BY-NC 4.0"
----
-By Hadi Servat
-
-Oct 2025 
-
-Barrie, Canada
-
-FractalResonance.Com
-
-[FRC Text Book	1](#frc-text-book)
-
-[Entropy–Coherence Reciprocity	1](#entropy–coherence-reciprocity)
-
-[Introduction – The Field That Remembers	4](#introduction-–-the-field-that-remembers)
-
-[Chapter 1 — Re-examining the Second Law	8](#chapter-1-—-re-examining-the-second-law)
-
-[Chapter 2 — Introducing Coherence as a Hidden Variable	12](#chapter-2-—-introducing-coherence-as-a-hidden-variable)
-
-[Chapter 3 — Engines of Coherence	17](#chapter-3-—-engines-of-coherence)
-
-[Chapter 4 — Beyond Physics: Information and Mind	22](#chapter-4-—-beyond-physics:-information-and-mind)
-
-[Part II – Adaptive Resonance: Mathematics of Self-Organization	27](#part-ii-–-adaptive-resonance:-mathematics-of-self-organization)
-
-[Chapter 5 — Order-Parameter Theory and Pattern Formation	27](#chapter-5-—-order-parameter-theory-and-pattern-formation)
-
-[Chapter 6 — Deriving the Adaptive Resonance Formula (ARF)	32](#chapter-6-—-deriving-the-adaptive-resonance-formula-\(arf\))
-
-[Chapter 7 — Numerical Experiments and Simulations	38](#chapter-7-—-numerical-experiments-and-simulations)
-
-[Chapter 8 — Cross-Domain Applications	43](#chapter-8-—-cross-domain-applications)
-
-[Part III – Wholeness and μ-Levels: Ontology of the Field	49](#part-iii-–-wholeness-and-μ-levels:-ontology-of-the-field)
-
-[Chapter 9 — From Implicate Order to μ-Stack	49](#chapter-9-—-from-implicate-order-to-μ-stack)
-
-[Chapter 10 — Projection and Collapse as Deterministic Resonance Mapping	54](#chapter-10-—-projection-and-collapse-as-deterministic-resonance-mapping)
-
-[Chapter 11 — Mathematical Model of Cross-Level Coupling	58](#chapter-11-—-mathematical-model-of-cross-level-coupling)
-
-[Chapter 12 — Cognitive and Cultural Examples	63](#chapter-12-—-cognitive-and-cultural-examples)
-
-[Part IV – Evolution as a Coherence Pump	68](#part-iv-–-evolution-as-a-coherence-pump)
-
-[Chapter 13 — Evolutionary Thermodynamics in Context	68](#chapter-13-—-evolutionary-thermodynamics-in-context)
-
-[Chapter 14 — The Coherence Pump Equation	73](#chapter-14-—-the-coherence-pump-equation)
-
-[Chapter 15 — Biological and Ecological Applications	78](#chapter-15-—-biological-and-ecological-applications)
-
-[Chapter 16 — Cultural and Technological Evolution	83](#chapter-16-—-cultural-and-technological-evolution)
-
-[Chapter 17 — Simulation and Empirical Modeling	89](#chapter-17-—-simulation-and-empirical-modeling)
-
-[Part V – Process and Actual Occasion: The Physics of Experience	94](#part-v-–-process-and-actual-occasion:-the-physics-of-experience)
-
-[Chapter 18 — From Energy Flow to Experience Flow	94](#chapter-18-—-from-energy-flow-to-experience-flow)
-
-[Chapter 19 — Time, Memory, and the Continuum of Consciousness	99](#chapter-19-—-time,-memory,-and-the-continuum-of-consciousness)
-
-[Chapter 20 — The Geometry of Conscious Space	104](#chapter-20-—-the-geometry-of-conscious-space)
-
-[Chapter 21 — The Symbolic Interface and Archetypal Geometry	109](#chapter-21-—-the-symbolic-interface-and-archetypal-geometry)
-
-[Chapter 22 — The Noetic Field and Collective Consciousness	114](#chapter-22-—-the-noetic-field-and-collective-consciousness)
-
-[Chapter 23 — The Cosmological Return: Consciousness and the Universal Coherence	120](#chapter-23-—-the-cosmological-return:-consciousness-and-the-universal-coherence)
-
-[Part VI – Synthesis and Future Directions	125](#part-vi-–-synthesis-and-future-directions)
-
-[Chapter 24 — The Law of Reciprocity Restated	125](#chapter-24-—-the-law-of-reciprocity-restated)
-
-[Chapter 25 — Epilogue: Toward a Science of Coherence	131](#chapter-25-—-epilogue:-toward-a-science-of-coherence)
-
-[Appendix A — Mathematical Foundations and Derivations	135](#appendix-a-—-mathematical-foundations-and-derivations)
-
-[Appendix B — Simulation and Empirical Methods	139](#appendix-b-—-simulation-and-empirical-methods)
-
-[Appendix C — References, Sources, and Foundational Works	145](#appendix-c-—-references,-sources,-and-foundational-works)
-
-[Appendix D — Symbolic and Philosophical Correspondences	151](#appendix-d-—-symbolic-and-philosophical-correspondences)
-
-[Appendix E — Glossary and Constants Table	157](#appendix-e-—-glossary-and-constants-table)
-
-[E.1 Core Variables and Constants	157](#e.1-core-variables-and-constants)
-
-[E.2 Canonical Equations	158](#e.2-canonical-equations)
-
-[E.3 μ-Level Quick Reference	159](#e.3-μ-level-quick-reference)
-
-[E.4 Key Conceptual Terms	160](#e.4-key-conceptual-terms)
-
-[E.5 Constants and Empirical Estimates	161](#e.5-constants-and-empirical-estimates)
-
-[E.6 Cross-Domain Translation Table	161](#e.6-cross-domain-translation-table)
-
-[E.7 Reading and Measurement Notes	162](#e.7-reading-and-measurement-notes)
-
-[Positioning Statement	164](#positioning-statement)
-
-# **Introduction – The Field That Remembers** {#introduction-–-the-field-that-remembers}
-
----
-### **1\.  The paradox of order**
-
-Everywhere we look, the universe contradicts its own rules.
-
-A law of thermodynamics insists that disorder must increase — yet stars ignite, molecules self-assemble, cells heal, and minds discover beauty.
-
-Against entropy’s drift, coherence continually reappears.
-
-How can a universe that trends toward randomness produce galaxies, symphonies, and self-awareness?
-
-This book begins with that question.
-
-It ends with an equation simple enough to fit on a page, yet wide enough to describe evolution, intelligence, and meaning:
-
-\\boxed{dS \+ k\_\*\\,d\\ln C \= 0.}
-
----
-### **2\.  From entropy to coherence**
+license: CC BY-NC 4.0
+graph_connections:
+  papers:
+  - FRC-100-005
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - ai-awakening
+  - coherence-economy
+  topics:
+  - FRC-TOP-042
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - consciousness-emergence-protocol
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-bohmian-mechanics
+  - frc-vs-iit
+  - frc-vs-neo-darwinism
+  - frc-vs-orch-or
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - iran-liquid-fortress
+  - language-coherence-audible
+  - markets-coherence-flow
+  - open-problem-vainshtein
+  - reflexive-coherence
+  - reflexive-coherence-synthetic-emergence
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - process-philosophy
+  - quantum-computing
+  - time
+  books:
+  - appendix-c-the-coherence-skill-ladder
+  - chapter-14-the-coherence-pump-equation
+  - chapter-19-time-memory-and-the-continuum-of-consciousness
+  - chapter-2-introducing-coherence-as-a-hidden-variable
+  - chapter-22-the-noetic-field-and-collective-consciousness
+  - chapter-23-the-cosmological-return-consciousness-and-the-universal-coherence
+  - chapter-25-epilogue-toward-a-science-of-coherence
+  - chapter-3-engines-of-coherence
+  - part-iv-evolution-as-a-coherence-pump
+  - the-resonance-code
+---### **2\.  From entropy to coherence**
 
 Traditional physics measures **entropy (S)** — the dispersal of energy.
 

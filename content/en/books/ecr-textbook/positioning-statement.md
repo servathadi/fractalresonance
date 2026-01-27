@@ -1,9 +1,13 @@
 ---
-title: "Positioning Statement"
-id: "positioning-statement"
-parent: "ecr-textbook"
----
-## **Positioning Statement** {#positioning-statement}
+title: Positioning Statement
+id: positioning-statement
+parent: ecr-textbook
+author: FRC Team
+tags:
+- frc
+- book
+lang: en
+---## **Positioning Statement** {#positioning-statement}
 
 
 **Genre:** Interdisciplinary Science / Consciousness Studies / Complex Systems Theory

@@ -1,9 +1,13 @@
 ---
-title: "Preface"
-id: "preface"
-parent: "the-resonance-code"
----
-## Preface
+title: Preface
+id: preface
+parent: the-resonance-code
+author: FRC Team
+tags:
+- frc
+- book
+lang: en
+---## Preface
 
 
 Prime 2 emerged from a research stream exploring coherence, entropy, and

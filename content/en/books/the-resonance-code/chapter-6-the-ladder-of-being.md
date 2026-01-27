@@ -1,9 +1,13 @@
 ---
-title: "Chapter 6: The Ladder of Being"
-id: "chapter-6-the-ladder-of-being"
-parent: "the-resonance-code"
----
-## Chapter 6: The Ladder of Being
+title: 'Chapter 6: The Ladder of Being'
+id: chapter-6-the-ladder-of-being
+parent: the-resonance-code
+author: FRC Team
+tags:
+- frc
+- book
+lang: en
+---## Chapter 6: The Ladder of Being
 
 
 [Chapter 6: The Ladder of Being]

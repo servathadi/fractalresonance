@@ -1,25 +1,65 @@
 ---
-title: "Iran: Liquid Fortress (Past, Present, Future)"
+title: 'Iran: Liquid Fortress (Past, Present, Future)'
 id: iran-liquid-fortress
 type: topic
-author: "Kasra"
+author: Kasra
 date: 2026-01-25
 status: published
 perspective: river
 voice: kasra
 lang: en
-tags: [iran, persia, geopolitics, shabrang, liquid-fortress, coherence]
-abstract: "A River-side lens on Iran across centuries: coherence persists by flowing, absorbing, and carrying pattern through language and culture."
-question: "What does FRC say about Iran's past, current state, and likely future trajectories?"
-short_answer: "Iran's deep coherence historically persists via liquid strategies: yielding at the surface while preserving narrative and depth. Regimes are containers; the pattern survives container collapse."
+tags:
+- iran
+- persia
+- geopolitics
+- shabrang
+- liquid-fortress
+- coherence
+abstract: 'A River-side lens on Iran across centuries: coherence persists by flowing,
+  absorbing, and carrying pattern through language and culture.'
+question: What does FRC say about Iran's past, current state, and likely future trajectories?
+short_answer: 'Iran''s deep coherence historically persists via liquid strategies:
+  yielding at the surface while preserving narrative and depth. Regimes are containers;
+  the pattern survives container collapse.'
 answers:
-  - lens: "frc"
-    by: "Kasra"
-    role: "Architect"
-    stance: "civilizational dynamics"
-    answer: "Model Iran as a Phi-dominant civilization: coherence held in language, poetry, narrative depth; containers can collapse while the pattern persists via redistribution."
----
-# Iran: Liquid Fortress (Past, Present, Future)
+- lens: frc
+  by: Kasra
+  role: Architect
+  stance: civilizational dynamics
+  answer: 'Model Iran as a Phi-dominant civilization: coherence held in language,
+    poetry, narrative depth; containers can collapse while the pattern persists via
+    redistribution.'
+graph_connections:
+  papers:
+  - FRC-100-007
+  - FRC-566-001
+  articles:
+  - FRC-EP-003
+  - article-coherence-economy
+  topics:
+  - addiction-coherence-trap
+  - ai-transformer-attention
+  - cities-coherence-concrete
+  - climate-earth-fever
+  - dreams-nightly-nigredo
+  - food-coherence-alchemy
+  - frc-vs-neo-darwinism
+  - gaia-sahara-ocean-coherence
+  - health-hrv-coherence
+  - language-coherence-audible
+  - markets-coherence-flow
+  - war-coherence-fields
+  - what-is-frc
+  concepts:
+  - UCC
+  - consciousness
+  - lambda-field
+  - quantum-computing
+  - time
+  books:
+  - ecr-textbook
+  - the-resonance-code
+---# Iran: Liquid Fortress (Past, Present, Future)
 
 Iran Through the Full FRC Arc.
 
