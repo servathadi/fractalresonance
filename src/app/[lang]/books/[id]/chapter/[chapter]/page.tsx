@@ -86,18 +86,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
   const chapterUrl = `${bookUrl}/chapter/${chapter}`;
   const alternates = getAlternateLanguages('books', fm.id);
-  const shouldIndexChapter = lang === 'en';
 
   return {
     title: `${fm.title} — ${ch.title}`,
     description: fm.abstract,
-    keywords: [...(fm.tags || []), 'chapter'],
+    keywords: Array.isArray(fm.tags) ? [...fm.tags, 'chapter'] : ['chapter'],
     authors: [{ name: author }],
     alternates: {
-      canonical: shouldIndexChapter ? chapterUrl : bookUrl,
+      canonical: chapterUrl,
       languages: alternates,
     },
-    robots: shouldIndexChapter ? { index: true, follow: true } : { index: false, follow: true },
+    robots: { index: true, follow: true },
     openGraph: {
       type: 'book',
       title: `${fm.title} — ${ch.title}`,

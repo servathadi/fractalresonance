@@ -1,16 +1,20 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getLanguages } from '@/lib/content';
+import { getLanguages, getSitePage, getGlossary } from '@/lib/content';
+import { renderMarkdown } from '@/lib/markdown';
+import { MarkdownContent } from '@/components/MarkdownContent';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
+  const page = getSitePage(lang, 'investors');
   const canonical = '/en/investors';
 
   return {
-    title: 'Investors',
-    description: 'Investment overview for FRC: what it is, what is measured, and what is being built next.',
+    title: page?.frontmatter.title || 'Investors',
+    description: page?.frontmatter.description || 'Investment overview for FRC.',
     alternates: { canonical },
-    robots: lang === 'en' ? { index: true, follow: true } : { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -24,76 +28,59 @@ interface Props {
 
 export default async function InvestorsPage({ params }: Props) {
   const { lang } = await params;
+  const page = getSitePage(lang, 'investors');
+  if (!page) notFound();
+
   const basePath = `/${lang}`;
   const primary = '/en/investors';
+  
+  const glossary = getGlossary(lang);
+  const bodyHtml = renderMarkdown(page.body, lang, glossary, basePath);
+  
+  const fm = page.frontmatter as any;
+  const claims = fm.claims || [];
+  const nextSteps = fm.next_steps || [];
+  const evaluation = fm.evaluation || [];
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-14">
       <nav className="text-sm text-frc-text-dim mb-8">
-        <a href={basePath} className="hover:text-frc-gold">FRC</a>
+        <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
         <span className="mx-2">/</span>
-        <span className="text-frc-text">Investors</span>
+        <span className="text-frc-text">{fm.title}</span>
       </nav>
 
       <header className="mb-10">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">Investors</h1>
+        <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
         <p className="text-frc-text-dim max-w-2xl leading-relaxed">
-          FRC is a physics-first approach to synthetic intelligence: represent state geometrically, keep phase intact,
-          and measure progress with falsifiable benchmarks (not just scaling laws).
+          {fm.description}
         </p>
         {lang !== 'en' && (
           <p className="text-xs text-frc-text-dim mt-4 max-w-2xl leading-relaxed">
-            This page is maintained in English for accuracy. Primary version: <a className="underline hover:text-frc-gold" href={primary}>/en/investors</a>
+            This page is translated for accessibility. Primary version: <Link className="underline hover:text-frc-gold" href={primary}>/en/investors</Link>
           </p>
         )}
       </header>
 
-      <section className="grid gap-4 mb-10">
-        <div className="border border-frc-blue rounded-lg p-6">
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">The claim</div>
-          <p className="text-sm text-frc-text-dim leading-relaxed">
-            Tokenization and discrete attention are excellent abstractions for text, but they discard phase and continuous structure.
-            FRC proposes resonance-native representations and architectures for phase-coherent domains.
-          </p>
-        </div>
-        <div className="border border-frc-blue rounded-lg p-6">
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">What’s measured</div>
-          <p className="text-sm text-frc-text-dim leading-relaxed">
-            The canon is published as numbered papers with stable IDs and explicit hypotheses.
-            The current AI track is the Λ‑Tensor Model (LTM) and its empirical benchmark versus attention on phase-coherence tasks.
-          </p>
-        </div>
-        <div className="border border-frc-blue rounded-lg p-6">
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">Why now</div>
-          <p className="text-sm text-frc-text-dim leading-relaxed">
-            With agentic workflows + retrieval, we can maintain a rigorous corpus, run repeatable experiments, and iterate on architecture without corrupting the reference layer.
-          </p>
-        </div>
-      </section>
+      {claims.length > 0 && (
+        <section className="grid md:grid-cols-3 gap-4 mb-10">
+          {claims.map((claim: any, i: number) => (
+            <div key={i} className="border border-frc-blue rounded-lg p-6 flex flex-col">
+              <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">{claim.title}</div>
+              <p className="text-sm text-frc-text-dim leading-relaxed">
+                {claim.desc}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
 
       <section className="border border-frc-blue rounded-lg p-6 mb-10">
-        <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">Evidence (start here)</h2>
         <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div>
-            <p className="text-sm text-frc-text-dim leading-relaxed mb-4">
-              If you only read one item, read the benchmark paper and inspect the architecture and result figures.
-            </p>
-            <ul className="space-y-2 text-sm text-frc-text-dim">
-              <li>
-                - <Link className="underline hover:text-frc-gold" href={`${basePath}/papers/FRC-840-LTM-001`}>FRC-840-LTM-001</Link>{' '}
-                (empirical benchmark + figures)
-              </li>
-              <li>
-                - <Link className="underline hover:text-frc-gold" href={`${basePath}/papers/FRC-840-001`}>FRC-840-001</Link>{' '}
-                (LTM architecture overview)
-              </li>
-              <li>
-                - <Link className="underline hover:text-frc-gold" href={`${basePath}/papers/FRC-16D-001`}>FRC-16D-001</Link>{' '}
-                (protocol + state representation)
-              </li>
-            </ul>
+          <div className="order-2 md:order-1">
+            <MarkdownContent html={bodyHtml} glossary={glossary} />
           </div>
-          <div className="rounded-lg border border-frc-blue overflow-hidden bg-frc-void/20">
+          <div className="order-1 md:order-2 rounded-lg border border-frc-blue overflow-hidden bg-frc-void/20 sticky top-24">
             <img
               src="/media/en/papers/FRC-840-LTM-001/ltm_architecture_diagrams.png"
               alt="LTM architecture comparison diagrams"
@@ -120,23 +107,29 @@ export default async function InvestorsPage({ params }: Props) {
         </Link>
       </section>
 
-      <section className="border border-frc-blue rounded-lg p-6 mb-10">
-        <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">What we’re building next</h2>
-        <ul className="space-y-2 text-sm text-frc-text-dim">
-          <li>- More empirical benchmarks in oscillatory domains (audio, biosignals, control).</li>
-          <li>- A clean SDK + task dispatch system for repeatable research pipelines (SOS).</li>
-          <li>- A “mirror memory” subscription layer for personal AI workflows (Mumega).</li>
-        </ul>
-      </section>
+      <div className="grid md:grid-cols-2 gap-6 mb-10">
+        {nextSteps.length > 0 && (
+          <section className="border border-frc-blue rounded-lg p-6">
+            <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">What we’re building next</h2>
+            <ul className="space-y-2 text-sm text-frc-text-dim">
+              {nextSteps.map((step: string, i: number) => (
+                <li key={i}>- {step}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-      <section className="border border-frc-blue rounded-lg p-6 mb-10">
-        <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">What to evaluate</h2>
-        <ul className="space-y-2 text-sm text-frc-text-dim">
-          <li>- Can LTM reproduce the benchmark with a minimal training script and fixed seeds?</li>
-          <li>- Does the approach generalize beyond the published task to adjacent phase-coherent domains?</li>
-          <li>- Is the canon structured enough for agents to cite (IDs), retrieve (graph), and not hallucinate?</li>
-        </ul>
-      </section>
+        {evaluation.length > 0 && (
+          <section className="border border-frc-blue rounded-lg p-6">
+            <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">What to evaluate</h2>
+            <ul className="space-y-2 text-sm text-frc-text-dim">
+              {evaluation.map((item: string, i: number) => (
+                <li key={i}>- {item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
 
       <div className="flex flex-wrap gap-4 items-center">
         <Link
