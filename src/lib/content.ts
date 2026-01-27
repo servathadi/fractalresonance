@@ -429,7 +429,8 @@ export function getLegacyPaperIds(canonicalId: string): string[] {
   if (!series || suffixParts.length === 0) return out;
 
   const suffix = suffixParts.join('-');
-  push(`FRC ${series}.${suffix}`);
+  // Avoid emitting space-based routes (they become %20 URLs and duplicate SEO surfaces).
+  // We keep dot-variant for legacy compatibility.
   push(`FRC-${series}.${suffix}`);
 
   return out;
