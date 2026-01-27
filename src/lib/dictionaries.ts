@@ -3,6 +3,7 @@ export type Locale = 'en' | 'es' | 'fr' | 'fa';
 export const dictionaries = {
   en: {
     nav: {
+      startHere: 'Start Here',
       about: 'About',
       articles: 'Articles',
       blog: 'Blog',
@@ -32,6 +33,7 @@ export const dictionaries = {
   },
   es: {
     nav: {
+      startHere: 'Empezar',
       about: 'Acerca',
       articles: 'Artículos',
       blog: 'Blog',
@@ -61,6 +63,7 @@ export const dictionaries = {
   },
   fr: {
     nav: {
+      startHere: 'Commencer',
       about: 'À propos',
       articles: 'Articles',
       blog: 'Blog',
@@ -90,6 +93,7 @@ export const dictionaries = {
   },
   fa: {
     nav: {
+      startHere: 'شروع',
       about: 'درباره',
       articles: 'مقالات',
       blog: 'وبلاگ',

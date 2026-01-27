@@ -32,6 +32,7 @@ export function Header() {
   const [isMobileMenuRendered, setIsMobileMenuRendered] = useState(false); // mounted
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false); // animated in/out
   const [mobileGroupOpen, setMobileGroupOpen] = useState<Record<string, boolean>>({});
+  const [desktopGroupOpen, setDesktopGroupOpen] = useState<string | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
@@ -39,25 +40,6 @@ export function Header() {
   const DRAWER_ANIMATION_MS = 200;
 
   type MobileLink = { path: string; label: string } | { href: string; label: string };
-
-  const navLinks = [
-    { path: '/about', label: dict.nav.about },
-    { path: '/articles', label: dict.nav.articles },
-    { path: '/blog', label: dict.nav.blog },
-    { path: '/topics', label: dict.nav.topics },
-    { path: '/people', label: dict.nav.people },
-    { path: '/papers', label: dict.nav.papers },
-    { path: '/books', label: dict.nav.books },
-    { path: '/graph', label: dict.nav.graph },
-    { path: '/formulas', label: dict.nav.formulas },
-    { path: '/oracle', label: dict.nav.oracle },
-    { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
-    { path: '/join', label: dict.nav.join },
-    { path: '/investors', label: dict.nav.investors },
-    { path: '/builders', label: dict.nav.builders },
-    { path: '/positioning', label: dict.nav.positioning },
-    { path: '/mu-levels', label: dict.nav.muLevels },
-  ];
 
   const mobileGroups: Array<{ id: string; label: string; openByDefault: boolean; links: MobileLink[] }> = useMemo(
     () => [
@@ -90,6 +72,7 @@ export function Header() {
         label: g.tools,
         openByDefault: false,
         links: [
+          { path: '/start-here', label: dict.nav.startHere },
           { path: '/join', label: dict.nav.join },
           { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
         ],
@@ -107,7 +90,7 @@ export function Header() {
         ],
       },
     ],
-    [dict.nav.about, dict.nav.articles, dict.nav.askAi, dict.nav.blog, dict.nav.books, dict.nav.concepts, dict.nav.formulas, dict.nav.graph, dict.nav.muLevels, dict.nav.papers, dict.nav.people, dict.nav.positioning, dict.nav.topics, g.explore, g.library, g.meta, g.tools]
+    [dict.nav.about, dict.nav.articles, dict.nav.askAi, dict.nav.blog, dict.nav.books, dict.nav.concepts, dict.nav.formulas, dict.nav.graph, dict.nav.join, dict.nav.muLevels, dict.nav.papers, dict.nav.people, dict.nav.positioning, dict.nav.startHere, dict.nav.topics, g.explore, g.library, g.meta, g.tools]
   );
 
   const normalizedPathname = useMemo(() => {
@@ -123,6 +106,7 @@ export function Header() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setDesktopGroupOpen(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -280,29 +264,93 @@ export function Header() {
               </svg>
             </button>
 
-            <nav className="hidden xl:flex items-center">
-              {navLinks.map(link => (
-                link.path ? (
-                  <Link
-                    key={link.path}
-                    href={`${basePath}${link.path}`}
-                    className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
-                      isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
-                    }`}
+            <nav className="hidden xl:flex items-center gap-1">
+              {/* Primary CTAs */}
+              <Link
+                href={`${basePath}/start-here`}
+                className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
+                  isActivePath('/start-here') ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                }`}
+              >
+                {dict.nav.startHere}
+              </Link>
+              <Link
+                href={`${basePath}/join`}
+                className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
+                  isActivePath('/join') ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                }`}
+              >
+                {dict.nav.join}
+              </Link>
+
+              <div className="w-px h-5 bg-frc-blue/70 mx-1" />
+
+              {/* Grouped dropdowns (reduces clutter) */}
+              {mobileGroups.map((group) => (
+                <div
+                  key={`desktop:${group.id}`}
+                  className="relative"
+                  onMouseEnter={() => setDesktopGroupOpen(group.id)}
+                  onMouseLeave={() => setDesktopGroupOpen((prev) => (prev === group.id ? null : prev))}
+                >
+                  <button
+                    type="button"
+                    className="text-xs uppercase tracking-wider px-3 py-2 text-frc-text-dim hover:text-frc-gold transition-colors inline-flex items-center gap-1"
+                    aria-haspopup="menu"
+                    aria-expanded={desktopGroupOpen === group.id}
+                    onClick={() => setDesktopGroupOpen((prev) => (prev === group.id ? null : group.id))}
                   >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider px-3 py-2 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                )
+                    {group.label}
+                    <svg
+                      className={`w-3.5 h-3.5 text-frc-steel transition-transform motion-reduce:transition-none ${
+                        desktopGroupOpen === group.id ? 'rotate-180' : ''
+                      }`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {desktopGroupOpen === group.id ? (
+                    <div
+                      role="menu"
+                      className={`absolute top-full mt-2 min-w-[16rem] border border-frc-blue bg-frc-void shadow-xl rounded-lg py-2 ${
+                        isRTL ? 'left-0' : 'right-0'
+                      }`}
+                    >
+                      {group.links.map((link) =>
+                        'path' in link ? (
+                          <Link
+                            key={`desktop:${group.id}:${link.path}`}
+                            href={`${basePath}${link.path}`}
+                            onClick={() => setDesktopGroupOpen(null)}
+                            className={`block px-4 py-2 text-sm tracking-wide transition-colors ${
+                              isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                            }`}
+                            role="menuitem"
+                          >
+                            {link.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={`desktop:${group.id}:${link.href}`}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setDesktopGroupOpen(null)}
+                            className="block px-4 py-2 text-frc-text-dim hover:text-frc-gold text-sm tracking-wide transition-colors"
+                            role="menuitem"
+                          >
+                            {link.label}
+                          </a>
+                        )
+                      )}
+                    </div>
+                  ) : null}
+                </div>
               ))}
             </nav>
           </div>
