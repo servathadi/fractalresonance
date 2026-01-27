@@ -327,7 +327,7 @@ export function schemaLearningResource(paper: PaperMeta) {
     author: { '@id': `${SITE_URL}/#author` },
     educationalLevel: 'Advanced',
     learningResourceType: 'Research Paper',
-    teaches: paper.tags.map(tag => ({
+    teaches: (Array.isArray(paper.tags) ? paper.tags : []).map(tag => ({
       '@type': 'DefinedTerm',
       name: tag,
       inDefinedTermSet: { '@id': `${SITE_URL}/#termset-frc` },

@@ -127,7 +127,7 @@ export default async function BookPage({ params }: Props) {
               {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
               <span className="font-mono text-xs">{readTime}</span>
             </div>
-            {book.frontmatter.tags && (
+            {Array.isArray(book.frontmatter.tags) && book.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {book.frontmatter.tags.map(tag => (
                   <Link
