@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -37,22 +38,27 @@ export default async function ContactPage({ params }: Props) {
           {t.intro}
         </p>
 
-        <div className="space-y-3 text-frc-text-dim">
-          <p>
-            <span className="text-frc-text">{t.emailLabel}</span>{' '}
-            <a className="hover:text-frc-gold" href="mailto:publish@fractalresonance.com">
-              publish@fractalresonance.com
-            </a>
-          </p>
-          <p>
-            <span className="text-frc-text">{t.websiteLabel}</span>{' '}
-            <a className="hover:text-frc-gold" href="https://fractalresonance.com" target="_blank" rel="noopener noreferrer">
-              fractalresonance.com
-            </a>
-          </p>
-          <p>
-            <span className="text-frc-text">{t.authorLabel}</span> Hadi Servat
-          </p>
+        <div className="rounded-lg border border-frc-blue/60 overflow-hidden bg-frc-void/20">
+          <div style={{ width: '100%', height: 675 }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/vGpoXpEcyYPScch7TCoM"
+              style={{ width: '100%', height: '100%', border: 'none', borderRadius: 3 }}
+              id="inline-vGpoXpEcyYPScch7TCoM"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="FRC Contact"
+              data-height="675"
+              data-layout-iframe-id="inline-vGpoXpEcyYPScch7TCoM"
+              data-form-id="vGpoXpEcyYPScch7TCoM"
+              title="FRC Contact"
+            />
+          </div>
+          <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
         </div>
 
         <p className="text-xs text-frc-text-dim leading-relaxed">
@@ -62,4 +68,3 @@ export default async function ContactPage({ params }: Props) {
     </main>
   );
 }
-
