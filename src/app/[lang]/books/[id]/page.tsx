@@ -9,9 +9,8 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { BookExperience } from '@/components/BookExperience';
-import { estimateReadTime, getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
-import { getChapterList } from '@/lib/bookChapters';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -75,7 +74,17 @@ export default async function BookPage({ params }: Props) {
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(book.body);
+
+  // Get chapters directly from chapter files (not from combined body)
+  const chapters = getBookChapters(lang, id);
+  const chapterItems = chapters.map((c) => {
+    const slug = c.filename.replace(/\.md$/, '');
+    return { slug, title: c.title, anchorId: slug };
+  });
+
+  // Calculate total read time from all chapters
+  const totalContent = chapters.map((c) => c.body).join('\n');
+  const readTime = fm.read_time || estimateReadTime(totalContent);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -84,8 +93,8 @@ export default async function BookPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
+  // Only render the book's index content (abstract, intro), not all chapters
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  const chapterItems = getChapterList(book.body);
   const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (

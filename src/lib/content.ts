@@ -17,6 +17,7 @@ const CONTENT_DIR = path.join(process.cwd(), 'content');
 interface RawFrontmatter {
   title: string;
   id: string;
+  description?: string;
   series?: string;
   author?: string;
   date?: string;
@@ -493,17 +494,9 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   if (fs.existsSync(indexPath)) {
     const raw = fs.readFileSync(indexPath, 'utf-8');
     const parsed = parseFrontmatter(raw);
-    const chapters = getBookChapters(lang, id);
-    if (!chapters || chapters.length === 0) return parsed;
-
-    // Render the index content followed by chapters in order for a single-page reading experience.
-    // Note: Don't add extra headings - chapter bodies already contain their own headings.
-    const combined = [
-      parsed.body,
-      ...chapters.map((c) => c.body),
-    ].join('\n\n');
-
-    return { frontmatter: parsed.frontmatter, body: combined };
+    // Return only the index content - chapter content lives on individual chapter pages
+    // This avoids duplicate content issues and keeps the book landing page lightweight
+    return parsed;
   }
 
   // If there's no index.md, treat the first chapter file as the book page.

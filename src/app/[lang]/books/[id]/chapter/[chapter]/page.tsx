@@ -3,16 +3,17 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
-import { ContentDigest } from '@/components/ContentDigest';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { BookExperience } from '@/components/BookExperience';
+import { ContentDigest } from '@/components/ContentDigest';
 import {
   estimateReadTime,
   getBook,
   getBooks,
+  getBookChapters,
   getLanguages,
   toPaperMeta,
   getGlossary,
@@ -20,11 +21,32 @@ import {
   matchesPerspectiveView,
 } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
-import { deriveChaptersFromMarkdown, findChapterBySlug, getChapterList } from '@/lib/bookChapters';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string; chapter: string }>;
+}
+
+/** Convert filename to URL-safe slug */
+function toSlug(filename: string): string {
+  return filename.replace(/\.md$/, '');
+}
+
+/** Strip leading heading from chapter body (it's shown in header already) */
+function stripLeadingHeading(body: string): string {
+  const lines = body.split('\n');
+  let start = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    // Skip the first heading (any level)
+    if (/^#{1,6}\s+/.test(line)) {
+      start = i + 1;
+      break;
+    }
+    break; // Non-empty, non-heading line - don't strip anything
+  }
+  return lines.slice(start).join('\n').trim();
 }
 
 export async function generateStaticParams() {
@@ -35,14 +57,13 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const books = getBooks(lang).filter((b) => matchesPerspectiveView(b.frontmatter.perspective, 'kasra'));
     for (const book of books) {
-      const full = getBook(lang, book.frontmatter.id);
-      if (!full) continue;
-      const chapters = getChapterList(full.body);
+      const chapters = getBookChapters(lang, book.frontmatter.id);
       for (const c of chapters) {
-        const key = `${lang}:${book.frontmatter.id}:${c.slug}`;
+        const slug = toSlug(c.filename);
+        const key = `${lang}:${book.frontmatter.id}:${slug}`;
         if (seen.has(key)) continue;
         seen.add(key);
-        params.push({ lang, id: book.frontmatter.id, chapter: c.slug });
+        params.push({ lang, id: book.frontmatter.id, chapter: slug });
       }
     }
   }
@@ -56,13 +77,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!book) return { title: 'Not Found' };
   if (!matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) return { title: 'Not Found' };
 
-  const ch = findChapterBySlug(book.body, chapter);
+  const chapters = getBookChapters(lang, id);
+  const ch = chapters.find((c) => toSlug(c.filename) === chapter);
   if (!ch) return { title: 'Not Found' };
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
   const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
-  const chapterUrl = `${bookUrl}/chapter/${ch.slug}`;
+  const chapterUrl = `${bookUrl}/chapter/${chapter}`;
   const alternates = getAlternateLanguages('books', fm.id);
   const shouldIndexChapter = lang === 'en';
 
@@ -98,20 +120,31 @@ export default async function BookChapterPage({ params }: Props) {
   const meta = toPaperMeta(book);
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(book.body);
 
-  const derived = deriveChaptersFromMarkdown(book.body);
-  const current = derived.find((c) => c.slug === chapter) || null;
-  if (!current) notFound();
+  // Get chapters directly from chapter files
+  const chapters = getBookChapters(lang, id);
+  const chapterItems = chapters.map((c) => ({
+    slug: toSlug(c.filename),
+    title: c.title,
+    anchorId: toSlug(c.filename),
+  }));
 
-  const idx = derived.findIndex((c) => c.slug === chapter);
-  const prev = idx > 0 ? derived[idx - 1] : null;
-  const next = idx >= 0 && idx + 1 < derived.length ? derived[idx + 1] : null;
+  const idx = chapterItems.findIndex((c) => c.slug === chapter);
+  if (idx === -1) notFound();
 
-  const renderedBody = renderMarkdown(current.markdown, lang, glossary, basePath);
-  // Target level 3 headings (sections) because level 2 is now the Chapter Title itself.
-  const tocItems = extractTocItems(current.markdown).filter((t) => t.level === 3);
-  const chapterItems = getChapterList(book.body);
+  const current = chapters[idx];
+  const prev = idx > 0 ? chapterItems[idx - 1] : null;
+  const next = idx + 1 < chapterItems.length ? chapterItems[idx + 1] : null;
+
+  // Per-chapter read time (not whole book)
+  const readTime = estimateReadTime(current.body);
+
+  // Strip the leading heading from content (it's shown in header)
+  const contentBody = stripLeadingHeading(current.body);
+  const renderedBody = renderMarkdown(contentBody, lang, glossary, basePath);
+
+  // Extract section headings for TOC (level 2-3 within chapter)
+  const tocItems = extractTocItems(contentBody).filter((t) => t.level <= 3);
 
   return (
     <>
