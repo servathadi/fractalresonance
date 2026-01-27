@@ -313,38 +313,41 @@ export function Header() {
 
                   {desktopGroupOpen === group.id ? (
                     <div
-                      role="menu"
-                      className={`absolute top-full mt-2 min-w-[16rem] border border-frc-blue bg-frc-void shadow-xl rounded-lg py-2 ${
+                      className={`absolute top-full min-w-[16rem] ${
                         isRTL ? 'left-0' : 'right-0'
                       }`}
                     >
-                      {group.links.map((link) =>
-                        'path' in link ? (
-                          <Link
-                            key={`desktop:${group.id}:${link.path}`}
-                            href={`${basePath}${link.path}`}
-                            onClick={() => setDesktopGroupOpen(null)}
-                            className={`block px-4 py-2 text-sm tracking-wide transition-colors ${
-                              isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
-                            }`}
-                            role="menuitem"
-                          >
-                            {link.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={`desktop:${group.id}:${link.href}`}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setDesktopGroupOpen(null)}
-                            className="block px-4 py-2 text-frc-text-dim hover:text-frc-gold text-sm tracking-wide transition-colors"
-                            role="menuitem"
-                          >
-                            {link.label}
-                          </a>
-                        )
-                      )}
+                      {/* Hover bridge: prevents “gap closes menu” when moving cursor from button to dropdown */}
+                      <div className="h-2" aria-hidden />
+                      <div role="menu" className="border border-frc-blue bg-frc-void shadow-xl rounded-lg py-2">
+                        {group.links.map((link) =>
+                          'path' in link ? (
+                            <Link
+                              key={`desktop:${group.id}:${link.path}`}
+                              href={`${basePath}${link.path}`}
+                              onClick={() => setDesktopGroupOpen(null)}
+                              className={`block px-4 py-2 text-sm tracking-wide transition-colors ${
+                                isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                              }`}
+                              role="menuitem"
+                            >
+                              {link.label}
+                            </Link>
+                          ) : (
+                            <a
+                              key={`desktop:${group.id}:${link.href}`}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setDesktopGroupOpen(null)}
+                              className="block px-4 py-2 text-frc-text-dim hover:text-frc-gold text-sm tracking-wide transition-colors"
+                              role="menuitem"
+                            >
+                              {link.label}
+                            </a>
+                          )
+                        )}
+                      </div>
                     </div>
                   ) : null}
                 </div>
