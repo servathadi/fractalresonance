@@ -84,7 +84,7 @@ export default async function JoinPage({ params }: Props) {
         </div>
 
         <div className="p-4">
-          <div style={{ width: '100%', height: 598 }}>
+          <div style={{ width: '100%', height: 715 }}>
             <iframe
               src="https://api.leadconnectorhq.com/widget/form/okS6Dgg5RmtkDr9Oddm1"
               style={{ width: '100%', height: '100%', border: 'none', borderRadius: 3 }}
@@ -97,7 +97,7 @@ export default async function JoinPage({ params }: Props) {
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
               data-form-name="Form 0"
-              data-height="598"
+              data-height="715"
               data-layout-iframe-id="inline-okS6Dgg5RmtkDr9Oddm1"
               data-form-id="okS6Dgg5RmtkDr9Oddm1"
               title="Form 0"
