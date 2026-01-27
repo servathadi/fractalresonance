@@ -2,10 +2,17 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getLanguages } from '@/lib/content';
 
-export const metadata: Metadata = {
-  title: 'Builders',
-  description: 'Builder notes for FRC: architecture, corpus contract, and reproducible paths into the canon.',
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
+  const canonical = '/en/builders';
+
+  return {
+    title: 'Builders',
+    description: 'Builder notes for FRC: architecture, corpus contract, and reproducible paths into the canon.',
+    alternates: { canonical },
+    robots: lang === 'en' ? { index: true, follow: true } : { index: false, follow: true },
+  };
+}
 
 export function generateStaticParams() {
   return getLanguages().map((lang) => ({ lang }));
@@ -19,6 +26,8 @@ export default async function BuildersPage({ params }: Props) {
   const { lang } = await params;
   const basePath = `/${lang}`;
   const mumega = 'https://mumega.com';
+  const primary = '/en/builders';
+  const repo = 'https://github.com/servathadi/fractalresonance';
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-14">
@@ -34,6 +43,11 @@ export default async function BuildersPage({ params }: Props) {
           FRC is designed as a corpus with stable IDs, tight definitions, and a clear separation between canon and interpretation.
           This page explains the contract so tools and agents can operate without corrupting the canon.
         </p>
+        {lang !== 'en' && (
+          <p className="text-xs text-frc-text-dim mt-4 max-w-2xl leading-relaxed">
+            This page is maintained in English for accuracy. Primary version: <a className="underline hover:text-frc-gold" href={primary}>/en/builders</a>
+          </p>
+        )}
       </header>
 
       <section className="border border-frc-blue rounded-lg p-6 mb-10">
@@ -70,6 +84,29 @@ export default async function BuildersPage({ params }: Props) {
         </ul>
       </section>
 
+      <section className="border border-frc-blue rounded-lg p-6 mb-10">
+        <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">Local workflow</h2>
+        <div className="text-sm text-frc-text-dim leading-relaxed space-y-3">
+          <p>
+            Source lives on GitHub. For issues/PRs, treat content IDs as immutable and keep changes minimal and reproducible.
+          </p>
+          <p className="font-mono text-xs bg-frc-void/40 border border-frc-blue rounded-md p-3 overflow-x-auto">
+            git clone {repo}
+            <br />
+            cd frc
+            <br />
+            npm i
+            <br />
+            npm run dev
+            <br />
+            npm run build
+          </p>
+          <p className="text-xs text-frc-text-dim">
+            Tip: run <span className="font-mono">npm run content:audit</span> before committing content edits.
+          </p>
+        </div>
+      </section>
+
       <div className="flex flex-wrap gap-4 items-center">
         <a
           href={`${mumega}/join?product=frc&lens=architect&lang=${encodeURIComponent(lang)}`}
@@ -78,6 +115,14 @@ export default async function BuildersPage({ params }: Props) {
           className="px-6 py-3 border-2 border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium tracking-wide uppercase transition-all duration-200"
         >
           Join (Architect)
+        </a>
+        <a
+          href={repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-3 border border-frc-blue hover:border-frc-text-dim text-frc-text-dim hover:text-frc-text text-sm tracking-wide uppercase transition-all duration-200"
+        >
+          GitHub →
         </a>
         <Link
           href={`${basePath}/investors`}
@@ -89,4 +134,3 @@ export default async function BuildersPage({ params }: Props) {
     </main>
   );
 }
-
