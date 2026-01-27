@@ -8,6 +8,7 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { BookExperience } from '@/components/BookExperience';
 import {
   estimateReadTime,
   getBook,
@@ -115,11 +116,13 @@ export default async function BookChapterPage({ params }: Props) {
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
+      <BookExperience />
 
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} activeChapterSlug={chapter} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} activeChapterSlug={chapter} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} minBreakpoint="lg" title="In this chapter" />}
+        articleClassName="pt-14"
       >
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
@@ -171,9 +174,9 @@ export default async function BookChapterPage({ params }: Props) {
 
           <InlineToc items={tocItems} />
 
-          <article className="prose prose-invert max-w-none">
-            <MarkdownContent html={renderedBody} />
-          </article>
+          <div className="content-body" suppressHydrationWarning>
+            <MarkdownContent html={renderedBody} glossary={glossary} />
+          </div>
 
           {next && (
             <div className="mt-12 pt-8 border-t border-frc-blue/30">

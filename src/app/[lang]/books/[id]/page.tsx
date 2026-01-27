@@ -8,6 +8,7 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { BookExperience } from '@/components/BookExperience';
 import { estimateReadTime, getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaPaperPage } from '@/lib/schema';
 import { getChapterList } from '@/lib/bookChapters';
@@ -90,11 +91,13 @@ export default async function BookPage({ params }: Props) {
   return (
     <>
       <SchemaScript data={schemaPaperPage(meta)} />
+      <BookExperience />
 
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} minBreakpoint="md" title="Book index" />}
+        articleClassName="pt-14"
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
