@@ -412,7 +412,7 @@ export function Header() {
                   <details
                     key={group.id}
                     open={!!mobileGroupOpen[group.id]}
-                    onToggle={(e) => setMobileGroupOpen((prev) => ({ ...prev, [group.id]: (e.currentTarget as HTMLDetailsElement).open }))}
+                    onToggle={(e) => { const isOpen = (e.currentTarget as HTMLDetailsElement).open; setMobileGroupOpen((prev) => ({ ...prev, [group.id]: isOpen })); }}
                     className="group w-full border border-frc-blue/60 rounded-lg bg-frc-void-light/30"
                   >
                     <summary
