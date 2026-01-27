@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { getLanguages } from '@/lib/content';
+import { getLanguages, getContentStats } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -28,8 +28,8 @@ const DICT: Record<string, Record<string, string>> = {
     researchTitle: 'Open Research Program',
     researchDesc: 'FRC is an open research program. The framework invites collaboration from physicists, mathematicians, neuroscientists, and information theorists. All publications are released under CC BY-NC-ND 4.0 to ensure broad academic access.',
     pubsTitle: 'Publications',
-    pubsCount: '9 papers published',
-    pubsSeries: '2 paper series (100, 566)',
+    pubsCount: 'papers published',
+    pubsSeries: 'paper series',
     contribTitle: 'Contributors',
     leadRole: 'Lead Researcher',
     profilesTitle: 'Profiles',
@@ -52,8 +52,8 @@ const DICT: Record<string, Record<string, string>> = {
     researchTitle: 'برنامه پژوهشی باز',
     researchDesc: 'FRC یک برنامه پژوهشی باز است. این چارچوب از همکاری فیزیکدانان، ریاضیدانان، عصب‌شناسان و نظریه‌پردازان اطلاعات دعوت می‌کند. تمام انتشارات تحت مجوز CC BY-NC-ND 4.0 منتشر می‌شوند تا دسترسی آکادمیک گسترده تضمین شود.',
     pubsTitle: 'انتشارات',
-    pubsCount: '۹ مقاله منتشر شده',
-    pubsSeries: '۲ سری مقاله (۱۰۰، ۵۶۶)',
+    pubsCount: 'مقاله منتشر شده',
+    pubsSeries: 'سری مقاله',
     contribTitle: 'مشارکت‌کنندگان',
     leadRole: 'پژوهشگر ارشد',
     profilesTitle: 'پروفایل‌ها',
@@ -76,8 +76,8 @@ const DICT: Record<string, Record<string, string>> = {
     researchTitle: 'Programa de Investigación Abierta',
     researchDesc: 'FRC es un programa de investigación abierta. El marco invita a la colaboración de físicos, matemáticos, neurocientíficos y teóricos de la información. Todas las publicaciones se publican bajo CC BY-NC-ND 4.0 para garantizar un amplio acceso académico.',
     pubsTitle: 'Publicaciones',
-    pubsCount: '9 artículos publicados',
-    pubsSeries: '2 series de artículos (100, 566)',
+    pubsCount: 'artículos publicados',
+    pubsSeries: 'series de artículos',
     contribTitle: 'Colaboradores',
     leadRole: 'Investigador Principal',
     profilesTitle: 'Perfiles',
@@ -100,8 +100,8 @@ const DICT: Record<string, Record<string, string>> = {
     researchTitle: 'Programme de Recherche Ouvert',
     researchDesc: 'Le FRC est un programme de recherche ouvert. Le cadre invite à la collaboration des physiciens, mathématiciens, neuroscientifiques et théoriciens de l\'information. Toutes les publications sont publiées sous CC BY-NC-ND 4.0 pour assurer un large accès académique.',
     pubsTitle: 'Publications',
-    pubsCount: '9 articles publiés',
-    pubsSeries: '2 séries d\'articles (100, 566)',
+    pubsCount: 'articles publiés',
+    pubsSeries: 'séries d\'articles',
     contribTitle: 'Contributeurs',
     leadRole: 'Chercheur Principal',
     profilesTitle: 'Profils',
@@ -117,6 +117,7 @@ interface Props {
 export default async function AboutPage({ params }: Props) {
   const { lang } = await params;
   const t = (key: string) => DICT[lang]?.[key] || DICT['en'][key];
+  const stats = getContentStats(lang);
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
@@ -198,8 +199,8 @@ export default async function AboutPage({ params }: Props) {
           <div className="border border-frc-blue p-5">
             <h3 className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{t('pubsTitle')}</h3>
             <div className="space-y-2 text-sm text-frc-text-dim">
-              <p><span className="text-frc-gold font-mono">9</span> {t('pubsCount').replace('9 ', '')}</p>
-              <p><span className="text-frc-gold font-mono">2</span> {t('pubsSeries').replace('2 ', '')}</p>
+              <p><span className="text-frc-gold font-mono">{stats.papers}</span> {t('pubsCount')}</p>
+              <p><span className="text-frc-gold font-mono">{stats.seriesCount}</span> {t('pubsSeries')} ({stats.series.join(', ')})</p>
               <p>CC BY-NC-ND 4.0</p>
             </div>
           </div>

@@ -1168,6 +1168,47 @@ export function getStaticPageAlternates(page: string): Record<string, string> {
   return alternates;
 }
 
+// ─── Content Statistics ─────────────────────────────────────────────────────
+
+export interface ContentStats {
+  papers: number;
+  series: string[];
+  seriesCount: number;
+  articles: number;
+  books: number;
+  concepts: number;
+  topics: number;
+  blog: number;
+  people: number;
+}
+
+/** Get content statistics for a language */
+export function getContentStats(lang: string = 'en'): ContentStats {
+  const papers = getPapers(lang);
+  const seriesSet = new Set<string>();
+
+  for (const p of papers) {
+    const id = p.frontmatter.id || '';
+    // Extract series from ID like FRC-100-001 -> "100", FRC-16D-001 -> "16D"
+    const match = id.match(/^FRC-([A-Z0-9]+)-/i);
+    if (match) {
+      seriesSet.add(match[1]);
+    }
+  }
+
+  return {
+    papers: papers.length,
+    series: Array.from(seriesSet).sort(),
+    seriesCount: seriesSet.size,
+    articles: getArticles(lang).length,
+    books: getBooks(lang).length,
+    concepts: getConcepts(lang).length,
+    topics: getTopics(lang).length,
+    blog: getBlogPosts(lang).length,
+    people: getPeople(lang).length,
+  };
+}
+
 // ─── Backlinks ──────────────────────────────────────────────────────────────
 
 /** Build backlinks index: { targetId: [sourceIds] } */
