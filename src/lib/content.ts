@@ -497,9 +497,10 @@ export function getBook(lang: string, id: string): ParsedContent | null {
     if (!chapters || chapters.length === 0) return parsed;
 
     // Render the index content followed by chapters in order for a single-page reading experience.
+    // Note: Don't add extra headings - chapter bodies already contain their own headings.
     const combined = [
       parsed.body,
-      ...chapters.map((c) => `\n\n## ${c.title}\n\n${c.body}`),
+      ...chapters.map((c) => c.body),
     ].join('\n\n');
 
     return { frontmatter: parsed.frontmatter, body: combined };
@@ -551,11 +552,64 @@ export function getBookChapters(lang: string, id: string): BookChapter[] {
   });
 }
 
+/**
+ * Sort chapter filenames in proper book order:
+ * 1. Preface
+ * 2. Reader's overture / Introduction
+ * 3. Parts with chapters (Part I → Ch 1-10, Part II → Ch 11-20, etc.)
+ * 4. Appendices (A-Z)
+ * 5. Acknowledgments / Afterword
+ */
 function sortChapterFilenames(a: string, b: string): number {
-  const numA = a.match(/(\d+)/)?.[1];
-  const numB = b.match(/(\d+)/)?.[1];
-  if (numA && numB) return Number(numA) - Number(numB);
-  return a.localeCompare(b);
+  return getChapterSortKey(a) - getChapterSortKey(b);
+}
+
+function getChapterSortKey(filename: string): number {
+  const lower = filename.toLowerCase();
+
+  // Front matter (0-99)
+  if (lower.startsWith('preface')) return 10;
+  if (lower.includes('reader') || lower.includes('overture')) return 20;
+  if (lower.startsWith('introduction')) return 30;
+
+  // Parts: part-i = 100, part-ii = 200, part-iii = 300
+  const partMatch = lower.match(/^part[_-]?(i{1,3}|iv|v|[0-9]+)/);
+  if (partMatch) {
+    const partNum = romanOrNumToInt(partMatch[1]);
+    return 100 * partNum;
+  }
+
+  // Chapters: extract number, place after corresponding part
+  // chapter-1 to chapter-10 → 101-110 (after Part I = 100)
+  // chapter-11 to chapter-20 → 201-210 (after Part II = 200)
+  const chapterMatch = lower.match(/^chapter[_-]?(\d+)/);
+  if (chapterMatch) {
+    const chNum = parseInt(chapterMatch[1], 10);
+    const partGroup = Math.ceil(chNum / 10); // 1-10 → Part 1, 11-20 → Part 2, etc.
+    const offset = ((chNum - 1) % 10) + 1; // 1-10 within each part
+    return 100 * partGroup + offset;
+  }
+
+  // Back matter (1000+)
+  const appendixMatch = lower.match(/^appendix[_-]?([a-z])/);
+  if (appendixMatch) {
+    return 1000 + (appendixMatch[1].charCodeAt(0) - 96); // a=1, b=2, etc.
+  }
+
+  if (lower.startsWith('acknowledgment') || lower.startsWith('afterword')) return 1100;
+  if (lower.startsWith('bibliography') || lower.startsWith('reference')) return 1110;
+  if (lower.startsWith('index')) return 1120;
+
+  // Unknown files go to end
+  return 9000;
+}
+
+function romanOrNumToInt(val: string): number {
+  const lower = val.toLowerCase();
+  const romanMap: Record<string, number> = { i: 1, ii: 2, iii: 3, iv: 4, v: 5 };
+  if (romanMap[lower]) return romanMap[lower];
+  const num = parseInt(val, 10);
+  return isNaN(num) ? 999 : num;
 }
 
 /** Get all concepts for a language */
@@ -614,6 +668,18 @@ export function getHomeConfig(lang: string = 'en'): HomeConfig | null {
   }
 
   return null;
+}
+
+/** Get a single site page (investors, contact, etc.) */
+export function getSitePage(lang: string, slug: string): ParsedContent | null {
+  const p = path.join(CONTENT_DIR, lang, 'site', `${slug}.md`);
+  if (!fs.existsSync(p)) {
+    // Fallback to English if not found in requested language
+    const fallback = path.join(CONTENT_DIR, 'en', 'site', `${slug}.md`);
+    if (!fs.existsSync(fallback)) return null;
+    return parseFrontmatter(fs.readFileSync(fallback, 'utf-8'));
+  }
+  return parseFrontmatter(fs.readFileSync(p, 'utf-8'));
 }
 
 /** Get a single article by id */

@@ -156,6 +156,14 @@ function looksLikeChapterSeparator(line: string): boolean {
   if (/^chapter\s+\d+\s*:/i.test(line)) return true;
   if (/^appendix\s+[a-z0-9]+\s*:/i.test(line)) return true;
 
+  // Back matter (no colon required)
+  if (/^acknowledgm?ents?$/i.test(line)) return true;
+  if (/^afterword$/i.test(line)) return true;
+  if (/^bibliography$/i.test(line)) return true;
+  if (/^references?$/i.test(line)) return true;
+  if (/^index$/i.test(line)) return true;
+  if (/^about the author$/i.test(line)) return true;
+
   // French / Spanish (common translations)
   if (/^chapitre\s+\d+\s*[:—-]/i.test(line)) return true;
   if (/^cap[ií]tulo\s+\d+\s*[:—-]/i.test(line)) return true;
