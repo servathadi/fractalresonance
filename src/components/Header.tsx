@@ -53,6 +53,8 @@ export function Header() {
     { path: '/oracle', label: dict.nav.oracle },
     { path: null, href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
     { path: '/join', label: dict.nav.join },
+    { path: '/investors', label: dict.nav.investors },
+    { path: '/builders', label: dict.nav.builders },
     { path: '/positioning', label: dict.nav.positioning },
     { path: '/mu-levels', label: dict.nav.muLevels },
   ];
@@ -98,6 +100,8 @@ export function Header() {
         openByDefault: false,
         links: [
           { path: '/about', label: dict.nav.about },
+          { path: '/investors', label: dict.nav.investors },
+          { path: '/builders', label: dict.nav.builders },
           { path: '/positioning', label: dict.nav.positioning },
           { path: '/mu-levels', label: dict.nav.muLevels },
         ],
@@ -220,6 +224,12 @@ export function Header() {
             <span className="hidden sm:inline">FRC.v2 — fractalresonance.com</span>
           </span>
           <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3 font-mono text-[0.625rem] text-frc-steel tracking-wider">
+              <Link href={`${basePath}/investors`} className="hover:text-frc-gold">{dict.nav.investors}</Link>
+              <span className="text-frc-blue">|</span>
+              <Link href={`${basePath}/builders`} className="hover:text-frc-gold">{dict.nav.builders}</Link>
+            </div>
+            <span className="text-frc-blue hidden md:block">|</span>
             <a
               href="https://orcid.org/0009-0004-7412-5129"
               target="_blank"
