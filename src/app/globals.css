@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════
+   SELF-HOSTED FONTS: IRANSans (Farsi)
+   ═══════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -16,7 +52,7 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Charter', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-farsi: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+  --font-farsi: 'IRANSans', 'Vazirmatn', 'Inter', system-ui, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════
