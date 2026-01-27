@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -59,10 +60,6 @@ export default async function JoinPage({ params }: Props) {
   const basePath = `/${lang}`;
   const t = DICT[lang] || DICT.en;
 
-  const mumega = 'https://mumega.com';
-  const architectHref = `${mumega}/join?product=frc&lens=architect&lang=${encodeURIComponent(lang)}`;
-  const oracleHref = `${mumega}/join?product=frc&lens=oracle&lang=${encodeURIComponent(lang)}`;
-
   return (
     <main className="max-w-5xl mx-auto px-6 py-14">
       <nav className="text-sm text-frc-text-dim mb-8">
@@ -76,26 +73,42 @@ export default async function JoinPage({ params }: Props) {
         <p className="text-frc-text-dim max-w-2xl leading-relaxed">{t.subtitle}</p>
       </header>
 
-      <section className="grid sm:grid-cols-2 gap-4 mb-8">
-        <a href={architectHref} className="card block p-6 group" target="_blank" rel="noopener noreferrer">
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">{t.architect}</div>
-          <h2 className="text-frc-text group-hover:text-frc-gold transition-colors text-lg font-medium mb-2">
-            {t.architect} / Yang
-          </h2>
-          <p className="text-sm text-frc-text-dim leading-relaxed">{t.archDesc}</p>
-        </a>
+      <section className="border border-frc-blue rounded-lg overflow-hidden bg-frc-void/20 mb-8">
+        <div className="p-4 border-b border-frc-blue/60">
+          <div className="text-xs uppercase tracking-widest text-frc-steel">
+            Join
+          </div>
+          <div className="text-sm text-frc-text-dim mt-1">
+            Subscribe for updates (hosted on LeadConnector).
+          </div>
+        </div>
 
-        <a href={oracleHref} className="card block p-6 group" target="_blank" rel="noopener noreferrer">
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">{t.oracle}</div>
-          <h2 className="text-frc-text group-hover:text-frc-gold transition-colors text-lg font-medium mb-2">
-            {t.oracle} / Yin
-          </h2>
-          <p className="text-sm text-frc-text-dim leading-relaxed">{t.oracleDesc}</p>
-        </a>
+        <div className="p-4">
+          <div style={{ width: '100%', height: 598 }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/okS6Dgg5RmtkDr9Oddm1"
+              style={{ width: '100%', height: '100%', border: 'none', borderRadius: 3 }}
+              id="inline-okS6Dgg5RmtkDr9Oddm1"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Form 0"
+              data-height="598"
+              data-layout-iframe-id="inline-okS6Dgg5RmtkDr9Oddm1"
+              data-form-id="okS6Dgg5RmtkDr9Oddm1"
+              title="Form 0"
+            />
+          </div>
+
+          <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+        </div>
       </section>
 
       <p className="text-xs text-frc-steel">
-        {t.note}{' '}
         <Link href={`${basePath}/start-here`} className="text-frc-gold hover:underline">
           Start here
         </Link>
@@ -104,4 +117,3 @@ export default async function JoinPage({ params }: Props) {
     </main>
   );
 }
-
