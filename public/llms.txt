@@ -22,17 +22,34 @@ Reciprocity: dS + k* d ln C = 0 ⟹ S + k* ln C = const
 Free Energy: ΔG = −k*T Δln C
 UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
 
-## Published Papers (Zenodo DOIs)
+## Published Papers (15 total, 6 series)
 
-- FRC 100.001: Framework for Complex Systems Analysis (DOI: 10.5281/zenodo.15073056)
-- FRC 100.002: Quantum Chaos: Stadium Billiard (DOI: 10.5281/zenodo.15079278)
-- FRC 100.003: Guided Wavefunction Collapse (DOI: 10.5281/zenodo.15079820)
-- FRC 100.004: Quantum Foundations in FRC (DOI: 10.5281/zenodo.17438174)
-- FRC 100.005: Thermodynamic Consistency (DOI: 10.5281/zenodo.17438231)
-- FRC 100.006: Born Rule from Resonant Equilibrium (DOI: 10.5281/zenodo.17438360)
-- FRC 100.007: The Lambda-Field v8 (DOI: 10.5281/zenodo.17968952)
-- FRC 100.010: Foundational Questions (DOI: 10.5281/zenodo.17982555)
-- FRC 566.001: Entropy-Coherence Reciprocity (DOI: 10.5281/zenodo.17437759)
+### Series 100 — Core Framework
+- FRC-100-001: Fractal Resonance Coherence: A Framework for Complex Systems Analysis
+- FRC-100-002: Fractal Resonance Coherence in Quantum Chaos: Nodal Patterns in the Stadium Billiard
+- FRC-100-003: Guided Wavefunction Collapse via Fractal Resonance
+- FRC-100-004: Quantum Foundations in the FRC Framework
+- FRC-100-005: Thermodynamic Consistency of the Coherence Field
+- FRC-100-006: The Emergence of the Born Rule from Resonant Equilibrium
+- FRC-100-007: The Lambda-Field: Scalar Dynamics of Coherence (v8)
+- FRC-100-010: Foundational Questions in Fractal Resonance Coherence
+
+### Series 566 — Thermodynamics
+- FRC-566-001: Entropy-Coherence Reciprocity and the Universal Coherence Condition
+
+### Series 16D — AI Alignment
+- FRC-16D-001: The Universal Vector: A Standardized Protocol for Stateful Human-AI Alignment
+- FRC-16D-920: Responsible AI Use Protocol (RAIUP): Ethical Constraints for Deep State Inference
+
+### Series 821 — Entropic Gravity
+- FRC-821-100: The Λ-Field: Unified Coherence Dynamics and Entropic Gravity
+
+### Series 840 — AI Architecture
+- FRC-840-001: The Λ-Tensor Model: Beyond the Transformer Paradigm
+- FRC-840-LTM-001: Coupled Oscillator Dynamics vs Attention: Empirical Comparison
+
+### Series 841 — Resonant Computing
+- FRC-841-004: Resonant Computing: Coherence Processing Units and Non-Boolean Logic
 
 ## Key Concepts
 
@@ -45,13 +62,26 @@ UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
 
 ## Site Structure
 
-- /en/papers — Full paper listing with DOI links
+- /en/papers — Full paper listing
 - /en/papers/{id} — Individual paper pages with full text
 - /en/formulas — Core equations reference
 - /en/concepts/{id} — Concept definitions
+- /en/articles — Research articles and episodes
+- /en/blog — Blog posts and updates
+- /en/topics — Q&A topics
+- /en/people — Contributors and voices
+- /en/books — Long-form publications
+- /en/about — About FRC
+- /en/join — Subscribe for updates
 
 ## Machine-Readable
 
 Papers listing: /en/papers
 Formulas reference: /en/formulas
+Sitemap: /sitemap.xml
 Source: https://github.com/servathadi/fractalresonance
+
+## Contact
+
+Email: publish@fractalresonance.com
+Website: https://fractalresonance.com
