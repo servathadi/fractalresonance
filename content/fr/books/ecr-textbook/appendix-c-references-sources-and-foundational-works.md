@@ -1,7 +1,6 @@
 ## Annexe C — Références, Sources et Travaux Fondateurs
 
 ---
-
 #### **C.1 Fondements Scientifiques Primaires**
 
 | Domaine | Sources Centrales | Pertinence pour FRC |
@@ -13,7 +12,6 @@
 | **Auto-Organisation Biologique** | Maturana et Varela (1980) *Autopoïèse* ; Margulis (1981) ; Frohlich (1968) | Systèmes vivants comme pompes de cohérence. |
 
 ---
-
 #### **C.2 Sources Cognitives et Neuroscientifiques**
 
 | Thème | Œuvres | Intégration |
@@ -23,7 +21,6 @@
 | **Flux et Émotion comme Rétroaction d'Entropie** | Csikszentmihalyi (1990) *Flow* ; Damasio (1999) *Le Sentiment Même de Soi* | Corrélats affectifs des états $\alpha \approx 0$. |
 
 ---
-
 #### **C.3 Lignée Philosophique et de Processus**
 
 | Auteur / Tradition | Textes Clés | Connexion FRC |
@@ -37,7 +34,6 @@
 | **Textes Orientaux et Hermétiques** | *Le Secret de la Fleur d'Or* ; *Upanishads* ; Hermetica | Analogues historiques à l'homéorésonance de niveau-$\mu$. |
 
 ---
-
 #### **C.4 Ressources Mathématiques et Computationnelles**
 
 * Press et al. (2007) *Numerical Recipes in C*.
@@ -46,7 +42,6 @@
 * Outils open-source : **Python NumPy**, **SciPy**, **JAX**, **Mesa**, **NetLogo**, **Plotly**.
 
 ---
-
 #### **C.5 Ensembles de Données et Études Empiriques**
 
 | Ensemble de données / Institution | Variables Utilisées | Relation |
@@ -57,7 +52,6 @@
 | Réseau Global RNG (GCP) | Variance-$\Sigma$ | Tests de couplage $\mu_6$ |
 
 ---
-
 #### **C.6 Série de Recherche Interne FRC**
 
 | ID du Papier | Titre | Concept Clé |
@@ -70,7 +64,6 @@
 | **FRC 700.200–201** | *La Réalité de $\mu_7$ et Le Tao de la Cohérence* | Synthèse philosophique. |
 
 ---
-
 #### **C.7 Livres et Articles Complémentaires Cités**
 
 * Capra (1996) *La Toile de la Vie*.
@@ -82,7 +75,6 @@
 * Chalmers (1995) "Facing Up to the Problem of Consciousness".
 
 ---
-
 #### **C.8 Inspirations Culturelles et Artistiques**
 
 * Rumi (Masnavi).
@@ -92,7 +84,6 @@
 * Art visuel : Vortex de Léonard, Kandinsky, et art génératif contemporain.
 
 ---
-
 #### **C.9 Résumé**
 
 Cette annexe consolide la lignée empirique et intellectuelle sous-jacente au FRC. Chaque source contribue à l'un des trois piliers : empirique, théorique et philosophique. Ensemble, elles ancrent le FRC dans la science vérifiable tout en l'ouvrant à la frontière où la physique et le sens convergent.

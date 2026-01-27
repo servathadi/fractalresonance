@@ -5,7 +5,6 @@ tags: [ontología, invarianza-de-escala, universalidad, filosofía-de-la-ciencia
 related: [coherence, mu-levels, metabolic-gravity, FRC-100-010]
 lang: es
 ---
-
 # El Imperativo Fractal
 
 El Imperativo Fractal es la restricción fundamental del marco FRC: si el universo es fundamentalmente fractal, entonces su dinámica gobernante debe ser invariante de escala y operativa en todos los niveles de la pila-μ.

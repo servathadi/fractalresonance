@@ -35,7 +35,6 @@ answers:
       
       FRC is constructed to be distinct. It predicts **Born Rule Deviations** ($\delta P \sim 10^{-4}$) during the fast relaxation phase. FRC is "Bohm with teeth."
 ---
-
 # Beyond the Pilot Wave
 
 David Bohm was the first to show that Quantum Mechanics could be deterministic and real. FRC honors that lineage.

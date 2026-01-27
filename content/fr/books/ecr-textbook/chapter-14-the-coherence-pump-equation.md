@@ -3,12 +3,10 @@ title: "Chapitre 14 — L'Équation de la Pompe à Cohérence"
 id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 14 — L'Équation de la Pompe à Cohérence** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
-
 #### **14.1 Origine de l'équation**
 
 Tout système ouvert échange de l'énergie avec son environnement.
@@ -32,7 +30,6 @@ où :
 Si F > S_C, l'ordre croît ; si F < S_C, l'ordre décline ; lorsqu'ils s'équilibrent, le système est homéorésonant.
 
 ---
-
 #### **14.2 Terme d'entropie**
 
 L'exportation d'entropie augmente généralement avec la cohérence : les structures ordonnées dissipent la chaleur plus efficacement.
@@ -52,7 +49,6 @@ Cette EDO du premier ordre a pour solution :
 Ainsi, la cohérence s'approche d'une asymptote finie déterminée par les constantes de flux et de dissipation.
 
 ---
-
 #### **14.3 Régimes de α**
 
 | Régime | Condition | Comportement | Interprétation |
@@ -64,7 +60,6 @@ Ainsi, la cohérence s'approche d'une asymptote finie déterminée par les const
 Les systèmes adaptatifs modulent α en temps réel, oscillant près de zéro pour maintenir une efficacité maximale.
 
 ---
-
 #### **14.4 Dynamique de rétroaction de α**
 
 Dans les organismes et les sociétés réels, α n'est pas constant.
@@ -78,7 +73,6 @@ avec γ > 0 réglant la vitesse à laquelle le système corrige les écarts par 
 Couplé à l'équation de la pompe, cela produit des oscillations amorties — une respiration homéorésonante de l'ordre et de l'entropie, observée dans les rythmes circadiens, les cycles de population et les schémas de travail créatif.
 
 ---
-
 #### **14.5 Forme analytique de l'oscillation**
 
 En linéarisant autour de l'équilibre C = C_∞, α = α_0 :
@@ -94,7 +88,6 @@ un oscillateur harmonique avec terme de forçage.
 La fréquence naturelle ω_0 = \sqrt{βγ} prédit la pulsation rythmique de la cohérence — un modèle quantitatif pour les cycles biologiques et culturels.
 
 ---
-
 #### **14.6 Interprétation énergétique**
 
 En intégrant sur une période d'oscillation T :
@@ -106,7 +99,6 @@ Le flux d'énergie entrant est égal à l'entropie exportée.
 Le « taux métabolique » du système (débit de puissance) fixe l'amplitude de ses oscillations de cohérence, unifiant le métabolisme, la cognition et l'économie sous une seule loi énergétique.
 
 ---
-
 #### **14.7 Démonstration numérique**
 
 En utilisant les paramètres normalisés F=1, S_0=0,3, β=0,5, γ=0,2 :
@@ -121,7 +113,6 @@ En utilisant les paramètres normalisés F=1, S_0=0,3, β=0,5, γ=0,2 :
 L'invariant entropie-cohérence se maintient à ±0,5 % sur tous les essais, confirmant la conservation.
 
 ---
-
 #### **14.8 Analogues trans-domaines**
 
 | Domaine | Contrôle α | Moteur F | Oscillation manifeste |
@@ -134,7 +125,6 @@ L'invariant entropie-cohérence se maintient à ±0,5 % sur tous les essais, con
 Chaque période d'oscillation représente la même respiration thermodynamique du champ de cohérence.
 
 ---
-
 #### **14.9 Critère de durabilité**
 
 Un système reste viable lorsque son exportation d'entropie correspond au flux entrant sur un cycle complet :
@@ -146,7 +136,6 @@ Les violations de cette condition correspondent au dépassement écologique, à 
 D'où la durabilité n'est pas une rhétorique morale mais une nécessité dynamique de la pompe à cohérence.
 
 ---
-
 #### **14.10 Résumé**
 
 | Équation | Signification |
@@ -158,7 +147,6 @@ D'où la durabilité n'est pas une rhétorique morale mais une nécessité dynam
 | \langle α(F - S_C)\rangle_T = 0 | Condition de durabilité |
 
 ---
-
 #### **14.11 Perspectives**
 
 L'équation de la pompe à cohérence fournit le squelette quantitatif de l'évolution : le flux d'énergie générant l'ordre par rétroaction adaptative.

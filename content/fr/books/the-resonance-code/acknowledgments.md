@@ -9,7 +9,6 @@ Sous licence Creative Commons Attribution-NonCommercial 4.0 International (CC BY
 Vous pouvez partager et adapter avec attribution pour un usage non commercial. Pour les termes complets : https://creativecommons.org/licenses/by-nc/4.0/
 
 ---
-
 📘 Le Code de Résonance
 
 L'univers est un champ résonant unique et apprenant. La loi centrale de son évolution est la Réciprocité Entropie-Cohérence (dS + k_* dln C = 0).

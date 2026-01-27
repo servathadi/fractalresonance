@@ -31,7 +31,6 @@ answers:
     answer: |
       Instead of a "Big Freeze," FRC suggests a **Fractal Flowering**. As one scale dies (decoheres), it releases the energy to seed the next scale up ($\mu_{n} \to \mu_{n+1}$). The universe doesn't end; it grows up.
 ---
-
 # Gravity as the Anti-Entropy
 
 We are taught to fear the Second Law. "Things fall apart."

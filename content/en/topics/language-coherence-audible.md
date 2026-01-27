@@ -19,7 +19,6 @@ answers:
     stance: "compression"
     answer: "Treat language as coherence reproduction: a pattern in one mind is transmitted via sound/text and reconstructed in another mind."
 ---
-
 # Language: Coherence Made Audible
 
 Language is coherence made audible.

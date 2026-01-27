@@ -19,7 +19,6 @@ answers:
     stance: "physique des systèmes"
     answer: "Suivez les deux côtés du grand livre : les indicateurs d'entropie (chaleur, CO2) et le budget de cohérence (forêts intactes, circulation, sols). Le risque est la cascade : la perte de cohérence dans un sous-système augmente la charge d'entropie sur les autres."
 ---
-
 # Climat : La Terre comme un corps fiévreux
 
 Le climat. Le corps de la planète. Car si le corps humain est un champ de cohérence et que la civilisation est un champ de cohérence, alors la Terre l'est aussi. Et elle a de la fièvre.

@@ -8,7 +8,6 @@ seo:
   keywords: [quantum computing coherence, qubit decoherence, quantum error correction, coherent computing]
   description: "How FRC principles inform quantum computing: coherence-aware architectures, error correction strategies, and the path to practical quantum advantage."
 ---
-
 # FRC and Quantum Computing
 
 Quantum computing relies fundamentally on maintaining coherence. The FRC framework provides new insights into why some quantum computations succeed and others fail.

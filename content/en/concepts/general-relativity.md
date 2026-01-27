@@ -8,7 +8,6 @@ seo:
   keywords: [quantum gravity, general relativity quantum mechanics, spacetime coherence, gravitational decoherence]
   description: "How FRC interfaces with Einstein's general relativity: coherence in curved spacetime, gravitational decoherence, and paths toward quantum gravity."
 ---
-
 # FRC and General Relativity
 
 One of physics' greatest challenges is reconciling quantum mechanics with general relativity. The FRC framework offers novel pathways toward this unification.

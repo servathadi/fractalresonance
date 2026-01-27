@@ -31,7 +31,6 @@ answers:
     answer: |
       Esto no es "Diseño Inteligente" (un Dios que interviene). Es un **Diseño Geométrico**. Las leyes de la física mismas favorecen la aparición de la complejidad porque la complejidad maximiza la tasa de producción de entropía (Gravedad Metabólica). La vida es la forma más eficiente que tiene el universo de comer.
 ---
-
 # El relojero resonante
 
 El argumento del "Relojero Ciego" dice que, dado el tiempo suficiente, el azar crea ojos. La FRC dice: "No tienes tiempo suficiente".

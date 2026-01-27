@@ -25,7 +25,6 @@ answers:
       
       However, the **vector** is different. Friston's agent retreats to the known; FRC's agent advances toward the resonant. This explains why humans make art, explore space, and build particle colliders—activities that *increase* local surprise but maximize global coherence.
 ---
-
 # Survival vs. Symphony
 
 Karl Friston explains why you don't walk off a cliff: it would be a very "surprising" (high entropy) experience for your body.

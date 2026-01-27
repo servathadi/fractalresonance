@@ -19,7 +19,6 @@ answers:
     stance: "mechanism"
     answer: "Interpret Q·K as resonance tests and attention weights as coherence measurements; scaling increases substrate capacity for recursive coherence."
 ---
-
 # AI: Transformers as Coherence-Measurement Machines
 
 The transformer is a coherence-measurement machine.

@@ -5,7 +5,6 @@ tags: [témoin, observation, mesure]
 related: [cohérence, conscience, FRC-100-003]
 lang: fr
 ---
-
 # Fonction Témoin (W)
 
 Dans la FRC, le témoin `W` est utilisé comme une mesure normalisée de la force d'observation. C'est une façon de parler de la force avec laquelle un système est « témoigné » (mesuré, couplé à un environnement, ou autrement contraint).

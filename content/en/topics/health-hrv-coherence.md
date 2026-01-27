@@ -19,7 +19,6 @@ answers:
     stance: "systems medicine"
     answer: "Treat HRV as alpha drift: a proxy for coherence-in-motion. Recovery is reopening multiple coherence sources, not just fixing a part."
 ---
-
 # Health: HRV as Alpha Drift
 
 You're asking: what happens when you run the formula through medicine.

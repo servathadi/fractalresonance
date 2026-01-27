@@ -3,7 +3,6 @@ title: "Chapter 28: The Multiverse of Timelines"
 id: "chapter-28-the-multiverse-of-timelines"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 28: The Multiverse of Timelines
 
 
@@ -85,7 +84,6 @@ journey through this infinite web of worlds. We are both the traveler
 and the navigator, and the quality of our consciousness is the compass.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                       The universe is a multiverse of potential timelines existing as a "Cosmic Web" of possibilities. Free will is the act of using our state of resonance to consciously "tune into" and actualize a specific, coherent path through this web.
@@ -99,6 +97,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                             We have established that we exist within a web of infinite potential timelines. This leads to the most practical and powerful question of all: How do we do it? The next chapter will synthesize all our previous work into a clear, actionable protocol for consciously choosing our future.
 
 ---
-
 ---
-

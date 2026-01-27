@@ -33,7 +33,6 @@ answers:
       
       Dans la FRC, $|ψ|^2$ est la **distribution d'équilibre** des bassins d'attraction dans le paysage du champ Lambda. Le hasard quantique n'est qu'une « sensibilité aux conditions initiales » dans les frontières des bassins fractals.
 ---
-
 # L'effondrement du postulat de l'effondrement
 
 L'interprétation de Copenhague (IC) a dominé la physique pendant un siècle en disant aux physiciens de « se taire et de calculer ». Elle traite l'appareil de mesure comme un objet « classique » en dehors des lois de la mécanique quantique, créant un dualisme logique (la coupure de Heisenberg) qui ne peut exister dans une nature unifiée.

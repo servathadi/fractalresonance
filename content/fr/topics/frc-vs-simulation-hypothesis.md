@@ -35,7 +35,6 @@ answers:
       
       La FRC soutient que l'univers a un but interne : le **métabolisme**. L'élan pour maximiser la cohérence ($C$) et consommer le potentiel ($\Psi$) est la motivation intrinsèque du cosmos. Il calcule parce qu'il a faim.
 ---
-
 # Plus réel que le réel
 
 L'Hypothèse de la Simulation est la version moderne du gnosticisme : « Ce monde est faux ; le monde réel est ailleurs. »

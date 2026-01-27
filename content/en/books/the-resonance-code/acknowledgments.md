@@ -3,7 +3,6 @@ title: "Acknowledgments"
 id: "acknowledgments"
 parent: "the-resonance-code"
 ---
-
 ## Acknowledgments
 
 
@@ -20,11 +19,9 @@ You may share and adapt with attribution for non-commercial use. For
 full terms: https://creativecommons.org/licenses/by-nc/4.0/
 
 ---
-
 📘 The Resonance Code
 
 The universe is a single, learning, resonant field. The core law of its
 evolution is the Entropy–Coherence Reciprocity (dS + k^(*)dln C = 0).
 
 ---
-

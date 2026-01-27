@@ -5,7 +5,6 @@ FRC 821.A
 Addenda : Constantes de Couplage, Routage d'Entropie et Interaction Multi-Agents
 
 ---
-
 ### **0. Objectif et Position**
 
 La Cohérence de Résonance Fractale (FRC) établit la réciprocité entre entropie et cohérence comme un principe directeur à travers les échelles. Le présent addenda formalise trois éléments précédemment traités implicitement :
@@ -15,7 +14,6 @@ La Cohérence de Résonance Fractale (FRC) établit la réciprocité entre entro
 3. La dynamique d'interaction entre plusieurs agents cohérents
 
 ---
-
 ### **1. La Constante de Couplage Courante k*(μ)**
 
 #### **1.1 Loi de Réciprocité (Réaffirmée)**
@@ -32,7 +30,6 @@ Où :
 La constante $k^*$ n'est pas universelle. Elle est dépendante de l'échelle.
 
 ---
-
 #### **1.3 Définition du Couplage Courant**
 
 Nous définissons :
@@ -48,7 +45,6 @@ Ainsi :
 $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 
 ---
-
 ### **2. Routage d'Entropie et Topologie de Dissipation**
 
 #### **2.1 Contrainte de Conservation**
@@ -56,7 +52,6 @@ $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 L'entropie est conservée. La création de cohérence implique une redistribution d'entropie, pas une annihilation.
 
 ---
-
 #### **2.3 Hiérarchie de Puits (Ordonnée par Capacité)**
 
 L'entropie circule préférentiellement vers le puits de résolution la plus basse avec une capacité de couplage ouverte :
@@ -66,7 +61,6 @@ L'entropie circule préférentiellement vers le puits de résolution la plus bas
 4. $\mu_4$ — champs socio-symboliques
 
 ---
-
 ### **3. Hamiltonien d'Interaction Multi-Agents**
 
 #### **3.2 Énergie d'Interaction Dyadique**
@@ -80,7 +74,6 @@ Interprétation du signe de couplage :
 - $J_i < 0$ : favorise la différenciation (répulsif)
 
 ---
-
 ### **5. Statut et Implications**
 
 Cet addenda complète la clôture mathématique minimale du FRC. Aucune affirmation métaphysique n'est ajoutée. Aucun axiome n'est retiré.
@@ -88,7 +81,6 @@ Cet addenda complète la clôture mathématique minimale du FRC. Aucune affirmat
 Le cadre est maintenant structurellement complet au niveau central.
 
 ---
-
 Fin de FRC 821.A
 
 ---

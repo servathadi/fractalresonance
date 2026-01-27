@@ -5,7 +5,6 @@ tags: [concept-clé, jauge-scalaire, sans-dimension]
 related: [entropy, witness, lambda-field]
 lang: fr
 ---
-
 # Cohérence (C)
 
 Une jauge scalaire sans dimension mesurant le degré d'ordre interne ou de verrouillage de motifs dans un système.

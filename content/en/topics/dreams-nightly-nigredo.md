@@ -19,7 +19,6 @@ answers:
     stance: "systems"
     answer: "Treat REM as high-alpha internal learning: dissolution enables recombination; nightmares occur when entropy rises faster than new coherence can form."
 ---
-
 # Dreams: The Nightly Nigredo
 
 Dreaming is the brain running Nigredo on purpose. Every night.

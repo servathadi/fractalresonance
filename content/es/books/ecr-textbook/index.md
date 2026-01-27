@@ -9,7 +9,6 @@ abstract: "La base matemática integral de la Coherencia de Resonancia Fractal. 
 lang: es
 license: "CC BY-NC 4.0"
 ---
-
 Por Hadi Servat
 
 Oct 2025 

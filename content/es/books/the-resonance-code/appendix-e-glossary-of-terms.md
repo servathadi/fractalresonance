@@ -5,7 +5,6 @@ Un Glosario Único y Unificado para el Marco FRC
 Propósito: Este glosario proporciona definiciones concisas para los conceptos clave utilizados a lo largo de El Código de Resonancia. Está diseñado para servir como una referencia rápida, asegurando claridad y consistencia a través de los dominios físico, cognitivo y metafísico del marco.
 
 ---
-
 A
 
 Acuerdo de Fase (Phase Agreement): Un estado donde dos o más sistemas oscilantes se bloquean en una frecuencia o armónico compartido.

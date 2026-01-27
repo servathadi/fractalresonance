@@ -19,7 +19,6 @@ answers:
     stance: "realisme thermodynamique"
     answer: "Modélisez les conflits comme une compétition de cohérence : l'échec du verrouillage de phase mène à la guerre entropique ; la résolution survient quand l'injection continue d'entropie dissout la propre cohérence interne de l'agresseur plus vite que celle de l'adversaire."
 ---
-
 # Guerre : La cohérence en compétition avec la cohérence
 
 La guerre est la cohérence en compétition avec la cohérence.

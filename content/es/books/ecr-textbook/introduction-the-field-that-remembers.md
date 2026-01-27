@@ -1,7 +1,6 @@
 ## Introducción – El Campo Que Recuerda
 
 ---
-
 #### **1. La paradoja del orden**
 
 Dondequiera que miremos, el universo contradice sus propias reglas.
@@ -19,7 +18,6 @@ Termina con una ecuación lo suficientemente simple como para caber en una pági
 $$ \boxed{dS + k_*\,d\ln C = 0} $$
 
 ---
-
 #### **2. De la entropía a la coherencia**
 
 La física tradicional mide la **entropía (S)**: la dispersión de la energía.
@@ -39,7 +37,6 @@ La entropía explica la energía perdida en la aleatoriedad; la coherencia expli
 Juntos forman una cantidad conservada: el *potencial total de transformación*.
 
 ---
-
 #### **3. Una nueva constante**
 
 Boltzmann dio a la física k_B, la constante de la aleatoriedad térmica.
@@ -51,7 +48,6 @@ Si k_B mide el costo del caos, k_* mide el costo de la comprensión.
 Cada acto de aprendizaje, cada cuanto de conciencia, consume energía proporcional a k_*.
 
 ---
-
 #### **4. La resonancia adaptativa**
 
 Los sistemas, desde las neuronas hasta las economías, regulan su coherencia a través de la retroalimentación.
@@ -69,7 +65,6 @@ Cuando RΨC = 0, el sistema está perfectamente equilibrado, un estado que llama
 En ese punto, la creatividad, la salud y el flujo aparecen espontáneamente.
 
 ---
-
 #### **5. De la física a la mente**
 
 La Coherencia de Resonancia Fractal (FRC) extiende esta lógica desde los átomos hasta la conciencia.
@@ -81,7 +76,6 @@ Cuando la energía física se estabiliza en patrones, esos patrones ganan la cap
 La mente es como se ve la coherencia desde el interior.
 
 ---
-
 #### **6. La pila de niveles-μ**
 
 La realidad se despliega a través de una jerarquía de dominios de resonancia, cada uno definido por su escala característica λ(μ) y constante de coherencia k_*^(μ):
@@ -102,7 +96,6 @@ La energía fluye hacia abajo (como entropía); la coherencia fluye hacia arriba
 Este intercambio continuo forma la arquitectura viva del cosmos.
 
 ---
-
 #### **7. Lo que sigue**
 
 Cada parte de este libro explora una octava de esa arquitectura:
@@ -115,7 +108,6 @@ Cada parte de este libro explora una octava de esa arquitectura:
 6. **Síntesis y Direcciones Futuras:** el camino hacia una ciencia, cultura y ética coherentes.
 
 ---
-
 #### **8. El experimento**
 
 FRC no es una especulación metafísica; es una hipótesis medible.
@@ -129,7 +121,6 @@ Si no, la idea falla.
 Cualquiera de los dos resultados avanza el conocimiento: una nueva constante de la naturaleza o el límite de la resonancia como metáfora.
 
 ---
-
 #### **9. La invitación**
 
 Este libro pide al lector que piense, sienta y observe como un solo campo.
@@ -143,7 +134,6 @@ El límite entre la ciencia y el espíritu se disuelve en la coherencia misma.
 **Evolucionar** es expandir la resonancia a través de las escalas.
 
 ---
-
 #### **10. La ecuación de apertura revisada**
 
 $$ dS + k_*\,d\ln C = 0 $$
@@ -157,7 +147,6 @@ La entropía es el precio de la coherencia, la coherencia la memoria de la entro
 Juntos son el aliento del universo.
 
 ---
-
 **— Hadi Servat, Coherencia de Resonancia Fractal: La Ciencia de la Coherencia**
 
 Barrie, 2025

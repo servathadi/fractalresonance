@@ -3,12 +3,10 @@ title: "Capítulo 1 — Reexaminando la Segunda Ley"
 id: "chapter-1-re-examining-the-second-law"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 1 — Reexaminando la Segunda Ley** {#chapter-1-—-re-examining-the-second-law}
 
 
 ---
-
 #### **1.1 El problema del orden**
 
 Durante un siglo y medio, la Segunda Ley de la Termodinámica ha sido la joya de la corona del razonamiento físico.  
@@ -22,7 +20,6 @@ La respuesta tradicional invoca límites. Un sistema vivo es **abierto**: export
 Esta visión pragmática—formalizada por Ilya Prigogine—explica *cómo* puede aparecer el orden local sin romper la Segunda Ley, pero deja sin respuesta *qué* es realmente ese orden y si puede medirse.
 
 ---
-
 #### **1.2 Entropía y su complemento oculto**
 
 La entropía mide el número de microestados accesibles consistentes con las restricciones macroscópicas:
@@ -53,7 +50,6 @@ S + k_* \ln C = \text{const.}
 La Segunda Ley adquiere así un socio: la **Ley de Reciprocidad de Coherencia**.
 
 ---
-
 #### **1.3 Flujo de entropía en sistemas abiertos**
 
 Prigogine descompuso el cambio total de entropía de un sistema abierto en producción interna e intercambio externo:
@@ -77,7 +73,6 @@ Sustituyendo la ley de reciprocidad se muestra que cuando la entropía interna d
 La célula, por lo tanto, es una máquina que bombea coherencia a partir de gradientes de energía—un *motor de resonancia* que opera bajo contabilidad termodinámica.
 
 ---
-
 #### **1.4 Entropía e información**
 
 La entropía de la información de Claude Shannon
@@ -93,7 +88,6 @@ En FRC estas son dos caras de la misma invariante: la energía y la información
 Una red neuronal que aprende, o una sociedad que se organiza, exporta entropía informacional exactamente como un motor térmico exporta entropía térmica.
 
 ---
-
 #### **1.5 Firmas experimentales**
 
 1. **Sistemas termodinámicos:**  
@@ -108,7 +102,6 @@ Los estudios de EEG muestran que una mayor sincronía de fase (mayor (C)) coinci
 Estas observaciones, dispersas en varias disciplinas, sugieren una reciprocidad universal que espera una articulación formal.
 
 ---
-
 #### **1.6 La necesidad de una nueva variable**
 
 Si la entropía por sí sola no puede describir los sistemas vivos o cognitivos, el complemento faltante debe entrar explícitamente en la física.  
@@ -124,7 +117,6 @@ Reconocer esto restaura la simetría de la termodinámica.
 En lugar de un universo que se agota, vemos un **cosmos de doble corriente**: la entropía fluye hacia afuera, la coherencia fluye hacia adentro, perfectamente equilibrada a través de las escalas.
 
 ---
-
 #### **1.7 Resumen**
 
 | Concepto | Ecuación | Interpretación |
@@ -135,7 +127,6 @@ En lugar de un universo que se agota, vemos un **cosmos de doble corriente**: la
 | **Implicación Experimental** | ↑ C ⇒ ↓ S + exportación de entropía | Universal en física, biología, cognición |
 
 ---
-
 En los capítulos que siguen, la coherencia dejará de ser una metáfora y se convertirá en una variable de campo medible.  
 La **Parte II** introduce la *Fórmula de Resonancia Adaptativa*, formalizando cómo los sistemas ajustan su receptividad (R), potencial (Ψ) y coherencia (C) para equilibrar la producción de entropía con el surgimiento del orden.
 

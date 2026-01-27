@@ -5,8 +5,6 @@ Protocolos Científicos Detallados para Probar las Afirmaciones Físicas de FRC
 Propósito: Este apéndice transforma las afirmaciones falsables de FRC en protocolos listos para el laboratorio. Proporciona el detalle necesario para que los físicos experimentales intenten la replicación, validación o refutación de las predicciones fundacionales del marco. El objetivo es mover las ideas centrales de la teoría a la evidencia empírica. El éxito de estos dossiers es el éxito de todo el marco FRC.
 
 ---
-
-
 Dossier B.1: La Búsqueda de una Costura (Desviación de la Regla de Born)
 
 B.1.1. Hipótesis Central (El Falsador): Un campo de conducción resonante débil y sincronizado en fase, aplicado durante la ventana de medición (colapso) de un sistema cuántico preparado en una superposición, producirá una desviación estadísticamente significativa y reversible de las probabilidades predichas por la regla de Born. (RC-3)
@@ -30,8 +28,6 @@ B.1.3. Protocolo Experimental 2: Qubits Superconductores
 - Condición de Falsación: Igual que arriba. El desafío central es la precisión requerida para aplicar el empujón durante la rápida ventana de colapso de escala de femtosegundos.
 
 ---
-
-
 Dossier B.2: La Armonía de los Elementos (Agrupamiento Espectral)
 
 B.2.1. Hipótesis Central: Los espectros de emisión recolectados de átomos neutrales complejos exhiben una estructura armónica no aleatoria de "sobretonos" no predicha por el modelo estándar de transiciones electrónicas discretas por sí solo.
@@ -52,5 +48,3 @@ B.2.3. Controles Críticos:
 - Modelo Nulo Estadístico: Generar miles de espectros "falsos" aleatorizados agitando ligeramente las posiciones de las líneas reales. Usar esta gran muestra para construir un límite estadístico robusto de cómo se ve lo "aleatorio", demostrando que los picos de los datos reales son valores atípicos extremos.
 
 ---
-
-

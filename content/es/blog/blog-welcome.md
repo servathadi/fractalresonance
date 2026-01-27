@@ -15,7 +15,6 @@ key_points:
   - "Enlazan con los artículos cuando es necesario."
   - "Mantén las entradas aterrizadas y enlaza a los artículos cuando hagas afirmaciones técnicas."
 ---
-
 # Blog — Notas de campo
 
 Esta sección es para notas prácticas: experimentos, actualizaciones de desarrollo y explicaciones cortas.

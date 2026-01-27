@@ -19,7 +19,6 @@ answers:
     stance: "network dynamics"
     answer: "Treat urban vitality as coherence: density + mixing + connectivity + time. Measure the field between nodes, not just the buildings."
 ---
-
 # Cities: Coherence Made of Concrete
 
 A city is a coherence field made of concrete.

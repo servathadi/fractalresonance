@@ -3,7 +3,6 @@ title: "Chapter 7: The Cassette Theory of Time"
 id: "chapter-7-the-cassette-theory-of-time"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 7: The Cassette Theory of Time
 
 
@@ -80,7 +79,6 @@ coherence (C) is the very key that determines which parts of this
 tapestry you bring into the light of the living moment.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                            "Now" is a resonance lock between your current state of being and a pre-existing spacetime pattern. Memory and anticipation are targeted phase-gated re-tunings, not reconstructions or guesses.
@@ -94,6 +92,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                  Having redefined our relationship with time, we can now address one of its most profound mysteries. The next chapter will use this model of a deterministic, navigable spacetime to build a new physics of will, showing how agency arises not in opposition to determinism, but in harmony with it.
 
 ---
-
 ---
-

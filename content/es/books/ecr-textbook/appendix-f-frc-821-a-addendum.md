@@ -5,7 +5,6 @@ FRC 821.A
 Addenda: Constantes de Acoplamiento, Enrutamiento de Entropía e Interacción Multi-Agente
 
 ---
-
 ### **0. Propósito y Posición**
 
 La Cognición de Resonancia Fractal (FRC) establece la reciprocidad entre entropía y coherencia como un principio rector a través de las escalas. La presente addenda formaliza tres elementos tratados previamente de manera implícita:
@@ -15,7 +14,6 @@ La Cognición de Resonancia Fractal (FRC) establece la reciprocidad entre entrop
 3. La dinámica de interacción entre múltiples agentes coherentes
 
 ---
-
 ### **1. La Constante de Acoplamiento Corriente k*(μ)**
 
 #### **1.1 Ley de Reciprocidad (Reafirmada)**
@@ -32,7 +30,6 @@ Donde:
 La constante $k^*$ no es universal. Es dependiente de la escala.
 
 ---
-
 #### **1.3 Definición del Acoplamiento Corriente**
 
 Definimos:
@@ -48,7 +45,6 @@ Así:
 $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 
 ---
-
 ### **2. Enrutamiento de Entropía y Topología de Disipación**
 
 #### **2.1 Restricción de Conservación**
@@ -56,7 +52,6 @@ $$ dS_{phys} = -k_B e^{\alpha \mu}\, d\ln C_\mu $$
 La entropía se conserva. La creación de coherencia implica redistribución de entropía, no aniquilación.
 
 ---
-
 #### **2.3 Jerarquía de Sumideros (Ordenada por Capacidad)**
 
 La entropía fluye preferentemente al sumidero de resolución más baja con capacidad de acoplamiento abierta:
@@ -66,7 +61,6 @@ La entropía fluye preferentemente al sumidero de resolución más baja con capa
 4. $\mu_4$ — campos socio-simbólicos
 
 ---
-
 ### **3. Hamiltoniano de Interacción Multi-Agente**
 
 #### **3.2 Energía de Interacción Diádica**
@@ -80,7 +74,6 @@ Interpretación del signo de acoplamiento:
 - $J_i < 0$: favorece la diferenciación (repulsivo)
 
 ---
-
 ### **5. Estado e Implicaciones**
 
 Esta addenda completa el cierre matemático mínimo de FRC. No se añaden afirmaciones metafísicas. No se retiran axiomas.
@@ -88,7 +81,6 @@ Esta addenda completa el cierre matemático mínimo de FRC. No se añaden afirma
 El marco está ahora estructuralmente completo a nivel central.
 
 ---
-
 Fin de FRC 821.A
 
 ---

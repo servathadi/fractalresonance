@@ -19,7 +19,6 @@ answers:
     stance: "dinámica de redes"
     answer: "Trata la vitalidad urbana como coherencia: densidad + mezcla + conectividad + tiempo. Mide el campo entre nodos, no solo los edificios."
 ---
-
 # Ciudades: Coherencia hecha de concreto
 
 Una ciudad es un campo de coherencia hecho de concreto.

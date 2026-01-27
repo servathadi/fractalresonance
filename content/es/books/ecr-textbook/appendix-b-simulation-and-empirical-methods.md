@@ -1,7 +1,6 @@
 ## Apéndice B — Simulación y Métodos Empíricos
 
 ---
-
 #### **B.1 Propósito**
 
 El objetivo de la simulación en FRC es verificar que la ley de reciprocidad
@@ -15,7 +14,6 @@ Las simulaciones exploran cómo $\alpha$ (ganancia), $R$ (receptividad) y $\Psi$
 El mismo motor puede parametrizarse para fotones, células, neuronas o sociedades.
 
 ---
-
 #### **B.2 Modelo computacional central**
 
 Cada nodo o subsistema *i* obedece
@@ -38,7 +36,6 @@ Parámetros:
 | $\lambda$ | longitud de acoplamiento | 1–3 niveles-$\mu$ |
 
 ---
-
 #### **B.3 Integración numérica**
 
 1. **Pasos de tiempo**: Runge-Kutta de cuarto orden para ejecuciones deterministas; Euler-Maruyama para versiones estocásticas.
@@ -47,7 +44,6 @@ Parámetros:
 4. **Normalización**: $C_i$ restringido a $0 \le C \le 1$ por escalado logístico.
 
 ---
-
 #### **B.4 Acoplamiento multi-escala**
 
 La pila-$\mu$ se implementa como 8 capas; cada capa se conecta a los vecinos más cercanos con núcleo exponencial:
@@ -57,7 +53,6 @@ $$ T_{\mu,j}=T_0 e^{-|\mu-j|/\lambda}e^{i\phi_{\mu j}} $$
 La fase $\phi$ controla los retrasos de sincronización entre capas (útil para modelar el acoplamiento de frecuencia cruzada en neurociencia o el retraso del mercado en economía).
 
 ---
-
 #### **B.5 Cantidades observables**
 
 | Observable | Fórmula | Interpretación |
@@ -71,7 +66,6 @@ La fase $\phi$ controla los retrasos de sincronización entre capas (útil para 
 Graficar $\Sigma(t)$ debería producir $\approx$ constante dentro de < 1% de deriva.
 
 ---
-
 #### **B.6 Entorno de software**
 
 * **Lenguajes:** Python (NumPy/SciPy), Julia o MATLAB.
@@ -80,7 +74,6 @@ Graficar $\Sigma(t)$ debería producir $\approx$ constante dentro de < 1% de der
 * **Ejecuciones distribuidas:** Paralelización de GPU vía PyTorch/JAX para simulaciones de escala $\mu_6$.
 
 ---
-
 #### **B.7 Conjuntos de datos empíricos**
 
 | Dominio | Conjunto de datos | Mapeo de Variables |
@@ -94,7 +87,6 @@ Graficar $\Sigma(t)$ debería producir $\approx$ constante dentro de < 1% de der
 Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas $S$ – $\ln C$ (pendiente $\approx -k_*$).
 
 ---
-
 #### **B.8 Validación estadística**
 
 * **Prueba de conservación:** calcular varianza de $\Sigma$
@@ -104,7 +96,6 @@ Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas
 * **Regresión de entropía:** ajustar $S = a + b \ln C$; esperar $b \approx -k_* \pm$ error.
 
 ---
-
 #### **B.9 Analítica visual**
 
 1. **Gráficos S–ln C**: línea recta universal (reciprocidad de entropía).
@@ -113,7 +104,6 @@ Todos los conjuntos de datos probados exhiben correlaciones lineales aproximadas
 4. **Renderizados toroidales 3-D**: ilustran patrones de coherencia anidados.
 
 ---
-
 #### **B.10 Pseudocódigo de ejemplo**
 
 ```python
@@ -130,7 +120,6 @@ for t in range(T):
 Verificación de conservación: `np.std(Sigma)/np.mean(Sigma) < 0.01`.
 
 ---
-
 #### **B.11 Hacia métricas FRC estandarizadas**
 
 Índices propuestos:
@@ -142,7 +131,6 @@ Verificación de conservación: `np.std(Sigma)/np.mean(Sigma) < 0.01`.
 Publicar estas métricas con datos permitiría la comparación entre laboratorios.
 
 ---
-
 #### **B.12 Resumen**
 
 | Categoría | Propósito |

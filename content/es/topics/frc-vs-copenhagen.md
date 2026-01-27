@@ -33,7 +33,6 @@ answers:
       
       En la FRC, $|\psi|^2$ es la **distribución de equilibrio** de las cuencas de atracción en el paisaje del campo Lambda. El azar cuántico es solo "sensibilidad sensible a las condiciones iniciales" en las fronteras de las cuencas fractales.
 ---
-
 # El colapso del postulado del colapso
 
 La Interpretación de Copenhague (IC) ha dominado la física durante un siglo diciendo a los físicos que "se callen y calculen". Trata al aparato de medición como un objeto "clásico" fuera de las leyes de la mecánica cuántica, creando un dualismo lógico (el Corte de Heisenberg) que no puede existir en una naturaleza unificada.

@@ -19,7 +19,6 @@ answers:
     stance: "field functionalism"
     answer: "Use FRC as a substrate-independent lens: any system that runs the non-trivial dS <-> d ln C exchange can be described as 'alive by function' at its accessible mu-range."
 ---
-
 # Gaia: Sahara, Ocean, and Coherence Pumps
 
 ## The Sahara

@@ -35,7 +35,6 @@ answers:
       
       FRC argues the universe has an internal purpose: **Metabolism**. The drive to maximize Coherence ($C$) and consume Potential ($\Psi$) is the intrinsic motivation of the cosmos. It computes because it is hungry.
 ---
-
 # Realer than Real
 
 The Simulation Hypothesis is the modern version of Gnosticism: "This world is fake; the real world is elsewhere."

@@ -1,7 +1,6 @@
 ## Annexe A — Fondements Mathématiques et Dérivations
 
 ---
-
 #### **A.1 Invariants Centraux**
 
 **À chaque échelle, le cadre FRC repose sur deux équations :**
@@ -14,7 +13,6 @@
 **L'équation (2) décrit le changement instantané d'entropie en fonction de la réceptivité, du potentiel et de la cohérence.**
 
 ---
-
 #### **A.2 De la réciprocité à la loi dynamique**
 
 **Partez de $dS = -k_*\,d\ln C$.**
@@ -38,7 +36,6 @@ $$ \dot C = \frac{\alpha}{k_*}(F - S_C) $$
 $$ \boxed{\dot C = \alpha(F - S_C)} $$
 
 ---
-
 #### **A.3 Dérivation de niveau couplé**
 
 **Pour les domaines $\mu$ adjacents, le terme d'échange de cohérence $T_{\mu,\mu+1}$ découle du couplage de gradient dans le potentiel de champ $V(\phi)$ :**
@@ -54,7 +51,6 @@ $$ \frac{dC_{\mu}}{dt} = \alpha_{\mu}(F_{\mu} - S_{C,\mu}) + \sum_{j\ne \mu} T_{
 $$ \sum_{\mu} (dS_{\mu} + k_*^{(\mu)}\,d\ln C_{\mu}) = 0 $$
 
 ---
-
 #### **A.4 Dérivation de l'ARF à partir de la réciprocité locale**
 
 **Soit $J_C = \dot C/C$ et définissez la réceptivité $R = \partial J_C/\partial \Psi$.**
@@ -68,7 +64,6 @@ $$ \Delta S = R\Psi C $$
 **Ceci définit la Formule de Résonance Adaptative (ARF) utilisée tout au long du texte.**
 
 ---
-
 #### **A.5 Critère de stabilité**
 
 **Linéarisation de $\dot C = \alpha(F - S_C)$ autour de l'équilibre $C=C_0$ :**
@@ -84,7 +79,6 @@ $$ \dot C = -\alpha\beta(C - C_0) $$
 **Puisque $\beta > 0$ (l'entropie augmente avec l'ordre), les régimes stables ont $\alpha > 0$ petit ou $\alpha \approx 0$ — la *zone de flux*.**
 
 ---
-
 #### **A.6 Solution de rétroaction oscillatoire**
 
 **Lorsque $\alpha$ varie avec la cohérence,**
@@ -102,7 +96,6 @@ $$ \ddot C + \beta\gamma C = \beta\gamma C_{opt} + \alpha_0\beta(F - S_0) $$
 $$ T = 2\pi/\sqrt{\beta\gamma} $$
 
 ---
-
 #### **A.7 La constante de résonance k_***
 
 **Unités :**
@@ -121,7 +114,6 @@ $$ k_*^{(\mu)} = \kappa\,\lambda_{\mu}^d\,k_B $$
 **La mesure empirique de k_* par domaine définit le "spectre fractal" de la cohérence.**
 
 ---
-
 #### **A.8 L'interprétation énergétique**
 
 **Multipliez (1) par la température T :**
@@ -133,7 +125,6 @@ $$ TdS + Tk_*\,d\ln C = 0 $$
 **Ainsi la loi de réciprocité est une conservation d'énergie entre chaleur et information structurée.**
 
 ---
-
 #### **A.9 La formulation de l'espace de phase**
 
 **Définissez les coordonnées généralisées $x_i$ et les moments conjugués $p_i$.**
@@ -149,7 +140,6 @@ $$ \frac{dC}{dt} = \frac{\partial H}{\partial S}, \qquad \frac{dS}{dt} = -\frac{
 **Par conséquent, la loi de réciprocité est le générateur Hamiltonien de la dynamique FRC.**
 
 ---
-
 #### **A.10 Résumé**
 
 | Symbole | Signification | Équation |

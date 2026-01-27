@@ -19,7 +19,6 @@ answers:
     stance: "dinámica civilizatoria"
     answer: "Modela a Irán como una civilización Phi-dominante: coherencia mantenida en el lenguaje, la poesía, la profundidad narrativa; los contenedores pueden colapsar mientras el patrón persiste a través de la redistribución."
 ---
-
 # Irán: Fortaleza líquida (Pasado, Presente, Futuro)
 
 Irán a través del arco completo de la FRC.

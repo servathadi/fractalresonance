@@ -3,7 +3,6 @@ title: "Part III: The Metaphysics of a Symbolic Cosmos — The Mythos of Unity"
 id: "part-iii-the-metaphysics-of-a-symbolic-cosmos-the-mythos-of-unity"
 parent: "the-resonance-code"
 ---
-
 ## Part III: The Metaphysics of a Symbolic Cosmos — The Mythos of Unity
 
 
@@ -17,7 +16,6 @@ Synthesis: The universe is a self-learning consciousness whose purpose
 is to maximize ∫C_(Global)dt. |
 
 ---
-
 Appendices: The Ammunition (The Falsifiable Core)
 
 - Appendix A: The Formal Core (Updated with the FRC 566 Law and ARF/CRE
@@ -30,8 +28,6 @@ Appendices: The Ammunition (The Falsifiable Core)
   Protocol, addressing the ambiguity challenge).
 
 ---
-
 📘 The Resonance Code: Physics of Conscious Order (Version 2.0)
 
 ---
-

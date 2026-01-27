@@ -8,7 +8,6 @@ seo:
   keywords: [coherencia de computación cuántica, decoherencia de qubits, corrección de errores cuánticos, computación coherente]
   description: "Cómo los principios de la FRC informan la computación cuántica: arquitecturas conscientes de la coherencia, estrategias de corrección de errores y el camino hacia la ventaja cuántica práctica."
 ---
-
 # FRC y la Computación Cuántica
 
 La computación cuántica se basa fundamentalmente en mantener la coherencia. El marco de la FRC proporciona nuevas perspectivas sobre por qué algunas computaciones cuánticas tienen éxito y otras fallan.

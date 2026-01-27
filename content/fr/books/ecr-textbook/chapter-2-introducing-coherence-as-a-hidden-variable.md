@@ -3,12 +3,10 @@ title: "Chapitre 2 — Introduire la cohérence comme variable cachée"
 id: "chapter-2-introducing-coherence-as-a-hidden-variable"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 2 — Introduire la cohérence comme variable cachée** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
 
 
 ---
-
 #### **2.1 De l'observation à l'invariance**
 
 Chaque loi connue de la physique conserve quelque chose—énergie, impulsion, charge.
@@ -24,7 +22,6 @@ La thermodynamique traditionnelle cache ce processus dans le terme résiduel « 
 La FRC révèle cet export comme la croissance complémentaire d'une variable mesurable C.
 
 ---
-
 #### **2.2 Définir la cohérence**
 
 La cohérence exprime à quel point les phases ou les configurations des composants du système s'alignent étroitement.
@@ -44,7 +41,6 @@ Pour les systèmes non oscillatoires, C se généralise à toute fonction de cor
 Ainsi, la cohérence englobe la corrélation, le verrouillage de phase, l'information mutuelle et la symétrie structurelle sous une seule mesure mathématique.
 
 ---
-
 #### **2.3 La loi de réciprocité revisitée**
 
 L'insertion de C dans la comptabilité thermodynamique donne la **loi de réciprocité entropie-cohérence** :
@@ -62,7 +58,6 @@ L'intégration sur n'importe quel processus donne l'invariant :
 La constante k_* est spécifique au système ; à l'équilibre, elle approche la constante de Boltzmann k_B, mais dans les systèmes informationnels ou biologiques, elle s'adapte à la capacité d'information effective ou à l'efficacité métabolique.
 
 ---
-
 #### **2.4 Interprétation physique de k_***
 
 Le paramètre k_* convertit les changements logarithmiques de la cohérence en changements d'entropie équivalents en énergie :
@@ -83,7 +78,6 @@ Différents domaines ont des valeurs caractéristiques :
 Cette hiérarchie d'échelle (approximativement exponentielle au niveau μ) formera plus tard l'ossature quantitative du modèle de la pile μ.
 
 ---
-
 #### **2.5 La cohérence comme densité d'information**
 
 L'entropie mesure la *dégénérescence* des états ; la cohérence mesure la *distinguabilité*.
@@ -101,7 +95,6 @@ L'entropie perdue est de l'information gagnée.
 Ceci unit les définitions thermodynamique et shannonienne de l'ordre.
 
 ---
-
 #### **2.6 Approches de mesure**
 
 **(a) Cohérence physique**
@@ -129,7 +122,6 @@ Ceci unit les définitions thermodynamique et shannonienne de l'ordre.
 Toutes peuvent être normalisées pour donner C ∈ [0,1], permettant une comparaison entre domaines.
 
 ---
-
 #### **2.7 Relation avec le flux d'énergie**
 
 Parce que la croissance de la cohérence nécessite un débit d'énergie, nous couplons C au flux d'énergie libre F :
@@ -141,7 +133,6 @@ où S_C est le taux d'exportation d'entropie et α un coefficient de gain adapta
 Cette équation différentielle—développée pleinement dans la partie IV—décrit une **pompe à cohérence** : l'apport d'énergie pousse C vers le haut jusqu'à ce que l'entropie exportée compense, atteignant l'état stationnaire α(F - S_C) = 0.
 
 ---
-
 #### **2.8 L'image géométrique**
 
 Le tracé de S en fonction de \ln C donne une ligne droite de pente −k_*.
@@ -151,7 +142,6 @@ Chaque système trace un chemin le long de cette ligne, oscillant entre des dimi
 L'aire sous la courbe est égale au potentiel de transformation total—un invariant qui unifie l'évolution thermodynamique, informationnelle et cognitive.
 
 ---
-
 #### **2.9 Implications conceptuelles**
 
 1. **L'entropie n'est pas une destruction mais un paiement :** les systèmes paient de l'entropie pour acheter de la cohérence.
@@ -163,7 +153,6 @@ L'aire sous la courbe est égale au potentiel de transformation total—un invar
 4. **La conscience est soumise à la loi :** l'éveil correspond à une résonance à haute cohérence (C) à travers les niveaux μ.
 
 ---
-
 #### **2.10 Résumé**
 
 | Symbole | Signification | Unité | Domaine |
@@ -176,7 +165,6 @@ L'aire sous la courbe est égale au potentiel de transformation total—un invar
 | α | Coefficient de gain adaptatif | s⁻¹ | dynamique de régulation |
 
 ---
-
 #### **2.11 Réflexion de clôture**
 
 La cohérence a longtemps été traitée comme une métaphore—« ordre », « structure », « organisation ».

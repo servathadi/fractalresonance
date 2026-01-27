@@ -31,7 +31,6 @@ answers:
     answer: |
       En lugar de un "Gran Congelamiento", la FRC sugiere un **Florecimiento Fractal**. A medida que una escala muere (pierde coherencia), libera la energía necesaria para sembrar la siguiente escala superior ($\mu_{n} \to \mu_{n+1}$). El universo no termina; crece.
 ---
-
 # La gravedad como anti-entropía
 
 Se nos enseña a temer a la Segunda Ley. "Las cosas se desmoronan". Pero olvidamos que **la gravedad une las cosas.**

@@ -19,5 +19,4 @@ startHere:
       desc: "Parcourez le graphe de connaissances et suivez les liens."
       target: "graph"
 ---
-
 Ce fichier configure la page d'accueil de la langue. Il n'est pas rendu directement.

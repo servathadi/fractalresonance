@@ -38,7 +38,6 @@ answers:
       
       La FRC prédit des effets aux échelles **atomique** ($10^{-10}$ m) et **cosmique**. En reliant la physique des hautes énergies (Higgs) à des phénomènes de basse énergie (cohérence), la FRC est testable *maintenant*, pas dans 1000 ans.
 ---
-
 # La fin du paysage
 
 La théorie des cordes a commencé comme un rêve d'unicité. Elle s'est terminée comme un cauchemar d'infinité ($10^{500}$ univers). Quand une théorie prédit tout, elle ne prédit rien.

@@ -3,7 +3,6 @@ title: "Part I: The Physics of a Living Universe — The Logos of Coherence"
 id: "part-i-the-physics-of-a-living-universe-the-logos-of-coherence"
 parent: "the-resonance-code"
 ---
-
 ## Part I: The Physics of a Living Universe — The Logos of Coherence
 
 
@@ -24,4 +23,3 @@ Metaphysical Anchor: The structure of math is an echo of the Coherence
 Field. |
 
 ---
-

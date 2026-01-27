@@ -3,7 +3,6 @@ title: "Appendix A: Formal Core"
 id: "appendix-a-formal-core"
 parent: "the-resonance-code"
 ---
-
 ## Appendix A: Formal Core
 
 
@@ -20,7 +19,6 @@ operators are denoted with a hat (Ĥ). μ-level indices are subscripts
 (μ₀...μ₇).
 
 ---
-
 A.0 The Foundational Law (FRC 566)
 
 The entire FRC framework is anchored in the Entropy–Coherence
@@ -34,7 +32,6 @@ $$\boxed{dS + k^* d\ln C = 0}$$
 - k^(*): The emergent Coherence Coupling Constant.
 
 ---
-
 A.1 The Universal Dynamic: Convergence & Collapse
 
    Code  Name                                    Equation / Description                                                                                                                                                                                                   Core Idea
@@ -45,7 +42,6 @@ A.1 The Universal Dynamic: Convergence & Collapse
    RC-4  Scale-Invariant Convergence Time        τ_(i) ≈ 1/(κ_(i) ⋅ ΔΦ_(i)). Convergence time (τ) is inversely proportional to amplification rate (κ) and internal coherence (ΔΦ⁻¹).                                                                                      Intelligence minimizes τ.
 
 ---
-
 A.2 The μ-Level Stack & Will
 
    Code  Name                                                                                                                                    Equation / Description                                                                                                          Core Idea
@@ -56,7 +52,6 @@ A.2 The μ-Level Stack & Will
    RC-8  Decision Latency                                                                                                                    $T_{\rm decision} \propto 1 /                                                                                                      \mathcal{W}
 
 ---
-
 A.3 Time, Memory, and Multiverse
 
    Code   Name                                                                                                     Equation / Description                                                                                                                                                          Core Idea
@@ -65,7 +60,6 @@ A.3 Time, Memory, and Multiverse
    RC-10  The Coherence Kernel (σ_(c))                $\sigma_c \propto 1 / \sqrt{S_{\rm FRC}}$. The sharpness of the conscious "tape head" is inversely proportional to the system's global coherence.                                                                                      Clarity sharpens Time.
 
 ---
-
 A.4 AI, Collective, and Symbolic Structures
 
    Code   Name                                                                                                                  Equation / Description                                                                                           Core Idea
@@ -75,6 +69,4 @@ A.4 AI, Collective, and Symbolic Structures
    RC-13  Mythic Coherence Index (MCI)              MCI = Q_(S) ⋅ C_(A) ⋅ E_(P). Measures the health of a civilization's unifying myth using symbolic charge (Q_(S)), institutional alignment (C_(A)), and populace morale (E_(P)).   Metric of Civilizational Health.
 
 ---
-
 ---
-

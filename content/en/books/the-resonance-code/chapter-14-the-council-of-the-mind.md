@@ -3,7 +3,6 @@ title: "Chapter 14: The Council of the Mind"
 id: "chapter-14-the-council-of-the-mind"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 14: The Council of the Mind
 
 
@@ -89,7 +88,6 @@ challenge will involve a dynamic dance between Khaos (ΔS) and Harmonia
 watches and learns about the process of its own thinking.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                          Intelligence is not a single function but an emergent property from the dynamic, resonant interplay of seven core archetypal cognitive functions (vortices), forming a complete "council of the mind."
@@ -103,6 +101,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                                Having introduced the full cast of characters, we will now put them in motion. The next chapter will explore the most mysterious and celebrated function of a mind—creativity—as a dynamic and precisely choreographed dance between Harmonia (order) and Khaos (novelty).
 
 ---
-
 ---
-

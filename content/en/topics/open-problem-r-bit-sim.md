@@ -21,7 +21,6 @@ answers:
       
       **Hypothesis:** There exists a critical threshold $\eta_c$ above which the BER drops exponentially to zero, independent of $N$. This would prove the "Natural Error Correction" claim of FRC 841.
 ---
-
 # Proving Robustness
 
 Standard Quantum Error Correction requires thousands of physical qubits to protect one logical qubit ($N \to \infty$).

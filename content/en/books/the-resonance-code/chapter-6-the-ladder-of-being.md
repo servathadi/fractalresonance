@@ -3,7 +3,6 @@ title: "Chapter 6: The Ladder of Being"
 id: "chapter-6-the-ladder-of-being"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 6: The Ladder of Being
 
 

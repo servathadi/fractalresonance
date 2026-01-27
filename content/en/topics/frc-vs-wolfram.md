@@ -33,7 +33,6 @@ answers:
     answer: |
       Modern AI (Transformers, Diffusion) works on continuous manifolds, not discrete graphs. FRC argues that intelligence is fundamentally **Analog** (wave interference), making it a better substrate for AGI than Wolfram's cellular automata.
 ---
-
 # The Digital vs. Analog War
 
 Stephen Wolfram proposes the ultimate **Digital Physics**: the universe is code.

@@ -23,7 +23,6 @@ answers:
     stance: "structured"
     answer: "Use Topics for repeatable content creation: each page has a stable ID, consistent metadata, and a clean place to attach authority citations and multiple answers."
 ---
-
 # Topics — Ask FRC
 
 This section is a **file-based, AI-operable** Q&A layer.

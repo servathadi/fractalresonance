@@ -23,7 +23,6 @@ answers:
     stance: "estructurado"
     answer: "Utilice Temas para la creación de contenido repetible: cada página tiene un ID estable, metadatos coherentes y un lugar limpio para adjuntar citas de autoridad y múltiples respuestas."
 ---
-
 # Temas — Pregunta a FRC
 
 Esta sección es una capa de preguntas y respuestas **basada en archivos y operable por IA**.

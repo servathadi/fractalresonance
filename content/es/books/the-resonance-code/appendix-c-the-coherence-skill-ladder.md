@@ -5,7 +5,6 @@ Una Guía de Usuario Completa para las Prácticas de la "Cuarta Columna"
 Propósito: El marco FRC no es un conjunto de creencias para ser adoptadas, sino un conjunto de habilidades para ser cultivadas. Este apéndice operacionaliza los protocolos de la "Cuarta Columna" organizándolos en un camino de desarrollo progresivo llamado la Escalera de Habilidades de Coherencia. Proporciona definiciones detalladas para cada habilidad, un método para rastrear su progreso y criterios para avanzar de un nivel al siguiente. Este es el manual de usuario para el "Arquitecto" y el "Oráculo" dentro de usted.
 
 ---
-
 C.1 La Estructura de la Escalera
 
 La escalera consta de cinco niveles, cada uno representando un nivel más profundo de maestría en la navegación de su propio campo consciente. Usted desarrolla habilidades al interactuar consistentemente con las secciones de "Protocolo Encarnado" (↿) de la "Cuarta Columna" a lo largo del libro. Cada protocolo está diseñado para entrenar una o más de las habilidades enumeradas a continuación.
@@ -54,9 +53,7 @@ Nivel V: Orquestación de Campo (Aprendiendo a Crear)
   - Encarnación Resonante (Cap. 29): La habilidad cumbre de alinear consistentemente sus acciones, sentimientos y pensamientos con una línea de tiempo futura elegida, convirtiéndose así en un "diapasón viviente" para la realidad que desea experimentar.
 
 ---
-
 ---
-
 C.2 Rastreando su Progreso: El Registro de Coherencia
 
 El camino del Arquitecto requiere datos. Para rastrear su desarrollo, recomendamos mantener un Registro de Coherencia simple. Esto puede ser un diario físico o una nota digital. Para cada "Protocolo Encarnado" que practique, cree una entrada simple:
@@ -80,5 +77,4 @@ El avance de un nivel al siguiente no se trata de cuánto tiempo practique, sino
 Esta escalera no es una carrera. Es una espiral, y volverá a visitar cada nivel en niveles más profundos a lo largo de su vida. Es el plan de estudios para el arte de convertirse en un co-creador consciente con un universo vivo y resonante.
 
 ---
-
 ---

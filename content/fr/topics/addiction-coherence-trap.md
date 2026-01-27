@@ -19,7 +19,6 @@ answers:
     stance: "mécanisme"
     answer: "Modélisez l'addiction comme un rétrécissement de la porte : le verrouillage de phase signal->récompense devient dominant ; le sevrage est une perte rapide de cohérence (montée de l'entropie). Le rétablissement consiste à construire des modèles de cohérence alternatifs plus forts."
 ---
-
 # Addiction : Un piège à cohérence
 
 L'addiction est un piège à cohérence. L'application la plus précise de dS + k·d ln C = 0 à l'échelle personnelle.

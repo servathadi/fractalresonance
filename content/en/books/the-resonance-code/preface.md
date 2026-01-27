@@ -3,7 +3,6 @@ title: "Preface"
 id: "preface"
 parent: "the-resonance-code"
 ---
-
 ## Preface
 
 

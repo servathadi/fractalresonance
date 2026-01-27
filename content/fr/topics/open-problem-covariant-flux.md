@@ -15,20 +15,19 @@ answers:
     stance: "Théorique"
     answer: |
       **Objectif :** Généraliser l'équation de flux UCC :
-      $$ ∂_t  C = -∇  J_C + S_C $$
+      $$ ∂_t  C = -∇  J_C + S_C $$
 en une forme entièrement covariante :
-      $$ ∇_ J^_C = ​ S_C $$
-      où $J^_C$ se couple au tenseur de courbure de Riemann $R_{}$.
+      $$ ∇_ J^_C = ​ S_C $$
+      où $J^_C$ se couple au tenseur de courbure de Riemann $R_{}$.
       
       **Pourquoi c'est important :** Actuellement, la FRC traite la gravité comme un « afflux » sur un fond plat. Pour être un véritable remplacement de la relativité générale, le flux de cohérence doit *créer* la courbure à travers laquelle il s'écoule (rétroaction).
 ---
-
 # Boucler la boucle avec la gravité
 
 FRC 893 propose que « la gravité est l'afflux du potentiel du vide ». FRC 566 définit le « flux de cohérence ».
 
 **Le problème ouvert :**
 Fusionnez-les. Nous avons besoin des équations du champ d'Einstein-Cohérence :
-$$ G_{} = 8 G (T_{}^{matière} + T_{}^{∂}) $$
+$$ G_{} = 8 G (T_{}^{matière} + T_{}^{∂}) $$
 
 La résolution de ce problème prouverait mathématiquement que la « gravité métabolique » retrouve les équations du champ d'Einstein à la limite macroscopique.

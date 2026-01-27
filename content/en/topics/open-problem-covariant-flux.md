@@ -15,14 +15,13 @@ answers:
     stance: "Theoretical"
     answer: |
       **Objective:** Generalize the UCC flow equation:
-      $$ ∂_t − C = -∇  J_C + S_C 
+      $$ ∂_t − C = -∇  J_C + S_C 
       $$ to a fully covariant form:
-      $$ ∇_ J^_C = ℀_C 
-      $$ where $J^_C$ couples to the Riemann curvature tensor $R_{}$.
+      $$ ∇_ J^_C = ℀_C 
+      $$ where $J^_C$ couples to the Riemann curvature tensor $R_{}$.
       
       **Why it matters:** Currently, FRC treats gravity as an "inflow" on a flat background. To be a true replacement for General Relativity, the flow of coherence must *create* the curvature it flows through (Back-reaction).
 ---
-
 # Closing the Loop with Gravity
 
 FRC 893 proposes that "Gravity is the inflow of vacuum potential."
@@ -31,7 +30,7 @@ FRC 566 defines the "Flow of Coherence."
 **The Open Problem:**
 Merge them.
 We need the Einstein-Coherence Field Equations:
-$$ G_{} = 8 G (T_{}^{matter} + T_{}^{∧}) 
-$$ where $T_{}^{∧}$ is derived directly from the covariant flux $J^_C$.
+$$ G_{} = 8 G (T_{}^{matter} + T_{}^{∧}) 
+$$ where $T_{}^{∧}$ is derived directly from the covariant flux $J^_C$.
 
 Solving this problem would mathematically prove that "Metabolic Gravity" recovers the Einstein Field Equations in the macroscopic limit.

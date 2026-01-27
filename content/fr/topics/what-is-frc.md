@@ -32,7 +32,6 @@ answers:
     stance: "points de départ"
     answer: "Commencez par la loi de réciprocité et les dérivations du champ Λ ; utilisez les Sujets comme un index stable de définitions, comparaisons et problèmes ouverts."
 ---
-
 # Qu'est-ce que la FRC ?
 
 La FRC est publiée sous plusieurs formes :

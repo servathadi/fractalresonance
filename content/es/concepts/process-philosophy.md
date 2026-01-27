@@ -8,7 +8,6 @@ seo:
   keywords: [filosofía del proceso, whitehead, ocasiones actuales, física de la conciencia, panpsiquismo cuántico]
   description: "Cómo la Coherencia de Resonancia Fractal se conecta con la filosofía del proceso de Whitehead: ocasiones actuales, prensión y la física del devenir."
 ---
-
 # FRC y la Filosofía del Proceso
 
 La filosofía del proceso de Alfred North Whitehead ofrece un marco metafísico que resuena profundamente con el enfoque de la FRC hacia la mecánica cuántica y la conciencia.

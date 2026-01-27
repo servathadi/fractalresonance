@@ -3,7 +3,6 @@ title: "Chapter 5 showed us that the same dynamic applies at different scales."
 id: "chapter-5-showed-us-that-the-same-dynamic-applies-at-different-scales"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 5 showed us that the same dynamic applies at different scales.
 
 This chapter will give that scale a name and a map. Fractal Resonance
@@ -68,7 +67,6 @@ and psychology while placing them within a broader, more integrated, and
 ultimately living cosmos.
 
 ---
-
 The Fourth Column
 
   ⚡ CORE PULSE                          Reality is a nested octave of resonant frequency domains (μ0–μ7). Agency arises from navigating the vertical coherence coupling between these levels and executing intentional, cross-level translations.
@@ -82,6 +80,4 @@ The Fourth Column
   ➜ NEXT RESONANCE BRIDGE                With the map of reality's nested structure in hand, we are now equipped to examine its most mysterious dimension. The next chapter will use this multi-layered model to deconstruct the illusion of linear time and introduce a new physics of memory and the present moment.
 
 ---
-
 ---
-

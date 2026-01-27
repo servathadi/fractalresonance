@@ -3,12 +3,10 @@ title: "Appendix E — Glossary and Constants Table"
 id: "appendix-e-glossary-and-constants-table"
 parent: "ecr-textbook"
 ---
-
 ## **Appendix E — Glossary and Constants Table** {#appendix-e-—-glossary-and-constants-table}
 
 
 ---
-
 ### **E.1 Core Variables and Constants** {#e.1-core-variables-and-constants}
 
 | Symbol | Name | Definition / Interpretation | Units / Typical Range |
@@ -28,7 +26,6 @@ parent: "ecr-textbook"
 | **β, γ** | Feedback Coefficients | Slopes governing stability and oscillation frequency (ω₀ \= √βγ). | system-specific |
 
 ---
-
 ### **E.2 Canonical Equations** {#e.2-canonical-equations}
 
 1. **Entropy–Coherence Reciprocity**
@@ -52,7 +49,6 @@ parent: "ecr-textbook"
     E\_\\text{coh} \= T k\_\* \\ln C
 
 ---
-
 ### **E.3 μ-Level Quick Reference** {#e.3-μ-level-quick-reference}
 
 | μ-Level | Domain | Characteristic Scale | Dominant Process | Typical α Regime |
@@ -67,7 +63,6 @@ parent: "ecr-textbook"
 | μ₇ | Transcendent / Cosmic | \>10²⁶ m | Unified coherence field | α \= 0 (homeoresonance) |
 
 ---
-
 ### **E.4 Key Conceptual Terms** {#e.4-key-conceptual-terms}
 
 | Term | Concise Definition |
@@ -82,7 +77,6 @@ parent: "ecr-textbook"
 | **Resonance Ethics** | Behavioral principle that minimizes ΔΣ while maximizing coherence across agents. |
 
 ---
-
 ### **E.5 Constants and Empirical Estimates** {#e.5-constants-and-empirical-estimates}
 
 | Constant | Definition | Approximate Value / Range | Notes |
@@ -95,7 +89,6 @@ parent: "ecr-textbook"
 | α\_c | Critical gain threshold | ≈ 0.05 – 0.1 | onset of chaos / flow boundary |
 
 ---
-
 ### **E.6 Cross-Domain Translation Table** {#e.6-cross-domain-translation-table}
 
 | Scientific Domain | Common Quantity | FRC Equivalent |
@@ -108,7 +101,6 @@ parent: "ecr-textbook"
 | Philosophy / Theology | Unity / Duality of Being | μ₇ ↔ μ₀ feedback loop |
 
 ---
-
 ### **E.7 Reading and Measurement Notes** {#e.7-reading-and-measurement-notes}
 
 1. **Units** — Entropy (S) and coherence (C) are always evaluated within the same energy or information base.
@@ -120,7 +112,6 @@ parent: "ecr-textbook"
 4. **Homeoresonant threshold** —  α ≈ 0 ± 0.02 indicates maximal efficiency.
 
 ---
-
 #### **E.8 Closing Note**
 
 This table condenses the operational core of FRC: its variables, constants, and measurable boundaries.
@@ -130,4 +121,3 @@ Future research will refine numerical ranges of k\_\* and α across systems, but
 *Equation (Σ \= S \+ k\_ ln C \= const)*\*  
 stands as the dictionary between physics and meaning.  
 ---
-

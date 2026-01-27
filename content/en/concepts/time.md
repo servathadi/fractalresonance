@@ -8,7 +8,6 @@ seo:
   keywords: [what is time, nature of time, time and entropy, time physics, arrow of time]
   description: "Exploring the nature of time through the FRC framework: how coherence gradients and entropy define temporal direction."
 ---
-
 # What is Time?
 
 Time remains one of the deepest mysteries in physics and philosophy. The FRC framework offers a fresh perspective: **time emerges from coherence gradients**.

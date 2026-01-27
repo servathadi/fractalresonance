@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/fthtrwfoytg"
   thumbnailUrl: "/images/slides_raw/Hunting_the_Glitch/slide_001.png"
 ---
-
 # Episode 6: Hunting for the Glitch
 
 ## Visual Essay

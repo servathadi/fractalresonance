@@ -6,7 +6,6 @@ tags: [quantum-randomness, determinism, philosophy, infographics, FRC-100]
 abstract: "A critical look at the concept of 'true' randomness in quantum mechanics and the FRC alternative."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ---
-
 # Unmasking Quantum Randomness
 
 ## Visual Essay

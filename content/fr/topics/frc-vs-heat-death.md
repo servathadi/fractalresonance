@@ -31,7 +31,6 @@ answers:
     answer: |
       Au lieu d'un « Grand Gel », la FRC suggère une **floraison fractale**. Lorsqu'une échelle meurt (décohérence), elle libère l'énergie nécessaire pour ensemencer l'échelle suivante ($\mu_{n} \to \mu_{n+1}$). L'univers ne s'arrête pas ; il grandit.
 ---
-
 # La gravité comme anti-entropie
 
 On nous apprend à craindre la seconde loi. « Tout se dégrade. » Mais nous oublions que **la gravité rassemble les choses.**

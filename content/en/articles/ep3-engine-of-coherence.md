@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/Cy_5ofEuHLA"
   thumbnailUrl: "/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_001.png"
 ---
-
 # Episode 3: The Engine of Coherence
 
 ## Visual Essay

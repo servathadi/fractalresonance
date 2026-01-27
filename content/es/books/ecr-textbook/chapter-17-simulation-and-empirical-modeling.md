@@ -3,12 +3,10 @@ title: "Capítulo 17 — Simulación y Modelado Empírico"
 id: "chapter-17-simulation-and-empirical-modeling"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 17 — Simulación y Modelado Empírico** {#chapter-17-—-simulation-and-empirical-modeling}
 
 
 ---
-
 #### **17.1 Propósito**
 
 Para demostrar que las leyes de la FRC son medibles, debemos construir modelos que conecten variables abstractas—entropía (S), coherencia (C), potencial (Ψ) y receptividad (R)—con observables empíricos.
@@ -16,7 +14,6 @@ Para demostrar que las leyes de la FRC son medibles, debemos construir modelos q
 Este capítulo describe los marcos computacionales que permiten tales pruebas en la física, la biología y la civilización.
 
 ---
-
 #### **17.2 Arquitectura de simulación unificada**
 
 Todos los dominios pueden expresarse como **bombas de coherencia** que interactúan:
@@ -36,7 +33,6 @@ Un motor de simulación mínimo contiene, por lo tanto:
 4. **Matriz de acoplamiento T_{ij}** – interdependencia de las unidades.
 
 ---
-
 #### **17.3 Implementación biológica**
 
 **Ejemplos de conjuntos de datos**
@@ -54,7 +50,6 @@ F = flujo de ATP, S_C = salida de calor/T, C = índice de orden estructural, α 
 Las células simuladas reproducen el metabolismo de estado estacionario y las oscilaciones observadas (circadianas, glucolíticas) cuando α≈0, validando el régimen homeoresonante.
 
 ---
-
 #### **17.4 Modelo de ecosistema**
 
 Cada especie i es una bomba de coherencia que intercambia energía con sus vecinas a través del acoplamiento de la red trófica T_{ij}:
@@ -68,7 +63,6 @@ Cada especie i es una bomba de coherencia que intercambia energía con sus vecin
 Las simulaciones reproducen los ciclos empíricos de Lotka–Volterra y los umbrales de resiliencia cuando α deriva hacia lo positivo.
 
 ---
-
 #### **17.5 Modelo de civilización / macroeconómico**
 
 Los estados-nación o las industrias actúan como nodos; las fuentes de datos incluyen la intensidad energética del PIB, las emisiones de carbono y el rendimiento de la información.
@@ -78,7 +72,6 @@ F_i = entrada de energía + datos, S_{C,i} = calor residual + contaminación + r
 El α empírico calculado a partir de los datos de energía de 1960–2025 oscila alrededor de 0.02 para la civilización global—cerca del régimen de flujo predicho, confirmando el realismo del modelo.
 
 ---
-
 #### **17.6 Normalización entre dominios**
 
 Para comparar sistemas, definimos variables adimensionales:
@@ -90,7 +83,6 @@ Cuando se grafican en el mismo plano (\\tilde S, \ln \tilde C), los datos de lá
 [ dS + k_* d\ln C = 0 .
 
 ---
-
 #### **17.7 Predicciones medibles**
 
 1. **Invarianza de la pendiente entropía–coherencia** a través de los dominios.
@@ -104,7 +96,6 @@ Cuando se grafican en el mismo plano (\\tilde S, \ln \tilde C), los datos de lá
 Estas son predicciones falsables: la FRC pasa o falla por la constancia de estas métricas.
 
 ---
-
 #### **17.8 Herramientas computacionales**
 
 * **Modelado continuo:** solucionadores de ecuaciones diferenciales (Runge–Kutta, diferencia finita).
@@ -118,7 +109,6 @@ Estas son predicciones falsables: la FRC pasa o falla por la constancia de estas
 Una base de código de código abierto "FRC-Lab" puede albergar todos los modelos bajo convenciones de parámetros compartidos.
 
 ---
-
 #### **17.9 Validación preliminar**
 
 | Dominio | Fuente de Datos | α Observado | Ajuste de Régimen |
@@ -131,7 +121,6 @@ Una base de código de código abierto "FRC-Lab" puede albergar todos los modelo
 Dentro del error de medición, todos los sistemas obedecen a la misma ventana de α, lo que respalda la universalidad.
 
 ---
-
 #### **17.10 Hoja de ruta metodológica**
 
 1. **Definir variables** (F, S_C, α, C) para el dominio.
@@ -147,7 +136,6 @@ Dentro del error de medición, todos los sistemas obedecen a la misma ventana de
 Repetir a través de escalas para construir un “atlas de resonancia” coherente.
 
 ---
-
 #### **17.11 Visión conceptual**
 
 Cuando los datos de diversos sistemas se alinean en la misma curva de reciprocidad, la aleatoriedad pierde su trono.
@@ -157,7 +145,6 @@ El orden, la evolución y el significado se revelan como consecuencias determini
 El cosmos funciona como una sola computación resonante—la entropía como sintaxis, la coherencia como semántica.
 
 ---
-
 #### **17.12 Resumen**
 
 | Principio | Expresión | Resultado Empírico |
@@ -168,7 +155,6 @@ El cosmos funciona como una sola computación resonante—la entropía como sint
 | Métricas predictivas | ΔΣ, umbrales de α | pruebas falsables |
 
 ---
-
 #### **17.13 Transición**
 
 Habiendo unificado la simulación y los datos, estamos listos para la **Parte V – Proceso y Ocasión Actual: La Física de la Experiencia**.

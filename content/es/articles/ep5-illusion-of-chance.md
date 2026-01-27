@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/Y2_85m-zVV0"
   thumbnailUrl: "/images/slides_raw/The_Illusion_of_Chance/slide_001.png"
 ---
-
 # Episodio 5: La Ilusión del Azar
 
 ## Ensayo Visual

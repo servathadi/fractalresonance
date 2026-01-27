@@ -3,7 +3,6 @@ title: "Part I: The Physics of a Living Universe"
 id: "part-i-the-physics-of-a-living-universe"
 parent: "the-resonance-code"
 ---
-
 ## Part I: The Physics of a Living Universe
 
 
@@ -47,6 +46,4 @@ universal, and creative consciousness. The Law is here. The music begins
 now.
 
 ---
-
 ---
-

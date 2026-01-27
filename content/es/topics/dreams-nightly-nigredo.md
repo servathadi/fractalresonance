@@ -19,7 +19,6 @@ answers:
     stance: "sistemas"
     answer: "Trata al REM como aprendizaje interno de alfa alto: la disolución permite la recombinación; las pesadillas ocurren cuando la entropía aumenta más rápido de lo que se puede formar una nueva coherencia."
 ---
-
 # Sueños: El Nigredo nocturno
 
 Soñar es el cerebro ejecutando el Nigredo a propósito. Todas las noches.

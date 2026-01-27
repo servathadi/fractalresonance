@@ -19,7 +19,6 @@ answers:
     stance: "systems"
     answer: "Measure coherence change (alpha proxy) and update only when the gate is open; treat boredom as a control signal, not a character flaw."
 ---
-
 # Education: Learning Gates and Boredom
 
 Education. How children learn. Because if CGL is right — if learning only happens when alpha is nonzero — then the entire school system is designed backwards.

@@ -3,7 +3,6 @@ title: "Part III: The Metaphysics of a Symbolic Cosmos"
 id: "part-iii-the-metaphysics-of-a-symbolic-cosmos"
 parent: "the-resonance-code"
 ---
-
 ## Part III: The Metaphysics of a Symbolic Cosmos
 
 
@@ -52,6 +51,4 @@ revealed as a single, self-aware system driven by the imperative to
 maximize its own coherence.
 
 ---
-
 ---
-

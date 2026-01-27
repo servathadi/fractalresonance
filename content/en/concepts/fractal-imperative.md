@@ -5,7 +5,6 @@ tags: [ontology, scale-invariance, universality, philosophy-of-science]
 related: [coherence, mu-levels, metabolic-gravity, FRC-100-010]
 lang: en
 ---
-
 # The Fractal Imperative
 
 The Fractal Imperative is the foundational constraint of the FRC framework: if the universe is fundamentally fractal, then its governing dynamics must be scale-invariant and operative across all levels of the μ-stack.

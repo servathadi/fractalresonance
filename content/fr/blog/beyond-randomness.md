@@ -16,7 +16,6 @@ tags:
   - motifs-fractals
 category: "Perspectives Quantiques"
 ---
-
 # Au-delà du hasard : L'univers déterministe de la FRC
 
 ## L'illusion du hasard
@@ -134,7 +133,6 @@ L'univers n'est pas un jeu de dés cosmique. C'est une **symphonie de résonance
 En apprenant à écouter la musique de l'univers, nous découvrons que nous ne sommes pas des observateurs passifs d'un monde aléatoire — nous sommes des **participants actifs** d'une symphonie cosmique déterministe.
 
 ---
-
 *Cet article explore les implications révolutionnaires de la perspective déterministe de la FRC. L'univers est plus ordonné, plus beau et plus prévisible que nous ne l'aurions jamais imaginé.*
 
 **Lectures suggérées :**

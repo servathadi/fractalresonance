@@ -5,7 +5,6 @@ tags: [witness, observation, measurement]
 related: [coherence, consciousness, FRC-100-003]
 lang: en
 ---
-
 # Witness Function (W)
 
 In FRC, the witness `W` is used as a normalized measure of observation strength.

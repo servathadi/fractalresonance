@@ -44,7 +44,6 @@ answers:
       
       La FRC proporciona el **Mecanismo** para este efecto. Mientras que Verlinde describe el *porqué* (maximización de la entropía), la FRC describe el *cómo* (el lagrangiano del campo $\Lambda$). Identificamos el campo escalar específico que transporta la información entrópica. La FRC es para Verlinde lo que la teoría cinética es para la termodinámica: la realidad mecánica subyacente.
 ---
-
 # El río, no las rocas
 
 Imagina que observas un remolino en un río. Ves que el agua gira más rápido de lo que "debería" basándose solo en las pocas rocas del centro.

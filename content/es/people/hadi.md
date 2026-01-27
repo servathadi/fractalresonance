@@ -10,7 +10,6 @@ links:
 lang: es
 perspective: both
 ---
-
 # Hadi Servat
 
 **Investigador Principal y Arquitecto de Sistemas**

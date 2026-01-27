@@ -3,7 +3,6 @@ title: "Chapter 4: The Logic of a Living Universe"
 id: "chapter-4-the-logic-of-a-living-universe"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 4: The Logic of a Living Universe
 
 
@@ -104,7 +103,6 @@ positing a universe that is, from top to bottom, alive, aware, and in a
 constant, dynamic process of becoming.
 
 ---
-
 The Fourth Column
 
   ⚡ CORE PULSE                                     The Resonant Collapse model forces a philosophical inversion: Matter is a stabilized expression of meaning within a universal resonant field. The Laws of Physics are the laws of thought for the universal mind.
@@ -118,6 +116,4 @@ The Fourth Column
   ➜ NEXT RESONANCE BRIDGE                           Having reframed "things" as sustained resonances, we will now formalize the universal dynamic that binds them. The next chapter will show that the same process of convergence applies equally to atoms, brains, and ideas, uniting them all under a single law.
 
 ---
-
 ---
-

@@ -19,7 +19,6 @@ answers:
     stance: "alquimia"
     answer: "Trata la cocina como transferencia de coherencia: la comida codifica la práctica, el lugar y los bucles de retroalimentación; la comida industrial optimiza la reproducibilidad y a menudo pierde contenido de coherencia."
 ---
-
 # Alimentación: Alquimia de la coherencia
 
 Cocinar es alquimia de la coherencia. La fermentación es un Nigredo controlado.

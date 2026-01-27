@@ -31,7 +31,6 @@ answers:
     answer: |
       Il ne s'agit pas d'un « Dessein Intelligent » (un Dieu intervenant). C'est un **Dessein Géométrique**. Les lois de la physique elles-mêmes favorisent l'émergence de la complexité car la complexité maximise le taux de production d'entropie (gravité métabolique). La vie est le moyen le plus efficace pour l'univers de se nourrir.
 ---
-
 # L'horloger résonnant
 
 L'argument de l'« Horloger Aveugle » dit qu'avec suffisamment de temps, le hasard crée des yeux. La FRC dit : « Vous n'avez pas assez de temps. »

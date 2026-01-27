@@ -3,7 +3,6 @@ title: "Chapter 23: The Web of Communication"
 id: "chapter-23-the-web-of-communication"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 23: The Web of Communication
 
 
@@ -80,7 +79,6 @@ interfering fields, and understanding its physics is the fundamental
 task of navigating the social world.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                         Communication is the physical interference of conscious fields. The quality of a relationship is determined by the constructive (rapport) or destructive (conflict) nature of their mutual resonance.
@@ -94,6 +92,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE               We have now seen how consciousness organizes itself as an individual and interacts with others. But what shapes these fields at an even deeper level? We now turn from the personal to the trans-personal, to explore the objective, causal reality of the symbols and myths that form the very firmament of our shared reality.
 
 ---
-
 ---
-

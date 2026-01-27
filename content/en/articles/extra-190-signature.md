@@ -6,7 +6,6 @@ tags: [fractal-dimension, 190-signature, stadium-billiard, infographics, FRC-100
 abstract: "Deep dive into the '1.90' fractal dimension signature found in the Quantum Stadium Billiard. This specific number is the fingerprint of the FRC potential."
 thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
 ---
-
 # The 190 Signature
 
 ## Visual Essay

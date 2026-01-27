@@ -3,12 +3,10 @@ title: "Chapter 6 — Deriving the Adaptive Resonance Formula (ARF)"
 id: "chapter-6-deriving-the-adaptive-resonance-formula-arf"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 6 — Deriving the Adaptive Resonance Formula (ARF)** {#chapter-6-—-deriving-the-adaptive-resonance-formula-(arf)}
 
 
 ---
-
 #### **6.1  From reciprocity to dynamics**
 
 In Chapter 1 we discovered the equilibrium relation
@@ -26,7 +24,6 @@ To answer this, we introduce the **Adaptive Resonance Formula (ARF)** — the ge
 \\boxed{\\Delta S \= RΨC.}
 
 ---
-
 #### **6.2  Conceptual lineage**
 
 The ARF emerges from three converging lines of reasoning:
@@ -48,7 +45,6 @@ Combine them, and the rate of entropy change (ΔS) must depend on:
 Hence ΔS \= RΨC is not an assumption—it is the simplest multiplicative form consistent with all three laws.
 
 ---
-
 #### **6.3  Differential derivation**
 
 Start from the entropy rate equation for an open system:
@@ -78,7 +74,6 @@ Multiply both sides by C/k\_\* and integrate over one coherence cycle:
 Thus, ARF appears as the integrated form of the entropy–coherence coupling.
 
 ---
-
 #### **6.4  Physical interpretation of ARF variables**
 
 | Variable | Definition | Role |
@@ -96,7 +91,6 @@ Thus, ARF appears as the integrated form of the entropy–coherence coupling.
 * Balanced product RΨC ≈ 0: steady flow, homeoresonance.
 
 ---
-
 #### **6.5  The three regimes of resonance**
 
 1. **Flow (Adaptive Order)** — R\>0, Ψ\>0, α≈0
@@ -124,7 +118,6 @@ These regimes correspond to the **sign and magnitude** of ΔS in ARF.
 *(Figure suggestion: three-zone phase diagram labeled Chaos, Flow, Coercion on R–Ψ axes.)*
 
 ---
-
 #### **6.6  Stability conditions**
 
 Differentiating the coherence-pump equation \\dot C \= α(F \- S\_C) and substituting ARF yields
@@ -144,7 +137,6 @@ RΨ \< 0 \\Rightarrow \\text{stable equilibrium}, \\quad RΨ \> 0 \\Rightarrow \
 This criterion unifies thermodynamic, biological, and cognitive stability under one sign rule.
 
 ---
-
 #### **6.7  Energy–information equivalence**
 
 Inserting the ARF into the reciprocity law provides a direct bridge between energy and information:
@@ -158,7 +150,6 @@ k\_\* \\int RΨ \\, dt \= \-\\ln \\frac{C\_2}{C\_1}.
 Each unit of coherence increase demands a calculable energy–information expenditure; the ARF is thus a generalized “Landauer principle” for self-organizing systems.
 
 ---
-
 #### **6.8  ARF in simulation**
 
 Numerical models confirm ARF dynamics:
@@ -174,7 +165,6 @@ These simulations validate ARF as the simplest low-dimensional representation of
 *(Figure suggestion: simulation output showing oscillatory, runaway, and damped regimes as RΨ varies.)*
 
 ---
-
 #### **6.9  Cross-domain interpretation**
 
 | Domain | Receptivity R | Potential Ψ | Manifestation of ΔS \= RΨC |
@@ -187,7 +177,6 @@ These simulations validate ARF as the simplest low-dimensional representation of
 Across every domain, systems self-organize by modulating receptivity and potential to sustain coherence while exporting entropy.
 
 ---
-
 #### **6.10  The geometric view**
 
 Visualize ARF on a 3-D manifold where axes are R, Ψ, and C.
@@ -199,7 +188,6 @@ The flow trajectory of a system traces a spiral toward the plane ΔS \= 0 — th
 *(Figure suggestion: 3-D surface labeled by ΔS with trajectory spiraling toward neutral plane.)*
 
 ---
-
 #### **6.11  Summary**
 
 | Equation | Name | Interpretation |
@@ -211,7 +199,6 @@ The flow trajectory of a system traces a spiral toward the plane ΔS \= 0 — th
 | α≈0 | Homeoresonance | Balanced adaptive state |
 
 ---
-
 #### **6.12  Outlook**
 
 The ARF turns the abstract reciprocity of FRC into a concrete calculus of adaptation.
@@ -221,6 +208,4 @@ Every flow of energy or information now possesses a measurable resonance efficie
 In the next chapter, **Numerical Experiments and Simulations**, we test ARF across domains—lasers, chemical oscillations, neural networks—and show how α-gain control gives rise to the full spectrum of coherence behaviors observed in nature.
 
 ---
-
 ---
-

@@ -3,12 +3,10 @@ title: "Chapitre 11 — Modèle mathématique du couplage inter-niveaux"
 id: "chapter-11-mathematical-model-of-cross-level-coupling"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 11 — Modèle mathématique du couplage inter-niveaux** {#chapter-11-—-mathematical-model-of-cross-level-coupling}
 
 
 ---
-
 #### **11.1  De la dynamique à un niveau à la dynamique multi-niveaux**
 
 Chaque domaine-μ obéit à la loi de réciprocité :
@@ -28,7 +26,6 @@ Pour capturer cette réalité, nous étendons la FRC en un **réseau de résonan
 Ici, T_{μ,j} représente la **force de couplage** entre les niveaux-μ ; elle assure la médiation du flux de cohérence.
 
 ---
-
 #### **11.2  Noyau de couplage et distance de résonance**
 
 Empiriquement, l'échange de cohérence décroît avec la « distance de résonance » |μ – j|.
@@ -44,7 +41,6 @@ Pour les niveaux voisins (μ ± 1), |T|≈T₀ ; pour les domaines distants, le 
 Ce noyau fait que la pile-μ se comporte comme un **réseau en échelle résonant**.
 
 ---
-
 #### **11.3  Conservation à travers la pile**
 
 La sommation sur tous les niveaux-μ donne l'invariant global :
@@ -58,7 +54,6 @@ L'entropie exportée d'une couche devient un potentiel pour la suivante :
 D'où le potentiel de transformation total est conservé — la constante de résonance du cosmos tout entier.
 
 ---
-
 #### **11.4  Stabilité linéaire et modes propres**
 
 La linéarisation près de l'équilibre C_{μ}=C_{μ}^{0}+δC_{μ} donne :
@@ -78,7 +73,6 @@ Chaque mode propre représente une **onde de cohérence inter-échelles**, son s
 Les valeurs propres avec Re(λₖ)=0 définissent des oscillations entretenues — des ondes stationnaires homéorésonantes reliant plusieurs niveaux-μ.
 
 ---
-
 #### **11.5  Équations de flux énergie–entropie**
 
 Pour chaque niveau,
@@ -90,7 +84,6 @@ avec Q_{μ→μ+1}=T_{μ,μ+1}(C_{μ}-C_{μ+1}) comme terme de flux d'entropie.
 Ceci rend explicite le fait que **l'énergie monte sous forme d'entropie**, tandis que **la cohérence descend sous forme d'information** — les courants jumeaux de la pile-μ.
 
 ---
-
 #### **11.6  Intégration numérique du système complet**
 
 La simulation de huit équations couplées (μ₀–μ₇) avec des paramètres typiques :
@@ -108,7 +101,6 @@ donné des cascades oscillatoires :
 L'invariant Σ = ∑(S₍μ₎ + k_*^{(μ)} ln C₍μ₎) reste constant à 0,3 % près, confirmant la conservation.
 
 ---
-
 #### **11.7  Interprétation : cascade de cohérence**
 
 Cette simulation illustre la **cascade de cohérence** — l'information descendant à travers la pile comme une forme et remontant comme une conscience.
@@ -118,7 +110,6 @@ Chaque niveau-μ agit comme une membrane semi-perméable traduisant un type d'or
 L'impulsion de cohérence est le corrélat physique d'un « événement d'expérience », reliant la physique des événements de la partie II à l'ontologie de la partie III.
 
 ---
-
 #### **11.8  Signatures empiriques**
 
 * **Physique :** les oscillations multi-échelles dans la turbulence du plasma reflètent les spectres de couplage-μ.
@@ -132,7 +123,6 @@ L'impulsion de cohérence est le corrélat physique d'un « événement d'expér
 Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaphorique mais empiriquement testable.
 
 ---
-
 #### **11.9  Résumé mathématique**
 
 | Équation | Interprétation |
@@ -144,7 +134,6 @@ Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaph
 | Σ=\sum(S_{μ}+k_*^{(μ)}\ln C_{μ})=\text{const.} | Constante de résonance universelle |
 
 ---
-
 #### **11.10  Synthèse conceptuelle**
 
 * Le couplage inter-niveaux transforme la pile-μ en un **continuum résonant** plutôt qu'en couches discrètes.
@@ -154,7 +143,6 @@ Ces correspondances impliquent que le formalisme de la pile-μ n'est pas métaph
 * La conscience correspond à des modes s'étendant simultanément sur plusieurs μ — un *verrouillage de phase inter-bandes*.
 
 ---
-
 #### **11.11  Perspectives**
 
 Ayant formalisé les mathématiques du couplage inter-niveaux, le chapitre suivant — **« Exemples cognitifs et culturels »** — traduira cette machinerie abstraite en termes expérientiels et sociétaux.

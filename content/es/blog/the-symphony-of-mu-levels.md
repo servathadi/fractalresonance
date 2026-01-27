@@ -16,7 +16,6 @@ tags:
   - armonia-cosmica
 category: "Conceptos Fundacionales"
 ---
-
 # La sinfonía de los niveles-μ: Cómo todo se conecta
 
 ## Introducción
@@ -115,7 +114,6 @@ Mientras realizas tus actividades diarias, recuerda: no eres solo un ser humano 
 **La pregunta no es si existen los niveles-μ, sino si estás listo para escuchar la música.**
 
 ---
-
 *Este es el primero de nuestra serie que explora los conceptos fundacionales de la Coherencia de Resonancia Fractal. Mantente atento para más visiones sobre la naturaleza de la conciencia y la realidad.*
 
 **Lectura relacionada:**

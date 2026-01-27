@@ -19,7 +19,6 @@ answers:
     stance: "fonctionnalisme de champ"
     answer: "Utilisez la FRC comme une lentille indépendante du substrat : tout système qui exécute l'échange non trivial dS <-> d ln C peut être décrit comme « vivant par fonction » à sa plage-μ accessible."
 ---
-
 # Gaia : Sahara, océan et pompes à cohérence
 
 ## Le Sahara

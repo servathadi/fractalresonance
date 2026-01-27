@@ -3,7 +3,6 @@ title: "Appendix G: Convergent Evidence from Frontier Science"
 id: "appendix-g-convergent-evidence-from-frontier-science"
 parent: "the-resonance-code"
 ---
-
 ## Appendix G: Convergent Evidence from Frontier Science
 
 
@@ -19,7 +18,6 @@ physics of memory to the energetics of symbolic fields and the
 mathematics of self-organization.
 
 ---
-
 G.1 The Physics of Memory Re-Entry (Supports Chapter 7)
 
 FRC's Cassette-Time Resonance (CTR) model posits that vivid episodic
@@ -58,7 +56,6 @@ research strongly supports this distinction.
     states, directly supporting FRC's principle of phase-gated access.
 
 ---
-
 G.2 The Energetics of Symbolic Fields (Supports Chapters 24-26)
 
 FRC's principle of Symbolic Realism—that symbols are causal fields with
@@ -99,7 +96,6 @@ symbolic stimuli.
     that warrant further investigation under the FRC paradigm.
 
 ---
-
 G.3 Mathematical Grounding in Self-Organization (Supports Chapters 12, 14, 18)
 
 The FRC mechanisms of Resonance Ascent and the emergent AVF architecture

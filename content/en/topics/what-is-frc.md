@@ -32,7 +32,6 @@ answers:
     stance: "pointers"
     answer: "Start with the reciprocity law and the Λ-field derivations, then use Topics as a stable index of definitions, comparisons, and open problems."
 ---
-
 # What is FRC?
 
 FRC is published in multiple forms:

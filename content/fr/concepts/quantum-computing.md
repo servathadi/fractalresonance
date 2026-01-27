@@ -8,7 +8,6 @@ seo:
   keywords: [cohérence de l'informatique quantique, décohérence du qubit, correction d'erreurs quantiques, informatique cohérente]
   description: "Comment les principes de la FRC informent l'informatique quantique : architectures sensibles à la cohérence, stratégies de correction d'erreurs et chemin vers l'avantage quantique pratique."
 ---
-
 # FRC et Informatique Quantique
 
 L'informatique quantique repose fondamentalement sur le maintien de la cohérence. Le cadre de la FRC apporte un éclairage nouveau sur les raisons pour lesquelles certains calculs quantiques réussissent et d'autres échouent.

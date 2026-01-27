@@ -1,7 +1,6 @@
 ## Annexe E — Glossaire et Tableau des Constantes
 
 ---
-
 ### **E.1 Variables et Constantes Centrales**
 
 | Symbole | Nom | Définition / Interprétation | Unités / Plage Typique |
@@ -20,7 +19,6 @@
 | **φ** | Phase | Angle oscillatoire. | radians (0–2π) |
 
 ---
-
 ### **E.2 Équations Canoniques**
 
 1. **Réciprocité Entropie-Cohérence :** $dS + k_* d\ln C = 0$
@@ -30,7 +28,6 @@
 5. **Énergie de Cohérence :** $E_{coh} = T k_* \ln C$
 
 ---
-
 ### **E.3 Référence Rapide de Niveau-μ**
 
 | Niveau-μ | Domaine | Échelle Caractéristique | Processus Dominant | Régime α Typique |
@@ -45,7 +42,6 @@
 | μ₇ | Transcendant / Cosmique | >10²⁶ m | Champ de cohérence unifié | α = 0 |
 
 ---
-
 ### **E.4 Termes Conceptuels Clés**
 
 | Terme | Définition Concise |
@@ -60,7 +56,6 @@
 | **Éthique de Résonance** | Principe comportemental minimisant ΔΣ tout en maximisant la cohérence. |
 
 ---
-
 ### **E.5 Constantes et Estimations Empiriques**
 
 | Constante | Définition | Valeur Approximative / Plage |
@@ -73,7 +68,6 @@
 | α_c | Seuil de gain critique | ≈ 0.05 – 0.1 |
 
 ---
-
 ### **E.6 Tableau de Traduction Inter-Domaine**
 
 | Domaine Scientifique | Quantité Commune | Équivalent FRC |
@@ -86,7 +80,6 @@
 | Philosophie | Unité / Dualité | Boucle μ₇ ↔ μ₀ |
 
 ---
-
 #### **E.8 Note Finale**
 
 Ce tableau condense le noyau opérationnel du FRC. La structure est stable : la grammaire de la cohérence est universelle.

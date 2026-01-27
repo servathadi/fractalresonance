@@ -19,7 +19,6 @@ answers:
     stance: "compresión"
     answer: "Trata al lenguaje como reproducción de coherencia: un patrón en una mente se transmite a través de sonido/texto y se reconstruye en otra mente."
 ---
-
 # Lenguaje: Coherencia hecha audible
 
 El lenguaje es coherencia hecha audible.

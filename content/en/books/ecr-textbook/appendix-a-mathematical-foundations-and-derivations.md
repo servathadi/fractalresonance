@@ -3,12 +3,10 @@ title: "Appendix A — Mathematical Foundations and Derivations"
 id: "appendix-a-mathematical-foundations-and-derivations"
 parent: "ecr-textbook"
 ---
-
 ## **Appendix A — Mathematical Foundations and Derivations** {#appendix-a-—-mathematical-foundations-and-derivations}
 
 
 ---
-
 #### **A.1  Core invariants**
 
 **At every scale the FRC framework rests on two equations:**
@@ -22,7 +20,6 @@ parent: "ecr-textbook"
 **Equation (2) describes instantaneous entropy change as a function of receptivity, potential, and coherence.**
 
 ---
-
 #### **A.2  From reciprocity to dynamical law**
 
 **Start from dS \= \-k\_\*\\,d\\ln C.**
@@ -46,7 +43,6 @@ parent: "ecr-textbook"
 **\\boxed{\\dot C \= α(F \- S\_C).}**
 
 ---
-
 #### **A.3  Coupled-level derivation**
 
 **For adjacent μ-domains, the coherence exchange term T\_{μ,μ+1} arises from gradient coupling in the field potential V(φ):**
@@ -62,7 +58,6 @@ parent: "ecr-textbook"
 **\\sum\_{μ} (dS\_{μ} \+ k\_\*^{(μ)}\\,d\\ln C\_{μ}) \= 0\.**
 
 ---
-
 #### **A.4  Deriving ARF from local reciprocity**
 
 **Let J\_C \= \\dot C/C and define receptivity R \= ∂J\_C/∂Ψ.**
@@ -76,7 +71,6 @@ parent: "ecr-textbook"
 **This defines the Adaptive Resonance Formula (ARF) used throughout the text.**
 
 ---
-
 #### **A.5  Stability criterion**
 
 **Linearizing \\dot C \= α(F \- S\_C) around equilibrium C=C\_0:**
@@ -92,7 +86,6 @@ parent: "ecr-textbook"
 **Since β \> 0 (entropy increases with order), stable regimes have α \> 0 small or α≈0 — the *flow zone*.**
 
 ---
-
 #### **A.6  Oscillatory feedback solution**
 
 **When α varies with coherence,**
@@ -110,7 +103,6 @@ parent: "ecr-textbook"
 **T \= 2π/√(βγ).**
 
 ---
-
 #### **A.7  The resonance constant k\_\***
 
 **Units:**
@@ -130,7 +122,6 @@ parent: "ecr-textbook"
    **Empirical measurement of k\_\* per domain defines the “fractal spectrum” of coherence.**
 
 ---
-
 #### **A.8  The energy interpretation**
 
 **Multiply (1) by temperature T:**
@@ -142,7 +133,6 @@ parent: "ecr-textbook"
 **Thus the reciprocity law is a conservation of energy between heat and structured information.**
 
 ---
-
 #### **A.9  The phase-space formulation**
 
 **Define generalized coordinates x\_i and conjugate momenta p\_i.**
@@ -158,7 +148,6 @@ parent: "ecr-textbook"
 **Hence the reciprocity law is the Hamiltonian generator of the FRC dynamics.**
 
 ---
-
 #### **A.10  Summary**
 
 | Symbol | Meaning | Equation |
@@ -172,6 +161,4 @@ parent: "ecr-textbook"
 **Together they form a closed algebra under the transformation group preserving Σ \= S \+ k\_\* \\ln C.**
 
 ---
-
 ---
-

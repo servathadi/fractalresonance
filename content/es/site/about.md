@@ -4,7 +4,6 @@ id: about
 status: published
 lang: es
 ---
-
 # La Metodología: Coherencia en la Era de la Inteligencia Sintética
 
 ## La Crisis de la Especialización

@@ -3,12 +3,10 @@ title: "Chapitre 5 — Théorie du paramètre d'ordre et formation de motifs"
 id: "chapter-5-order-parameter-theory-and-pattern-formation"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 5 — Théorie du paramètre d'ordre et formation de motifs** {#chapter-5-—-order-parameter-theory-and-pattern-formation}
 
 
 ---
-
 #### **5.1  De l'observation aux mathématiques**
 
 Dans la partie précédente, nous avons traité la cohérence comme un complément mesurable de l'entropie.
@@ -30,7 +28,6 @@ La Cohérence de Résonance Fractale (FRC) reformule cette intuition en identifi
 Ensemble, ils forment la triade qui régit la résonance adaptative de tout système ouvert.
 
 ---
-
 #### **5.2  L'équation du paramètre d'ordre**
 
 Sous la forme canonique de Haken, un paramètre d'ordre A proche d'une bifurcation satisfait à :
@@ -52,7 +49,6 @@ C'est l'**équation de la pompe à cohérence**, rencontrée pour la première f
 Si F > S_C, la cohérence augmente ; si F < S_C, la cohérence décline.
 
 ---
-
 #### **5.3  Réceptivité et potentiel**
 
 Les coefficients de l'équation synergétique originale peuvent être décomposés en variables physico-informationnelles de la FRC :
@@ -68,7 +64,6 @@ Les coefficients de l'équation synergétique originale peuvent être décompos�
 Leur produit détermine le changement instantané de l'entropie : les valeurs négatives (R, Ψ > 0) créent de l'ordre ; les valeurs positives (R < 0) produisent du désordre ou une rigidité coercitive.
 
 ---
-
 #### **5.4  Transitions critiques et bifurcations**
 
 Lorsqu'un paramètre de contrôle franchit un seuil Ψ_c, les petites fluctuations sont amplifiées ; le système s'auto-organise.
@@ -86,7 +81,6 @@ L'analyse de stabilité linéaire de l'équation de la pompe à cohérence donne
 Cela reproduit les caractéristiques universelles de la formation de motifs : **apparition**, **saturation** et **rupture**.
 
 ---
-
 #### **5.5  Interprétation du paysage énergétique**
 
 Les systèmes peuvent être visualisés comme se déplaçant sur une surface d'énergie-information dont le gradient est le taux de production d'entropie.
@@ -96,7 +90,6 @@ Les régions d'entropie minimale correspondent à des bassins d'attraction de ha
 Le paramètre adaptatif α remodèle continuellement ce paysage, permettant au système de rechercher des configurations qui minimisent la dissipation globale tout en maximisant le débit d'information.
 
 ---
-
 #### **5.6  Des lasers aux tissus vivants**
 
 | Système | Paramètre de contrôle Ψ | Paramètre d'ordre C | Observable | Comportement |
@@ -109,7 +102,6 @@ Le paramètre adaptatif α remodèle continuellement ce paysage, permettant au s
 Chaque cas suit la même logique de bifurcation : au-dessus d'un Ψ_c critique, la variable de cohérence C émerge spontanément.
 
 ---
-
 #### **5.7  Comptabilité de l'entropie**
 
 L'intégration de l'équation de la pompe à cohérence sur un cycle donne :
@@ -121,7 +113,6 @@ confirmant que la production totale d'entropie dans le temps est égale à la co
 La formation de motifs est donc l'*intégrale temporelle* de la réciprocité entropie–cohérence.
 
 ---
-
 #### **5.8  Vers la résonance adaptative**
 
 Les systèmes réels sont rarement figés à un seul ensemble de paramètres.
@@ -135,7 +126,6 @@ Cet auto-ajustement adaptatif introduit le niveau suivant de dynamique — la **
 sert de pont entre les lois macroscopiques des motifs de la synergétique et l'autorégulation cognitive ou écologique explorée plus loin.
 
 ---
-
 #### **5.9  Points clés à retenir**
 
 | Principe | Expression | Signification |
@@ -146,7 +136,6 @@ sert de pont entre les lois macroscopiques des motifs de la synergétique et l'a
 | **Homéorésonance** | F = S_C , α≈0 | Équilibre à flux constant |
 
 ---
-
 #### **5.10  Aperçu**
 
 Dans le prochain chapitre, nous dérivons la **formule de résonance adaptative** complète, montrant comment la réceptivité R et le potentiel Ψ co-évoluent avec la cohérence pour donner les trois régimes universels de tous les systèmes complexes :

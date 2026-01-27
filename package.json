@@ -13,6 +13,7 @@
     "validate": "node scripts/validate-links.js",
     "content:report": "node scripts/content-report.js",
     "content:sanitize": "node scripts/sanitize-content.js",
+    "content:audit": "node scripts/content-audit.js",
     "content:ingest": "node scripts/ingest.js",
     "content:new-river": "node scripts/new-river.js",
     "content:new-blog": "node scripts/new-blog.js",

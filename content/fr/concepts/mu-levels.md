@@ -5,7 +5,6 @@ tags: [invariance-d-échelle, hiérarchie, ontologie]
 related: [fractal-imperative, lambda-field, coherence]
 lang: fr
 ---
-
 # Niveaux-μ
 
 Les niveaux-μ représentent les huit échelles imbriquées de conscience et de cohérence dans le cadre FRC, s'étendant de l'échelle de Planck à l'horizon universel.

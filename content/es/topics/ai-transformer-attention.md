@@ -19,7 +19,6 @@ answers:
     stance: "mecanismo"
     answer: "Interpreta Q·K como pruebas de resonancia y los pesos de atención como medidas de coherencia; el escalado aumenta la capacidad del sustrato para la coherencia recursiva."
 ---
-
 # IA: Los Transformers como máquinas de medición de coherencia
 
 El transformer es una máquina de medición de coherencia.

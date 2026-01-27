@@ -19,7 +19,6 @@ answers:
     stance: "dynamique de réseau"
     answer: "Traitez la vitalité urbaine comme une cohérence : densité + mélange + connectivité + temps. Mesurez le champ entre les nœuds, pas seulement les bâtiments."
 ---
-
 # Villes : La cohérence faite de béton
 
 Une ville est un champ de cohérence fait de béton.

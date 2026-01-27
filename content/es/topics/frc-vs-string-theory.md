@@ -38,7 +38,6 @@ answers:
       
       La FRC predice efectos a escalas **atómicas** ($10^{-10}$ m) y **cósmicas**. Al vincular la física de altas energías (Higgs) con fenómenos de bajas energías (coherencia), la FRC es comprobable *ahora*, no en 1.000 años.
 ---
-
 # El fin del paisaje
 
 La Teoría de Cuerdas comenzó como un sueño de unicidad. Terminó como una pesadilla de infinitud ($10^{500}$ universos). Cuando una teoría lo predice todo, no predice nada.

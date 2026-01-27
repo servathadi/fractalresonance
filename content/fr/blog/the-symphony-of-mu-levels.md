@@ -16,7 +16,6 @@ tags:
   - harmonie-cosmique
 category: "Concepts Fondamentaux"
 ---
-
 # La symphonie des niveaux-μ : Comment tout se connecte
 
 ## Introduction
@@ -115,7 +114,6 @@ En vaquant à vos occupations, rappelez-vous : vous n'êtes pas seulement un êt
 **La question n'est pas de savoir si les niveaux-μ existent — c'est de savoir si vous êtes prêt à entendre la musique.**
 
 ---
-
 *Ceci est le premier article de notre série explorant les concepts fondamentaux de la Cohérence de Résonance Fractale. Restez à l'écoute pour plus d'aperçus sur la nature de la conscience et de la réalité.*
 
 **Lectures suggérées :**

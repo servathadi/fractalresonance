@@ -5,7 +5,6 @@ tags: [core-concept, scalar-gauge, dimensionless]
 related: [entropy, witness, lambda-field]
 lang: en
 ---
-
 # Coherence (C)
 
 A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system.

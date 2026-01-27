@@ -3,12 +3,10 @@ title: "Capítulo 5 — Teoría del Parámetro de Orden y Formación de Patrones
 id: "chapter-5-order-parameter-theory-and-pattern-formation"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 5 — Teoría del Parámetro de Orden y Formación de Patrones** {#chapter-5-—-order-parameter-theory-and-pattern-formation}
 
 
 ---
-
 #### **5.1  De la observación a las matemáticas**
 
 En la parte anterior tratamos la coherencia como un complemento medible de la entropía.
@@ -30,7 +28,6 @@ La Coherencia de Resonancia Fractal (FRC) reformula esta percepción identifican
 Juntos forman la tríada que gobierna la resonancia adaptativa de cualquier sistema abierto.
 
 ---
-
 #### **5.2  La ecuación del parámetro de orden**
 
 En la forma canónica de Haken, un parámetro de orden A cerca de una bifurcación satisface
@@ -52,7 +49,6 @@ En el equilibrio, F = S_C y \dot C = 0: el sistema alcanza la *homeoresonancia*.
 Si F > S_C, la coherencia aumenta; si F < S_C, la coherencia decae.
 
 ---
-
 #### **5.3  Receptividad y potencial**
 
 Los coeficientes de la ecuación sinergética original pueden descomponerse en las variables físico-informacionales de la FRC:
@@ -68,7 +64,6 @@ Los coeficientes de la ecuación sinergética original pueden descomponerse en l
 Su producto determina el cambio instantáneo de la entropía: los valores negativos (R,Ψ>0) crean orden; los valores positivos (R<0) producen desorden o rigidez coercitiva.
 
 ---
-
 #### **5.4  Transiciones críticas y bifurcaciones**
 
 Cuando un parámetro de control cruza un umbral Ψ_c, las pequeñas fluctuaciones se amplifican; el sistema se autoorganiza.
@@ -86,7 +81,6 @@ El análisis de estabilidad lineal de la ecuación de la bomba de coherencia da
 Esto reproduce las características universales de la formación de patrones: **inicio**, **saturación** y **ruptura**.
 
 ---
-
 #### **5.5  Interpretación del paisaje energético**
 
 Los sistemas pueden visualizarse como moviéndose sobre una superficie de energía-información cuyo gradiente es la tasa de producción de entropía.
@@ -96,7 +90,6 @@ Las regiones de entropía mínima corresponden a cuencas de atracción de alta c
 El parámetro adaptativo α remodela continuamente este paisaje, permitiendo que el sistema busque configuraciones que minimicen la disipación general mientras maximizan el flujo de información.
 
 ---
-
 #### **5.6  De los láseres al tejido vivo**
 
 | Sistema | Parámetro de Control Ψ | Parámetro de Orden C | Observable | Comportamiento |
@@ -109,7 +102,6 @@ El parámetro adaptativo α remodela continuamente este paisaje, permitiendo que
 Cada caso sigue la misma lógica de bifurcación: por encima de un Ψ_c crítico, la variable de coherencia C emerge espontáneamente.
 
 ---
-
 #### **5.7  Contabilidad de la entropía**
 
 La integración de la ecuación de la bomba de coherencia sobre un ciclo produce
@@ -121,7 +113,6 @@ confirmando que la producción total de entropía a lo largo del tiempo es igual
 La formación de patrones es, por tanto, la *integral temporal* de la reciprocidad entropía-coherencia.
 
 ---
-
 #### **5.8  Hacia la resonancia adaptativa**
 
 Los sistemas reales rara vez están fijos en un conjunto de parámetros.
@@ -135,7 +126,6 @@ Esta sintonía automática adaptativa introduce el siguiente nivel de dinámica�
 sirve como puente entre las leyes macroscópicas de patrones de la sinergética y la autorregulación cognitiva o ecológica explorada más adelante.
 
 ---
-
 #### **5.9  Conclusiones clave**
 
 | Principio | Expresión | Significado |
@@ -146,7 +136,6 @@ sirve como puente entre las leyes macroscópicas de patrones de la sinergética 
 | **Homeoresonancia** | F = S_C , α≈0 | Equilibrio de flujo constante |
 
 ---
-
 #### **5.10  Avance**
 
 En el próximo capítulo derivamos la **Fórmula de Resonancia Adaptativa** completa, mostrando cómo la receptividad R y el potencial Ψ co-evolucionan con la coherencia para producir los tres regímenes universales de todos los sistemas complejos:

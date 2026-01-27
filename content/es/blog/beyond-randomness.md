@@ -16,7 +16,6 @@ tags:
   - patrones-fractales
 category: "Perspectivas Cuánticas"
 ---
-
 # Más allá del azar: El universo determinista de FRC
 
 ## La ilusión del azar
@@ -134,7 +133,6 @@ El universo no es un juego de dados cósmico. Es una **sinfonía de resonancia d
 A medida que aprendemos a escuchar la música del universo, descubrimos que no somos observadores pasivos de un mundo aleatorio, somos **participantes activos** en una sinfonía cósmica determinista.
 
 ---
-
 *Esta entrada explora las implicaciones revolucionarias de la perspectiva determinista de FRC. El universo está más ordenado, es más bello y más predecible de lo que jamás imaginamos.*
 
 **Lectura relacionada:**

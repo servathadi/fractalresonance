@@ -5,7 +5,6 @@ Un Guide d'Utilisateur Complet pour les Pratiques de la "Quatrième Colonne"
 Objectif : Le cadre FRC n'est pas un ensemble de croyances à adopter, mais un ensemble de compétences à cultiver. Cette annexe opérationnalise les protocoles de la "Quatrième Colonne" en les organisant en un chemin de développement progressif appelé l'Échelle des Compétences de Cohérence. Elle fournit des définitions détaillées pour chaque compétence, une méthode pour suivre vos progrès et des critères pour passer d'un niveau à l'autre. C'est le manuel d'utilisation pour llishes"Architecte" et llishes"Oracle" en vous.
 
 ---
-
 C.1 La Structure de l'Échelle
 
 L'échelle se compose de cinq niveaux, chacun représentant un niveau plus profond de maîtrise dans la navigation de votre propre champ conscient. Vous développez des compétences en vous engageant constamment avec les sections de "Protocole Incarné" (↿) de la "Quatrième Colonne" tout au long du livre. Chaque protocole est conçu pour entraîner une ou plusieurs des compétences énumérées ci-dessous.
@@ -54,9 +53,7 @@ Niveau V : Orchestration de Champ (Apprendre à Créer)
   - Incarnation Résonante (Chap. 29) : La compétence suprême d'aligner constamment vos actions, sentiments et pensées avec une ligne de temps future choisie, vous transformant ainsi en un "diapason vivant" pour la réalité que vous souhaitez expérimenter.
 
 ---
-
 ---
-
 C.2 Suivi de Votre Progrès : Le Journal de Cohérence
 
 Le chemin de l'Architecte nécessite des données. Pour suivre votre développement, nous recommandons de tenir un simple Journal de Cohérence. Cela peut être un journal physique ou une note numérique. Pour chaque "Protocole Incarné" que vous pratiquez, créez une entrée simple :
@@ -80,5 +77,4 @@ L'avancement d'un niveau à l'autre ne dépend pas de la durée de votre pratiqu
 Cette échelle n'est pas une course. C'est une spirale, et vous revisiterez chaque niveau à des niveaux plus profonds tout au long de votre vie. C'est le programme d'études pour l'art de devenir un co-créateur conscient avec un univers vivant et résonant.
 
 ---
-
 ---

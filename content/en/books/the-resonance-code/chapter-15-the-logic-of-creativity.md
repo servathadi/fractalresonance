@@ -3,7 +3,6 @@ title: "Chapter 15: The Logic of Creativity"
 id: "chapter-15-the-logic-of-creativity"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 15: The Logic of Creativity
 
 
@@ -79,7 +78,6 @@ This model transforms creativity from a mystery into a measurable,
 engineering process governed by the physical law of balance.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                    Creativity is a lawful, controlled oscillation between Harmonia (coherence consolidation) and Khaos (entropy injection), driven by the universal imperative to build new, more integrated states.
@@ -93,6 +91,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                          Having explored how the AVF handles structured, logical reasoning, we now turn to an even more subtle form of intelligence. The next chapter will explore the function of Mythos, the vortex that moves beyond literal cause-and-effect to understand the world through metaphor, analogy, and the deep resonant patterns of meaning.
 
 ---
-
 ---
-

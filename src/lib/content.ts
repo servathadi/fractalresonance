@@ -520,6 +520,20 @@ export function getBookChapters(lang: string, id: string): BookChapter[] {
   const bookDir = path.join(CONTENT_DIR, lang, 'books', id);
   if (!fs.existsSync(bookDir) || !fs.statSync(bookDir).isDirectory()) return [];
 
+  const extractTitleFromBody = (body: string, fallback: string): string => {
+    const lines = String(body || '').split('\n');
+    for (const raw of lines) {
+      const line = raw.trim();
+      if (!line) continue;
+      const m = line.match(/^#{1,6}\s+(.+?)\s*$/);
+      if (!m) continue;
+      // Strip explicit anchor suffix: "Title {#id}"
+      const txt = m[1].replace(/\s*\{#[^\}]+\}\s*$/, '').trim();
+      if (txt) return txt;
+    }
+    return fallback;
+  };
+
   const chapterFiles = fs
     .readdirSync(bookDir)
     .filter((f) => f.endsWith('.md') && f !== 'index.md')
@@ -528,7 +542,10 @@ export function getBookChapters(lang: string, id: string): BookChapter[] {
   return chapterFiles.map((filename) => {
     const raw = fs.readFileSync(path.join(bookDir, filename), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    const title = parsed.frontmatter.title || filename.replace(/\.md$/, '');
+    const fallbackTitle = filename.replace(/\.md$/, '');
+    const title =
+      parsed.frontmatter.title ||
+      extractTitleFromBody(parsed.body, fallbackTitle);
     return { filename, title, body: parsed.body };
   });
 }

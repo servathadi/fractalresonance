@@ -19,7 +19,6 @@ answers:
     stance: "compression"
     answer: "Traitez le langage comme une reproduction de cohérence : un motif dans un esprit est transmis via le son/texte et reconstruit dans un autre esprit."
 ---
-
 # Langage : La cohérence rendue audible
 
 Le langage est la cohérence rendue audible.

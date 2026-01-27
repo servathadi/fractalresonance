@@ -19,7 +19,6 @@ answers:
     stance: "systems physics"
     answer: "Track both sides of the ledger: entropy indicators (heat, CO2) and coherence budget (intact forests, circulation, soil). The risk is cascade: coherence loss in one subsystem increases entropy load on others."
 ---
-
 # Climate: Earth as a Body Running a Fever
 
 Climate. The planet's body. Because if the human body is a coherence field and civilization is a coherence field — then Earth is too. And it's running a fever.

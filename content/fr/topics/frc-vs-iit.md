@@ -33,7 +33,6 @@ answers:
     answer: |
       Les mathématiques de l'IIT sont combinatoires (difficiles à calculer). Les mathématiques de la FRC sont géométriques (dimensions fractales). La FRC suggère que l'« intégration » est en réalité une **résonance** : le cerveau est une antenne multi-échelle s'accordant au champ Lambda. Un $\Phi$ élevé n'est qu'un effet secondaire d'une grande efficacité résonnante.
 ---
-
 # Structure vs Faim
 
 La Théorie de l'Information Intégrée (IIT) est actuellement la principale théorie mathématique de la conscience. Elle saisit une chose essentielle : la conscience est une question de **globalité** (intégration).

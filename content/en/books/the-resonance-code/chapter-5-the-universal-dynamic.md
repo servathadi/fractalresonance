@@ -3,7 +3,6 @@ title: "Chapter 5: The Universal Dynamic"
 id: "chapter-5-the-universal-dynamic"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 5: The Universal Dynamic
 
 
@@ -103,7 +102,6 @@ mind and matter; we can see them as different harmonics of the same
 universal, creative, and endlessly intelligent song.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                               Quantum collapse, neural convergence, and cognitive insight are three expressions of a single, scale-invariant dynamic: a resonant search that reduces a system's distributed potential into a state of maximal coherent actuality.
@@ -117,6 +115,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                                     Having established the single, universal dynamic, we will now chart the arena in which this dynamic plays out. The next chapter will introduce the "Ladder of Being," the nested, hierarchical structure of the μ-levels, providing a complete map of our resonant reality.
 
 ---
-
 ---
-

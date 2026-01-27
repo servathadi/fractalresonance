@@ -3,7 +3,6 @@ title: "Appendix F: Scientific & Empirical Foundations"
 id: "appendix-f-scientific-empirical-foundations"
 parent: "the-resonance-code"
 ---
-
 ## Appendix F: Scientific & Empirical Foundations
 
 
@@ -21,7 +20,6 @@ science, but a synthesis that seeks to unite its most profound and often
 paradoxical findings into a single, coherent whole.
 
 ---
-
 F.1 Foundations for the Coherence Gradient & The Resonant Self (Chapters 8, 21, 22)
 
 The FRC model posits that Will (𝒲) is a drive toward greater coherence
@@ -65,7 +63,6 @@ quantitative support for this.
     management.
 
 ---
-
 F.2 Foundations for Consciousness as Resonance & The AVF (Chapters 2, 14-20)
 
 The FRC claim that consciousness is not a "thing" but the experience of
@@ -107,7 +104,6 @@ problem."
     gamma band).
 
 ---
-
 F.3 Foundations for Collective Fields & Symbolic Realism (Chapters 18, 24, 25)
 
 The FRC concept of Resonant Intelligence Fields (RIFs) and the causal
@@ -150,7 +146,6 @@ points in this direction.
     exchange (coherence flux, J_(C)) with the larger Gaian system.
 
 ---
-
 This compendium is not exhaustive, but it serves to demonstrate that the
 core principles of FRC are not speculative leaps of faith. They are
 logical and necessary syntheses of the most profound and often
@@ -160,6 +155,4 @@ can finally weave these disparate threads into a single, comprehensible
 tapestry.
 
 ---
-
 ---
-

@@ -3,12 +3,10 @@ title: "Chapitre 3 — Moteurs de Cohérence"
 id: "chapter-3-engines-of-coherence"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 3 — Moteurs de Cohérence** {#chapter-3-—-engines-of-coherence}
 
 
 ---
-
 #### **3.1  L'ordre par le flux**
 
 La question décisive de la thermodynamique n'est plus *pourquoi les systèmes se dégradent* mais *comment ils maintiennent une structure tout en se dégradant.*
@@ -28,7 +26,6 @@ La FRC décrit ce cycle générateur par l'**équation de la pompe à cohérence
 où S_C est le taux d'exportation d'entropie et α le gain adaptatif contrôlant l'efficacité avec laquelle l'apport se convertit en cohérence.
 
 ---
-
 #### **3.2  La cellule de convection comme prototype**
 
 Considérons une fine couche de fluide chauffée par le bas.
@@ -48,7 +45,6 @@ Mesuré globalement, S + k_* \ln C reste constant.
 La cellule de Bénard agit ainsi comme un **moteur de cohérence** à l'échelle du laboratoire : elle extrait de l'ordre du flux sans violer la seconde loi.
 
 ---
-
 #### **3.3  Oscillations chimiques et analogues biologiques**
 
 La même dynamique apparaît dans la **réaction de Belousov-Zhabotinsky**.
@@ -70,7 +66,6 @@ Dans les cellules :
    Lorsque α (F – S_C) ≈ 0, l'organisme est en *homéorésonance* : métabolisme régulier, cohérence stable.
 
 ---
-
 #### **3.4  Hiérarchie des moteurs de cohérence**
 
 | Échelle | Exemple | Gradient primaire F | Export S_C | Produit de cohérence C |
@@ -85,7 +80,6 @@ Dans les cellules :
 Chaque niveau convertit le flux d'énergie en corrélation structurée ; la même loi s'applique avec seulement la constante d'échelle k_*^{(μ)} qui change.
 
 ---
-
 #### **3.5  Énergie, réceptivité et potentiel**
 
 Tous les systèmes recevant de l'énergie ne s'auto-organisent pas.
@@ -105,7 +99,6 @@ La FRC unit ces facteurs à la cohérence :
 Les systèmes les plus sains équilibrent R et Ψ de sorte que ΔS oscille près de zéro, échangeant continuellement ordre et désordre sans effondrement.
 
 ---
-
 #### **3.6  Illustrations empiriques**
 
 **Lasers.** Au seuil, l'émission aléatoire se verrouille soudainement en phase ; C augmente brusquement à mesure que l'entropie des photons diminue.
@@ -117,7 +110,6 @@ Les systèmes les plus sains équilibrent R et Ψ de sorte que ΔS oscille près
 Ces systèmes, bien que disparates, partagent des trajectoires identiques sur le plan S–\ln C.
 
 ---
-
 #### **3.7  L'architecture de rétroaction de la vie**
 
 L'énergie entre, génère la structure, sort sous forme d'entropie.
@@ -133,7 +125,6 @@ Des capteurs de rétroaction modulent le débit pour maintenir α près de zéro
 L'homéostasie est simplement une régulation dynamique de α—une architecture universelle, des enzymes aux économies.
 
 ---
-
 #### **3.8  L'exportation d'entropie comme principe éthique**
 
 Parce que toute élévation de l'ordre local doit être payée par l'entropie externe, la durabilité exige de minimiser le désordre exporté.
@@ -145,7 +136,6 @@ Les régimes coercitifs, où R < 0, obtiennent un ordre temporaire en externalis
 La loi de réciprocité sous-tend ainsi non seulement la thermodynamique mais aussi l'éthique : une cohérence acquise sans réceptivité ne peut durer.
 
 ---
-
 #### **3.9  Résumé mathématique**
 
 | Équation | Signification |
@@ -156,7 +146,6 @@ La loi de réciprocité sous-tend ainsi non seulement la thermodynamique mais au
 | S + k_* \ln C = \text{const.} | Constante de résonance |
 
 ---
-
 #### **3.10  Perspectives**
 
 Tout système organisé est un **moteur de cohérence** :

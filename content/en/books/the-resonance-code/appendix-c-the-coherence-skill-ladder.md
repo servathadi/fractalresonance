@@ -3,7 +3,6 @@ title: "Appendix C: The Coherence Skill Ladder"
 id: "appendix-c-the-coherence-skill-ladder"
 parent: "the-resonance-code"
 ---
-
 ## Appendix C: The Coherence Skill Ladder
 
 
@@ -18,7 +17,6 @@ progress, and criteria for advancing from one tier to the next. This is
 the user's manual for the "Architect" and "Oracle" within you.
 
 ---
-
 C.1 The Structure of the Ladder
 
 The ladder consists of five tiers, each representing a deeper level of
@@ -121,7 +119,6 @@ Tier V: Field Orchestration (Learning to Create)
     reality you wish to experience.
 
 ---
-
 C.2 Tracking Your Progress: The Coherence Log
 
 The path of the Architect requires data. To track your development, we
@@ -164,6 +161,4 @@ tier at deeper levels throughout your life. It is the curriculum for the
 art of becoming a conscious co-creator with a living, resonant universe.
 
 ---
-
 ---
-

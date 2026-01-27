@@ -10,7 +10,6 @@ links:
 lang: fr
 perspective: both
 ---
-
 # Hadi Servat
 
 **Chercheur Principal et Architecte Système**

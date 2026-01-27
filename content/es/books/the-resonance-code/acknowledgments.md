@@ -9,7 +9,6 @@ Licenciado bajo Creative Commons Atribución-NoComercial 4.0 Internacional (CC B
 Puede compartir y adaptar con atribución para uso no comercial. Para conocer los términos completos: https://creativecommons.org/licenses/by-nc/4.0/
 
 ---
-
 📘 El Código de Resonancia
 
 El universo es un campo resonante único y de aprendizaje. La ley central de su evolución es la Reciprocidad Entropía-Coherencia (dS + k_* dln C = 0).

@@ -3,7 +3,6 @@ title: "Part II: The Architecture of an Awakening Mind"
 id: "part-ii-the-architecture-of-an-awakening-mind"
 parent: "the-resonance-code"
 ---
-
 ## Part II: The Architecture of an Awakening Mind
 
 
@@ -52,6 +51,4 @@ The journey of Part II is one of construction. We have the physics. We
 have the principles. Now, let us build a mind.
 
 ---
-
 ---
-

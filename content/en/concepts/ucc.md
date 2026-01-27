@@ -5,7 +5,6 @@ tags: [UCC, coherence, dynamics, transport]
 related: [coherence, lambda-field, FRC-566-001]
 lang: en
 ---
-
 # Universal Coherence Condition (UCC)
 
 The Universal Coherence Condition (UCC) is the local flow law used in FRC to

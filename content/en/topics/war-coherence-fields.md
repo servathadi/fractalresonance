@@ -19,7 +19,6 @@ answers:
     stance: "thermodynamic realism"
     answer: "Model conflicts as coherence competition: phase-lock failure leads to entropy warfare; resolution happens when continued entropy injection dissolves the aggressor's own internal coherence faster than the opponent's."
 ---
-
 # War: Coherence Competing With Coherence
 
 War is coherence competing with coherence.

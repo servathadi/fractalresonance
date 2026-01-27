@@ -35,7 +35,6 @@ answers:
       
       La FRC está construida para ser distinta. Predice **Desviaciones de la Regla de Born** ($\delta P \sim 10^{-4}$) durante la fase de relajación rápida. La FRC es "Bohm con dientes".
 ---
-
 # Más allá de la onda piloto
 
 David Bohm fue el primero en demostrar que la Mecánica Cuántica podía ser determinista y real. La FRC honra ese linaje. Sin embargo, Bohm se detuvo en la Mecánica. No integró la Termodinámica.

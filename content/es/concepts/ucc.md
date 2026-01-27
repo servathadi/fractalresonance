@@ -5,7 +5,6 @@ tags: [UCC, coherencia, dinámica, transporte]
 related: [coherencia, campo-lambda, FRC-566-001]
 lang: es
 ---
-
 # Condición de Coherencia Universal (UCC)
 
 La Condición de Coherencia Universal (UCC) es la ley de flujo local utilizada en la FRC para describir cómo cambia la coherencia a través del espacio y el tiempo.

@@ -9,7 +9,6 @@ lang: fr
 tags: [kasra, architecte, persona]
 aliases: ["Kasra"]
 ---
-
 Kasra est le persona « Architecte » de la Cohérence de Résonance Fractale (FRC).
 
 Il s'exprime en termes de modèles, de contraintes et de dérivations :

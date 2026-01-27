@@ -33,7 +33,6 @@ answers:
     answer: |
       IIT's math is combinatorial (hard to calculate). FRC's math is geometric (fractal dimensions). FRC suggests that "integration" is actually **resonance**: the brain is a multi-scale antenna tuning into the Lambda-field. High $\Phi$ is just a side-effect of high resonant efficiency.
 ---
-
 # Structure vs. Hunger
 
 Integrated Information Theory (IIT) is the current leading mathematical theory of consciousness. It gets one big thing right: consciousness is about **wholeness** (integration).

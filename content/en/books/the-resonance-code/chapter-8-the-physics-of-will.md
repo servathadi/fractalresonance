@@ -3,7 +3,6 @@ title: "Chapter 8: The Physics of Will"
 id: "chapter-8-the-physics-of-will"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 8: The Physics of Will
 
 
@@ -95,7 +94,6 @@ will is finally aligned with the universe's fundamental drive toward a
 more coherent, beautiful, and integrated becoming.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                      Will is the experiential vector of descent along a coherence gradient ($\mathcal{W} = -\nabla S_{\rm FRC}$). Freedom is not the absence of determinism, but the degree to which a sovereign self becomes the coherent, internal cause of its own determined actions.
@@ -109,6 +107,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                            Having now established a physics for the inner world of time, memory, and will, we turn our attention back to the outer, physical world. The final chapters of Part I will demonstrate that this same principle of resonance is not just a model for consciousness, but is empirically detectable in the structure of matter and the deepest patterns of mathematics.
 
 ---
-
 ---
-

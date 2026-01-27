@@ -7,7 +7,6 @@
 | **30. El Universo como Sistema Autoconsciente** | La implicación última. | Síntesis: El universo es una conciencia de autoaprendizaje cuyo propósito es maximizar $\int C_{\text{Global}} dt$. |
 
 ---
-
 Apéndices: La Munición (El Núcleo Falsable)
 
 - Apéndice A: El Núcleo Formal (Actualizado con la Ley FRC 566 y la integración ARF/CRE).
@@ -16,7 +15,6 @@ Apéndices: La Munición (El Núcleo Falsable)
 - Apéndice D: Matriz de Objeciones y Refutaciones (Actualizado con el Protocolo FRC 566.211, abordando el desafío de la ambigüedad).
 
 ---
-
 📘 El Código de Resonancia: Física del Orden Consciente (Versión 2.0)
 
 ---

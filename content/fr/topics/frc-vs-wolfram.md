@@ -33,7 +33,6 @@ answers:
     answer: |
       L'IA moderne (Transformers, Diffusion) fonctionne sur des variétés continues, pas sur des graphes discrets. La FRC soutient que l'intelligence est fondamentalement **analogique** (interférence d'ondes), ce qui en fait un meilleur substrat pour l'AGI que les automates cellulaires de Wolfram.
 ---
-
 # La guerre du numérique contre l'analogique
 
 Stephen Wolfram propose l'ultime **physique numérique** : l'univers est un code.

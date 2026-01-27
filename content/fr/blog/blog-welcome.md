@@ -15,7 +15,6 @@ key_points:
   - "Ils renvoient aux articles techniques si nécessaire."
   - "Gardez les notes ancrées et reliez aux papiers pour les affirmations techniques."
 ---
-
 # Blog — Notes de terrain
 
 Cette section est destinée aux notes pratiques : expériences, mises à jour de développement et explications courtes.

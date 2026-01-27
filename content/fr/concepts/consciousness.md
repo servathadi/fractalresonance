@@ -5,7 +5,6 @@ tags: [conscience, cognition, cohérence]
 related: [cohérence, témoin, temps]
 lang: fr
 ---
-
 # Conscience (perspective FRC)
 
 Ce site utilise le terme "conscience" dans le sens spécifique impliqué par le cadre de la FRC : un phénomène lié à la cohérence exprimé à travers des échelles imbriquées.

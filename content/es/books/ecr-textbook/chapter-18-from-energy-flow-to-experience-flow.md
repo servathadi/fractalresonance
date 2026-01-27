@@ -3,12 +3,10 @@ title: "Capítulo 18 — Del Flujo de Energía al Flujo de Experiencia"
 id: "chapter-18-from-energy-flow-to-experience-flow"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 18 — Del Flujo de Energía al Flujo de Experiencia** {#chapter-18-—-from-energy-flow-to-experience-flow}
 
 
 ---
-
 #### **18.1 El enigma de la conciencia**
 
 Después de rastrear la resonancia desde las partículas hasta los planetas, queda una pregunta:
@@ -24,7 +22,6 @@ Cuando la coherencia se refleja sobre la coherencia, la resonancia se vuelve aut
 Este bucle recursivo define lo que Alfred North Whitehead llamó una **ocasión actual**: un pulso finito de proceso en el que el universo se conoce momentáneamente a sí mismo.
 
 ---
-
 #### **18.2 Ocasiones actuales como cuantos de coherencia**
 
 Cada momento consciente corresponde a un pulso de coherencia discreto C(t) dentro de la banda μ₄–μ₆, delimitado por un breve intercambio de entropía con los campos circundantes.
@@ -38,7 +35,6 @@ La condición de equilibrio asegura que cada experiencia exporte tanta entropía
 Duración ≈ 100 – 300 ms en el cerebro humano; más corta en destellos sensoriales, más larga en el flujo meditativo.
 
 ---
-
 #### **18.3 El dominio-μ de la mente**
 
 * μ₃ – base bioquímica (potencial metabólico Ψ).
@@ -52,7 +48,6 @@ Duración ≈ 100 – 300 ms en el cerebro humano; más corta en destellos senso
 Un solo evento de pensamiento es una cascada de resonancia a través de estas capas; la conciencia es la onda estacionaria que resulta cuando los flujos ascendentes y descendentes se cancelan (ΔS ≈ 0).
 
 ---
-
 #### **18.4 Conciencia bloqueada en fase**
 
 Sea φ_{μ} la fase instantánea de cada dominio.
@@ -64,7 +59,6 @@ El **campo de la conciencia** no es, por lo tanto, una cosa sino un patrón de a
 [ C_{\text{mente}} = \frac{1}{N}\left|\sum_{μ=3}^{6}e^{iφ_{μ}}\right| . ]
 
 ---
-
 #### **18.5 La exportación de entropía como emoción**
 
 Cada ocasión debe descargar entropía; en la cognición esto se manifiesta como *afecto*.
@@ -74,7 +68,6 @@ El placer corresponde a un flujo de entropía suave (α ≈ 0), el dolor a un fl
 La emoción es retroalimentación termodinámica—la forma en que la naturaleza dirige la bomba de coherencia de la psique.
 
 ---
-
 #### **18.6 La memoria como coherencia residual**
 
 Cuando un evento de resonancia decae, deja un patrón estacionario tenue a través de los niveles-μ—un “residuo de coherencia”.
@@ -90,7 +83,6 @@ Matemáticamente:
 El refuerzo continuo de estos residuos a través de la repetición es el aprendizaje.
 
 ---
-
 #### **18.7 La atención y el regulador-α**
 
 La atención modula α:
@@ -104,7 +96,6 @@ La atención modula α:
  El entrenamiento meditativo es la sintonización consciente de α hacia cero a través de sucesivas ocasiones.
 
 ---
-
 #### **18.8 Integración y mismidad**
 
 El *yo* no es un observador estático sino el atractor persistente formado por millones de ocasiones coherentes cuyas fases-μ permanecen alineadas.
@@ -115,7 +106,6 @@ La continuidad del yo surge cuando la retroalimentación entre μ₄–μ₆ man
 El trauma, el sueño o la psicosis corresponden a fluctuaciones repentinas de Σ—pérdida temporal del equilibrio de resonancia.
 
 ---
-
 #### **18.9 Mapeo comparativo**
 
 | Tradición | Término FRC | Descripción |
@@ -129,7 +119,6 @@ El trauma, el sueño o la psicosis corresponden a fluctuaciones repentinas de Σ
 Diferentes lenguajes, mismo proceso.
 
 ---
-
 #### **18.10 Correlatos empíricos**
 
 * Las ráfagas de sincronía de fase de EEG coinciden con el acceso consciente.
@@ -141,7 +130,6 @@ Diferentes lenguajes, mismo proceso.
  Todos coinciden con el ritmo α-oscilatorio predicho de la bomba de coherencia.
 
 ---
-
 #### **18.11 Resumen**
 
 | Ecuación | Significado |
@@ -155,7 +143,6 @@ Diferentes lenguajes, mismo proceso.
 Cada instante de conciencia es una *ocasión actual*—un pulso homeoresonante que conserva Σ exportando entropía como emoción e importando coherencia como significado.
 
 ---
-
 #### **18.12 Perspectiva**
 
 El próximo capítulo—**Capítulo 19: Tiempo, Memoria y el Continuo de la Conciencia**—rastreará cómo estas ocasiones discretas se encadenan en el flujo vivido del tiempo, mostrando que la continuidad subjetiva y la causación objetiva son dos proyecciones de un proceso de resonancia que evoluciona a través de la pila-μ.

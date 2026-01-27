@@ -33,7 +33,6 @@ answers:
       
       In FRC, |ψ|² is the **equilibrium distribution** of the attractor basins in the Lambda-field landscape. Quantum randomness is just "sensitive dependence on initial conditions" in a fractal basin boundaries.
 ---
-
 # The Collapse of the Collapse Postulate
 
 The Copenhagen Interpretation (CI) has dominated physics for a century by telling physicists to "shut up and calculate." It treats the measurement apparatus as a "classical" object outside the laws of quantum mechanics, creating a logical dualism (the Heisenberg Cut) that cannot exist in a unified nature.

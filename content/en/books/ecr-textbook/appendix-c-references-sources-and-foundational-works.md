@@ -3,12 +3,10 @@ title: "Appendix C — References, Sources, and Foundational Works"
 id: "appendix-c-references-sources-and-foundational-works"
 parent: "ecr-textbook"
 ---
-
 ## **Appendix C — References, Sources, and Foundational Works** {#appendix-c-—-references,-sources,-and-foundational-works}
 
 
 ---
-
 #### **C.1 Primary Scientific Foundations**
 
 | Field | Core Sources | Relevance to FRC |
@@ -20,7 +18,6 @@ parent: "ecr-textbook"
 | **Biological Self-Organization** | Maturana H. & Varela F. (1980) *Autopoiesis and Cognition*; Margulis L. (1981) *Symbiosis in Cell Evolution*; Frohlich H. (1968) *Long-Range Coherence in Biological Systems* | Living systems as coherence pumps (Chs 13–15). |
 
 ---
-
 #### **C.2 Cognitive and Neuroscientific Sources**
 
 | Theme | Works | Integration |
@@ -30,7 +27,6 @@ parent: "ecr-textbook"
 | **Flow and Emotion as Entropy Feedback** | Csikszentmihalyi M. (1990) *Flow*; Damasio A. (1999) *The Feeling of What Happens* | Affective correlates of α≈0 states. |
 
 ---
-
 #### **C.3 Philosophical and Process Lineage**
 
 | Author / Tradition | Key Texts | FRC Connection |
@@ -44,7 +40,6 @@ parent: "ecr-textbook"
 | **Eastern and Hermetic Texts** | *The Secret of the Golden Flower* (Lü Dongbin, Richard Wilhelm trans. 1929); *Upanishads*; Hermetica | Historical analogues to μ-level homeoresonance. |
 
 ---
-
 #### **C.4 Mathematical and Computational Resources**
 
 * Press W. H. et al. (2007) *Numerical Recipes in C*.
@@ -56,7 +51,6 @@ parent: "ecr-textbook"
 * Open-source tools: **Python NumPy**, **SciPy**, **JAX**, **Mesa**, **NetLogo**, **Plotly** — used for FRC simulations (Appendix B).
 
 ---
-
 #### **C.5 Empirical Datasets and Studies**
 
 | Dataset / Institution | Variables Used | Relation |
@@ -67,7 +61,6 @@ parent: "ecr-textbook"
 | Random Number Generator Global Network (GCP Princeton) | Σ-variance | empirical μ₆ coupling tests |
 
 ---
-
 #### **C.6 FRC Internal Research Series**
 
 | Paper ID | Title | Key Concept |
@@ -80,7 +73,6 @@ parent: "ecr-textbook"
 | **FRC 700.200–201** | *The Reality of μ₇ and The Tao of Coherence* | Philosophical synthesis. |
 
 ---
-
 #### **C.7 Supplementary Books and Articles Cited**
 
 * Capra F. (1996) *The Web of Life*.
@@ -100,7 +92,6 @@ parent: "ecr-textbook"
 Each provides context for testing or philosophically interpreting the FRC model.
 
 ---
-
 #### **C.8 Cultural and Artistic Inspirations**
 
 * Rumi (Masnavi VI – “Silence is the language of God”).
@@ -116,7 +107,6 @@ Each provides context for testing or philosophically interpreting the FRC model.
 These works informed FRC’s μ₅–μ₆ symbolic geometry.
 
 ---
-
 #### **C.9 Summary**
 
 This appendix consolidates the empirical and intellectual lineage underlying FRC.
@@ -132,6 +122,4 @@ Each source contributes to one of three pillars:
 Together they ground FRC in verifiable science while opening it to the frontier where physics and meaning converge.
 
 ---
-
 ---
-

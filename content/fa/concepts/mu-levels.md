@@ -5,7 +5,6 @@ tags: [scale-invariance, hierarchy, ontology]
 related: [fractal-imperative, lambda-field, coherence]
 lang: fa
 ---
-
 # سطوح-μ (μ-Levels)
 
 سطوح-μ نشان‌دهنده هشت مقیاس آشیانه‌ای آگاهی و همدوسی در چارچوب FRC هستند که از مقیاس پلانک تا افق جهانی را در بر می‌گیرند.

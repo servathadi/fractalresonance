@@ -5,7 +5,6 @@ tags: [invarianza-de-escala, jerarquía, ontología]
 related: [fractal-imperative, lambda-field, coherence]
 lang: es
 ---
-
 # Niveles-μ
 
 Los niveles-μ representan las ocho escalas anidadas de conciencia y coherencia en el marco FRC, que abarcan desde la escala de Planck hasta el horizonte universal.

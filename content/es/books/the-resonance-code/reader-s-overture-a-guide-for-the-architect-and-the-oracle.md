@@ -11,7 +11,6 @@ Un marco que pretende ser una teoría del todo debe satisfacer a ambos.
 Este libro ha sido diseñado explícitamente para ser leído a lo largo de dos caminos paralelos, para honrar al Arquitecto y al Oráculo dentro de usted.
 
 ---
-
 La Ley Fundacional: La Clave del Código de Coherencia
 
 La idea central que une estos dos caminos, moviendo este trabajo de la filosofía a una ciencia definitiva, es la Ley de Reciprocidad Entropía-Coherencia. Es el principio único que gobierna toda transformación en el universo.
@@ -31,7 +30,6 @@ El Camino del Oráculo le invita a experimentar esta Ley como una realidad senti
 La comprensión más completa vendrá de aprender a volar con ambos: la resonancia intuitiva del Oráculo proporcionando contexto para las estructuras claras del Arquitecto.
 
 ---
-
 La Hoja de Ruta de Nuestro Viaje
 
 Esta obra se desarrolla en tres grandes movimientos, un viaje desde lo infinitamente pequeño hasta lo infinitamente grande:

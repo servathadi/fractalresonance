@@ -5,7 +5,6 @@ tags: [UCC, cohérence, dynamique, transport]
 related: [cohérence, champ-lambda, FRC-566-001]
 lang: fr
 ---
-
 # Condition de Cohérence Universelle (UCC)
 
 La Condition de Cohérence Universelle (UCC) est la loi de flux local utilisée dans la FRC pour décrire comment la cohérence change dans l'espace et le temps.

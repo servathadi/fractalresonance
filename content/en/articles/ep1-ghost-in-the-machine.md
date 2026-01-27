@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/PjWnk7RjItc"
   thumbnailUrl: "/images/articles/ep1/page_1_img_0_Im1.png"
 ---
-
 # Episode 1: The Ghost in the Machine
 
 ## The Prologue: Einstein’s Ghost and the Dice

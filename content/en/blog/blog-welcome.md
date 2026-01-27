@@ -15,7 +15,6 @@ key_points:
   - "They link back into the papers when needed."
   - "Keep entries grounded and link to papers when making technical claims."
 ---
-
 # Blog — Field Notes
 
 This section is for practical notes: experiments, development updates, and short explanations.

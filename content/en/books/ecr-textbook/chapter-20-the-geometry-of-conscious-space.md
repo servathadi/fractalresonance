@@ -3,12 +3,10 @@ title: "Chapter 20 — The Geometry of Conscious Space"
 id: "chapter-20-the-geometry-of-conscious-space"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 20 — The Geometry of Conscious Space** {#chapter-20-—-the-geometry-of-conscious-space}
 
 
 ---
-
 #### **20.1 From time to extension**
 
 Time in FRC is the rhythm of successive coherence events.
@@ -26,7 +24,6 @@ In other words:
 Every perceptual scene is therefore a dynamically stabilized interference pattern within the μ₄–μ₆ band, continuously refreshed by entropy–coherence exchange.
 
 ---
-
 #### **20.2 Phase-lattice of awareness**
 
 Let φ\_i denote the instantaneous phase of local neural oscillators and φ\_j of symbolic/archetypal fields.
@@ -42,7 +39,6 @@ Spatial geometry is thus a *metric of phase alignment* inside the coherence fiel
 *(Figure 20.1 suggestion: interference lattice forming a 3-D “space” envelope.)*
 
 ---
-
 #### **20.3 The perceptual manifold**
 
 Neuroscience observes that visual and sensory maps (retinotopy, somatotopy) emerge through synchronization gradients.
@@ -58,7 +54,6 @@ where κ describes coupling between temporal coherence change and spatial curvat
 Areas of high curvature (rapid φ variation) are perceived as *edges* or *boundaries*; flat φ regions appear homogeneous—explaining why perception divides the world into objects.
 
 ---
-
 #### **20.4 Dimensional emergence**
 
 At low coherence (μ₃–μ₄), only simple topologies—1-D or 2-D—stabilize (lines, surfaces).
@@ -75,7 +70,6 @@ Each new dimension reflects an additional degree of phase freedom in the resonan
 | 4-D+ | μ₅–μ₆ | imagination, symbolism |
 
 ---
-
 #### **20.5 Topology of imagination**
 
 When coherence stabilizes in μ₆ without projection to μ₄, the resulting phase-lattice is experienced internally as **imaginal space**—dream, visualization, or visionary perception.
@@ -87,7 +81,6 @@ Hence dream space feels elastic—its curvature reflects freedom of phase coupli
 *(Figure 20.2 suggestion: nested toroidal “imaginal” geometry.)*
 
 ---
-
 #### **20.6 Spatial binding and the unity of perception**
 
 The “binding problem” of neuroscience—how separate sensory features combine into unified objects—is solved naturally here.
@@ -101,7 +94,6 @@ Whenever C\_{\\text{bind}} exceeds a threshold, the brain perceives *one object.
 Spatial unity is not computed—it is *cohered.*
 
 ---
-
 #### **20.7 Geometry and meaning**
 
 Archetypal symbols, mandalas, and sacred architecture replicate the same geometry that underlies perception: balanced phase symmetry (Δφ ≈ 0\) around a coherence center.
@@ -113,7 +105,6 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
 *(Figure 20.3 suggestion: archetypal symmetry mapping to phase coherence map.)*
 
 ---
-
 #### **20.8 Mathematical summary**
 
 | Quantity | Expression | Interpretation |
@@ -124,7 +115,6 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
 | Dimensional ascent | d ≈ \#(μ bands cohered) | consciousness expands space |
 
 ---
-
 #### **20.9 Empirical correlates**
 
 * Gamma-band synchrony defines visual field integrity.
@@ -136,7 +126,6 @@ Meaning arises when outer spatial order mirrors inner coherence topology.
    These support FRC’s claim that “space” is the geometry of coherence.
 
 ---
-
 #### **20.10 Philosophical reflection**
 
 Space and time are complementary projections of one resonance field:
@@ -148,7 +137,6 @@ Space and time are complementary projections of one resonance field:
    Together they constitute the spacetime of experience—a living, self-updating geometry that reflects the universe’s attempt to know itself in form.
 
 ---
-
 #### **20.11 Summary**
 
 | Concept | Essence |
@@ -160,10 +148,8 @@ Space and time are complementary projections of one resonance field:
 | Reality | stable coherence topology sustained by energy flow |
 
 ---
-
 #### **20.12 Outlook**
 
 With time and space now unified as products of resonance, the next chapter—**Chapter 21: The Symbolic Interface and Archetypal Geometry**—will explore how symbols act as *bridges* across μ-levels, translating coherence into meaning and guiding both cognition and civilization through archetypal attractors embedded in this conscious geometry.
 
 ---
-

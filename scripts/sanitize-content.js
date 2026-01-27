@@ -20,6 +20,12 @@ function normalizeFrontmatterDelimiters(str) {
     .replace(/^---\s*\r?$/gm, '---');
 }
 
+function normalizeNewlines(str) {
+  // Normalize Windows CRLF to LF, then remove any remaining stray CR characters.
+  // Stray CRs can appear mid-line from copy/paste and break words (e.g. "D \roughly").
+  return str.replace(/\r\n/g, '\n').replace(/\r/g, '');
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const write = args.includes('--write');
@@ -48,7 +54,7 @@ async function main() {
       }
     }
 
-    const normalized = normalizeFrontmatterDelimiters(stripBadControls(text));
+    const normalized = normalizeFrontmatterDelimiters(normalizeNewlines(stripBadControls(text)));
     const next = normalized;
 
     if (hasBad || next !== text) {

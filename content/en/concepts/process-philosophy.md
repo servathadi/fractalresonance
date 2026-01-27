@@ -8,7 +8,6 @@ seo:
   keywords: [process philosophy, whitehead, actual occasions, consciousness physics, panpsychism quantum]
   description: "How Fractal Resonance Coherence connects to Whitehead's process philosophy: actual occasions, prehension, and the physics of becoming."
 ---
-
 # FRC and Process Philosophy
 
 Alfred North Whitehead's process philosophy offers a metaphysical framework that resonates deeply with the FRC approach to quantum mechanics and consciousness.

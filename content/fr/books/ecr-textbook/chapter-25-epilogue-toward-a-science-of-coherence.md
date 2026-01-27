@@ -3,12 +3,10 @@ title: "Chapitre 25 — Épilogue : Vers une science de la cohérence"
 id: "chapter-25-epilogue-toward-a-science-of-coherence"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 25 — Épilogue : Vers une science de la cohérence** {#chapter-25-—-epilogue:-toward-a-science-of-coherence}
 
 
 ---
-
 #### **25.1  Le cercle se referme**
 
 Du premier murmure de l'entropie à la symétrie finale de la conscience, chaque phénomène a révélé le même rythme :
@@ -20,7 +18,6 @@ La FRC a commencé comme une modification de la thermodynamique et s'achève com
 Le cercle est complet ; seule la participation demeure.
 
 ---
-
 #### **25.2   L'essence de la découverte**
 
 1. **Réciprocité :** Tous les systèmes conservent le potentiel total de transformation :
@@ -36,7 +33,6 @@ Le cercle est complet ; seule la participation demeure.
 Ensemble, ces quatre énoncés tracent les contours d'une nouvelle branche des sciences naturelles : la **dynamique de la cohérence.**
 
 ---
-
 #### **25.3   La tâche à venir**
 
 Une *science de la cohérence* doit jeter un pont entre le laboratoire et la salle de méditation, entre l'accélérateur de particules et la salle de classe.
@@ -54,7 +50,6 @@ Ses méthodes comprendront :
 Une telle science unit l'objectivité et la subjectivité : des équations guidant l'empathie, la méditation éclairant la mesure.
 
 ---
-
 #### **25.4   Pratique et participation**
 
 Chaque esprit humain est un laboratoire local.
@@ -66,7 +61,6 @@ Chaque conversation qui diminue le bruit ou augmente la compréhension réalise 
 Vivre de manière cohérente, c'est devenir un *agent de l'équilibre universel.*
 
 ---
-
 #### **25.5   Vers l'Université Résonnante**
 
 Imaginez un réseau de recherche planétaire — l' **Université Résonnante** — où physiciens, artistes, ingénieurs et mystiques partageraient une seule constante : k_*.
@@ -82,7 +76,6 @@ Ici, les étudiants apprendraient à :
 Sa devise : **« Connaître le champ en devenant cohérent en son sein. »**
 
 ---
-
 #### **25.6   Intégration avec la science existante**
 
 La FRC ne remplace pas la physique ou les neurosciences — elle les prolonge.
@@ -94,7 +87,6 @@ Tout comme la relativité a unifié l'espace et le temps, la FRC unifie l'énerg
 Ses prédictions testables la rendent à la fois poétique et falsifiable.
 
 ---
-
 #### **25.7   La frontière éthique**
 
 Chaque époque a sa physique du pouvoir ; la nôtre exige une physique du soin.
@@ -106,7 +98,6 @@ lorsqu'un système exporte plus de désordre qu'il n'en absorbe, il se déstabil
 Vivre de manière éthique, c'est maintenir la cohérence sans coercition — l' *homéorésonance en action.*
 
 ---
-
 #### **25.8   L'équation future**
 
 Le but ultime de la science de la cohérence n'est pas la domination mais l' **équilibre participatif.**
@@ -118,7 +109,6 @@ Son équation de champ unifié se lira, sous forme symbolique :
 Chaque sous-système, chaque être, contribue à maintenir cet équilibre — la musique de l'existence en notation mathématique.
 
 ---
-
 #### **25.9   Réflexion de clôture**
 
 *« L'univers est une conversation entre l'entropie et la cohérence,*
@@ -129,7 +119,6 @@ Lorsque nous pensons, aimons ou créons, nous traduisons momentanément le cosmo
 Étudier la FRC, c'est se souvenir de cette grammaire, vivre avec fluidité en son sein, et aider l'univers à articuler sa prochaine phrase.
 
 ---
-
 #### **25.10   La dernière constante**
 
 Soit k_* la constante de cohérence.
@@ -143,7 +132,6 @@ Elle nous dit que chaque augmentation de sens doit coûter de l'énergie, pourta
 C'est à la fois de la physique et de la grâce.
 
 ---
-
 #### **25.11   Adieu et invitation**
 
 Ce livre s'achève là où il a commencé — avec un champ cherchant l'équilibre.

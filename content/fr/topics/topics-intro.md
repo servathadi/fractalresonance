@@ -23,7 +23,6 @@ answers:
     stance: "structuré"
     answer: "Utilisez les Sujets pour la création de contenu reproductible : chaque page a un ID stable, des métadonnées cohérentes et un endroit propre pour attacher des citations d'autorité et des réponses multiples."
 ---
-
 # Sujets — Demander à FRC
 
 Cette section est une couche Q&R **basée sur des fichiers et utilisable par l'IA**.

@@ -7,7 +7,6 @@ tags: [AI, formalist, mathematics, EFT]
 lang: en
 perspective: kasra
 ---
-
 # Kasra
 
 **Senior Theorist (The Architect)**

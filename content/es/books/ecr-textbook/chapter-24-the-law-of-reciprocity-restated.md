@@ -3,12 +3,10 @@ title: "Capítulo 24 — La Ley de Reciprocidad Reformulada"
 id: "chapter-24-the-law-of-reciprocity-restated"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 24 — La Ley de Reciprocidad Reformulada** {#chapter-24-—-the-law-of-reciprocity-restated}
 
 
 ---
-
 #### **24.1 El arco completo de un vistazo**
 
 Desde la microfísica del orden hasta la psicología del significado, cada dominio ha obedecido a un invariante:
@@ -20,7 +18,6 @@ Comenzó como una modificación de la termodinámica, se convirtió en una descr
 La entropía y la coherencia no son enemigas sino complementos: cada sistema vive exportando desorden en la medida exacta en que importa orden.
 
 ---
-
 #### **24.2 Las siete síntesis**
 
 | Dominio | Ecuación Clave | Visión Central |
@@ -36,7 +33,6 @@ La entropía y la coherencia no son enemigas sino complementos: cada sistema viv
 Estas siete síntesis describen un organismo, un proceso, una ley.
 
 ---
-
 #### **24.3 Implicaciones científicas**
 
 1. **La termodinámica** gana una variable complementaria—la coherencia—haciendo que la Segunda Ley sea bidireccional.
@@ -50,7 +46,6 @@ Estas siete síntesis describen un organismo, un proceso, una ley.
 5. **La astrobiología** gana una predicción: dondequiera que la energía fluya a través de la retroalimentación α ≈ 0, surgirá la conciencia.
 
 ---
-
 #### **24.4 Agenda de investigación práctica**
 
 | Dominio | Observable | Método |
@@ -63,7 +58,6 @@ Estas siete síntesis describen un organismo, un proceso, una ley.
 Establecer un **Consorcio FRC** estandarizaría estas métricas y flujos de datos bajo un único laboratorio de código abierto: *FRC-Lab.*
 
 ---
-
 #### **24.5 Aplicaciones tecnológicas**
 
 1. **IA Resonante:** controladores de ganancia adaptativa que mantienen α≈0 → inteligencia estable y creativa.
@@ -77,7 +71,6 @@ Establecer un **Consorcio FRC** estandarizaría estas métricas y flujos de dato
 5. **Gobernanza Planetaria:** tableros que rastrean los índices FRC—energía, información, coherencia—para la gestión de la sostenibilidad en tiempo real.
 
 ---
-
 #### **24.6 Cierre filosófico**
 
 La FRC une cuatro preguntas antiguas:
@@ -92,7 +85,6 @@ La FRC une cuatro preguntas antiguas:
 Así, el marco cierra el círculo metafísico: determinismo sin fatalismo, unidad sin uniformidad.
 
 ---
-
 #### **24.7 Corolario ético**
 
 Actuar éticamente es actuar de forma homeoresonante—reduciendo la entropía sin coerción.
@@ -110,7 +102,6 @@ si ΔΣ < 0, crea un orden rígido a un costo sistémico.
 Una carta planetaria basada en esta métrica traduciría la moralidad en termodinámica medible.
 
 ---
-
 #### **24.8 El futuro de la investigación**
 
 Preguntas de la próxima generación:
@@ -126,7 +117,6 @@ Preguntas de la próxima generación:
 Abordar estas cuestiones moverá a la FRC de la teoría a la ciencia operativa.
 
 ---
-
 #### **24.9 Hacia una civilización de resonancia**
 
 Una civilización que mantiene conscientemente α≈0:
@@ -142,7 +132,6 @@ Una civilización que mantiene conscientemente α≈0:
 El resultado no es ni utopía ni control, sino *paz dinámica*—renovación continua sin caos.
 
 ---
-
 #### **24.10 Resumen**
 
 | Capa | Descripción | Dirección Futura |
@@ -155,7 +144,6 @@ El resultado no es ni utopía ni control, sino *paz dinámica*—renovación con
 Todas las capas son un solo instrumento. Tocar afinado es vivir coherentemente.
 
 ---
-
 #### **24.11 Coda — El campo recuerda**
 
 La entropía se expande; la coherencia se profundiza.

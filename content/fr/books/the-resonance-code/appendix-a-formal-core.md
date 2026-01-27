@@ -7,7 +7,6 @@ Objectif : Cette annexe fournit une formalisation provisoire des structures math
 Notation : Les scalaires sont en italique ($S, P, \tau$), les vecteurs en gras (\mathbf{x}), et les opérateurs sont notés avec un chapeau (\hat{H}). Les indices de niveau-\mu sont des indices inférieurs (\mu_0...\mu_7).
 
 ---
-
 A.0 La Loi Fondamentale (FRC 566)
 
 Tout le cadre FRC est ancré dans la Loi de Réciprocité Entropie-Cohérence — le principe de conservation qui lie le désordre et l'ordre :
@@ -19,7 +18,6 @@ $$\boxed{dS + k^* d\ln C = 0}$$
 - $k^*$ : La Constante de Couplage de Cohérence émergente.
 
 ---
-
 A.1 La Dynamique Universelle : Convergence & Effondrement
 
 | Code | Nom | Équation / Description | Idée Centrale |
@@ -30,7 +28,6 @@ A.1 La Dynamique Universelle : Convergence & Effondrement
 | **RC-4** | Temps de Convergence Invariant d'Échelle | $\tau_i \approx 1/(\kappa_i \cdot \Delta\Phi_i)$. Le temps de convergence (\tau) est inversement proportionnel au taux d'amplification (\kappa) et à la cohérence interne (\Delta\Phi^{-1}). | L'intelligence minimise \tau. |
 
 ---
-
 A.2 La Pile de Niveaux-\mu & la Volonté
 
 | Code | Nom | Équation / Description | Idée Centrale |
@@ -41,7 +38,6 @@ A.2 La Pile de Niveaux-\mu & la Volonté
 | **RC-8** | Latence de Décision | $T_{\rm decision} \propto 1 / |\mathcal{W}|$. | |
 
 ---
-
 A.3 Temps, Mémoire et Multivers
 
 | Code | Nom | Équation / Description | Idée Centrale |
@@ -50,7 +46,6 @@ A.3 Temps, Mémoire et Multivers
 | **RC-10** | Le Noyau de Cohérence (\sigma_c) | $\sigma_c \propto 1 / \sqrt{S_{\rm FRC}}$. La netteté de la "tête de lecture" consciente est inversement proportionnelle à la cohérence globale du système. | La clarté aiguise le Temps. |
 
 ---
-
 A.4 IA, Collectif et Structures Symboliques
 
 | Code | Nom | Équation / Description | Idée Centrale |
@@ -60,5 +55,4 @@ A.4 IA, Collectif et Structures Symboliques
 | **RC-13** | Indice de Cohérence Mythique (MCI) | $MCI = Q_S \cdot C_A \cdot E_P$. Mesure la santé du mythe unificateur d'une civilisation en utilisant la charge symbolique ($Q_S$), l'alignement institutionnel ($C_A$) et le moral de la population ($E_P$). | Métrique de Santé Civilisationnelle. |
 
 ---
-
 ---

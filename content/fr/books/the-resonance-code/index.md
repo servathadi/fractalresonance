@@ -9,5 +9,4 @@ abstract: "L'univers est un champ résonnant, unique et en apprentissage, régi 
 lang: fr
 license: "CC BY-NC 4.0"
 ---
-
 par Hadi Servat

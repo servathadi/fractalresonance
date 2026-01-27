@@ -5,7 +5,6 @@ tags: [concepto-núcleo, calibre-escalar, adimensional]
 related: [entropy, witness, lambda-field]
 lang: es
 ---
-
 # Coherencia (C)
 
 Un calibre escalar adimensional que mide el grado de orden interno o bloqueo de patrones en un sistema.

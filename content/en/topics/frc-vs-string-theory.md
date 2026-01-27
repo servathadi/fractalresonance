@@ -35,7 +35,6 @@ answers:
       
       FRC predicts effects at **Atomic** ($10^{-10}$ m) and **Cosmic** scales. By linking high-energy physics (Higgs) to low-energy phenomena (Coherence), FRC is testable *now*, not in 1,000 years.
 ---
-
 # The End of the Landscape
 
 String Theory began as a dream of uniqueness. It ended as a nightmare of infinity ($10^{500}$ universes).

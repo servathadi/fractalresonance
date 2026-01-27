@@ -9,7 +9,6 @@ lang: es
 tags: [kasra, arquitecto, personaje]
 aliases: ["Kasra"]
 ---
-
 Kasra es el personaje del "Arquitecto" de la Coherencia de Resonancia Fractal (FRC).
 
 Habla en modelos, restricciones y derivaciones:

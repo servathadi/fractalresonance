@@ -8,7 +8,6 @@ seo:
   keywords: [qu'est-ce que le temps, nature du temps, temps et entropie, physique du temps, flèche du temps]
   description: "Explorer la nature du temps à travers le cadre de la FRC : comment les gradients de cohérence et l'entropie définissent la direction temporelle."
 ---
-
 # Qu'est-ce que le Temps ?
 
 Le temps reste l'un des mystères les plus profonds de la physique et de la philosophie. Le cadre de la FRC offre une nouvelle perspective : **le temps émerge des gradients de cohérence**.

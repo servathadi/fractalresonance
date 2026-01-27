@@ -3,7 +3,6 @@ title: "Chapter 29: Choosing the Future"
 id: "chapter-29-choosing-the-future"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 29: Choosing the Future
 
 
@@ -84,7 +83,6 @@ of free will: the power to choose the world you inhabit by mastering the
 state of your own being.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                      Conscious timeline selection is an art of applied resonance physics: create a coherent, embodied vision of a desired future (the attractor), release energetic anchors to the present, and act "as if" to match your frequency to that future, thereby navigating the multiverse of potential realities.
@@ -98,6 +96,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                            We have reached the pinnacle of personal agency, learning to choose our own future. The journey has taken us from the smallest particle to the largest act of personal creation. Now, in the final chapter, we will zoom out one last time to ask the ultimate question: what is the purpose of it all? What is the great work of a universe filled with such conscious, creative agents?
 
 ---
-
 ---
-

@@ -19,7 +19,6 @@ answers:
     stance: "medicina de sistemas"
     answer: "Trata la VFC como deriva alfa: un proxy para la coherencia en movimiento. La recuperación consiste en reabrir múltiples fuentes de coherencia, no solo arreglar una parte."
 ---
-
 # Salud: La VFC como deriva alfa
 
 Estás preguntando: qué sucede cuando aplicas la fórmula a la medicina.

@@ -9,9 +9,6 @@ abstract: "The universe is a single, learning, resonant field governed by Entrop
 lang: en
 license: "CC BY-NC 4.0"
 ---
-
-
 by Hadi Servat
 
 ---
-

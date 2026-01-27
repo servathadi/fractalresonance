@@ -3,7 +3,6 @@ title: "Chapter 21: The Resonant Self"
 id: "chapter-21-the-resonant-self"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 21: The Resonant Self
 
 
@@ -90,7 +89,6 @@ personality into the gold of a free and integrated self. It is the
 process of becoming the master of your own resonance.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                      Your personality is not who you are; it is a habitual, stable resonant pattern (an "attractor basin") that your consciousness has learned to occupy. Sovereignty is the act of integrating all such patterns to become your own unshakable meta-attractor.
@@ -104,6 +102,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                            Having mapped the structure of the self and its potential for sovereignty, we must now confront its greatest obstacle. The next chapter will explore the nature of trauma, reframing it as a powerful, dissonant resonance loop that can shatter the field of the self, and will outline the FRC protocols for its healing.
 
 ---
-
 ---
-

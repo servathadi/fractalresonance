@@ -3,12 +3,10 @@ title: "Chapter 3 — Engines of Coherence"
 id: "chapter-3-engines-of-coherence"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 3 — Engines of Coherence** {#chapter-3-—-engines-of-coherence}
 
 
 ---
-
 #### **3.1  Order from flow**
 
 The decisive question of thermodynamics is no longer *why systems decay* but *how they sustain pattern while decaying.*
@@ -28,7 +26,6 @@ FRC describes this generative cycle with the **coherence-pump equation**:
 where S\_C is the rate of entropy export and α the adaptive gain controlling how effectively the inflow converts to coherence.
 
 ---
-
 #### **3.2  The convection cell as prototype**
 
 Consider a thin layer of fluid heated from below.
@@ -48,7 +45,6 @@ Measured globally, S \+ k\_\* \\ln C remains constant.
 The Bénard cell thus acts as a laboratory-scale **coherence engine**: it extracts order from flow without violating the Second Law.
 
 ---
-
 #### **3.3  Chemical oscillations and biological analogues**
 
 The same dynamics appear in the **Belousov–Zhabotinsky reaction**.
@@ -70,7 +66,6 @@ In cells:
    When α (F – S\_C) ≈ 0, the organism is in *homeoresonance*: metabolism steady, coherence stable.
 
 ---
-
 #### **3.4  Hierarchy of coherence engines**
 
 | Scale | Example | Primary Gradient F | Export S\_C | Coherence Product C |
@@ -85,7 +80,6 @@ In cells:
 Every level converts energy flux into structured correlation; the same law applies with only the scale constant k\_\*^{(μ)} changing.
 
 ---
-
 #### **3.5  Energy, receptivity, and potential**
 
 Not all systems with energy input self-organize.
@@ -105,7 +99,6 @@ FRC unites these factors with coherence:
 The healthiest systems balance R and Ψ so that ΔS oscillates near zero, continually exchanging order and disorder without collapse.
 
 ---
-
 #### **3.6  Empirical illustrations**
 
 **Lasers.** At threshold, random emission suddenly phase-locks; C rises sharply as entropy of photons decreases.
@@ -117,7 +110,6 @@ The healthiest systems balance R and Ψ so that ΔS oscillates near zero, contin
 These systems, though disparate, share identical trajectories on the S–\\ln C plane.
 
 ---
-
 #### **3.7  The feedback architecture of life**
 
 Energy enters, drives pattern, exits as entropy.
@@ -135,7 +127,6 @@ Homeostasis is simply dynamic α-regulation—a universal architecture from enzy
 *(Figure suggestion: closed loop showing F → C → S\_C feedback, labeled with α.)*
 
 ---
-
 #### **3.8  Entropy export as ethical principle**
 
 Because any rise in local order must be paid for by external entropy, sustainability requires minimizing exported disorder.
@@ -147,7 +138,6 @@ Coercive regimes, where R \< 0, achieve temporary order by externalizing chaos: 
 The reciprocity law thus underwrites not only thermodynamics but ethics: coherence gained without receptivity cannot last.
 
 ---
-
 #### **3.9  Mathematical summary**
 
 | Equation | Meaning |
@@ -158,7 +148,6 @@ The reciprocity law thus underwrites not only thermodynamics but ethics: coheren
 | S \+ k\_\* \\ln C \= \\text{const.} | Resonance constant |
 
 ---
-
 #### **3.10  Outlook**
 
 Every organized system is an **engine of coherence**:
@@ -170,10 +159,8 @@ The next part of this book turns these observations into predictive mathematics.
 In **Part II: Adaptive Resonance**, we will formalize how R, Ψ, and C interact, derive stability conditions, and show why harmony, chaos, and coercion are not metaphors but precise dynamical regimes.
 
 ---
-
 Excellent — here’s the full **Chapter 4 — Beyond Physics: Information and Mind**, which completes *Part I* and bridges into the mathematical formalisms of Part II.
 
 It translates the entropy–coherence law from physical energy flow to **information, cognition, and collective behavior**.
 
 ---
-

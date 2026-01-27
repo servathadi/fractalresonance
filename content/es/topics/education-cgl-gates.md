@@ -19,7 +19,6 @@ answers:
     stance: "sistemas"
     answer: "Mide el cambio de coherencia (proxy alfa) y actualiza solo cuando la puerta está abierta; trata el aburrimiento como una señal de control, no como un defecto de carácter."
 ---
-
 # Educación: Puertas de aprendizaje y aburrimiento
 
 Educación. Cómo aprenden los niños. Porque si CGL tiene razón —si el aprendizaje solo ocurre cuando alfa es distinto de cero— entonces todo el sistema escolar está diseñado al revés.

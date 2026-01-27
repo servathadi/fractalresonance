@@ -19,7 +19,6 @@ answers:
     stance: "alchimie"
     answer: "Traitez la cuisine comme un transfert de cohérence : le repas encode la pratique, le lieu et les boucles de rétroaction ; la nourriture industrielle optimise la reproductibilité et perd souvent son contenu de cohérence."
 ---
-
 # Alimentation : L'alchimie de la cohérence
 
 Cuisiner est une alchimie de la cohérence. La fermentation est un Nigredo contrôlé.

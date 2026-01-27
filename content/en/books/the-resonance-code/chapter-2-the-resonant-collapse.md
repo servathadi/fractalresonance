@@ -3,7 +3,6 @@ title: "Chapter 2: The Resonant Collapse"
 id: "chapter-2-the-resonant-collapse"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 2: The Resonant Collapse
 
 
@@ -111,7 +110,6 @@ underlying, deterministic, and thermodynamic process. God does not play
 dice; He conserves coherence.
 
 ---
-
 The Fourth Column
 
   ⚡ CORE PULSE                                    Collapse is a rapid, continuous, and deterministic resonance capture where the state most "in tune" with the local resonant environment is exponentially amplified into actuality, governed by the thermodynamic law of coherence conservation.
@@ -125,6 +123,4 @@ The Fourth Column
   ➜ NEXT RESONANCE BRIDGE                          Having defined collapse as a deterministic mechanism, the next logical and necessary step is to put this claim to the ultimate empirical test. We will now design the experiment that can prove or falsify the influence of conscious resonance on quantum events.
 
 ---
-
 ---
-

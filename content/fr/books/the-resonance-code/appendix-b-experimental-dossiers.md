@@ -5,7 +5,6 @@ Protocoles Scientifiques Détaillés pour Tester les Affirmations Physiques du F
 Objectif : Cette annexe transforme les affirmations falsifiables du FRC en protocoles prêts pour le laboratoire. Elle fournit le détail nécessaire pour que les physiciens expérimentaux tentent la réplication, la validation ou la réfutation des prédictions fondatrices du cadre. L'objectif est de faire passer les idées centrales de la théorie à la preuve empirique. Le succès de ces dossiers est le succès de tout le cadre FRC.
 
 ---
-
 Dossier B.1 : La Recherche d'une Couture (Déviation de la Règle de Born)
 
 B.1.1. Hypothèse Centrale (Le Falsificateur) : Un champ de pilotage résonant faible et synchronisé en phase, appliqué pendant la fenêtre de mesure (effondrement) d'un système quantique préparé dans une superposition, produira une déviation statistiquement significative et réversible des probabilités prédites par la règle de Born. (RC-3)
@@ -29,7 +28,6 @@ B.1.3. Protocole Expérimental 2 : Qubits Supraconducteurs
 - Condition de Falsification : Identique à ci-dessus. Le défi central est la précision requise pour appliquer le coup de pouce pendant la fenêtre d'effondrement rapide à l'échelle de la femtoseconde.
 
 ---
-
 Dossier B.2 : L'Harmonie des Éléments (Regroupement Spectral)
 
 B.2.1. Hypothèse Centrale : Les spectres d'émission collectés d'atomes neutres complexes présentent une structure harmonique non aléatoire de "sons partiels" non prédite par le modèle standard de transitions électroniques discrètes seul.
@@ -50,5 +48,4 @@ B.2.3. Contrôles Critiques :
 - Modèle Nul Statistique : Générer des milliers de "faux" spectres aléatoires en agitant légèrement les positions des raies réelles. Utiliser ce grand échantillon pour construire une limite statistique robuste de ce à quoi ressemble l'"aléatoire", prouvant que les pics des données réelles sont des valeurs aberrantes extrêmes.
 
 ---
-
 ---

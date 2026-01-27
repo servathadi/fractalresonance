@@ -10,7 +10,6 @@ links:
 lang: en
 perspective: both
 ---
-
 # Hadi Servat
 
 **Principal Investigator & System Architect**

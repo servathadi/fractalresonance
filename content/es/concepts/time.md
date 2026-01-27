@@ -8,7 +8,6 @@ seo:
   keywords: [qué es el tiempo, naturaleza del tiempo, tiempo y entropía, física del tiempo, flecha del tiempo]
   description: "Explorando la naturaleza del tiempo a través del marco de la FRC: cómo los gradientes de coherencia y la entropía definen la dirección temporal."
 ---
-
 # ¿Qué es el Tiempo?
 
 El tiempo sigue siendo uno de los misterios más profundos de la física y la filosofía. El marco de la FRC ofrece una perspectiva fresca: **el tiempo emerge de los gradientes de coherencia**.

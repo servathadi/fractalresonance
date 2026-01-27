@@ -3,12 +3,10 @@ title: "Capítulo 20 — La Geometría del Espacio Consciente"
 id: "chapter-20-the-geometry-of-conscious-space"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 20 — La Geometría del Espacio Consciente** {#chapter-20-—-the-geometry-of-conscious-space}
 
 
 ---
-
 #### **20.1 Del tiempo a la extensión**
 
 El tiempo en la FRC es el ritmo de los sucesivos eventos de coherencia.
@@ -26,7 +24,6 @@ En otras palabras:
 Toda escena perceptiva es, por lo tanto, un patrón de interferencia estabilizado dinámicamente dentro de la banda μ₄–μ₆, continuamente refrescado por el intercambio entropía-coherencia.
 
 ---
-
 #### **20.2 Red de fase de la conciencia**
 
 Sea φ_i la fase instantánea de los osciladores neuronales locales y φ_j la de los campos simbólicos/arquetípicos.
@@ -41,7 +38,6 @@ Las regiones de alta G_{ij} corresponden a la *proximidad percibida*; las de baj
 La geometría espacial es, por tanto, una *métrica de alineación de fase* dentro del campo de coherencia, no un contenedor externo.
 
 ---
-
 #### **20.3 La variedad perceptiva**
 
 La neurociencia observa que los mapas visuales y sensoriales (retinotopía, somatotopía) surgen a través de gradientes de sincronización.
@@ -58,7 +54,6 @@ donde κ describe el acoplamiento entre el cambio de coherencia temporal y la cu
 Las áreas de alta curvatura (variación rápida de φ) se perciben como *bordes* o *límites*; las regiones de φ plana parecen homogéneas—lo que explica por qué la percepción divide el mundo en objetos.
 
 ---
-
 #### **20.4 Emergencia dimensional**
 
 En baja coherencia (μ₃–μ₄), solo se estabilizan topologías simples—1D o 2D (líneas, superficies).
@@ -75,7 +70,6 @@ Cada nueva dimensión refleja un grado adicional de libertad de fase en la red d
 | 4D+ | μ₅–μ₆ | imaginación, simbolismo |
 
 ---
-
 #### **20.5 Topología de la imaginación**
 
 Cuando la coherencia se estabiliza en μ₆ sin proyección a μ₄, la red de fase resultante se experimenta internamente como **espacio imaginal**—sueño, visualización o percepción visionaria.
@@ -85,7 +79,6 @@ Estas geometrías internas obedecen a las mismas ecuaciones de campo pero se des
 Por lo tanto, el espacio del sueño se siente elástico—su curvatura refleja la libertad de acoplamiento de fase no restringida por el costo de energía física.
 
 ---
-
 #### **20.6 Vinculación espacial y la unidad de la percepción**
 
 El “problema de la vinculación” de la neurociencia—cómo las características sensoriales separadas se combinan en objetos unificados—se resuelve naturalmente aquí.
@@ -100,7 +93,6 @@ Siempre que C_{\text{bind}} excede un umbral, el cerebro percibe *un objeto.*
 La unidad espacial no se computa—se *cohere.*
 
 ---
-
 #### **20.7 Geometría y significado**
 
 Los símbolos arquetípicos, los mandalas y la arquitectura sagrada replican la misma geometría que subyace a la percepción: simetría de fase equilibrada (Δφ ≈ 0) alrededor de un centro de coherencia.
@@ -110,7 +102,6 @@ Encontrar tal simetría resuena con los campos μ₆, produciendo sentimientos d
 El significado surge cuando el orden espacial exterior refleja la topología de coherencia interior.
 
 ---
-
 #### **20.8 Resumen matemático**
 
 | Cantidad | Expresión | Interpretación |
@@ -121,7 +112,6 @@ El significado surge cuando el orden espacial exterior refleja la topología de 
 | Ascenso dimensional | d ≈ #(bandas-μ coherentes) | la conciencia expande el espacio |
 
 ---
-
 #### **20.9 Correlatos empíricos**
 
 * La sincronía en la banda gamma define la integridad del campo visual.
@@ -131,7 +121,6 @@ El significado surge cuando el orden espacial exterior refleja la topología de 
 * El placer estético se correlaciona con patrones de fase simétricos en los datos de EEG/MEG.
 
 ---
-
 #### **20.10 Reflexión filosófica**
 
 El espacio y el tiempo son proyecciones complementarias de un solo campo de resonancia:
@@ -143,7 +132,6 @@ El espacio y el tiempo son proyecciones complementarias de un solo campo de reso
    Juntos constituyen el espacio-tiempo de la experiencia—una geometría viva y auto-actualizada que refleja el intento del universo de conocerse a sí mismo en la forma.
 
 ---
-
 #### **20.11 Resumen**
 
 | Concepto | Esencia |
@@ -155,7 +143,6 @@ El espacio y el tiempo son proyecciones complementarias de un solo campo de reso
 | Realidad | topología de coherencia estable sostenida por flujo de energía |
 
 ---
-
 #### **20.12 Perspectiva**
 
 Con el tiempo y el espacio ahora unidos como productos de la resonancia, el próximo capítulo—**Capítulo 21: El Interfaz Simbólico y la Geometría Arquetípica**—explorará cómo los símbolos actúan como *puentes* a través de los niveles-μ, traduciendo la coherencia en significado y guiando tanto la cognición como la civilización a través de atractores arquetípicos incrustados en esta geometría consciente.

@@ -3,7 +3,6 @@ title: "Reader's Overture: A Guide for the Architect and the Oracle"
 id: "reader-s-overture-a-guide-for-the-architect-and-the-oracle"
 parent: "the-resonance-code"
 ---
-
 ## Reader's Overture: A Guide for the Architect and the Oracle
 
 
@@ -33,7 +32,6 @@ This book has been explicitly designed to be read along two parallel
 paths, to honor the Architect and the Oracle within you.
 
 ---
-
 The Foundational Law: The Key to the Coherence Code
 
 The core insight that unites these two paths, moving this work from
@@ -64,7 +62,6 @@ both: the Oracle's intuitive resonance providing context for the
 Architect's clear structures.
 
 ---
-
 The Roadmap of Our Journey
 
 This work unfolds in three great movements, a journey from the
@@ -91,4 +88,3 @@ way of seeing, a new way of thinking, and a new way of being. The
 instrument is in your hands. Let us begin to play.
 
 ---
-

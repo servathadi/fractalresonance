@@ -44,7 +44,6 @@ answers:
       
       FRC provides the **Mechanism** for this effect. While Verlinde describes the *Why* (entropy maximization), FRC describes the *How* (the $\Lambda$-Field Lagrangian). We identify the specific scalar field that carries the entropic information. FRC is to Verlinde what Kinetic Theory is to Thermodynamics: the underlying mechanical reality.
 ---
-
 # The River, Not the Rocks
 
 Imagine watching a whirlpool in a river. You see the water spinning faster than it "should" just based on the few rocks in the center.

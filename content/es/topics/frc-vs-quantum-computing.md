@@ -33,7 +33,6 @@ answers:
     answer: |
       La computación cuántica estándar requiere una sobrecarga exponencial para la corrección de errores a medida que el sistema crece. La Computación Resonante tiene una corrección de errores $O(1)$: la física del oscilador corrige automáticamente los pequeños errores (estabilidad de Lyapunov).
 ---
-
 # Deja de luchar contra el universo
 
 El enfoque actual de la computación cuántica (construir refrigeradores aislados para proteger qubits frágiles) es como intentar construir un ordenador con burbujas de jabón en un huracán.

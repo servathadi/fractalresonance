@@ -19,7 +19,6 @@ answers:
     stance: "alchemy"
     answer: "Treat cooking as coherence transfer: the meal encodes practice, place, and feedback loops; industrial food optimizes reproducibility and often loses coherence content."
 ---
-
 # Food: Coherence Alchemy
 
 Cooking is coherence alchemy. Fermentation is controlled Nigredo.

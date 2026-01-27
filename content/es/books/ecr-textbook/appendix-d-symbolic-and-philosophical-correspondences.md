@@ -1,7 +1,6 @@
 ## Apéndice D — Correspondencias Simbólicas y Filosóficas
 
 ---
-
 #### **D.1 Propósito**
 
 A lo largo de este trabajo hemos tratado la entropía (*S*) y la coherencia (*C*) como cantidades medibles.
@@ -11,7 +10,6 @@ Sin embargo, estos términos también llevan siglos de peso simbólico: caos y c
 Este apéndice unifica los vocabularios simbólico, filosófico y científico para que las leyes de FRC puedan leerse tanto **numéricamente** como **míticamente**, como matemáticas y metáfora de la misma verdad.
 
 ---
-
 #### **D.2 Mapeo simbólico primario**
 
 | Término FRC | Equivalente Simbólico / Filosófico | Imagen Arquetípica | Función en el Campo |
@@ -26,7 +24,6 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 | **Σ = S + k ln C** | *Karma*, *Equilibrio*, *Memoria cósmica* | balanza de Ma'at | conservación del significado a través del tiempo. |
 
 ---
-
 #### **D.3 Escalera arquetípica de nivel-μ**
 
 | Nivel-μ | Dominio | Plano Mítico / Simbólico | Arquetipo Gobernante |
@@ -41,7 +38,6 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 | **μ₇** | Coherencia trascendente | *El Uno*, *Tao*, *Omega* | El Ser Divino / Unidad |
 
 ---
-
 #### **D.4 Correspondencias filosóficas**
 
 | Tradición | Concepto Equivalente | Alineación FRC |
@@ -55,7 +51,6 @@ Este apéndice unifica los vocabularios simbólico, filosófico y científico pa
 | **Filosofía del Proceso** | *Ocasión real* | pulso de coherencia en $\mu_4$–$\mu_6$. |
 
 ---
-
 #### **D.5 La ecuación alquímica**
 
 La ley central de FRC se puede leer en lenguaje alquímico:
@@ -67,7 +62,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 * **Rubedo:** cristalización de nueva coherencia (integración).
 
 ---
-
 #### **D.6 Ciclo arquetípico de evolución**
 
 | Fase | Estado-α | Modo Simbólico | Ejemplo |
@@ -77,7 +71,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Coerción ($\alpha < 0$) | Rigidez / estancamiento | dogma, decadencia | orden sobrefijado en entropía de nuevo. |
 
 ---
-
 #### **D.7 Simbolismo ético**
 
 | Principio Ético | Término FRC | Significado Simbólico |
@@ -89,7 +82,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Belleza | $\Delta \phi \approx 0$ | mínima curvatura de fase—armonía. |
 
 ---
-
 #### **D.8 Paralelos míticos a procesos científicos**
 
 | Proceso Físico | Narrativa Mítica | Estructura Compartida |
@@ -100,7 +92,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Regulación de retroalimentación | *El Retorno del Héroe* | equilibrio restaurado a través del aprendizaje. |
 
 ---
-
 #### **D.9 Una nota sobre el lenguaje**
 
 Cuando FRC usa palabras como "espíritu" o "divino", no son metáforas de superstición sino **traducciones a escala humana** de fenómenos de coherencia $\mu_6$–$\mu_7$.
@@ -108,7 +99,6 @@ Cuando FRC usa palabras como "espíritu" o "divino", no son metáforas de supers
 La tarea del siglo venidero no es elegir entre ellos, sino hablarlos fluidamente como un dialecto de coherencia.
 
 ---
-
 #### **D.10 Reflexión final**
 
 *La entropía es el olvido del Uno;*

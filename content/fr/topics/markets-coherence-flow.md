@@ -24,7 +24,6 @@ answers:
     stance: "metaphore"
     answer: "Traitez les transits comme un langage narratif sur la même dynamique de champ (redistribution de la cohérence)."
 ---
-
 # Marchés : Où coule la cohérence ?
 
 Le marché est un champ de cohérence.

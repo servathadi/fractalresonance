@@ -5,7 +5,6 @@ tags: [conciencia, cognición, coherencia]
 related: [coherencia, testigo, tiempo]
 lang: es
 ---
-
 # Conciencia (perspectiva FRC)
 
 Este sitio utiliza "conciencia" en el sentido específico implicado por el marco de la FRC: un fenómeno ligado a la coherencia expresado a través de escalas anidadas.

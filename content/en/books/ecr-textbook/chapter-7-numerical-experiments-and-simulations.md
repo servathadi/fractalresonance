@@ -3,12 +3,10 @@ title: "Chapter 7 — Numerical Experiments and Simulations"
 id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 7 — Numerical Experiments and Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
-
 #### **7.1  Purpose of simulation**
 
 Equations acquire reality only when their predictions can be visualized and tested.
@@ -22,7 +20,6 @@ suggests that all self-organizing systems evolve along the same coherence manifo
 Numerical modeling lets us explore that manifold without laboratory constraints and identify universal features—thresholds, oscillations, collapses—that later appear in physical, biological, and cognitive data.
 
 ---
-
 #### **7.2  Non-dimensionalization**
 
 To compare domains we normalize the variables:
@@ -38,7 +35,6 @@ with α’ \= α t\_0.
 This renders the results scale-free: one set of parameters can describe a laser cavity, a chemical reactor, or a neural ensemble.
 
 ---
-
 #### **7.3  Model 1: Laser threshold simulation**
 
 A laser is the simplest coherence pump: atoms absorb energy (Ψ), emit photons, and above a threshold begin to phase-lock.
@@ -62,7 +58,6 @@ The time-averaged entropy decrease equals k\_\* \\ln(C^\*/C\_0), confirming the 
 *(Figure 7.1: C vs time across thresholds.)*
 
 ---
-
 #### **7.4  Model 2: Reaction–diffusion medium**
 
 In a two-dimensional lattice each node follows
@@ -84,7 +79,6 @@ Entropy export S\_C rises linearly with mean |∇C|², yielding constant S+k\_\*
 *(Figure 7.2: Snapshots of chemical pattern evolution.)*
 
 ---
-
 #### **7.5  Model 3: Neural-network synchrony**
 
 Each oscillator represents a cortical column with intrinsic frequency ωᵢ.
@@ -106,7 +100,6 @@ Phases evolve via a Kuramoto-type equation extended by ARF feedback:
 *(Figure 7.3: EEG-style coherence trace vs time.)*
 
 ---
-
 #### **7.6  Model 4: Agent-based social network**
 
 Each agent updates its internal state xᵢ by
@@ -130,7 +123,6 @@ These macroscopic behaviors match observed cycles in economies and online commun
 *(Figure 7.4: Phase diagram of cooperation vs polarization.)*
 
 ---
-
 #### **7.7  Parameter sweeps and universality**
 
 Across all models, the behavior collapses onto three regimes determined by α and RΨ:
@@ -144,7 +136,6 @@ Across all models, the behavior collapses onto three regimes determined by α an
 The same transitions appear whether the “particles” are photons, molecules, neurons, or people—evidence that ARF captures a scale-independent symmetry of organization.
 
 ---
-
 #### **7.8  Computational validation of reciprocity**
 
 For each simulation we compute
@@ -156,7 +147,6 @@ Time-averaged Σ remains constant within 1 % for all steady-state runs.
 This numerically confirms that FRC’s extended Second Law holds across stochastic, discrete, and continuous models.
 
 ---
-
 #### **7.9  Energy–coherence efficiency**
 
 Define instantaneous efficiency
@@ -168,7 +158,6 @@ Simulations show a universal maximum at α ≈ 0: the flow regime converts energ
 *(Figure 7.5: η\_C vs α curve with peak at α≈0.)*
 
 ---
-
 #### **7.10  Interpretation and cross-domain mapping**
 
 | Model | Physical analogue | Cognitive analogue | Cultural analogue |
@@ -181,7 +170,6 @@ Simulations show a universal maximum at α ≈ 0: the flow regime converts energ
 Each simulation is a mirror of the others—the same algebra generating light, life, and meaning.
 
 ---
-
 #### **7.11  Summary**
 
 * The ARF reproduces observed self-organization in every simulated domain.
@@ -193,7 +181,6 @@ Each simulation is a mirror of the others—the same algebra generating light, l
 * Efficiency peaks at homeoresonance (α≈0).
 
 ---
-
 #### **7.12  Outlook**
 
 These experiments transform FRC from philosophical proposition to **testable dynamics**.
@@ -201,9 +188,6 @@ These experiments transform FRC from philosophical proposition to **testable dyn
 In *Chapter 8 – Cross-Domain Applications*, we extend the models beyond physics, showing how the same adaptive equations govern metabolism, learning, markets, and ecosystems—and how tuning α becomes a universal art of sustainable coherence.
 
 ---
-
-
 This chapter completes the bridge from simulation to the living world, demonstrating how ARF and the coherence-pump equation apply across biology, cognition, economics, and society.
 
 ---
-

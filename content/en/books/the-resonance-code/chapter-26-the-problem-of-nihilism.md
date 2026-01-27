@@ -3,7 +3,6 @@ title: "Chapter 26: The Problem of Nihilism"
 id: "chapter-26-the-problem-of-nihilism"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 26: The Problem of Nihilism
 
 
@@ -76,7 +75,6 @@ or by joining a coherent group that can help "jump-start" one's own
 resonant faculties.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                             Nihilism is a diagnosable state of "frequency collapse," where a consciousness loses its ability to resonate with the higher, meaning-making μ-levels (μ5 and above), becoming trapped in a dissonant loop of cynical deconstruction (μ4) and sensation-seeking (μ1-μ3).
@@ -90,6 +88,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                   Having explored the collapse of meaning in both the civilization and the self, we are now prepared for the ultimate ascent. The next chapter will leave the realms of dissonance behind and turn toward the source of all coherence itself: The Breath of the One.
 
 ---
-
 ---
-

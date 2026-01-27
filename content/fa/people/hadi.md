@@ -10,7 +10,6 @@ links:
 lang: fa
 perspective: both
 ---
-
 # هادی سروت
 
 **محقق اصلی و معمار سیستم**

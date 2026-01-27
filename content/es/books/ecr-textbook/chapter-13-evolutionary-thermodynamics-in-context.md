@@ -3,12 +3,10 @@ title: "Capítulo 13 — Termodinámica Evolutiva en Contexto"
 id: "chapter-13-evolutionary-thermodynamics-in-context"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 13 — Termodinámica Evolutiva en Contexto** {#chapter-13-—-evolutionary-thermodynamics-in-context}
 
 
 ---
-
 #### **13.1  La cuestión de la dirección**
 
 ¿Por qué el universo, gobernado por una ley que favorece el desorden, crea continuamente orden?
@@ -28,7 +26,6 @@ implica que a medida que la entropía se expande globalmente, la coherencia pued
 La evolución es esta doble corriente hecha visible: la entropía fluyendo hacia afuera, la coherencia hacia adentro.
 
 ---
-
 #### **13.2  De Darwin a Prigogine**
 
 Darwin explicó la adaptación mediante la variación y la selección; Prigogine añadió la física—la vida como un **sistema abierto, lejos del equilibrio** que se alimenta de flujo.
@@ -46,7 +43,6 @@ Aquí α es la ganancia adaptativa que determina qué tan eficientemente un sist
 La evolución, en esta visión, es la historia de la sintonización de α a través de las escalas.
 
 ---
-
 #### **13.3  El gradiente universal**
 
 Desde la cosmología hasta la cognición, el mismo gradiente energético impulsa la estructura:
@@ -64,7 +60,6 @@ Cada capa se construye sobre la entropía exportada por la anterior.
 La luz emitida por las estrellas se convierte en la energía de la química; el orden químico se convierte en el combustible de la vida; el orden biológico exporta entropía que alimenta la conciencia.
 
 ---
-
 #### **13.4  El flujo de energía como motor de la complejidad**
 
 La tasa de procesamiento de energía libre por unidad de masa—**densidad de tasa de energía**—aumenta a través de la historia cósmica desde ~10⁻⁴ W/kg en las galaxias hasta 10⁵ W/kg en el cerebro humano.
@@ -76,7 +71,6 @@ a medida que F aumenta, C sube rápidamente hasta que α se autolimita para evit
 Esta “logística cósmica” empírica respalda la afirmación de la FRC de que el crecimiento de la coherencia está limitado por la energía pero es legal.
 
 ---
-
 #### **13.5  De la aleatoriedad a la resonancia**
 
 La teoría evolutiva estándar trata la novedad como una mutación aleatoria filtrada por la selección.
@@ -88,7 +82,6 @@ Cuando las oscilaciones internas de un sistema se acoplan a las frecuencias ambi
 Este sesgo de resonancia explica la evolución convergente y las morfologías recurrentes—espirales, simetría bilateral, redes neuronales—sin invocar el azar o la teleología.
 
 ---
-
 #### **13.6  Exportación de entropía y ética ecológica**
 
 Cada aumento en la coherencia local requiere la liberación de entropía externa.
@@ -100,7 +93,6 @@ La evolución sostenible exige que la S_C exportada nunca exceda la capacidad de
 La homeoresonancia (α ≈ 0) define así el equilibrio ecológico: máxima adaptación por un mínimo costo de entropía.
 
 ---
-
 #### **13.7  La evolución como bomba de coherencia estratificada**
 
 En cada nivel-μ, la ecuación de la bomba de coherencia opera con sus propias constantes α_{μ}, k_*^{(μ)}:
@@ -112,7 +104,6 @@ de modo que toda la biosfera actúa como una **matriz de bombas anidadas** que t
 La evolución es la alineación de fase gradual de estas bombas en un motor de resonancia planetario.
 
 ---
-
 #### **13.8  Cuantificación de la eficiencia evolutiva**
 
 Definimos la eficiencia de coherencia como
@@ -132,7 +123,6 @@ Las estimaciones empíricas arrojan:
    La eficiencia alcanza su punto máximo cuando α ≈ 0—nuevamente, el régimen de flujo.
 
 ---
-
 #### **13.9  Hacia una métrica evolutiva del significado**
 
 Cuando la coherencia aumenta más rápido que la exportación de entropía, los sistemas adquieren la capacidad de *representar*—de reflejar los patrones de su entorno.
@@ -142,7 +132,6 @@ El significado, en lenguaje termodinámico, es la persistencia de la correlació
 La vida y la mente no son excepciones a la física; son cómo se ve la física cuando la coherencia aprende a verse a sí misma.
 
 ---
-
 #### **13.10  Resumen**
 
 | Concepto | Ecuación | Implicación |
@@ -154,7 +143,6 @@ La vida y la mente no son excepciones a la física; son cómo se ve la física c
 | η_C máx en α ≈ 0 | ley de eficiencia | Pico de creatividad y salud |
 
 ---
-
 #### **13.11  Perspectiva**
 
 Este capítulo enmarcó la evolución como una bomba de coherencia global.

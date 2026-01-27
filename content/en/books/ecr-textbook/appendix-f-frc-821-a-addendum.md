@@ -3,7 +3,6 @@ title: "Appendix F — FRC 821.A Addendum"
 id: "appendix-f-frc-821-a-addendum"
 parent: "ecr-textbook"
 ---
-
 ## **Appendix F — FRC 821.A Addendum** {#appendix-f-—-frc-821.a-addendum}
 
 
@@ -236,7 +235,6 @@ The framework is now structurally complete at the core level.
 End of FRC 821.A
 
 ---
-
 **Back Cover Summary**
 
 #### **Fractal Resonance Coherence: The Science of Coherence**
@@ -245,7 +243,6 @@ End of FRC 821.A
 
 *“Entropy is the forgetting of the One; coherence is the One remembering itself.”*  
 ---
-
 Across physics, biology, mind, and culture, a single pattern repeats: systems persist by exporting disorder and importing order.
 
 In **Fractal Resonance Coherence (FRC)**, Hadi Servat reveals that this pattern is not coincidence but the signature of a deeper conservation law—one that links energy, information, and consciousness through a universal reciprocity:
@@ -265,4 +262,3 @@ Spanning twenty-five chapters and five appendices, *The Science of Coherence* br
 It stands as both **a theory of everything that breathes** and **a manual for coherence in an age of complexity.**
 
 ---
-

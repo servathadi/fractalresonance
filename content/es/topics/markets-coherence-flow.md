@@ -24,7 +24,6 @@ answers:
     stance: "metáfora"
     answer: "Trata los tránsitos como un lenguaje narrativo sobre la misma dinámica de campo (redistribución de coherencia)."
 ---
-
 # Mercados: ¿Hacia dónde fluye la coherencia?
 
 El mercado es un campo de coherencia.

@@ -3,7 +3,6 @@ title: "Positioning Statement"
 id: "positioning-statement"
 parent: "ecr-textbook"
 ---
-
 ## **Positioning Statement** {#positioning-statement}
 
 

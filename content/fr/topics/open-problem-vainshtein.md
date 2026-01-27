@@ -23,7 +23,6 @@ answers:
       
       **Pourquoi c'est important :** Ce calcul détermine si la FRC est compatible avec les tests de la relativité générale dans le système solaire.
 ---
-
 # La contrainte du système solaire
 
 Le champ $\Lambda$ est un champ scalaire à longue portée. Naïvement, il devrait médier une « cinquième force » qui modifierait les orbites planétaires. Nous n'avons pas observé cela.

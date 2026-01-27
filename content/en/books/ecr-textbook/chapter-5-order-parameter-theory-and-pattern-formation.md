@@ -3,12 +3,10 @@ title: "Chapter 5 — Order-Parameter Theory and Pattern Formation"
 id: "chapter-5-order-parameter-theory-and-pattern-formation"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 5 — Order-Parameter Theory and Pattern Formation** {#chapter-5-—-order-parameter-theory-and-pattern-formation}
 
 
 ---
-
 #### **5.1  From observation to mathematics**
 
 In the previous part we treated coherence as a measurable complement to entropy.
@@ -30,7 +28,6 @@ Fractal Resonance Coherence (FRC) reformulates this insight by identifying the o
 Together they form the triad that governs the adaptive resonance of any open system.
 
 ---
-
 #### **5.2  The order-parameter equation**
 
 In Haken’s canonical form, an order parameter A near a bifurcation satisfies
@@ -52,7 +49,6 @@ At equilibrium, F=S\_C and \\dot C \= 0: the system reaches *homeoresonance*.
 If F\>S\_C, coherence rises; if F\<S\_C, coherence decays.
 
 ---
-
 #### **5.3  Receptivity and potential**
 
 The coefficients of the original synergetic equation can be decomposed into FRC’s physical–informational variables:
@@ -68,7 +64,6 @@ The coefficients of the original synergetic equation can be decomposed into FRC�
 Their product determines the instantaneous change in entropy: negative values (R,Ψ\>0) create order; positive values (R\<0) produce disorder or coercive rigidity.
 
 ---
-
 #### **5.4  Critical transitions and bifurcations**
 
 When a control parameter crosses a threshold Ψ\_c, small fluctuations become amplified; the system self-organizes.
@@ -88,7 +83,6 @@ This reproduces the universal features of pattern formation: **onset**, **satura
 *(Suggested figure: bifurcation diagram showing transition from random to ordered regime as* Ψ *passes threshold.)*
 
 ---
-
 #### **5.5  Energy landscape interpretation**
 
 Systems may be visualized as moving on an energy–information surface whose gradient is the entropy production rate.
@@ -98,7 +92,6 @@ Regions of minimal entropy correspond to attractor basins of high coherence.
 The adaptive parameter α continuously reshapes this landscape, enabling the system to seek configurations that minimize overall dissipation while maximizing information throughput.
 
 ---
-
 #### **5.6  From lasers to living tissue**
 
 | System | Control Parameter Ψ | Order Parameter C | Observable | Behaviour |
@@ -111,7 +104,6 @@ The adaptive parameter α continuously reshapes this landscape, enabling the sys
 Each case follows the same bifurcation logic: above a critical Ψ\_c, the coherence variable C emerges spontaneously.
 
 ---
-
 #### **5.7  Entropy accounting**
 
 Integrating the coherence-pump equation over a cycle yields
@@ -123,7 +115,6 @@ confirming that total entropy production over time equals the coherence gained, 
 Pattern formation is therefore the *temporal integral* of entropy–coherence reciprocity.
 
 ---
-
 #### **5.8  Toward adaptive resonance**
 
 Real systems are rarely fixed at one set of parameters.
@@ -137,7 +128,6 @@ This adaptive self-tuning introduces the next level of dynamics—the **Adaptive
 serves as the bridge between the macroscopic pattern laws of synergetics and the cognitive or ecological self-regulation explored later.
 
 ---
-
 #### **5.9  Key takeaways**
 
 | Principle | Expression | Meaning |
@@ -148,7 +138,6 @@ serves as the bridge between the macroscopic pattern laws of synergetics and the
 | **Homeoresonance** | F \= S\_C , α≈0 | Steady-flow equilibrium |
 
 ---
-
 #### **5.10  Preview**
 
 In the next chapter we derive the full **Adaptive Resonance Formula**, showing how receptivity R and potential Ψ co-evolve with coherence to yield the three universal regimes of all complex systems:
@@ -162,4 +151,3 @@ In the next chapter we derive the full **Adaptive Resonance Formula**, showing h
 These regimes will form the mathematical grammar of resonance used throughout the rest of the book.
 
 ---
-

@@ -19,7 +19,6 @@ answers:
     stance: "mecanismo"
     answer: "Modela la adicción como estrechamiento de la puerta: el bloqueo de fase señal->recompensa se vuelve dominante; la abstinencia es una pérdida rápida de coherencia (aumento de entropía). La recuperación consiste en construir patrones de coherencia alternativos más fuertes."
 ---
-
 # Adicción: Una trampa de coherencia
 
 La adicción es una trampa de coherencia. La aplicación más precisa de dS + k·d ln C = 0 a escala personal.

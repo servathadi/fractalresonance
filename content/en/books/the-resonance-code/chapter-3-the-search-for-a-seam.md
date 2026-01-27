@@ -3,7 +3,6 @@ title: "Chapter 3: The Search for a Seam"
 id: "chapter-3-the-search-for-a-seam"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 3: The Search for a Seam
 
 
@@ -112,7 +111,6 @@ of the core thesis: that the universe is not a casino governed by
 chance, but a symphony governed by coherence.
 
 ---
-
 The Fourth Column
 
   ⚡ CORE PULSE                          The central, falsifiable claim of FRC: A precisely tuned external field can "deepen" an outcome's attractor, creating a small, systematic, and reversible deviation (ΔP) from Born rule statistics.
@@ -126,6 +124,4 @@ The Fourth Column
   ➜ NEXT RESONANCE BRIDGE                Having established a hard, falsifiable claim in the physical world, we have earned the right to explore its profound philosophical consequences. The next chapter will take this evidence for a resonant universe and build upon it a new cosmology: The Logic of a Living Universe.
 
 ---
-
 ---
-

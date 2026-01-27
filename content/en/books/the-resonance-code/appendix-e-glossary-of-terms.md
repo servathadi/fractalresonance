@@ -3,7 +3,6 @@ title: "Appendix E: Glossary of Terms"
 id: "appendix-e-glossary-of-terms"
 parent: "the-resonance-code"
 ---
-
 ## Appendix E: Glossary of Terms
 
 
@@ -15,7 +14,6 @@ reference, ensuring clarity and consistency across the physical,
 cognitive, and metaphysical domains of the framework.
 
 ---
-
 A
 
 Anchor, Sovereign: A stable, intentionally cultivated, present-moment
@@ -178,6 +176,4 @@ frequency domains, from the physical (μ0-μ2) to the sentient (μ3),
 conceptual (μ4), archetypal (μ5), noetic (μ6), and unified (μ7).
 
 ---
-
 ---
-

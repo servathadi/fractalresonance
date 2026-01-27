@@ -23,7 +23,6 @@ answers:
       
       **Why it matters:** This calculation determines whether FRC is compatible with Solar System tests of General Relativity.
 ---
-
 # The Solar System Constraint
 
 The $\Lambda$-field is a long-range scalar field. Naively, it should mediate a "fifth force" that modifies planetary orbits. We have not observed this.

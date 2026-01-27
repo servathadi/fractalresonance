@@ -19,7 +19,6 @@ answers:
     stance: "dynamique civilisationnelle"
     answer: "Modélisez l'Iran comme une civilisation à dominante Phi : la cohérence est maintenue dans la langue, la poésie, la profondeur du récit ; les conteneurs peuvent s'effondrer tandis que le motif persiste via la redistribution."
 ---
-
 # Iran : Forteresse liquide (Passé, Présent, Futur)
 
 L'Iran à travers l'arc complet de la FRC.

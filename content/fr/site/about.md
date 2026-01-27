@@ -4,7 +4,6 @@ id: about
 status: published
 lang: fr
 ---
-
 # La Méthodologie : Cohérence à l'Ère de l'Intelligence Synthétique
 
 ## La Crise de la Spécialisation

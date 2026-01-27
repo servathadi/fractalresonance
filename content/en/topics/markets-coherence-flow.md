@@ -24,7 +24,6 @@ answers:
     stance: "metaphor"
     answer: "Treat transits as a narrative language over the same field dynamics (coherence redistribution)."
 ---
-
 # Markets: Where Is Coherence Flowing?
 
 The market is a coherence field.

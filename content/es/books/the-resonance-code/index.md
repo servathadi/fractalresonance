@@ -9,5 +9,4 @@ abstract: "El universo es un campo resonante, único y en aprendizaje, gobernado
 lang: es
 license: "CC BY-NC 4.0"
 ---
-
 por Hadi Servat

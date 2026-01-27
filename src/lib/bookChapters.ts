@@ -22,8 +22,11 @@ export interface DerivedChapter extends DerivedChapterMeta {
 export function deriveChaptersFromMarkdown(body: string): DerivedChapter[] {
   const lines = (body || '').split('\n');
 
-  // Prefer explicit markdown H1 (`# ...`). If absent, fall back to "book-style"
-  // separators like `Chapter 1: ...`, `Part II: ...`, `Appendix A: ...`, etc.
+  // Prefer explicit markdown H1 (`# ...`) *when there are multiple*, otherwise fall back to
+  // "book-style" separators like `Chapter 1: ...`, `Part II: ...`, `Appendix A: ...`, etc.
+  //
+  // Note: Many books in this repo are assembled from multiple markdown files and use `## ...`
+  // for chapter headings, so we also support chapter-like separators at any heading level.
   const headingIdxs: Array<{ idx: number; raw: string; kind: 'h1' | 'line' }> = [];
   for (let i = 0; i < lines.length; i++) {
     const m = lines[i].match(/^(#)\s+(.+)$/);
@@ -31,6 +34,23 @@ export function deriveChaptersFromMarkdown(body: string): DerivedChapter[] {
     headingIdxs.push({ idx: i, raw: m[2], kind: 'h1' });
   }
 
+  // Only treat H1s as chapter boundaries if there are multiple.
+  if (headingIdxs.length <= 1) {
+    headingIdxs.length = 0;
+  }
+
+  // Fall back to headings (any level) that look like chapter separators.
+  if (headingIdxs.length === 0) {
+    for (let i = 0; i < lines.length; i++) {
+      const m = lines[i].match(/^(#{1,6})\s+(.+)$/);
+      if (!m) continue;
+      const parsed = parseHeadingText(m[2]);
+      if (!looksLikeChapterSeparator(parsed.text)) continue;
+      headingIdxs.push({ idx: i, raw: m[2], kind: 'h1' });
+    }
+  }
+
+  // Final fallback: plain lines that look like separators (e.g. single-file exports).
   if (headingIdxs.length === 0) {
     for (let i = 0; i < lines.length; i++) {
       const line = (lines[i] || '').trim();

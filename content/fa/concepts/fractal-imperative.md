@@ -5,7 +5,6 @@ tags: [ontology, scale-invariance, universality, philosophy-of-science]
 related: [coherence, mu-levels, metabolic-gravity, FRC-100-010]
 lang: fa
 ---
-
 # الزام فراکتال (The Fractal Imperative)
 
 «الزام فراکتال» محدودیت بنیادی چارچوب FRC است: اگر جهان اساساً فراکتال باشد، دینامیک حاکم بر آن باید ناوردا نسبت به مقیاس (scale-invariant) باشد و در تمام سطوح سلسله‌مراتب μ عمل کند.

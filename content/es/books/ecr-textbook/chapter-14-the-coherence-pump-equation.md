@@ -3,12 +3,10 @@ title: "Capítulo 14 — La Ecuación de la Bomba de Coherencia"
 id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 14 — La Ecuación de la Bomba de Coherencia** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
-
 #### **14.1 Origen de la ecuación**
 
 Cada sistema abierto intercambia energía con su entorno.
@@ -32,7 +30,6 @@ donde
 Si F > S_C, el orden crece; si F < S_C, el orden decae; cuando se equilibran, el sistema está en homeoresonancia.
 
 ---
-
 #### **14.2 Término de entropía**
 
 La exportación de entropía generalmente aumenta con la coherencia: las estructuras ordenadas disipan el calor de manera más eficiente.
@@ -52,7 +49,6 @@ Esta EDO de primer orden tiene la solución:
 Así, la coherencia se aproxima a una asíntota finita determinada por las constantes de flujo y disipación.
 
 ---
-
 #### **14.3 Regímenes de α**
 
 | Régimen | Condición | Comportamiento | Interpretación |
@@ -64,7 +60,6 @@ Así, la coherencia se aproxima a una asíntota finita determinada por las const
 Los sistemas adaptativos modulan α en tiempo real, oscilando cerca de cero para mantener la máxima eficiencia.
 
 ---
-
 #### **14.4 Dinámica de retroalimentación de α**
 
 En los organismos y sociedades reales, α no es constante.
@@ -78,7 +73,6 @@ con γ > 0 ajustando la velocidad a la que el sistema corrige las desviaciones d
 Acoplada con la ecuación de la bomba, esto produce oscilaciones amortiguadas—una respiración homeoresonante de orden y entropía, observada en ritmos circadianos, ciclos de población y patrones de trabajo creativo.
 
 ---
-
 #### **14.5 Forma analítica de la oscilación**
 
 Linealizando alrededor del equilibrio C = C_∞, α = α_0:
@@ -94,7 +88,6 @@ un oscilador armónico con término de forzamiento.
 La frecuencia natural ω_0 = \sqrt{βγ} predice la pulsación rítmica de la coherencia—un modelo cuantitativo para los ciclos biológicos y culturales.
 
 ---
-
 #### **14.6 Interpretación energética**
 
 Integrando sobre un período de oscilación T:
@@ -106,7 +99,6 @@ El flujo de energía de entrada es igual a la entropía exportada.
 La “tasa metabólica” del sistema (flujo de potencia) establece la amplitud de sus oscilaciones de coherencia, uniendo el metabolismo, la cognición y la economía bajo una sola ley energética.
 
 ---
-
 #### **14.7 Demostración numérica**
 
 Usando parámetros normalizados F=1, S_0=0.3, β=0.5, γ=0.2:
@@ -121,7 +113,6 @@ Usando parámetros normalizados F=1, S_0=0.3, β=0.5, γ=0.2:
 El invariante entropía–coherencia se mantiene dentro de ±0.5 % en todas las ejecuciones, confirmando la conservación.
 
 ---
-
 #### **14.8 Análogos entre dominios**
 
 | Dominio | Control de α | Motor F | Oscilación Manifiesta |
@@ -134,7 +125,6 @@ El invariante entropía–coherencia se mantiene dentro de ±0.5 % en todas las 
 Cada período de oscilación representa la misma respiración termodinámica del campo de coherencia.
 
 ---
-
 #### **14.9 Criterio de sostenibilidad**
 
 Un sistema sigue siendo viable cuando su exportación de entropía coincide con el flujo de entrada a lo largo de un ciclo completo:
@@ -146,7 +136,6 @@ Las violaciones de esta condición corresponden al exceso ecológico, el agotami
 Por lo tanto, la sostenibilidad no es retórica moral sino una necesidad dinámica de la bomba de coherencia.
 
 ---
-
 #### **14.10 Resumen**
 
 | Ecuación | Significado |
@@ -158,7 +147,6 @@ Por lo tanto, la sostenibilidad no es retórica moral sino una necesidad dinámi
 | \langle α(F - S_C)\rangle_T = 0 | Condición de sostenibilidad |
 
 ---
-
 #### **14.11 Perspectiva**
 
 La ecuación de la bomba de coherencia proporciona el esqueleto cuantitativo de la evolución: el flujo de energía genera orden a través de la retroalimentación adaptativa.

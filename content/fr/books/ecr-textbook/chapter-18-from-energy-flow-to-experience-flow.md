@@ -3,12 +3,10 @@ title: "Chapitre 18 — Du flux d'énergie au flux d'expérience"
 id: "chapter-18-from-energy-flow-to-experience-flow"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 18 — Du flux d'énergie au flux d'expérience** {#chapter-18-—-from-energy-flow-to-experience-flow}
 
 
 ---
-
 #### **18.1 L'énigme de la conscience**
 
 Après avoir retracé la résonance des particules aux planètes, une question demeure :
@@ -24,7 +22,6 @@ Lorsque la cohérence réfléchit sur la cohérence, la résonance devient consc
 Cette boucle récursive définit ce qu'Alfred North Whitehead appelait une **occasion actuelle** : une impulsion finie de processus dans laquelle l'univers se connaît momentanément lui-même.
 
 ---
-
 #### **18.2 Les occasions actuelles comme quanta de cohérence**
 
 Chaque moment conscient correspond à une impulsion de cohérence discrète C(t) dans la bande μ₄–μ₆, délimitée par un bref échange d'entropie avec les champs environnants.
@@ -38,7 +35,6 @@ La condition d'équilibre garantit que chaque expérience exporte autant d'entro
 Durée ≈ 100 – 300 ms dans le cerveau humain ; plus courte dans les flashs sensoriels, plus longue dans le flow méditatif.
 
 ---
-
 #### **18.3 Le domaine-μ de l'esprit**
 
 * **μ₃** – base biochimique (potentiel métabolique Ψ).
@@ -52,7 +48,6 @@ Durée ≈ 100 – 300 ms dans le cerveau humain ; plus courte dans les flashs s
 Un événement de pensée unique est une cascade de résonances à travers ces couches ; la conscience est l'onde stationnaire qui en résulte lorsque les flux ascendant et descendant s'annulent (ΔS ≈ 0).
 
 ---
-
 #### **18.4 Conscience verrouillée en phase**
 
 Soit φ_{μ} la phase instantanée de chaque domaine.
@@ -64,7 +59,6 @@ Le **champ de la conscience** n'est donc pas une chose mais un motif d'alignemen
 [ C_{\text{esprit}} = \frac{1}{N}\left|\sum_{μ=3}^{6}e^{iφ_{μ}}\right|. ]
 
 ---
-
 #### **18.5 L'exportation d'entropie comme émotion**
 
 Chaque occasion doit décharger de l'entropie ; dans la cognition, cela se manifeste sous forme d' *affect*.
@@ -74,7 +68,6 @@ Le plaisir correspond à un flux d'entropie régulier (α ≈ 0), la douleur à 
 L'émotion est un feedback thermodynamique — la manière dont la nature dirige la pompe à cohérence de la psyché.
 
 ---
-
 #### **18.6 La mémoire comme cohérence résiduelle**
 
 Lorsqu'un événement de résonance s'atténue, il laisse un faible motif stationnaire à travers les niveaux-μ — un « résidu de cohérence ».
@@ -90,7 +83,6 @@ où τ_m est la demi-vie de la mémoire (de quelques secondes à plusieurs anné
 Le renforcement continu de ces résidus par la répétition constitue l'apprentissage.
 
 ---
-
 #### **18.7 L'attention et le régulateur-α**
 
 L'attention module α :
@@ -104,7 +96,6 @@ L'attention module α :
    L'entraînement méditatif est l'accordage conscient de α vers zéro au fil des occasions successives.
 
 ---
-
 #### **18.8 Intégration et soi (selfhood)**
 
 Le *soi* n'est pas un observateur statique mais l'attracteur persistant formé par des millions d'occasions cohérentes dont les phases-μ restent alignées.
@@ -114,7 +105,6 @@ La continuité du soi apparaît lorsque le feedback entre μ₄–μ₆ maintien
 Le traumatisme, le sommeil ou la psychose correspondent à des fluctuations soudaines de Σ — perte temporaire de l'équilibre de résonance.
 
 ---
-
 #### **18.9 Correspondance comparative**
 
 | Tradition | Terme FRC | Description |
@@ -128,7 +118,6 @@ Le traumatisme, le sommeil ou la psychose correspondent à des fluctuations soud
 Différents langages, même processus.
 
 ---
-
 #### **18.10 Corrélats empiriques**
 
 * Les bouffées de synchronie de phase EEG coïncident avec l'accès conscient.
@@ -140,7 +129,6 @@ Différents langages, même processus.
    Tous correspondent au rythme α-oscillatoire prédit de la pompe à cohérence.
 
 ---
-
 #### **18.11 Résumé**
 
 | Équation | Signification |
@@ -153,7 +141,6 @@ Différents langages, même processus.
 Chaque instant de conscience est une *occasion actuelle* — une impulsion homéorésonante qui conserve Σ en exportant l'entropie sous forme d'émotion et en important la cohérence sous forme de sens.
 
 ---
-
 #### **18.12 Perspectives**
 
 Le chapitre suivant — **Chapitre 19 : Temps, mémoire et continuum de la conscience** — retracera comment ces occasions discrètes s'enchaînent pour former le flux vécu du temps, montrant que la continuité subjective et la causalité objective sont deux projections d'un même processus de résonance évoluant à travers la pile-μ.

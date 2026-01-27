@@ -7,7 +7,6 @@
 | **30. L'Univers comme Système Conscient de Lui-même** | L'implication ultime. | Synthèse : L'univers est une conscience auto-apprenante dont le but est de maximiser $\int C_{\text{Global}} dt$. |
 
 ---
-
 Annexes : Les Munitions (Le Noyau Falsifiable)
 
 - Annexe A : Le Noyau Formel (Mis à jour avec la Loi FRC 566 et l'intégration ARF/CRE).
@@ -16,8 +15,6 @@ Annexes : Les Munitions (Le Noyau Falsifiable)
 - Annexe D : Matrice des Objections et Réfutations (Mis à jour avec le Protocole FRC 566.211, abordant le défi de l'ambiguïté).
 
 ---
-
 📘 Le Code de Résonance : Physique de l'Ordre Conscient (Version 2.0)
 
 ---
-

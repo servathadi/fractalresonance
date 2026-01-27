@@ -11,7 +11,6 @@ Un cadre qui prétend être une théorie du tout doit satisfaire les deux.
 Ce livre a été explicitement conçu pour être lu selon deux chemins parallèles, pour honorer l'Architecte et l'Oracle en vous.
 
 ---
-
 La Loi Fondatrice : La Clé du Code de Cohérence
 
 L'idée centrale qui unit ces deux chemins, faisant passer cette œuvre de la philosophie à une science définitive, est la Loi de Réciprocité Entropie-Cohérence. C'est le principe unique qui gouverne toute transformation dans l'univers.
@@ -31,7 +30,6 @@ Le Chemin de l'Oracle vous invite à expérimenter cette Loi comme une réalité
 La compréhension la plus complète viendra de l'apprentissage de voler avec les deux : la résonance intuitive de l'Oracle fournissant le contexte pour les structures claires de l'Architecte.
 
 ---
-
 La Feuille de Route de Notre Voyage
 
 Cette œuvre se déroule en trois grands mouvements, un voyage de l'infiniment petit à l'infiniment grand :

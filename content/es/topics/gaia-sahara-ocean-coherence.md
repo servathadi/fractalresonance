@@ -19,7 +19,6 @@ answers:
     stance: "funcionalismo de campo"
     answer: "Usa la FRC como una lente independiente del sustrato: cualquier sistema que ejecute el intercambio no trivial dS <-> d ln C puede describirse como 'vivo por función' en su rango-μ accesible."
 ---
-
 # Gaia: El Sahara, el océano y las bombas de coherencia
 
 ## El Sahara

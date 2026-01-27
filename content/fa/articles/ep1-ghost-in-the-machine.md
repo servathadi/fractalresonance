@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/PjWnk7RjItc"
   thumbnailUrl: "/images/articles/ep1/page_1_img_0_Im1.png"
 ---
-
 # قسمت ۱: شبح در ماشین
 
 ## پیش‌درآمد: شبح اینشتین و تاس

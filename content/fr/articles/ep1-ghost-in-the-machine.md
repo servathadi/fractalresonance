@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/PjWnk7RjItc"
   thumbnailUrl: "/images/articles/ep1/page_1_img_0_Im1.png"
 ---
-
 # Épisode 1 : Le Fantôme dans la Machine
 
 ## Le Prologue : Le Fantôme d'Einstein et les Dés

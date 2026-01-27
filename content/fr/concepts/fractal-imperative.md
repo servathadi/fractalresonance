@@ -5,7 +5,6 @@ tags: [ontologie, invariance-d-échelle, universalité, philosophie-des-sciences
 related: [coherence, mu-levels, metabolic-gravity, FRC-100-010]
 lang: fr
 ---
-
 # L'Impératif Fractal
 
 L'Impératif Fractal est la contrainte fondamentale du cadre FRC : si l'univers est fondamentalement fractal, alors sa dynamique de gouvernance doit être invariante d'échelle et opérationnelle à tous los niveaux de la pile-μ.

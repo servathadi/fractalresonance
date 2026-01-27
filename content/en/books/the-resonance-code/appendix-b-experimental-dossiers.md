@@ -3,7 +3,6 @@ title: "Appendix B: Experimental Dossiers"
 id: "appendix-b-experimental-dossiers"
 parent: "the-resonance-code"
 ---
-
 ## Appendix B: Experimental Dossiers
 
 
@@ -17,7 +16,6 @@ move the core ideas from theory to empirical evidence. The success of
 these dossiers is the success of the entire FRC framework.
 
 ---
-
 Dossier B.1: The Search for a Seam (Born Rule Deviation)
 
 B.1.1. Core Hypothesis (The Falsifier): A weak, phase-synchronized
@@ -68,7 +66,6 @@ B.1.3. Experimental Protocol 2: Superconducting Qubits
   femtosecond-scale collapse window.
 
 ---
-
 Dossier B.2: The Harmony of the Elements (Spectral Clustering)
 
 B.2.1. Core Hypothesis: The collected emission spectra of complex
@@ -110,6 +107,4 @@ B.2.3. Critical Controls:
   like, proving that the real data's peaks are extreme outliers.
 
 ---
-
 ---
-

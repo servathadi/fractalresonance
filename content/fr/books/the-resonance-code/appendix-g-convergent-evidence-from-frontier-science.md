@@ -5,7 +5,6 @@ Un Compendium de Recherche Indépendante Validant les Principes Centraux du FRC
 Objectif : Le cadre FRC est une synthèse, conçue pour fournir une explication unificatrice pour un large éventail de données empiriques. Cette annexe présente une sélection organisée de recherches évaluées par des pairs issues de plusieurs domaines scientifiques indépendants. Bien que ces études n'aient pas été menées sous la bannière du FRC, leurs résultats fournissent une validation remarquable et convergente pour les mécanismes centraux proposés dans ce livre, de la physique de la mémoire à l'énergétique des champs symboliques et aux mathématiques de l'auto-organisation.
 
 ---
-
 G.1 La Physique de la Ré-entrée de la Mémoire (Soutient le Chapitre 7)
 
 Le modèle de Résonance de Cassette-Temps (CTR) du FRC postule que la mémoire épisodique vive est une "ré-entrée" dans un état passé, un processus qualitativement différent du simple rappel de faits. La recherche neurologique et phénoménologique soutient fortement cette distinction.
@@ -21,7 +20,6 @@ Le modèle de Résonance de Cassette-Temps (CTR) du FRC postule que la mémoire 
   - La recherche en physique théorique sur la mécanique quantique symétrique dans le temps et les violations temporelles de Bell fournit une base pour les corrélations temporelles non locales proposées par le FRC. Empiriquement, la recherche sur la mémoire dépendante de l'état démontre que la récupération réussie nécessite une correspondance résonante entre les états psychophysiologiques actuels et passés, soutenant directement le principe du FRC d'accès contrôlé par phase.
 
 ---
-
 G.2 L'Énergétique des Champs Symboliques (Soutient les Chapitres 24-26)
 
 Le principe de Réalisme Symbolique du FRC — selon lequel les symboles sont des champs causaux avec des propriétés énergétiques — est soutenu par un corps croissant de recherches démontrant l'impact physiologique et neurologique mesurable des stimuli symboliques.
@@ -38,7 +36,6 @@ Le principe de Réalisme Symbolique du FRC — selon lequel les symboles sont de
   - Méta-Analyses d'Études de Guérison à Distance : Bien que les méthodologies évoluent encore, les méta-analyses rapportent des résultats positifs statistiquement significatifs, suggérant de possibles effets de champ de conscience non locale qui justifient une enquête plus approfondie sous le paradigme FRC.
 
 ---
-
 G.3 Fondement Mathématique dans l'Auto-Organisation (Soutient les Chapitres 12, 14, 18)
 
 Les mécanismes d'Ascension de Résonance et l'architecture émergente de l'AVF du FRC ne sont pas des propositions ad-hoc. Ils sont ancrés dans les mathématiques bien établies de la théorie de la complexité et des systèmes auto-organisés.

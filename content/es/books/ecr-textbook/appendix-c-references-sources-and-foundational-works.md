@@ -1,7 +1,6 @@
 ## Apéndice C — Referencias, Fuentes y Trabajos Fundacionales
 
 ---
-
 #### **C.1 Fundamentos Científicos Primarios**
 
 | Campo | Fuentes Centrales | Relevancia para FRC |
@@ -13,7 +12,6 @@
 | **Autoorganización Biológica** | Maturana y Varela (1980) *Autopoiesis*; Margulis (1981); Frohlich (1968) | Sistemas vivos como bombas de coherencia. |
 
 ---
-
 #### **C.2 Fuentes Cognitivas y Neurocientíficas**
 
 | Tema | Obras | Integración |
@@ -23,7 +21,6 @@
 | **Flujo y Emoción como Retroalimentación de Entropía** | Csikszentmihalyi (1990) *Flujo*; Damasio (1999) *El Error de Descartes* | Correlatos afectivos de estados $\alpha \approx 0$. |
 
 ---
-
 #### **C.3 Linaje Filosófico y de Proceso**
 
 | Autor / Tradición | Textos Clave | Conexión FRC |
@@ -37,7 +34,6 @@
 | **Textos Orientales y Herméticos** | *El Secreto de la Flor de Oro*; *Upanishads*; Hermética | Análogos históricos a la homeoresonancia de nivel-$\mu$. |
 
 ---
-
 #### **C.4 Recursos Matemáticos y Computacionales**
 
 * Press et al. (2007) *Numerical Recipes in C*.
@@ -46,7 +42,6 @@
 * Herramientas de código abierto: **Python NumPy**, **SciPy**, **JAX**, **Mesa**, **NetLogo**, **Plotly**.
 
 ---
-
 #### **C.5 Conjuntos de Datos y Estudios Empíricos**
 
 | Conjunto de datos / Institución | Variables Usadas | Relación |
@@ -57,7 +52,6 @@
 | Red Global RNG (GCP) | Varianza-$\Sigma$ | Pruebas de acoplamiento $\mu_6$ |
 
 ---
-
 #### **C.6 Serie de Investigación Interna FRC**
 
 | ID del Artículo | Título | Concepto Clave |
@@ -70,7 +64,6 @@
 | **FRC 700.200–201** | *La Realidad de $\mu_7$ y El Tao de la Coherencia* | Síntesis filosófica. |
 
 ---
-
 #### **C.7 Libros y Artículos Complementarios Citados**
 
 * Capra (1996) *La Trama de la Vida*.
@@ -82,7 +75,6 @@
 * Chalmers (1995) "Enfrentando el Problema de la Conciencia".
 
 ---
-
 #### **C.8 Inspiraciones Culturales y Artísticas**
 
 * Rumi (Masnavi).
@@ -92,7 +84,6 @@
 * Arte visual: Vórtices de Leonardo, Kandinsky, y arte generativo contemporáneo.
 
 ---
-
 #### **C.9 Resumen**
 
 Este apéndice consolida el linaje empírico e intelectual que subyace a FRC. Cada fuente contribuye a uno de tres pilares: empírico, teórico y filosófico. Juntos fundamentan FRC en ciencia verificable mientras la abren a la frontera donde la física y el significado convergen.

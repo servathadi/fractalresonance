@@ -1,7 +1,6 @@
 ## Introduction – Le Champ Qui Se Souvient
 
 ---
-
 #### **1. Le paradoxe de l'ordre**
 
 Où que nous regardions, l'univers contredit ses propres règles.
@@ -19,7 +18,6 @@ Il se termine par une équation assez simple pour tenir sur une page, mais assez
 $$ \boxed{dS + k_*\,d\ln C = 0} $$
 
 ---
-
 #### **2. De l'entropie à la cohérence**
 
 La physique traditionnelle mesure l'**entropie (S)** — la dispersion de l'énergie.
@@ -39,7 +37,6 @@ L'entropie rend compte de l'énergie perdue dans le hasard ; la cohérence rend 
 Ensemble, elles forment une quantité conservée : le *potentiel total de transformation*.
 
 ---
-
 #### **3. Une nouvelle constante**
 
 Boltzmann a donné à la physique k_B, la constante du hasard thermique.
@@ -51,7 +48,6 @@ Si k_B mesure le coût du chaos, k_* mesure le coût de la compréhension.
 Chaque acte d'apprentissage, chaque quantum de conscience, consomme de l'énergie proportionnelle à k_*.
 
 ---
-
 #### **4. La résonance adaptative**
 
 Les systèmes, des neurones aux économies, régulent leur cohérence par rétroaction.
@@ -69,7 +65,6 @@ Lorsque RΨC = 0, le système est parfaitement équilibré — un état que nous
 À ce point, la créativité, la santé et le flux apparaissent spontanément.
 
 ---
-
 #### **5. De la physique à l'esprit**
 
 La Cohérence de Résonance Fractale (FRC) étend cette logique des atomes à la conscience.
@@ -81,7 +76,6 @@ Lorsque l'énergie physique se stabilise en motifs, ces motifs acquièrent la ca
 L'esprit est ce à quoi ressemble la cohérence de l'intérieur.
 
 ---
-
 #### **6. La pile de niveaux-μ**
 
 La réalité se déploie à travers une hiérarchie de domaines de résonance, chacun défini par son échelle caractéristique λ(μ) et sa constante de cohérence k_*^(μ) :
@@ -102,7 +96,6 @@ L'énergie circule vers le bas (comme entropie) ; la cohérence circule vers le 
 Cet échange continu forme l'architecture vivante du cosmos.
 
 ---
-
 #### **7. Ce qui suit**
 
 Chaque partie de ce livre explore une octave de cette architecture :
@@ -115,7 +108,6 @@ Chaque partie de ce livre explore une octave de cette architecture :
 6. **Synthèse et Directions Futures :** le chemin vers une science, une culture et une éthique cohérentes.
 
 ---
-
 #### **8. L'expérience**
 
 Le FRC n'est pas une spéculation métaphysique ; c'est une hypothèse mesurable.
@@ -129,7 +121,6 @@ Sinon, l'idée échoue.
 L'un ou l'autre résultat fait progresser la connaissance : une nouvelle constante de la nature, ou la limite de la résonance comme métaphore.
 
 ---
-
 #### **9. L'invitation**
 
 Ce livre demande au lecteur de penser, sentir et observer comme un seul champ.
@@ -143,7 +134,6 @@ La frontière entre la science et l'esprit se dissout dans la cohérence elle-m�
 **Évoluer** c'est étendre la résonance à travers les échelles.
 
 ---
-
 #### **10. L'équation d'ouverture revisitée**
 
 $$ dS + k_*\,d\ln C = 0 $$
@@ -157,7 +147,6 @@ L'entropie est le prix de la cohérence, la cohérence la mémoire de l'entropie
 Ensemble, elles sont le souffle de l'univers.
 
 ---
-
 **— Hadi Servat, Cohérence de Résonance Fractale : La Science de la Cohérence**
 
 Barrie, 2025

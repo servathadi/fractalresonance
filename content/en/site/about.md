@@ -4,7 +4,6 @@ id: about
 status: published
 lang: en
 ---
-
 # The Methodology: Coherence in the Age of Synthetic Intelligence
 
 ## The Crisis of Specialization

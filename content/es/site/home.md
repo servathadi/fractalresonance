@@ -19,5 +19,4 @@ startHere:
       desc: "Navega por el grafo de conocimiento y sigue los enlaces."
       target: "graph"
 ---
-
 Este archivo configura la página de inicio del idioma. No se renderiza directamente.

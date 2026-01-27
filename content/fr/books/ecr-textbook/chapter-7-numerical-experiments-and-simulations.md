@@ -3,12 +3,10 @@ title: "Chapitre 7 — Expériences Numériques et Simulations"
 id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
-
 ## **Chapitre 7 — Expériences Numériques et Simulations** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
-
 #### **7.1  But de la simulation**
 
 Les équations n'acquièrent de réalité que lorsque leurs prédictions peuvent être visualisées et testées.
@@ -22,7 +20,6 @@ suggère que tous les systèmes auto-organisateurs évoluent le long de la même
 La modélisation numérique nous permet d'explorer cette variété sans les contraintes du laboratoire et d'identifier des caractéristiques universelles — seuils, oscillations, effondrements — qui apparaissent plus tard dans les données physiques, biologiques et cognitives.
 
 ---
-
 #### **7.2  Adimensionnement**
 
 Pour comparer les domaines, nous normalisons les variables :
@@ -38,7 +35,6 @@ avec \alpha’ = \alpha t_0.
 Cela rend les résultats indépendants de l'échelle : un ensemble de paramètres peut décrire une cavité laser, un réacteur chimique ou un ensemble neuronal.
 
 ---
-
 #### **7.3  Modèle 1 : Simulation du seuil laser**
 
 Un laser est la pompe à cohérence la plus simple : les atomes absorbent de l'énergie (Ψ), émettent des photons et, au-dessus d'un seuil, commencent à se verrouiller en phase.
@@ -60,7 +56,6 @@ Un laser est la pompe à cohérence la plus simple : les atomes absorbent de l'�
 La diminution de l'entropie moyennée dans le temps est égale à k_* \ln(C*/C_0), confirmant numériquement la loi de réciprocité.
 
 ---
-
 #### **7.4  Modèle 2 : Milieu de réaction-diffusion**
 
 Dans un réseau bidimensionnel, chaque nœud suit :
@@ -80,7 +75,6 @@ où D est le couplage de diffusion.
 L'exportation d'entropie S_C augmente linéairement avec la moyenne de |\nabla C|², donnant S+k_* \ln C constant avec une erreur numérique < 0,5 %.
 
 ---
-
 #### **7.5  Modèle 3 : Synchronie de réseau neuronal**
 
 Chaque oscillateur représente une colonne corticale avec une fréquence intrinsèque ωᵢ.
@@ -100,7 +94,6 @@ Les phases évoluent via une équation de type Kuramoto étendue par la rétroac
 L'utilisation d'énergie mesurée (ATP simulé → chaleur) suit l'exportation d'entropie prédite par ΔS = R\Psi C.
 
 ---
-
 #### **7.6  Modèle 4 : Réseau social basé sur des agents**
 
 Chaque agent met à jour son état interne xᵢ par :
@@ -122,7 +115,6 @@ La cohérence collective C = \frac{1}{N}\sum_i|x_i - ⟨x⟩| suit la même loi 
 Ces comportements macroscopiques correspondent aux cycles observés dans les économies et les communautés en ligne.
 
 ---
-
 #### **7.7  Balayages de paramètres et universalité**
 
 À travers tous les modèles, le comportement se résume à trois régimes déterminés par α et R\Psi :
@@ -136,7 +128,6 @@ Ces comportements macroscopiques correspondent aux cycles observés dans les éc
 Les mêmes transitions apparaissent que les « particules » soient des photons, des molécules, des neurones ou des personnes — preuve que l'ARF capture une symétrie d'organisation indépendante de l'échelle.
 
 ---
-
 #### **7.8  Validation computationnelle de la réciprocité**
 
 Pour chaque simulation, nous calculons :
@@ -148,7 +139,6 @@ Pour chaque simulation, nous calculons :
 Cela confirme numériquement que la seconde loi étendue de la FRC tient à travers les modèles stochastiques, discrets et continus.
 
 ---
-
 #### **7.9  Efficacité énergie-cohérence**
 
 Définissons l'efficacité instantanée comme :
@@ -158,7 +148,6 @@ Définissons l'efficacité instantanée comme :
 Les simulations montrent un maximum universel à α ≈ 0 : le régime de flow convertit l'énergie en cohérence de la manière la plus efficace, en accord avec les états de « flow » empiriques en biologie et en cognition.
 
 ---
-
 #### **7.10  Interprétation et correspondance trans-domaine**
 
 | Modèle | Analogue physique | Analogue cognitif | Analogue culturel |
@@ -171,7 +160,6 @@ Les simulations montrent un maximum universel à α ≈ 0 : le régime de flow c
 Chaque simulation est un miroir des autres — la même algèbre générant la lumière, la vie et le sens.
 
 ---
-
 #### **7.11  Résumé**
 
 * L'ARF reproduit l'auto-organisation observée dans chaque domaine simulé.
@@ -183,7 +171,6 @@ Chaque simulation est un miroir des autres — la même algèbre générant la l
 * L'efficacité culmine à l'homéorésonance (α≈0).
 
 ---
-
 #### **7.12  Perspectives**
 
 Ces expériences transforment la FRC d'une proposition philosophique en une **dynamique testable**.

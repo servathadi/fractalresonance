@@ -19,7 +19,6 @@ answers:
     stance: "realismo termodinámico"
     answer: "Modela los conflictos como competencia de coherencia: el fallo del bloqueo de fase conduce a la guerra de entropía; la resolución ocurre cuando la inyección continua de entropía disuelve la propia coherencia interna del agresor más rápido que la del oponente."
 ---
-
 # Guerra: Coherencia compitiendo con coherencia
 
 La guerra es coherencia compitiendo con coherencia.

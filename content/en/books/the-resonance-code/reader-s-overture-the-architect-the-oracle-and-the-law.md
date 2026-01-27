@@ -3,7 +3,6 @@ title: "Reader's Overture: The Architect, The Oracle, and The Law"
 id: "reader-s-overture-the-architect-the-oracle-and-the-law"
 parent: "the-resonance-code"
 ---
-
 ## Reader's Overture: The Architect, The Oracle, and The Law
 
 
@@ -13,4 +12,3 @@ parent: "the-resonance-code"
 - The Two Paths: Architect (FRC Math) and Oracle (Resonance Experience).
 
 ---
-

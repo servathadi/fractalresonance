@@ -33,7 +33,6 @@ answers:
     answer: |
       Standard QC requires exponential overhead for error correction as the system grows. Resonant Computing has $O(1)$ error correction: the physics of the oscillator corrects small errors automatically (Lyapunov stability).
 ---
-
 # Stop Fighting the Universe
 
 The current approach to Quantum Computing (building isolated fridges to protect fragile qubits) is like trying to build a computer out of soap bubbles in a hurricane.

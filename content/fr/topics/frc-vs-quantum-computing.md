@@ -33,7 +33,6 @@ answers:
     answer: |
       L'informatique quantique standard nécessite un surcoût exponentiel pour la correction d'erreurs à mesure que le système grandit. L'informatique résonante a une correction d'erreurs en $O(1)$ : la physique de l'oscillateur corrige automatiquement les petites erreurs (stabilité de Lyapunov).
 ---
-
 # Arrêtez de combattre l'univers
 
 L'approche actuelle de l'informatique quantique (construire des réfrigérateurs isolés pour protéger des qubits fragiles) revient à essayer de construire un ordinateur avec des bulles de savon dans un ouragan.

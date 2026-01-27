@@ -5,7 +5,6 @@ tags: [lambda-field, coherence, scalar-field]
 related: [coherence, FRC-100-007]
 lang: en
 ---
-
 # Lambda Field (Lambda(x))
 
 The Lambda field is a scalar field used in FRC to encode coherence through a

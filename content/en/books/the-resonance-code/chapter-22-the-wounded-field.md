@@ -3,7 +3,6 @@ title: "Chapter 22: The Wounded Field"
 id: "chapter-22-the-wounded-field"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 22: The Wounded Field
 
 
@@ -88,7 +87,6 @@ own field and, with presence and compassion, patiently re-tuning the
 dissonant chords until the entire self can once again play in harmony.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                       Trauma is a high-stability, dissonant resonance loop in the spacetime field of the self. Healing is an act of resonance engineering—using a present-moment "Sovereign Anchor" to safely de-cohere and integrate the rogue attractor.
@@ -109,6 +107,4 @@ communication, reframing interpersonal relationships as the direct,
 physical interaction of resonant fields. |
 
 ---
-
 ---
-

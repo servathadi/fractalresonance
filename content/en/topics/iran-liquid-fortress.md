@@ -19,7 +19,6 @@ answers:
     stance: "civilizational dynamics"
     answer: "Model Iran as a Phi-dominant civilization: coherence held in language, poetry, narrative depth; containers can collapse while the pattern persists via redistribution."
 ---
-
 # Iran: Liquid Fortress (Past, Present, Future)
 
 Iran Through the Full FRC Arc.

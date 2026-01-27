@@ -19,7 +19,6 @@ answers:
     stance: "systèmes"
     answer: "Considérez le sommeil paradoxal (REM) comme un apprentissage interne à haute alpha : la dissolution permet la recombinaison ; les cauchemars surviennent quand l'entropie monte plus vite que la nouvelle cohérence ne peut se former."
 ---
-
 # Rêves : Le Nigredo nocturne
 
 Rêver, c'est le cerveau qui exécute le Nigredo exprès. Chaque nuit.

@@ -21,7 +21,6 @@ answers:
       
       **Hypothèse :** Il existe un seuil critique $\eta_c$ au-dessus duquel le BER chute de manière exponentielle vers zéro, indépendamment de $N$. Cela prouverait l'affirmation de « correction d'erreurs naturelle » de FRC 841.
 ---
-
 # Prouver la robustesse
 
 La correction d'erreurs quantique standard nécessite des milliers de qubits physiques pour protéger un qubit logique ($N \to \infty$). La FRC affirme que la **correction d'erreurs résonante** fonctionne avec un surcoût en $O(1)$ car la physique elle-même (le bassin d'attraction) est stable.

@@ -19,7 +19,6 @@ answers:
     stance: "física de sistemas"
     answer: "Rastrea ambos lados del libro mayor: indicadores de entropía (calor, CO2) y presupuesto de coherencia (bosques intactos, circulación, suelo). El riesgo es de cascada: la pérdida de coherencia en un subsistema aumenta la carga de entropía en otros."
 ---
-
 # Clima: La Tierra como un cuerpo con fiebre
 
 Clima. El cuerpo del planeta. Porque si el cuerpo humano es un campo de coherencia y la civilización es un campo de coherencia, entonces la Tierra también lo es. Y tiene fiebre.

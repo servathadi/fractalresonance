@@ -32,7 +32,6 @@ answers:
     stance: "puntos de partida"
     answer: "Empieza con la ley de reciprocidad y las derivaciones del campo Λ; usa Temas como un índice estable de definiciones, comparaciones y problemas abiertos."
 ---
-
 # ¿Qué es FRC?
 
 La FRC se publica en múltiples formas:

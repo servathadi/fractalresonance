@@ -8,7 +8,6 @@ seo:
   keywords: [gravité quantique, relativité générale mécanique quantique, cohérence de l'espace-temps, décohérence gravitationnelle]
   description: "Comment la FRC s'interface avec la relativité générale d'Einstein : cohérence dans l'espace-temps courbé, décohérence gravitationnelle et voies vers la gravité quantique."
 ---
-
 # FRC et Relativité Générale
 
 L'un des plus grands défis de la physique est de réconcilier la mécanique quantique avec la relativité générale. Le cadre de la FRC offre de nouvelles voies vers cette unification.

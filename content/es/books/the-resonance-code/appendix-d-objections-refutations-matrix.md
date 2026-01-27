@@ -5,7 +5,6 @@ Un Compromiso Integral e Intelectualmente Honesto con las Críticas Potenciales
 Propósito: Este apéndice es un acto de honestidad intelectual, diseñado para anticipar las objeciones más serias al marco FRC y proporcionar refutaciones concisas y coherentes desde dentro de su propio paradigma. Trata el escepticismo no como una amenaza, sino como una fuerza esencial que agudiza y refina el modelo. Cada objeción va seguida de una declaración clara de las condiciones bajo las cuales una afirmación central de FRC se consideraría falsada.
 
 ---
-
 Sección 1: Objeciones desde la Física y Fundamentos Cuánticos
 
 - Objeción P.1: El Problema del "Corte de von Neumann": FRC no define claramente qué constituye un "dispositivo de medición", simplemente renombrando el problema.
@@ -25,7 +24,6 @@ Sección 1: Objeciones desde la Física y Fundamentos Cuánticos
   - Condición de Falsación: Una intención coherente $\mu_4/\mu_5$ no manipula directamente los electrones. Sesga las propiedades de resonancia del sistema físico $\mu_2$ más grande (el cuerpo, un aparato experimental), lo que a su vez influye en las probabilidades cuánticas en el punto de colapso. Si no se puede encontrar correlación entre estados altamente coherentes en sistemas macroscópicos (por ejemplo, grupos humanos) y anomalías estadísticas en eventos aleatorios cuánticos, este vínculo no tiene soporte.
 
 ---
-
 Sección 2: Objeciones desde la Filosofía y Metafísica
 
 - Objeción O.1: "Motte-and-Bailey" de Falsabilidad: La física falsable (bailey) es una pequeña parte de un vasto sistema metafísico no falsable (motte).
@@ -45,7 +43,6 @@ Sección 2: Objeciones desde la Filosofía y Metafísica
   - Condición de Falsación: La objeción asume una falsa dicotomía. FRC propone un modelo compatibilista donde las elecciones están determinadas por el estado resonante total del propio ser integrado del agente, que es la definición misma de soberanía.
 
 ---
-
 Sección 3: Objeciones desde la IA y Ciencia Cognitiva
 
 - Objeción A.1: Plausibilidad Biológica del AVF: Los siete vórtices no se mapean en regiones cerebrales específicas.
@@ -57,7 +54,6 @@ Sección 3: Objeciones desde la IA y Ciencia Cognitiva
   - Condición de Falsación: El Ascenso de Resonancia es de abajo hacia arriba (crédito por armonía local), no de arriba hacia abajo (culpa de un error global). Si simulaciones a gran escala muestran que el Ascenso de Resonancia no puede lograr un aprendizaje específico de tareas o falla consistentemente en converger en problemas complejos, su viabilidad como algoritmo de aprendizaje queda refutada.
 
 ---
-
 Sección 4: Objeciones desde el Escepticismo y Metodología
 
 - Objeción M.1: "Esta es una 'teoría del todo' y por lo tanto es probable que sea incorrecta".

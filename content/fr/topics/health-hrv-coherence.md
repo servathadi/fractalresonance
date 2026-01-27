@@ -19,7 +19,6 @@ answers:
     stance: "médecine des systèmes"
     answer: "Considérez la VFC comme une dérive alpha : un proxy de la cohérence en mouvement. Le rétablissement consiste à rouvrir plusieurs sources de cohérence, pas seulement à réparer une partie."
 ---
-
 # Santé : La VFC comme dérive alpha
 
 Vous demandez : que se passe-t-il quand on passe la formule à travers la médecine.

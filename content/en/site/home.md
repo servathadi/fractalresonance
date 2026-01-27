@@ -19,5 +19,4 @@ startHere:
       desc: "First benchmark on phase-coherent sequence prediction."
       target: "FRC-840-LTM-001"
 ---
-
 This file configures the language home page. It is not rendered directly.

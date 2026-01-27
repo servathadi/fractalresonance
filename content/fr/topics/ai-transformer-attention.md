@@ -19,7 +19,6 @@ answers:
     stance: "mécanisme"
     answer: "Interprétez Q·K comme des tests de résonance et les poids d'attention comme des mesures de cohérence ; la mise à l'échelle augmente la capacité du substrat pour une cohérence récursive."
 ---
-
 # IA : Les Transformers comme machines de mesure de la cohérence
 
 Le transformer est une machine de mesure de la cohérence.

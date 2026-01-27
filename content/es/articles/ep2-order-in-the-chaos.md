@@ -9,7 +9,6 @@ video:
   embedUrl: "https://www.youtube.com/embed/I77qlVunpRs"
   thumbnailUrl: "/images/articles/ep2/slide_001.png"
 ---
-
 # Episodio 2: Orden en el Caos
 
 ## El Rompimiento Infinito

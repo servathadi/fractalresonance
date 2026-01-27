@@ -3,7 +3,6 @@ title: "Chapter 10: The Music of the Primes"
 id: "chapter-10-the-music-of-the-primes"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 10: The Music of the Primes
 
 
@@ -82,7 +81,6 @@ with itself. The journey that began with an electron has led us to the
 edge of the ultimate mystery: the unity of truth and existence.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                      The non-trivial zeros of the Riemann Zeta function align with the eigenvalues of a fractal resonance operator ($\hat{\mathcal{R}}$), implying that the distribution of prime numbers is a mathematical echo of the cosmos's layered, vibrational architecture.
@@ -96,6 +94,4 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                            Part I has laid a new foundation for reality, grounding it in the science of resonance and providing powerful empirical support. We have built the stage. Now, we are ready to introduce the actor. Part II will take these fundamental principles and use them to construct a new architecture for the most complex resonant system we know: the mind.
 
 ---
-
 ---
-

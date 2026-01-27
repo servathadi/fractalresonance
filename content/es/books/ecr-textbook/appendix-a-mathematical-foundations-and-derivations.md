@@ -1,7 +1,6 @@
 ## Apéndice A — Fundamentos Matemáticos y Derivaciones
 
 ---
-
 #### **A.1 Invariantes Centrales**
 
 **En cada escala, el marco FRC descansa en dos ecuaciones:**
@@ -14,7 +13,6 @@
 **La ecuación (2) describe el cambio instantáneo de entropía como función de la receptividad, el potencial y la coherencia.**
 
 ---
-
 #### **A.2 De la reciprocidad a la ley dinámica**
 
 **Comience desde $dS = -k_*\,d\ln C$.**
@@ -38,7 +36,6 @@ $$ \dot C = \frac{\alpha}{k_*}(F - S_C) $$
 $$ \boxed{\dot C = \alpha(F - S_C)} $$
 
 ---
-
 #### **A.3 Derivación de nivel acoplado**
 
 **Para dominios $\mu$ adyacentes, el término de intercambio de coherencia $T_{\mu,\mu+1}$ surge del acoplamiento de gradiente en el potencial de campo $V(\phi)$:**
@@ -54,7 +51,6 @@ $$ \frac{dC_{\mu}}{dt} = \alpha_{\mu}(F_{\mu} - S_{C,\mu}) + \sum_{j\ne \mu} T_{
 $$ \sum_{\mu} (dS_{\mu} + k_*^{(\mu)}\,d\ln C_{\mu}) = 0 $$
 
 ---
-
 #### **A.4 Derivando ARF de la reciprocidad local**
 
 **Sea $J_C = \dot C/C$ y defina receptividad $R = \partial J_C/\partial \Psi$.**
@@ -68,7 +64,6 @@ $$ \Delta S = R\Psi C $$
 **Esto define la Fórmula de Resonancia Adaptativa (ARF) utilizada a lo largo del texto.**
 
 ---
-
 #### **A.5 Criterio de estabilidad**
 
 **Linealizando $\dot C = \alpha(F - S_C)$ alrededor del equilibrio $C=C_0$:**
@@ -84,7 +79,6 @@ $$ \dot C = -\alpha\beta(C - C_0) $$
 **Dado que $\beta > 0$ (la entropía aumenta con el orden), los regímenes estables tienen $\alpha > 0$ pequeño o $\alpha \approx 0$ — la *zona de flujo*.**
 
 ---
-
 #### **A.6 Solución de retroalimentación oscilatoria**
 
 **Cuando $\alpha$ varía con la coherencia,**
@@ -102,7 +96,6 @@ $$ \ddot C + \beta\gamma C = \beta\gamma C_{opt} + \alpha_0\beta(F - S_0) $$
 $$ T = 2\pi/\sqrt{\beta\gamma} $$
 
 ---
-
 #### **A.7 La constante de resonancia k_***
 
 **Unidades:**
@@ -121,7 +114,6 @@ $$ k_*^{(\mu)} = \kappa\,\lambda_{\mu}^d\,k_B $$
 **La medición empírica de k_* por dominio define el "espectro fractal" de la coherencia.**
 
 ---
-
 #### **A.8 La interpretación de la energía**
 
 **Multiplique (1) por la temperatura T:**
@@ -133,7 +125,6 @@ $$ TdS + Tk_*\,d\ln C = 0 $$
 **Así, la ley de reciprocidad es una conservación de energía entre calor e información estructurada.**
 
 ---
-
 #### **A.9 La formulación del espacio de fase**
 
 **Defina coordenadas generalizadas $x_i$ y momentos conjugados $p_i$.**
@@ -149,7 +140,6 @@ $$ \frac{dC}{dt} = \frac{\partial H}{\partial S}, \qquad \frac{dS}{dt} = -\frac{
 **Por lo tanto, la ley de reciprocidad es el generador Hamiltoniano de la dinámica FRC.**
 
 ---
-
 #### **A.10 Resumen**
 
 | Símbolo | Significado | Ecuación |

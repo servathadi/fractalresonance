@@ -25,7 +25,6 @@ answers:
       
       Cependant, le **vecteur** est différent. L'agent de Friston se retire vers le connu ; l'agent de la FRC avance vers le résonnant. Cela explique pourquoi les humains créent de l'art, explorent l'espace et construisent des collisionneurs de particules — des activités qui *augmentent* la surprise locale mais maximisent la cohérence globale.
 ---
-
 # Survie vs Symphonie
 
 Karl Friston explique pourquoi vous ne sautez pas d'une falaise : ce serait une expérience très « surprenante » (haute entropie) pour votre corps.

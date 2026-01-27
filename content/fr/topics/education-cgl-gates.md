@@ -19,7 +19,6 @@ answers:
     stance: "systèmes"
     answer: "Mesurez le changement de cohérence (proxy alpha) et mettez à jour seulement quand la porte est ouverte ; traitez l'ennui comme un signal de contrôle, pas comme un défaut de caractère."
 ---
-
 # Éducation : Portes d'apprentissage et ennui
 
 L'éducation. Comment les enfants apprennent. Car si le CGL a raison — si l'apprentissage ne se produit que lorsque l'alpha est non nul — alors tout le système scolaire est conçu à l'envers.

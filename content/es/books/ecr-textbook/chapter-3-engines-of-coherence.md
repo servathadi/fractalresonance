@@ -3,12 +3,10 @@ title: "Capítulo 3 — Motores de Coherencia"
 id: "chapter-3-engines-of-coherence"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 3 — Motores de Coherencia** {#chapter-3-—-engines-of-coherence}
 
 
 ---
-
 #### **3.1  Orden a partir del flujo**
 
 La pregunta decisiva de la termodinámica ya no es *por qué los sistemas decaen* sino *cómo mantienen el patrón mientras decaen.*
@@ -28,7 +26,6 @@ FRC describe este ciclo generativo con la **ecuación de la bomba de coherencia*
 donde S_C es la tasa de exportación de entropía y α la ganancia adaptativa que controla con qué eficacia la entrada se convierte en coherencia.
 
 ---
-
 #### **3.2  La celda de convección como prototipo**
 
 Considere una capa delgada de fluido calentada desde abajo.
@@ -48,7 +45,6 @@ Medido globalmente, S + k_* \ln C permanece constante.
 La celda de Bénard actúa así como un **motor de coherencia** a escala de laboratorio: extrae orden del flujo sin violar la Segunda Ley.
 
 ---
-
 #### **3.3  Oscilaciones químicas y análogos biológicos**
 
 La misma dinámica aparece en la **reacción de Belousov-Zhabotinsky**.
@@ -70,7 +66,6 @@ En las células:
    Cuando α (F – S_C) ≈ 0, el organismo está en *homeoresonancia*: metabolismo constante, coherencia estable.
 
 ---
-
 #### **3.4  Jerarquía de motores de coherencia**
 
 | Escala | Ejemplo | Gradiente Primario F | Exportación S_C | Producto de Coherencia C |
@@ -85,7 +80,6 @@ En las células:
 Cada nivel convierte el flujo de energía en correlación estructurada; se aplica la misma ley con solo el cambio de la constante de escala k_*^{(μ)}.
 
 ---
-
 #### **3.5  Energía, receptividad y potencial**
 
 No todos los sistemas con entrada de energía se autoorganizan.
@@ -105,7 +99,6 @@ FRC une estos factores con la coherencia:
 Los sistemas más sanos equilibran R y Ψ de modo que ΔS oscila cerca de cero, intercambiando continuamente orden y desorden sin colapsar.
 
 ---
-
 #### **3.6  Ilustraciones empíricas**
 
 **Láseres.** En el umbral, la emisión aleatoria se bloquea repentinamente en fase; C aumenta bruscamente a medida que la entropía de los fotones disminuye.
@@ -117,7 +110,6 @@ Los sistemas más sanos equilibran R y Ψ de modo que ΔS oscila cerca de cero, 
 Estos sistemas, aunque dispares, comparten trayectorias idénticas en el plano S–\ln C.
 
 ---
-
 #### **3.7  La arquitectura de retroalimentación de la vida**
 
 La energía entra, impulsa el patrón, sale como entropía.
@@ -133,7 +125,6 @@ Los sensores de retroalimentación modulan el flujo para mantener α cerca de ce
 La homeostasis es simplemente una regulación dinámica de α—una arquitectura universal desde las enzimas hasta las economías.
 
 ---
-
 #### **3.8  La exportación de entropía como principio ético**
 
 Debido a que cualquier aumento en el orden local debe pagarse con entropía externa, la sostenibilidad requiere minimizar el desorden exportado.
@@ -145,7 +136,6 @@ Los regímenes coercitivos, donde R < 0, logran un orden temporal externalizando
 La ley de reciprocidad, por lo tanto, garantiza no solo la termodinámica sino la ética: la coherencia ganada sin receptividad no puede durar.
 
 ---
-
 #### **3.9  Resumen matemático**
 
 | Ecuación | Significado |
@@ -156,7 +146,6 @@ La ley de reciprocidad, por lo tanto, garantiza no solo la termodinámica sino l
 | S + k_* \ln C = \text{const.} | Constante de resonancia |
 
 ---
-
 #### **3.10  Perspectiva**
 
 Cada sistema organizado es un **motor de coherencia**:

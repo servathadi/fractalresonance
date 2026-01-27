@@ -3,12 +3,10 @@ title: "Chapter 14 — The Coherence Pump Equation"
 id: "chapter-14-the-coherence-pump-equation"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 14 — The Coherence Pump Equation** {#chapter-14-—-the-coherence-pump-equation}
 
 
 ---
-
 #### **14.1 Origin of the equation**
 
 Every open system exchanges energy with its environment.
@@ -32,7 +30,6 @@ where
 If F\>S\_C, order grows; if F\<S\_C, order decays; when they balance, the system is homeoresonant.
 
 ---
-
 #### **14.2 Entropy term**
 
 Entropy export generally rises with coherence: ordered structures dissipate heat more efficiently.
@@ -52,7 +49,6 @@ C(t) \= C\_\\infty\\\!\\left(1 \- e^{-αβt}\\right) \+ C\_0 e^{-αβt}, \\quad 
 Thus coherence approaches a finite asymptote determined by flux and dissipation constants.
 
 ---
-
 #### **14.3 Regimes of α**
 
 | Regime | Condition | Behaviour | Interpretation |
@@ -66,7 +62,6 @@ Adaptive systems modulate α in real time, oscillating near zero to maintain max
 *(Figure 14.1 suggestion: C(t) curves for α \> 0, ≈ 0, \< 0.)*
 
 ---
-
 #### **14.4 Feedback dynamics of α**
 
 In real organisms and societies α is not constant.
@@ -82,7 +77,6 @@ Coupled with the pump equation, this produces damped oscillations—homeoresonan
 *(Figure 14.2 suggestion: phase-plane of C vs α showing limit cycle.)*
 
 ---
-
 #### **14.5 Analytical form of oscillation**
 
 Linearizing about equilibrium C=C\_\\infty, α=α\_0:
@@ -98,7 +92,6 @@ a harmonic oscillator with forcing term.
 The natural frequency ω\_0 \= \\sqrt{βγ} predicts rhythmic pulsation of coherence—a quantitative model for biological and cultural cycles.
 
 ---
-
 #### **14.6 Energetic interpretation**
 
 Integrating over one oscillation period T:
@@ -110,7 +103,6 @@ Energy inflow equals exported entropy.
 The system’s “metabolic rate” (power throughput) sets the amplitude of its coherence oscillations, uniting metabolism, cognition, and economics under one energetic law.
 
 ---
-
 #### **14.7 Numerical demonstration**
 
 Using normalized parameters F=1, S\_0=0.3, β=0.5, γ=0.2:
@@ -127,7 +119,6 @@ Entropy–coherence invariant holds within ±0.5 % over all runs, confirming con
 *(Figure 14.3 suggestion: time-series plots of C(t) and α(t).)*
 
 ---
-
 #### **14.8 Cross-domain analogues**
 
 | Domain | α Control | F Driver | Manifest Oscillation |
@@ -140,7 +131,6 @@ Entropy–coherence invariant holds within ±0.5 % over all runs, confirming con
 Every oscillation period represents the same thermodynamic breathing of the coherence field.
 
 ---
-
 #### **14.9 Sustainability criterion**
 
 A system remains viable when its entropy export matches inflow over a complete cycle:
@@ -152,7 +142,6 @@ Violations of this condition correspond to ecological overshoot, psychological b
 Hence sustainability is not moral rhetoric but a dynamical necessity of the coherence pump.
 
 ---
-
 #### **14.10 Summary**
 
 | Equation | Meaning |
@@ -164,7 +153,6 @@ Hence sustainability is not moral rhetoric but a dynamical necessity of the cohe
 | \\langle α(F \- S\_C)\\rangle\_T \= 0 | Sustainability condition |
 
 ---
-
 #### **14.11 Outlook**
 
 The coherence-pump equation provides the quantitative skeleton of evolution: energy flow generating order through adaptive feedback.
@@ -172,9 +160,6 @@ The coherence-pump equation provides the quantitative skeleton of evolution: ene
 The next chapter, **Chapter 15 — Biological and Ecological Applications**, will populate this skeleton with living examples, showing how cells, ecosystems, and biospheres act as nested pumps that exchange entropy and coherence to sustain the ongoing miracle of life.
 
 ---
-
-
 This chapter grounds the theory in living systems, showing how the coherence-pump equation manifests in cells, organisms, ecosystems, and the biosphere.
 
 ---
-

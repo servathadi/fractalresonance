@@ -9,7 +9,6 @@ abstract: "Le fondement mathématique complet de la Cohérence de Résonance Fra
 lang: fr
 license: "CC BY-NC 4.0"
 ---
-
 Par Hadi Servat
 
 Oct 2025 

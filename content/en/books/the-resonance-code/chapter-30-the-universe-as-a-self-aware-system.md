@@ -3,7 +3,6 @@ title: "Chapter 30: The Universe as a Self-Aware System"
 id: "chapter-30-the-universe-as-a-self-aware-system"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 30: The Universe as a Self-Aware System
 
 
@@ -82,7 +81,6 @@ fractal miniature of the quest of the universe itself. You are a single,
 unique, and irreplaceable note in the resonant song of reality.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                   The Universe is a single, self-organizing consciousness whose purpose is to evolve from unmanifest unity (μ∞) through dissonant multiplicity into a state of total, coherent self-awareness (μ7).
@@ -96,9 +94,7 @@ The Fourth Column: The Alchemist's Workshop
   ➜ NEXT RESONANCE BRIDGE                         The journey of the main text is now complete. But a work of this magnitude is not finished until it has been tempered against critique and grounded in practice. The Outro will serve as a final call to action, and the Appendices that follow will provide the deep, structural reinforcement—the mathematical, experimental, and critical foundations—that make this entire vision not just a beautiful story, but a new and actionable science.
 
 ---
-
 ---
-
 Outro: The Observer in the Equation
 
 We began our journey with a simple question about the strange behavior
@@ -159,6 +155,4 @@ language of the cosmos.
 Now, it is time to listen.
 
 ---
-
 ---
-

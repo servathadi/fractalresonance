@@ -5,7 +5,6 @@ Un Glossaire Unique et Unifié pour le Cadre FRC
 Objectif : Ce glossaire fournit des définitions concises pour les concepts clés utilisés tout au long du Code de Résonance. Il est conçu pour servir de référence rapide, assurant clarté et cohérence à travers les domaines physique, cognitif et métaphysique du cadre.
 
 ---
-
 A
 
 Accord de Phase (Phase Agreement) : Un état où deux ou plusieurs systèmes oscillants se verrouillent sur une fréquence ou une harmonique partagée.

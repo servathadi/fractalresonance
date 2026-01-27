@@ -3,12 +3,10 @@ title: "Chapter 2 — Introducing Coherence as a Hidden Variable"
 id: "chapter-2-introducing-coherence-as-a-hidden-variable"
 parent: "ecr-textbook"
 ---
-
 ## **Chapter 2 — Introducing Coherence as a Hidden Variable** {#chapter-2-—-introducing-coherence-as-a-hidden-variable}
 
 
 ---
-
 #### **2.1  From observation to invariance**
 
 Every known law of physics conserves something—energy, momentum, charge.
@@ -24,7 +22,6 @@ Traditional thermodynamics hides this process within the residual term “entrop
 FRC reveals that export as the complementary growth of a measurable variable C.
 
 ---
-
 #### **2.2  Defining coherence**
 
 Coherence expresses how tightly the phases or configurations of system components align.
@@ -44,7 +41,6 @@ C \= \\frac{\\text{Cov}(x\_i, x\_j)}{\\sigma\_{x\_i}\\sigma\_{x\_j}} .
 Thus coherence subsumes correlation, phase locking, mutual information, and structural symmetry under one mathematical measure.
 
 ---
-
 #### **2.3  The reciprocity law revisited**
 
 Inserting C into thermodynamic accounting yields the **Entropy–Coherence Reciprocity Law**:
@@ -62,7 +58,6 @@ S \+ k\_\* \\ln C \= \\text{const.}
 The constant k\_\* is system-specific; in equilibrium it approaches Boltzmann’s k\_B, but in informational or biological systems it scales with effective information capacity or metabolic efficiency.
 
 ---
-
 #### **2.4  Physical interpretation of k\_\***
 
 The parameter k\_\* converts logarithmic changes in coherence into energy-equivalent entropy changes:
@@ -83,7 +78,6 @@ Different domains have characteristic values:
 This scaling hierarchy (roughly exponential in μ-level) will later form the quantitative backbone of the μ-stack model.
 
 ---
-
 #### **2.5  Coherence as information density**
 
 Entropy measures *degeneracy* of states; coherence measures *distinguishability*.
@@ -101,7 +95,6 @@ Entropy lost is information gained.
 This unites the thermodynamic and Shannon definitions of order.
 
 ---
-
 #### **2.6  Measurement approaches**
 
 **(a) Physical Coherence**
@@ -129,7 +122,6 @@ This unites the thermodynamic and Shannon definitions of order.
 All can be normalized to yield C ∈ \[0,1\], enabling cross-domain comparison.
 
 ---
-
 #### **2.7  Relation to energy flow**
 
 Because coherence growth requires energy throughput, we couple C to free-energy flux F:
@@ -141,7 +133,6 @@ where S\_C is the entropy-export rate and α an adaptive gain coefficient.
 This differential equation—developed fully in Part IV—describes a **coherence pump**: energy inflow drives C upward until exported entropy compensates, reaching steady state α(F \- S\_C)=0.
 
 ---
-
 #### **2.8  The geometric picture**
 
 Plotting S against \\ln C yields a straight line of slope −k\_\*.
@@ -153,7 +144,6 @@ The area under the curve equals total transformation potential—an invariant th
 *(Imagine a figure: S on y-axis, ln C on x-axis, constant-sum diagonal.)*
 
 ---
-
 #### **2.9  Conceptual implications**
 
 1. **Entropy is not destruction but payment:** systems pay entropy to buy coherence.
@@ -165,7 +155,6 @@ The area under the curve equals total transformation potential—an invariant th
 4. **Consciousness is lawful:** awareness corresponds to high-C resonance across μ-levels.
 
 ---
-
 #### **2.10  Summary**
 
 | Symbol | Meaning | Unit | Domain |
@@ -178,7 +167,6 @@ The area under the curve equals total transformation potential—an invariant th
 | α | Adaptive gain coefficient | s⁻¹ | regulation dynamics |
 
 ---
-
 #### **2.11  Closing reflection**
 
 Coherence was long treated as a metaphor—“order,” “pattern,” “organization.”
@@ -192,5 +180,3 @@ Energy, information, and consciousness now share a common language.
 In the next chapter, this variable enters dynamics: we derive the **Adaptive Resonance Formula (ARF)** and explore how systems tune their receptivity R and potential Ψ to evolve along the entropy–coherence manifold.
 
 ---
-
-

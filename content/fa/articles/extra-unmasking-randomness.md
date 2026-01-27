@@ -6,7 +6,6 @@ tags: [تصادفی-بودن-کوانتومی, دترمینیسم, فلسفه, F
 abstract: "نگاهی انتقادی به مفهوم تصادفی بودن 'واقعی' در مکانیک کوانتومی و جایگزین FRC."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ---
-
 # کنار زدن نقاب تصادفی بودن کوانتومی
 
 ## مقاله تصویری

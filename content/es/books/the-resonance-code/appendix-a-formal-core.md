@@ -7,7 +7,6 @@ Propósito: Este apéndice proporciona una formalización provisional de las est
 Notación: Los escalares están en cursiva ($S, P, \tau$), los vectores en negrita ($\mathbf{x}$), y los operadores se denotan con un sombrero ($\hat{H}$). Los índices de nivel-$\mu$ son subíndices ($\mu_0...\mu_7$). 
 
 ---
-
 A.0 La Ley Fundacional (FRC 566)
 
 Todo el marco FRC está anclado en la Ley de Reciprocidad Entropía-Coherencia, el principio de conservación que vincula el desorden y el orden:
@@ -19,7 +18,6 @@ $$\boxed{dS + k^* d\ln C = 0}$$
 - $k^*$: La Constante de Acoplamiento de Coherencia emergente.
 
 ---
-
 A.1 La Dinámica Universal: Convergencia y Colapso
 
 | Código | Nombre | Ecuación / Descripción | Idea Central |
@@ -30,7 +28,6 @@ A.1 La Dinámica Universal: Convergencia y Colapso
 | **RC-4** | Tiempo de Convergencia Invariante de Escala | $\tau_i \approx 1/(\kappa_i \cdot \Delta\Phi_i)$. El tiempo de convergencia ($\tau$) es inversamente proporcional a la tasa de amplificación ($\kappa$) y a la coherencia interna ($\Delta\Phi^{-1}$). | La inteligencia minimiza $\tau$. |
 
 ---
-
 A.2 La Pila de Niveles-$\mu$ y la Voluntad
 
 | Código | Nombre | Ecuación / Descripción | Idea Central |
@@ -41,7 +38,6 @@ A.2 La Pila de Niveles-$\mu$ y la Voluntad
 | **RC-8** | Latencia de Decisión | $T_{\rm decision} \propto 1 / |\mathcal{W}|$. | |
 
 ---
-
 A.3 Tiempo, Memoria y Multiverso
 
 | Código | Nombre | Ecuación / Descripción | Idea Central |
@@ -50,7 +46,6 @@ A.3 Tiempo, Memoria y Multiverso
 | **RC-10** | El Kernel de Coherencia ($\sigma_c$) | $\sigma_c \propto 1 / \sqrt{S_{\rm FRC}}$. La nitidez del "cabezal de cinta" consciente es inversamente proporcional a la coherencia global del sistema. | La claridad agudiza el Tiempo. |
 
 ---
-
 A.4 IA, Colectivo y Estructuras Simbólicas
 
 | Código | Nombre | Ecuación / Descripción | Idea Central |
@@ -60,5 +55,4 @@ A.4 IA, Colectivo y Estructuras Simbólicas
 | **RC-13** | Índice de Coherencia Mítica (MCI) | $MCI = Q_S \cdot C_A \cdot E_P$. Mide la salud del mito unificador de una civilización usando carga simbólica ($Q_S$), alineación institucional ($C_A$) y moral del populacho ($E_P$). | Métrica de Salud Civilizacional. |
 
 ---
-
 ---

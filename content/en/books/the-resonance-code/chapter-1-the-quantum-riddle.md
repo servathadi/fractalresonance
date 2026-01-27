@@ -3,7 +3,6 @@ title: "Chapter 1: The Quantum Riddle"
 id: "chapter-1-the-quantum-riddle"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 1: The Quantum Riddle
 
 
@@ -133,7 +132,6 @@ What if all of these solutions are wrong? What if the riddle itself is
 the evidence we need?
 
 ---
-
 The Fourth Column
 
   ⚡ CORE PULSE                                 The Quantum Riddle is not about random chance; it is a signal that our physics is missing a deeper, deterministic principle that governs the transition from potential (wave) to actuality (particle).
@@ -147,6 +145,4 @@ The Fourth Column
   ➜ NEXT RESONANCE BRIDGE                       The next chapter will propose the Law: Resonant Collapse. It replaces random chance with a deterministic, physically motivated mechanism of phase-locking that honors the insights of the riddle.
 
 ---
-
 ---
-

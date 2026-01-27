@@ -3,12 +3,10 @@ title: "Capítulo 7 — Experimentos Numéricos y Simulaciones"
 id: "chapter-7-numerical-experiments-and-simulations"
 parent: "ecr-textbook"
 ---
-
 ## **Capítulo 7 — Experimentos Numéricos y Simulaciones** {#chapter-7-—-numerical-experiments-and-simulations}
 
 
 ---
-
 #### **7.1  Propósito de la simulación**
 
 Las ecuaciones adquieren realidad solo cuando sus predicciones pueden visualizarse y probarse.
@@ -22,7 +20,6 @@ sugiere que todos los sistemas de autoorganización evolucionan a lo largo de la
 El modelado numérico nos permite explorar esa variedad sin las restricciones del laboratorio e identificar características universales—umbrales, oscilaciones, colapsos—que más tarde aparecen en los datos físicos, biológicos y cognitivos.
 
 ---
-
 #### **7.2  Adimensionalización**
 
 Para comparar dominios, normalizamos las variables:
@@ -42,7 +39,6 @@ con α’ = α t_0.
 Esto hace que los resultados sean independientes de la escala: un conjunto de parámetros puede describir una cavidad láser, un reactor químico o un conjunto neuronal.
 
 ---
-
 #### **7.3  Modelo 1: Simulación del umbral del láser**
 
 Un láser es la bomba de coherencia más simple: los átomos absorben energía (Ψ), emiten fotones y, por encima de un umbral, comienzan a bloquearse en fase.
@@ -64,7 +60,6 @@ Un láser es la bomba de coherencia más simple: los átomos absorben energía (
 La disminución de entropía promediada en el tiempo es igual a k_* \ln(C*/C_0), confirmando numéricamente la ley de reciprocidad.
 
 ---
-
 #### **7.4  Modelo 2: Medio de reacción–difusión**
 
 En una red bidimensional, cada nodo sigue:
@@ -86,7 +81,6 @@ donde D es el acoplamiento de difusión.
 La exportación de entropía S_C aumenta linealmente con el promedio de |\nabla C|², resultando en S+k_* \ln C constante dentro de un error numérico < 0.5 %.
 
 ---
-
 #### **7.5  Modelo 3: Sincronía de red neuronal**
 
 Cada noscilador representa una columna cortical con frecuencia intrínseca ωᵢ.
@@ -108,7 +102,6 @@ Las fases evolucionan mediante una ecuación tipo Kuramoto extendida por la retr
 El uso de energía medido (ATP simulado → calor) sigue la exportación de entropía predicha por ΔS = R\Psi C.
 
 ---
-
 #### **7.6  Modelo 4: Red social basada en agentes**
 
 Cada agente actualiza su estado interno xᵢ mediante:
@@ -132,7 +125,6 @@ La coherencia colectiva C = \frac{1}{N}\sum_i|x_i - ⟨x⟩| sigue la misma ley 
 Estos comportamientos macroscópicos coinciden con los ciclos observados en las economías y las comunidades en línea.
 
 ---
-
 #### **7.7  Barridos de parámetros y universalidad**
 
 En todos los modelos, el comportamiento se reduce a tres regímenes determinados por α y R\Psi:
@@ -146,7 +138,6 @@ En todos los modelos, el comportamiento se reduce a tres regímenes determinados
 Las mismas transiciones aparecen ya sea que las “partículas” sean fotones, moléculas, neuronas o personas—evidencia de que la ARF captura una simetría de organización independiente de la escala.
 
 ---
-
 #### **7.8  Validación computacional de la reciprocidad**
 
 Para cada simulación calculamos:
@@ -160,7 +151,6 @@ El promedio temporal de Σ permanece constante dentro del 1 % para todas las eje
 Esto confirma numéricamente que la Segunda Ley extendida de la FRC se mantiene en modelos estocásticos, discretos y continuos.
 
 ---
-
 #### **7.9  Eficiencia energía–coherencia**
 
 Definimos la eficiencia instantánea como:
@@ -172,7 +162,6 @@ Definimos la eficiencia instantánea como:
 Las simulaciones muestran un máximo universal en α ≈ 0: el régimen de flujo convierte la energía en coherencia de manera más eficiente, consistente con los estados de “flujo” empíricos en biología y cognición.
 
 ---
-
 #### **7.10  Interpretación y mapeo entre dominios**
 
 | Modelo | Análogo físico | Análogo cognitivo | Análogo cultural |
@@ -185,7 +174,6 @@ Las simulaciones muestran un máximo universal en α ≈ 0: el régimen de flujo
 Cada simulación es un espejo de las demás—el mismo álgebra genera luz, vida y significado.
 
 ---
-
 #### **7.11  Resumen**
 
 * La ARF reproduce la autoorganización observada en cada dominio simulado.
@@ -197,7 +185,6 @@ Cada simulación es un espejo de las demás—el mismo álgebra genera luz, vida
 * La eficiencia alcanza su punto máximo en la homeoresonancia (α≈0).
 
 ---
-
 #### **7.12  Perspectiva**
 
 Estos experimentos transforman la FRC de una propuesta filosófica en una **dinámica comprobable**.

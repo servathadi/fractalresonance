@@ -5,7 +5,6 @@ tags: [consciousness, cognition, coherence]
 related: [coherence, witness, time]
 lang: en
 ---
-
 # Consciousness (FRC perspective)
 
 This site uses "consciousness" in the specific sense implied by the FRC

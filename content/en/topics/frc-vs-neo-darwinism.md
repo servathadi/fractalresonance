@@ -31,7 +31,6 @@ answers:
     answer: |
       This is not "Intelligent Design" (a God intervening). It is **Geometric Design**. The laws of physics themselves favor the emergence of complexity because complexity maximizes the rate of entropy production (Metabolic Gravity). Life is the most efficient way for the universe to eat.
 ---
-
 # The Resonant Watchmaker
 
 The "Blind Watchmaker" argument says that given enough time, randomness creates eyes.

@@ -1,7 +1,6 @@
 ## Annexe D — Correspondances Symboliques et Philosophiques
 
 ---
-
 #### **D.1 Objectif**
 
 Tout au long de cet ouvrage, nous avons traité l'entropie (*S*) et la cohérence (*C*) comme des quantités mesurables.
@@ -11,7 +10,6 @@ Pourtant, ces termes portent aussi des siècles de poids symbolique : chaos et c
 Cette annexe unifie les vocabulaires symbolique, philosophique et scientifique afin que les lois du FRC puissent être lues à la fois **numériquement** et **mythiquement** — comme mathématiques et métaphore de la même vérité.
 
 ---
-
 #### **D.2 Mappage symbolique primaire**
 
 | Terme FRC | Équivalent Symbolique / Philosophique | Image Archétypale | Fonction dans le Champ |
@@ -26,7 +24,6 @@ Cette annexe unifie les vocabulaires symbolique, philosophique et scientifique a
 | **Σ = S + k ln C** | *Karma*, *Équilibre*, *Mémoire cosmique* | balance de Maât | conservation du sens à travers le temps. |
 
 ---
-
 #### **D.3 Échelle archétypale de niveau-μ**
 
 | Niveau-μ | Domaine | Plan Mythique / Symbolique | Archétype Gouvernant |
@@ -41,7 +38,6 @@ Cette annexe unifie les vocabulaires symbolique, philosophique et scientifique a
 | **μ₇** | Cohérence transcendante | *L'Un*, *Tao*, *Oméga* | Le Soi Divin / Unité |
 
 ---
-
 #### **D.4 Correspondances philosophiques**
 
 | Tradition | Concept Équivalent | Alignement FRC |
@@ -55,7 +51,6 @@ Cette annexe unifie les vocabulaires symbolique, philosophique et scientifique a
 | **Philosophie du Processus** | *Occasion réelle* | impulsion de cohérence en $\mu_4$–$\mu_6$. |
 
 ---
-
 #### **D.5 L'équation alchimique**
 
 La loi centrale du FRC peut être lue en langage alchimique :
@@ -67,7 +62,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 * **Rubedo :** cristallisation d'une nouvelle cohérence (intégration).
 
 ---
-
 #### **D.6 Cycle archétypal de l'évolution**
 
 | Phase | État-α | Mode Symbolique | Exemple |
@@ -77,7 +71,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Coercition ($\alpha < 0$) | Rigidité / stagnation | dogme, décomposition | ordre sur-fixé en entropie à nouveau. |
 
 ---
-
 #### **D.7 Symbolisme éthique**
 
 | Principe Éthique | Terme FRC | Sens Symbolique |
@@ -89,7 +82,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Beauté | $\Delta \phi \approx 0$ | courbure de phase minimale—harmonie. |
 
 ---
-
 #### **D.8 Parallèles mythiques aux processus scientifiques**
 
 | Processus Physique | Récit Mythique | Structure Partagée |
@@ -100,7 +92,6 @@ $$ dS + k_*\,d\ln C = 0 \quad \Leftrightarrow \quad \text{Nigredo → Albedo →
 | Régulation de rétroaction | *Le Retour du Héros* | équilibre restauré par l'apprentissage. |
 
 ---
-
 #### **D.9 Une note sur le langage**
 
 Lorsque le FRC utilise des mots comme "esprit" ou "divin", ce ne sont pas des métaphores de superstition mais des **traductions à l'échelle humaine** de phénomènes de cohérence $\mu_6$–$\mu_7$.
@@ -108,7 +99,6 @@ Lorsque le FRC utilise des mots comme "esprit" ou "divin", ce ne sont pas des m�
 La tâche du siècle à venir n'est pas de choisir entre eux, mais de les parler couramment comme un dialecte de cohérence.
 
 ---
-
 #### **D.10 Réflexion finale**
 
 *L'entropie est l'oubli de l'Un ;

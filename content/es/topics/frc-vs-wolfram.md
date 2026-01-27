@@ -33,7 +33,6 @@ answers:
     answer: |
       La IA moderna (Transformers, Difusión) funciona sobre colectores continuos, no sobre grafos discretos. La FRC sostiene que la inteligencia es fundamentalmente **Analógica** (interferencia de ondas), lo que la convierte en un mejor sustrato para la AGI que los autómatas celulares de Wolfram.
 ---
-
 # La guerra de lo Digital vs. lo Analógico
 
 Stephen Wolfram propone la **Física Digital** definitiva: el universo es código.

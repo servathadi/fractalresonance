@@ -21,7 +21,6 @@ answers:
       
       **Hipótesis:** Existe un umbral crítico $\eta_c$ por encima del cual la BER cae exponencialmente a cero, independientemente de $N$. Esto probaría la afirmación de "Corrección de errores natural" de la FRC 841.
 ---
-
 # Probando la robustez
 
 La corrección de errores cuánticos estándar requiere miles de qubits físicos para proteger un qubit lógico ($N \to \infty$). La FRC afirma que la **Corrección de Errores Resonante** funciona con una sobrecarga $O(1)$ porque la física misma (la cuenca de atracción) es estable.

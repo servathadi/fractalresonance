@@ -23,7 +23,6 @@ answers:
       
       **Por qué es importante:** Este cálculo determina si la FRC es compatible con las pruebas de la Relatividad General en el Sistema Solar.
 ---
-
 # La restricción del Sistema Solar
 
 El campo $\Lambda$ es un campo escalar de largo alcance. Ingenuamente, debería mediar una "quinta fuerza" que modificaría las órbitas planetarias. No hemos observado esto.

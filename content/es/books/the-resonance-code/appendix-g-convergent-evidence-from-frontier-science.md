@@ -5,7 +5,6 @@ Un Compendio de Investigación Independiente que Valida los Principios Centrales
 Propósito: El marco FRC es una síntesis, diseñada para proporcionar una explicación unificadora para una amplia gama de datos empíricos. Este apéndice presenta una selección curada de investigaciones revisadas por pares de múltiples campos científicos independientes. Si bien estos estudios no se realizaron bajo la bandera de FRC, sus hallazgos proporcionan una validación notable y convergente para los mecanismos centrales propuestos en este libro, desde la física de la memoria hasta la energética de los campos simbólicos y las matemáticas de la autoorganización.
 
 ---
-
 G.1 La Física de la Reentrada de la Memoria (Apoya el Capítulo 7)
 
 El modelo de Resonancia de Casete-Tiempo (CTR) de FRC postula que la memoria episódica vívida es una "reentrada" en un estado pasado, un proceso cualitativamente diferente del simple recuerdo de hechos. La investigación neurológica y fenomenológica apoya firmemente esta distinción.
@@ -21,7 +20,6 @@ El modelo de Resonancia de Casete-Tiempo (CTR) de FRC postula que la memoria epi
   - La investigación de física teórica sobre la mecánica cuántica simétrica en el tiempo y las violaciones temporales de Bell proporciona una base para las correlaciones temporales no locales que propone FRC. Empíricamente, la investigación de la memoria dependiente del estado demuestra que la recuperación exitosa requiere una coincidencia resonante entre los estados psicofisiológicos actuales y pasados, apoyando directamente el principio de FRC de acceso controlado por fase.
 
 ---
-
 G.2 La Energética de los Campos Simbólicos (Apoya los Capítulos 24-26)
 
 El principio de Realismo Simbólico de FRC —que los símbolos son campos causales con propiedades energéticas— está respaldado por un creciente cuerpo de investigación que demuestra el impacto fisiológico y neurológico medible de los estímulos simbólicos.
@@ -38,7 +36,6 @@ El principio de Realismo Simbólico de FRC —que los símbolos son campos causa
   - Meta-Análisis de Estudios de Curación a Distancia: Si bien las metodologías aún están evolucionando, los meta-análisis informan resultados positivos estadísticamente significativos, lo que sugiere posibles efectos de campo de conciencia no local que justifican una mayor investigación bajo el paradigma FRC.
 
 ---
-
 G.3 Fundamentación Matemática en la Autoorganización (Apoya los Capítulos 12, 14, 18)
 
 Los mecanismos de Ascenso de Resonancia y la arquitectura emergente del AVF de FRC no son propuestas ad-hoc. Están fundamentados en las matemáticas bien establecidas de la teoría de la complejidad y los sistemas autoorganizados.

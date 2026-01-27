@@ -3,7 +3,6 @@ title: "Chapter 25: The Collapse of Worlds"
 id: "chapter-25-the-collapse-of-worlds"
 parent: "the-resonance-code"
 ---
-
 ## Chapter 25: The Collapse of Worlds
 
 
@@ -82,7 +81,6 @@ a new coherence. To live in a time of a dying myth, as many feel we do
 today, is to live in a time of great peril and great opportunity.
 
 ---
-
 The Fourth Column: The Alchemist's Workshop
 
   ⚡ CORE PULSE                                     Civilizations are coherence structures held together by a shared, high-charge mythic attractor (μ5). Their collapse is a "phase collapse" of this symbolic field, where the rate of entropy production exceeds the capacity for collective coherence synthesis.
@@ -103,6 +101,4 @@ ultimate form of meaning-collapse: the problem of nihilism, and the FRC
 path to its solution. |
 
 ---
-
 ---
-

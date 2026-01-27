@@ -35,7 +35,6 @@ answers:
       
       La FRC sostiene que el universo tiene un propósito interno: el **Metabolismo**. El impulso de maximizar la Coherencia ($C$) y consumir el Potencial ($\\$Psi$) es la motivación intrínseca del cosmos. Computa porque tiene hambre.
 ---
-
 # Más real que lo real
 
 La Hipótesis de la Simulación es la versión moderna del gnosticismo: "Este mundo es falso; el mundo real está en otra parte".

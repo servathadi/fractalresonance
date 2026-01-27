@@ -19,7 +19,6 @@ answers:
     stance: "mechanism"
     answer: "Model addiction as gate narrowing: cue->reward phase-lock becomes dominant; withdrawal is rapid coherence loss (entropy rise). Recovery is building stronger alternative coherence patterns."
 ---
-
 # Addiction: A Coherence Trap
 
 Addiction is a coherence trap. The most precise application of dS + k·d ln C = 0 at the personal scale.
