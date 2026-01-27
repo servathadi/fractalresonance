@@ -64,18 +64,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
   const chapterUrl = `${bookUrl}/chapter/${ch.slug}`;
   const alternates = getAlternateLanguages('books', fm.id);
+  const shouldIndexChapter = lang === 'en';
 
-  // Avoid duplicate-content SEO issues: chapter pages are for UX/digestibility.
   return {
     title: `${fm.title} — ${ch.title}`,
     description: fm.abstract,
     keywords: [...(fm.tags || []), 'chapter'],
     authors: [{ name: author }],
     alternates: {
-      canonical: bookUrl,
+      canonical: shouldIndexChapter ? chapterUrl : bookUrl,
       languages: alternates,
     },
-    robots: { index: false, follow: true },
+    robots: shouldIndexChapter ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       type: 'book',
       title: `${fm.title} — ${ch.title}`,
