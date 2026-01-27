@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: fm.title,
     description: fm.abstract,
-    keywords: fm.tags,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     authors: [{ name: author }],
     alternates: {
       canonical: canonicalUrl,
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: fm.abstract,
       publishedTime: fm.date,
       authors: [author],
-      tags: fm.tags,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
     },
     other: {
@@ -175,7 +175,7 @@ export default async function PaperPage({ params }: Props) {
                 </a>
               </div>
             )}
-            {paper.frontmatter.tags && (
+            {Array.isArray(paper.frontmatter.tags) && paper.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {paper.frontmatter.tags.map(tag => (
                   <Link 

@@ -43,9 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const alternates = getAlternateLanguages('concepts', fm.id);
 
   return {
-    title: `${fm.title} — FRC Concept`,
-    description: description.slice(0, 160),
-    keywords: fm.tags,
+    title: fm.title,
+    description: description,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     alternates: {
       canonical: conceptUrl,
       languages: alternates,
@@ -53,8 +53,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: 'article',
       title: fm.title,
-      description: description.slice(0, 160),
+      description: description,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
+      url: conceptUrl,
     },
   };
 }
@@ -104,7 +106,7 @@ export default async function ConceptPage({ params }: Props) {
             <h1 className="text-3xl font-light text-frc-gold mb-3">
               {concept.frontmatter.title}
             </h1>
-            {concept.frontmatter.tags && (
+            {Array.isArray(concept.frontmatter.tags) && concept.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {concept.frontmatter.tags.map(tag => (
                   <Link 

@@ -52,27 +52,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!topic) return { title: 'Not Found' };
 
   const fm = topic.frontmatter;
-  const author = fm.author || 'FRC';
-  const url = `https://fractalresonance.com/${lang}/topics/${fm.id}`;
   const alternates = getAlternateLanguages('topics', fm.id);
+  const topicUrl = `https://fractalresonance.com/${lang}/topics/${fm.id}`;
 
   return {
     title: fm.title,
-    description: fm.abstract || fm.short_answer,
-    keywords: fm.tags,
-    authors: [{ name: author }],
+    description: fm.short_answer || fm.abstract,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     alternates: {
-      canonical: url,
+      canonical: topicUrl,
       languages: alternates,
     },
     openGraph: {
       type: 'article',
       title: fm.title,
-      description: fm.abstract || fm.short_answer,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: fm.tags,
+      description: fm.short_answer || fm.abstract,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
+      url: topicUrl,
     },
   };
 }

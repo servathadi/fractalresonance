@@ -33,7 +33,7 @@ export function ConceptsIndex({
       title: fm.title,
       excerpt,
       href: `${basePath}/concepts/${fm.id}`,
-      tags: fm.tags || [],
+      tags: Array.isArray(fm.tags) ? fm.tags.filter((t): t is string => typeof t === 'string') : [],
     };
   });
 

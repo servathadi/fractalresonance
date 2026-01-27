@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: fm.title,
     description: fm.abstract,
-    keywords: fm.tags,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     authors: [{ name: author }],
     alternates: {
       canonical: bookUrl,
@@ -57,8 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: fm.title,
       description: fm.abstract,
       authors: [author],
-      tags: fm.tags,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
+      url: bookUrl,
     },
   };
 }

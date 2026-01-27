@@ -90,7 +90,7 @@ export function PapersIndex({
       abstract: fm.abstract,
       date: fm.date,
       href: `${basePath}/papers/${id}`,
-      tags: fm.tags || [],
+      tags: Array.isArray(fm.tags) ? fm.tags.filter((t): t is string => typeof t === 'string') : [],
       series,
       doiSuffix: doi ? doi.split('/').pop() : undefined,
     };

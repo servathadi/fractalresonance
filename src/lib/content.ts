@@ -281,7 +281,7 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get all articles (blog/episodes) for a language */
@@ -295,7 +295,7 @@ export function getArticles(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get all blog posts for a language */
@@ -309,7 +309,7 @@ export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single blog post by id */
@@ -337,7 +337,7 @@ export function getTopics(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single topic by id */
@@ -365,7 +365,7 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.title || '').localeCompare(b.frontmatter.title || ''));
+    .sort((a, b) => String(a.frontmatter.title || '').localeCompare(String(b.frontmatter.title || '')));
 }
 
 /** Get a single person/profile by id */
@@ -467,7 +467,7 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
     }
   }
 
-  return books.sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+  return books.sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single book by id */
@@ -1002,7 +1002,7 @@ export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
   // Normalize tag for comparison (case-insensitive? or exact?)
   // Let's do exact match for now, maybe case-insensitive later
   return [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people]
-    .filter(item => (item.frontmatter.tags || []).includes(tag))
+    .filter(item => Array.isArray(item.frontmatter.tags) && item.frontmatter.tags.includes(tag))
     .sort((a, b) => {
       // Sort by date desc, then title
       const dateA = a.frontmatter.date || '';

@@ -33,7 +33,7 @@ export function BlogIndex({
       abstract: fm.abstract,
       date: fm.date,
       href: `${basePath}/blog/${fm.id}`,
-      tags: fm.tags || [],
+      tags: Array.isArray(fm.tags) ? fm.tags.filter((t): t is string => typeof t === 'string') : [],
       voice,
       readTime,
       ordinal: idx + 1,

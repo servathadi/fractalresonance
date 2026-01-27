@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: fm.title,
     description: fm.abstract,
-    keywords: fm.tags,
+    keywords: Array.isArray(fm.tags) ? fm.tags : [],
     alternates: {
       canonical: postUrl,
       languages: alternates,
@@ -55,6 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: fm.title,
       description: fm.abstract,
       publishedTime: fm.date,
+      tags: Array.isArray(fm.tags) ? fm.tags : [],
       locale: lang,
     },
   };
@@ -113,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.frontmatter.date && <span>{post.frontmatter.date}</span>}
             <span className="font-mono text-xs">{readTime}</span>
           </div>
-          {post.frontmatter.tags && (
+          {Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {post.frontmatter.tags.map(tag => (
                 <Link

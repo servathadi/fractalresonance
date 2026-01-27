@@ -34,7 +34,7 @@ export function TopicsIndex({
       abstract: fm.abstract,
       date: fm.date,
       href: `${basePath}/topics/${fm.id}`,
-      tags: fm.tags || [],
+      tags: Array.isArray(fm.tags) ? fm.tags.filter((t): t is string => typeof t === 'string') : [],
       answersCount,
     };
   });

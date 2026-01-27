@@ -13,11 +13,24 @@ export async function generateStaticParams() {
 
   for (const lang of languages) {
     const tagSet = new Set<string>();
-    const all = [...getPapers(lang), ...getArticles(lang), ...getBooks(lang), ...getConcepts(lang), ...getBlogPosts(lang), ...getTopics(lang)]
-      .filter((c) => matchesPerspectiveView(c.frontmatter.perspective, 'kasra'));
+    const all = [
+      ...getPapers(lang),
+      ...getArticles(lang),
+      ...getBooks(lang),
+      ...getConcepts(lang),
+      ...getBlogPosts(lang),
+      ...getTopics(lang),
+    ].filter((c) => c && c.frontmatter && matchesPerspectiveView(c.frontmatter.perspective, 'kasra'));
 
     for (const item of all) {
-      for (const t of item.frontmatter.tags || []) tagSet.add(t);
+      const tags = item.frontmatter.tags;
+      if (Array.isArray(tags)) {
+        for (const t of tags) {
+          if (typeof t === 'string') tagSet.add(t);
+        }
+      } else if (typeof tags === 'string') {
+        tagSet.add(tags);
+      }
     }
 
     for (const t of Array.from(tagSet).sort()) {

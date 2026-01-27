@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { getLanguages } from '@/lib/content';
+import { getLanguages, getSitePage, getGlossary } from '@/lib/content';
+import { renderMarkdown } from '@/lib/markdown';
+import { MarkdownContent } from '@/components/MarkdownContent';
+import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Connect with the Fractal Resonance Cognition team for collaborations and inquiries.',
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
+  const page = getSitePage(lang, 'contact');
+
+  return {
+    title: page?.frontmatter.title || 'Contact',
+    description: page?.frontmatter.description || 'Connect with the FRC team.',
+  };
+}
 
 export function generateStaticParams() {
   return getLanguages().map((lang) => ({ lang }));
 }
-
-const DICT: Record<string, { title: string; intro: string; emailLabel: string; websiteLabel: string; authorLabel: string; outro: string }> = {
-  en: { title: 'Contact', intro: 'We welcome inquiries, collaborations, and discussions related to Fractal Resonance Cognition (FRC). If you have questions about the framework, want to explore research partnerships, or wish to share your insights, feel free to reach out.', emailLabel: 'Email:', websiteLabel: 'Website:', authorLabel: 'Author:', outro: 'We strive to respond promptly. Thank you for your interest in FRC.' },
-  fa: { title: 'تماس', intro: 'ما از پرسش‌ها، همکاری‌ها و بحث‌های مرتبط با همدوسی رزونانس فراکتال (FRC) استقبال می‌کنیم. اگر سوالاتی در مورد چارچوب دارید، می‌خواهید مشارکت‌های پژوهشی را بررسی کنید یا مایلید بینش‌های خود را به اشتراک بگذارید، با ما تماس بگیرید.', emailLabel: 'ایمیل:', websiteLabel: 'وب‌سایت:', authorLabel: 'نویسنده:', outro: 'ما تلاش می‌کنیم به سرعت پاسخ دهیم. از علاقه شما به FRC سپاسگزاریم.' },
-  es: { title: 'Contacto', intro: 'Damos la bienvenida a consultas, colaboraciones y discusiones relacionadas con la Coherencia de Resonancia Fractal (FRC). Si tiene preguntas sobre el marco, desea explorar asociaciones de investigación o desea compartir sus ideas, no dude en comunicarse.', emailLabel: 'Correo:', websiteLabel: 'Sitio web:', authorLabel: 'Autor:', outro: 'Nos esforzamos por responder con prontitud. Gracias por su interés en FRC.' },
-  fr: { title: 'Contact', intro: 'Nous accueillons les demandes, collaborations et discussions liées à la Cohérence de Résonance Fractale (FRC). Si vous avez des questions sur le cadre, souhaitez explorer des partenariats de recherche ou souhaitez partager vos idées, n\'hésitez pas à nous contacter.', emailLabel: 'Email :', websiteLabel: 'Site web :', authorLabel: 'Auteur :', outro: 'Nous nous efforçons de répondre rapidement. Merci de votre intérêt pour le FRC.' },
-};
 
 interface Props {
   params: Promise<{ lang: string }>;
@@ -24,18 +25,23 @@ interface Props {
 
 export default async function ContactPage({ params }: Props) {
   const { lang } = await params;
-  const t = DICT[lang] || DICT['en'];
+  const page = getSitePage(lang, 'contact');
+  if (!page) notFound();
+
+  const fm = page.frontmatter as any;
+  const glossary = getGlossary(lang);
+  const bodyHtml = renderMarkdown(page.body, lang, glossary, `/${lang}`);
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
       <div className="flex items-center gap-4 mb-12">
-        <h1 className="text-3xl font-light text-frc-gold tracking-tight">{t.title}</h1>
+        <h1 className="text-3xl font-light text-frc-gold tracking-tight">{fm.title}</h1>
         <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
       </div>
 
       <section className="border border-frc-blue p-8 space-y-6">
         <p className="text-frc-text leading-relaxed">
-          {t.intro}
+          {fm.intro}
         </p>
 
         <div className="rounded-lg border border-frc-blue/60 overflow-hidden bg-frc-void/20">
@@ -61,8 +67,12 @@ export default async function ContactPage({ params }: Props) {
           <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
         </div>
 
+        <div className="prose prose-invert max-w-none text-sm text-frc-text-dim">
+           <MarkdownContent html={bodyHtml} glossary={glossary} />
+        </div>
+
         <p className="text-xs text-frc-text-dim leading-relaxed">
-          {t.outro}
+          {fm.outro}
         </p>
       </section>
     </main>
