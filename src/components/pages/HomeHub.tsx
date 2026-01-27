@@ -461,7 +461,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
         </section>
       )}
 
-      <VideoSeries />
+      <VideoSeries lang={lang} />
 
       {/* Framework Properties */}
       <section className="border-t border-frc-blue bg-frc-void-light">
