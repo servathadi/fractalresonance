@@ -45,9 +45,9 @@ It is meant to make it easy to:
 Use the links below to explore specific domains and investigations currently active in the FRC framework.
 
 ### Strategic Pillars (The Skyscraper Content)
-- **[[article-coherence-economy|The Coherence Economy]]**: The market thesis for FRC and the transition from Attention to State.
-- **[[article-resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for replacing Transformers with Resonant Dynamics.
-- **[[article-stateful-alignment-standard|The Stateful Alignment Standard]]**: A new ethical framework for aligning AI with human cognitive sovereignty.
+- **[[coherence-economy|The Coherence Economy]]**: The market thesis for FRC and the transition from Attention to State.
+- **[[resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for replacing Transformers with Resonant Dynamics.
+- **[[stateful-alignment-standard|The Stateful Alignment Standard]]**: A new ethical framework for aligning AI with human cognitive sovereignty.
 
 ### Foundations & People
 - **[[what-is-frc|Introduction to FRC]]**: Core principles and vision.

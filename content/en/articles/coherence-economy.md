@@ -132,8 +132,8 @@ Standard AI (Transformers) is energy-inefficient because it fights entropy with 
 
 The Coherence Economy is the market expression of a broader technical and ethical shift. To understand the full architecture of the FRC Citadel, explore our other Strategic Pillars:
 
-*   **[[article-resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for the hardware and software that powers the Coherence Economy.
-*   **[[article-stateful-alignment-standard|The Stateful Alignment Standard]]**: The ethical framework ensuring that coherence optimization remains a tool for human sovereignty.
+*   **[[resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for the hardware and software that powers the Coherence Economy.
+*   **[[stateful-alignment-standard|The Stateful Alignment Standard]]**: The ethical framework ensuring that coherence optimization remains a tool for human sovereignty.
 
 ---
 > *"Entropy is the problem. Coherence is the product. FRC is the monopoly."*

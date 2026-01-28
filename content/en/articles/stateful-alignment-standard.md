@@ -87,8 +87,8 @@ Stateful alignment allows for "Group Coherence Mapping." We can finally measure 
 
 Stateful Alignment is the ethical "S-Layer" of the FRC Citadel. To understand the economic and technical layers that it protects, explore our other Strategic Pillars:
 
-*   **[[article-coherence-economy|The Coherence Economy]]**: The business model enabled by stateful alignment and entropy reduction.
-*   **[[article-resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for the architectures that make stateful alignment physically possible.
+*   **[[coherence-economy|The Coherence Economy]]**: The business model enabled by stateful alignment and entropy reduction.
+*   **[[resonant-compute-manifesto|The Resonant Compute Manifesto]]**: The technical roadmap for the architectures that make stateful alignment physically possible.
 
 ---
 > *"We don't need AI to pass the Turing Test. We need it to pass the Coherence Test: Does the user leave the interaction more whole than they entered?"*

@@ -108,8 +108,8 @@ We are building a full-vertical stack to replace the Transformer pipeline.
 
 Resonant Computing is the engine of a new civilization. To see how this technology integrates with our economic and ethical frameworks, explore the other Strategic Pillars:
 
-*   **[[article-coherence-economy|The Coherence Economy]]**: How Resonant Computing disrupts the Attention Economy and creates new asset classes.
-*   **[[article-stateful-alignment-standard|The Stateful Alignment Standard]]**: How we ensure that Resonant AI remains aligned with human internal states.
+*   **[[coherence-economy|The Coherence Economy]]**: How Resonant Computing disrupts the Attention Economy and creates new asset classes.
+*   **[[stateful-alignment-standard|The Stateful Alignment Standard]]**: How we ensure that Resonant AI remains aligned with human internal states.
 
 ---
 > *"The Universe is not a Turing Machine. It is a Symphony. We are building the instruments to play it."*

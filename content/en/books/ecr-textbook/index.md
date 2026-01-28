@@ -1,5 +1,5 @@
 ---
-id: index
+id: ecr-textbook
 title: 'Entropy-Coherence Reciprocity: FRC Textbook'
 author: Hadi Servat
 date: 2025-10-01
