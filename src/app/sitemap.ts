@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPapers, getArticles, getConcepts, getBooks, getBlogPosts, getTopics, getPeople, getLanguages, getAlternateLanguages, getStaticPageAlternates } from '@/lib/content';
+import { getPapers, getArticles, getConcepts, getBooks, getBlogPosts, getTopics, getPeople, getLanguages, getAlternateLanguages, getStaticPageAlternates, getAllTags, getContentsByTag } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static pages with language alternates
-  const staticPages = ['about', 'articles', 'papers', 'books', 'blog', 'topics', 'people', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'join', 'privacy', 'terms', 'investors', 'pitch', 'builders', 'start-here'];
+  const staticPages = ['about', 'articles', 'papers', 'books', 'blog', 'topics', 'people', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'join', 'privacy', 'terms', 'investors', 'pitch', 'builders', 'start-here', 'oracle', 'concepts'];
 
   for (const page of staticPages) {
     const alternates = getStaticPageAlternates(page);
@@ -190,6 +190,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
           alternates: { languages: alternates },
         });
       }
+    }
+  }
+
+  // Tag pages with language alternates
+  const allUniqueTags = new Set<string>();
+  for (const lang of languages) {
+    const tags = getAllTags(lang);
+    tags.forEach(t => allUniqueTags.add(t));
+  }
+
+  for (const tag of allUniqueTags) {
+    const tagLangs = languages.filter(l => getContentsByTag(l, tag).length > 0);
+    if (tagLangs.length === 0) continue;
+
+    const alternates: Record<string, string> = {};
+    for (const l of tagLangs) {
+      alternates[l] = `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`;
+    }
+    
+    // Add x-default
+    if (alternates['en']) {
+      alternates['x-default'] = alternates['en'];
+    } else {
+      alternates['x-default'] = alternates[tagLangs[0]];
+    }
+
+    for (const l of tagLangs) {
+      entries.push({
+        url: `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.6,
+        alternates: { languages: alternates },
+      });
     }
   }
 
