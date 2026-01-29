@@ -982,7 +982,8 @@ export function getAllTags(lang: string = 'en'): string[] {
   const tags = new Set<string>();
 
   [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people].forEach(item => {
-    (item.frontmatter.tags || []).forEach(t => tags.add(t));
+    const itemTags = Array.isArray(item.frontmatter.tags) ? item.frontmatter.tags : [];
+    itemTags.forEach(t => tags.add(t));
   });
 
   return Array.from(tags).sort();
