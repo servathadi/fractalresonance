@@ -1,9 +1,12 @@
+# Fractal Resonance Coherence - robots.txt
+# https://fractalresonance.com
+
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://fractalresonance.com/sitemap.xml
 Sitemap: https://fractalresonance.com/video-sitemap.xml
 
-# AI/LLM Discovery
-# For AI assistants and language models, see:
-# https://fractalresonance.com/llms.txt
+# AI/LLM discovery
+# See also: /llms.txt for structured AI context
