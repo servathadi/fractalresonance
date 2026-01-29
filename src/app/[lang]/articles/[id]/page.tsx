@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { schemaPaperPage } from '@/lib/schema';
+import { schemaArticlePage, type ArticleMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { ArticlesSidebar } from '@/components/ArticlesSidebar';
@@ -84,12 +84,25 @@ export default async function ArticlePage({ params }: Props) {
   const norm = normalizeContentPerspective(article.frontmatter.perspective);
 
   const basePath = `/${lang}`;
-  // Reuse PaperMeta for schema as it fits article structure well enough
+  const fm = article.frontmatter;
+
+  // Build ArticleMeta for schema
+  const articleMeta: ArticleMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled',
+    description: fm.abstract || '',
+    author: fm.author,
+    date: fm.date || '',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    lang,
+    video: fm.video as ArticleMeta['video'],
+  };
+
+  // Keep legacy meta for video embed and images
   const meta = toPaperMeta(article);
   const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const fm = article.frontmatter;
   const readTime = fm.read_time || estimateReadTime(article.body);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -106,7 +119,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaArticlePage(articleMeta)} />
 
       <PageShell
         leftMobile={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}

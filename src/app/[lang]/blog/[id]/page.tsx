@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { schemaPaperPage } from '@/lib/schema';
+import { schemaBlogPostPage, type BlogPostMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { BlogSidebar } from '@/components/BlogSidebar';
@@ -10,7 +10,7 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { VoiceTag } from '@/components/VoiceTag';
-import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -68,7 +68,6 @@ export default async function BlogPostPage({ params }: Props) {
   if (!matchesPerspectiveView(post.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(post);
   const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
@@ -76,6 +75,18 @@ export default async function BlogPostPage({ params }: Props) {
   const readTime = fm.read_time || estimateReadTime(post.body);
   const tocItems = extractTocItems(post.body).filter((t) => t.level === 2);
   const renderedBody = renderMarkdown(post.body, lang, glossary, basePath);
+
+  // Build BlogPostMeta for schema
+  const blogMeta: BlogPostMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled Post',
+    description: fm.abstract || '',
+    author: fm.author,
+    date: fm.date || '',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    lang,
+    wordCount: post.body.split(/\s+/).length,
+  };
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'blog', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -88,7 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaBlogPostPage(blogMeta)} />
 
       <PageShell
         leftMobile={<BlogSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}

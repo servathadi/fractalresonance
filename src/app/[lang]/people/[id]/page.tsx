@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { SchemaScript } from '@/components/SchemaScript';
+import { schemaPersonPage, type ProfileMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { PeopleSidebar } from '@/components/PeopleSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
@@ -76,6 +78,21 @@ export default async function PersonPage({ params }: Props) {
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(person.body);
 
+  // Build ProfileMeta for schema
+  const profileMeta: ProfileMeta = {
+    id: fm.id,
+    name: fm.title || 'Unknown',
+    role: fm.role || '',
+    description: fm.tagline || fm.abstract || '',
+    lang,
+    image: fm.avatar, // Use avatar field for profile image
+    links: Array.isArray(fm.links) ? fm.links.map((l: { label?: string; url?: string }) => ({
+      label: l.label || '',
+      url: l.url || '',
+    })) : [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+  };
+
   const renderedBody = renderMarkdown(person.body, lang, glossary, basePath);
   const tocItems = extractTocItems(person.body).filter((t) => t.level === 2);
   const work = getWorkForPerson(
@@ -89,7 +106,9 @@ export default async function PersonPage({ params }: Props) {
   }, {} as Record<string, typeof work>);
 
   return (
-    <PageShell
+    <>
+      <SchemaScript data={schemaPersonPage(profileMeta)} />
+      <PageShell
       leftMobile={<PeopleSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
       leftDesktop={<PeopleSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
       right={<TableOfContents items={tocItems} />}
@@ -185,5 +204,6 @@ export default async function PersonPage({ params }: Props) {
         </section>
       )}
     </PageShell>
+    </>
   );
 }

@@ -15,12 +15,11 @@ import {
   getBooks,
   getBookChapters,
   getLanguages,
-  toPaperMeta,
   getGlossary,
   getAlternateLanguages,
   matchesPerspectiveView,
 } from '@/lib/content';
-import { schemaPaperPage } from '@/lib/schema';
+import { schemaChapterPage, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 
 interface Props {
@@ -116,7 +115,6 @@ export default async function BookChapterPage({ params }: Props) {
   if (!matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(book);
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
 
@@ -138,6 +136,16 @@ export default async function BookChapterPage({ params }: Props) {
   // Per-chapter read time (not whole book)
   const readTime = estimateReadTime(current.body);
 
+  // Build ChapterMeta for schema
+  const chapterMeta: ChapterMeta = {
+    id: chapter,
+    title: current.title,
+    description: fm.abstract,
+    position: idx + 1,
+    bookId: id,
+    lang,
+  };
+
   // Strip the leading heading from content (it's shown in header)
   const contentBody = stripLeadingHeading(current.body);
   const renderedBody = renderMarkdown(contentBody, lang, glossary, basePath);
@@ -147,7 +155,7 @@ export default async function BookChapterPage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaChapterPage(chapterMeta, fm.title || 'Untitled Book')} />
       <BookExperience />
 
       <PageShell

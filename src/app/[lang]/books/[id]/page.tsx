@@ -9,8 +9,8 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { BookExperience } from '@/components/BookExperience';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
-import { schemaPaperPage } from '@/lib/schema';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { schemaBookPage, type BookMeta, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 
 interface Props {
@@ -70,7 +70,6 @@ export default async function BookPage({ params }: Props) {
   if (!book) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(book);
   const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
@@ -82,6 +81,23 @@ export default async function BookPage({ params }: Props) {
     const slug = c.filename.replace(/\.md$/, '');
     return { slug, title: c.title, anchorId: slug };
   });
+
+  // Build BookMeta for schema
+  const bookMeta: BookMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled Book',
+    description: fm.abstract || '',
+    author: fm.author || 'H. Servat',
+    lang,
+    datePublished: fm.date,
+    chapters: chapters.map((c, idx): ChapterMeta => ({
+      id: c.filename.replace(/\.md$/, ''),
+      title: c.title,
+      position: idx + 1,
+      bookId: fm.id,
+      lang,
+    })),
+  };
 
   // Calculate total read time from all chapters
   const totalContent = chapters.map((c) => c.body).join('\n');
@@ -100,7 +116,7 @@ export default async function BookPage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaBookPage(bookMeta)} />
       <BookExperience />
 
       <PageShell
