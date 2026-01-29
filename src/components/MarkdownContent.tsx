@@ -60,8 +60,8 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [sanitizedHtml, setSanitizedHtml] = useState('');
   
-  // Tooltip state
-  const [hoveredLink, setHoveredLink] = useState<{
+  // Tooltip state - use timeout to avoid interference with clicks
+  const [tooltipData, setTooltipData] = useState<{
     id: string;
     rect: DOMRect;
   } | null>(null);
@@ -97,15 +97,21 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     const container = containerRef.current;
     if (!container || !glossary) return;
 
+    let hoverTimeout: ReturnType<typeof setTimeout> | null = null;
+
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.classList.contains('wikilink')) {
         const id = target.getAttribute('data-wikilink-id');
         if (id && glossary[id]) {
-          setHoveredLink({
-            id,
-            rect: target.getBoundingClientRect(),
-          });
+          // Small delay to avoid flickering and interference with clicks
+          if (hoverTimeout) clearTimeout(hoverTimeout);
+          hoverTimeout = setTimeout(() => {
+            setTooltipData({
+              id,
+              rect: target.getBoundingClientRect(),
+            });
+          }, 200);
         }
       }
     };
@@ -113,7 +119,8 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     const handleMouseLeave = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.classList.contains('wikilink')) {
-         setHoveredLink(null);
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        setTooltipData(null);
       }
     };
 
@@ -125,6 +132,7 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     return () => {
       container.removeEventListener('mouseover', handleMouseEnter);
       container.removeEventListener('mouseout', handleMouseLeave);
+      if (hoverTimeout) clearTimeout(hoverTimeout);
     };
   }, [glossary, sanitizedHtml]);
 
@@ -135,10 +143,10 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
         className="markdown-content"
         dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
       />
-      {hoveredLink && glossary && (
-        <Tooltip 
-          item={glossary[hoveredLink.id]} 
-          rect={hoveredLink.rect} 
+      {tooltipData && glossary && glossary[tooltipData.id] && (
+        <Tooltip
+          item={glossary[tooltipData.id]}
+          rect={tooltipData.rect}
         />
       )}
     </>
