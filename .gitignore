@@ -45,3 +45,6 @@ sources/infographics/
 
 # Legacy inbox
 content/inbox/
+
+# Generated files
+public/search-index.json
