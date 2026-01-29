@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { SearchTrigger } from './SearchTrigger';
 import { getDictionary } from '@/lib/dictionaries';
 import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
@@ -206,6 +207,8 @@ export function Header() {
             <span className="hidden sm:inline">FRC.v2 — fractalresonance.com</span>
           </span>
           <div className="flex items-center gap-3">
+            <SearchTrigger />
+            <span className="text-frc-blue">|</span>
             <div className="hidden md:flex items-center gap-3 font-mono text-[0.625rem] text-frc-steel tracking-wider">
               <Link href={`${basePath}/investors`} className="hover:text-frc-gold">{dict.nav.investors}</Link>
             </div>

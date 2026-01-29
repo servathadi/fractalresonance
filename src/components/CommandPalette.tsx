@@ -76,12 +76,23 @@ export function CommandPalette({ items }: CommandPaletteProps) {
     router.push(url);
   };
 
-  // Toggle on Cmd+K
+  // Toggle on Cmd+K or /
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Cmd+K or Ctrl+K
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setIsOpen(prev => !prev);
+        return;
+      }
+      // "/" key (only when not in an input)
+      if (e.key === '/' && !isOpen) {
+        const target = e.target as HTMLElement;
+        const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+        if (!isInput) {
+          e.preventDefault();
+          setIsOpen(true);
+        }
       }
       if (e.key === 'Escape' && isOpen) {
         setIsOpen(false);
