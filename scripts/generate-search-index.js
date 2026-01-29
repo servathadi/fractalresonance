@@ -43,9 +43,12 @@ function extractText(markdown) {
   return text;
 }
 
-function truncate(text, maxLength = 1000) {
+function truncate(text, maxLength = 500) {
   if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength) + '...';
+  // Try to break at a word boundary
+  const truncated = text.slice(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return (lastSpace > maxLength * 0.8 ? truncated.slice(0, lastSpace) : truncated) + '...';
 }
 
 function parseMarkdownFile(filePath) {
@@ -108,7 +111,7 @@ function buildIndex() {
           title: frontmatter.title || 'Untitled',
           abstract: frontmatter.abstract || frontmatter.description || '',
           tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
-          content: truncate(plainText, 2000), // Limit content size
+          content: truncate(plainText, 500), // Limit content size for smaller index
           url: `/${lang}/${type}/${frontmatter.id || path.basename(filePath, '.md')}`,
           date: frontmatter.date ? String(frontmatter.date) : null,
         };
@@ -140,11 +143,26 @@ function buildIndex() {
 console.log('Generating search index...');
 const index = buildIndex();
 
-// Write output
+// Write combined output (smaller, no content for quick metadata)
 fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
 fs.writeFileSync(OUTPUT_PATH, JSON.stringify(index, null, 2));
+
+// Write per-language indexes for lazy loading
+const OUTPUT_DIR = path.dirname(OUTPUT_PATH);
+for (const lang of LANGUAGES) {
+  const langDocs = index.documents.filter(d => d.lang === lang);
+  const langIndex = {
+    generated: index.generated,
+    lang,
+    count: langDocs.length,
+    documents: langDocs,
+  };
+  const langPath = path.join(OUTPUT_DIR, `search-index-${lang}.json`);
+  fs.writeFileSync(langPath, JSON.stringify(langIndex));
+}
 
 console.log(`✓ Generated search index: ${OUTPUT_PATH}`);
 console.log(`  Total documents: ${index.stats.total}`);
 console.log(`  By language:`, index.stats.byLang);
 console.log(`  By type:`, index.stats.byType);
+console.log(`  Per-language indexes: search-index-{en,es,fa,fr}.json`);
