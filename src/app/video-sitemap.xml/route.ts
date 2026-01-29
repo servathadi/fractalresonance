@@ -49,9 +49,40 @@ function getYouTubeThumbnail(url: string): string | null {
   return null;
 }
 
+// Convert ISO 8601 duration (PT12M30S) or other formats to seconds
+function parseDurationToSeconds(duration: string): number | null {
+  if (!duration) return null;
+
+  // Already a number (seconds)
+  if (/^\d+$/.test(duration)) {
+    return parseInt(duration, 10);
+  }
+
+  // ISO 8601 format: PT1H2M30S, PT12M00S, PT30S, etc.
+  const isoMatch = duration.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/i);
+  if (isoMatch) {
+    const hours = parseInt(isoMatch[1] || '0', 10);
+    const minutes = parseInt(isoMatch[2] || '0', 10);
+    const seconds = parseInt(isoMatch[3] || '0', 10);
+    return hours * 3600 + minutes * 60 + seconds;
+  }
+
+  // MM:SS or HH:MM:SS format
+  const colonMatch = duration.match(/^(?:(\d+):)?(\d+):(\d+)$/);
+  if (colonMatch) {
+    const hours = parseInt(colonMatch[1] || '0', 10);
+    const minutes = parseInt(colonMatch[2], 10);
+    const seconds = parseInt(colonMatch[3], 10);
+    return hours * 3600 + minutes * 60 + seconds;
+  }
+
+  return null;
+}
+
 export async function GET() {
   const videos: VideoEntry[] = [];
-  const languages = getLanguages();
+  // Only English videos for now to keep sitemap clean
+  const languages = ['en'];
 
   // Collect videos from articles (episode pages)
   for (const lang of languages) {
@@ -123,7 +154,7 @@ ${uniqueVideos.map(v => `  <url>
       <video:thumbnail_loc>${escapeXml(v.thumbnailUrl)}</video:thumbnail_loc>
       <video:title>${escapeXml(v.title)}</video:title>
       <video:description>${escapeXml(v.description)}</video:description>
-${v.playerUrl ? `      <video:player_loc>${escapeXml(v.playerUrl)}</video:player_loc>\n` : ''}${v.contentUrl ? `      <video:content_loc>${escapeXml(v.contentUrl)}</video:content_loc>\n` : ''}${v.duration ? `      <video:duration>${v.duration}</video:duration>\n` : ''}${v.publicationDate ? `      <video:publication_date>${v.publicationDate}</video:publication_date>\n` : ''}    </video:video>
+${v.playerUrl ? `      <video:player_loc>${escapeXml(v.playerUrl)}</video:player_loc>\n` : ''}${v.contentUrl ? `      <video:content_loc>${escapeXml(v.contentUrl)}</video:content_loc>\n` : ''}${v.duration && parseDurationToSeconds(v.duration) ? `      <video:duration>${parseDurationToSeconds(v.duration)}</video:duration>\n` : ''}${v.publicationDate ? `      <video:publication_date>${v.publicationDate}</video:publication_date>\n` : ''}    </video:video>
   </url>`).join('\n')}
 </urlset>`;
 
