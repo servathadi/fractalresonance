@@ -8,6 +8,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 import type { PaperMeta, ConceptMeta } from './schema';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -111,161 +112,16 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace on delimiter lines (some translated files contain `--- `).
-  const fmRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content };
+  try {
+    const { data, content: body } = matter(content);
+    return {
+      frontmatter: data as unknown as RawFrontmatter,
+      body: body.trim(),
+    };
+  } catch (e) {
+    console.error('Error parsing frontmatter:', e);
+    return { frontmatter: { title: '', id: '' } as RawFrontmatter, body: content };
   }
-
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
-
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim() };
-}
-
-type YamlValue =
-  | string
-  | number
-  | boolean
-  | null
-  | YamlValue[]
-  | { [key: string]: YamlValue };
-
-function parseYamlFrontmatter(src: string): Record<string, unknown> {
-  const root: Record<string, unknown> = {};
-  const stack: Array<{ indent: number; container: Record<string, unknown> | unknown[] }> = [
-    { indent: -1, container: root },
-  ];
-
-  const lines = src.split('\n');
-  let i = 0;
-
-  while (i < lines.length) {
-    const rawLine = lines[i];
-    i++;
-
-    if (!rawLine || /^\s*$/.test(rawLine)) continue;
-
-    const indent = rawLine.match(/^ */)?.[0].length ?? 0;
-    const line = rawLine.trim();
-    if (!line || line.startsWith('#')) continue;
-
-    // Close containers when indentation decreases.
-    while (stack.length > 1 && indent <= stack[stack.length - 1].indent) {
-      stack.pop();
-    }
-
-    const ctx = stack[stack.length - 1].container;
-
-    // Sequence item
-    if (line.startsWith('- ')) {
-      if (!Array.isArray(ctx)) continue;
-
-      const rest = line.slice(2).trim();
-      if (!rest) {
-        const obj: Record<string, unknown> = {};
-        ctx.push(obj);
-        stack.push({ indent, container: obj });
-        continue;
-      }
-
-      const kv = splitYamlKeyValue(rest);
-      if (!kv) {
-        ctx.push(parseYamlValue(rest));
-        continue;
-      }
-
-      const [k, vRaw] = kv;
-      const obj: Record<string, unknown> = {};
-      ctx.push(obj);
-      stack.push({ indent, container: obj });
-
-      if (vRaw === '') {
-        const nested = inferYamlContainer(lines, i, indent + 2);
-        obj[k] = nested;
-        // Child properties live two spaces deeper than the dash indent.
-        stack.push({ indent: indent + 2, container: nested });
-      } else {
-        obj[k] = parseYamlValue(vRaw);
-      }
-      continue;
-    }
-
-    // Mapping entry
-    const kv = splitYamlKeyValue(line);
-    if (!kv || Array.isArray(ctx)) continue;
-
-    const [key, rawVal] = kv;
-    if (rawVal === '') {
-      const nested = inferYamlContainer(lines, i, indent + 2);
-      (ctx as Record<string, unknown>)[key] = nested;
-      stack.push({ indent, container: nested });
-      continue;
-    }
-
-    (ctx as Record<string, unknown>)[key] = parseYamlValue(rawVal);
-  }
-
-  return root;
-}
-
-function splitYamlKeyValue(line: string): [string, string] | null {
-  const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-  if (!match) return null;
-  return [match[1], match[2] ?? ''];
-}
-
-function inferYamlContainer(lines: string[], startIndex: number, childIndent: number): Record<string, unknown> | unknown[] {
-  for (let j = startIndex; j < lines.length; j++) {
-    const rawLine = lines[j];
-    if (!rawLine || /^\s*$/.test(rawLine)) continue;
-
-    const line = rawLine.trim();
-    if (!line || line.startsWith('#')) continue;
-
-    const indent = rawLine.match(/^ */)?.[0].length ?? 0;
-    if (indent < childIndent) break;
-
-    return line.startsWith('- ') ? [] : {};
-  }
-
-  // Default to mapping when there's no obvious child structure.
-  return {};
-}
-
-function parseYamlValue(raw: string): YamlValue {
-  const val = raw.trim();
-
-  // Inline array: [a, b, c]
-  if (val.startsWith('[') && val.endsWith(']')) {
-    const inner = val.slice(1, -1).trim();
-    if (!inner) return [];
-    return inner.split(',').map((s) => parseYamlValue(s.trim()));
-  }
-
-  if (val === 'null' || val === '~') return null;
-  if (val === 'true') return true;
-  if (val === 'false') return false;
-
-  // Numbers (avoid coercing dates/ids like 2025-01-01)
-  if (/^-?\d+(\.\d+)?$/.test(val)) {
-    const num = Number(val);
-    if (!Number.isNaN(num)) return num;
-  }
-
-  return stripYamlQuotes(val);
-}
-
-function stripYamlQuotes(val: string): string {
-  if (
-    (val.startsWith('"') && val.endsWith('"')) ||
-    (val.startsWith("'") && val.endsWith("'"))
-  ) {
-    return val.slice(1, -1);
-  }
-  return val;
 }
 
 // ─── Content Loaders ───────────────────────────────────────────────────────
