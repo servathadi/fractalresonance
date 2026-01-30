@@ -54,6 +54,27 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     code: ['*'],
     pre: ['*'],
   },
+  transformTags: {
+    a: (tagName, attribs) => {
+      const href = attribs.href || '';
+      const isExternal = href.startsWith('http') || href.startsWith('//');
+
+      if (isExternal) {
+        return {
+          tagName,
+          attribs: {
+            ...attribs,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          },
+        };
+      }
+      return {
+        tagName,
+        attribs,
+      };
+    },
+  },
 };
 
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
