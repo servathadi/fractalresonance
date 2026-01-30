@@ -37,6 +37,7 @@ export function PerspectiveToggle() {
             }
           `}
           title={p.description}
+          aria-pressed={perspective === p.value}
         >
           <span className="mr-1">{p.icon}</span>
           <span className="hidden sm:inline">{p.label}</span>
@@ -65,6 +66,7 @@ export function PerspectiveToggleCompact() {
       onClick={toggle}
       className="flex items-center gap-1 text-xs text-frc-steel hover:text-frc-gold transition-colors"
       title={`Switch to ${other}'s perspective`}
+      aria-label={`Switch to ${other}'s perspective`}
     >
       <span>{current.icon}</span>
       <span>{current.label}</span>
