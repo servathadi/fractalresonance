@@ -54,6 +54,28 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     code: ['*'],
     pre: ['*'],
   },
+  transformTags: {
+    'a': (tagName, attribs) => {
+      // If target is _blank, force rel="noopener noreferrer" to prevent reverse tabnabbing
+      if (attribs.target === '_blank') {
+        const currentRel = attribs.rel ? attribs.rel.split(/\s+/) : [];
+        if (!currentRel.includes('noopener')) currentRel.push('noopener');
+        if (!currentRel.includes('noreferrer')) currentRel.push('noreferrer');
+
+        return {
+          tagName,
+          attribs: {
+            ...attribs,
+            rel: currentRel.join(' '),
+          },
+        };
+      }
+      return {
+        tagName,
+        attribs,
+      };
+    },
+  },
 };
 
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
