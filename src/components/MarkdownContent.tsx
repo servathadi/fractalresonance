@@ -5,7 +5,7 @@
  * with interactive tooltips for wikilinks.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import sanitizeHtml from 'sanitize-html';
 import { createPortal } from 'react-dom';
 import renderMathInElement from 'katex/contrib/auto-render';
@@ -58,19 +58,15 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
 
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sanitizedHtml, setSanitizedHtml] = useState('');
+
+  // Sanitize on render (memoized) to ensure content is present for SSR/SEO and avoid layout shifts.
+  const sanitizedHtml = useMemo(() => sanitizeHtml(html, SANITIZE_OPTIONS), [html]);
   
   // Tooltip state - use timeout to avoid interference with clicks
   const [tooltipData, setTooltipData] = useState<{
     id: string;
     rect: DOMRect;
   } | null>(null);
-
-  useEffect(() => {
-    // Sanitize on mount/change to avoid hydration mismatch if we used dangerouslySetInnerHTML directly with SSR
-    // But since this is a client component receiving HTML string, we can just sanitize and set.
-    setSanitizedHtml(sanitizeHtml(html, SANITIZE_OPTIONS));
-  }, [html]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -141,7 +137,8 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
       <div 
         ref={containerRef}
         className="markdown-content"
-        dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+        suppressHydrationWarning
       />
       {tooltipData && glossary && glossary[tooltipData.id] && (
         <Tooltip

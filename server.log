@@ -1,0 +1,10 @@
+
+> fractalresonance@2.0.0 start
+> next start
+
+   ▲ Next.js 15.5.9
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+[Error: "next start" does not work with "output: export" configuration. Use "npx serve@latest out" instead.]
