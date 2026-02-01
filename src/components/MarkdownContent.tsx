@@ -54,6 +54,27 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     code: ['*'],
     pre: ['*'],
   },
+  transformTags: {
+    'a': function(tagName, attribs) {
+      if (attribs.target === '_blank') {
+        const currentRel = attribs.rel ? attribs.rel.split(' ') : [];
+        if (!currentRel.includes('noopener')) currentRel.push('noopener');
+        if (!currentRel.includes('noreferrer')) currentRel.push('noreferrer');
+
+        return {
+          tagName: 'a',
+          attribs: {
+            ...attribs,
+            rel: currentRel.join(' ')
+          }
+        };
+      }
+      return {
+        tagName: 'a',
+        attribs: attribs
+      };
+    }
+  }
 };
 
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
