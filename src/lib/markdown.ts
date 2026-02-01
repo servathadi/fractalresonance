@@ -10,6 +10,40 @@
  * through this function.
  */
 
+import sanitizeHtml from 'sanitize-html';
+
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr',
+    'ul', 'ol', 'li',
+    'pre', 'code',
+    'blockquote',
+    'a', 'strong', 'em', 'del',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'img', 'figure', 'figcaption',
+    'div', 'span', 'sup', 'sub',
+  ],
+  allowedAttributes: {
+    a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
+    img: ['src', 'alt', 'width', 'height', 'class'],
+    h1: ['id'], h2: ['id'], h3: ['id'], h4: ['id'],
+    code: ['class'],
+    pre: ['class'],
+    div: ['class'],
+    span: ['class'],
+    td: ['align'],
+    th: ['align'],
+  },
+  allowedClasses: {
+    a: ['wikilink'],
+    div: ['*'],
+    span: ['*'],
+    code: ['*'],
+    pre: ['*'],
+  },
+};
+
 export function renderMarkdown(
   body: string,
   lang: string,
@@ -115,7 +149,7 @@ export function renderMarkdown(
     html = html.replace(`<!--CODE_BLOCK_${i}-->`, codeBlocks[i]);
   }
 
-  return html;
+  return sanitizeHtml(html, SANITIZE_OPTIONS);
 }
 
 /** Resolve wikilink ID to href */
