@@ -71,46 +71,67 @@ export function TextSharePopover() {
   if (!popover.visible) return null;
 
   return (
-    <div
-      className="share-popover"
-      style={{
-        left: `${popover.x}px`,
-        top: `${popover.y}px`,
-        transform: 'translate(-50%, -100%)',
-      }}
-      onMouseDown={(e) => {
-        e.preventDefault(); // Prevent losing selection
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      }}
-    >
-      {/* Copy */}
-      <button onClick={copyText} title={copied ? 'Copied!' : 'Copy text'}>
-        {copied ? (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
-        ) : (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <rect x="9" y="9" width="13" height="13" rx="2" />
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-          </svg>
-        )}
-      </button>
+    <>
+      <div
+        className="share-popover"
+        role="toolbar"
+        aria-label="Text selection actions"
+        style={{
+          left: `${popover.x}px`,
+          top: `${popover.y}px`,
+          transform: 'translate(-50%, -100%)',
+        }}
+        onMouseDown={(e) => {
+          e.preventDefault(); // Prevent losing selection
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        }}
+      >
+        {/* Copy */}
+        <button
+          onClick={copyText}
+          title={copied ? 'Copied!' : 'Copy text'}
+          aria-label={copied ? 'Copied to clipboard' : 'Copy selected text to clipboard'}
+        >
+          {copied ? (
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          ) : (
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+          )}
+        </button>
 
-      {/* Twitter/X */}
-      <button onClick={shareTwitter} title="Share on X">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      </button>
+        {/* Twitter/X */}
+        <button
+          onClick={shareTwitter}
+          title="Share on X"
+          aria-label="Share selected text on X (Twitter)"
+        >
+          <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </button>
 
-      {/* Share link */}
-      <button onClick={shareLink} title="Copy page link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-        </svg>
-      </button>
-    </div>
+        {/* Share link */}
+        <button
+          onClick={shareLink}
+          title="Copy page link"
+          aria-label="Copy page link to clipboard"
+        >
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Screen reader announcement for copy action */}
+      <div aria-live="polite" className="sr-only">
+        {copied ? 'Copied to clipboard' : ''}
+      </div>
+    </>
   );
 }
