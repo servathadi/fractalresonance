@@ -2,7 +2,7 @@
 
 /**
  * MarkdownContent — Client component for rendering sanitized markdown HTML
- * with interactive tooltips for wikilinks.
+ * with interactive tooltips for wikilinks and formulas.
  */
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -10,6 +10,7 @@ import sanitizeHtml from 'sanitize-html';
 import { createPortal } from 'react-dom';
 import renderMathInElement from 'katex/contrib/auto-render';
 import 'katex/dist/katex.min.css';
+import { matchFormula, type FormulaInfo } from '@/lib/formulas';
 
 interface GlossaryItem {
   id: string;
@@ -26,7 +27,9 @@ interface MarkdownContentProps {
 
 const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   allowedTags: [
-    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    // Note: h1 is intentionally excluded - pages render h1 from frontmatter title
+    // Markdown h1s are transformed to h2 to avoid duplicate h1 (SEO issue)
+    'h2', 'h3', 'h4', 'h5', 'h6',
     'p', 'br', 'hr',
     'ul', 'ol', 'li',
     'pre', 'code',
@@ -38,8 +41,8 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   ],
   allowedAttributes: {
     a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
-    img: ['src', 'alt', 'width', 'height', 'class'],
-    h1: ['id'], h2: ['id'], h3: ['id'], h4: ['id'],
+    img: ['src', 'alt', 'width', 'height', 'class', 'loading', 'decoding'],
+    h2: ['id'], h3: ['id'], h4: ['id'], h5: ['id'], h6: ['id'],
     code: ['class'],
     pre: ['class'],
     div: ['class'],
@@ -54,6 +57,10 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     code: ['*'],
     pre: ['*'],
   },
+  // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
+  transformTags: {
+    'h1': 'h2',
+  },
 };
 
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
@@ -63,6 +70,12 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
   // Tooltip state - use timeout to avoid interference with clicks
   const [tooltipData, setTooltipData] = useState<{
     id: string;
+    rect: DOMRect;
+  } | null>(null);
+
+  // Formula tooltip state
+  const [formulaTooltip, setFormulaTooltip] = useState<{
+    formula: FormulaInfo;
     rect: DOMRect;
   } | null>(null);
 
@@ -88,9 +101,65 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
         strict: false,
         ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
       });
+
+      // After KaTeX renders, find formulas and make them interactive
+      const katexElements = container.querySelectorAll('.katex');
+      katexElements.forEach((el) => {
+        const textContent = el.textContent || '';
+        const formulaInfo = matchFormula(textContent);
+        if (formulaInfo) {
+          // Mark this element as having a known formula
+          el.setAttribute('data-formula-id', formulaInfo.id);
+          (el as HTMLElement).style.cursor = 'help';
+        }
+      });
     } catch {
       // If KaTeX fails, fall back to showing raw text.
     }
+  }, [sanitizedHtml]);
+
+  // Formula hover handlers
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let hoverTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const handleFormulaEnter = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const katexEl = target.closest('.katex[data-formula-id]') as HTMLElement | null;
+      if (katexEl) {
+        const textContent = katexEl.textContent || '';
+        const formulaInfo = matchFormula(textContent);
+        if (formulaInfo) {
+          if (hoverTimeout) clearTimeout(hoverTimeout);
+          hoverTimeout = setTimeout(() => {
+            setFormulaTooltip({
+              formula: formulaInfo,
+              rect: katexEl.getBoundingClientRect(),
+            });
+          }, 300);
+        }
+      }
+    };
+
+    const handleFormulaLeave = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const katexEl = target.closest('.katex[data-formula-id]');
+      if (katexEl) {
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        setFormulaTooltip(null);
+      }
+    };
+
+    container.addEventListener('mouseover', handleFormulaEnter);
+    container.addEventListener('mouseout', handleFormulaLeave);
+
+    return () => {
+      container.removeEventListener('mouseover', handleFormulaEnter);
+      container.removeEventListener('mouseout', handleFormulaLeave);
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+    };
   }, [sanitizedHtml]);
 
   useEffect(() => {
@@ -149,22 +218,24 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
           rect={tooltipData.rect}
         />
       )}
+      {formulaTooltip && (
+        <FormulaTooltip
+          formula={formulaTooltip.formula}
+          rect={formulaTooltip.rect}
+        />
+      )}
     </>
   );
 }
 
 function Tooltip({ item, rect }: { item: GlossaryItem; rect: DOMRect }) {
-  // Calculate position: centered above the link
-  const top = rect.top + window.scrollY - 10; // 10px buffer
-  const left = rect.left + window.scrollX + (rect.width / 2);
-
   return createPortal(
-    <div 
+    <div
       className="fixed z-50 pointer-events-none animate-in fade-in zoom-in-95 duration-200"
-      style={{ 
-        top: rect.top - 8, // Position slightly above
+      style={{
+        top: rect.top - 8,
         left: rect.left + (rect.width/2),
-        transform: 'translate(-50%, -100%)', // Centered and above
+        transform: 'translate(-50%, -100%)',
       }}
     >
       <div className="bg-frc-void border border-frc-gold/30 shadow-2xl p-4 rounded-md max-w-sm w-80 backdrop-blur-md bg-opacity-95 text-left">
@@ -181,9 +252,38 @@ function Tooltip({ item, rect }: { item: GlossaryItem; rect: DOMRect }) {
           {item.excerpt}
         </p>
       </div>
-      {/* Arrow */}
-      <div 
+      <div
         className="absolute w-3 h-3 bg-frc-void border-r border-b border-frc-gold/30 rotate-45 left-1/2 -translate-x-1/2 -bottom-1.5"
+      ></div>
+    </div>,
+    document.body
+  );
+}
+
+function FormulaTooltip({ formula, rect }: { formula: FormulaInfo; rect: DOMRect }) {
+  return createPortal(
+    <div
+      className="fixed z-50 pointer-events-none animate-in fade-in zoom-in-95 duration-200"
+      style={{
+        top: rect.top - 8,
+        left: rect.left + (rect.width/2),
+        transform: 'translate(-50%, -100%)',
+      }}
+    >
+      <div className="bg-frc-void border border-frc-blue/50 shadow-2xl p-4 rounded-md max-w-sm w-72 backdrop-blur-md bg-opacity-95 text-left">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[10px] uppercase tracking-widest font-mono text-frc-blue">
+            formula
+          </span>
+          <span className="text-[10px] text-frc-steel font-mono">{formula.paper}</span>
+        </div>
+        <h4 className="text-frc-gold font-medium text-sm mb-2 leading-snug">{formula.name}</h4>
+        <p className="text-frc-text-dim text-xs leading-relaxed">
+          {formula.description}
+        </p>
+      </div>
+      <div
+        className="absolute w-3 h-3 bg-frc-void border-r border-b border-frc-blue/50 rotate-45 left-1/2 -translate-x-1/2 -bottom-1.5"
       ></div>
     </div>,
     document.body
