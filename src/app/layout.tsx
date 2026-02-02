@@ -3,6 +3,7 @@ import { SchemaScript } from '@/components/SchemaScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { SkipLink } from '@/components/SkipLink';
 import { TextSharePopover } from '@/components/TextSharePopover';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
@@ -58,8 +59,9 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
+          <SkipLink />
           <Header />
-          <div className="flex-1">
+          <div id="main-content" className="flex-1" tabIndex={-1}>
             {children}
           </div>
           <Footer />
