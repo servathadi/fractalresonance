@@ -1,0 +1,3 @@
+## 2025-02-02 - Data Fetching Bottleneck in Static Site Generation
+**Learning:** Next.js Server Components, even in static export, can trigger repeated expensive file system operations if data fetching functions (like `getPapers` which scans directories) are called multiple times per page (e.g., by Layout, Page, and Sidebar components). React `cache()` effectively deduplicates these calls within a request/generation context.
+**Action:** Always wrap expensive synchronous data fetchers in `React.cache()` if they are called multiple times in a component tree, even for SSG. Refactor singular getters (e.g., `getPaper`) to reuse the cached plural list (e.g., `getPapers`) instead of re-scanning the file system.
