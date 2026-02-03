@@ -60,6 +60,22 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
   transformTags: {
     'h1': 'h2',
+    // Prevent Reverse Tabnabbing: enforce noopener noreferrer on target=_blank
+    'a': (tagName: string, attribs: Record<string, string>) => {
+      if (attribs.target === '_blank') {
+        const rels = attribs.rel ? attribs.rel.split(/\s+/) : [];
+        if (!rels.includes('noopener')) rels.push('noopener');
+        if (!rels.includes('noreferrer')) rels.push('noreferrer');
+        return {
+          tagName,
+          attribs: {
+            ...attribs,
+            rel: rels.join(' '),
+          },
+        };
+      }
+      return { tagName, attribs };
+    },
   },
 };
 
