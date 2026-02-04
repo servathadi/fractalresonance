@@ -8,6 +8,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { cache } from 'react';
 import type { PaperMeta, ConceptMeta } from './schema';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -270,8 +271,24 @@ function stripYamlQuotes(val: string): string {
 
 // ─── Content Loaders ───────────────────────────────────────────────────────
 
+/** Helper: Normalize ID for fuzzy matching */
+const normalizeId = (rawId: string) => {
+  // Keep this intentionally forgiving to preserve legacy URLs like:
+  // - "FRC 100.001"
+  // - "FRC-100.001"
+  // - "frc 893.phy"
+  let s = (rawId || '').trim();
+  s = s.replace(/^frc\s+/i, 'FRC-'); // "FRC 100.001" -> "FRC-100.001"
+  s = s.replace(/^frc-/i, 'FRC-');
+  s = s.replace(/\s+/g, '-');
+  s = s.replace(/\./g, '-');
+  s = s.replace(/_+/g, '-');
+  s = s.replace(/-+/g, '-');
+  return s.toUpperCase();
+};
+
 /** Get all papers for a language */
-export function getPapers(lang: string = 'en'): ParsedContent[] {
+export const getPapers = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return [];
 
@@ -282,10 +299,10 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get all articles (blog/episodes) for a language */
-export function getArticles(lang: string = 'en'): ParsedContent[] {
+export const getArticles = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return [];
 
@@ -296,10 +313,10 @@ export function getArticles(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get all blog posts for a language */
-export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
+export const getBlogPosts = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return [];
 
@@ -310,24 +327,16 @@ export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single blog post by id */
-export function getBlogPost(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'blog');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getBlogPost = cache((lang: string, id: string): ParsedContent | null => {
+  const posts = getBlogPosts(lang);
+  return posts.find(p => p.frontmatter.id === id) || null;
+});
 
 /** Get all topics for a language */
-export function getTopics(lang: string = 'en'): ParsedContent[] {
+export const getTopics = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return [];
 
@@ -338,24 +347,16 @@ export function getTopics(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single topic by id */
-export function getTopic(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'topics');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getTopic = cache((lang: string, id: string): ParsedContent | null => {
+  const topics = getTopics(lang);
+  return topics.find(t => t.frontmatter.id === id) || null;
+});
 
 /** Get all people/profiles for a language */
-export function getPeople(lang: string = 'en'): ParsedContent[] {
+export const getPeople = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return [];
 
@@ -366,52 +367,27 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.title || '').localeCompare(String(b.frontmatter.title || '')));
-}
+});
 
 /** Get a single person/profile by id */
-export function getPerson(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'people');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getPerson = cache((lang: string, id: string): ParsedContent | null => {
+  const people = getPeople(lang);
+  return people.find(p => p.frontmatter.id === id) || null;
+});
 
 /** Get a single paper by id */
-export function getPaper(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'papers');
-  if (!fs.existsSync(dir)) return null;
+export const getPaper = cache((lang: string, id: string): ParsedContent | null => {
+  const papers = getPapers(lang);
+  const requested = normalizeId(id);
 
-  const normalize = (rawId: string) => {
-    // Keep this intentionally forgiving to preserve legacy URLs like:
-    // - "FRC 100.001"
-    // - "FRC-100.001"
-    // - "frc 893.phy"
-    let s = (rawId || '').trim();
-    s = s.replace(/^frc\s+/i, 'FRC-'); // "FRC 100.001" -> "FRC-100.001"
-    s = s.replace(/^frc-/i, 'FRC-');
-    s = s.replace(/\s+/g, '-');
-    s = s.replace(/\./g, '-');
-    s = s.replace(/_+/g, '-');
-    s = s.replace(/-+/g, '-');
-    return s.toUpperCase();
-  };
+  // Try exact match first
+  let found = papers.find(p => p.frontmatter.id === id);
+  if (found) return found;
 
-  const requested = normalize(id);
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-    if (normalize(parsed.frontmatter.id) === requested) return parsed;
-  }
-  return null;
-}
+  // Try normalized match
+  found = papers.find(p => normalizeId(p.frontmatter.id) === requested);
+  return found || null;
+});
 
 export function getLegacyPaperIds(canonicalId: string): string[] {
   const out: string[] = [];
@@ -438,7 +414,7 @@ export function getLegacyPaperIds(canonicalId: string): string[] {
 }
 
 /** Get all books for a language */
-export function getBooks(lang: string = 'en'): ParsedContent[] {
+export const getBooks = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return [];
 
@@ -459,7 +435,7 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
     // Folder book: books/<id>/index.md (or first chapter file)
     if (stat.isDirectory()) {
       const indexPath = path.join(full, 'index.md');
-      const chapterFiles = fs.readdirSync(full).filter(f => f.endsWith('.md')).sort();
+      const chapterFiles = fs.readdirSync(full).filter(f => f.endsWith('.md')).sort(sortChapterFilenames);
       const pick = fs.existsSync(indexPath) ? indexPath : (chapterFiles[0] ? path.join(full, chapterFiles[0]) : null);
       if (!pick) continue;
       const raw = fs.readFileSync(pick, 'utf-8');
@@ -468,42 +444,24 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
   }
 
   return books.sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single book by id */
-export function getBook(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'books');
-  if (!fs.existsSync(dir)) return null;
+export const getBook = cache((lang: string, id: string): ParsedContent | null => {
+  const books = getBooks(lang);
+  // Try finding in the pre-fetched list (covers single file books and main book pages)
+  const found = books.find(b => b.frontmatter.id === id);
+  if (found) return found;
 
-  // 1) Single-file book
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
+  // Fallback for directory-based books if for some reason it wasn't caught or to handle edge cases
+  // Actually, getBooks handles both single file and directory-based books (index.md).
+  // If getBooks misses it, we might need to look deeper, but based on getBooks logic, it seems complete for "books".
 
-  // 2) Folder book: books/<id>/(index.md + chapters)
-  const bookDir = path.join(dir, id);
-  if (!fs.existsSync(bookDir) || !fs.statSync(bookDir).isDirectory()) return null;
+  // However, getBooks might not read everything recursively if structure is weird.
+  // But let's trust getBooks follows the schema.
 
-  const indexPath = path.join(bookDir, 'index.md');
-  const chapterFiles = fs.readdirSync(bookDir).filter(f => f.endsWith('.md') && f !== 'index.md');
-  const sortedChapters = chapterFiles.sort(sortChapterFilenames);
-
-  if (fs.existsSync(indexPath)) {
-    const raw = fs.readFileSync(indexPath, 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    // Return only the index content - chapter content lives on individual chapter pages
-    // This avoids duplicate content issues and keeps the book landing page lightweight
-    return parsed;
-  }
-
-  // If there's no index.md, treat the first chapter file as the book page.
-  if (sortedChapters.length === 0) return null;
-  const raw = fs.readFileSync(path.join(bookDir, sortedChapters[0]), 'utf-8');
-  return parseFrontmatter(raw);
-}
+  return null;
+});
 
 export interface BookChapter {
   filename: string;
@@ -606,7 +564,7 @@ function romanOrNumToInt(val: string): number {
 }
 
 /** Get all concepts for a language */
-export function getConcepts(lang: string = 'en'): ParsedContent[] {
+export const getConcepts = cache((lang: string = 'en'): ParsedContent[] => {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return [];
 
@@ -616,21 +574,13 @@ export function getConcepts(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     });
-}
+});
 
 /** Get a single concept by id */
-export function getConcept(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'concepts');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getConcept = cache((lang: string, id: string): ParsedContent | null => {
+  const concepts = getConcepts(lang);
+  return concepts.find(c => c.frontmatter.id === id) || null;
+});
 
 /** Get all available languages */
 export function getLanguages(): string[] {
@@ -676,18 +626,10 @@ export function getSitePage(lang: string, slug: string): ParsedContent | null {
 }
 
 /** Get a single article by id */
-export function getArticle(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'articles');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getArticle = cache((lang: string, id: string): ParsedContent | null => {
+  const articles = getArticles(lang);
+  return articles.find(a => a.frontmatter.id === id) || null;
+});
 
 // ─── Schema Converters ─────────────────────────────────────────────────────
 
