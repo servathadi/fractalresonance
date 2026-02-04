@@ -72,7 +72,7 @@ export interface BreadcrumbItem {
 
 // ─── Site-Level Schemas ────────────────────────────────────────────────────
 
-/** WebSite + SearchAction — enables sitelinks search box */
+/** WebSite — top-level site identity */
 export function schemaWebSite() {
   return {
     '@context': 'https://schema.org',
@@ -82,14 +82,6 @@ export function schemaWebSite() {
     url: SITE_URL,
     description: 'Research platform for the Fractal Resonance Cognition framework — exploring consciousness, coherence, and quantum foundations.',
     inLanguage: 'en',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -401,34 +393,28 @@ export function schemaDataset() {
     '@type': 'Dataset',
     '@id': `${SITE_URL}/#dataset`,
     name: 'Fractal Resonance Cognition Research Data',
-    description: 'Structured research data from the FRC framework including papers, concepts, equations, and knowledge graph relationships.',
-    url: `${SITE_URL}/for-ai`,
+    description: 'Machine-readable resources for the Fractal Resonance Cognition corpus (sitemap, LLM summary, and indexing metadata).',
+    url: `${SITE_URL}/llms.txt`,
     creator: { '@id': `${SITE_URL}/#author` },
     license: 'https://opensource.org/licenses/BSL-1.1',
     distribution: [
       {
         '@type': 'DataDownload',
-        encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/concepts`,
-        name: 'FRC Concepts API',
+        encodingFormat: 'text/plain',
+        contentUrl: `${SITE_URL}/llms.txt`,
+        name: 'FRC LLM Summary',
       },
       {
         '@type': 'DataDownload',
-        encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/papers`,
-        name: 'FRC Papers API',
-      },
-      {
-        '@type': 'DataDownload',
-        encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/graph`,
-        name: 'FRC Knowledge Graph API',
+        encodingFormat: 'application/xml',
+        contentUrl: `${SITE_URL}/sitemap.xml`,
+        name: 'Sitemap',
       },
       {
         '@type': 'DataDownload',
         encodingFormat: 'text/plain',
-        contentUrl: `${SITE_URL}/llms.txt`,
-        name: 'FRC LLM Summary',
+        contentUrl: `${SITE_URL}/robots.txt`,
+        name: 'Robots.txt',
       },
     ],
     keywords: [
