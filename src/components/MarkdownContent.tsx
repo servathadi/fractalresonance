@@ -25,7 +25,7 @@ interface MarkdownContentProps {
   glossary?: Record<string, GlossaryItem>;
 }
 
-const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+export const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   allowedTags: [
     // Note: h1 is intentionally excluded - pages render h1 from frontmatter title
     // Markdown h1s are transformed to h2 to avoid duplicate h1 (SEO issue)
@@ -60,6 +60,24 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
   transformTags: {
     'h1': 'h2',
+    'a': (tagName, attribs) => {
+      if (attribs.target && attribs.target.toLowerCase() === '_blank') {
+        const currentRel = attribs.rel ? attribs.rel.split(' ') : [];
+        const required = ['noopener', 'noreferrer'];
+        const newRel = Array.from(new Set([...currentRel, ...required])).join(' ');
+        return {
+          tagName: 'a',
+          attribs: {
+            ...attribs,
+            rel: newRel,
+          },
+        };
+      }
+      return {
+        tagName: 'a',
+        attribs,
+      };
+    },
   },
 };
 
