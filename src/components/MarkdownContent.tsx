@@ -60,6 +60,24 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
   // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
   transformTags: {
     'h1': 'h2',
+    'a': function(tagName, attribs) {
+      if (attribs.target === '_blank') {
+        let rel = attribs.rel || '';
+        if (!rel.includes('noopener')) rel += ' noopener';
+        if (!rel.includes('noreferrer')) rel += ' noreferrer';
+        return {
+          tagName: 'a',
+          attribs: {
+            ...attribs,
+            rel: rel.trim(),
+          },
+        };
+      }
+      return {
+        tagName: 'a',
+        attribs: attribs,
+      };
+    },
   },
 };
 
