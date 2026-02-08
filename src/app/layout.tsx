@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { SkipLink } from '@/components/SkipLink';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
@@ -58,8 +59,9 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
+          <SkipLink />
           <Header />
-          <div className="flex-1">
+          <div id="main-content" tabIndex={-1} className="flex-1 scroll-mt-24 focus:outline-none">
             {children}
           </div>
           <Footer />
