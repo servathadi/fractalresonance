@@ -58,8 +58,19 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     pre: ['*'],
   },
   // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
+  // Ensure target="_blank" links have rel="noopener noreferrer"
   transformTags: {
     'h1': 'h2',
+    'a': (tagName, attribs) => {
+      const newAttribs = { ...attribs };
+      if (newAttribs.target && newAttribs.target.toLowerCase() === '_blank') {
+        const rels = (newAttribs.rel || '').split(/\s+/).filter(r => r.length > 0 && r !== 'opener');
+        if (!rels.includes('noopener')) rels.push('noopener');
+        if (!rels.includes('noreferrer')) rels.push('noreferrer');
+        newAttribs.rel = rels.join(' ');
+      }
+      return { tagName, attribs: newAttribs };
+    },
   },
 };
 
