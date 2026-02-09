@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
+import { SkipLink } from '@/components/SkipLink';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
 import './globals.css';
@@ -58,8 +59,9 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
+          <SkipLink />
           <Header />
-          <div className="flex-1">
+          <div id="main-content" className="flex-1 outline-none" tabIndex={-1}>
             {children}
           </div>
           <Footer />
