@@ -132,7 +132,16 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context;
 
   try {
-    const body: AskRequest = await request.json();
+    let body: AskRequest;
+    try {
+      body = await request.json();
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     const { query, lang, limit = 5 } = body;
 
     if (!query || typeof query !== 'string') {
@@ -142,11 +151,25 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
+    // Security: Input validation
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query is too long (max 500 chars)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Security: Sanitize query (trim whitespace)
+    const sanitizedQuery = query.trim().replace(/\s+/g, ' ');
+
+    // Security: Limit max results to prevent token exhaustion and large context
+    const safeLimit = Math.min(Math.max(1, limit), 10);
+
     // Get search index
     const index = await getSearchIndex(request);
 
     // Search for relevant documents
-    const relevantDocs = searchDocuments(index, query, lang, limit);
+    const relevantDocs = searchDocuments(index, sanitizedQuery, lang, safeLimit);
 
     if (relevantDocs.length === 0) {
       return new Response(JSON.stringify({
@@ -175,7 +198,7 @@ If the context doesn't contain the answer, say so honestly.`;
     const userPrompt = `Context:
 ${contextText}
 
-Question: ${query}
+Question: ${sanitizedQuery}
 
 Provide a helpful answer based on the context above. Cite sources using [1], [2], etc.`;
 
@@ -209,9 +232,9 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
 
   } catch (error) {
     console.error('Ask API error:', error);
+    // Security: Don't leak internal error details to client
     return new Response(JSON.stringify({
-      error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      error: 'Failed to process question. Please try again later.',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -243,5 +266,5 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     body: JSON.stringify({ query, lang }),
   });
 
-  return onRequestPost({ ...context, request: postRequest });
+  return onRequestPost({ ...context, request: postRequest as any });
 };
