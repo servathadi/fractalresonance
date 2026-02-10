@@ -1,14 +1,51 @@
 /**
- * Minimal markdown to HTML renderer — no external dependencies.
+ * Minimal markdown to HTML renderer.
  *
  * Handles: headings, code blocks, inline code, bold, italic,
  * wikilinks, regular links, lists, blockquotes, paragraphs.
  *
  * Safety: This function processes content from trusted local
  * markdown files in the content/ directory. It is called at
- * build time during static generation. No user input passes
- * through this function.
+ * build time during static generation (or server-side).
+ * It uses sanitize-html to ensure the output is safe.
  */
+
+import sanitizeHtml from 'sanitize-html';
+
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: [
+    'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr',
+    'ul', 'ol', 'li',
+    'pre', 'code',
+    'blockquote',
+    'a', 'strong', 'em', 'del',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'img', 'figure', 'figcaption',
+    'div', 'span', 'sup', 'sub',
+  ],
+  allowedAttributes: {
+    a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
+    img: ['src', 'alt', 'width', 'height', 'class', 'loading', 'decoding'],
+    h2: ['id'], h3: ['id'], h4: ['id'], h5: ['id'], h6: ['id'],
+    code: ['class'],
+    pre: ['class'],
+    div: ['class'],
+    span: ['class'],
+    td: ['align'],
+    th: ['align'],
+  },
+  allowedClasses: {
+    a: ['wikilink'],
+    div: ['*'],
+    span: ['*'],
+    code: ['*'],
+    pre: ['*'],
+  },
+  transformTags: {
+    'h1': 'h2',
+  },
+};
 
 export function renderMarkdown(
   body: string,
@@ -115,7 +152,8 @@ export function renderMarkdown(
     html = html.replace(`<!--CODE_BLOCK_${i}-->`, codeBlocks[i]);
   }
 
-  return html;
+  // Sanitize the final HTML
+  return sanitizeHtml(html, SANITIZE_OPTIONS);
 }
 
 /** Resolve wikilink ID to href */
