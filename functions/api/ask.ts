@@ -133,7 +133,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   try {
     const body: AskRequest = await request.json();
-    const { query, lang, limit = 5 } = body;
+    let { query, lang, limit = 5 } = body;
 
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
@@ -141,6 +141,25 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    // Security: Validate query length
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query too long (max 500 characters)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Security: Validate limit
+    if (typeof limit !== 'number' || limit < 1 || limit > 10) {
+      return new Response(JSON.stringify({ error: 'Limit must be between 1 and 10' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Security: Sanitize query (remove control characters)
+    query = query.replace(/[\x00-\x1F\x7F]/g, '');
 
     // Get search index
     const index = await getSearchIndex(request);
