@@ -1,0 +1,3 @@
+## 2024-05-23 - Accessibility of Dynamic UI
+**Learning:** Dynamic UI elements like popovers (e.g., `TextSharePopover`) often lack accessible names because they are icon-only and rely on `title` attributes. This makes them invisible or confusing to screen reader users. Always ensure `aria-label` is present on icon buttons and consider `role="toolbar"` for grouped actions.
+**Action:** When creating or modifying icon-only toolbars, add `aria-label` to buttons and `role="toolbar"` to the container. Ensure focus styles (`focus-visible`) are present as these elements are often outside the main flow.
