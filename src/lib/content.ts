@@ -8,7 +8,12 @@
 
 import fs from 'fs';
 import path from 'path';
+import { cache } from 'react';
 import type { PaperMeta, ConceptMeta } from './schema';
+
+// Wrapped in cache to deduplicate I/O requests.
+// This ensures that multiple components requesting the same data (e.g. Layout + Page)
+// only trigger one file system read per request/build pass.
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
@@ -271,7 +276,7 @@ function stripYamlQuotes(val: string): string {
 // ─── Content Loaders ───────────────────────────────────────────────────────
 
 /** Get all papers for a language */
-export function getPapers(lang: string = 'en'): ParsedContent[] {
+export const getPapers = cache(function getPapers(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return [];
 
@@ -282,10 +287,10 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get all articles (blog/episodes) for a language */
-export function getArticles(lang: string = 'en'): ParsedContent[] {
+export const getArticles = cache(function getArticles(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return [];
 
@@ -296,10 +301,10 @@ export function getArticles(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get all blog posts for a language */
-export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
+export const getBlogPosts = cache(function getBlogPosts(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return [];
 
@@ -310,24 +315,16 @@ export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single blog post by id */
-export function getBlogPost(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'blog');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getBlogPost = cache(function getBlogPost(lang: string, id: string): ParsedContent | null {
+  const posts = getBlogPosts(lang);
+  return posts.find(p => p.frontmatter.id === id) || null;
+});
 
 /** Get all topics for a language */
-export function getTopics(lang: string = 'en'): ParsedContent[] {
+export const getTopics = cache(function getTopics(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return [];
 
@@ -338,24 +335,16 @@ export function getTopics(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single topic by id */
-export function getTopic(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'topics');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getTopic = cache(function getTopic(lang: string, id: string): ParsedContent | null {
+  const topics = getTopics(lang);
+  return topics.find(t => t.frontmatter.id === id) || null;
+});
 
 /** Get all people/profiles for a language */
-export function getPeople(lang: string = 'en'): ParsedContent[] {
+export const getPeople = cache(function getPeople(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return [];
 
@@ -366,26 +355,21 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.title || '').localeCompare(String(b.frontmatter.title || '')));
-}
+});
 
 /** Get a single person/profile by id */
-export function getPerson(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'people');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getPerson = cache(function getPerson(lang: string, id: string): ParsedContent | null {
+  const people = getPeople(lang);
+  return people.find(p => p.frontmatter.id === id) || null;
+});
 
 /** Get a single paper by id */
-export function getPaper(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'papers');
-  if (!fs.existsSync(dir)) return null;
+export const getPaper = cache(function getPaper(lang: string, id: string): ParsedContent | null {
+  const papers = getPapers(lang);
+
+  // Exact match
+  const exact = papers.find(p => p.frontmatter.id === id);
+  if (exact) return exact;
 
   const normalize = (rawId: string) => {
     // Keep this intentionally forgiving to preserve legacy URLs like:
@@ -403,15 +387,8 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   };
 
   const requested = normalize(id);
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-    if (normalize(parsed.frontmatter.id) === requested) return parsed;
-  }
-  return null;
-}
+  return papers.find(p => normalize(p.frontmatter.id) === requested) || null;
+});
 
 export function getLegacyPaperIds(canonicalId: string): string[] {
   const out: string[] = [];
@@ -438,7 +415,7 @@ export function getLegacyPaperIds(canonicalId: string): string[] {
 }
 
 /** Get all books for a language */
-export function getBooks(lang: string = 'en'): ParsedContent[] {
+export const getBooks = cache(function getBooks(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return [];
 
@@ -468,10 +445,10 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
   }
 
   return books.sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+});
 
 /** Get a single book by id */
-export function getBook(lang: string, id: string): ParsedContent | null {
+export const getBook = cache(function getBook(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return null;
 
@@ -503,7 +480,7 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   if (sortedChapters.length === 0) return null;
   const raw = fs.readFileSync(path.join(bookDir, sortedChapters[0]), 'utf-8');
   return parseFrontmatter(raw);
-}
+});
 
 export interface BookChapter {
   filename: string;
@@ -606,7 +583,7 @@ function romanOrNumToInt(val: string): number {
 }
 
 /** Get all concepts for a language */
-export function getConcepts(lang: string = 'en'): ParsedContent[] {
+export const getConcepts = cache(function getConcepts(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return [];
 
@@ -616,33 +593,25 @@ export function getConcepts(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     });
-}
+});
 
 /** Get a single concept by id */
-export function getConcept(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'concepts');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getConcept = cache(function getConcept(lang: string, id: string): ParsedContent | null {
+  const concepts = getConcepts(lang);
+  return concepts.find(c => c.frontmatter.id === id) || null;
+});
 
 /** Get all available languages */
-export function getLanguages(): string[] {
+export const getLanguages = cache(function getLanguages(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return ['en'];
   return fs.readdirSync(CONTENT_DIR)
     .filter(f => {
       const full = path.join(CONTENT_DIR, f);
       return fs.statSync(full).isDirectory() && f !== 'inbox';
     });
-}
+});
 
-export function getHomeConfig(lang: string = 'en'): HomeConfig | null {
+export const getHomeConfig = cache(function getHomeConfig(lang: string = 'en'): HomeConfig | null {
   // Keep home CMS config outside normal content types.
   const tryPaths = [
     path.join(CONTENT_DIR, lang, 'site', 'home.md'),
@@ -661,10 +630,10 @@ export function getHomeConfig(lang: string = 'en'): HomeConfig | null {
   }
 
   return null;
-}
+});
 
 /** Get a single site page (investors, contact, etc.) */
-export function getSitePage(lang: string, slug: string): ParsedContent | null {
+export const getSitePage = cache(function getSitePage(lang: string, slug: string): ParsedContent | null {
   const p = path.join(CONTENT_DIR, lang, 'site', `${slug}.md`);
   if (!fs.existsSync(p)) {
     // Fallback to English if not found in requested language
@@ -673,21 +642,13 @@ export function getSitePage(lang: string, slug: string): ParsedContent | null {
     return parseFrontmatter(fs.readFileSync(fallback, 'utf-8'));
   }
   return parseFrontmatter(fs.readFileSync(p, 'utf-8'));
-}
+});
 
 /** Get a single article by id */
-export function getArticle(lang: string, id: string): ParsedContent | null {
-  const dir = path.join(CONTENT_DIR, lang, 'articles');
-  if (!fs.existsSync(dir)) return null;
-
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
-}
+export const getArticle = cache(function getArticle(lang: string, id: string): ParsedContent | null {
+  const articles = getArticles(lang);
+  return articles.find(a => a.frontmatter.id === id) || null;
+});
 
 // ─── Schema Converters ─────────────────────────────────────────────────────
 
@@ -971,7 +932,7 @@ export function getGlossary(
 // ─── Tag Processing ────────────────────────────────────────────────────────
 
 /** Get all unique tags across all content */
-export function getAllTags(lang: string = 'en'): string[] {
+export const getAllTags = cache(function getAllTags(lang: string = 'en'): string[] {
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
   const books = getBooks(lang);
@@ -987,7 +948,7 @@ export function getAllTags(lang: string = 'en'): string[] {
   });
 
   return Array.from(tags).sort();
-}
+});
 
 /** Get all content items that have a specific tag */
 export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
