@@ -107,6 +107,8 @@ ${doc.abstract ? `Summary: ${doc.abstract}\n` : ''}Content: ${doc.content.slice(
 let cachedIndex: SearchIndex | null = null;
 let cacheTime = 0;
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+const MAX_QUERY_LENGTH = 500;
+const MAX_LIMIT = 10;
 
 async function getSearchIndex(request: Request): Promise<SearchIndex> {
   const now = Date.now();
@@ -133,14 +135,41 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   try {
     const body: AskRequest = await request.json();
-    const { query, lang, limit = 5 } = body;
+    let { query, lang, limit = 5 } = body;
 
+    // Validate query presence and type
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    // Trim and validate length
+    query = query.trim();
+    if (query.length === 0) {
+      return new Response(JSON.stringify({ error: 'Query cannot be empty' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (query.length > MAX_QUERY_LENGTH) {
+      return new Response(JSON.stringify({
+        error: 'Query too long',
+        message: `Query must be under ${MAX_QUERY_LENGTH} characters.`
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Sanitize query (remove control characters to prevent log injection)
+    // Replace with space to avoid word concatenation
+    query = query.replace(/[\x00-\x1F\x7F]/g, ' ');
+
+    // Validate limit
+    limit = Math.max(1, Math.min(limit, MAX_LIMIT));
 
     // Get search index
     const index = await getSearchIndex(request);
@@ -209,9 +238,11 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
 
   } catch (error) {
     console.error('Ask API error:', error);
+    // Return generic error to client, avoiding sensitive detail leakage
     return new Response(JSON.stringify({
-      error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      error: 'Internal Server Error',
+      // Maintain backward compatibility with 'details' field
+      details: 'An unexpected error occurred processing your request.',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
