@@ -133,7 +133,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   try {
     const body: AskRequest = await request.json();
-    const { query, lang, limit = 5 } = body;
+    let { query, limit = 5 } = body;
+    const { lang } = body;
 
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
@@ -141,6 +142,20 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
+    // Input Validation: Check length
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query too long' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Input Sanitization: Remove control characters to prevent log injection
+    query = query.replace(/[\x00-\x1F\x7F]/g, '');
+
+    // Limit Validation: Clamp between 1 and 10
+    limit = Math.max(1, Math.min(10, limit));
 
     // Get search index
     const index = await getSearchIndex(request);
@@ -209,9 +224,10 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
 
   } catch (error) {
     console.error('Ask API error:', error);
+    // Return generic error to client, log detail to server
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      details: 'Internal Server Error',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
