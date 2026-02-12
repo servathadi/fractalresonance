@@ -2,17 +2,18 @@
 > fractalresonance@2.0.0 dev
 > next dev
 
- ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of /home/mumega/package-lock.json as the root directory.
- To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
-   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
- Detected additional lockfiles: 
-   * /home/mumega/frc/package-lock.json
-
- ⚠ Port 3000 is in use by an unknown process, using available port 3003 instead.
    ▲ Next.js 15.5.9
-   - Local:        http://localhost:3003
-   - Network:      http://5.161.216.149:3003
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
 
  ✓ Starting...
- ✓ Ready in 1385ms
+ ✓ Ready in 2.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 6.8s (681 modules)
+ GET / 200 in 8541ms
+ ○ Compiling /[lang] ...
+ ✓ Compiled /[lang] in 1071ms (712 modules)
+ GET / 200 in 546ms
+ GET /en 200 in 3814ms
+ ✓ Compiled in 213ms (276 modules)
+ GET /en 200 in 133ms

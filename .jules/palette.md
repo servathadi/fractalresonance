@@ -1,0 +1,3 @@
+## 2025-02-19 - Missing Skip Link & Localization Pattern
+**Learning:** This Next.js application uses `usePathname` and `getLangFromPathname` in client components to handle localization, rather than relying solely on server-side props or a global context provider. This pattern allows interactive components like `SkipLink` to be localized without prop drilling from the layout.
+**Action:** When creating new client-side interactive components, always check for localization needs and use the `usePathname` hook to derive the current language. Ensure focus management elements (like skip targets) have `tabIndex={-1}` and `outline-none` (or appropriate focus styles) to work reliably in SPA navigation.
