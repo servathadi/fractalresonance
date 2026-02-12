@@ -6,7 +6,6 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import sanitizeHtml from 'sanitize-html';
 import { createPortal } from 'react-dom';
 import renderMathInElement from 'katex/contrib/auto-render';
 import 'katex/dist/katex.min.css';
@@ -25,47 +24,8 @@ interface MarkdownContentProps {
   glossary?: Record<string, GlossaryItem>;
 }
 
-const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
-  allowedTags: [
-    // Note: h1 is intentionally excluded - pages render h1 from frontmatter title
-    // Markdown h1s are transformed to h2 to avoid duplicate h1 (SEO issue)
-    'h2', 'h3', 'h4', 'h5', 'h6',
-    'p', 'br', 'hr',
-    'ul', 'ol', 'li',
-    'pre', 'code',
-    'blockquote',
-    'a', 'strong', 'em', 'del',
-    'table', 'thead', 'tbody', 'tr', 'th', 'td',
-    'img', 'figure', 'figcaption',
-    'div', 'span', 'sup', 'sub',
-  ],
-  allowedAttributes: {
-    a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
-    img: ['src', 'alt', 'width', 'height', 'class', 'loading', 'decoding'],
-    h2: ['id'], h3: ['id'], h4: ['id'], h5: ['id'], h6: ['id'],
-    code: ['class'],
-    pre: ['class'],
-    div: ['class'],
-    span: ['class'],
-    td: ['align'],
-    th: ['align'],
-  },
-  allowedClasses: {
-    a: ['wikilink'],
-    div: ['*'],
-    span: ['*'],
-    code: ['*'],
-    pre: ['*'],
-  },
-  // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
-  transformTags: {
-    'h1': 'h2',
-  },
-};
-
 export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sanitizedHtml, setSanitizedHtml] = useState('');
   
   // Tooltip state - use timeout to avoid interference with clicks
   const [tooltipData, setTooltipData] = useState<{
@@ -78,12 +38,6 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     formula: FormulaInfo;
     rect: DOMRect;
   } | null>(null);
-
-  useEffect(() => {
-    // Sanitize on mount/change to avoid hydration mismatch if we used dangerouslySetInnerHTML directly with SSR
-    // But since this is a client component receiving HTML string, we can just sanitize and set.
-    setSanitizedHtml(sanitizeHtml(html, SANITIZE_OPTIONS));
-  }, [html]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -116,7 +70,7 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
     } catch {
       // If KaTeX fails, fall back to showing raw text.
     }
-  }, [sanitizedHtml]);
+  }, [html]);
 
   // Formula hover handlers
   useEffect(() => {
@@ -160,7 +114,7 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
       container.removeEventListener('mouseout', handleFormulaLeave);
       if (hoverTimeout) clearTimeout(hoverTimeout);
     };
-  }, [sanitizedHtml]);
+  }, [html]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -203,14 +157,14 @@ export function MarkdownContent({ html, glossary }: MarkdownContentProps) {
       container.removeEventListener('mouseout', handleMouseLeave);
       if (hoverTimeout) clearTimeout(hoverTimeout);
     };
-  }, [glossary, sanitizedHtml]);
+  }, [glossary, html]);
 
   return (
     <>
       <div 
         ref={containerRef}
         className="markdown-content"
-        dangerouslySetInnerHTML={{ __html: sanitizedHtml }} 
+        dangerouslySetInnerHTML={{ __html: html }}
       />
       {tooltipData && glossary && glossary[tooltipData.id] && (
         <Tooltip
