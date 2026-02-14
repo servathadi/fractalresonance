@@ -38,6 +38,10 @@ interface AskRequest {
   limit?: number;
 }
 
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 // Simple relevance scoring based on term frequency
 function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
@@ -54,7 +58,7 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    const contentMatches = (contentLower.match(new RegExp(escapeRegExp(term), 'g')) || []).length;
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -211,7 +215,7 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      details: 'Internal server error',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },

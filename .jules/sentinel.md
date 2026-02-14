@@ -1,0 +1,4 @@
+## 2026-02-14 - Regex Injection in AI Search
+**Vulnerability:** The AI search endpoint (`/api/ask`) was vulnerable to ReDoS and Regex Injection because it used user-supplied query strings directly in `new RegExp(term, 'g')` without escaping special characters. A malicious query like `(` could crash the function, and potentially leak stack traces.
+**Learning:** Developers often forget that `RegExp` constructors treat characters like `(`, `[`, `*` as special syntax, even when the intent is a literal string search. Also, returning `error.message` in API responses can leak implementation details.
+**Prevention:** Always use a helper function like `escapeRegExp` when passing user input to `new RegExp`. Ensure API error responses are generic (e.g., "Internal Server Error") and log the specific details to the server console instead.
