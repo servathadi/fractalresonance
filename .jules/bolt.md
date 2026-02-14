@@ -1,0 +1,3 @@
+## 2026-02-14 - Request Memoization in Next.js SSG
+**Learning:** `React.cache` significantly reduces file I/O during static builds (`next build`) when data fetching functions are called repeatedly across components (e.g., in `generateMetadata`, `Page`, `Sidebar`). Even though pages are generated in separate contexts, caching within a single page generation prevents redundant full scans of the content directory (e.g., `getPapers` reading all files for backlinks/glossary).
+**Action:** Always wrap file-system based content fetchers in `React.cache` for Next.js App Router projects, especially when used in layouts or metadata generation.
