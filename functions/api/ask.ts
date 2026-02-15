@@ -9,7 +9,7 @@ interface Env {
   };
 }
 
-interface SearchDocument {
+export interface SearchDocument {
   id: string;
   type: string;
   lang: string;
@@ -39,7 +39,7 @@ interface AskRequest {
 }
 
 // Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
+export function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
   const titleLower = doc.title.toLowerCase();
   const contentLower = doc.content.toLowerCase();
@@ -54,7 +54,7 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    const contentMatches = contentLower.split(term).length - 1;
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -137,6 +137,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query is too long (max 500 characters)' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
