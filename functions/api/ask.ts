@@ -9,7 +9,7 @@ interface Env {
   };
 }
 
-interface SearchDocument {
+export interface SearchDocument {
   id: string;
   type: string;
   lang: string;
@@ -38,8 +38,22 @@ interface AskRequest {
   limit?: number;
 }
 
+// Helper to count occurrences without regex overhead or ReDoS risk
+function countOccurrences(text: string, term: string): number {
+  if (!term) return 0;
+  let count = 0;
+  let pos = 0;
+  while (true) {
+    pos = text.indexOf(term, pos);
+    if (pos === -1) break;
+    count++;
+    pos += term.length;
+  }
+  return count;
+}
+
 // Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
+export function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
   const titleLower = doc.title.toLowerCase();
   const contentLower = doc.content.toLowerCase();
@@ -54,7 +68,8 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    // Optimized: Replaced Regex with indexOf loop to prevent ReDoS/crashes on special chars and improve performance
+    const contentMatches = countOccurrences(contentLower, term);
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 

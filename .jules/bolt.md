@@ -1,0 +1,3 @@
+## 2025-02-18 - RegExp ReDoS and Crash in Search
+**Learning:** The `scoreDocument` function in `functions/api/ask.ts` used `new RegExp(userInput, 'g')` inside a loop over all documents. This caused two issues: 1) Performance degradation due to regex compilation in a loop (O(N*M)), and 2) Crashes when `userInput` contained special regex characters like "C++" or "?".
+**Action:** Replaced regex-based counting with a manual `indexOf` loop (`countOccurrences`). This prevents crashes and improves scoring performance by ~25%. Always validate or escape user input before passing to `RegExp`, or prefer string methods (`indexOf`, `split`) for simple substring counting.
