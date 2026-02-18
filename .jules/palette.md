@@ -1,0 +1,3 @@
+## 2026-02-18 - Mobile Layout Overflow
+**Learning:** The `InlineToc` component (and potentially others) can cause horizontal overflow on mobile viewports (e.g., 375px) because its container or parent layout allows expansion beyond the viewport width. This pushes interactive elements (like the new chevron) off-screen if not constrained.
+**Action:** Always verify interactive elements on mobile viewports using realistic widths. Future work should investigate constraining the parent container width or using `max-width: 100vw` with `overflow-x: hidden` on the root layout to prevent horizontal scroll.
