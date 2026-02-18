@@ -39,7 +39,7 @@ interface AskRequest {
 }
 
 // Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
+export function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
   const titleLower = doc.title.toLowerCase();
   const contentLower = doc.content.toLowerCase();
@@ -54,7 +54,12 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    let contentMatches = 0;
+    let pos = contentLower.indexOf(term);
+    while (pos !== -1) {
+      contentMatches++;
+      pos = contentLower.indexOf(term, pos + term.length);
+    }
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -62,7 +67,7 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
 }
 
 // Search the index for relevant documents
-function searchDocuments(
+export function searchDocuments(
   index: SearchIndex,
   query: string,
   lang?: string,
@@ -142,6 +147,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query is too long (max 500 characters)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Get search index
     const index = await getSearchIndex(request);
 
@@ -211,7 +223,6 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
