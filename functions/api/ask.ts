@@ -3,32 +3,15 @@
  * AI-powered search endpoint using Workers AI
  */
 
+import {
+  type SearchIndex,
+  searchDocuments,
+  formatContext
+} from './search-logic';
+
 interface Env {
   AI: {
     run(model: string, options: { messages: Array<{ role: string; content: string }>; max_tokens?: number }): Promise<{ response: string }>;
-  };
-}
-
-interface SearchDocument {
-  id: string;
-  type: string;
-  lang: string;
-  title: string;
-  abstract: string;
-  tags: string[];
-  content: string;
-  url: string;
-  date: string | null;
-  bookId?: string;
-}
-
-interface SearchIndex {
-  generated: string;
-  documents: SearchDocument[];
-  stats: {
-    total: number;
-    byLang: Record<string, number>;
-    byType: Record<string, number>;
   };
 }
 
@@ -36,71 +19,6 @@ interface AskRequest {
   query: string;
   lang?: string;
   limit?: number;
-}
-
-// Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
-  let score = 0;
-  const titleLower = doc.title.toLowerCase();
-  const contentLower = doc.content.toLowerCase();
-  const abstractLower = doc.abstract.toLowerCase();
-  const tagsLower = doc.tags.map(t => t.toLowerCase());
-
-  for (const term of terms) {
-    // Title match (highest weight)
-    if (titleLower.includes(term)) score += 10;
-    // Abstract match (high weight)
-    if (abstractLower.includes(term)) score += 5;
-    // Tag match (high weight)
-    if (tagsLower.some(t => t.includes(term))) score += 5;
-    // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
-  }
-
-  return score;
-}
-
-// Search the index for relevant documents
-function searchDocuments(
-  index: SearchIndex,
-  query: string,
-  lang?: string,
-  limit = 5
-): SearchDocument[] {
-  const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
-
-  let docs = index.documents;
-
-  // Filter by language if specified
-  if (lang) {
-    docs = docs.filter(d => d.lang === lang);
-  }
-
-  // Score and sort documents
-  const scored = docs.map(doc => ({
-    doc,
-    score: scoreDocument(doc, terms)
-  }));
-
-  scored.sort((a, b) => b.score - a.score);
-
-  // Return top matches with non-zero scores
-  return scored
-    .filter(s => s.score > 0)
-    .slice(0, limit)
-    .map(s => s.doc);
-}
-
-// Format context for the AI
-function formatContext(docs: SearchDocument[]): string {
-  if (docs.length === 0) return '';
-
-  return docs.map((doc, i) => {
-    return `[${i + 1}] ${doc.title} (${doc.type})
-URL: https://fractalresonance.com${doc.url}
-${doc.abstract ? `Summary: ${doc.abstract}\n` : ''}Content: ${doc.content.slice(0, 1500)}...`;
-  }).join('\n\n---\n\n');
 }
 
 // Fetch and cache the search index
@@ -123,20 +41,27 @@ async function getSearchIndex(request: Request): Promise<SearchIndex> {
     throw new Error(`Failed to fetch search index: ${response.status}`);
   }
 
-  cachedIndex = await response.json();
+  cachedIndex = await response.json() as SearchIndex;
   cacheTime = now;
-  return cachedIndex!;
+  return cachedIndex;
 }
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context;
 
   try {
-    const body: AskRequest = await request.json();
+    const body = await request.json() as unknown as AskRequest; // Safe casting via unknown
     const { query, lang, limit = 5 } = body;
 
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query is too long (max 500 chars)' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -211,7 +136,6 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -243,5 +167,5 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     body: JSON.stringify({ query, lang }),
   });
 
-  return onRequestPost({ ...context, request: postRequest });
+  return onRequestPost({ ...context, request: postRequest } as any);
 };

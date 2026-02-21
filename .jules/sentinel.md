@@ -1,0 +1,4 @@
+## 2025-05-23 - ReDoS in Search Logic
+**Vulnerability:** A ReDoS (Regular Expression Denial of Service) vulnerability was identified in the `functions/api/ask.ts` search scoring logic. The code used `new RegExp(term, 'g')` where `term` was derived from user input. A query containing regex special characters (e.g., `(`) caused the Cloudflare Worker to crash due to a `SyntaxError` (Unterminated group).
+**Learning:** Even simple string matching can be dangerous if user input is passed directly to `RegExp` constructors. Cloudflare Workers/Pages Functions are susceptible to uncaught exceptions from such errors, leading to 500 errors or service disruption.
+**Prevention:** Avoid `new RegExp` with user input whenever possible. Use `indexOf`, `includes`, or escape the input first. In this case, a manual `countOccurrences` helper using `indexOf` was implemented to safely count matches without regex overhead or risk.
