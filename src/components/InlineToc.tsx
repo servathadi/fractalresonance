@@ -16,8 +16,17 @@ export function InlineToc({
   const hideClass = hideAt === 'lg' ? 'lg:hidden' : hideAt === 'xl' ? 'xl:hidden' : '2xl:hidden';
 
   return (
-    <details className={`${hideClass} mb-6 border border-frc-blue rounded-lg ${className}`}>
-      <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+    <details className={`${hideClass} mb-6 border border-frc-blue rounded-lg ${className} group`}>
+      <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden flex items-center gap-2">
+        <svg
+          className="w-4 h-4 text-frc-steel transition-transform duration-200 group-open:rotate-90"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
         <span className="text-xs uppercase tracking-wider text-frc-steel">{title}</span>
       </summary>
       <nav className="px-4 pb-4">

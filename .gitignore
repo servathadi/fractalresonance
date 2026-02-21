@@ -48,3 +48,4 @@ content/inbox/
 
 # Generated files
 public/search-index.json
+public/search-index-*.json
