@@ -3,23 +3,12 @@
  * AI-powered search endpoint using Workers AI
  */
 
+import { SearchDocument, scoreDocument } from './search-logic';
+
 interface Env {
   AI: {
     run(model: string, options: { messages: Array<{ role: string; content: string }>; max_tokens?: number }): Promise<{ response: string }>;
   };
-}
-
-interface SearchDocument {
-  id: string;
-  type: string;
-  lang: string;
-  title: string;
-  abstract: string;
-  tags: string[];
-  content: string;
-  url: string;
-  date: string | null;
-  bookId?: string;
 }
 
 interface SearchIndex {
@@ -36,29 +25,6 @@ interface AskRequest {
   query: string;
   lang?: string;
   limit?: number;
-}
-
-// Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
-  let score = 0;
-  const titleLower = doc.title.toLowerCase();
-  const contentLower = doc.content.toLowerCase();
-  const abstractLower = doc.abstract.toLowerCase();
-  const tagsLower = doc.tags.map(t => t.toLowerCase());
-
-  for (const term of terms) {
-    // Title match (highest weight)
-    if (titleLower.includes(term)) score += 10;
-    // Abstract match (high weight)
-    if (abstractLower.includes(term)) score += 5;
-    // Tag match (high weight)
-    if (tagsLower.some(t => t.includes(term))) score += 5;
-    // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
-  }
-
-  return score;
 }
 
 // Search the index for relevant documents
@@ -142,6 +108,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query too long (max 500 characters)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Get search index
     const index = await getSearchIndex(request);
 
@@ -211,7 +184,8 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      // Don't leak internal error details to the client
+      details: 'An internal error occurred. Please try again later.',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -243,5 +217,5 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     body: JSON.stringify({ query, lang }),
   });
 
-  return onRequestPost({ ...context, request: postRequest });
+  return onRequestPost({ ...context, request: postRequest as any });
 };
