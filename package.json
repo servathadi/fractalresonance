@@ -20,7 +20,8 @@
     "content:new-blog": "node scripts/new-blog.js",
     "content:new-topic": "node scripts/new-topic.js",
     "content:sync-media": "node scripts/sync-media.js",
-    "content:process-inbox": "node scripts/process-inbox.js"
+    "content:process-inbox": "node scripts/process-inbox.js",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
@@ -37,15 +38,21 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260129.0",
     "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/katex": "^0.16.7",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/sanitize-html": "^2.16.0",
+    "@vitejs/plugin-react": "^5.1.4",
     "gray-matter": "^4.0.3",
+    "jsdom": "^28.1.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
   }
 }

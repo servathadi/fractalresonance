@@ -2,6 +2,9 @@ export type Locale = 'en' | 'es' | 'fr' | 'fa';
 
 export const dictionaries = {
   en: {
+    accessibility: {
+      skipToContent: 'Skip to content',
+    },
     nav: {
       startHere: 'Start Here',
       about: 'About',
@@ -32,6 +35,9 @@ export const dictionaries = {
     }
   },
   es: {
+    accessibility: {
+      skipToContent: 'Saltar al contenido',
+    },
     nav: {
       startHere: 'Empezar',
       about: 'Acerca',
@@ -62,6 +68,9 @@ export const dictionaries = {
     }
   },
   fr: {
+    accessibility: {
+      skipToContent: 'Aller au contenu',
+    },
     nav: {
       startHere: 'Commencer',
       about: 'À propos',
@@ -92,6 +101,9 @@ export const dictionaries = {
     }
   },
   fa: {
+    accessibility: {
+      skipToContent: 'پرش به محتوا',
+    },
     nav: {
       startHere: 'شروع',
       about: 'درباره',
