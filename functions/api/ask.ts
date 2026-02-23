@@ -38,6 +38,18 @@ interface AskRequest {
   limit?: number;
 }
 
+// Helper to count occurrences of a substring safely (avoids ReDoS from RegExp)
+function countOccurrences(text: string, term: string): number {
+  if (!term) return 0;
+  let count = 0;
+  let pos = text.indexOf(term);
+  while (pos !== -1) {
+    count++;
+    pos = text.indexOf(term, pos + term.length);
+  }
+  return count;
+}
+
 // Simple relevance scoring based on term frequency
 function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
@@ -54,7 +66,7 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    const contentMatches = countOccurrences(contentLower, term);
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -142,6 +154,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query too long (max 500 characters)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Get search index
     const index = await getSearchIndex(request);
 
@@ -211,7 +230,6 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -243,5 +261,5 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     body: JSON.stringify({ query, lang }),
   });
 
-  return onRequestPost({ ...context, request: postRequest });
+  return onRequestPost({ ...context, request: postRequest as any });
 };
