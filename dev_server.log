@@ -1,0 +1,21 @@
+
+> fractalresonance@2.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.9
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling /[lang] ...
+ ✓ Compiled /[lang] in 7.1s (702 modules)
+ GET /en 200 in 10096ms
+ ✓ Compiled in 342ms (273 modules)
+ GET /en 200 in 321ms
+ GET /es 200 in 739ms
+ ✓ Compiled in 212ms (273 modules)
+ ✓ Compiled in 767ms (702 modules)
+ ✓ Compiled in 208ms (273 modules)
+ ✓ Compiled in 176ms (273 modules)
+ ✓ Compiled in 159ms (273 modules)

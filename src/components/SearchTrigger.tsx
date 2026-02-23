@@ -1,6 +1,8 @@
 'use client';
 
 import { useCallback } from 'react';
+import { usePathname } from 'next/navigation';
+import { getLangFromPathname } from '@/lib/site';
 
 interface SearchTriggerProps {
   className?: string;
@@ -14,6 +16,10 @@ const DICT: Record<string, string> = {
 };
 
 export function SearchTrigger({ className = '' }: SearchTriggerProps) {
+  const pathname = usePathname();
+  const lang = getLangFromPathname(pathname, 'en');
+  const label = DICT[lang] || DICT['en'];
+
   const openSearch = useCallback(() => {
     // Dispatch a keyboard event to trigger the CommandPalette (Cmd+K)
     const event = new KeyboardEvent('keydown', {
@@ -30,7 +36,9 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
       type="button"
       onClick={openSearch}
       className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold transition-colors ${className}`}
-      aria-label="Open search"
+      aria-label={label}
+      title={label}
+      aria-keyshortcuts="Control+K /"
     >
       <svg
         className="w-4 h-4"
