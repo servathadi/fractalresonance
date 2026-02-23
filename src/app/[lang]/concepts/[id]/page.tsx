@@ -11,6 +11,7 @@ import { PageShell } from '@/components/PageShell';
 import { schemaConceptPage } from '@/lib/schema';
 import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -39,26 +40,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = concept.frontmatter;
   const description = concept.body.split('\n\n').find(p => p && !p.startsWith('#')) || '';
-  const conceptUrl = `https://fractalresonance.com/${lang}/concepts/${fm.id}`;
+  const conceptUrl = `/${lang}/concepts/${fm.id}`;
   const alternates = getAlternateLanguages('concepts', fm.id);
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
     description: description,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    alternates: {
-      canonical: conceptUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: description,
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-      url: conceptUrl,
-    },
-  };
+    url: conceptUrl,
+    lang,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Concepts',
+  }, alternates);
 }
 
 export default async function ConceptPage({ params }: Props) {

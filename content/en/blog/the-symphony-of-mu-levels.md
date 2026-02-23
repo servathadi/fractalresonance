@@ -117,6 +117,6 @@ As you go about your day, remember: you're not just a human being having experie
 *This is the first in our series exploring the foundational concepts of Fractal Resonance Cognition. Stay tuned for more insights into the nature of consciousness and reality.*
 
 **Related Reading:**
-- [[FRC 100.001 - Fractal Resonance Cognition Framework]]
-- [[Understanding Consciousness Across Scales]]
-- [[The Mathematics of Resonance]] 
+- [[FRC-100-001|Fractal Resonance Coherence: A Framework for Complex Systems]]
+- [[mu-levels|Understanding μ-Levels]]
+- [[lambda-field|The Lambda Field and Coherence Dynamics]] 

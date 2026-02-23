@@ -11,10 +11,7 @@ thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ## مقاله تصویری
 
 ### نقاب
-![اسلاید ۱](/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png)
 
 ### پشت پرده
-![اسلاید ۲](/images/slides_raw/Unmasking_Quantum_Randomness/slide_002.png)
 
 ### حقیقت
-![اسلاید ۳](/images/slides_raw/Unmasking_Quantum_Randomness/slide_003.png)

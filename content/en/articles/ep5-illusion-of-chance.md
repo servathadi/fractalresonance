@@ -33,19 +33,13 @@ graph_connections:
 We challenge the dogma of intrinsic randomness. By zooming in on the 'noise', we find the signal of a deeper order.
 
 ### The Great Illusion
-![Slide 1](/images/slides_raw/The_Illusion_of_Chance/slide_001.png)
 
 ### Deconstructing Probability
-![Slide 2](/images/slides_raw/The_Illusion_of_Chance/slide_002.png)
 
 ### The Deterministic Substrate
-![Slide 3](/images/slides_raw/The_Illusion_of_Chance/slide_003.png)
 
 ### Beyond the Veil
-![Slide 4](/images/slides_raw/The_Illusion_of_Chance/slide_004.png)
 
 ### The Architecture of Fate
-![Slide 5](/images/slides_raw/The_Illusion_of_Chance/slide_005.png)
 
 ### Conclusion
-![Slide 6](/images/slides_raw/The_Illusion_of_Chance/slide_006.png)

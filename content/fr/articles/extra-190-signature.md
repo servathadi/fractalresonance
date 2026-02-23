@@ -11,13 +11,9 @@ thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
 ## Essai Visuel
 
 ### La Signature
-![Diapositive 1](/images/slides_raw/The_190_Signature/slide_001.png)
 
 ### Analyse
-![Diapositive 2](/images/slides_raw/The_190_Signature/slide_002.png)
 
 ### Les Données
-![Diapositive 3](/images/slides_raw/The_190_Signature/slide_003.png)
 
 ### Confirmation
-![Diapositive 4](/images/slides_raw/The_190_Signature/slide_004.png)

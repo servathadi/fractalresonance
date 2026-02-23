@@ -58,22 +58,15 @@ graph_connections:
 This episode explores the core mechanics of the FRC engine—the quantum theory that underpins the entire framework.
 
 ### The Foundation
-![Slide 1](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_001.png)
 
 ### The Core Mechanism
-![Slide 2](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_002.png)
 
 ### The Resonance Field
-![Slide 3](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_003.png)
 
 ### Quantum Dynamics
-![Slide 4](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_004.png)
 
 ### The Architecture
-![Slide 5](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_005.png)
 
 ### Coherence in Action
-![Slide 6](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_006.png)
 
 ### The Future of Physics
-![Slide 7](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_007.png)

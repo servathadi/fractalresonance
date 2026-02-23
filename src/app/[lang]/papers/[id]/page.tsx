@@ -23,6 +23,10 @@ import {
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata, generateCitationMetadata } from '@/lib/metadata';
+import { TierBadge, inferTier } from '@/components/TierBadge';
+import { RelatedContent } from '@/components/RelatedContent';
+import { DownloadMarkdown } from '@/components/DownloadMarkdown';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -59,47 +63,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
+  const canonicalUrl = `/${lang}/papers/${fm.id}`;
   const alternates = getAlternateLanguages('papers', fm.id);
 
-  return {
+  // Use video thumbnail as OG image if available
+  const ogImage = fm.video?.thumbnailUrl || undefined;
+
+  const baseMetadata = generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    authors: [{ name: author }],
-    alternates: {
-      canonical: canonicalUrl,
-      languages: alternates,
-    },
-    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
-    openGraph: {
-      type: 'article',
+    description: fm.abstract || '',
+    url: canonicalUrl,
+    lang,
+    publishedTime: fm.date,
+    author,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Research Papers',
+    noindex: norm === 'river',
+    image: ogImage,
+  }, alternates);
+
+  return {
+    ...baseMetadata,
+    other: generateCitationMetadata({
       title: fm.title,
-      description: fm.abstract,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-    },
-    other: {
-      // Google Scholar meta tags
-      'citation_title': fm.title,
-      'citation_author': author,
-      ...(fm.date && { 'citation_publication_date': fm.date }),
-      'citation_journal_title': 'Fractal Resonance Coherence',
-      ...(fm.doi && { 'citation_doi': fm.doi }),
-      'citation_abstract_html_url': canonicalUrl,
-      'citation_language': lang,
-      ...(fm.id && { 'citation_technical_report_number': fm.id }),
-      // Dublin Core for additional discoverability
-      'DC.title': fm.title,
-      'DC.creator': author,
-      ...(fm.date && { 'DC.date': fm.date }),
-      'DC.type': 'Text',
-      'DC.format': 'text/html',
-      'DC.language': lang,
-      ...(fm.doi && { 'DC.identifier': `doi:${fm.doi}` }),
-    },
+      author,
+      date: fm.date,
+      doi: fm.doi,
+      id: fm.id,
+      lang,
+      url: `https://fractalresonance.com${canonicalUrl}`,
+    }),
   };
 }
 
@@ -154,27 +148,35 @@ export default async function PaperPage({ params }: Props) {
             <h1 className="text-3xl font-light text-frc-gold mb-3">
               {paper.frontmatter.title}
             </h1>
-            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-frc-text-dim">
               <span>{paper.frontmatter.author || 'H. Servat'}</span>
               <span>{paper.frontmatter.date}</span>
               <span className="font-mono text-xs">{readTime}</span>
               {paper.frontmatter.series && (
                 <span className="tag">{paper.frontmatter.series}</span>
               )}
+              <TierBadge tier={inferTier(fm.tier, canonicalId)} lang={lang} size="md" />
             </div>
+            {/* DOI and Download buttons */}
+          <div className="flex flex-wrap items-center gap-3 mt-3">
             {paper.frontmatter.doi && (
-              <div className="mt-3">
-                <a
-                  href={`https://zenodo.org/doi/${paper.frontmatter.doi}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
-                >
-                  <span>DOI</span>
-                  <span className="text-frc-text">{paper.frontmatter.doi}</span>
-                </a>
-              </div>
+              <a
+                href={`https://zenodo.org/doi/${paper.frontmatter.doi}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+              >
+                <span>DOI</span>
+                <span className="text-frc-text">{paper.frontmatter.doi}</span>
+              </a>
             )}
+            <DownloadMarkdown
+              id={canonicalId}
+              title={fm.title}
+              content={paper.raw}
+              lang={lang}
+            />
+          </div>
             {Array.isArray(paper.frontmatter.tags) && paper.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
                 {paper.frontmatter.tags.map(tag => (
@@ -290,6 +292,16 @@ export default async function PaperPage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <RelatedContent
+            relatedIds={Array.isArray(fm.related) ? fm.related : []}
+            tags={Array.isArray(fm.tags) ? fm.tags : []}
+            currentId={canonicalId}
+            glossary={glossary}
+            basePath={basePath}
+            lang={lang}
+          />
       </PageShell>
     </>
   );

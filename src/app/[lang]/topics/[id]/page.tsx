@@ -10,6 +10,7 @@ import { TopicsSidebar } from '@/components/TopicsSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import {
   estimateReadTime,
   getTopic,
@@ -23,6 +24,7 @@ import {
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 import { getLensLabel, normalizeLensKey } from '@/lib/lenses';
+import { generatePageMetadata } from '@/lib/metadata';
 
 export const dynamicParams = false;
 
@@ -53,25 +55,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = topic.frontmatter;
   const alternates = getAlternateLanguages('topics', fm.id);
-  const topicUrl = `https://fractalresonance.com/${lang}/topics/${fm.id}`;
+  const topicUrl = `/${lang}/topics/${fm.id}`;
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.short_answer || fm.abstract,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    alternates: {
-      canonical: topicUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: fm.short_answer || fm.abstract,
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-      url: topicUrl,
-    },
-  };
+    description: fm.short_answer || fm.abstract || '',
+    url: topicUrl,
+    lang,
+    publishedTime: fm.date,
+    author: fm.author || 'FRC',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Topics',
+  }, alternates);
 }
 
 function SpectrumBlock({
@@ -339,6 +335,16 @@ export default async function TopicPage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        {/* Related Content */}
+        <RelatedContent
+          relatedIds={Array.isArray(fm.related) ? fm.related : []}
+          tags={Array.isArray(fm.tags) ? fm.tags : []}
+          currentId={id}
+          glossary={glossary}
+          basePath={basePath}
+          lang={lang}
+        />
       </PageShell>
     </>
   );

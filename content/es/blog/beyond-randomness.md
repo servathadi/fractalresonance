@@ -136,6 +136,6 @@ A medida que aprendemos a escuchar la música del universo, descubrimos que no s
 *Esta entrada explora las implicaciones revolucionarias de la perspectiva determinista de FRC. El universo está más ordenado, es más bello y más predecible de lo que jamás imaginamos.*
 
 **Lectura relacionada:**
-- [[FRC 100.002 - Caos cuántico y resonancia fractal]]
-- [[La matemática de la resonancia determinista]]
-- [[Conciencia y poder predictivo]]
+- [[FRC-100-002|Caos Cuántico en el Billar Stadium]]
+- [[FRC-100-006|La Emergencia de la Regla de Born]]
+- [[coherence|Coherencia en FRC]]

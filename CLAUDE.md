@@ -6,7 +6,7 @@
 **Author:** Hadi Servat
 **Site:** https://fractalresonance.com
 **Repo:** github.com/servathadi/fractalresonance (branch: main)
-**Deploy:** Push to main → Cloudflare Pages auto-deploys
+**Deploy:** Cloudflare Pages auto-deploys the configured **production branch** (often `main`; sometimes `v2-foundation`)
 
 ## Your Role
 
@@ -121,7 +121,7 @@ docs/                 ← Project documentation
 ```bash
 npm run dev           # Development (localhost:3000)
 npm run build         # Static export
-# Push to GitHub → Cloudflare Pages auto-deploys
+# Push to GitHub → Cloudflare Pages auto-deploys the configured production branch
 ```
 
 ## When Adding Pages

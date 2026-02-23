@@ -5,6 +5,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { TextSharePopover } from '@/components/TextSharePopover';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { SkipLink } from '@/components/SkipLink';
 import { schemaSiteGraph, schemaDataset } from '@/lib/schema';
 import './globals.css';
 
@@ -17,18 +18,42 @@ export const metadata: Metadata = {
   keywords: ['FRC', 'fractal resonance', 'coherence', 'consciousness', 'quantum mechanics', 'entropy', 'reciprocity'],
   authors: [{ name: 'Hadi Servat' }],
   metadataBase: new URL('https://fractalresonance.com'),
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: '/en/feed.xml', title: 'Fractal Resonance - English RSS Feed' },
+        { url: '/es/feed.xml', title: 'Fractal Resonance - Spanish RSS Feed' },
+        { url: '/fa/feed.xml', title: 'Fractal Resonance - Persian RSS Feed' },
+        { url: '/fr/feed.xml', title: 'Fractal Resonance - French RSS Feed' },
+      ],
+      'application/atom+xml': [
+        { url: '/en/atom.xml', title: 'Fractal Resonance - English Atom Feed' },
+        { url: '/es/atom.xml', title: 'Fractal Resonance - Spanish Atom Feed' },
+        { url: '/fa/atom.xml', title: 'Fractal Resonance - Persian Atom Feed' },
+        { url: '/fr/atom.xml', title: 'Fractal Resonance - French Atom Feed' },
+      ],
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Fractal Resonance Cognition',
     title: 'Fractal Resonance Cognition',
     description: 'Research platform exploring the reciprocal relationship between entropy and coherence.',
-    images: [{ url: '/brand/banner.jpg', width: 1024, height: 572 }],
+    images: [{
+      url: '/brand/banner.jpg',
+      width: 1024,
+      height: 572,
+      alt: 'Fractal Resonance Cognition - Research Platform',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@fractalresonance',
+    creator: '@hadiservat',
     title: 'Fractal Resonance Cognition',
     description: 'Research platform exploring the reciprocal relationship between entropy and coherence.',
+    images: ['/brand/banner.jpg'],
   },
   robots: {
     index: true,
@@ -58,10 +83,11 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col">
         <GoogleAnalytics />
         <ThemeProvider>
+          <SkipLink />
           <Header />
-          <div className="flex-1">
+          <main id="main-content" className="flex-1" tabIndex={-1}>
             {children}
-          </div>
+          </main>
           <Footer />
           <TextSharePopover />
         </ThemeProvider>

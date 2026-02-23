@@ -31,10 +31,7 @@ graph_connections:
 ## Visual Essay
 
 ### The Mask
-![Slide 1](/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png)
 
 ### Behind the Curtain
-![Slide 2](/images/slides_raw/Unmasking_Quantum_Randomness/slide_002.png)
 
 ### The Truth
-![Slide 3](/images/slides_raw/Unmasking_Quantum_Randomness/slide_003.png)

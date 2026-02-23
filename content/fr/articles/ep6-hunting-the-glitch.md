@@ -16,19 +16,13 @@ video:
 La chasse est ouverte. Nous définissons la configuration expérimentale spécifique requise pour isoler et détecter la signature FRC.
 
 ### La Cible
-![Diapositive 1](/images/slides_raw/Hunting_the_Glitch/slide_001.png)
 
 ### La Configuration
-![Diapositive 2](/images/slides_raw/Hunting_the_Glitch/slide_002.png)
 
 ### La Prédiction
-![Diapositive 3](/images/slides_raw/Hunting_the_Glitch/slide_003.png)
 
 ### Le Glitch
-![Diapositive 4](/images/slides_raw/Hunting_the_Glitch/slide_004.png)
 
 ### Mesurer la Déviation
-![Diapositive 5](/images/slides_raw/Hunting_the_Glitch/slide_005.png)
 
 ### Conclusion
-![Diapositive 6](/images/slides_raw/Hunting_the_Glitch/slide_006.png)

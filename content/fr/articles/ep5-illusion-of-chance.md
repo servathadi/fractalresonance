@@ -16,19 +16,13 @@ video:
 Nous défions le dogme du hasard intrinsèque. En zoomant sur le 'bruit', nous trouvons le signal d'un ordre plus profond.
 
 ### La Grande Illusion
-![Diapositive 1](/images/slides_raw/The_Illusion_of_Chance/slide_001.png)
 
 ### Déconstruire la Probabilité
-![Diapositive 2](/images/slides_raw/The_Illusion_of_Chance/slide_002.png)
 
 ### Le Substrat Déterministe
-![Diapositive 3](/images/slides_raw/The_Illusion_of_Chance/slide_003.png)
 
 ### Au-delà du Voile
-![Diapositive 4](/images/slides_raw/The_Illusion_of_Chance/slide_004.png)
 
 ### L'Architecture du Destin
-![Diapositive 5](/images/slides_raw/The_Illusion_of_Chance/slide_005.png)
 
 ### Conclusion
-![Diapositive 6](/images/slides_raw/The_Illusion_of_Chance/slide_006.png)

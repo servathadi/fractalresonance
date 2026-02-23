@@ -7,11 +7,16 @@
   "license": "BSL-1.1",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-search-index.js && next build",
+    "build": "node scripts/generate-search-index.js && node scripts/generate-catalog.mjs && next build",
+    "build:catalog": "node scripts/generate-catalog.mjs",
     "build:index": "node scripts/generate-search-index.js",
     "start": "next start",
     "lint": "next lint",
-    "validate": "node scripts/validate-links.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "validate": "node scripts/validate-content.mjs",
+    "validate:old": "node scripts/validate-links.js",
     "content:report": "node scripts/content-report.js",
     "content:sanitize": "node scripts/sanitize-content.js",
     "content:audit": "node scripts/content-audit.js",
@@ -20,7 +25,8 @@
     "content:new-blog": "node scripts/new-blog.js",
     "content:new-topic": "node scripts/new-topic.js",
     "content:sync-media": "node scripts/sync-media.js",
-    "content:process-inbox": "node scripts/process-inbox.js"
+    "content:process-inbox": "node scripts/process-inbox.js",
+    "cms:run": "node scripts/cms-run.js"
   },
   "dependencies": {
     "@types/d3": "^7.4.3",
@@ -32,20 +38,28 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanitize-html": "^2.17.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260129.0",
     "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/katex": "^0.16.7",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/sanitize-html": "^2.16.0",
+    "@vercel/og": "^0.8.6",
+    "@vitejs/plugin-react": "^5.1.2",
     "gray-matter": "^4.0.3",
+    "jsdom": "^27.4.0",
     "postcss": "^8.4.0",
+    "satori": "^0.19.1",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
   }
 }

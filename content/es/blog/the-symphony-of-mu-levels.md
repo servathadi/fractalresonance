@@ -117,6 +117,6 @@ Mientras realizas tus actividades diarias, recuerda: no eres solo un ser humano 
 *Este es el primero de nuestra serie que explora los conceptos fundacionales de la Coherencia de Resonancia Fractal. Mantente atento para más visiones sobre la naturaleza de la conciencia y la realidad.*
 
 **Lectura relacionada:**
-- [[FRC 100.001 - Marco de Coherencia de Resonancia Fractal]]
-- [[Comprendiendo la conciencia a través de las escalas]]
-- [[La matemática de la resonancia]]
+- [[FRC-100-001|Coherencia de Resonancia Fractal]]
+- [[mu-levels|Niveles μ]]
+- [[lambda-field|El Campo Lambda]]

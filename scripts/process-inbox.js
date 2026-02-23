@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { glob } = require('glob');
 const crypto = require('crypto');
+const { spawnSync } = require('child_process');
 
 const INBOX_DIR = path.join(process.cwd(), 'content', 'inbox');
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -27,18 +28,29 @@ function todayIso() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function slugify(input) {
+  return String(input || '')
+    .toLowerCase()
+    .replace(/['"]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 80);
+}
+
 function stripBadControls(str) {
   return str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
 }
 
 function normalizeFrontmatterDelimiters(str) {
   return str
-    .replace(/^(?:\uFEFF)?---\s*\r?$/gm, '---')
-    .replace(/^---\s*\r?$/gm, '---');
+    // Normalize delimiter lines (also tolerate `---# Title` mistakes)
+    .replace(/^(?:\uFEFF)?---[^\S\r\n]*(?:#.*)?\r?$/gm, '---')
+    .replace(/^---[^\S\r\n]*(?:#.*)?\r?$/gm, '---');
 }
 
 function parseFrontmatterHeader(text) {
-  const m = text.match(/^(?:\uFEFF)?---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
+  const m = text.match(/^(?:\uFEFF)?---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?/);
   if (!m) return { frontmatter: {}, body: text };
   const fmRaw = m[1];
   const body = text.slice(m[0].length);
@@ -52,6 +64,60 @@ function parseFrontmatterHeader(text) {
     fm[key] = val.replace(/^"|"$/g, '');
   }
   return { frontmatter: fm, body };
+}
+
+function extractTitleFromBody(body) {
+  const b = String(body || '').trim();
+  const m = b.match(/^#\s+(.+)\s*$/m);
+  if (m) return m[1].trim();
+  // Fallback: first non-empty line (trimmed)
+  const line = b.split(/\r?\n/).map((s) => s.trim()).find(Boolean);
+  return line ? line.slice(0, 120) : 'Untitled';
+}
+
+function toYamlFrontmatter(meta) {
+  const lines = ['---'];
+  for (const [k, v] of Object.entries(meta)) {
+    if (v === undefined || v === null || v === '') continue;
+    if (Array.isArray(v)) {
+      lines.push(`${k}:`);
+      for (const item of v) lines.push(`- ${String(item)}`);
+      continue;
+    }
+    lines.push(`${k}: ${String(v)}`);
+  }
+  lines.push('---\n');
+  return lines.join('\n');
+}
+
+function ensureFrontmatter(cleaned, { relPath }) {
+  const { frontmatter, body } = parseFrontmatterHeader(cleaned);
+  const hasFm = Object.keys(frontmatter).length > 0;
+  if (hasFm && frontmatter.id && (frontmatter.title || frontmatter.name)) {
+    return cleaned.endsWith('\n') ? cleaned : `${cleaned}\n`;
+  }
+
+  const relParts = String(relPath || '').split(path.sep).filter(Boolean);
+  const relLang = relParts[0] && relParts[0] !== '_processed' ? relParts[0].toLowerCase() : '';
+  const lang = (frontmatter.lang || relLang || 'en').toLowerCase();
+
+  const title = frontmatter.title || frontmatter.name || extractTitleFromBody(body);
+  const id = frontmatter.id || (relParts[2] ? path.basename(relParts[2], '.md') : null) || `note-${todayIso()}-${Math.random().toString(16).slice(2, 8)}`;
+  const safeId = /^FRC-\d/.test(id) ? id : slugify(id) || `note-${todayIso()}-${Math.random().toString(16).slice(2, 8)}`;
+
+  const type = (frontmatter.type || '').toLowerCase() || undefined;
+  const meta = {
+    id: safeId,
+    title,
+    lang,
+    ...(frontmatter.status ? { status: frontmatter.status } : { status: 'draft' }),
+    ...(frontmatter.date ? { date: frontmatter.date } : { date: todayIso() }),
+    ...(type ? { type } : {}),
+  };
+
+  const fm = toYamlFrontmatter(meta);
+  const out = fm + String(body || '').trim() + '\n';
+  return out;
 }
 
 function ensureDir(p) {
@@ -190,15 +256,22 @@ async function main() {
       process.env.CMS_SOS_TOOLS === 'true'
   );
 
+  const doValidate = !Boolean(args['no-validate']);
+  const doIndex = !Boolean(args['no-index']);
+  const doCatalog = !Boolean(args['no-catalog']);
+  const force = Boolean(args.force);
+
   if (!fs.existsSync(INBOX_DIR)) {
     console.log(`process-inbox: nothing to do (no ${INBOX_DIR})`);
-    return;
+    if (!force) return;
   }
 
-  const files = await glob('**/*.md', { cwd: INBOX_DIR, absolute: true });
+  const files = fs.existsSync(INBOX_DIR)
+    ? await glob('**/*.md', { cwd: INBOX_DIR, absolute: true })
+    : [];
   if (files.length === 0) {
     console.log(`process-inbox: nothing to do (inbox empty)`);
-    return;
+    if (!force) return;
   }
 
   let moved = 0;
@@ -212,7 +285,8 @@ async function main() {
 
     const raw = fs.readFileSync(file, 'utf8');
     const cleaned = normalizeFrontmatterDelimiters(stripBadControls(raw));
-    const { frontmatter } = parseFrontmatterHeader(cleaned);
+    const normalized = ensureFrontmatter(cleaned, { relPath: rel });
+    const { frontmatter } = parseFrontmatterHeader(normalized);
 
     const lang = (frontmatter.lang || rel.split(path.sep)[0] || 'en').toLowerCase();
     const typeRaw = (frontmatter.type || '').toLowerCase();
@@ -240,12 +314,12 @@ async function main() {
         typeDir: dir,
         targetId,
         existingFrontmatter: frontmatter,
-        rawContent: cleaned,
+        rawContent: normalized,
       });
       fs.writeFileSync(outPath, digestedMd, 'utf8');
       digested++;
     } else {
-      fs.writeFileSync(outPath, cleaned, 'utf8');
+      fs.writeFileSync(outPath, normalized, 'utf8');
     }
 
     const processedDir = path.join(INBOX_DIR, '_processed', path.dirname(rel));
@@ -253,6 +327,21 @@ async function main() {
     fs.renameSync(file, path.join(processedDir, path.basename(rel)));
 
     moved++;
+  }
+
+  if (moved > 0 || force) {
+    if (doValidate) {
+      const r = spawnSync('node', ['scripts/validate-content.mjs'], { stdio: 'inherit' });
+      if (r.status !== 0) process.exit(r.status || 1);
+    }
+    if (doIndex) {
+      const r = spawnSync('node', ['scripts/generate-search-index.js'], { stdio: 'inherit' });
+      if (r.status !== 0) process.exit(r.status || 1);
+    }
+    if (doCatalog) {
+      const r = spawnSync('node', ['scripts/generate-catalog.mjs'], { stdio: 'inherit' });
+      if (r.status !== 0) process.exit(r.status || 1);
+    }
   }
 
   console.log(`process-inbox: moved ${moved}, skipped ${skipped}${useSos ? `, digested ${digested}` : ''}`);

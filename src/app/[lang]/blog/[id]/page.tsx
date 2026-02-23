@@ -9,9 +9,11 @@ import { BlogSidebar } from '@/components/BlogSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import { VoiceTag } from '@/components/VoiceTag';
 import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -39,26 +41,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Not Found' };
 
   const fm = post.frontmatter;
-  const postUrl = `https://fractalresonance.com/${lang}/blog/${fm.id}`;
+  const postUrl = `/${lang}/blog/${fm.id}`;
   const alternates = getAlternateLanguages('blog', fm.id);
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    alternates: {
-      canonical: postUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: fm.abstract,
-      publishedTime: fm.date,
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-    },
-  };
+    description: fm.abstract || '',
+    url: postUrl,
+    lang,
+    publishedTime: fm.date,
+    author: fm.author || 'H. Servat',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Blog',
+  }, alternates);
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -179,6 +175,16 @@ export default async function BlogPostPage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        {/* Related Content */}
+        <RelatedContent
+          relatedIds={Array.isArray(fm.related) ? fm.related : []}
+          tags={Array.isArray(fm.tags) ? fm.tags : []}
+          currentId={id}
+          glossary={glossary}
+          basePath={basePath}
+          lang={lang}
+        />
       </PageShell>
     </>
   );

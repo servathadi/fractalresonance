@@ -16,22 +16,15 @@ video:
 این قسمت مکانیک اصلی موتور FRC—نظریه کوانتومی که زیربنای کل چارچوب است—را بررسی می‌کند.
 
 ### بنیاد
-![اسلاید ۱](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_001.png)
 
 ### مکانیسم اصلی
-![اسلاید ۲](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_002.png)
 
 ### میدان رزونانس
-![اسلاید ۳](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_003.png)
 
 ### دینامیک کوانتومی
-![اسلاید ۴](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_004.png)
 
 ### معماری
-![اسلاید ۵](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_005.png)
 
 ### همدوسی در عمل
-![اسلاید ۶](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_006.png)
 
 ### آینده فیزیک
-![اسلاید ۷](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_007.png)

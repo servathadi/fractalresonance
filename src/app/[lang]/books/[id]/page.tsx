@@ -8,10 +8,12 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import { BookExperience } from '@/components/BookExperience';
 import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
 import { schemaBookPage, type BookMeta, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -40,28 +42,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
+  const bookUrl = `/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
-  return {
+  return generatePageMetadata({
+    type: 'book',
     title: fm.title,
-    description: fm.abstract,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    authors: [{ name: author }],
-    alternates: {
-      canonical: bookUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'book',
-      title: fm.title,
-      description: fm.abstract,
-      authors: [author],
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-      url: bookUrl,
-    },
-  };
+    description: fm.abstract || '',
+    url: bookUrl,
+    lang,
+    author,
+    releaseDate: fm.date,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+  }, alternates);
 }
 
 export default async function BookPage({ params }: Props) {
@@ -228,6 +221,16 @@ export default async function BookPage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <RelatedContent
+            relatedIds={Array.isArray(fm.related) ? fm.related : []}
+            tags={Array.isArray(fm.tags) ? fm.tags : []}
+            currentId={id}
+            glossary={glossary}
+            basePath={basePath}
+            lang={lang}
+          />
       </PageShell>
     </>
   );

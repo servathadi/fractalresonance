@@ -136,6 +136,6 @@ As we learn to hear the music of the universe, we discover that we're not passiv
 *This post explores the revolutionary implications of FRC's deterministic perspective. The universe is more ordered, more beautiful, and more predictable than we ever imagined.*
 
 **Related Reading:**
-- [[FRC 100.002 - Quantum Chaos and Fractal Resonance]]
-- [[The Mathematics of Deterministic Resonance]]
-- [[Consciousness and Predictive Power]] 
+- [[FRC-100-002|Quantum Chaos and Nodal Patterns in the Stadium Billiard]]
+- [[FRC-100-006|The Emergence of the Born Rule from Resonant Equilibrium]]
+- [[coherence|Coherence in FRC]] 

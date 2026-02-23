@@ -8,6 +8,7 @@ import { PeopleSidebar } from '@/components/PeopleSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import {
   estimateReadTime,
   getPerson,
@@ -19,6 +20,7 @@ import {
   getWorkForPerson,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 export const dynamicParams = false;
 
@@ -48,21 +50,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!person) return { title: 'Not Found' };
   const fm = person.frontmatter;
 
-  return {
+  // Extract first and last name for OG profile
+  const nameParts = (fm.title || '').split(' ');
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(' ');
+
+  return generatePageMetadata({
+    type: 'profile',
     title: fm.title,
-    description: fm.tagline || fm.abstract,
-    keywords: fm.tags,
-    authors: [{ name: fm.title }],
-    alternates: {
-      canonical: `https://fractalresonance.com/${lang}/people/${fm.id}`,
-    },
-    openGraph: {
-      type: 'profile',
-      title: fm.title,
-      description: fm.tagline || fm.abstract,
-      locale: lang,
-    },
-  };
+    description: fm.tagline || fm.abstract || '',
+    url: `/${lang}/people/${fm.id}`,
+    lang,
+    image: fm.avatar, // Use avatar for profile OG image
+    firstName,
+    lastName,
+    username: fm.id,
+  });
 }
 
 export default async function PersonPage({ params }: Props) {

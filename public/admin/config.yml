@@ -1,0 +1,79 @@
+backend:
+  name: github
+  repo: servathadi/fractalresonance
+  # Set this to the branch Cloudflare Pages deploys from (often "main" or "v2-foundation")
+  branch: v2-foundation
+
+publish_mode: editorial_workflow
+
+media_folder: "public/media/uploads"
+public_folder: "/media/uploads"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "papers_en"
+    label: "Papers (EN)"
+    folder: "content/en/papers"
+    create: true
+    slug: "{{id}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "id", label: "ID", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { name: "status", label: "Status", widget: "select", options: ["draft", "review", "published"], default: "draft" }
+      - { name: "tier", label: "Tier", widget: "select", options: ["foundational", "applied", "speculative"] }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "abstract", label: "Abstract", widget: "text", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "articles_en"
+    label: "Articles (EN)"
+    folder: "content/en/articles"
+    create: true
+    slug: "{{id}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "id", label: "ID", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { name: "status", label: "Status", widget: "select", options: ["draft", "review", "published"], default: "draft" }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "summary", label: "Summary", widget: "text", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "concepts_en"
+    label: "Concepts (EN)"
+    folder: "content/en/concepts"
+    create: true
+    slug: "{{id}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "id", label: "ID", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "status", label: "Status", widget: "select", options: ["draft", "review", "published"], default: "draft" }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "topics_en"
+    label: "Topics (EN)"
+    folder: "content/en/topics"
+    create: true
+    slug: "{{id}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { name: "id", label: "ID", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "status", label: "Status", widget: "select", options: ["draft", "review", "published"], default: "draft" }
+      - { name: "tags", label: "Tags", widget: "list", required: false }
+      - { name: "short_answer", label: "Short Answer", widget: "text", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
+

@@ -21,6 +21,7 @@ import {
 } from '@/lib/content';
 import { schemaChapterPage, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string; chapter: string }>;
@@ -82,29 +83,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
-  const chapterUrl = `${bookUrl}/chapter/${chapter}`;
+  const chapterUrl = `/${lang}/books/${fm.id}/chapter/${chapter}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
   return {
-    title: `${fm.title} — ${ch.title}`,
-    description: fm.abstract,
-    keywords: Array.isArray(fm.tags) ? [...fm.tags, 'chapter'] : ['chapter'],
-    authors: [{ name: author }],
-    alternates: {
-      canonical: chapterUrl,
-      languages: alternates,
-    },
-    robots: { index: true, follow: true },
-    openGraph: {
+    ...generatePageMetadata({
       type: 'book',
       title: `${fm.title} — ${ch.title}`,
-      description: fm.abstract,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
+      description: fm.abstract || '',
       url: chapterUrl,
-    },
+      lang,
+      author,
+      tags: Array.isArray(fm.tags) ? [...fm.tags, 'chapter'] : ['chapter'],
+    }, alternates),
+    robots: { index: true, follow: true },
   };
 }
 

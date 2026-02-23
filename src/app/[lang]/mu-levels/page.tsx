@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { getLanguages, getSitePage, getGlossary } from '@/lib/content';
+import { getLanguages, getSitePage, getConcept, getGlossary } from '@/lib/content';
 import { renderMarkdown } from '@/lib/markdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const page = getSitePage(lang, 'mu-levels');
+  const concept = getConcept(lang, 'mu-levels');
 
   return {
-    title: page?.frontmatter.title || 'μ-Levels',
-    description: page?.frontmatter.description || 'The nested scales of consciousness.',
+    title: concept?.frontmatter.title || 'μ-Levels',
+    description: (concept?.frontmatter.abstract as string | undefined) || (concept?.frontmatter.description as string | undefined) || 'The nested scales of consciousness.',
   };
 }
 
@@ -25,21 +25,25 @@ interface Props {
 export default async function MuLevelsPage({ params }: Props) {
   const { lang } = await params;
   const page = getSitePage(lang, 'mu-levels');
-  if (!page) notFound();
+  const concept = getConcept(lang, 'mu-levels');
+  if (!page && !concept) notFound();
 
-  const fm = page.frontmatter as any;
+  const fm = (page?.frontmatter || {}) as any;
   const glossary = getGlossary(lang);
-  const bodyHtml = renderMarkdown(page.body, lang, glossary, `/${lang}`);
+  const markdownBody = concept?.body || page?.body || '';
+  const bodyHtml = renderMarkdown(markdownBody, lang, glossary, `/${lang}`);
   
   const levels = fm.levels || [];
   const inv = fm.invariance || {};
 
   return (
     <main className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-light text-frc-gold mb-4">{fm.title}</h1>
-      <p className="text-frc-text-dim mb-10">
-        {fm.intro}
-      </p>
+      <h1 className="text-3xl font-light text-frc-gold mb-4">{fm.title || concept?.frontmatter.title}</h1>
+      {(fm.intro || concept?.frontmatter.abstract) && (
+        <p className="text-frc-text-dim mb-10">
+          {fm.intro || concept?.frontmatter.abstract}
+        </p>
+      )}
 
       <div className="space-y-3">
         {levels.map((mu: any, i: number) => (

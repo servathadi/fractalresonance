@@ -6,6 +6,9 @@ This repo is file-based CMS. The most reliable workflow is:
 2) Run a deterministic processor that produces clean, reviewable markdown in `content/{lang}/{type}/`
 3) Edit/curate and commit only the processed outputs
 
+Optional editor:
+- Open `/admin/` for a lightweight Decap CMS editor that edits the same markdown in git.
+
 ## Option A: One file = one page
 
 Paste any text into a file, then run:
@@ -23,6 +26,30 @@ Then move it into the real CMS structure:
 
 ```bash
 npm run content:process-inbox
+```
+
+## One Command (recommended)
+
+Run the full AI-first pipeline in one shot:
+
+```bash
+# Normalize inbox drafts → publishable markdown
+# Validate content
+# Regenerate search index + catalog
+npm run cms:run
+```
+
+With SOS digestion:
+
+```bash
+CMS_SOS_URL=http://localhost:6060 CMS_SOS_AGENT=agent:River \
+  npm run cms:run -- --ai sos
+```
+
+Optional full site export:
+
+```bash
+npm run cms:run -- --build
 ```
 
 ## Optional: AI Digestion via SOS (River/Kasra)

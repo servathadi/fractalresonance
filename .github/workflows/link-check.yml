@@ -1,0 +1,58 @@
+name: Link Checker
+
+on:
+  # Run weekly to catch link rot
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+  # Run on PRs to main
+  pull_request:
+    branches: [main]
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Check links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check the built output directory
+          args: >-
+            --verbose
+            --no-progress
+            --accept 200,204,206,301,302,307,308
+            --exclude-mail
+            --exclude "^https://twitter.com"
+            --exclude "^https://x.com"
+            --exclude "^https://www.linkedin.com"
+            --exclude "^https://localhost"
+            --exclude "^http://localhost"
+            --exclude "^https://127.0.0.1"
+            --exclude "^file://"
+            --timeout 30
+            --max-retries 3
+            --retry-wait-time 5
+            'out/**/*.html'
+          # Don't fail the build on link errors for now, just report
+          fail: false
+          output: link-report.md
+
+      - name: Upload link report
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.md
+          retention-days: 30

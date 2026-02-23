@@ -1,0 +1,37 @@
+name: Content Validation
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'public/images/**'
+      - 'public/media/**'
+  push:
+    branches: [main, v2-foundation]
+    paths:
+      - 'content/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Validate content
+        run: npm run validate
+
+      - name: Upload validation report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: validation-report.txt
+          retention-days: 7

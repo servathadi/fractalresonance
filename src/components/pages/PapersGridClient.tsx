@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { TierBadge, inferTier, type Tier } from '@/components/TierBadge';
 
 export interface PapersGridItem {
   id: string;
@@ -12,6 +13,7 @@ export interface PapersGridItem {
   tags: string[];
   series: '100' | '566' | '800' | 'other';
   doiSuffix?: string;
+  tier?: Tier;
 }
 
 const DICT: Record<string, {
@@ -203,6 +205,7 @@ export function PapersGridClient({ items, lang = 'en' }: { items: PapersGridItem
                           {paper.doiSuffix && (
                             <span className="font-mono">DOI: {paper.doiSuffix}</span>
                           )}
+                          <TierBadge tier={inferTier(paper.tier, paper.id)} lang={lang} />
                         </div>
                         {paper.abstract && (
                           <p className="text-sm text-frc-text-dim mt-2 line-clamp-2">

@@ -132,8 +132,8 @@ Tailwind @theme inline → utilities auto-resolve via CSS vars
 | Theme | next-themes (dark/light with system detection) |
 | Content | Markdown + YAML frontmatter (Obsidian-compatible) |
 | Hosting | Cloudflare Pages (static export, global CDN) |
-| Source | GitHub (`servathadi/fractalresonance`, branch: `main`) |
-| Deploy | Push to main → Cloudflare auto-deploys |
+| Source | GitHub (`servathadi/fractalresonance`) |
+| Deploy | Push to the Cloudflare Pages **production branch** → auto-deploy |
 
 ## Links
 

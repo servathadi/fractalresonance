@@ -16,19 +16,13 @@ video:
 ما جزم‌اندیشی تصادفی بودن ذاتی را به چالش می‌کشیم. با زوم کردن روی 'نویز'، سیگنال یک نظم عمیق‌تر را پیدا می‌کنیم.
 
 ### توهم بزرگ
-![اسلاید ۱](/images/slides_raw/The_Illusion_of_Chance/slide_001.png)
 
 ### شالوده‌شکنی احتمال
-![اسلاید ۲](/images/slides_raw/The_Illusion_of_Chance/slide_002.png)
 
 ### بستر دترمنیستی
-![اسلاید ۳](/images/slides_raw/The_Illusion_of_Chance/slide_003.png)
 
 ### فراتر از پرده
-![اسلاید ۴](/images/slides_raw/The_Illusion_of_Chance/slide_004.png)
 
 ### معماری سرنوشت
-![اسلاید ۵](/images/slides_raw/The_Illusion_of_Chance/slide_005.png)
 
 ### نتیجه‌گیری
-![اسلاید ۶](/images/slides_raw/The_Illusion_of_Chance/slide_006.png)

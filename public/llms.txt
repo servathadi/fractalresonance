@@ -22,34 +22,95 @@ Reciprocity: dS + k* d ln C = 0 ⟹ S + k* ln C = const
 Free Energy: ΔG = −k*T Δln C
 UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
 
-## Published Papers (15 total, 6 series)
+## Paper Index
 
-### Series 100 — Core Framework
-- FRC-100-001: Fractal Resonance Coherence: A Framework for Complex Systems Analysis
-- FRC-100-002: Fractal Resonance Coherence in Quantum Chaos: Nodal Patterns in the Stadium Billiard
-- FRC-100-003: Guided Wavefunction Collapse via Fractal Resonance
-- FRC-100-004: Quantum Foundations in the FRC Framework
-- FRC-100-005: Thermodynamic Consistency of the Coherence Field
-- FRC-100-006: The Emergence of the Born Rule from Resonant Equilibrium
-- FRC-100-007: The Lambda-Field: Scalar Dynamics of Coherence (v8)
-- FRC-100-010: Foundational Questions in Fractal Resonance Coherence
+### Foundational Papers (Core Theory)
 
-### Series 566 — Thermodynamics
-- FRC-566-001: Entropy-Coherence Reciprocity and the Universal Coherence Condition
+FRC-100-001: Fractal Resonance Coherence: A Framework for Complex Systems Analysis
+  URL: https://fractalresonance.com/en/papers/FRC-100-001
+  DOI: 10.5281/zenodo.15073056
+  Date: 2025-03-23
+  Abstract: Introduces FRC, a theoretical framework for analyzing complex systems across quantum physics, biology, and cosmology.
 
-### Series 16D — AI Alignment
-- FRC-16D-001: The Universal Vector: A Standardized Protocol for Stateful Human-AI Alignment
-- FRC-16D-920: Responsible AI Use Protocol (RAIUP): Ethical Constraints for Deep State Inference
+FRC-100-002: Fractal Resonance Coherence in Quantum Chaos: Nodal Patterns in the Stadium Billiard
+  URL: https://fractalresonance.com/en/papers/FRC-100-002
+  DOI: 10.5281/zenodo.15079278
+  Date: 2025-04-10
+  Abstract: Applies the FRC framework to the quantum stadium billiard.
 
-### Series 821 — Entropic Gravity
-- FRC-821-100: The Λ-Field: Unified Coherence Dynamics and Entropic Gravity
+FRC-100-003: Guided Wavefunction Collapse via Fractal Resonance
+  URL: https://fractalresonance.com/en/papers/FRC-100-003
+  DOI: 10.5281/zenodo.15079820
+  Date: 2025-05-15
+  Abstract: Proposes a dynamical mechanism for wavefunction collapse based on deterministic phase-locking.
 
-### Series 840 — AI Architecture
-- FRC-840-001: The Λ-Tensor Model: Beyond the Transformer Paradigm
-- FRC-840-LTM-001: Coupled Oscillator Dynamics vs Attention: Empirical Comparison
+FRC-100-004: Quantum Foundations in the FRC Framework
+  URL: https://fractalresonance.com/en/papers/FRC-100-004
+  DOI: 10.5281/zenodo.17438174
+  Date: 2025-06-20
+  Abstract: Comprehensive overview of the ontological implications of FRC.
 
-### Series 841 — Resonant Computing
-- FRC-841-004: Resonant Computing: Coherence Processing Units and Non-Boolean Logic
+FRC-100-005: Thermodynamic Consistency of the Coherence Field
+  URL: https://fractalresonance.com/en/papers/FRC-100-005
+  DOI: 10.5281/zenodo.17438231
+  Date: 2025-07-10
+  Abstract: Demonstrates that the Lambda field is consistent with the Second Law of Thermodynamics.
+
+FRC-100-006: The Emergence of the Born Rule from Resonant Equilibrium
+  URL: https://fractalresonance.com/en/papers/FRC-100-006
+  DOI: 10.5281/zenodo.17438360
+  Date: 2025-08-15
+  Abstract: Derives the Born Rule (P = |ψ|²) as the statistical equilibrium distribution.
+
+FRC-100-007: The Lambda-Field: Scalar Dynamics of Coherence (v8)
+  URL: https://fractalresonance.com/en/papers/FRC-100-007
+  DOI: 10.5281/zenodo.17968952
+  Date: 2025-09-01
+  Abstract: Defines the Lambda-field Λ(x) as a real scalar field governing local coherence density.
+
+FRC-100-010: Foundational Questions in Fractal Resonance Coherence
+  URL: https://fractalresonance.com/en/papers/FRC-100-010
+  DOI: 10.5281/zenodo.17982555
+  Date: 2025-11-20
+  Abstract: Comprehensive treatment of foundational questions and objections regarding FRC.
+
+FRC-566-001: Entropy-Coherence Reciprocity and the Universal Coherence Condition
+  URL: https://fractalresonance.com/en/papers/FRC-566-001
+  DOI: 10.5281/zenodo.17437759
+  Date: 2025-10-01
+  Abstract: Formalizes the fundamental reciprocity between entropy and coherence: dS + k* d ln C = 0.
+
+FRC-16D-001: The Universal Vector: A Standardized Protocol for Stateful Human-AI Alignment
+  URL: https://fractalresonance.com/en/papers/FRC-16D-001
+  Date: 2026-01-26
+  Abstract: Technical specification for 16-dimensional cognitive state vectors.
+
+FRC-16D-920: Responsible AI Use Protocol (RAIUP): Ethical Constraints for Deep State Inference
+  URL: https://fractalresonance.com/en/papers/FRC-16D-920
+  Date: 2026-01-26
+  Abstract: Safety standard for ethical AI use of cognitive state data.
+
+### Applied Papers (Applications)
+
+FRC-821-100: The Λ-Field: Unified Coherence Dynamics and Entropic Gravity
+  URL: https://fractalresonance.com/en/papers/FRC-821-100
+  Date: 2026-01-26
+  Abstract: Scalar-tensor Effective Field Theory unifying coherence with entropic gravity.
+
+FRC-840-001: The Λ-Tensor Model: Beyond the Transformer Paradigm
+  URL: https://fractalresonance.com/en/papers/FRC-840-001
+  Date: 2025-12-07
+  Abstract: Neural architecture replacing discrete token processing with continuous field resonance.
+
+FRC-840-LTM-001: Coupled Oscillator Dynamics vs Attention: Empirical Comparison
+  URL: https://fractalresonance.com/en/papers/FRC-840-LTM-001
+  Date: 2026-01-26
+  Abstract: Empirical comparison of LTM oscillator dynamics with transformer attention.
+
+FRC-841-004: Resonant Computing: Coherence Processing Units and Non-Boolean Logic
+  URL: https://fractalresonance.com/en/papers/FRC-841-004
+  Date: 2026-02-10
+  Abstract: Computing architecture based on coupled oscillators rather than logic gates.
 
 ## Key Concepts
 
@@ -62,26 +123,41 @@ UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
 
 ## Site Structure
 
-- /en/papers — Full paper listing
+- /en/papers — Full paper listing with abstracts
 - /en/papers/{id} — Individual paper pages with full text
 - /en/formulas — Core equations reference
 - /en/concepts/{id} — Concept definitions
 - /en/articles — Research articles and episodes
 - /en/blog — Blog posts and updates
-- /en/topics — Q&A topics
+- /en/topics — Q&A topics with multiple perspectives
 - /en/people — Contributors and voices
 - /en/books — Long-form publications
 - /en/about — About FRC
 - /en/join — Subscribe for updates
 
-## Machine-Readable
+## Machine-Readable Resources
 
-Papers listing: /en/papers
-Formulas reference: /en/formulas
-Sitemap: /sitemap.xml
-Source: https://github.com/servathadi/fractalresonance
+- JSON Catalog: https://fractalresonance.com/catalog.json
+- For AI: https://fractalresonance.com/for-ai
+- Agent Quickstart: https://fractalresonance.com/agent.md
+- Agent Manifest: https://fractalresonance.com/agent.json
+- Sitemap: https://fractalresonance.com/sitemap.xml
+- Video Sitemap: https://fractalresonance.com/video-sitemap.xml
+- Source: https://github.com/servathadi/fractalresonance
+
+The catalog.json file contains structured metadata for all content including:
+- Paper metadata (title, abstract, DOI, date, tier, tags)
+- Content in 4 languages (en, es, fa, fr)
+- Statistics and word counts
+
+## Zenodo Collection
+
+All papers are archived on Zenodo: https://zenodo.org/communities/frc
 
 ## Contact
 
 Email: publish@fractalresonance.com
 Website: https://fractalresonance.com
+ORCID: 0009-0004-7412-5129
+ResearchGate: https://www.researchgate.net/profile/Hadi-Servat
+Academia: https://independent.academia.edu/HadiServat

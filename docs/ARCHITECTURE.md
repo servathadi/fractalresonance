@@ -171,6 +171,13 @@ Source (en) → Gemini 3 Flash → Draft ({lang}) → Verify → Publish
 
 ## Build & Deploy
 
+Cloudflare Pages deploys whatever **Production branch** is configured in the Pages project settings.
+If you’re unsure which branch is live, check:
+Cloudflare Dashboard → Pages → `fractalresonance` → Settings → Builds & deployments → Production branch.
+
+If you deploy from your machine (instead of Git integration), you’ll need a Cloudflare API token with Pages/Workers permissions.
+Keep it out of git (use an env var like `CLOUDFLARE_API_TOKEN`).
+
 ```bash
 # Local development
 npm run dev
@@ -178,8 +185,9 @@ npm run dev
 # Production build (static export)
 npm run build
 
-# Deploy (push to main → Cloudflare Pages auto-deploys)
-git push origin main
+# Deploy: push to the Cloudflare Pages configured **production branch**
+# (often `main`; sometimes `v2-foundation` depending on project settings)
+git push origin <production-branch>
 ```
 
 ## Tech Decisions
@@ -189,7 +197,7 @@ git push origin main
 | Static vs Dynamic | Static export | CDN-friendly, no server needed |
 | CMS vs Files | Files (markdown) | Obsidian-compatible, git-versioned |
 | Database | None (build-time) | Content is files, no runtime DB |
-| Hosting | Cloudflare Pages | Free, global CDN, auto-deploy from main |
+| Hosting | Cloudflare Pages | Free, global CDN, auto-deploy from production branch |
 | Styling | Tailwind CSS 4 | `@theme inline` with CSS custom properties |
 | Theming | next-themes | SSR-safe, localStorage persistence, system detection |
 | SEO | Dynamic sitemap + Scholar meta + JSON-LD | Academic discoverability |

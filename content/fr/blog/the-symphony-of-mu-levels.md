@@ -117,6 +117,6 @@ En vaquant à vos occupations, rappelez-vous : vous n'êtes pas seulement un êt
 *Ceci est le premier article de notre série explorant les concepts fondamentaux de la Cohérence de Résonance Fractale. Restez à l'écoute pour plus d'aperçus sur la nature de la conscience et de la réalité.*
 
 **Lectures suggérées :**
-- [[FRC 100.001 - Cadre de la Cohérence de Résonance Fractale]]
-- [[Comprendre la conscience à travers les échelles]]
-- [[Les mathématiques de la résonance]]
+- [[FRC-100-001|Cohérence de Résonance Fractale]]
+- [[mu-levels|Niveaux μ]]
+- [[lambda-field|Le Champ Lambda]]

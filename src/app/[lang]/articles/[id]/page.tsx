@@ -9,6 +9,7 @@ import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import {
   estimateReadTime,
   getArticle,
@@ -22,6 +23,7 @@ import {
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -52,29 +54,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
+  const canonicalUrl = `/${lang}/articles/${fm.id}`;
   const alternates = getAlternateLanguages('articles', fm.id);
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract,
-    keywords: Array.isArray(fm.tags) ? fm.tags : [],
-    authors: [{ name: author }],
-    alternates: {
-      canonical: canonicalUrl,
-      languages: alternates,
-    },
-    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: fm.abstract,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: Array.isArray(fm.tags) ? fm.tags : [],
-      locale: lang,
-    },
-  };
+    description: fm.abstract || '',
+    url: canonicalUrl,
+    lang,
+    publishedTime: fm.date,
+    author,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Articles',
+    noindex: norm === 'river',
+  }, alternates);
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -254,6 +248,16 @@ export default async function ArticlePage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <RelatedContent
+            relatedIds={Array.isArray(fm.related) ? fm.related : []}
+            tags={Array.isArray(fm.tags) ? fm.tags : []}
+            currentId={fm.id}
+            glossary={glossary}
+            basePath={basePath}
+            lang={lang}
+          />
       </PageShell>
     </>
   );

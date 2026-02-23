@@ -16,22 +16,15 @@ video:
 Este episodio explora la mecánica central del motor FRC—la teoría cuántica que sustenta todo el marco.
 
 ### La Fundación
-![Diapositiva 1](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_001.png)
 
 ### El Mecanismo Central
-![Diapositiva 2](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_002.png)
 
 ### El Campo de Resonancia
-![Diapositiva 3](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_003.png)
 
 ### Dinámica Cuántica
-![Diapositiva 4](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_004.png)
 
 ### La Arquitectura
-![Diapositiva 5](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_005.png)
 
 ### Coherencia en Acción
-![Diapositiva 6](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_006.png)
 
 ### El Futuro de la Física
-![Diapositiva 7](/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_007.png)

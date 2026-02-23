@@ -16,19 +16,13 @@ video:
 La caza ha comenzado. Definimos la configuración experimental específica requerida para aislar y detectar la firma FRC.
 
 ### El Objetivo
-![Diapositiva 1](/images/slides_raw/Hunting_the_Glitch/slide_001.png)
 
 ### La Configuración
-![Diapositiva 2](/images/slides_raw/Hunting_the_Glitch/slide_002.png)
 
 ### La Predicción
-![Diapositiva 3](/images/slides_raw/Hunting_the_Glitch/slide_003.png)
 
 ### El Glitch
-![Diapositiva 4](/images/slides_raw/Hunting_the_Glitch/slide_004.png)
 
 ### Midiendo la Desviación
-![Diapositiva 5](/images/slides_raw/Hunting_the_Glitch/slide_005.png)
 
 ### Conclusión
-![Diapositiva 6](/images/slides_raw/Hunting_the_Glitch/slide_006.png)

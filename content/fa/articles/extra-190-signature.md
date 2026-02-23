@@ -11,13 +11,9 @@ thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
 ## مقاله تصویری
 
 ### امضا
-![اسلاید ۱](/images/slides_raw/The_190_Signature/slide_001.png)
 
 ### تجزیه و تحلیل
-![اسلاید ۲](/images/slides_raw/The_190_Signature/slide_002.png)
 
 ### داده‌ها
-![اسلاید ۳](/images/slides_raw/The_190_Signature/slide_003.png)
 
 ### تایید
-![اسلاید ۴](/images/slides_raw/The_190_Signature/slide_004.png)

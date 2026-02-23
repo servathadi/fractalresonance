@@ -11,10 +11,7 @@ thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
 ## Essai Visuel
 
 ### Le Masque
-![Diapositive 1](/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png)
 
 ### Derrière le Rideau
-![Diapositive 2](/images/slides_raw/Unmasking_Quantum_Randomness/slide_002.png)
 
 ### La Vérité
-![Diapositive 3](/images/slides_raw/Unmasking_Quantum_Randomness/slide_003.png)
