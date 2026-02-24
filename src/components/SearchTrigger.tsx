@@ -1,23 +1,30 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
+import { useCallback } from "react";
+import { usePathname } from "next/navigation";
+import { getLangFromPathname } from "@/lib/site";
 
 interface SearchTriggerProps {
   className?: string;
 }
 
 const DICT: Record<string, string> = {
-  en: 'Search',
-  es: 'Buscar',
-  fr: 'Rechercher',
-  fa: 'جستجو',
+  en: "Search",
+  es: "Buscar",
+  fr: "Rechercher",
+  fa: "جستجو",
 };
 
-export function SearchTrigger({ className = '' }: SearchTriggerProps) {
+export function SearchTrigger({ className = "" }: SearchTriggerProps) {
+  const pathname = usePathname();
+  const lang = getLangFromPathname(pathname, "en");
+  const label = DICT[lang] || DICT["en"];
+  const fullLabel = `${label} (Cmd+K)`;
+
   const openSearch = useCallback(() => {
     // Dispatch a keyboard event to trigger the CommandPalette (Cmd+K)
-    const event = new KeyboardEvent('keydown', {
-      key: 'k',
+    const event = new KeyboardEvent("keydown", {
+      key: "k",
       metaKey: true,
       ctrlKey: true,
       bubbles: true,
@@ -30,13 +37,16 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
       type="button"
       onClick={openSearch}
       className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold transition-colors ${className}`}
-      aria-label="Open search"
+      aria-label={fullLabel}
+      aria-keyshortcuts="Meta+K"
+      title={fullLabel}
     >
       <svg
         className="w-4 h-4"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
+        aria-hidden="true"
       >
         <path
           strokeLinecap="round"
