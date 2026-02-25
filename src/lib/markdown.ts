@@ -10,6 +10,46 @@
  * through this function.
  */
 
+import sanitizeHtml from 'sanitize-html';
+
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: [
+    // Note: h1 is intentionally excluded - pages render h1 from frontmatter title
+    // Markdown h1s are transformed to h2 to avoid duplicate h1 (SEO issue)
+    'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr',
+    'ul', 'ol', 'li',
+    'pre', 'code',
+    'blockquote',
+    'a', 'strong', 'em', 'del',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'img', 'figure', 'figcaption',
+    'div', 'span', 'sup', 'sub',
+  ],
+  allowedAttributes: {
+    a: ['href', 'class', 'title', 'target', 'rel', 'data-wikilink-id'],
+    img: ['src', 'alt', 'width', 'height', 'class', 'loading', 'decoding'],
+    h2: ['id'], h3: ['id'], h4: ['id'], h5: ['id'], h6: ['id'],
+    code: ['class'],
+    pre: ['class'],
+    div: ['class'],
+    span: ['class'],
+    td: ['align'],
+    th: ['align'],
+  },
+  allowedClasses: {
+    a: ['wikilink'],
+    div: ['*'],
+    span: ['*'],
+    code: ['*'],
+    pre: ['*'],
+  },
+  // Transform h1 → h2 to prevent duplicate h1 tags (SEO best practice)
+  transformTags: {
+    'h1': 'h2',
+  },
+};
+
 export function renderMarkdown(
   body: string,
   lang: string,
@@ -115,7 +155,10 @@ export function renderMarkdown(
     html = html.replace(`<!--CODE_BLOCK_${i}-->`, codeBlocks[i]);
   }
 
-  return html;
+  // Final sanitization step
+  // This ensures no raw HTML (if any was in the source) leaks through,
+  // and transforms tags (e.g. h1 -> h2) as per configuration.
+  return sanitizeHtml(html, SANITIZE_OPTIONS);
 }
 
 /** Resolve wikilink ID to href */
