@@ -38,37 +38,56 @@ interface AskRequest {
   limit?: number;
 }
 
-// Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
-  let score = 0;
-  const titleLower = doc.title.toLowerCase();
-  const contentLower = doc.content.toLowerCase();
-  const abstractLower = doc.abstract.toLowerCase();
-  const tagsLower = doc.tags.map(t => t.toLowerCase());
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-  for (const term of terms) {
+// Simple relevance scoring based on term frequency
+export function scoreDocument(doc: SearchDocument, termRegexes: RegExp[]): number {
+  let score = 0;
+
+  for (const regex of termRegexes) {
     // Title match (highest weight)
-    if (titleLower.includes(term)) score += 10;
+    regex.lastIndex = 0;
+    if (regex.test(doc.title)) score += 10;
+
     // Abstract match (high weight)
-    if (abstractLower.includes(term)) score += 5;
+    regex.lastIndex = 0;
+    if (doc.abstract && regex.test(doc.abstract)) score += 5;
+
     // Tag match (high weight)
-    if (tagsLower.some(t => t.includes(term))) score += 5;
+    // We check if any tag matches the regex
+    const hasTagMatch = doc.tags.some(tag => {
+      regex.lastIndex = 0;
+      return regex.test(tag);
+    });
+    if (hasTagMatch) score += 5;
+
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
+    // We use exec in a loop to stop early if we hit the cap (5)
+    let contentMatches = 0;
+    regex.lastIndex = 0;
+    while (regex.exec(doc.content)) {
+      contentMatches++;
+      if (contentMatches >= 5) break;
+    }
+    score += contentMatches;
   }
 
   return score;
 }
 
 // Search the index for relevant documents
-function searchDocuments(
+export function searchDocuments(
   index: SearchIndex,
   query: string,
   lang?: string,
   limit = 5
 ): SearchDocument[] {
-  const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+  const terms = query.trim().split(/\s+/).filter(t => t.length > 2);
+
+  // Pre-compile regexes for performance
+  const termRegexes = terms.map(term => new RegExp(escapeRegExp(term), 'gi'));
 
   let docs = index.documents;
 
@@ -80,7 +99,7 @@ function searchDocuments(
   // Score and sort documents
   const scored = docs.map(doc => ({
     doc,
-    score: scoreDocument(doc, terms)
+    score: scoreDocument(doc, termRegexes)
   }));
 
   scored.sort((a, b) => b.score - a.score);
