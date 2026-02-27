@@ -38,6 +38,18 @@ interface AskRequest {
   limit?: number;
 }
 
+// Helper to count occurrences without RegExp to prevent ReDoS and crashes
+function countOccurrences(text: string, term: string): number {
+  if (!term) return 0;
+  let count = 0;
+  let pos = text.indexOf(term);
+  while (pos !== -1) {
+    count++;
+    pos = text.indexOf(term, pos + term.length);
+  }
+  return count;
+}
+
 // Simple relevance scoring based on term frequency
 function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
@@ -54,7 +66,7 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    const contentMatches = countOccurrences(contentLower, term);
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
