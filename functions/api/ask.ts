@@ -38,6 +38,10 @@ interface AskRequest {
   limit?: number;
 }
 
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
 // Simple relevance scoring based on term frequency
 function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
@@ -54,7 +58,8 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    const safeTerm = escapeRegExp(term);
+    const contentMatches = (contentLower.match(new RegExp(safeTerm, 'g')) || []).length;
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -137,6 +142,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     if (!query || typeof query !== 'string') {
       return new Response(JSON.stringify({ error: 'Query is required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (query.length > 500) {
+      return new Response(JSON.stringify({ error: 'Query exceeds maximum length of 500 characters' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });

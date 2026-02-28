@@ -1,0 +1,4 @@
+## 2025-02-28 - [ReDoS Vulnerability in Search API]
+**Vulnerability:** Unescaped user input used in RegExp constructor inside `scoreDocument` function in `functions/api/ask.ts`. An attacker could pass a crafted string (e.g. `[`) which would cause a regex compilation error, resulting in a Denial of Service (500 Internal Server Error) for the `/api/ask` endpoint. Additionally, complex malicious regex patterns could potentially cause ReDoS (Regular Expression Denial of Service) by consuming excessive CPU time.
+**Learning:** Even internal helper functions need to validate and sanitize parameters that originate from user input. Creating `new RegExp(user_input)` without escaping is a critical security vulnerability.
+**Prevention:** Always escape user input before using it to construct a RegExp dynamically. Alternatively, use a safer string matching method if regex features are not needed. We should create a `escapeRegExp` utility function or use a built-in one.
