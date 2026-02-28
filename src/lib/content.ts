@@ -6,6 +6,7 @@
  * No shell commands or child processes are used.
  */
 
+import { cache } from 'react';
 import fs from 'fs';
 import path from 'path';
 import type { PaperMeta, ConceptMeta } from './schema';
@@ -291,7 +292,7 @@ function isPublished(content: ParsedContent): boolean {
 }
 
 /** Get all papers for a language */
-export function getPapers(lang: string = 'en'): ParsedContent[] {
+export const getPapers = cache(function getPapers(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return [];
 
@@ -303,10 +304,10 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
     })
     .filter(isPublished)
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+})
 
 /** Get all articles (blog/episodes) for a language */
-export function getArticles(lang: string = 'en'): ParsedContent[] {
+export const getArticles = cache(function getArticles(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return [];
 
@@ -318,10 +319,10 @@ export function getArticles(lang: string = 'en'): ParsedContent[] {
     })
     .filter(isPublished)
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+})
 
 /** Get all blog posts for a language */
-export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
+export const getBlogPosts = cache(function getBlogPosts(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return [];
 
@@ -333,7 +334,7 @@ export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
     })
     .filter(isPublished)
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+})
 
 /** Get a single blog post by id */
 export function getBlogPost(lang: string, id: string): ParsedContent | null {
@@ -350,7 +351,7 @@ export function getBlogPost(lang: string, id: string): ParsedContent | null {
 }
 
 /** Get all topics for a language */
-export function getTopics(lang: string = 'en'): ParsedContent[] {
+export const getTopics = cache(function getTopics(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return [];
 
@@ -362,7 +363,7 @@ export function getTopics(lang: string = 'en'): ParsedContent[] {
     })
     .filter(isPublished)
     .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+})
 
 /** Get a single topic by id */
 export function getTopic(lang: string, id: string): ParsedContent | null {
@@ -379,7 +380,7 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
 }
 
 /** Get all people/profiles for a language */
-export function getPeople(lang: string = 'en'): ParsedContent[] {
+export const getPeople = cache(function getPeople(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return [];
 
@@ -390,7 +391,7 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .sort((a, b) => String(a.frontmatter.title || '').localeCompare(String(b.frontmatter.title || '')));
-}
+})
 
 /** Get a single person/profile by id */
 export function getPerson(lang: string, id: string): ParsedContent | null {
@@ -462,7 +463,7 @@ export function getLegacyPaperIds(canonicalId: string): string[] {
 }
 
 /** Get all books for a language */
-export function getBooks(lang: string = 'en'): ParsedContent[] {
+export const getBooks = cache(function getBooks(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'books');
   if (!fs.existsSync(dir)) return [];
 
@@ -492,7 +493,7 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
   }
 
   return books.sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
-}
+})
 
 /** Get a single book by id */
 export function getBook(lang: string, id: string): ParsedContent | null {
@@ -630,7 +631,7 @@ function romanOrNumToInt(val: string): number {
 }
 
 /** Get all concepts for a language */
-export function getConcepts(lang: string = 'en'): ParsedContent[] {
+export const getConcepts = cache(function getConcepts(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return [];
 
@@ -641,7 +642,7 @@ export function getConcepts(lang: string = 'en'): ParsedContent[] {
       return parseFrontmatter(raw);
     })
     .filter(isPublished);
-}
+})
 
 /** Get a single concept by id */
 export function getConcept(lang: string, id: string): ParsedContent | null {
@@ -869,7 +870,7 @@ export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boole
 }
 
 /** Get a glossary map of all content for tooltips */
-export function getGlossary(
+export const getGlossary = cache(function getGlossary(
   lang: string = 'en',
   opts?: { basePath?: string; view?: PerspectiveView }
 ): Record<string, GlossaryItem> {
@@ -991,7 +992,7 @@ export function getGlossary(
   }
 
   return glossary;
-}
+});
 
 // ─── Tag Processing ────────────────────────────────────────────────────────
 
@@ -1057,7 +1058,7 @@ export interface GraphData {
 }
 
 /** Generate graph data for visualization */
-export function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra'): GraphData {
+export const getGraphData = cache(function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra'): GraphData {
   const nodes: GraphNode[] = [];
   const links: GraphLink[] = [];
   const nodeIds = new Set<string>();
@@ -1122,7 +1123,7 @@ export function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra
   }
 
   return { nodes, links };
-}
+})
 
 function canonicalizeFrcLikeIdForGraph(raw: string): string {
   const s = String(raw || '').trim();
@@ -1296,7 +1297,7 @@ export function getContentStats(lang: string = 'en'): ContentStats {
 // ─── Backlinks ──────────────────────────────────────────────────────────────
 
 /** Build backlinks index: { targetId: [sourceIds] } */
-export function buildBacklinks(lang: string = 'en', view: PerspectiveView = 'kasra'): Record<string, string[]> {
+export const buildBacklinks = cache(function buildBacklinks(lang: string = 'en', view: PerspectiveView = 'kasra'): Record<string, string[]> {
   const backlinks: Record<string, string[]> = {};
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
@@ -1324,4 +1325,4 @@ export function buildBacklinks(lang: string = 'en', view: PerspectiveView = 'kas
   }
 
   return backlinks;
-}
+})
