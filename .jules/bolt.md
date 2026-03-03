@@ -1,0 +1,3 @@
+## 2025-03-03 - [Ask API Search Scoring Bottleneck]
+**Learning:** Text search scoring in `functions/api/ask.ts` exhibited a severe performance bottleneck due to repeatedly constructing case-insensitive `RegExp` objects per term per document, and using `String.prototype.match()` which needlessly allocates full arrays of string matches despite relevance scoring capping at 5 occurrences. This codebase's AI search processes significant document text arrays synchronously.
+**Action:** Pre-compile `RegExp` objects using `escapeRegExp` ONCE per request rather than per-document, and replace `.match()` with `.exec()` in a while loop to immediately break execution upon reaching the max match cap (5) and skip massive array allocations.
