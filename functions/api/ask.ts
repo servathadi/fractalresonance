@@ -38,8 +38,17 @@ interface AskRequest {
   limit?: number;
 }
 
+interface SearchTerm {
+  text: string;
+  regex: RegExp;
+}
+
+function escapeRegExp(string: string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 // Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
+export function scoreDocument(doc: SearchDocument, terms: SearchTerm[]): number {
   let score = 0;
   const titleLower = doc.title.toLowerCase();
   const contentLower = doc.content.toLowerCase();
@@ -48,27 +57,37 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
 
   for (const term of terms) {
     // Title match (highest weight)
-    if (titleLower.includes(term)) score += 10;
+    if (titleLower.includes(term.text)) score += 10;
     // Abstract match (high weight)
-    if (abstractLower.includes(term)) score += 5;
+    if (abstractLower.includes(term.text)) score += 5;
     // Tag match (high weight)
-    if (tagsLower.some(t => t.includes(term))) score += 5;
+    if (tagsLower.some(t => t.includes(term.text))) score += 5;
+
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
+    let contentMatches = 0;
+    term.regex.lastIndex = 0; // Reset lastIndex since the regex is reused across documents
+    while (term.regex.exec(contentLower) !== null) {
+      contentMatches++;
+      if (contentMatches >= 5) break; // Cap at 5 early to avoid full-string scans and redundant allocations
+    }
+    score += contentMatches;
   }
 
   return score;
 }
 
 // Search the index for relevant documents
-function searchDocuments(
+export function searchDocuments(
   index: SearchIndex,
   query: string,
   lang?: string,
   limit = 5
 ): SearchDocument[] {
-  const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+  const termsStr = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+  const terms: SearchTerm[] = termsStr.map(text => ({
+    text,
+    regex: new RegExp(escapeRegExp(text), 'g')
+  }));
 
   let docs = index.documents;
 
