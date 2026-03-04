@@ -1,18 +1,98 @@
-
-> fractalresonance@2.0.0 dev
-> next dev
-
- ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of /home/mumega/package-lock.json as the root directory.
- To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
-   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
- Detected additional lockfiles: 
-   * /home/mumega/frc/package-lock.json
-
- ⚠ Port 3000 is in use by an unknown process, using available port 3003 instead.
-   ▲ Next.js 15.5.9
-   - Local:        http://localhost:3003
-   - Network:      http://5.161.216.149:3003
-
- ✓ Starting...
- ✓ Ready in 1385ms
+npm warn exec The following package was not found and will be installed: serve@14.2.6
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 291 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/css/77d9bf6723f691a9.css
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/webpack-48b6ff813646d718.js
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 4 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 4 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/6821f731-3c8a9bf7deacadfd.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/3657-d276eb2c9c4eaccc.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/main-app-2bb661794e97a858.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/7235-6c4d643e94a2f39d.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/1860-b6e149d42286baa6.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/1107-ba682fc4d16f3083.js
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 6 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 7 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 7 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 7 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 12 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 12 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/app/layout-44c5a1c2bcc499ad.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/app/not-found-89032e36d54b43fa.js
+ HTTP  3/4/2026 10:06:39 AM ::1 GET /_next/static/chunks/app/page-1283eba7a129c431.js
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 25 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 25 ms
+ HTTP  3/4/2026 10:06:39 AM ::1 Returned 200 in 27 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /brand/sigil-64.png
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 4 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /en
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 3 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /brand/banner.jpg
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/css/77d9bf6723f691a9.css
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 3 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/webpack-48b6ff813646d718.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/6821f731-3c8a9bf7deacadfd.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/3657-d276eb2c9c4eaccc.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/main-app-2bb661794e97a858.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/7235-6c4d643e94a2f39d.js
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 1 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/1860-b6e149d42286baa6.js
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 1 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/page-a2ffbd53a4810b28.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/layout-61fcd6e21c177191.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/1107-ba682fc4d16f3083.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/app/layout-44c5a1c2bcc499ad.js
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /_next/static/chunks/app/not-found-89032e36d54b43fa.js
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 2 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 1 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 5 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 4 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /brand/sigil-64.png
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-deterministic-framework.png
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-chaos-has-structure.png
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-190-signature.png
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-quantum-theory.png
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-illusion-of-chance.png
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 304 in 3 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-hunting-the-glitch.png
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 23 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 28 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 33 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 41 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 69 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 96 ms
+ HTTP  3/4/2026 10:06:40 AM ::1 GET /media/slides/cover-unmasking-randomness.png
+ HTTP  3/4/2026 10:06:40 AM ::1 Returned 200 in 21 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /en/investors.txt?_rsc=zipw3
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /en/start-here.txt?_rsc=zipw3
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /en/join.txt?_rsc=zipw3
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /en/papers.txt?_rsc=zipw3
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /en/about.txt?_rsc=zipw3
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 9 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 8 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 9 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 8 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 7 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/css/8b49a788e502c38a.css
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/b09b44eb-bc9763ff0d83fdb6.js
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/3551-45513efa10e02079.js
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/investors/page-d215fa629e9266a1.js
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 3 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/start-here/page-d215fa629e9266a1.js
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/join/page-e04d3f037cf6d5ae.js
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 6 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/about/page-caf8b68ec960c974.js
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 6 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 10 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 11 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 8 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/papers/page-c3eae73608c648d4.js
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 9 ms
+ HTTP  3/4/2026 10:06:41 AM ::1 Returned 200 in 13 ms
