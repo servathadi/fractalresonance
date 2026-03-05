@@ -115,19 +115,26 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
+  // Use indexOf for fast lookup instead of running a regex over the entire file contents
+  // This drastically reduces parse time for large markdown files.
   // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  const matchStart = content.match(/^---[^\S\r\n]*(?:#.*)?\r?\n/);
+  if (matchStart) {
+    let endDelim = content.indexOf('\n---', matchStart[0].length - 1);
+    while (endDelim !== -1) {
+      const closingMatch = content.slice(endDelim + 1).match(/^---[^\S\r\n]*(?:#.*)?\r?\n?/);
+      if (closingMatch) {
+        let fmRaw = content.slice(matchStart[0].length, endDelim);
+        if (fmRaw.endsWith('\r')) fmRaw = fmRaw.slice(0, -1);
+        const body = content.slice(endDelim + 1 + closingMatch[0].length);
+        const frontmatter = parseYamlFrontmatter(fmRaw);
+        return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+      }
+      endDelim = content.indexOf('\n---', endDelim + 1);
+    }
   }
 
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
-
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  return { frontmatter: { title: '', id: '' }, body: content, raw: content };
 }
 
 type YamlValue =
