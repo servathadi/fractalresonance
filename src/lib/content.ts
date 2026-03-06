@@ -115,19 +115,65 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  const emptyResult = { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
+  if (!content.startsWith('---')) {
+    return emptyResult;
   }
 
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
+  const firstNewline = content.indexOf('\n');
+  if (firstNewline === -1) {
+    return emptyResult;
+  }
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  // Validate opening delimiter: must be `---` followed optionally by spaces and a `#` comment
+  const openingLine = content.slice(0, firstNewline);
+  const cleanOpeningLine = openingLine.endsWith('\r') ? openingLine.slice(0, -1) : openingLine;
+  if (!/^---[^\S\r\n]*(?:#.*)?$/.test(cleanOpeningLine)) {
+    return emptyResult;
+  }
+
+  let searchIndex = firstNewline;
+
+  while (true) {
+    // Look for a line starting with `---` (preceded by a newline)
+    const endDelimiterIdx = content.indexOf('\n---', searchIndex);
+    if (endDelimiterIdx === -1) {
+      return emptyResult;
+    }
+
+    const endLineStart = endDelimiterIdx + 1; // Start of '---...'
+    const nextNewline = content.indexOf('\n', endLineStart);
+    const endLine = nextNewline === -1
+      ? content.slice(endLineStart)
+      : content.slice(endLineStart, nextNewline);
+
+    const cleanEndLine = endLine.endsWith('\r') ? endLine.slice(0, -1) : endLine;
+
+    // Validate closing delimiter prefix: `---` followed optionally by spaces and a `#` comment
+    // Match replicates original regex behavior of `---[^\S\r\n]*(?:#.*)?`
+    const match = cleanEndLine.match(/^---[^\S\r\n]*(?:#.*)?/);
+    if (match) {
+      let fmRaw = content.slice(firstNewline + 1, endDelimiterIdx);
+      if (fmRaw.endsWith('\r')) fmRaw = fmRaw.slice(0, -1); // Trim \r before \n---
+
+      let bodyStart = endLineStart + match[0].length;
+
+      // Consume optional trailing newline to exactly mimic regex `\r?\n?`
+      if (content.startsWith('\r\n', bodyStart)) {
+        bodyStart += 2;
+      } else if (content.startsWith('\n', bodyStart)) {
+        bodyStart += 1;
+      } else if (content.startsWith('\r', bodyStart)) {
+        bodyStart += 1;
+      }
+
+      const frontmatter = parseYamlFrontmatter(fmRaw);
+      return { frontmatter: frontmatter as unknown as RawFrontmatter, body: content.slice(bodyStart).trim(), raw: content };
+    }
+
+    // Not a valid delimiter, keep searching after this `\n---`
+    searchIndex = endDelimiterIdx + 1;
+  }
 }
 
 type YamlValue =
