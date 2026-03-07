@@ -1,0 +1,4 @@
+## 2025-02-17 - XSS Vulnerability in JSON-LD Script Injection
+**Vulnerability:** The application was vulnerable to Cross-Site Scripting (XSS) due to unsafe injection of JSON into a `<script>` tag via `dangerouslySetInnerHTML`. The developer incorrectly assumed `JSON.stringify` produced safe output.
+**Learning:** `JSON.stringify` does **not** automatically escape HTML control characters like `<` and `>`. If an attacker can control any data within the serialized JSON, they can include an unescaped `</script>` tag, followed by their own `<script>` block, thereby achieving arbitrary script execution within the DOM.
+**Prevention:** Whenever injecting JSON into a `<script>` tag (e.g., for JSON-LD schemas or passing state to the client), the result of `JSON.stringify` must be manually sanitized by replacing `<` with `\u003c` and `>` with `\u003e`. Alternatively, one can use a library designed for this, such as `serialize-javascript`.
