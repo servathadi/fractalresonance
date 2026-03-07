@@ -115,19 +115,50 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
+  // Fast path for massive markdown files (avoid full-file regex allocation)
+  let fmRaw: string | undefined;
+  let body: string | undefined;
 
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  if (content.startsWith('---')) {
+    const firstNewline = content.indexOf('\n');
+    if (firstNewline !== -1) {
+      const firstLine = content.slice(0, firstNewline);
+      if (/^---[^\S\r\n]*(?:#.*)?\r?$/.test(firstLine)) {
+        // Find the end delimiter. It must be at the start of a line (after a \n),
+        // followed by ---, then optional whitespace and comment, then \n or EOF.
+        const endDelimiterRegex = /\n---[^\S\r\n]*(?:#.*)?(?:\r?\n|$)/;
+        // Start searching after the first newline to avoid matching the first line if it's broken
+        const contentAfterFirstLine = content.slice(firstNewline);
+        const endMatch = contentAfterFirstLine.match(endDelimiterRegex);
+
+        if (endMatch) {
+          const endIndex = firstNewline + endMatch.index!;
+          fmRaw = content.slice(firstNewline + 1, endIndex);
+          if (fmRaw.endsWith('\r')) fmRaw = fmRaw.slice(0, -1);
+
+          const bodyStart = endIndex + endMatch[0].length;
+          body = content.slice(bodyStart).trim();
+        }
+      }
+    }
   }
 
-  const [, fmRaw, body] = match;
+  // Fallback if fast path fails (e.g., malformed but regex-compatible structure)
+  if (fmRaw === undefined || body === undefined) {
+    const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
+    const match = content.match(fmRegex);
+
+    if (!match) {
+      return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+    }
+
+    fmRaw = match[1];
+    body = match[2].trim();
+  }
+
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  return { frontmatter: frontmatter as unknown as RawFrontmatter, body, raw: content };
 }
 
 type YamlValue =
