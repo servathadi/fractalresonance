@@ -1,0 +1,4 @@
+## 2024-05-24 - XSS Vulnerability in JSON-LD Script Injection
+**Vulnerability:** XSS via unescaped HTML characters in JSON.stringify injected into <script> tag via dangerouslySetInnerHTML.
+**Learning:** `JSON.stringify` does not automatically escape HTML control characters like `<`, `>`, and `&`. If user-provided or dynamically generated data within the JSON contains a closing `</script>` tag, the browser will immediately terminate the script block and execute any trailing code, leading to XSS. This is true even for structured data like JSON-LD.
+**Prevention:** Whenever injecting JSON into a `<script>` tag, ALWAYS manually escape HTML control characters by chaining `.replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026')` to the `JSON.stringify()` output, or use a secure serialization library like `serialize-javascript`.
