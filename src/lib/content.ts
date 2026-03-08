@@ -115,19 +115,39 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
+  // ⚡ Bolt: Fast indexOf-based scanning instead of O(N) full-file regex capture
+  if (content.startsWith('---')) {
+    const firstNewline = content.indexOf('\n');
+    if (firstNewline !== -1) {
+      const firstLine = content.slice(0, firstNewline);
+      // Allow whitespace + trailing comments on delimiter lines.
+      if (/^---[^\S\r\n]*(?:#.*)?\r?$/.test(firstLine)) {
+        let searchPos = firstNewline;
+        while (true) {
+          const closingDelim = content.indexOf('\n---', searchPos);
+          if (closingDelim === -1) break;
 
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+          // Check if this `\n---` is a valid closing delimiter
+          const closingMatch = content.slice(closingDelim + 1).match(/^---[^\S\r\n]*(?:#.*)?\r?\n?/);
+
+          if (closingMatch) {
+            const hasCrStart = content[closingDelim - 1] === '\r';
+            const fmRawEnd = hasCrStart ? closingDelim - 1 : closingDelim;
+            const fmRaw = content.slice(firstNewline + 1, fmRawEnd);
+
+            const bodyStart = closingDelim + 1 + closingMatch[0].length;
+            const body = content.slice(bodyStart);
+
+            const frontmatter = parseYamlFrontmatter(fmRaw);
+            return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+          }
+          searchPos = closingDelim + 1;
+        }
+      }
+    }
   }
 
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
-
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  return { frontmatter: { title: '', id: '' }, body: content, raw: content };
 }
 
 type YamlValue =
