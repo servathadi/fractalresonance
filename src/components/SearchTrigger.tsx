@@ -29,7 +29,7 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
     <button
       type="button"
       onClick={openSearch}
-      className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold transition-colors ${className}`}
+      className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frc-gold ${className}`}
       aria-label="Open search"
     >
       <svg
