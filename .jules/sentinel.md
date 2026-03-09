@@ -1,0 +1,4 @@
+## 2025-03-09 - XSS Vulnerability in SchemaScript with JSON.stringify
+**Vulnerability:** XSS vulnerability when injecting JSON into `<script>` tags via `dangerouslySetInnerHTML`. `JSON.stringify` does not escape HTML control characters like `<` and `>`.
+**Learning:** Even if data is typed and generated internally, injecting raw JSON into `<script>` tags without escaping HTML control characters can lead to premature script tag closure and XSS if any data field contains user-controlled input or unexpectedly contains HTML.
+**Prevention:** Always manually escape `<` and `>` when injecting `JSON.stringify` output into HTML script tags using `.replace(/</g, '\\u003c').replace(/>/g, '\\u003e')`.
