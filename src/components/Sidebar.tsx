@@ -80,9 +80,17 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
   return (
     <aside data-sidebar className={asideClass}>
       {isMobile ? (
-        <details>
-          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+        <details className="group">
+          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden flex items-center justify-between">
             <span className="text-xs uppercase tracking-wider text-frc-steel">Browse library</span>
+            <svg
+              className="w-4 h-4 text-frc-steel transition-transform duration-200 group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
           </summary>
           {nav}
         </details>
@@ -124,9 +132,19 @@ function SidebarSection({
   });
 
   return (
-    <details open={openByDefault} className="mb-4">
-      <summary className="flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-frc-steel px-2 cursor-pointer select-none list-none">
-        <span>{title}</span>
+    <details open={openByDefault} className="group mb-4">
+      <summary className="flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-frc-steel px-2 cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+        <span className="flex items-center gap-2">
+          {title}
+          <svg
+            className="w-3.5 h-3.5 text-frc-steel transition-transform duration-200 group-open:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
         <span className="text-[11px] normal-case text-frc-text-dim">{sorted.length}</span>
       </summary>
       <ul className="space-y-0.5 mt-2 max-h-64 overflow-y-auto pr-1">
