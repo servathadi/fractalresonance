@@ -115,19 +115,52 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
+  // Check for leading ---
+  if (!content.startsWith('---')) {
     return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
+  const firstNewline = content.indexOf('\n');
+  if (firstNewline === -1) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  // Validate the first line matches the exact format `^---[^\S\r\n]*(?:#.*)?\r?$`
+  const firstLine = content.slice(0, firstNewline);
+  if (!/^---[^\S\r\n]*(?:#.*)?\r?$/.test(firstLine)) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  let searchPos = firstNewline;
+  while (true) {
+    const endMarkerIdx = content.indexOf('\n---', searchPos);
+    if (endMarkerIdx === -1) {
+      return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+    }
+
+    let endOfClosingLine = content.indexOf('\n', endMarkerIdx + 1);
+    if (endOfClosingLine === -1) endOfClosingLine = content.length;
+
+    const closingLine = content.slice(endMarkerIdx + 1, endOfClosingLine);
+    if (/^---[^\S\r\n]*(?:#.*)?\r?$/.test(closingLine)) {
+      let fmRaw = content.slice(firstNewline + 1, endMarkerIdx);
+      if (fmRaw.endsWith('\r')) {
+        fmRaw = fmRaw.slice(0, -1);
+      }
+
+      let bodyStart = endOfClosingLine;
+      if (bodyStart < content.length && content[bodyStart] === '\n') {
+        bodyStart += 1;
+      }
+
+      const body = content.slice(bodyStart);
+      const frontmatter = parseYamlFrontmatter(fmRaw);
+
+      return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+    }
+
+    searchPos = endMarkerIdx + 1;
+  }
 }
 
 type YamlValue =
