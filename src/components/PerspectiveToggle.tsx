@@ -30,7 +30,8 @@ export function PerspectiveToggle() {
           key={p.value}
           onClick={() => router.push(togglePerspectivePathname(pathname, p.value))}
           className={`
-            px-2 py-1 rounded transition-all duration-200
+            px-2 py-1 transition-all duration-200
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frc-gold rounded-sm
             ${perspective === p.value
               ? 'bg-frc-gold/20 text-frc-gold'
               : 'text-frc-steel hover:text-frc-text-dim'
@@ -63,7 +64,7 @@ export function PerspectiveToggleCompact() {
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-1 text-xs text-frc-steel hover:text-frc-gold transition-colors"
+      className="flex items-center gap-1 text-xs text-frc-steel hover:text-frc-gold transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frc-gold"
       title={`Switch to ${other}'s perspective`}
     >
       <span>{current.icon}</span>
