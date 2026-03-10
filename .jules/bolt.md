@@ -1,0 +1,3 @@
+## 2024-05-24 - Optimizing Frontmatter Parsing for Large Markdown Files
+**Learning:** The regular expression used to parse frontmatter (`/^---...([\s\S]*?)\r?\n---...([\s\S]*)$/`) captures the *entire* file body into memory using `([\s\S]*)$`. On large files, or when executed rapidly over many files, this leads to catastrophic backtracking, massive string allocations, and high latency (~25ms per file).
+**Action:** Always slice strings using `.slice(match[0].length)` for large payloads instead of capturing them using regex. Avoid capturing the remainder of the file with `([\s\S]*)$`.
