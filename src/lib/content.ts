@@ -115,16 +115,23 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
+  if (!content.startsWith('---')) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
   // Allow whitespace + trailing comments on delimiter lines.
   // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
+  // ⚡ Bolt: Removed full-file capture group `([\s\S]*)$` to avoid massive string allocation and
+  // catastrophic backtracking on large files. Now we slice the body after the match.
+  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?/;
   const match = content.match(fmRegex);
 
   if (!match) {
     return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
+  const fmRaw = match[1];
+  const body = content.slice(match[0].length);
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
   return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
