@@ -1,0 +1,72 @@
+npm warn exec The following package was not found and will be installed: serve@14.2.6
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  3/11/2026 9:03:01 AM ::1 GET /en
+ HTTP  3/11/2026 9:03:01 AM ::1 Returned 200 in 346 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /brand/banner.jpg
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/css/77d9bf6723f691a9.css
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 3 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 5 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/webpack-8240b6f60dc9354d.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/6821f731-3c8a9bf7deacadfd.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/3657-d276eb2c9c4eaccc.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/main-app-2bb661794e97a858.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/7235-6c4d643e94a2f39d.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/1860-b6e149d42286baa6.js
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 17 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 15 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 15 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 14 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 25 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 29 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/1107-ba682fc4d16f3083.js
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 17 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/app/layout-9f4be90929148007.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/app/not-found-89032e36d54b43fa.js
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/page-a2ffbd53a4810b28.js
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 25 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 26 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 27 ms
+ HTTP  3/11/2026 9:03:02 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/layout-61fcd6e21c177191.js
+ HTTP  3/11/2026 9:03:02 AM ::1 Returned 200 in 6 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /brand/sigil-64.png
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-deterministic-framework.png
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-chaos-has-structure.png
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-190-signature.png
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-quantum-theory.png
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 10 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-illusion-of-chance.png
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-hunting-the-glitch.png
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 63 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 85 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 86 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 85 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 111 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 175 ms
+ HTTP  3/11/2026 9:03:03 AM ::1 GET /media/slides/cover-unmasking-randomness.png
+ HTTP  3/11/2026 9:03:03 AM ::1 Returned 200 in 16 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /en/investors.txt?_rsc=zipw3
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 2 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /en/start-here.txt?_rsc=zipw3
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /en/join.txt?_rsc=zipw3
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /en/papers.txt?_rsc=zipw3
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /en/about.txt?_rsc=zipw3
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 7 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 7 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 8 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 8 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/css/cd5b9d5a1bf3e767.css
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/a233fb7b-b3bb7acc3799e2ac.js
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/8345-89e3b72bb6dfe6b0.js
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/investors/page-8cb6be5ca71534c8.js
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 9 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 3 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 9 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 8 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/join/page-28a6808237963a7d.js
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/start-here/page-8cb6be5ca71534c8.js
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/papers/page-c3eae73608c648d4.js
+ HTTP  3/11/2026 9:03:04 AM ::1 GET /_next/static/chunks/app/%5Blang%5D/about/page-caf8b68ec960c974.js
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 26 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 25 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 20 ms
+ HTTP  3/11/2026 9:03:04 AM ::1 Returned 200 in 15 ms
