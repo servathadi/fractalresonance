@@ -39,7 +39,7 @@ interface AskRequest {
 }
 
 // Simple relevance scoring based on term frequency
-function scoreDocument(doc: SearchDocument, terms: string[]): number {
+export function scoreDocument(doc: SearchDocument, terms: string[]): number {
   let score = 0;
   const titleLower = doc.title.toLowerCase();
   const contentLower = doc.content.toLowerCase();
@@ -54,15 +54,23 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
+    // ⚡ Bolt: Use indexOf instead of RegExp for faster string search and to prevent ReDoS
+    let contentMatches = 0;
+    let pos = 0;
+    while (contentMatches < 5) { // Cap at 5 to avoid bias toward long docs and exit early
+      const idx = contentLower.indexOf(term, pos);
+      if (idx === -1) break;
+      contentMatches++;
+      pos = idx + term.length;
+    }
+    score += contentMatches;
   }
 
   return score;
 }
 
 // Search the index for relevant documents
-function searchDocuments(
+export function searchDocuments(
   index: SearchIndex,
   query: string,
   lang?: string,
