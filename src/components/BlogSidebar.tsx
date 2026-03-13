@@ -38,7 +38,7 @@ export function BlogSidebar({ lang, currentId, basePath, view, variant = 'deskto
     >
       <details open={!isMobile}>
         {isMobile && (
-          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none">
             <span className="text-xs uppercase tracking-wider text-frc-steel">{t.browse}</span>
           </summary>
         )}
