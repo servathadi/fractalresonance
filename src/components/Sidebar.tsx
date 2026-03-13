@@ -81,7 +81,7 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
     <aside data-sidebar className={asideClass}>
       {isMobile ? (
         <details>
-          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none">
             <span className="text-xs uppercase tracking-wider text-frc-steel">Browse library</span>
           </summary>
           {nav}
@@ -125,7 +125,7 @@ function SidebarSection({
 
   return (
     <details open={openByDefault} className="mb-4">
-      <summary className="flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-frc-steel px-2 cursor-pointer select-none list-none">
+      <summary className="flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-frc-steel px-2 cursor-pointer select-none list-none focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none">
         <span>{title}</span>
         <span className="text-[11px] normal-case text-frc-text-dim">{sorted.length}</span>
       </summary>

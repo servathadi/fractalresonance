@@ -49,7 +49,7 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
     >
       <details open={!isMobile}>
         {isMobile && (
-          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
+          <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none">
             <span className="text-xs uppercase tracking-wider text-frc-steel">{t.browse}</span>
           </summary>
         )}
