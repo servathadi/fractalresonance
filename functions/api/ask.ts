@@ -54,8 +54,14 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
     // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
-    score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
+    // Optimized: use indexOf instead of RegExp allocation in a loop
+    let contentMatches = 0;
+    let index = contentLower.indexOf(term);
+    while (index !== -1 && contentMatches < 5) { // Cap at 5 to avoid bias toward long docs
+      contentMatches++;
+      index = contentLower.indexOf(term, index + term.length);
+    }
+    score += contentMatches;
   }
 
   return score;
