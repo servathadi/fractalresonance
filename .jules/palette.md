@@ -1,0 +1,3 @@
+## 2024-03-15 - Interactive Elements Lack Keyboard Focus
+**Learning:** Found that key interactive elements in the Header and Navigation components (`SearchTrigger`, `ThemeToggle`, `LanguageSelector`, `ModeToggleCompact`) are missing the standard Tailwind `focus-visible` outline classes. This causes a confusing experience for keyboard users as they navigate through the application header, as there is no visual indicator of focus.
+**Action:** Always add standard focus-visible rings (`focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none`) to buttons and interactive links, particularly in global navigation components to ensure accessible keyboard navigation.

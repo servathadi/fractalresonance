@@ -51,7 +51,7 @@ export function LanguageSelector() {
     <div ref={menuRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider uppercase transition-colors motion-reduce:transition-none px-2 py-2 sm:px-0 sm:py-0"
+        className="flex items-center gap-1.5 font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider uppercase transition-colors motion-reduce:transition-none px-2 py-2 sm:px-0 sm:py-0 focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none rounded"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
@@ -86,7 +86,7 @@ export function LanguageSelector() {
             <button
               key={lang.code}
               onClick={() => switchLanguage(lang.code)}
-              className={`w-full px-3 py-2 text-xs flex items-center justify-between gap-3 transition-colors ${
+              className={`w-full px-3 py-2 text-xs flex items-center justify-between gap-3 transition-colors focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none ${
                 lang.code === currentLangCode
                   ? 'bg-frc-blue/20 text-frc-gold'
                   : 'text-frc-text-dim hover:bg-frc-blue/10 hover:text-frc-text'
