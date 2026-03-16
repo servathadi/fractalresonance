@@ -115,19 +115,38 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
+  // Fast path using indexOf to avoid massive regex backtracking on large files
+  if (!content.startsWith('---')) {
     return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
+  const endOfFirstLine = content.indexOf('\n');
+  if (endOfFirstLine === -1) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  // Find the closing delimiter. Must start on a new line to avoid matching `---` inside content early
+  const closingIdx = content.indexOf('\n---', endOfFirstLine);
+  if (closingIdx === -1) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  let fmRaw = content.slice(endOfFirstLine + 1, closingIdx);
+  if (fmRaw.endsWith('\r')) {
+    fmRaw = fmRaw.slice(0, -1);
+  }
+
+  let bodyStart = content.indexOf('\n', closingIdx + 1);
+  if (bodyStart === -1) {
+    bodyStart = content.length;
+  } else {
+    bodyStart += 1;
+  }
+
+  const body = content.slice(bodyStart).trim();
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  return { frontmatter: frontmatter as unknown as RawFrontmatter, body, raw: content };
 }
 
 type YamlValue =
