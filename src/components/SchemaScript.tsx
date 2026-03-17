@@ -2,8 +2,8 @@
  * SchemaScript — renders JSON-LD structured data in a <script> tag.
  *
  * Safety: All data comes from typed schema generators in src/lib/schema.ts.
- * No user input is ever passed to this component. The JSON.stringify output
- * is always valid JSON with no HTML special characters unescaped.
+ * We manually escape HTML control characters like < and > after
+ * JSON.stringify to prevent XSS vulnerabilities.
  *
  * Usage:
  *   <SchemaScript data={schemaSiteGraph()} />
@@ -15,10 +15,10 @@ interface SchemaScriptProps {
 }
 
 export function SchemaScript({ data }: SchemaScriptProps) {
-  // JSON.stringify produces safe output for script tags — it escapes
-  // forward slashes and special characters. No HTML injection possible
-  // from valid JSON serialization of our own typed schema objects.
-  const jsonLd = JSON.stringify(data);
+  // JSON.stringify does not automatically escape HTML control characters
+  // like < and >. We manually escape them to prevent XSS vulnerabilities
+  // when injecting this data into script tags via dangerouslySetInnerHTML.
+  const jsonLd = JSON.stringify(data).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
 
   return (
     <script
