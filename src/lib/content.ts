@@ -115,19 +115,44 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
+  const defaultRes = { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
 
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  // Fast path: must start with ---
+  if (!content.startsWith('---')) return defaultRes;
+
+  const firstNewline = content.indexOf('\n');
+  if (firstNewline === -1) return defaultRes;
+
+  const firstLine = content.slice(0, firstNewline);
+  if (!/^---[^\S\r\n]*(?:#.*)?\r?$/.test(firstLine)) return defaultRes;
+
+  // ⚡ Bolt: Use indexOf instead of full-file regex ([\s\S]*)$ to avoid
+  // massive performance degradation when scanning large markdown files.
+  const endMark = '\n---';
+  let searchIdx = firstNewline;
+
+  while (true) {
+    const endIdx = content.indexOf(endMark, searchIdx);
+    if (endIdx === -1) return defaultRes;
+
+    const endOfLine = content.indexOf('\n', endIdx + 4);
+    const lineEnd = endOfLine === -1 ? content.length : endOfLine;
+    const closingLine = content.slice(endIdx + 1, lineEnd);
+
+    // Verify it's a valid closing delimiter (allowing whitespace/comments)
+    if (/^---[^\S\r\n]*(?:#.*)?\r?$/.test(closingLine)) {
+      const fmRaw = content.slice(firstNewline + 1, endIdx);
+      let body = '';
+      if (endOfLine !== -1) {
+        body = content.slice(endOfLine + 1);
+      }
+      const frontmatter = parseYamlFrontmatter(fmRaw);
+      return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+    }
+
+    // Not a valid delimiter, keep searching
+    searchIdx = endIdx + 4;
   }
-
-  const [, fmRaw, body] = match;
-  const frontmatter = parseYamlFrontmatter(fmRaw);
-
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
 }
 
 type YamlValue =
