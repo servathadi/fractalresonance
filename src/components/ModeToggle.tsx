@@ -18,7 +18,7 @@ export function ModeToggleCompact() {
           key={m.id}
           type="button"
           onClick={() => setMode(m.id)}
-          className={`px-2 py-1 text-[10px] uppercase tracking-widest transition-colors ${
+          className={`px-2 py-1 text-[10px] uppercase tracking-widest focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none rounded transition-colors ${
             mode === m.id
               ? 'bg-frc-gold text-frc-void'
               : 'text-frc-steel hover:text-frc-gold'
@@ -44,7 +44,7 @@ export function ModeSwitchButton({
 }) {
   const { setMode } = useFrcMode();
   return (
-    <button type="button" onClick={() => setMode(to)} className={className}>
+    <button type="button" onClick={() => setMode(to)} className={`${className} focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none rounded`}>
       {label}
     </button>
   );

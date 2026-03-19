@@ -31,7 +31,7 @@ export function ReadingMode() {
   return (
     <button
       onClick={toggle}
-      className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center border transition-all ${
+      className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center border focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none transition-all ${
         active
           ? 'bg-frc-gold border-frc-gold text-frc-void'
           : 'bg-frc-void border-frc-blue text-frc-text-dim hover:text-frc-gold hover:border-frc-gold'
