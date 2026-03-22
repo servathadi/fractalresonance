@@ -116,18 +116,48 @@ export interface HomeConfig {
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
   // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
+  // We use indexOf instead of a full-file regex capture for performance on massive markdown strings.
+  const startRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n/;
+  const match = startRegex.exec(content);
 
   if (!match) {
     return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
+  const fmStart = match[0].length;
+  let searchPos = fmStart;
+  let endDelimIndex = -1;
+  let bodyStart = -1;
+
+  while (true) {
+    const idx = content.indexOf('\n---', searchPos);
+    if (idx === -1) break;
+
+    const actualStart = (idx > 0 && content[idx - 1] === '\r') ? idx - 1 : idx;
+    const afterDelim = idx + 4; // length of `\n---`
+
+    let lineEnd = content.indexOf('\n', afterDelim);
+    if (lineEnd === -1) lineEnd = content.length;
+
+    const restOfLine = content.slice(afterDelim, lineEnd);
+    if (/^[^\S\r\n]*(?:#.*)?\r?$/.test(restOfLine)) {
+      endDelimIndex = actualStart;
+      bodyStart = lineEnd === content.length ? lineEnd : lineEnd + 1; // +1 to skip \n
+      break;
+    }
+
+    searchPos = idx + 4;
+  }
+
+  if (endDelimIndex === -1) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  const fmRaw = content.slice(fmStart, endDelimIndex);
+  const body = content.slice(bodyStart).trim();
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
+  return { frontmatter: frontmatter as unknown as RawFrontmatter, body, raw: content };
 }
 
 type YamlValue =
