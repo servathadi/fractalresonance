@@ -18,7 +18,7 @@ export function ModeToggleCompact() {
           key={m.id}
           type="button"
           onClick={() => setMode(m.id)}
-          className={`px-2 py-1 text-[10px] uppercase tracking-widest transition-colors ${
+          className={`px-2 py-1 text-[10px] uppercase tracking-widest transition-colors focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none ${
             mode === m.id
               ? 'bg-frc-gold text-frc-void'
               : 'text-frc-steel hover:text-frc-gold'
