@@ -88,6 +88,8 @@ export function TextSharePopover() {
         onClick={copyText}
         onMouseDown={(e) => e.preventDefault()}
         title={copied ? 'Copied!' : 'Copy text'}
+        aria-label={copied ? 'Copied to clipboard' : 'Copy selected text'}
+        className="focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none"
       >
         {copied ? (
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -106,6 +108,8 @@ export function TextSharePopover() {
         onClick={shareTwitter}
         onMouseDown={(e) => e.preventDefault()}
         title="Share on X"
+        aria-label="Share selected text on X"
+        className="focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none"
       >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -117,6 +121,8 @@ export function TextSharePopover() {
         onClick={shareLink}
         onMouseDown={(e) => e.preventDefault()}
         title="Copy page link"
+        aria-label="Copy page link"
+        className="focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
