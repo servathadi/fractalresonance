@@ -74,13 +74,24 @@ export function BookExperience({
 
       e.preventDefault();
 
+      // Security: Escape HTML characters to prevent XSS in captions and attributes
+      const escapeHtml = (str: string) => {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      };
+
       const overlay = document.createElement('div');
       overlay.className = 'frc-lightbox-overlay';
+      const safeAlt = escapeHtml(img.alt || '');
       overlay.innerHTML = `
         <div class="frc-lightbox-inner" role="dialog" aria-modal="true">
           <button class="frc-lightbox-close" aria-label="Close">×</button>
-          <img class="frc-lightbox-img" src="${img.src}" alt="${(img.alt || '').replace(/"/g, '&quot;')}" />
-          ${img.alt ? `<div class="frc-lightbox-caption">${img.alt}</div>` : ''}
+          <img class="frc-lightbox-img" src="${img.src}" alt="${safeAlt}" />
+          ${safeAlt ? `<div class="frc-lightbox-caption">${safeAlt}</div>` : ''}
         </div>
       `;
       document.body.appendChild(overlay);
