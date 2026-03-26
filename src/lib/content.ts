@@ -115,16 +115,55 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace + trailing comments on delimiter lines.
-  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  // Use string scanning instead of full-file capturing regexes to avoid performance
+  // bottlenecks when parsing massive markdown files.
+  if (!content.startsWith('---')) {
+    return { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
+  const firstNewline = content.indexOf('\n');
+  if (firstNewline === -1) {
+    return { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
+  }
+
+  const firstLine = content.slice(3, firstNewline);
+  if (!/^[^\S\r\n]*(?:#.*)?\r?$/.test(firstLine)) {
+    return { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
+  }
+
+  let searchIndex = firstNewline + 1;
+  let fmEnd = -1;
+  let bodyStart = -1;
+
+  while (true) {
+    const nextDash = content.indexOf('\n---', searchIndex - 1);
+    if (nextDash === -1) break;
+
+    const lineEnd = content.indexOf('\n', nextDash + 1);
+    const endOfLine = lineEnd === -1 ? content.length : lineEnd;
+    const lineText = content.slice(nextDash + 4, endOfLine);
+
+    // Allow whitespace + trailing comments on the closing delimiter line
+    if (/^[^\S\r\n]*(?:#.*)?\r?$/.test(lineText)) {
+      let endIdx = nextDash;
+      if (endIdx > 0 && content[endIdx - 1] === '\r') {
+        endIdx--;
+      }
+      fmEnd = endIdx;
+      bodyStart = lineEnd === -1 ? content.length : lineEnd + 1;
+      break;
+    }
+
+    searchIndex = nextDash + 4;
+  }
+
+  if (fmEnd === -1) {
+    return { frontmatter: { title: '', id: '' } as unknown as RawFrontmatter, body: content, raw: content };
+  }
+
+  const fmRaw = content.slice(firstNewline + 1, fmEnd);
+  const body = content.slice(bodyStart);
+
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
   return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
