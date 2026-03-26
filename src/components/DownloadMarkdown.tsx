@@ -47,7 +47,7 @@ export function DownloadMarkdown({ id, title, content, lang = 'en' }: DownloadMa
   return (
     <button
       onClick={handleDownload}
-      className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+      className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none"
       title={t.download}
     >
       <svg
