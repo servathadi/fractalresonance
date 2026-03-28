@@ -117,14 +117,58 @@ export interface HomeConfig {
 export function parseFrontmatter(content: string): ParsedContent {
   // Allow whitespace + trailing comments on delimiter lines.
   // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
-  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
-  const match = content.match(fmRegex);
-
-  if (!match) {
+  if (!content.startsWith('---')) {
     return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
-  const [, fmRaw, body] = match;
+  // Find first newline
+  const firstNewline = content.indexOf('\n');
+  if (firstNewline === -1) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  // Validate the opening delimiter line: allow trailing spaces and `#` comments
+  const firstLineExt = content.substring(3, firstNewline).trim();
+  if (firstLineExt.length > 0 && !firstLineExt.startsWith('#')) {
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+  }
+
+  // Iterate to find the closing delimiter line
+  let searchIndex = firstNewline;
+  let fmRaw = '';
+  let body = '';
+
+  while (true) {
+    const endFmIdx = content.indexOf('\n---', searchIndex);
+    if (endFmIdx === -1) {
+      // No closing delimiter found
+      return { frontmatter: { title: '', id: '' }, body: content, raw: content };
+    }
+
+    // Find the end of this `\n---` line
+    const nextNewline = content.indexOf('\n', endFmIdx + 4);
+    const endOfLineIdx = nextNewline !== -1 ? nextNewline : content.length;
+
+    const closingLineExt = content.substring(endFmIdx + 4, endOfLineIdx).trim();
+    if (closingLineExt.length === 0 || closingLineExt.startsWith('#')) {
+      // Valid closing delimiter found
+      // Note: The original regex non-greedy match `([\s\S]*?)` stops before `\r?\n---`.
+      // If the delimiter line ends with `\r\n`, we need to exclude the `\r`.
+      let rawEnd = endFmIdx;
+      if (rawEnd > firstNewline && content[rawEnd - 1] === '\r') {
+          rawEnd--;
+      }
+      fmRaw = content.substring(firstNewline + 1, rawEnd);
+
+      // Extract body: the original regex consumed optional `\r?\n?` after the delimiter line.
+      // So the body starts immediately after the delimiter line's newline (or EOF).
+      body = content.substring(endOfLineIdx).trim();
+      break;
+    }
+
+    // Not a valid closing delimiter line, keep searching
+    searchIndex = endOfLineIdx;
+  }
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
   return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
