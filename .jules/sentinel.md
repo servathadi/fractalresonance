@@ -1,0 +1,4 @@
+## 2024-05-24 - [Title]
+**Vulnerability:** XSS in SchemaScript.tsx via JSON.stringify
+**Learning:** `JSON.stringify` does not escape HTML control characters like `<`, `>`, and `&`. Injecting `JSON.stringify` directly into script tags using `dangerouslySetInnerHTML` is an XSS vulnerability if any part of the JSON object can be manipulated by an attacker, even if the data comes from 'trusted' schema generators. The comment in `SchemaScript.tsx` explicitly states "JSON.stringify produces safe output for script tags — it escapes forward slashes and special characters. No HTML injection possible", which is factually incorrect.
+**Prevention:** Always manually escape HTML control characters (e.g. `<`, `>`, `&`) when embedding JSON into script tags. Next.js `JSON.stringify` output needs manual sanitization before using it with `dangerouslySetInnerHTML`.

@@ -15,10 +15,14 @@ interface SchemaScriptProps {
 }
 
 export function SchemaScript({ data }: SchemaScriptProps) {
-  // JSON.stringify produces safe output for script tags — it escapes
-  // forward slashes and special characters. No HTML injection possible
-  // from valid JSON serialization of our own typed schema objects.
-  const jsonLd = JSON.stringify(data);
+  // JSON.stringify by itself does NOT escape HTML characters like <, >, or &.
+  // If user-controlled data ever enters the JSON, it could break out of the
+  // script tag and cause XSS. We manually replace dangerous characters with
+  // their unicode equivalents to ensure safety.
+  const jsonLd = JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
 
   return (
     <script
