@@ -235,6 +235,7 @@ export function OracleChat({ lang }: OracleChatProps) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={t.placeholder}
+            aria-label={t.placeholder}
             disabled={isLoading}
             className="flex-1 bg-transparent border border-frc-blue/30 rounded px-3 py-2 text-sm text-frc-text placeholder-frc-text-dim focus:outline-none focus:border-frc-gold/50"
           />
