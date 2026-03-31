@@ -276,6 +276,19 @@ function stripYamlQuotes(val: string): string {
 // ─── Content Loaders ───────────────────────────────────────────────────────
 
 /**
+ * Safely reads and parses a content file by ID, preventing path traversal.
+ */
+function safeReadContent(dir: string, filename: string): ParsedContent | null {
+  if (filename.includes('/') || filename.includes('\\') || filename.startsWith('.')) return null;
+  const p = path.join(dir, `${filename}.md`);
+  if (fs.existsSync(p)) {
+    const raw = fs.readFileSync(p, 'utf-8');
+    return parseFrontmatter(raw);
+  }
+  return null;
+}
+
+/**
  * Check if content should be visible (published or in dev mode)
  * Drafts are hidden in production, visible in development
  */
@@ -340,6 +353,9 @@ export function getBlogPost(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return null;
 
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -369,6 +385,9 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return null;
 
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -397,6 +416,9 @@ export function getPerson(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return null;
 
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -410,6 +432,9 @@ export function getPerson(lang: string, id: string): ParsedContent | null {
 export function getPaper(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return null;
+
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
 
   const normalize = (rawId: string) => {
     // Keep this intentionally forgiving to preserve legacy URLs like:
@@ -427,6 +452,9 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   };
 
   const requested = normalize(id);
+  const normalizedExact = safeReadContent(dir, requested);
+  if (normalizedExact && normalize(normalizedExact.frontmatter.id) === requested) return normalizedExact;
+
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -648,6 +676,9 @@ export function getConcept(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return null;
 
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
+
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -704,6 +735,9 @@ export function getSitePage(lang: string, slug: string): ParsedContent | null {
 export function getArticle(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return null;
+
+  const exact = safeReadContent(dir, id);
+  if (exact && exact.frontmatter.id === id) return exact;
 
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
