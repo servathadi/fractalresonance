@@ -276,6 +276,21 @@ function stripYamlQuotes(val: string): string {
 // ─── Content Loaders ───────────────────────────────────────────────────────
 
 /**
+ * Safely read a markdown file by ID directly to avoid O(N) directory scans.
+ * Prevents path traversal vulnerabilities.
+ */
+function safeReadContent(dir: string, id: string): string | null {
+  if (!id || id.includes('/') || id.includes('\\') || id.includes('..')) {
+    return null;
+  }
+  const expectedPath = path.join(dir, `${id}.md`);
+  if (fs.existsSync(expectedPath)) {
+    return fs.readFileSync(expectedPath, 'utf-8');
+  }
+  return null;
+}
+
+/**
  * Check if content should be visible (published or in dev mode)
  * Drafts are hidden in production, visible in development
  */
@@ -340,6 +355,12 @@ export function getBlogPost(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return null;
 
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -369,6 +390,12 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return null;
 
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -396,6 +423,12 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
 export function getPerson(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return null;
+
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
   for (const f of files) {
@@ -427,6 +460,25 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   };
 
   const requested = normalize(id);
+
+  // Fast path for exact ID match
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id || normalize(parsed.frontmatter.id) === requested) {
+      return parsed;
+    }
+  }
+
+  // Fast path for normalized ID match
+  const fastContentNorm = safeReadContent(dir, requested);
+  if (fastContentNorm) {
+    const parsedNorm = parseFrontmatter(fastContentNorm);
+    if (parsedNorm.frontmatter.id === id || normalize(parsedNorm.frontmatter.id) === requested) {
+      return parsedNorm;
+    }
+  }
+
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -648,6 +700,12 @@ export function getConcept(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return null;
 
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -704,6 +762,12 @@ export function getSitePage(lang: string, slug: string): ParsedContent | null {
 export function getArticle(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return null;
+
+  const fastContent = safeReadContent(dir, id);
+  if (fastContent) {
+    const parsed = parseFrontmatter(fastContent);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
 
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
