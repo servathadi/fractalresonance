@@ -1,0 +1,3 @@
+## 2025-01-19 - Regex Body Capturing Anti-pattern in Markdown Parsing
+**Learning:** For performance when parsing massive markdown files, avoiding full-file capturing regular expressions like `([\s\S]*)$` significantly reduces memory pressure and parsing time. Combining a fast-fail `.startsWith('---')` with a non-greedy regex just for the frontmatter and then using `String.prototype.slice()` on the body string is much more efficient.
+**Action:** When extracting components of potentially large strings (like markdown bodies after frontmatter), always prefer substring/slice operations over massive regex capture groups.
