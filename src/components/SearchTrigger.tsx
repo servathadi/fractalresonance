@@ -29,7 +29,7 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
     <button
       type="button"
       onClick={openSearch}
-      className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold transition-colors ${className}`}
+      className={`flex items-center gap-2 text-frc-text-dim hover:text-frc-gold focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none rounded transition-colors ${className}`}
       aria-label="Open search"
     >
       <svg
@@ -37,6 +37,7 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
+        aria-hidden="true"
       >
         <path
           strokeLinecap="round"
