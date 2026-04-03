@@ -1,0 +1,3 @@
+## 2026-04-03 - Interactive Element Keyboard Accessibility
+**Learning:** The application lacked consistent keyboard focus visibility on generic icon buttons in the header components (ThemeToggle, SearchTrigger, LanguageSelector). Additionally, embedded SVG icons were still potentially visible to screen readers despite having no semantic meaning.
+**Action:** Applied standard Tailwind utility classes (`focus-visible:ring-2 focus-visible:ring-frc-gold focus-visible:outline-none rounded`) to all utility buttons to guarantee keyboard navigation cues without disrupting mouse styling. Applied `aria-hidden="true"` to inner `<svg>` children to prevent redundant or confusing screen reader announcements.
