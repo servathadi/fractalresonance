@@ -56,6 +56,7 @@ export function LanguageSelector() {
         aria-expanded={isOpen}
       >
         <svg
+          aria-hidden="true"
           className="w-3.5 h-3.5"
           fill="none"
           viewBox="0 0 24 24"
@@ -70,6 +71,7 @@ export function LanguageSelector() {
         </svg>
         <span>{currentLang.code}</span>
         <svg
+          aria-hidden="true"
           className={`w-2.5 h-2.5 transition-transform motion-reduce:transition-none ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
