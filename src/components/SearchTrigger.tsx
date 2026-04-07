@@ -33,6 +33,7 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
       aria-label="Open search"
     >
       <svg
+        aria-hidden="true"
         className="w-4 h-4"
         fill="none"
         stroke="currentColor"
