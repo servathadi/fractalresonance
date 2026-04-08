@@ -333,6 +333,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               <input
                 type="checkbox"
                 checked={enabledTypes[t]}
+                aria-label={`Filter by ${t}`}
                 onChange={(e) => {
                   const checked = e.target.checked;
                   setEnabledTypes((prev) => ({ ...prev, [t]: checked }));
@@ -351,6 +352,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search id or title"
             onKeyDown={(e) => {
               if (e.key !== 'Enter') return;
               const q = query.trim().toLowerCase();

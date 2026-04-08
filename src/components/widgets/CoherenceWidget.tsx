@@ -191,6 +191,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
               max="200" 
               step="10" 
               value={N}
+              aria-label="Oscillators (N)"
               onChange={(e) => setN(Number(e.target.value))}
               className="w-full h-1 bg-frc-blue rounded-lg appearance-none cursor-pointer accent-frc-gold"
             />
@@ -207,6 +208,7 @@ export function CoherenceWidget({ initialN = 50, initialK = 0.5 }: CoherenceWidg
               max="5" 
               step="0.05" 
               value={K}
+              aria-label="Coupling (K)"
               onChange={(e) => setK(Number(e.target.value))}
               className="w-full h-1 bg-frc-blue rounded-lg appearance-none cursor-pointer accent-frc-gold"
             />
