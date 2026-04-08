@@ -162,6 +162,7 @@ export function CommandPalette({ items }: CommandPaletteProps) {
               autoFocus
               type="text"
               placeholder={t.placeholder}
+              aria-label={t.placeholder}
               className="flex-1 bg-transparent border-none outline-none text-frc-text placeholder-frc-text-dim text-lg"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
