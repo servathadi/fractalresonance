@@ -53,8 +53,15 @@ function scoreDocument(doc: SearchDocument, terms: string[]): number {
     if (abstractLower.includes(term)) score += 5;
     // Tag match (high weight)
     if (tagsLower.some(t => t.includes(term))) score += 5;
-    // Content match (count occurrences)
-    const contentMatches = (contentLower.match(new RegExp(term, 'g')) || []).length;
+    // Content match (count occurrences safely without regex)
+    let contentMatches = 0;
+    if (term.length > 0) {
+      let pos = 0;
+      while ((pos = contentLower.indexOf(term, pos)) !== -1) {
+        contentMatches++;
+        pos += term.length;
+      }
+    }
     score += Math.min(contentMatches, 5); // Cap at 5 to avoid bias toward long docs
   }
 
@@ -210,8 +217,7 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
   } catch (error) {
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
-      error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      error: 'Failed to process question'
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
