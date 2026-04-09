@@ -291,6 +291,27 @@ function isPublished(content: ParsedContent): boolean {
 }
 
 /** Get all papers for a language */
+
+/** Helper for O(1) content lookups by ID */
+function findContentById(dir: string, id: string): ParsedContent | null {
+  // Fast path: try exact filename match first (O(1))
+  const exactPath = path.join(dir, `${id}.md`);
+  if (fs.existsSync(exactPath)) {
+    const raw = fs.readFileSync(exactPath, 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+
+  // Fallback: full directory scan (O(N))
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  for (const f of files) {
+    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id) return parsed;
+  }
+  return null;
+}
+
 export function getPapers(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
   if (!fs.existsSync(dir)) return [];
@@ -340,13 +361,7 @@ export function getBlogPost(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'blog');
   if (!fs.existsSync(dir)) return null;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
+  return findContentById(dir, id);
 }
 
 /** Get all topics for a language */
@@ -369,13 +384,7 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'topics');
   if (!fs.existsSync(dir)) return null;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
+  return findContentById(dir, id);
 }
 
 /** Get all people/profiles for a language */
@@ -397,13 +406,7 @@ export function getPerson(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'people');
   if (!fs.existsSync(dir)) return null;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
+  return findContentById(dir, id);
 }
 
 /** Get a single paper by id */
@@ -427,6 +430,22 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   };
 
   const requested = normalize(id);
+
+  // Fast path: try exact filename match or normalized filename match (O(1))
+  const exactPath = path.join(dir, `${id}.md`);
+  if (fs.existsSync(exactPath)) {
+    const raw = fs.readFileSync(exactPath, 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id || normalize(parsed.frontmatter.id) === requested) return parsed;
+  }
+  const normPath = path.join(dir, `${requested}.md`);
+  if (normPath !== exactPath && fs.existsSync(normPath)) {
+    const raw = fs.readFileSync(normPath, 'utf-8');
+    const parsed = parseFrontmatter(raw);
+    if (parsed.frontmatter.id === id || normalize(parsed.frontmatter.id) === requested) return parsed;
+  }
+
+  // Fallback: full directory scan (O(N))
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -500,12 +519,8 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   if (!fs.existsSync(dir)) return null;
 
   // 1) Single-file book
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
+  const singleBook = findContentById(dir, id);
+  if (singleBook) return singleBook;
 
   // 2) Folder book: books/<id>/(index.md + chapters)
   const bookDir = path.join(dir, id);
@@ -648,13 +663,7 @@ export function getConcept(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'concepts');
   if (!fs.existsSync(dir)) return null;
 
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
+  return findContentById(dir, id);
 }
 
 /** Get all available languages */
@@ -705,13 +714,7 @@ export function getArticle(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
   if (!fs.existsSync(dir)) return null;
 
-  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-  for (const f of files) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-    const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-  }
-  return null;
+  return findContentById(dir, id);
 }
 
 // ─── Schema Converters ─────────────────────────────────────────────────────
