@@ -1,0 +1,3 @@
+## 2024-05-18 - Fast Markdown Parsing
+**Learning:** Using full-file capturing regular expressions like `([\s\S]*)$` in `parseFrontmatter` to extract the body of massive markdown files causes massive memory pressure and performance bottlenecks in Node.js/V8, especially when processing many files at build time or when searching.
+**Action:** Include a fast-fail check like `content.startsWith('---')` to bypass regex execution entirely when possible. Use a non-greedy regex to match only the frontmatter block (supporting trailing whitespace/comments), and use `String.prototype.slice()` along with the length of the matched string (`match[0].length`) to efficiently extract the body, avoiding string copying through regex captures.
