@@ -101,13 +101,25 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return { nodes, links };
   }, [data.nodes, data.links, enabledTypes]);
 
+  const indexedNodes = useMemo(() => {
+    const map = new Map<string, GraphNode>();
+    const searchArray = filtered.nodes.map(n => {
+      const lowerId = n.id.toLowerCase();
+      const lowerTitle = (n.title || '').toLowerCase();
+      map.set(lowerId, n);
+      return { node: n, lowerId, lowerTitle };
+    });
+    return { map, searchArray };
+  }, [filtered.nodes]);
+
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [filtered.nodes, query]);
+    return indexedNodes.searchArray
+      .filter((n) => n.lowerId.includes(q) || n.lowerTitle.includes(q))
+      .slice(0, 8)
+      .map(n => n.node);
+  }, [indexedNodes, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +319,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = indexedNodes.map.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -318,7 +330,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       return s === focusNode.id || t === focusNode.id ? 0.9 : 0.08;
     });
     sel.label.style('opacity', (d: GraphNode) => (d.id === focusNode.id || neighbors.has(d.id) ? 1 : 0));
-  }, [focusId, filtered.nodes]);
+  }, [focusId, indexedNodes, filtered.nodes]);
 
   return (
     <div ref={containerRef} className="w-full h-[600px] relative bg-frc-void border border-frc-blue/30 rounded-lg overflow-hidden">
@@ -355,10 +367,11 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               if (e.key !== 'Enter') return;
               const q = query.trim().toLowerCase();
               if (!q) return;
-              const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
-                null;
+              let match = indexedNodes.map.get(q);
+              if (!match) {
+                const partial = indexedNodes.searchArray.find((n) => n.lowerId.includes(q) || n.lowerTitle.includes(q));
+                if (partial) match = partial.node;
+              }
               if (match) setFocusId(match.id);
             }}
             className="w-full bg-frc-void border border-frc-blue/60 rounded px-2 py-1 text-frc-text-dim focus:outline-none focus:border-frc-gold"
