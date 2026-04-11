@@ -211,7 +211,7 @@ Provide a helpful answer based on the context above. Cite sources using [1], [2]
     console.error('Ask API error:', error);
     return new Response(JSON.stringify({
       error: 'Failed to process question',
-      details: error instanceof Error ? error.message : 'Unknown error',
+      // Intentionally not exposing error details
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
