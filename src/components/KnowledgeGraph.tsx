@@ -101,13 +101,33 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return { nodes, links };
   }, [data.nodes, data.links, enabledTypes]);
 
+  // BOLT OPTIMIZATION: Pre-index search data to avoid O(N) repetitive lowercase conversions on every keystroke
+  const searchIndex = useMemo(() => {
+    const exactMap = new Map<string, GraphNode>();
+    const searchableNodes: { node: GraphNode; idLower: string; titleLower: string }[] = [];
+
+    for (const node of filtered.nodes) {
+      const idLower = node.id.toLowerCase();
+      const titleLower = (node.title || '').toLowerCase();
+      exactMap.set(idLower, node);
+      searchableNodes.push({ node, idLower, titleLower });
+    }
+
+    return { exactMap, searchableNodes };
+  }, [filtered.nodes]);
+
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [filtered.nodes, query]);
+    const results: GraphNode[] = [];
+    for (const { node, idLower, titleLower } of searchIndex.searchableNodes) {
+      if (idLower.includes(q) || titleLower.includes(q)) {
+        results.push(node);
+        if (results.length >= 8) break;
+      }
+    }
+    return results;
+  }, [searchIndex, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +327,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    // BOLT OPTIMIZATION: Use pre-indexed Map for O(1) exact lookups instead of O(N) array search
+    const focusNode = searchIndex.exactMap.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -355,11 +376,18 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               if (e.key !== 'Enter') return;
               const q = query.trim().toLowerCase();
               if (!q) return;
-              const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
-                null;
-              if (match) setFocusId(match.id);
+              // BOLT OPTIMIZATION: Fast path O(1) map lookup, fallback to O(N) pre-lowercased scan
+              const exactMatch = searchIndex.exactMap.get(q);
+              if (exactMatch) {
+                setFocusId(exactMatch.id);
+                return;
+              }
+              const partialMatch = searchIndex.searchableNodes.find(
+                (sn) => sn.idLower.includes(q) || sn.titleLower.includes(q)
+              );
+              if (partialMatch) {
+                setFocusId(partialMatch.node.id);
+              }
             }}
             className="w-full bg-frc-void border border-frc-blue/60 rounded px-2 py-1 text-frc-text-dim focus:outline-none focus:border-frc-gold"
             placeholder="Search id or title…"
