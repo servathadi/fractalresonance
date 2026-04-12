@@ -1,0 +1,3 @@
+## 2024-04-12 - Pre-index Large Datasets for Client-Side Filtering
+**Learning:** In components dealing with large datasets like graphs, repeatedly converting string properties to lowercase and scanning arrays during high-frequency user interactions (like keystrokes) wastes significant CPU cycles and creates latency.
+**Action:** When implementing client-side search/filtering over large object arrays, use `useMemo` to construct an index combining a `Map` (for O(1) exact lookups) and a pre-lowercased string array (for partial O(N) filtering) to minimize redundant string conversions and iterations.
