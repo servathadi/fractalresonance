@@ -101,13 +101,27 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return { nodes, links };
   }, [data.nodes, data.links, enabledTypes]);
 
+  const searchableNodes = useMemo(() => {
+    const exactMap = new Map<string, GraphNode>();
+    const searchList = filtered.nodes.map((n) => {
+      exactMap.set(n.id.toLowerCase(), n);
+      return {
+        node: n,
+        idLower: n.id.toLowerCase(),
+        titleLower: (n.title || '').toLowerCase(),
+      };
+    });
+    return { exactMap, searchList };
+  }, [filtered.nodes]);
+
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
+    return searchableNodes.searchList
+      .filter((n) => n.idLower.includes(q) || n.titleLower.includes(q))
+      .map((n) => n.node)
       .slice(0, 8);
-  }, [filtered.nodes, query]);
+  }, [searchableNodes.searchList, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +321,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = searchableNodes.exactMap.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -318,7 +332,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       return s === focusNode.id || t === focusNode.id ? 0.9 : 0.08;
     });
     sel.label.style('opacity', (d: GraphNode) => (d.id === focusNode.id || neighbors.has(d.id) ? 1 : 0));
-  }, [focusId, filtered.nodes]);
+  }, [focusId, filtered.nodes, searchableNodes.exactMap]);
 
   return (
     <div ref={containerRef} className="w-full h-[600px] relative bg-frc-void border border-frc-blue/30 rounded-lg overflow-hidden">
@@ -355,10 +369,9 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               if (e.key !== 'Enter') return;
               const q = query.trim().toLowerCase();
               if (!q) return;
-              const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
-                null;
+              const exactMatch = searchableNodes.exactMap.get(q);
+              const partialMatchItem = searchableNodes.searchList.find((n) => n.idLower.includes(q) || n.titleLower.includes(q));
+              const match = exactMatch || (partialMatchItem ? partialMatchItem.node : null);
               if (match) setFocusId(match.id);
             }}
             className="w-full bg-frc-void border border-frc-blue/60 rounded px-2 py-1 text-frc-text-dim focus:outline-none focus:border-frc-gold"
