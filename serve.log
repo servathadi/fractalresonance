@@ -1,0 +1,4 @@
+npm warn exec The following package was not found and will be installed: serve@14.2.6
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  4/15/2026 9:21:33 AM ::1 GET /en/concepts/reality-as-computation
+ HTTP  4/15/2026 9:21:33 AM ::1 Returned 404 in 294 ms
