@@ -1,0 +1,226 @@
+
+> fractalresonance@2.0.0 build /app
+> node scripts/generate-search-index.js && node scripts/generate-catalog.mjs && next build
+
+Generating search index...
+✓ Generated search index: /app/public/search-index.json
+  Total documents: 624
+  By language: { en: 162, es: 155, fa: 152, fr: 155 }
+  By type: {
+  papers: 60,
+  articles: 37,
+  concepts: 44,
+  topics: 138,
+  blog: 26,
+  books: 319
+}
+  Per-language indexes: search-index-{en,es,fa,fr}.json
+(node:33459) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///app/scripts/generate-search-index.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Generating catalog.json...
+✓ Generated catalog.json
+  Total items: 313
+  Languages: en, es, fa, fr
+  By type: {"papers":60,"articles":37,"concepts":44,"topics":138,"blog":26,"books":0,"people":8}
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+   ▲ Next.js 15.5.15
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 36.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/1319) ...
+   Generating static pages (329/1319)
+   Generating static pages (659/1319)
+   Generating static pages (989/1319)
+ ✓ Generating static pages (1319/1319)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ ✓ Exporting (2/2)
+
+Route (app)                                                                                               Size  First Load JS
+┌ ○ /                                                                                                    263 B         102 kB
+├ ○ /_not-found                                                                                          150 B         102 kB
+├ ● /[lang]                                                                                              175 B         111 kB
+├   ├ /en
+├   ├ /es
+├   ├ /fa
+├   └ /fr
+├ ● /[lang]/about                                                                                        488 B         108 kB
+├   ├ /en/about
+├   ├ /es/about
+├   ├ /fa/about
+├   └ /fr/about
+├ ● /[lang]/articles                                                                                    1.8 kB         107 kB
+├   ├ /en/articles
+├   ├ /es/articles
+├   ├ /fa/articles
+├   └ /fr/articles
+├ ● /[lang]/articles/[id]                                                                                214 B         284 kB
+├   ├ /en/articles/ai-awakening
+├   ├ /en/articles/FRC-EP-001
+├   ├ /en/articles/FRC-EP-002
+├   └ [+29 more paths]
+├ ● /[lang]/atom.xml                                                                                     150 B         102 kB
+├   ├ /en/atom.xml
+├   ├ /es/atom.xml
+├   ├ /fa/atom.xml
+├   └ /fr/atom.xml
+├ ● /[lang]/blog                                                                                       1.96 kB         107 kB
+├   ├ /en/blog
+├   ├ /es/blog
+├   ├ /fa/blog
+├   └ /fr/blog
+├ ● /[lang]/blog/[id]                                                                                    214 B         284 kB
+├   ├ /en/blog/ai-and-the-symbolic-realm
+├   ├ /en/blog/beyond-randomness
+├   ├ /en/blog/the-symphony-of-mu-levels
+├   └ [+21 more paths]
+├ ● /[lang]/books                                                                                        167 B         105 kB
+├   ├ /en/books
+├   ├ /es/books
+├   ├ /fa/books
+├   └ /fr/books
+├ ● /[lang]/books/[id]                                                                                 1.51 kB         285 kB
+├   ├ /en/books/the-resonance-code
+├   ├ /en/books/ecr-textbook
+├   ├ /es/books/the-resonance-code
+├   └ [+5 more paths]
+├ ● /[lang]/books/[id]/chapter/[chapter]                                                               1.51 kB         285 kB
+├   ├ /en/books/the-resonance-code/chapter/preface
+├   ├ /en/books/the-resonance-code/chapter/reader-s-overture-a-guide-for-the-architect-and-the-oracle
+├   ├ /en/books/the-resonance-code/chapter/part-i-the-physics-of-a-living-universe
+├   └ [+321 more paths]
+├ ● /[lang]/builders                                                                                   3.19 kB         283 kB
+├   ├ /en/builders
+├   ├ /es/builders
+├   ├ /fa/builders
+├   └ /fr/builders
+├ ● /[lang]/concepts                                                                                   1.63 kB         107 kB
+├   ├ /en/concepts
+├   ├ /es/concepts
+├   ├ /fa/concepts
+├   └ /fr/concepts
+├ ● /[lang]/concepts/[id]                                                                                214 B         284 kB
+├   ├ /en/concepts/coherence
+├   ├ /en/concepts/consciousness
+├   ├ /en/concepts/fractal-imperative
+├   └ [+41 more paths]
+├ ● /[lang]/contact                                                                                    4.61 kB         281 kB
+├   ├ /en/contact
+├   ├ /es/contact
+├   ├ /fa/contact
+├   └ /fr/contact
+├ ● /[lang]/feed.xml                                                                                     150 B         102 kB
+├   ├ /en/feed.xml
+├   ├ /es/feed.xml
+├   ├ /fa/feed.xml
+├   └ /fr/feed.xml
+├ ● /[lang]/formulas                                                                                   2.97 kB         105 kB
+├   ├ /en/formulas
+├   ├ /es/formulas
+├   ├ /fa/formulas
+├   └ /fr/formulas
+├ ● /[lang]/graph                                                                                      24.7 kB         127 kB
+├   ├ /en/graph
+├   ├ /es/graph
+├   ├ /fa/graph
+├   └ /fr/graph
+├ ● /[lang]/investors                                                                                  3.19 kB         283 kB
+├   ├ /en/investors
+├   ├ /es/investors
+├   ├ /fa/investors
+├   └ /fr/investors
+├ ● /[lang]/join                                                                                       4.62 kB         284 kB
+├   ├ /en/join
+├   ├ /es/join
+├   ├ /fa/join
+├   └ /fr/join
+├ ● /[lang]/mu-levels                                                                                  3.15 kB         279 kB
+├   ├ /en/mu-levels
+├   ├ /es/mu-levels
+├   ├ /fa/mu-levels
+├   └ /fr/mu-levels
+├ ● /[lang]/oracle                                                                                     2.75 kB         108 kB
+├   ├ /en/oracle
+├   ├ /es/oracle
+├   ├ /fa/oracle
+├   └ /fr/oracle
+├ ● /[lang]/papers                                                                                     2.81 kB         108 kB
+├   ├ /en/papers
+├   ├ /es/papers
+├   ├ /fa/papers
+├   └ /fr/papers
+├ ● /[lang]/papers/[id]                                                                                   1 kB         284 kB
+├   ├ /en/papers/FRC-100-001
+├   ├ /en/papers/FRC-100.001
+├   ├ /en/papers/FRC-100-002
+├   └ [+117 more paths]
+├ ● /[lang]/people                                                                                       167 B         105 kB
+├   ├ /en/people
+├   ├ /es/people
+├   ├ /fa/people
+├   └ /fr/people
+├ ● /[lang]/people/[id]                                                                                  214 B         284 kB
+├   ├ /en/people/hadi
+├   ├ /en/people/kasra
+├   ├ /es/people/hadi
+├   └ [+5 more paths]
+├ ● /[lang]/pitch                                                                                      3.19 kB         283 kB
+├   ├ /en/pitch
+├   ├ /es/pitch
+├   ├ /fa/pitch
+├   └ /fr/pitch
+├ ● /[lang]/positioning                                                                                3.19 kB         283 kB
+├   ├ /en/positioning
+├   ├ /es/positioning
+├   ├ /fa/positioning
+├   └ /fr/positioning
+├ ● /[lang]/privacy                                                                                      150 B         102 kB
+├   ├ /en/privacy
+├   ├ /es/privacy
+├   ├ /fa/privacy
+├   └ /fr/privacy
+├ ● /[lang]/start-here                                                                                 3.19 kB         283 kB
+├   ├ /en/start-here
+├   ├ /es/start-here
+├   ├ /fa/start-here
+├   └ /fr/start-here
+├ ● /[lang]/tags/[tag]                                                                                   164 B         105 kB
+├   ├ /en/tags/AI
+├   ├ /en/tags/Benchmarking
+├   ├ /en/tags/Coherence
+├   └ [+569 more paths]
+├ ● /[lang]/terms                                                                                        150 B         102 kB
+├   ├ /en/terms
+├   ├ /es/terms
+├   ├ /fa/terms
+├   └ /fr/terms
+├ ● /[lang]/topics                                                                                     1.75 kB         107 kB
+├   ├ /en/topics
+├   ├ /es/topics
+├   ├ /fa/topics
+├   └ /fr/topics
+├ ● /[lang]/topics/[id]                                                                                  214 B         284 kB
+├   ├ /en/topics/frc-vs-active-inference
+├   ├ /en/topics/frc-vs-bohmian-mechanics
+├   ├ /en/topics/frc-vs-copenhagen
+├   └ [+81 more paths]
+├ ○ /for-ai                                                                                              150 B         102 kB
+├ ○ /sitemap.xml                                                                                         150 B         102 kB
+└ ○ /video-sitemap.xml                                                                                   150 B         102 kB
++ First Load JS shared by all                                                                           102 kB
+  ├ chunks/2579-ddcffb50ac56312a.js                                                                    45.8 kB
+  ├ chunks/f7449459-3705ffa493c55ecd.js                                                                54.2 kB
+  └ other shared chunks (total)                                                                        1.94 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
