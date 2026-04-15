@@ -98,16 +98,22 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       const t = typeof l.target === 'string' ? l.target : l.target.id;
       return allowed.has(s) && allowed.has(t);
     });
-    return { nodes, links };
+    const nodeMap = new Map<string, GraphNode>();
+    const searchableNodes = nodes.map(n => {
+      nodeMap.set(n.id.toLowerCase(), n);
+      return { n, idLower: n.id.toLowerCase(), titleLower: (n.title || '').toLowerCase() };
+    });
+    return { nodes, links, nodeMap, searchableNodes };
   }, [data.nodes, data.links, enabledTypes]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [filtered.nodes, query]);
+    return filtered.searchableNodes
+      .filter((sn) => sn.idLower.includes(q) || sn.titleLower.includes(q))
+      .slice(0, 8)
+      .map(sn => sn.n);
+  }, [filtered.searchableNodes, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +313,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = filtered.nodeMap.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -356,8 +362,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               const q = query.trim().toLowerCase();
               if (!q) return;
               const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
+                filtered.nodeMap.get(q) ||
+                filtered.searchableNodes.find((sn) => sn.idLower.includes(q) || sn.titleLower.includes(q))?.n ||
                 null;
               if (match) setFocusId(match.id);
             }}
