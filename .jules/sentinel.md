@@ -1,0 +1,4 @@
+## 2024-04-15 - XSS Vulnerability in SchemaScript JSON-LD Serialization
+**Vulnerability:** XSS via `JSON.stringify` injected into a `<script>` tag via `dangerouslySetInnerHTML`.
+**Learning:** `JSON.stringify` does not automatically escape HTML control characters like `<`, `>`, or `&`. While the comment in the code incorrectly claimed "it escapes forward slashes and special characters," this is false in JavaScript. If user input ever makes its way into the schema data, an attacker could include `</script><script>alert(1)</script>`, which `JSON.stringify` would output verbatim. The browser parser would treat `</script>` as the closing tag for the JSON-LD script, executing the subsequent malicious script.
+**Prevention:** Always manually escape `<` and `>` when injecting `JSON.stringify` output into `<script>` tags, e.g., using `.replace(/</g, '\\u003c')`.
