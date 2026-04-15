@@ -98,16 +98,26 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       const t = typeof l.target === 'string' ? l.target : l.target.id;
       return allowed.has(s) && allowed.has(t);
     });
-    return { nodes, links };
+
+    // Pre-index for O(1) exact lookups and case-insensitive partial matching
+    const nodeIndex = new Map<string, GraphNode>();
+    const searchableNodes = nodes.map((n) => {
+      const idLower = n.id.toLowerCase();
+      nodeIndex.set(idLower, n);
+      return { node: n, idLower, titleLower: (n.title || '').toLowerCase() };
+    });
+
+    return { nodes, links, nodeIndex, searchableNodes };
   }, [data.nodes, data.links, enabledTypes]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [filtered.nodes, query]);
+    return filtered.searchableNodes
+      .filter((n) => n.idLower.includes(q) || n.titleLower.includes(q))
+      .slice(0, 8)
+      .map((n) => n.node);
+  }, [filtered.searchableNodes, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +317,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = filtered.nodeIndex.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -355,11 +365,11 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               if (e.key !== 'Enter') return;
               const q = query.trim().toLowerCase();
               if (!q) return;
-              const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
+              const matchNode =
+                filtered.nodeIndex.get(q) ||
+                filtered.searchableNodes.find((n) => n.idLower.includes(q) || n.titleLower.includes(q))?.node ||
                 null;
-              if (match) setFocusId(match.id);
+              if (matchNode) setFocusId(matchNode.id);
             }}
             className="w-full bg-frc-void border border-frc-blue/60 rounded px-2 py-1 text-frc-text-dim focus:outline-none focus:border-frc-gold"
             placeholder="Search id or title…"

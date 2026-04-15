@@ -1,0 +1,3 @@
+## 2024-06-25 - [Pre-index React Component Data for Fast Lookups]
+**Learning:** In components rendering and filtering large data sets (like the `KnowledgeGraph` component), repeatedly calling `toLowerCase()` or scanning arrays with `.find()` during user events (like keystrokes or focus changes) causes significant CPU overhead and garbage collection pauses.
+**Action:** When working with large static or memoized arrays that need frequent searching or exact ID lookups, pre-index the data inside the `useMemo` block. Create a `Map` for O(1) exact lookups and an array of objects containing pre-lowercased strings for case-insensitive partial matching. This moves the string conversion cost from the render/event loop to the initial data processing phase.
