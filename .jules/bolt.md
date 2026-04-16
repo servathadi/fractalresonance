@@ -1,0 +1,3 @@
+## 2024-04-16 - Prevent Massive Memory Pressure from Greedy Regex in Content Parser
+**Learning:** In Node.js/V8, using a full-file capturing regular expression like `([\s\S]*)$` to parse massive markdown files causes extreme memory pressure and CPU overhead due to string copying and catastrophic backtracking.
+**Action:** Replace the greedy body capture group in regular expressions with a fast-fail string check (e.g., `content.startsWith('---')`) to bypass regex execution when possible, and use a non-greedy regex combined with `String.prototype.slice()` to efficiently extract the remaining body content.
