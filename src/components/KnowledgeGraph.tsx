@@ -98,16 +98,27 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       const t = typeof l.target === 'string' ? l.target : l.target.id;
       return allowed.has(s) && allowed.has(t);
     });
-    return { nodes, links };
+    // Bolt: Pre-index data into a Map for O(1) exact lookups and an array of
+    // pre-lowercased strings for case-insensitive partial matches. This reduces
+    // CPU cycles spent on redundant string conversions during user events.
+    const nodeMap = new Map<string, GraphNode>();
+    const searchIndex = nodes.map(n => {
+      const idLower = n.id.toLowerCase();
+      nodeMap.set(idLower, n);
+      return { node: n, idLower, titleLower: (n.title || '').toLowerCase() };
+    });
+
+    return { nodes, links, nodeMap, searchIndex };
   }, [data.nodes, data.links, enabledTypes]);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
+    return filtered.searchIndex
+      .filter((idx) => idx.idLower.includes(q) || idx.titleLower.includes(q))
+      .map((idx) => idx.node)
       .slice(0, 8);
-  }, [filtered.nodes, query]);
+  }, [filtered.searchIndex, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +318,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = filtered.nodeMap.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -356,8 +367,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               const q = query.trim().toLowerCase();
               if (!q) return;
               const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
+                filtered.nodeMap.get(q) ||
+                (filtered.searchIndex.find((idx) => idx.idLower.includes(q) || idx.titleLower.includes(q))?.node) ||
                 null;
               if (match) setFocusId(match.id);
             }}
