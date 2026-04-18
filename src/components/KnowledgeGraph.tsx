@@ -101,13 +101,32 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     return { nodes, links };
   }, [data.nodes, data.links, enabledTypes]);
 
+  const searchIndex = useMemo(() => {
+    const map = new Map<string, GraphNode>();
+    const searchableNodes = filtered.nodes.map(n => {
+      const lowerId = n.id.toLowerCase();
+      map.set(lowerId, n);
+      return {
+        node: n,
+        lowerId,
+        lowerTitle: (n.title || '').toLowerCase()
+      };
+    });
+    return { map, searchableNodes };
+  }, [filtered.nodes]);
+
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (q.length < 2) return [];
-    return filtered.nodes
-      .filter((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q))
-      .slice(0, 8);
-  }, [filtered.nodes, query]);
+    const results = [];
+    for (const item of searchIndex.searchableNodes) {
+      if (item.lowerId.includes(q) || item.lowerTitle.includes(q)) {
+        results.push(item.node);
+        if (results.length >= 8) break;
+      }
+    }
+    return results;
+  }, [searchIndex, query]);
 
   useEffect(() => {
     focusIdRef.current = focusId;
@@ -307,7 +326,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
     }
 
     const focusLower = focus.toLowerCase();
-    const focusNode = filtered.nodes.find((n) => n.id.toLowerCase() === focusLower) || null;
+    const focusNode = searchIndex.map.get(focusLower) || null;
     if (!focusNode) return;
     const neighbors = sel.adjacency[focusNode.id] || new Set<string>();
 
@@ -318,7 +337,7 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
       return s === focusNode.id || t === focusNode.id ? 0.9 : 0.08;
     });
     sel.label.style('opacity', (d: GraphNode) => (d.id === focusNode.id || neighbors.has(d.id) ? 1 : 0));
-  }, [focusId, filtered.nodes]);
+  }, [focusId, filtered.nodes, searchIndex]);
 
   return (
     <div ref={containerRef} className="w-full h-[600px] relative bg-frc-void border border-frc-blue/30 rounded-lg overflow-hidden">
@@ -356,8 +375,8 @@ export function KnowledgeGraph({ data, lang }: KnowledgeGraphProps) {
               const q = query.trim().toLowerCase();
               if (!q) return;
               const match =
-                filtered.nodes.find((n) => n.id.toLowerCase() === q) ||
-                filtered.nodes.find((n) => n.id.toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q)) ||
+                searchIndex.map.get(q) ||
+                searchIndex.searchableNodes.find((n) => n.lowerId.includes(q) || n.lowerTitle.includes(q))?.node ||
                 null;
               if (match) setFocusId(match.id);
             }}
