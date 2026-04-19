@@ -1,0 +1,3 @@
+## 2024-06-25 - Search Indexing in KnowledgeGraph
+**Learning:** To optimize search and filtering performance in React components processing large arrays (like KnowledgeGraph.tsx), pre-index data within useMemo into a Map for O(1) exact lookups and an array of objects with pre-lowercased strings for case-insensitive partial matches, significantly reducing CPU cycles spent on redundant string conversions and traversals during user events.
+**Action:** Pre-index large arrays in useMemo with maps and pre-lowercased attributes when repetitive search/filter events exist to avoid costly O(n) re-conversions.
