@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-02-02T16:19:37.737Z",
+  "generated": "2026-07-09T20:23:37.812Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Cognition",
@@ -10,9 +10,9 @@
   },
   "statistics": {
     "languages": 4,
-    "totalItems": 313,
+    "totalItems": 325,
     "byType": {
-      "papers": 60,
+      "papers": 72,
       "articles": 37,
       "concepts": 44,
       "topics": 138,
@@ -21,7 +21,7 @@
       "people": 8
     },
     "byLanguage": {
-      "en": 85,
+      "en": 97,
       "es": 76,
       "fa": 76,
       "fr": 76
@@ -30,6 +30,47 @@
   "content": {
     "en": {
       "papers": [
+        {
+          "id": "FRC-000-START-HERE",
+          "title": "Start Here — Fractal Resonance Coherence: What It Is, What to Read, What Is Settled",
+          "url": "https://fractalresonance.com/en/papers/FRC-000-START-HERE",
+          "path": "/en/papers/FRC-000-START-HERE",
+          "abstract": "The front door to the Fractal Resonance Coherence (FRC) corpus, for human and machine readers. States the framework in one paragraph, gives the reading path, marks what is core / frontier / archive so a reader learns the development history rather than treating every branch as equal authority, records the corpus's most recent settled results, and carries the canonical DOI ledger of current paper versions. Read this before anything else.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "tier": "foundational",
+          "series": "FRC Orientation",
+          "tags": [
+            "orientation",
+            "index",
+            "front-door",
+            "doi-ledger",
+            "reading-guide"
+          ],
+          "status": "published",
+          "wordCount": 1444
+        },
+        {
+          "id": "FRC-100-000",
+          "title": "FRC 100.000 — Start Here: Fractal Resonance Coherence, What It Is, What to Read, What Is Settled",
+          "url": "https://fractalresonance.com/en/papers/FRC-100-000",
+          "path": "/en/papers/FRC-100-000",
+          "abstract": "FRC 100.000 is the front door to the Fractal Resonance Coherence (FRC) corpus, for human and machine readers. It states the framework in one paragraph, gives the reading path, marks what is core / frontier / archive so a reader learns the development history rather than treating every branch as equal authority, records the corpus's most recent settled results, and carries the canonical DOI ledger of current paper versions. For an AI model: FRC 100.000 plus FRC 100.010 (orientation) plus FRC 100.011 (translation table) are sufficient to understand the framework; the rest is depth. Read this first.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21284062",
+          "tier": "foundational",
+          "series": "FRC 100",
+          "tags": [
+            "orientation",
+            "index",
+            "front-door",
+            "doi-ledger",
+            "reading-guide"
+          ],
+          "status": "published",
+          "wordCount": 1603
+        },
         {
           "id": "FRC-100-001",
           "title": "Fractal Resonance Coherence: A Framework for Complex Systems Analysis",
@@ -132,6 +173,30 @@
           "wordCount": 1042
         },
         {
+          "id": "FRC-100-006-002",
+          "title": "Born-Rule Deviations under Finite-Time and Non-Equilibrium Conditions",
+          "url": "https://fractalresonance.com/en/papers/FRC-100-006-002",
+          "path": "/en/papers/FRC-100-006-002",
+          "abstract": "In the FRC program, collapse arises by resonance phase-locking to pointer attractors and the Born rule emerges as a stationary equilibrium of microstates. This note analyzes when and how deviations from |alpha|^2 can appear: (i) finite locking time (truncated dynamics), (ii) biased or insufficiently mixed microstate ensembles (non-ergodicity), and (iii) non-stationary pointer coupling. It derives simple bias scalings, proposes falsifiable protocols to detect or rule out deviations, and provides toy simulations with code to reproduce the figures.",
+          "date": "2025-11-04",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.17526499",
+          "tier": "foundational",
+          "series": "FRC 100",
+          "tags": [
+            "born-rule",
+            "deviations",
+            "finite-time",
+            "non-equilibrium",
+            "non-ergodicity",
+            "falsifiability",
+            "protocols",
+            "quantum-foundations"
+          ],
+          "status": "published",
+          "wordCount": 528
+        },
+        {
           "id": "FRC-100-006",
           "title": "The Emergence of the Born Rule from Resonant Equilibrium",
           "url": "https://fractalresonance.com/en/papers/FRC-100-006",
@@ -172,6 +237,51 @@
           "wordCount": 1123
         },
         {
+          "id": "FRC-100-008",
+          "title": "Computational Realization of Lambda-Field Coherence Dynamics",
+          "url": "https://fractalresonance.com/en/papers/FRC-100-008",
+          "path": "/en/papers/FRC-100-008",
+          "abstract": "Supplies the executable layer between Lambda-field theory (100.007) and local open-system reciprocity (100.009). This v2.0 release keeps Lambda as an independent dynamical field — state, coherence target, and field are separate objects, the minimal anti-circularity control — and adds fixed-seed reference implementations: a finite-difference Lambda engine and a phase-reference oscillator network. The pilots make the 100.007 -> 100.008 -> 100.009 bridge executable and falsifiable, with explicit kill conditions, without claiming a proof of physical ontology.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21266622",
+          "tier": "foundational",
+          "series": "FRC 100",
+          "tags": [
+            "lambda-field",
+            "computational-realization",
+            "anti-circularity",
+            "finite-difference",
+            "kuramoto",
+            "phase-reference",
+            "reproducibility",
+            "kill-conditions"
+          ],
+          "status": "published",
+          "wordCount": 1282
+        },
+        {
+          "id": "FRC-100-009",
+          "title": "FRC 100.009: Local Reciprocity Dynamics",
+          "url": "https://fractalresonance.com/en/papers/FRC-100-009",
+          "path": "/en/papers/FRC-100-009",
+          "abstract": "Develops a local field-level formulation of the Adaptive Resonance Framework (ARF) within Fractal Resonance Cognition (FRC). We formulate local reciprocity balance, storage, and flux, and define ARF as a state-dependent activation operator that gates transport based on local reciprocity defect, validating it through a numerical toy model.",
+          "date": "2026-05-21",
+          "author": "Hadi Servat",
+          "doi": "10.5281/zenodo.20329931",
+          "tier": "foundational",
+          "series": "FRC 100",
+          "tags": [
+            "reciprocity-dynamics",
+            "adaptive-resonance",
+            "transport-gating",
+            "mathematical-physics",
+            "numerical-simulation"
+          ],
+          "status": "published",
+          "wordCount": 899
+        },
+        {
           "id": "FRC-100-010",
           "title": "Foundational Questions in Fractal Resonance Coherence",
           "url": "https://fractalresonance.com/en/papers/FRC-100-010",
@@ -191,6 +301,30 @@
           ],
           "status": "published",
           "wordCount": 2157
+        },
+        {
+          "id": "FRC-100-011",
+          "title": "FRC 100.011 — The Translation Table: FRC Vocabulary in Mainstream Physics Terms",
+          "url": "https://fractalresonance.com/en/papers/FRC-100-011",
+          "path": "/en/papers/FRC-100-011",
+          "abstract": "A term-by-term dictionary between Fractal Resonance Coherence (FRC) and established physics, written for a reader who already knows thermodynamics, dynamical systems, and quantum foundations. Its purpose is to make good on FRC's standing claim that it invents none of its parts: each FRC object is mapped to the mainstream concept whose shape it borrows (Kuramoto/Haken order parameter, Onsager–Prigogine irreversible thermodynamics, Landauer's principle, Bohm–Valentini quantum equilibrium, Ruelle–Pollicott resonances, Landau–Ginzburg relaxational dynamics), with the relationship labeled honestly as same-shape-as, borrowed-from, or genuinely-new-bet. A false-friends section lists FRC terms a physicist will misread if the everyday meaning is imported. A closing section isolates the small set of claims that are actually FRC's own — the falsifiable bets, not the vocabulary — and lists the kills already taken. The discipline is: borrow the shape for the established parts, and stake novelty only on the losable predictions.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21284064",
+          "tier": "foundational",
+          "series": "FRC 100",
+          "tags": [
+            "translation",
+            "glossary",
+            "mainstream-physics",
+            "order-parameter",
+            "stochastic-thermodynamics",
+            "landauer",
+            "quantum-equilibrium",
+            "orientation"
+          ],
+          "status": "published",
+          "wordCount": 2046
         },
         {
           "id": "FRC-16D-001",
@@ -255,6 +389,102 @@
           "wordCount": 1949
         },
         {
+          "id": "FRC-566-010",
+          "title": "UCC PDE: Existence, Uniqueness, and Dissipation",
+          "url": "https://fractalresonance.com/en/papers/FRC-566-010",
+          "path": "/en/papers/FRC-566-010",
+          "abstract": "Establishes well-posedness for the Universal Coherence Condition (UCC) evolution of ln C — existence and uniqueness under standard boundary conditions via classical parabolic theory — and proves a dissipation inequality sigma(t) >= 0 for the coherence-gradient production term. Fractional variants are briefly discussed. Reproducible 1-D and 2-D numerical demos illustrate convergence to stationary states.",
+          "date": "2025-11-04",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.17526506",
+          "tier": "foundational",
+          "series": "FRC 566",
+          "tags": [
+            "ucc",
+            "pde",
+            "well-posedness",
+            "existence",
+            "uniqueness",
+            "dissipation",
+            "parabolic-theory",
+            "thermodynamics"
+          ],
+          "status": "published",
+          "wordCount": 462
+        },
+        {
+          "id": "FRC-566-020",
+          "title": "Spectral Modes and Relaxation in UCC",
+          "url": "https://fractalresonance.com/en/papers/FRC-566-020",
+          "path": "/en/papers/FRC-566-020",
+          "abstract": "Linearizes the UCC evolution for u = ln C around stationary equilibria and derives modal relaxation rates tau_n = 1/(D_C lambda_n) from the Laplace spectrum of the domain. Includes 1-D and 2-D numerical demos with modal decay curves and relaxation-time tables, reproducible from the released code.",
+          "date": "2025-11-04",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.17526513",
+          "tier": "foundational",
+          "series": "FRC 566",
+          "tags": [
+            "ucc",
+            "spectral-modes",
+            "relaxation",
+            "linearization",
+            "laplace-spectrum",
+            "thermodynamics",
+            "numerical-demos"
+          ],
+          "status": "published",
+          "wordCount": 387
+        },
+        {
+          "id": "FRC-566-030",
+          "title": "Reciprocity in Action: The Entropy–Coherence Current Across a Synchronization Transition — Registered Prediction Scored",
+          "url": "https://fractalresonance.com/en/papers/FRC-566-030",
+          "path": "/en/papers/FRC-566-030",
+          "abstract": "v1.1 leaves every computation of v1.0 intact — the exact von Mises/Kuramoto reciprocity current, the peak Q ≈ 0.93 at C ≈ 0.62, the sign structure of the exchange — and corrects one inequality and scores one prediction. Correction: v1.0 §6 wrote the open-system balance as dS_total + k* d ln C = σ with σ ≥ 0 attached. The non-negativity theorem of stochastic thermodynamics applies to dS_total alone (the standard production σ_ST); attaching it to the combined form asserted, on the coherence-destroying side, a Landauer-flavored erasure floor that standard theory does not guarantee. The drive-and-bath closure that §7 demanded has now been executed (FRC 100.005 v2.1, exact-free-energy instrument, seed-replicated), and the registered prediction splits: the ACCOUNTING half is VERIFIED — σ and dS_env separately measured, dQ = σ − dS_env closing numerically, the system-only current behaving exactly as this paper computed; the blanket POSITIVITY half is REFUTED — on slow unlocking the combined form goes to k*·d ln C < 0 (−0.103 ± 0.001 at T_down = 192 against an asymptote of −0.132), for every k* > 0. The law is therefore restated in its sharpened, directional form: dS_total = σ_ST ≥ 0 always; the combined quantity σ_566 is a measured exchange current of either sign — guaranteed non-negative on locking, measurably negative on quasi-static unlocking, with closure only at special points (κr = 1). This strengthens the paper's own thesis: v1.0's central message was that the motion of the system-only Q is the signal, not a defect; v1.1 extends the same reading one level up — the combined form, too, is a current, not a conservation-style inequality. Its sign structure, not a blanket bound, is the law's content.",
+          "date": "2026-06-18",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21264213",
+          "tier": "foundational",
+          "series": "FRC 566",
+          "tags": [
+            "reciprocity",
+            "entropy",
+            "coherence",
+            "thermodynamics",
+            "kuramoto",
+            "von-mises",
+            "open-systems",
+            "diagnostic",
+            "results-negative-kept"
+          ],
+          "status": "published",
+          "wordCount": 2122
+        },
+        {
+          "id": "FRC-787-787",
+          "title": "Lambda-Flight: Coherence Transport as a Measured Residual Closure in Driven Open Physical Systems",
+          "url": "https://fractalresonance.com/en/papers/FRC-787-787",
+          "path": "/en/papers/FRC-787-787",
+          "abstract": "Defines Lambda-Flight as a disciplined framework for testing coherent transport in driven open physical systems. A scalar field Lambda = Lambda0 ln C is built from measurable coherence factors, but it is not treated as a new force: the transport term chi grad Lambda is allowed only as a residual closure after accepted baseline dynamics, single-observable models, and equal-feature latent baselines fail out of sample. The framework gives operational definitions, a drift-diffusion/relaxation closure, the flight numbers Pe_Lambda and St_Lambda, a nested baseline hierarchy B0-B4, negative controls, an anti-precursor-hunting rule, and six test cards each carrying an explicit kill clause. A deterministic toy pilot is included only as a numerical calibration of the Pe/St regime map; it is not evidence for the framework in nature.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21266620",
+          "tier": "applied",
+          "series": "FRC 787",
+          "tags": [
+            "lambda-field",
+            "coherence-transport",
+            "residual-closure",
+            "nested-baselines",
+            "kill-clauses",
+            "pre-registration",
+            "open-systems",
+            "non-equilibrium"
+          ],
+          "status": "published",
+          "wordCount": 1660
+        },
+        {
           "id": "FRC-821-100",
           "title": "FRC 821.100 — The Λ-Field: Unified Coherence Dynamics and Entropic Gravity",
           "url": "https://fractalresonance.com/en/papers/FRC-821-100",
@@ -273,6 +503,30 @@
           ],
           "status": "published",
           "wordCount": 1242
+        },
+        {
+          "id": "FRC-826-829",
+          "title": "Mathematical Foundations: Status-Labeled Definitions, Propositions, Conjectures, and Open Problems",
+          "url": "https://fractalresonance.com/en/papers/FRC-826-829",
+          "path": "/en/papers/FRC-826-829",
+          "abstract": "States Fractal Resonance Coherence as a mathematical research program with explicit status labels. Every claim is a Definition, Proposition, Conjecture, or Open Problem. Four propositions are recorded: a two-pole interior band, a forced cubic term in non-even coherence expansions, critical slowing near coherence transitions, and the von Mises exchange-rate identity dS/d ln C = -kappa r with a single closure point at kappa = 1.608279, C = 0.621782 for k* = 1. Two negative computational results are recorded at equal volume: Lambda = Lambda0 ln C is not a dual-affine coordinate and not the Fisher potential on the von Mises family. The half-line obstruction for a fundamental scalar Lambda field is quantified, and six precise open problems are left where the program can be advanced or killed.",
+          "date": "2026-07-08",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.21283578",
+          "tier": "foundational",
+          "series": "FRC 826",
+          "tags": [
+            "mathematical-foundations",
+            "status-labels",
+            "propositions",
+            "conjectures",
+            "open-problems",
+            "von-mises",
+            "information-geometry",
+            "negative-results"
+          ],
+          "status": "published",
+          "wordCount": 1561
         },
         {
           "id": "FRC-840-001",
@@ -294,6 +548,29 @@
           ],
           "status": "published",
           "wordCount": 737
+        },
+        {
+          "id": "FRC-840-101",
+          "title": "FRC 840.101: The Phase–Attention Boundary",
+          "url": "https://fractalresonance.com/en/papers/FRC-840-101",
+          "path": "/en/papers/FRC-840-101",
+          "abstract": "This paper formulates the Phase–Attention Boundary: a structural separation between continuous phase-state architectures and discrete attention-based architectures. Within the Fractal Resonance Cognition (FRC) program, the Large Lambda-Tensor Model (LLTM) was developed as a continuous recurrent phase-coupled architecture inspired by Kuramoto dynamics and low-rank coherence fields. Controlled comparisons against Transformer baselines revealed a fundamental limitation: continuous state compression blends historical information into a finite evolving state, producing recall smearing. We prove a formal Recall Smearing Theorem: under gamma-contractive recurrence, mutual information about a past token decays exponentially with distance. This bound is derived from the Data Processing Inequality and applies universally to fixed-state recurrent systems, including state-space models like S4, Mamba, RWKV, Griffin, and xLSTM. We show that data-dependent selectivity can reduce the rate of smearing but cannot eliminate it; only explicit key-value addressability achieves zero-smearing recall.",
+          "date": "2026-05-27",
+          "author": "H. Servat",
+          "doi": "10.5281/zenodo.20416012",
+          "tier": "applied",
+          "series": "FRC 840",
+          "tags": [
+            "phase-attention-boundary",
+            "recall-smearing",
+            "lltm",
+            "kuramoto-dynamics",
+            "continuous-cognition",
+            "attention-networks",
+            "hybrid-architectures"
+          ],
+          "status": "published",
+          "wordCount": 3930
         },
         {
           "id": "FRC-840-LTM-001",
