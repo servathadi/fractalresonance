@@ -83,7 +83,6 @@ export function Header() {
         openByDefault: false,
         links: [
           { path: '/about', label: dict.nav.about },
-          { path: '/investors', label: dict.nav.investors },
           { path: '/positioning', label: dict.nav.positioning },
           { path: '/mu-levels', label: dict.nav.muLevels },
         ],
@@ -209,10 +208,6 @@ export function Header() {
           <div className="flex items-center gap-3">
             <SearchTrigger />
             <span className="text-frc-blue">|</span>
-            <div className="hidden md:flex items-center gap-3 font-mono text-[0.625rem] text-frc-steel tracking-wider">
-              <Link href={`${basePath}/investors`} className="hover:text-frc-gold">{dict.nav.investors}</Link>
-            </div>
-            <span className="text-frc-blue hidden md:block">|</span>
             <a
               href="https://orcid.org/0009-0004-7412-5129"
               target="_blank"
