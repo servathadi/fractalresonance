@@ -121,8 +121,21 @@ docs/                 ← Project documentation
 ```bash
 npm run dev           # Development (localhost:3000)
 npm run build         # Static export
-# Push to GitHub → Cloudflare Pages auto-deploys the configured production branch
+npm run validate      # Content schema check — run before every deploy
+# Push to `main` or `v2-foundation` → GitHub Actions deploys straight to
+# production via wrangler, using the CLOUDFLARE_API_TOKEN /
+# CLOUDFLARE_ACCOUNT_ID repo secrets (confirmed live as of 2026-07).
+# There is no review gate on this. Do your work on a different branch and
+# deploy a preview by hand (`wrangler pages deploy out --branch=<label>`,
+# any label that isn't the Cloudflare project's production_branch lands as
+# Preview) — get it looked at before ever touching main/v2-foundation.
 ```
+
+**This repo was briefly renamed `archive-fractalresonance` and mistaken for
+dead.** It is the live source for fractalresonance.com. Don't confuse it with
+`Mumega-com/fractalresonance-com` (an unrelated Inkwell-CMS-based repo with a
+completely different, mono-font design) — that one is not this site and must
+never be deployed here, even though its paper IDs overlap in confusing ways.
 
 ## When Adding Pages
 

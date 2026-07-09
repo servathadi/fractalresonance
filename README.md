@@ -6,6 +6,60 @@
 fractalresonance.com
 ```
 
+## ⚠️ Operational notes — read before touching deploy or content status
+
+**This is the real, live source for fractalresonance.com.** It was briefly renamed
+`archive-fractalresonance` and got mistaken for dead/replaced — it isn't. There is
+an unrelated repo, `Mumega-com/fractalresonance-com`, built on a generic "Inkwell"
+CMS scaffold with a totally different design (mono-font, no gold theme). That repo
+is **not** this site and must never be deployed to the `fractalresonance` Cloudflare
+Pages project or domain. If you're an agent and someone asks you to "update the
+website," confirm which repo they mean — the two look nothing alike but share
+overlapping paper IDs, which is exactly how this got confused before.
+
+### Deployment — this pushes to production automatically
+
+`.github/workflows/deploy.yml` runs on every push to **`main`** or **`v2-foundation`**
+and deploys straight to the `fractalresonance` Cloudflare Pages project using the
+`CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` repo secrets (already configured —
+check with `gh secret list --repo servathadi/fractalresonance`). This is independent
+of anything set in the Cloudflare dashboard (Git integration there can be connected
+or disconnected — this workflow deploys directly via `wrangler`, either way).
+
+**Practical consequence: pushing to `main` or `v2-foundation` goes live immediately,
+with no review step.** Safe workflow for any nontrivial change:
+
+1. Work on a feature branch (never push directly to `main`/`v2-foundation`).
+2. `npm run validate && npm run build` locally — the build fails loudly on schema
+   violations (see Content conventions below), so trust it.
+3. Deploy a **preview**, not production, by hand:
+   ```bash
+   npx wrangler pages deploy out --project-name=fractalresonance \
+     --branch=<something-that-is-not-main-or-v2-foundation> --commit-dirty=true
+   ```
+   Any branch label other than the Cloudflare project's configured
+   `production_branch` (check via the Cloudflare API/dashboard — it has drifted
+   before, don't assume it's `main`) lands as a **Preview** deployment at
+   `https://<branch-label>.fractalresonance.pages.dev`, not on the live domain.
+4. Get a human to actually look at the preview URL before merging/pushing to
+   `main` or `v2-foundation`.
+
+### Content conventions learned the hard way
+
+- **`status`** on papers/books is one of `draft`, `review`, `published` — anything
+  else fails `npm run validate`. Only `published` renders in a production build
+  (`isPublished()` in `src/lib/content.ts` hides `draft`/`review` outside
+  `NODE_ENV=development`). Don't mark something `published` unless it actually is;
+  the site's own draft-hiding is there on purpose.
+- **`tier`** is `foundational` or `applied` — no other values are used site-wide.
+- Papers get a PDF-download badge automatically **iff** a matching file exists at
+  `public/papers/<ID>.pdf` (checked via `fs.existsSync` at build time in
+  `src/app/[lang]/papers/[id]/page.tsx`) — it's not gated on `doi` alone, so it
+  never shows a broken link.
+- As of 2026-07, only English (`content/en/...`) has the newest paper/book
+  additions ported — `es`/`fa`/`fr` translations for that new content don't
+  exist yet.
+
 ## Quick Start
 
 ```bash
