@@ -48,3 +48,7 @@ content/inbox/
 
 # Generated files
 public/search-index.json
+
+# Local translation-agent working state (agy) — not part of the site
+MEMORY.md
+memory/
