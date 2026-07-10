@@ -1,153 +1,70 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getLanguages } from '@/lib/content';
 import { CoherenceWidget } from '@/components/widgets/CoherenceWidget';
 
 export const metadata: Metadata = {
   title: 'Formulas',
-  description: 'Core equations of the Fractal Resonance Cognition framework — coherence, lambda field, UCC, reciprocity.',
+  description: 'Current FRC formulas with explicit mathematical, operational, pilot, and conjectural status.',
 };
 
 export function generateStaticParams() {
-  return getLanguages().map(lang => ({ lang }));
+  return getLanguages().map((lang) => ({ lang }));
 }
 
+const DICT: Record<string, Record<string, string>> = {
+  en: { title: 'Formula Index', desc: 'The current anchors of the FRC corpus, labeled by scope rather than presented as one undifferentiated theory.', canonical: 'Canonical', exact: 'Exact in scope', operational: 'Operational', pilot: 'Pilot / registered target', quantities: 'Declared quantities' },
+  es: { title: 'Índice de fórmulas', desc: 'Los anclajes actuales del corpus FRC, etiquetados por alcance.', canonical: 'Canónica', exact: 'Exacta en su alcance', operational: 'Operativa', pilot: 'Piloto / objetivo registrado', quantities: 'Cantidades declaradas' },
+  fr: { title: 'Index des formules', desc: 'Les repères actuels du corpus FRC, étiquetés selon leur portée.', canonical: 'Canonique', exact: 'Exact dans son cadre', operational: 'Opérationnel', pilot: 'Pilote / cible enregistrée', quantities: 'Grandeurs déclarées' },
+  fa: { title: 'فهرست فرمول‌ها', desc: 'لنگرهای کنونی پیکره FRC با وضعیت و دامنه روشن.', canonical: 'بنیادی', exact: 'دقیق در دامنه', operational: 'عملیاتی', pilot: 'مقدماتی / هدف ثبت‌شده', quantities: 'کمیت‌های اعلام‌شده' },
+};
+
 const FORMULAS = [
-  {
-    section: 'Core Theory (100 Series)',
-    items: [
-      {
-        name: 'Coherence (C)',
-        equation: 'C = (1/N) Σᵢ<ⱼ cos(φᵢ - φⱼ)',
-        description: 'Phase alignment of N oscillators. C = 1: perfect synchrony, C = 0: random phases.',
-        paper: 'FRC 100.001',
-      },
-      {
-        name: 'Lambda Field (Λ)',
-        equation: 'Λ(x) ≡ Λ₀ ln C(x)',
-        description: 'Scalar coherence field. Λ₀ ≈ 10⁻³⁵ J (calibration constant). Units: Joules.',
-        paper: 'FRC 100.007',
-      },
-      {
-        name: 'Witness Magnitude (W)',
-        equation: 'W = |⟨ψ|Ô|ψ⟩| / ‖Ô‖',
-        description: 'Normalized observation strength. W ∈ [0, 1].',
-        paper: 'FRC 100.003',
-      },
-      {
-        name: 'Universal Coherence Condition (UCC)',
-        equation: 'dΛ/dt + ∇·J_Λ = σ_Λ - γ_Λ',
-        description: 'Conservation law for coherence field. J_Λ: coherence flux, σ_Λ: source, γ_Λ: dissipation.',
-        paper: 'FRC 100.005',
-      },
-      {
-        name: 'Emergent Born Rule',
-        equation: 'P(outcome) = |ψ|²',
-        description: 'Emerges from microstate statistics at equilibrium. Not a fundamental axiom in FRC.',
-        paper: 'FRC 100.006',
-      },
-      {
-        name: 'Born Rule Deviation (Prediction)',
-        equation: 'δP ∈ [10⁻⁴, 10⁻³]',
-        description: 'Measurable under resonant driving. Falsifiable prediction distinguishing FRC from QM.',
-        paper: 'FRC 100.007',
-      },
-    ],
-  },
-  {
-    section: 'Reciprocity (566 Series)',
-    items: [
-      {
-        name: 'Entropy–Coherence Reciprocity',
-        equation: 'dS + k* d ln C = 0  ⟹  S + k* ln C = const',
-        description: 'Entropy and coherence are conjugate. k* = 1 (information) or k_B (thermodynamic).',
-        paper: 'FRC 566.001',
-      },
-      {
-        name: 'Free Energy Relation',
-        equation: 'ΔG = −k*T Δln C',
-        description: 'Connects coherence to thermodynamic free energy. Isothermal projection.',
-        paper: 'FRC 566.001',
-      },
-      {
-        name: 'UCC Flow (PDE form)',
-        equation: '∂_t ln C = −∇·J_C + S_C,  J_C = −D_C ∇ln C',
-        description: 'Well-posed diffusion-reaction form. D_C > 0 (diffusion coefficient).',
-        paper: 'FRC 566.001',
-      },
-      {
-        name: 'Dissipation Bound',
-        equation: 'σ(t) ≡ k* D_C ∫ ‖∇ ln C‖² dV ≥ 0',
-        description: 'Non-negative dissipation under Neumann/Dirichlet boundary conditions.',
-        paper: 'FRC 566.001',
-      },
-      {
-        name: 'Relative Entropy Ratio (RER)',
-        equation: 'RER(p→q) = C[q]/C[p] = exp[−D_KL(p∥q)/k*]',
-        description: 'Coherence ratio from KL divergence.',
-        paper: 'FRC 566.001',
-      },
-      {
-        name: 'Mutual Information Coupling',
-        equation: 'C_XY = exp[−I(X;Y)/k*]',
-        description: 'Joint coherence from mutual information. I(X;Y) = D_KL(p_XY ∥ p_X p_Y).',
-        paper: 'FRC 566.001',
-      },
-    ],
-  },
+  { status: 'canonical', name: 'Entropy-Coherence Reciprocity', equation: 'dS + k* d ln C = 0', description: 'Scale-invariant canonical form. k* is the starred Boltzmann bridge, not an outcome-fitted constant. Universal physical status remains conjectural.', paper: 'FRC-566-001' },
+  { status: 'operational', name: 'Open-System Entropy Ledger', equation: 'dS_sys = d_iS + d_eS,  d_iS ≥ 0', description: 'Standard boundary accounting. Residuals and exchange terms require a declared subsystem and environment model.', paper: 'FRC-566-001' },
+  { status: 'exact', name: 'von Mises / Kuramoto Identity', equation: 'dS / d ln C = −κr', description: 'Exact for the declared family. At the information-nat realization, κr = 1 marks a stationary Q point, not a universal zero-current claim.', paper: 'FRC-566-030' },
+  { status: 'pilot', name: 'Chaos Structure Functional', equation: 'Σ = S_vM(C) − S ≥ 0', description: 'Maximum-entropy gap used to measure structure beyond coherence alone. The KAM correspondence remains an active evidence gate.', paper: 'FRC-100-002' },
+  { status: 'pilot', name: 'Localization Crossover', equation: 't* γ_C = O(1)', description: 'Pilot-supported coherence-lifetime target. A final tolerance band and out-of-sample mechanism collapse are not yet established.', paper: 'FRC-100-002' },
+  { status: 'operational', name: 'Observed Lambda Transform', equation: 'Λ_obs = Λ₀ ln C_obs', description: 'An observed transform, distinct from a target Λ_eq, optional latent Λ_dyn, and any conjectural fundamental field.', paper: 'FRC-826-829' },
 ];
 
-const CONSTANTS = [
-  { symbol: 'Λ₀', value: '≈ 10⁻³⁵ J', description: 'Lambda field calibration' },
-  { symbol: 'k*', value: '1 or k_B', description: 'Coherence constant' },
-  { symbol: 'D_C', value: '> 0', description: 'Coherence diffusion coefficient' },
-  { symbol: 'δP', value: '10⁻⁴ – 10⁻³', description: 'Born rule deviation magnitude' },
+const QUANTITIES = [
+  { symbol: 'k*', value: 'register-declared', description: 'starred Boltzmann bridge; scale-invariant role' },
+  { symbol: 'C', value: '(0, 1]', description: 'declared operational coherence channel' },
+  { symbol: 'Λ₀', value: 'model-declared', description: 'transform scale, not a universal measured constant' },
+  { symbol: 'Σ', value: '≥ 0', description: 'maximum-entropy structure gap' },
 ];
 
-export default function FormulasPage() {
+interface Props { params: Promise<{ lang: string }> }
+
+export default async function FormulasPage({ params }: Props) {
+  const { lang } = await params;
+  const basePath = `/${lang}`;
+  const t = (key: string) => DICT[lang]?.[key] || DICT.en[key];
+  const grouped = ['canonical', 'exact', 'operational', 'pilot'] as const;
+
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
-      <header className="mb-12">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">Formulas</h1>
-        <p className="text-frc-text-dim">
-          Core equations of the FRC framework with paper references.
-        </p>
-      </header>
-
-      {FORMULAS.map(section => (
-        <section key={section.section} className="mb-12">
-          <h2 className="text-lg text-frc-text font-medium mb-4">{section.section}</h2>
+      <header className="mb-12"><h1 className="text-3xl font-light text-frc-gold mb-3">{t('title')}</h1><p className="text-frc-text-dim max-w-2xl">{t('desc')}</p></header>
+      {grouped.map((status) => (
+        <section key={status} className="mb-10">
+          <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-4">{t(status)}</h2>
           <div className="space-y-4">
-            {section.items.map(item => (
-              <div key={item.name} className="border border-frc-blue rounded-lg px-5 py-4">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-sm text-frc-text-dim">{item.name}</h3>
-                  <span className="text-xs font-mono text-frc-steel shrink-0">{item.paper}</span>
-                </div>
-                <p className="font-mono text-sm text-frc-text mt-2 break-all">{item.equation}</p>
-                <p className="text-xs text-frc-text-dim mt-2 mb-4">{item.description}</p>
-                {item.name === 'Coherence (C)' && (
-                  <div className="mt-4">
-                    <CoherenceWidget />
-                  </div>
-                )}
+            {FORMULAS.filter((item) => item.status === status).map((item) => (
+              <div key={item.name} className="border border-frc-blue px-5 py-4">
+                <div className="flex flex-wrap items-start justify-between gap-3"><h3 className="text-sm text-frc-text">{item.name}</h3><Link href={`${basePath}/papers/${item.paper}`} className="text-xs font-mono text-frc-gold hover:underline">{item.paper.replace('FRC-', 'FRC ')}</Link></div>
+                <p className="font-mono text-sm text-frc-text mt-3 overflow-x-auto" dir="ltr">{item.equation}</p>
+                <p className="text-xs text-frc-text-dim mt-3 leading-relaxed">{item.description}</p>
+                {item.name === 'Entropy-Coherence Reciprocity' && <div className="mt-5"><CoherenceWidget /></div>}
               </div>
             ))}
           </div>
         </section>
       ))}
-
       <section className="border-t border-frc-blue pt-8">
-        <h2 className="text-lg text-frc-text font-medium mb-4">Key Constants</h2>
+        <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-4">{t('quantities')}</h2>
         <div className="grid sm:grid-cols-2 gap-3">
-          {CONSTANTS.map(c => (
-            <div key={c.symbol} className="flex items-center gap-3 text-sm border border-frc-blue rounded-lg px-4 py-3">
-              <span className="font-mono text-frc-gold shrink-0 w-12">{c.symbol}</span>
-              <div>
-                <span className="text-frc-text font-mono">{c.value}</span>
-                <p className="text-xs text-frc-text-dim">{c.description}</p>
-              </div>
-            </div>
-          ))}
+          {QUANTITIES.map((item) => <div key={item.symbol} className="grid grid-cols-[3rem_1fr] gap-3 border border-frc-blue px-4 py-3 text-sm"><span className="font-mono text-frc-gold">{item.symbol}</span><div><div className="font-mono text-frc-text text-xs">{item.value}</div><p className="text-xs text-frc-text-dim mt-1">{item.description}</p></div></div>)}
         </div>
       </section>
     </main>

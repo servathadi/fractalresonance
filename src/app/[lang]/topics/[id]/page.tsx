@@ -10,6 +10,9 @@ import { TopicsSidebar } from '@/components/TopicsSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
+import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
 import {
   estimateReadTime,
   getTopic,
@@ -19,10 +22,13 @@ import {
   buildBacklinks,
   getGlossary,
   getAlternateLanguages,
+  getContentEpistemicStatus,
+  getContentStatusNote,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
 import { getLensLabel, normalizeLensKey } from '@/lib/lenses';
+import { generatePageMetadata } from '@/lib/metadata';
 
 export const dynamicParams = false;
 
@@ -52,29 +58,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!topic) return { title: 'Not Found' };
 
   const fm = topic.frontmatter;
-  const author = fm.author || 'FRC';
-  const url = `https://fractalresonance.com/${lang}/topics/${fm.id}`;
   const alternates = getAlternateLanguages('topics', fm.id);
+  const topicUrl = `/${lang}/topics/${fm.id}`;
+  const epistemicStatus = getContentEpistemicStatus('topic', fm);
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract || fm.short_answer,
-    keywords: fm.tags,
-    authors: [{ name: author }],
-    alternates: {
-      canonical: url,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: fm.abstract || fm.short_answer,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
-    },
-  };
+    description: fm.short_answer || fm.abstract || '',
+    url: topicUrl,
+    lang,
+    publishedTime: fm.date,
+    author: fm.author || 'FRC',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Topics',
+    noindex: epistemicStatus === 'archive',
+  }, alternates);
 }
 
 function SpectrumBlock({
@@ -100,8 +99,10 @@ export default async function TopicPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const fm = topic.frontmatter;
+  const epistemicStatus = getContentEpistemicStatus('topic', fm);
+  const statusNote = getContentStatusNote('topic', fm);
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
   const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
@@ -175,6 +176,7 @@ export default async function TopicPage({ params }: Props) {
         </nav>
 
         <header className="mb-8">
+          <EpistemicBadge status={epistemicStatus} lang={lang} className="mb-3" />
           <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
           <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
             <span>{fm.author || 'FRC'}</span>
@@ -191,17 +193,15 @@ export default async function TopicPage({ params }: Props) {
             <span className="font-mono text-xs">{readTime}</span>
           </div>
 
-          {fm.tags && (
+          {statusNote && (
+            <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+              {statusNote}
+            </p>
+          )}
+
+          {Array.isArray(fm.tags) && fm.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
-              {fm.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`${basePath}/tags/${encodeURIComponent(tag)}`}
-                  className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
-                >
-                  {tag}
-                </Link>
-              ))}
+              {fm.tags.map((tag) => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
             </div>
           )}
         </header>
@@ -342,6 +342,16 @@ export default async function TopicPage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        {/* Related Content */}
+        <RelatedContent
+          relatedIds={Array.isArray(fm.related) ? fm.related : []}
+          tags={Array.isArray(fm.tags) ? fm.tags : []}
+          currentId={id}
+          glossary={glossary}
+          basePath={basePath}
+          lang={lang}
+        />
       </PageShell>
     </>
   );

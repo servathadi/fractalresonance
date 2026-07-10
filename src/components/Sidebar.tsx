@@ -1,5 +1,16 @@
 import Link from 'next/link';
-import { getPapers, getConcepts, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
+import {
+  getConcepts,
+  getPaperCanonStatus,
+  getPapers,
+  isCurrentReadingContent,
+  isPaperCatalogEntry,
+  matchesPerspectiveView,
+  sortPapersForLibrary,
+  type PaperCanonStatus,
+  type PerspectiveView,
+} from '@/lib/content';
 
 interface SidebarProps {
   lang: string;
@@ -10,20 +21,21 @@ interface SidebarProps {
 }
 
 export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }: SidebarProps) {
-  const papers = getPapers(lang).filter((p) => (view ? matchesPerspectiveView(p.frontmatter.perspective, view) : true));
-  const concepts = getConcepts(lang).filter((c) => (view ? matchesPerspectiveView(c.frontmatter.perspective, view) : true));
+  const papers = sortPapersForLibrary(
+    getPapers(lang).filter((paper) => isPaperCatalogEntry(paper.frontmatter)
+      && isCurrentReadingContent('paper', paper.frontmatter)
+      && (view ? matchesPerspectiveView(paper.frontmatter.perspective, view) : true)),
+  );
+  const concepts = getConcepts(lang).filter((c) => isCurrentReadingContent('concept', c.frontmatter)
+    && (view ? matchesPerspectiveView(c.frontmatter.perspective, view) : true));
   const base = basePath || `/${lang}`;
 
-  const series100 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-100'));
-  const series566 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-566'));
-  const series800 = papers.filter(p => p.frontmatter.id?.startsWith('FRC-8'));
-  const open100 = !!currentId && currentId.startsWith('FRC-100');
-  const open566 = !!currentId && currentId.startsWith('FRC-566');
-  const open800 = !!currentId && currentId.startsWith('FRC-8');
-  const anySeriesOpen = open100 || open566 || open800;
-  // Keep Applications visible while reading core papers so cross-series discovery
-  // (e.g. "841.004") doesn't feel "missing".
-  const open800Default = open800 || open100;
+  const groups = papers.reduce<Record<PaperCanonStatus, typeof papers>>((out, paper) => {
+    out[getPaperCanonStatus(paper.frontmatter)].push(paper);
+    return out;
+  }, { 'living-core': [], frontier: [], framework: [], archive: [] });
+  const currentPaper = papers.find((paper) => paper.frontmatter.id === currentId);
+  const currentStatus = currentPaper ? getPaperCanonStatus(currentPaper.frontmatter) : undefined;
 
   const isMobile = variant === 'mobile';
   const asideClass = isMobile
@@ -33,9 +45,19 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
 
   const nav = (
     <nav className={navClass}>
-      <SidebarSection title="100 — Core Theory" items={series100} currentId={currentId} base={base} openByDefault={anySeriesOpen ? open100 : true} />
-      <SidebarSection title="566 — Reciprocity" items={series566} currentId={currentId} base={base} openByDefault={open566} />
-      <SidebarSection title="800 — Applications" items={series800} currentId={currentId} base={base} openByDefault={open800Default} />
+      <SidebarSection title="Living core" items={groups['living-core']} currentId={currentId} base={base} openByDefault={!currentStatus || currentStatus === 'living-core'} />
+      <SidebarSection title="Frontier" items={groups.frontier} currentId={currentId} base={base} openByDefault={currentStatus === 'frontier'} />
+      <SidebarSection title="Framework notes" items={groups.framework} currentId={currentId} base={base} openByDefault={currentStatus === 'framework'} />
+      <SidebarSection title="Archive / development history" items={groups.archive} currentId={currentId} base={base} openByDefault={currentStatus === 'archive'} />
+      <div className="mt-6">
+        <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Series</h3>
+        <div className="flex flex-wrap gap-2 px-2">
+          <TaxonomyLink taxon="frc-100" basePath={base} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />
+          <TaxonomyLink taxon="frc-566" basePath={base} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />
+          <TaxonomyLink taxon="frc-700" basePath={base} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />
+          <TaxonomyLink taxon="frc-800" basePath={base} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />
+        </div>
+      </div>
       {concepts.length > 0 && (
         <div className="mt-6">
           <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Concepts</h3>
@@ -63,6 +85,9 @@ export function Sidebar({ lang, currentId, basePath, view, variant = 'desktop' }
         </Link>
         <Link href={`${base}/topics`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
           Topics
+        </Link>
+        <Link href={`${base}/tags`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
+          Corpus navigation
         </Link>
         <Link href={`${base}/people`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
           Voices
@@ -101,7 +126,7 @@ function SidebarSection({
   openByDefault,
 }: {
   title: string;
-  items: { frontmatter: { id: string; title: string } }[];
+  items: { frontmatter: { id: string; title: string; date?: string } }[];
   currentId?: string;
   base: string;
   openByDefault: boolean;
@@ -109,28 +134,14 @@ function SidebarSection({
   if (items.length === 0) return null;
 
   const displayId = (id: string) => id.replace(/^FRC-/, '').replace(/-/g, '.');
-  const sortKey = (id: string) => {
-    // e.g. "FRC-100-007" -> [100, 7], "FRC-893-PHY" -> [893, NaN]
-    const m = id.match(/^FRC-(\d+)(?:-(\d+))?/);
-    const major = m ? Number(m[1]) : Number.POSITIVE_INFINITY;
-    const minor = m?.[2] ? Number(m[2]) : Number.POSITIVE_INFINITY;
-    return [major, minor] as const;
-  };
-  const sorted = [...items].sort((a, b) => {
-    const [am, an] = sortKey(a.frontmatter.id);
-    const [bm, bn] = sortKey(b.frontmatter.id);
-    if (am !== bm) return am - bm;
-    return an - bn;
-  });
-
   return (
     <details open={openByDefault} className="mb-4">
       <summary className="flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-frc-steel px-2 cursor-pointer select-none list-none">
         <span>{title}</span>
-        <span className="text-[11px] normal-case text-frc-text-dim">{sorted.length}</span>
+        <span className="text-[11px] normal-case text-frc-text-dim">{items.length}</span>
       </summary>
       <ul className="space-y-0.5 mt-2 max-h-64 overflow-y-auto pr-1">
-        {sorted.map(paper => (
+        {items.map(paper => (
           <li key={paper.frontmatter.id}>
             <Link
               href={`${base}/papers/${paper.frontmatter.id}`}

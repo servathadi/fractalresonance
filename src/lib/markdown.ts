@@ -215,14 +215,6 @@ function fallbackWikilinkHref(raw: string): string | null {
     s.includes('\u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc');
   if (hasAi) return '/topics';
 
-  const hasConsciousness =
-    lower.includes('consciousness') ||
-    lower.includes('conciencia') ||
-    lowerAscii.includes('conscience') ||
-    // Persian: "\u0622\u06af\u0627\u0647\u06cc"
-    s.includes('\u0622\u06af\u0627\u0647\u06cc');
-  if (hasConsciousness) return '/concepts/consciousness';
-
   return null;
 }
 
@@ -313,7 +305,7 @@ function renderTableHtml(
     })
     .join('');
 
-  return `<table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+  return `<div class="table-wrap"><table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table></div>`;
 }
 
 /** Extract table-of-contents items from markdown heading lines */

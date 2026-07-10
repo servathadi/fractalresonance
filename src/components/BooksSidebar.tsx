@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getBooks, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 import type { DerivedChapterMeta } from '@/lib/bookChapters';
+import { getDictionary } from '@/lib/dictionaries';
 
 interface BooksSidebarProps {
   lang: string;
@@ -11,6 +12,13 @@ interface BooksSidebarProps {
   view?: PerspectiveView;
   variant?: 'desktop' | 'mobile';
 }
+
+const SIDEBAR_DICT: Record<string, { browse: string; inThisBook: string; fullBook: string }> = {
+  en: { browse: 'Browse books', inThisBook: 'In this book', fullBook: 'Full book' },
+  fa: { browse: 'مرور کتاب‌ها', inThisBook: 'در این کتاب', fullBook: 'کتاب کامل' },
+  es: { browse: 'Explorar libros', inThisBook: 'En este libro', fullBook: 'Libro completo' },
+  fr: { browse: 'Parcourir les livres', inThisBook: 'Dans ce livre', fullBook: 'Livre complet' },
+};
 
 export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, basePath, view, variant = 'desktop' }: BooksSidebarProps) {
   const books = getBooks(lang)
@@ -27,6 +35,9 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
       !(chapters.length === 1 && chapters[0]?.slug === 'full')
   );
 
+  const dict = getDictionary(lang);
+  const t = SIDEBAR_DICT[lang] || SIDEBAR_DICT['en'];
+
   return (
     <aside
       data-sidebar
@@ -39,12 +50,12 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
       <details open={!isMobile}>
         {isMobile && (
           <summary className="px-4 py-3 text-sm text-frc-text cursor-pointer select-none">
-            <span className="text-xs uppercase tracking-wider text-frc-steel">Browse books</span>
+            <span className="text-xs uppercase tracking-wider text-frc-steel">{t.browse}</span>
           </summary>
         )}
         <nav className={isMobile ? 'py-3 px-4 text-sm' : 'py-6 px-4 text-sm sticky top-0'}>
           <div className="mb-4">
-            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">Books</h3>
+            <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">{dict.nav.books}</h3>
             <ul className="space-y-0.5 max-h-[70vh] overflow-y-auto pr-1">
               {books.map((book) => (
                 <li key={book.frontmatter.id}>
@@ -66,7 +77,7 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
 
           {showChapters && (
             <div className="mt-6 pt-4 border-t border-frc-blue">
-              <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">In this book</h3>
+              <h3 className="text-xs uppercase tracking-wider text-frc-steel mb-2 px-2">{t.inThisBook}</h3>
               <ul className="space-y-0.5 max-h-[50vh] overflow-y-auto pr-1">
                 <li>
                   <Link
@@ -76,9 +87,9 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
                         ? 'text-frc-gold bg-frc-blue/30'
                         : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-blue/20'
                     }`}
-                    title="Full book"
+                    title={t.fullBook}
                   >
-                    Full book
+                    {t.fullBook}
                   </Link>
                 </li>
                 {chapters?.map((c) => (
@@ -101,19 +112,19 @@ export function BooksSidebar({ lang, currentId, chapters, activeChapterSlug, bas
           )}
           <div className="mt-6 pt-4 border-t border-frc-blue">
             <Link href={`${base}/blog`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Blog
+              {dict.nav.blog}
             </Link>
             <Link href={`${base}/topics`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Topics
+              {dict.nav.topics}
             </Link>
             <Link href={`${base}/articles`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Articles
+              {dict.nav.articles}
             </Link>
             <Link href={`${base}/papers`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Papers
+              {dict.nav.papers}
             </Link>
             <Link href={`${base}/concepts`} className="block px-2 py-1 text-frc-text-dim hover:text-frc-gold transition-colors">
-              Concepts
+              {dict.nav.concepts}
             </Link>
           </div>
         </nav>

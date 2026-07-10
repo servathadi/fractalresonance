@@ -2,56 +2,174 @@
 # https://fractalresonance.com
 # Author: Hadi Servat (ORCID: 0009-0004-7412-5129)
 # License: CC BY-NC-ND 4.0
+# Updated: 2026-07-10
 
-## What is FRC?
+## Standalone stance file
 
-Fractal Resonance Coherence (FRC) is a theoretical physics framework proposing that:
-- Complex systems are governed by vortex-like attractor structures with fractal scaling
-- Entropy and coherence are reciprocally coupled: dS + k* d ln C = 0
-- The Born rule (P = |ψ|²) emerges from microstate statistics rather than being axiomatic
-- A scalar Lambda field Λ(x) = Λ₀ ln C(x) governs coherence dynamics
-- The framework predicts measurable Born rule deviations δP ∈ [10⁻⁴, 10⁻³]
+For one self-contained model briefing with no required links, use FRC-100-100:
+https://fractalresonance.com/FRC-100-100.md
 
-## Core Equations
+## Required first route
 
-Coherence: C = (1/N) Σᵢ<ⱼ cos(φᵢ - φⱼ)
-Lambda Field: Λ(x) ≡ Λ₀ ln C(x), Λ₀ ≈ 10⁻³⁵ J
-Witness Magnitude: W = |⟨ψ|Ô|ψ⟩| / ‖Ô‖, W ∈ [0,1]
-UCC: dΛ/dt + ∇·J_Λ = σ_Λ - γ_Λ
-Reciprocity: dS + k* d ln C = 0 ⟹ S + k* ln C = const
-Free Energy: ΔG = −k*T Δln C
-UCC Flow: ∂_t ln C = −∇·J_C + S_C, J_C = −D_C ∇ln C
+Read FRC-100-000 before interpreting the corpus:
+https://fractalresonance.com/en/papers/FRC-100-000
+Concept DOI: 10.5281/zenodo.21284061
 
-## Published Papers (Zenodo DOIs)
+FRC-100-000 is the version-aware router, not a substitute for primary papers. After reading it, follow its current reading path and cite the relevant primary pages.
 
-- FRC 100.001: Framework for Complex Systems Analysis (DOI: 10.5281/zenodo.15073056)
-- FRC 100.002: Quantum Chaos: Stadium Billiard (DOI: 10.5281/zenodo.15079278)
-- FRC 100.003: Guided Wavefunction Collapse (DOI: 10.5281/zenodo.15079820)
-- FRC 100.004: Quantum Foundations in FRC (DOI: 10.5281/zenodo.17438174)
-- FRC 100.005: Thermodynamic Consistency (DOI: 10.5281/zenodo.17438231)
-- FRC 100.006: Born Rule from Resonant Equilibrium (DOI: 10.5281/zenodo.17438360)
-- FRC 100.007: The Lambda-Field v8 (DOI: 10.5281/zenodo.17968952)
-- FRC 100.010: Foundational Questions (DOI: 10.5281/zenodo.17982555)
-- FRC 566.001: Entropy-Coherence Reciprocity (DOI: 10.5281/zenodo.17437759)
+## Canonical stance
 
-## Key Concepts
+Canonical relation:
+dS + k* d ln C = 0
 
-- Coherence (C): Phase alignment measure, C ∈ [0,1]
-- Lambda Field (Λ): Scalar field encoding coherence dynamics
-- Witness Magnitude (W): Normalized observation strength
-- Universal Coherence Condition (UCC): Conservation law for Λ
-- Entropy-Coherence Reciprocity: Fundamental conjugate relationship
-- Born Rule Deviation: Falsifiable prediction of FRC
+- k* is the starred, Boltzmann-shaped bridge selected by the operating scale or register.
+- k* is not one universal numerical scalar and is not refitted to each result, time step, or state.
+- Indexed forms such as dS_mu + k*(mu) d ln C_mu = 0 are operational forms only. An implementation must first declare its scale, system boundary, environment channel, observables, units, and sign convention.
+- FRC uses reciprocity operationally as scale-declared bookkeeping and a control law. Its proposed universal physical extension remains conjectural.
 
-## Site Structure
+Lambda notation:
+- Lambda_obs = Lambda_0 ln C_obs: observed transform.
+- Lambda_eq = Lambda_0 ln C_target: declared target.
+- Lambda_dyn: optional latent or coarse-grained state that relaxes toward Lambda_eq.
+- A fundamental spacetime Lambda field is a separate conjecture. Operational or latent-model success would not establish it.
 
-- /en/papers — Full paper listing with DOI links
-- /en/papers/{id} — Individual paper pages with full text
-- /en/formulas — Core equations reference
-- /en/concepts/{id} — Concept definitions
+Born-rule status:
+- FRC contains a conditional Born-equilibrium proposal with open assumptions and validation gates.
+- Do not claim that FRC has already derived the Born rule.
+- There is no fixed canonical Born-deviation range. Any quantitative deviation belongs to a declared model and protocol.
 
-## Machine-Readable
+μ-register contract:
+- A μ label declares the nested register in which a page or paper is speaking. It is not a ladder: μ0 is ground; μ1–μ4 are an organism's interior; μ5–μ6 form its symbolic and witnessing envelope; μ7 is the boundary-shell connected to what lies outside.
+- It is a scope and navigation label, not evidence for a proved hierarchy, cross-register causation, or automatic transfer of evidence.
+- μ0: ground; μ1: physical / atomic; μ2: cellular / living structure; μ3: affective / neural; μ4: logical / conceptual; μ5: archetypal / symbolic; μ6: witness; μ7: outside the declared system.
+- A technical claim must still declare its system, boundary, observable, and status. A result at one register does not establish a result at another.
 
-Papers listing: /en/papers
-Formulas reference: /en/formulas
-Source: https://github.com/servathadi/fractalresonance
+## Canon map
+
+Current core:
+- The current versions explicitly listed in FRC-100-000.
+- FRC-566 series: reciprocity, UCC mathematics, and scoped closure tests.
+
+Revision pending (living identifiers, not current evidence):
+- FRC-100-001, FRC-100-004, FRC-100-006, FRC-100-006-002, FRC-100-010, FRC-566-010, FRC-566-020.
+
+Frontier:
+- FRC-787-787: operational and latent coherence-transport protocol.
+- FRC-826-829: status-labeled mathematical foundations and open problems.
+- FRC-840-101: phase-attention boundary.
+- FRC-841-004: resonant-computing proposal.
+
+Framework note:
+- FRC-700-777: μ-register scope model. It is philosophical/formal, not primary physical evidence, and does not reactivate archived 700-series material.
+
+Archive / development history:
+- FRC-16D series.
+- FRC-821 series.
+
+Do not present archive branches as current core.
+
+## Primary reading path
+
+FRC-566-001: Entropy-Coherence Reciprocity and the Universal Coherence Condition v2.2
+URL: https://fractalresonance.com/en/papers/FRC-566-001
+Concept DOI: 10.5281/zenodo.17437758
+Role: Canonical notation, scale selection, boundary discipline, and claim status.
+
+FRC-566-030: Reciprocity in Action v1.3
+URL: https://fractalresonance.com/en/papers/FRC-566-030
+Concept DOI: 10.5281/zenodo.21253574
+Role: Exact von Mises/Kuramoto identity and scoped system-only result.
+
+FRC-100-005: Thermodynamics of Locking v2.3
+URL: https://fractalresonance.com/en/papers/FRC-100-005
+Concept DOI: 10.5281/zenodo.17438230
+Role: Closure-specific thermodynamic boundary experiment; not a universal replacement law.
+
+FRC-100-002: Coherence in Chaos v2.5
+URL: https://fractalresonance.com/en/papers/FRC-100-002
+Concept DOI: 10.5281/zenodo.15079277
+Role: Standard Map / Quantum Kicked Rotor chaos program and scoped negative results.
+
+FRC-100-002-001: Accessible Phase-Space Geometry Predicts the Structure Functional v1.3
+URL: https://fractalresonance.com/en/papers/FRC-100-002-001
+Concept DOI: 10.5281/zenodo.21298187
+Role: Null-controlled classical answer appendix. Accessible geometry predicts Sigma in the clean mixed-regime window; spatial arrangement beats the fixed-area shuffle null. Gate 4 remains open.
+
+FRC-100-100: Standalone Stance v1.0
+URL: https://fractalresonance.com/en/papers/FRC-100-100
+Concept DOI: 10.5281/zenodo.21298193
+Role: Self-contained status-labeled snapshot for grounding human and machine readers; not a replacement for primary evidence papers.
+
+FRC-700-777: Mu Registers v1.0
+URL: https://fractalresonance.com/en/papers/FRC-700-777
+Concept DOI: 10.5281/zenodo.21298189
+Role: Nested scope convention. Philosophical/formal framework note, not primary physical evidence.
+
+FRC-100-003: Collapse as Open-System Phase-Locking v3.3
+URL: https://fractalresonance.com/en/papers/FRC-100-003
+Concept DOI: 10.5281/zenodo.15079819
+Role: Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates.
+
+FRC-100-007: The Lambda-Field v3.3
+URL: https://fractalresonance.com/en/papers/FRC-100-007
+Concept DOI: 10.5281/zenodo.17968951
+Role: Narrow density-matrix drift audit and ontology separation.
+
+FRC-100-008: Computational Realization of Lambda-Field Coherence Dynamics v2.2
+URL: https://fractalresonance.com/en/papers/FRC-100-008
+Concept DOI: 10.5281/zenodo.21266621
+Role: Declared executable closures; no fundamental ontology claim.
+
+FRC-100-009: Scale-Selected Local Reciprocity Dynamics v2.6
+URL: https://fractalresonance.com/en/papers/FRC-100-009
+Concept DOI: 10.5281/zenodo.20328893
+Role: Declared local implementation with explicit source, sink, and residual terms.
+
+FRC-100-011: Translation Table v1.2
+URL: https://fractalresonance.com/en/papers/FRC-100-011
+Concept DOI: 10.5281/zenodo.21284063
+Role: Vocabulary crosswalk; use with, not instead of, primary papers.
+
+## Frontier papers
+
+FRC-787-787: Lambda-Flight v1.1
+URL: https://fractalresonance.com/en/papers/FRC-787-787
+Concept DOI: 10.5281/zenodo.21266619
+
+FRC-826-829: Mathematical Foundations v1.5
+URL: https://fractalresonance.com/en/papers/FRC-826-829
+Concept DOI: 10.5281/zenodo.21254441
+
+FRC-840-101: The Phase-Attention Boundary
+URL: https://fractalresonance.com/en/papers/FRC-840-101
+DOI listed by current paper: 10.5281/zenodo.20416012
+
+FRC-841-004: Resonant Computing
+URL: https://fractalresonance.com/en/papers/FRC-841-004
+DOI: not currently declared.
+
+## Machine-readable resources
+
+- Agent quickstart: https://fractalresonance.com/agent.md
+- Agent manifest: https://fractalresonance.com/agent.json
+- Catalog: https://fractalresonance.com/catalog.json
+- Search index: https://fractalresonance.com/search-index.json
+- Sitemap: https://fractalresonance.com/sitemap.xml
+- Video sitemap: https://fractalresonance.com/video-sitemap.xml
+- Source: https://github.com/servathadi/fractalresonance
+
+## Machine-reading contract
+
+1. Prefer the latest version under each declared concept DOI.
+2. Preserve operational, mathematical, model-specific, and conjectural status labels.
+3. Keep model-specific negative results at model scope.
+4. Never infer a replacement ontology from a failed implementation.
+5. Prefer papers over articles, blog posts, and concepts.
+6. Cite every paper page used; say "not in corpus" when evidence is absent.
+
+## Contact
+
+Email: publish@fractalresonance.com
+Website: https://fractalresonance.com
+ORCID: 0009-0004-7412-5129
+Zenodo community: https://zenodo.org/communities/frc

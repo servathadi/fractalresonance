@@ -13,7 +13,7 @@ interface LayoutProps {
 
 export default async function LangLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
-  const glossary = getGlossary(lang);
+  const glossary = getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' });
   const isRTL = RTL_LANGUAGES.includes(lang);
 
   // Convert glossary to search items and prepend NotebookLM tool
@@ -21,7 +21,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     {
       id: 'AI-ORACLE',
       title: 'Ask AI (NotebookLM)',
-      excerpt: 'Chat with the Fractal Resonance Cognition vault using Google NotebookLM.',
+      excerpt: 'Search or discuss the Fractal Resonance Coherence corpus with cited sources.',
       type: 'tool' as const,
       url: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13'
     },

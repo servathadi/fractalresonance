@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import fs from 'node:fs';
+import path from 'node:path';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { schemaPaperPage } from '@/lib/schema';
@@ -9,7 +11,6 @@ import { Sidebar } from '@/components/Sidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { InterpretationGate } from '@/components/ModeNotice';
 import {
   estimateReadTime,
   getLegacyPaperIds,
@@ -20,10 +21,20 @@ import {
   buildBacklinks,
   getGlossary,
   getAlternateLanguages,
+  getPaperCanonStatus,
+  isRevisionPendingPaper,
   normalizeContentPerspective,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata, generateCitationMetadata } from '@/lib/metadata';
+import { TierBadge, inferTier } from '@/components/TierBadge';
+import { RelatedContent } from '@/components/RelatedContent';
+import { DownloadMarkdown } from '@/components/DownloadMarkdown';
+import { PaperStatusPanel } from '@/components/PaperStatusPanel';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
+import { deriveSeriesTaxon } from '@/lib/taxonomy';
+import { getMuLevel } from '@/lib/mu-levels';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -37,8 +48,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const papers = getPapers(lang);
     for (const paper of papers) {
-      // Include all items (Kasra + River) so we can gracefully hand off River-only
-      // content instead of producing static 404s for `/papers/...` URLs.
+      if (!matchesPerspectiveView(paper.frontmatter.perspective, 'kasra')) continue;
       if (paper.frontmatter.id) {
         for (const legacyId of getLegacyPaperIds(paper.frontmatter.id)) {
           const key = `${lang}:${legacyId}`;
@@ -61,47 +71,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = paper.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl = `https://fractalresonance.com/${lang}/papers/${fm.id}`;
+  const canonicalUrl = `/${lang}/papers/${fm.id}`;
   const alternates = getAlternateLanguages('papers', fm.id);
 
-  return {
+  const ogImage = fm.video?.thumbnailUrl;
+
+  const baseMetadata = generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract,
-    keywords: fm.tags,
-    authors: [{ name: author }],
-    alternates: {
-      canonical: canonicalUrl,
-      languages: alternates,
-    },
-    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
-    openGraph: {
-      type: 'article',
+    description: fm.abstract || '',
+    url: canonicalUrl,
+    lang,
+    publishedTime: fm.date,
+    author,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Research Papers',
+    noindex: norm === 'river' || isRevisionPendingPaper(fm.id) || fm.publicationState?.toLowerCase() === 'revision pending',
+    image: ogImage,
+  }, alternates);
+
+  return {
+    ...baseMetadata,
+    other: generateCitationMetadata({
       title: fm.title,
-      description: fm.abstract,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
-    },
-    other: {
-      // Google Scholar meta tags
-      'citation_title': fm.title,
-      'citation_author': author,
-      ...(fm.date && { 'citation_publication_date': fm.date }),
-      'citation_journal_title': 'Fractal Resonance Coherence',
-      ...(fm.doi && { 'citation_doi': fm.doi }),
-      'citation_abstract_html_url': canonicalUrl,
-      'citation_language': lang,
-      ...(fm.id && { 'citation_technical_report_number': fm.id }),
-      // Dublin Core for additional discoverability
-      'DC.title': fm.title,
-      'DC.creator': author,
-      ...(fm.date && { 'DC.date': fm.date }),
-      'DC.type': 'Text',
-      'DC.format': 'text/html',
-      'DC.language': lang,
-      ...(fm.doi && { 'DC.identifier': `doi:${fm.doi}` }),
-    },
+      author,
+      date: fm.date,
+      doi: fm.doi,
+      id: fm.id,
+      lang,
+      url: `https://fractalresonance.com${canonicalUrl}`,
+    }),
   };
 }
 
@@ -114,12 +113,20 @@ export default async function PaperPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const canonicalId = paper.frontmatter.id;
+  const hasPdf = fs.existsSync(path.join(process.cwd(), 'public', 'papers', `${canonicalId}.pdf`));
   const meta = toPaperMeta(paper);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[canonicalId] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = paper.frontmatter;
+  const seriesTaxon = deriveSeriesTaxon(fm.id);
   const readTime = fm.read_time || estimateReadTime(paper.body);
+  const canonStatus = getPaperCanonStatus(fm);
+  const muLevel = getMuLevel(fm.muLevel);
+  const doiEntries = [
+    fm.conceptDoi ? { label: 'Concept DOI', value: fm.conceptDoi } : null,
+    fm.doi && fm.doi !== fm.conceptDoi ? { label: 'DOI', value: fm.doi } : null,
+  ].filter((entry): entry is { label: string; value: string } => entry !== null);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -141,6 +148,7 @@ export default async function PaperPage({ params }: Props) {
         leftMobile={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<Sidebar lang={lang} currentId={canonicalId} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} />}
+        articleClassName="w-full"
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -153,43 +161,60 @@ export default async function PaperPage({ params }: Props) {
 
           {/* Header */}
           <header className="mb-8">
-            <h1 className="text-3xl font-light text-frc-gold mb-3">
-              {paper.frontmatter.title}
-            </h1>
-            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-              <span>{paper.frontmatter.author || 'H. Servat'}</span>
-              <span>{paper.frontmatter.date}</span>
-              <span className="font-mono text-xs">{readTime}</span>
-              {paper.frontmatter.series && (
-                <span className="tag">{paper.frontmatter.series}</span>
-              )}
+            <div className="min-w-0">
+                <div className="font-mono text-xs text-frc-gold mb-2">
+                  {fm.id}{fm.version ? ` · ${fm.version}` : ''}
+                </div>
+                <h1 className="text-3xl font-light text-frc-gold mb-3">
+                  {fm.title}
+                </h1>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-frc-text-dim">
+                  <span>{fm.author || 'H. Servat'}</span>
+                  <span>{fm.date}</span>
+                  <span className="font-mono text-xs">{readTime}</span>
+                  {seriesTaxon ? (
+                    <TaxonomyLink taxon={seriesTaxon} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />
+                  ) : fm.series ? <span className="tag">{fm.series}</span> : null}
+                  <TierBadge tier={inferTier(fm.tier, canonicalId)} lang={lang} size="md" />
+                  {muLevel && <span className="tag mu-tag" title={muLevel.description}>{muLevel.symbol} {muLevel.title}</span>}
+                </div>
+                <div className="flex flex-wrap items-center gap-3 mt-3">
+                  {doiEntries.map(({ label, value }) => (
+                    <a
+                      key={label}
+                      href={`https://doi.org/${value}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex max-w-full flex-wrap items-center gap-x-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+                    >
+                      <span>{label}</span>
+                      <span className="text-frc-text break-all">{value}</span>
+                    </a>
+                  ))}
+                  {hasPdf && (
+                    <a
+                      href={`/papers/${canonicalId}.pdf`}
+                      download
+                      title="Download the DOI-stamped PDF (also permanently archived on Zenodo via the DOI)"
+                      className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+                    >
+                      <span>PDF</span>
+                      <span className="text-frc-text">Download</span>
+                    </a>
+                  )}
+                  <DownloadMarkdown
+                    id={canonicalId}
+                    title={fm.title}
+                    content={paper.raw}
+                    lang={lang}
+                  />
+                </div>
+                {Array.isArray(fm.tags) && fm.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {fm.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
+                  </div>
+                )}
             </div>
-            {paper.frontmatter.doi && (
-              <div className="mt-3">
-                <a
-                  href={`https://zenodo.org/doi/${paper.frontmatter.doi}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
-                >
-                  <span>DOI</span>
-                  <span className="text-frc-text">{paper.frontmatter.doi}</span>
-                </a>
-              </div>
-            )}
-            {paper.frontmatter.tags && (
-              <div className="flex flex-wrap gap-2 mt-3">
-                {paper.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
-                    href={`${basePath}/tags/${encodeURIComponent(tag)}`}
-                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-            )}
           </header>
 
           {/* Video embed (if available) */}
@@ -214,18 +239,18 @@ export default async function PaperPage({ params }: Props) {
           )}
 
           <ContentDigest
-            tldr={fm.tldr}
+            tldr={undefined}
             keyPoints={fm.key_points}
             prerequisites={prereqLinks}
             readTime={readTime}
           />
 
+          <PaperStatusPanel frontmatter={fm} canonStatus={canonStatus} lang={lang} />
+
           <InlineToc items={tocItems} />
 
           {norm === 'river' ? (
-            <div className="frc-formal-only mb-8">
-              <InterpretationGate title="Preprint / interpretation layer" description="This paper is tagged as interpretation/digest. Switch mode to read it here." />
-            </div>
+            <div className="frc-formal-only mb-8" />
           ) : null}
 
           {/* Abstract */}
@@ -236,7 +261,7 @@ export default async function PaperPage({ params }: Props) {
           )}
 
           {/* Body — rendered from trusted local markdown files at build time */}
-          <div className={`content-body ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
+          <div className={`content-body min-w-0 max-w-full overflow-x-auto ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 
@@ -294,6 +319,18 @@ export default async function PaperPage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <div className="min-w-0 max-w-full [&_.related-content_a]:min-w-0">
+            <RelatedContent
+              relatedIds={Array.isArray(fm.related) ? fm.related : []}
+              tags={Array.isArray(fm.tags) ? fm.tags : []}
+              currentId={canonicalId}
+              glossary={glossary}
+              basePath={basePath}
+              lang={lang}
+            />
+          </div>
       </PageShell>
     </>
   );

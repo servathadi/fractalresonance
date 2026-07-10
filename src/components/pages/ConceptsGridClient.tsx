@@ -1,7 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
+import { EpistemicBadge, type EpistemicStatus } from '@/components/EpistemicBadge';
+import { canonicalizeTaxon, getTaxonomyLabel } from '@/lib/taxonomy';
 
 export interface ConceptsGridItem {
   id: string;
@@ -9,26 +12,44 @@ export interface ConceptsGridItem {
   excerpt: string;
   href: string;
   tags: string[];
+  epistemicStatus: EpistemicStatus;
 }
 
-export function ConceptsGridClient({ items }: { items: ConceptsGridItem[] }) {
+const DICT: Record<string, { search: string; showing: string; of: string; allTags: string; noResults: string; all: string }> = {
+  en: { search: 'Search concepts…', showing: 'Showing', of: 'of', allTags: 'All tags', noResults: 'No results. Try a different keyword or tag.', all: 'All' },
+  fa: { search: 'جستجوی مفاهیم...', showing: 'نمایش', of: 'از', allTags: 'تمام برچسب‌ها', noResults: 'نتیجه‌ای یافت نشد. کلمه کلیدی یا برچسب دیگری را امتحان کنید.', all: 'همه' },
+  es: { search: 'Buscar conceptos...', showing: 'Mostrando', of: 'de', allTags: 'Todas las etiquetas', noResults: 'Sin resultados. Intenta con otra palabra clave o etiqueta.', all: 'Todo' },
+  fr: { search: 'Rechercher des concepts...', showing: 'Affichage de', of: 'sur', allTags: 'Toutes les étiquettes', noResults: 'Aucun résultat. Essayez un autre mot-clé ou une autre étiquette.', all: 'Tout' },
+};
+
+export function ConceptsGridClient({ items, lang = 'en' }: { items: ConceptsGridItem[]; lang?: string }) {
   const [query, setQuery] = useState('');
-  const [tag, setTag] = useState<string>('All');
+  const t = DICT[lang] || DICT['en'];
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const tag = searchParams?.get('tag') ? canonicalizeTaxon(searchParams.get('tag') || '') : t.all;
+  const filterHref = (taxon: string) => {
+    const next = new URLSearchParams(searchParams?.toString() || '');
+    if (taxon === t.all) next.delete('tag'); else next.set('tag', taxon);
+    const queryString = next.toString();
+    const currentPath = pathname || `/${lang}/concepts`;
+    return queryString ? `${currentPath}?${queryString}` : currentPath;
+  };
 
   const tags = useMemo(() => {
-    const t = Array.from(new Set(items.flatMap((i) => i.tags || []))).sort((a, b) => a.localeCompare(b));
-    return ['All', ...t];
-  }, [items]);
+    const tagSet = Array.from(new Set(items.flatMap((i) => i.tags || []).map(canonicalizeTaxon))).sort((a, b) => a.localeCompare(b));
+    return [t.all, ...tagSet];
+  }, [items, t.all]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return items.filter((i) => {
-      if (tag !== 'All' && !(i.tags || []).includes(tag)) return false;
+      if (tag !== t.all && !(i.tags || []).map(canonicalizeTaxon).includes(tag)) return false;
       if (!q) return true;
       const hay = `${i.title} ${i.id} ${i.excerpt}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [items, query, tag]);
+  }, [items, query, tag, t.all]);
 
   return (
     <section>
@@ -37,31 +58,30 @@ export function ConceptsGridClient({ items }: { items: ConceptsGridItem[] }) {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search concepts…"
+            placeholder={t.search}
             className="w-full sm:max-w-md bg-frc-void-light border border-frc-blue rounded-md px-3 py-2 text-sm text-frc-text placeholder:text-frc-text-dim focus:outline-none focus:border-frc-gold"
             aria-label="Search concepts"
           />
           <div className="text-xs text-frc-text-dim">
-            Showing <span className="text-frc-text">{filtered.length}</span> of{' '}
+            {t.showing} <span className="text-frc-text">{filtered.length}</span> {t.of}{' '}
             <span className="text-frc-text">{items.length}</span>
           </div>
         </div>
 
         {tags.length > 1 && (
           <div className="flex flex-wrap gap-2">
-            {tags.slice(0, 18).map((t) => (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setTag(t)}
-                className={`text-[0.65rem] uppercase tracking-wider px-2.5 py-1 rounded-md border transition-colors ${
-                  tag === t
+            {tags.slice(0, 18).map((tagName) => (
+              <Link
+                key={tagName}
+                href={filterHref(tagName)}
+                className={`text-[0.72rem] uppercase tracking-wider px-2.5 py-1 rounded-md border transition-colors ${
+                  tag === tagName
                     ? 'border-frc-gold text-frc-gold bg-frc-blue/20'
                     : 'border-frc-blue text-frc-text-dim hover:text-frc-text hover:border-frc-gold-light'
                 }`}
               >
-                {t}
-              </button>
+                {tagName === t.all ? t.allTags : getTaxonomyLabel(tagName, lang)}
+              </Link>
             ))}
           </div>
         )}
@@ -69,7 +89,7 @@ export function ConceptsGridClient({ items }: { items: ConceptsGridItem[] }) {
 
       {filtered.length === 0 ? (
         <div className="border border-frc-blue rounded-lg p-6 text-sm text-frc-text-dim">
-          No results. Try a different keyword or tag.
+          {t.noResults}
         </div>
       ) : (
         <div className="grid gap-4">
@@ -77,6 +97,7 @@ export function ConceptsGridClient({ items }: { items: ConceptsGridItem[] }) {
             <Link key={item.id} href={item.href} className="card block p-6 group">
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="min-w-0">
+                  <EpistemicBadge status={item.epistemicStatus} lang={lang} className="mb-2" />
                   <h2 className="text-xl text-frc-text group-hover:text-frc-gold transition-colors font-medium">
                     {item.title}
                   </h2>
@@ -98,4 +119,3 @@ export function ConceptsGridClient({ items }: { items: ConceptsGridItem[] }) {
     </section>
   );
 }
-

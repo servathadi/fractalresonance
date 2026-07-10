@@ -1,0 +1,157 @@
+{
+  "name": "Fractal Resonance Coherence (FRC) Agent Quickstart",
+  "version": "2.0.0",
+  "updated": "2026-07-10",
+  "entrypoints": {
+    "start_here": "/en/papers/FRC-100-000",
+    "agent_doc": "/agent.md",
+    "standalone_stance": {
+      "id": "FRC-100-100",
+      "url": "/FRC-100-100.md",
+      "role": "Self-contained current stance capsule for machine reading; summarizes but does not override primary evidence papers."
+    },
+    "llms": "/llms.txt",
+    "catalog": "/catalog.json",
+    "search_index": "/search-index.json",
+    "sitemap": "/sitemap.xml",
+    "video_sitemap": "/video-sitemap.xml"
+  },
+  "start_here": {
+    "id": "FRC-100-000",
+    "url": "/en/papers/FRC-100-000",
+    "concept_doi": "10.5281/zenodo.21284061"
+  },
+  "routing": [
+    "Read FRC-100-000 first for the current stance, version rules, and reading path.",
+    "Then read and cite the relevant primary papers; the router is not a substitute for them.",
+    "Prefer the latest version under a declared concept DOI.",
+    "Use the catalog and search index only for discovery."
+  ],
+  "stance": {
+    "canonical_relation": "dS + k* d ln C = 0",
+    "k_star": "Starred, Boltzmann-shaped bridge selected by the operating scale or register; not a universal numerical scalar or outcome-fitted parameter.",
+    "indexed_forms": "Operational only in implementations that declare scale, boundary, environment channel, observables, units, and sign convention.",
+    "mu_registers": {
+      "purpose": "A μ label declares the nested register in which a page or paper is speaking. μ is not a ladder: μ0 is ground; μ1–μ4 are an organism's interior; μ5–μ6 form its symbolic and witnessing envelope; μ7 is the boundary-shell connected to what lies outside. It is a scope and navigation label, not evidence for a physical hierarchy, cross-register causation, or automatic transfer of evidence.",
+      "mu0": "Ground: the prior background condition from which a declared system is considered.",
+      "mu1": "Physical / atomic: fields, atoms, quantum systems, thermodynamics, and other physical observables.",
+      "mu2": "Cellular / living structure: cells, metabolism, physiology, and living organization.",
+      "mu3": "Affective / neural: feeling, neural dynamics, and embodied regulation.",
+      "mu4": "Logical / conceptual: formal reasoning, explicit models, computational design, and language as logic.",
+      "mu5": "Archetypal / symbolic: symbols, myths, archetypal patterns, and meaning-bearing forms.",
+      "mu6": "Witness: the reflective stance that observes and relates active registers.",
+      "mu7": "Outside the system: the boundary-shell and its connection to what lies beyond the currently declared system or total context."
+    },
+    "physical_status": "Scale-declared bookkeeping and control-law use is operational; universal physical extension is conjectural.",
+    "lambda_objects": {
+      "Lambda_obs": "Observed coherence transform.",
+      "Lambda_eq": "Declared target derived from the observation model.",
+      "Lambda_dyn": "Optional latent dynamical state requiring separate validation.",
+      "fundamental_field": "Separate conjecture; not established by operational or latent models."
+    },
+    "born_rule": "Conditional equilibrium proposal with open assumptions; not an established FRC derivation.",
+    "born_deviation": "No fixed canonical range; values require a declared model and protocol."
+  },
+  "canon": {
+    "core": ["Current versions listed in FRC-100-000", "FRC-566-*"],
+    "revision_pending": ["FRC-100-001", "FRC-100-004", "FRC-100-006", "FRC-100-006-002", "FRC-100-010", "FRC-566-010", "FRC-566-020"],
+    "frontier": ["FRC-787-787", "FRC-826-829", "FRC-840-101", "FRC-841-004"],
+    "framework_notes": ["FRC-700-777: philosophical/formal μ-register scope note; not primary physical evidence"],
+    "archive_development_history": ["FRC-16D-*", "FRC-821-*"]
+  },
+  "primary_route": [
+    {
+      "id": "FRC-566-001",
+      "url": "/en/papers/FRC-566-001",
+      "concept_doi": "10.5281/zenodo.17437758"
+    },
+    {
+      "id": "FRC-566-030",
+      "url": "/en/papers/FRC-566-030",
+      "concept_doi": "10.5281/zenodo.21253574"
+    },
+    {
+      "id": "FRC-100-005",
+      "url": "/en/papers/FRC-100-005",
+      "concept_doi": "10.5281/zenodo.17438230"
+    },
+    {
+      "id": "FRC-100-002",
+      "url": "/en/papers/FRC-100-002",
+      "concept_doi": "10.5281/zenodo.15079277"
+    },
+    {
+      "id": "FRC-100-002-001",
+      "url": "/en/papers/FRC-100-002-001",
+      "concept_doi": "10.5281/zenodo.21298187",
+      "role": "Null-controlled classical geometry result for the 100.002 structure functional; Gate 4 remains open."
+    },
+    {
+      "id": "FRC-100-100",
+      "url": "/en/papers/FRC-100-100",
+      "concept_doi": "10.5281/zenodo.21298193",
+      "role": "Standalone status-labeled stance snapshot; not a substitute for primary evidence papers."
+    },
+    {
+      "id": "FRC-700-777",
+      "url": "/en/papers/FRC-700-777",
+      "concept_doi": "10.5281/zenodo.21298189",
+      "role": "Nested scope convention; philosophical/formal and not primary physical evidence."
+    },
+    {
+      "id": "FRC-100-003",
+      "url": "/en/papers/FRC-100-003",
+      "concept_doi": "10.5281/zenodo.15079819"
+    },
+    {
+      "id": "FRC-100-007",
+      "url": "/en/papers/FRC-100-007",
+      "concept_doi": "10.5281/zenodo.17968951"
+    },
+    {
+      "id": "FRC-100-008",
+      "url": "/en/papers/FRC-100-008",
+      "concept_doi": "10.5281/zenodo.21266621"
+    },
+    {
+      "id": "FRC-100-009",
+      "url": "/en/papers/FRC-100-009",
+      "concept_doi": "10.5281/zenodo.20328893"
+    },
+    {
+      "id": "FRC-100-011",
+      "url": "/en/papers/FRC-100-011",
+      "concept_doi": "10.5281/zenodo.21284063"
+    }
+  ],
+  "frontier_route": [
+    {
+      "id": "FRC-787-787",
+      "url": "/en/papers/FRC-787-787",
+      "concept_doi": "10.5281/zenodo.21266619"
+    },
+    {
+      "id": "FRC-826-829",
+      "url": "/en/papers/FRC-826-829",
+      "concept_doi": "10.5281/zenodo.21254441"
+    },
+    {
+      "id": "FRC-840-101",
+      "url": "/en/papers/FRC-840-101",
+      "doi": "10.5281/zenodo.20416012"
+    },
+    {
+      "id": "FRC-841-004",
+      "url": "/en/papers/FRC-841-004",
+      "doi_status": "not currently declared"
+    }
+  ],
+  "rules": [
+    "Preserve operational, mathematical, model-specific, and conjectural status labels.",
+    "Do not generalize a scoped negative result or infer a replacement ontology.",
+    "Prefer papers over articles, blog posts, and concepts.",
+    "Cite the specific on-site paper pages used.",
+    "If a claim is absent from the corpus, say so.",
+    "Use only the declared static resources for machine retrieval."
+  ]
+}

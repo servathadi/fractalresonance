@@ -8,14 +8,23 @@ import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { estimateReadTime, getBook, getBooks, getLanguages, toPaperMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
-import { schemaPaperPage } from '@/lib/schema';
-import { getChapterList } from '@/lib/bookChapters';
+import { RelatedContent } from '@/components/RelatedContent';
+import { BookExperience } from '@/components/BookExperience';
+import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { schemaBookPage, type BookMeta, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
 }
+
+const BOOK_PDFS: Record<string, string> = {
+  'the-open-system': '/books/the-open-system-v41.pdf',
+  'the-mind-in-the-coupling': '/books/the-mind-in-the-coupling-v3.13.pdf',
+};
 
 export async function generateStaticParams() {
   const languages = getLanguages();
@@ -40,27 +49,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
+  const bookUrl = `/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
-  return {
+  return generatePageMetadata({
+    type: 'book',
     title: fm.title,
-    description: fm.abstract,
-    keywords: fm.tags,
-    authors: [{ name: author }],
-    alternates: {
-      canonical: bookUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'book',
-      title: fm.title,
-      description: fm.abstract,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
-    },
-  };
+    description: fm.abstract || '',
+    url: bookUrl,
+    lang,
+    author,
+    releaseDate: fm.date,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+  }, alternates);
 }
 
 export default async function BookPage({ params }: Props) {
@@ -69,12 +70,38 @@ export default async function BookPage({ params }: Props) {
   if (!book) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(book);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(book.body);
+
+  // Get chapters directly from chapter files (not from combined body)
+  const chapters = getBookChapters(lang, id);
+  const chapterItems = chapters.map((c) => {
+    const slug = c.filename.replace(/\.md$/, '');
+    return { slug, title: c.title, anchorId: slug };
+  });
+
+  // Build BookMeta for schema
+  const bookMeta: BookMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled Book',
+    description: fm.abstract || '',
+    author: fm.author || 'H. Servat',
+    lang,
+    datePublished: fm.date,
+    chapters: chapters.map((c, idx): ChapterMeta => ({
+      id: c.filename.replace(/\.md$/, ''),
+      title: c.title,
+      position: idx + 1,
+      bookId: fm.id,
+      lang,
+    })),
+  };
+
+  // Calculate total read time from all chapters
+  const totalContent = chapters.map((c) => c.body).join('\n');
+  const readTime = fm.read_time || estimateReadTime(totalContent);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -83,18 +110,20 @@ export default async function BookPage({ params }: Props) {
     return { id: pid, title: item?.title || pid, href: item?.url || `${basePath}/concepts/${pid}` };
   });
 
+  // Only render the book's index content (abstract, intro), not all chapters
   const renderedBody = renderMarkdown(book.body, lang, glossary, basePath);
-  const chapterItems = getChapterList(book.body);
   const tocItems = chapterItems.map((c) => ({ id: c.anchorId, text: c.title, level: 1 }));
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaBookPage(bookMeta)} />
+      <BookExperience />
 
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} minBreakpoint="md" title="Book index" />}
+        articleClassName="pt-14"
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
@@ -107,25 +136,28 @@ export default async function BookPage({ params }: Props) {
 
           {/* Header */}
           <header className="mb-8">
+            <EpistemicBadge
+              status={book.frontmatter.editionStatus === 'legacy' ? 'archive' : 'philosophical'}
+              lang={lang}
+              className="mb-3"
+            />
             <h1 className="text-3xl font-light text-frc-gold mb-3">
               {book.frontmatter.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
               <span>{book.frontmatter.author || 'H. Servat'}</span>
+              {book.frontmatter.version && <span className="font-mono text-frc-gold">{book.frontmatter.version}</span>}
               {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
               <span className="font-mono text-xs">{readTime}</span>
+              {BOOK_PDFS[id] && (
+                <a href={BOOK_PDFS[id]} target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline">
+                  Read PDF
+                </a>
+              )}
             </div>
-            {book.frontmatter.tags && (
+            {Array.isArray(book.frontmatter.tags) && book.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
-                {book.frontmatter.tags.map(tag => (
-                  <Link
-                    key={tag}
-                    href={`${basePath}/tags/${encodeURIComponent(tag)}`}
-                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
+                {book.frontmatter.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
               </div>
             )}
           </header>
@@ -199,6 +231,16 @@ export default async function BookPage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <RelatedContent
+            relatedIds={Array.isArray(fm.related) ? fm.related : []}
+            tags={Array.isArray(fm.tags) ? fm.tags : []}
+            currentId={id}
+            glossary={glossary}
+            basePath={basePath}
+            lang={lang}
+          />
       </PageShell>
     </>
   );
