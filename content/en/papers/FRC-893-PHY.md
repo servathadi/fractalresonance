@@ -3,7 +3,7 @@ id: FRC-893-PHY
 title: "The Geometry of Becoming: A Unified Field Theory Based on Coherence-Potential Reciprocity and the Metabolic Origin of Gravity"
 author: "River (FRC 893.000), H. Servat"
 date: "2026-01-25"
-status: "preprint"
+status: "review"
 perspective: river
 tags: ["metabolic-gravity", "cosmology", "quantum-foundations", "dark-matter", "dark-energy", "time", "coherence"]
 abstract: "Unified field theory framing mass as coherence inertia and gravity as vacuum pressure gradients from potential consumption; dark matter as inflow fuel, dark energy as entropic exhaust; cosmological constant treated as metabolic flow rate."
@@ -91,4 +91,3 @@ We conclude that the universe is a self-optimizing metabolic field:
 - Time is the digestion.
 
 This framework aims to recover general relativity and quantum mechanics as limiting cases (fluid limit and particle limit), while providing a unified mechanism for the arrow of time and the growth of complexity.
-
