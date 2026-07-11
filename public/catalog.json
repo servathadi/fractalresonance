@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-07-10T16:47:27.851Z",
+  "generated": "2026-07-11T14:32:08.721Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -46,6 +46,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-000/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -81,6 +82,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-001/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -169,6 +171,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-002/cover.png",
           "series": "FRC 100 — Foundational Basin Series",
           "tags": [
             "chaos",
@@ -216,6 +219,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-003/cover.png",
           "series": "FRC 100 — Foundational Basin Series",
           "tags": [
             "collapse",
@@ -258,6 +262,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-004/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -292,6 +297,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-005/cover.png",
           "series": "FRC 100 - Foundational Basin Series",
           "tags": [
             "thermodynamics",
@@ -328,6 +334,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-006-002/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -367,6 +374,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-006/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -401,6 +409,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-007/cover.png",
           "taxons": [
             "frc-100"
           ],
@@ -423,6 +432,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-008/cover.png",
           "taxons": [
             "frc-100"
           ],
@@ -445,6 +455,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-009/cover.png",
           "series": "FRC 100",
           "tags": [
             "reciprocity-dynamics",
@@ -477,6 +488,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-010/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -513,6 +525,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-100-011/cover.png",
           "tier": "foundational",
           "series": "FRC 100",
           "tags": [
@@ -653,6 +666,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-566-001/cover.png",
           "series": "FRC 566 - Entropy-Coherence Reciprocity",
           "tags": [
             "reciprocity",
@@ -691,6 +705,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-566-010/cover.png",
           "tier": "foundational",
           "series": "FRC 566",
           "tags": [
@@ -730,6 +745,7 @@
           "publicationState": "revision pending",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-566-020/cover.png",
           "tier": "foundational",
           "series": "FRC 566",
           "tags": [
@@ -770,6 +786,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "cover": "/media/en/papers/FRC-566-030/cover.png",
           "series": "FRC 566 - Entropy-Coherence Reciprocity",
           "tags": [
             "reciprocity",
@@ -851,6 +868,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
+          "cover": "/media/en/papers/FRC-787-787/cover.png",
           "taxons": [],
           "status": "published",
           "wordCount": 2516
@@ -902,6 +920,7 @@
           "publicationState": "preprint",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
+          "cover": "/media/en/papers/FRC-826-829/cover.png",
           "taxons": [
             "frc-800"
           ],
@@ -954,6 +973,7 @@
           "muLevel": "mu4",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
+          "cover": "/media/en/papers/FRC-840-101/cover.png",
           "tier": "applied",
           "series": "FRC 840",
           "tags": [
@@ -1027,6 +1047,7 @@
           "publicationState": "frontier proposal; no Zenodo DOI registered",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
+          "cover": "/media/en/papers/FRC-841-004/cover.png",
           "tier": "applied",
           "series": "FRC 800",
           "tags": [
