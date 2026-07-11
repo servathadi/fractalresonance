@@ -260,6 +260,18 @@ export default async function PaperPage({ params }: Props) {
             </blockquote>
           )}
 
+          {fm.cover && (
+            <figure className="mb-10 flex justify-center">
+              <img
+                src={fm.cover}
+                alt={`Cover art for ${fm.id}: ${fm.title}`}
+                className="w-full max-w-md border border-frc-blue object-cover"
+                width={1024}
+                height={1536}
+              />
+            </figure>
+          )}
+
           {/* Body — rendered from trusted local markdown files at build time */}
           <div className={`content-body min-w-0 max-w-full overflow-x-auto ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
