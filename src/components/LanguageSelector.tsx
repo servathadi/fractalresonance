@@ -51,7 +51,7 @@ export function LanguageSelector() {
     <div ref={menuRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider uppercase transition-colors"
+        className="flex items-center gap-1.5 font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider uppercase transition-colors motion-reduce:transition-none px-2 py-2 sm:px-0 sm:py-0"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
@@ -70,7 +70,7 @@ export function LanguageSelector() {
         </svg>
         <span>{currentLang.code}</span>
         <svg
-          className={`w-2.5 h-2.5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-2.5 h-2.5 transition-transform motion-reduce:transition-none ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

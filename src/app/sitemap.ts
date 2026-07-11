@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPapers, getArticles, getConcepts, getBooks, getLanguages, getAlternateLanguages, getStaticPageAlternates } from '@/lib/content';
+import { getPapers, getArticles, getConcepts, getBooks, getBlogPosts, getTopics, getPeople, getLanguages, getAlternateLanguages, getStaticPageAlternates, getAllTags, getContentsByTag, isCurrentReadingContent } from '@/lib/content';
 
 export const dynamic = 'force-static';
 
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static pages with language alternates
-  const staticPages = ['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'privacy', 'terms'];
+  const staticPages = ['about', 'articles', 'papers', 'books', 'blog', 'topics', 'people', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'join', 'privacy', 'terms', 'investors', 'pitch', 'builders', 'start-here', 'oracle', 'concepts', 'tags'];
 
   for (const page of staticPages) {
     const alternates = getStaticPageAlternates(page);
@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Get unique paper IDs across all languages
   const seenPaperIds = new Set<string>();
   for (const lang of languages) {
-    const papers = getPapers(lang);
+    const papers = getPapers(lang).filter((paper) => isCurrentReadingContent('paper', paper.frontmatter));
     for (const paper of papers) {
       const id = paper.frontmatter.id;
       if (seenPaperIds.has(id)) continue;
@@ -64,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Article pages with language alternates
   const seenArticleIds = new Set<string>();
   for (const lang of languages) {
-    const articles = getArticles(lang);
+    const articles = getArticles(lang).filter((article) => isCurrentReadingContent('article', article.frontmatter));
     for (const article of articles) {
       const id = article.frontmatter.id;
       if (seenArticleIds.has(id)) continue;
@@ -86,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Concept pages with language alternates
   const seenConceptIds = new Set<string>();
   for (const lang of languages) {
-    const concepts = getConcepts(lang);
+    const concepts = getConcepts(lang).filter((concept) => isCurrentReadingContent('concept', concept.frontmatter));
     for (const concept of concepts) {
       const id = concept.frontmatter.id;
       if (seenConceptIds.has(id)) continue;
@@ -124,6 +124,106 @@ export default function sitemap(): MetadataRoute.Sitemap {
           alternates: { languages: alternates },
         });
       }
+    }
+  }
+
+  // Blog post pages with language alternates
+  const seenBlogIds = new Set<string>();
+  for (const lang of languages) {
+    const posts = getBlogPosts(lang).filter((post) => isCurrentReadingContent('blog', post.frontmatter));
+    for (const post of posts) {
+      const id = post.frontmatter.id;
+      if (seenBlogIds.has(id)) continue;
+      seenBlogIds.add(id);
+
+      const alternates = getAlternateLanguages('blog', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/blog/${id}`,
+          lastModified: post.frontmatter.date ? new Date(post.frontmatter.date) : new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // Topic pages with language alternates
+  const seenTopicIds = new Set<string>();
+  for (const lang of languages) {
+    const topics = getTopics(lang).filter((topic) => isCurrentReadingContent('topic', topic.frontmatter));
+    for (const topic of topics) {
+      const id = topic.frontmatter.id;
+      if (seenTopicIds.has(id)) continue;
+      seenTopicIds.add(id);
+
+      const alternates = getAlternateLanguages('topics', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/topics/${id}`,
+          lastModified: topic.frontmatter.date ? new Date(topic.frontmatter.date) : new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // People/profile pages with language alternates
+  const seenPeopleIds = new Set<string>();
+  for (const lang of languages) {
+    const people = getPeople(lang);
+    for (const person of people) {
+      const id = person.frontmatter.id;
+      if (seenPeopleIds.has(id)) continue;
+      seenPeopleIds.add(id);
+
+      const alternates = getAlternateLanguages('people', id);
+      for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
+        entries.push({
+          url: `${SITE_URL}/${altLang}/people/${id}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.7,
+          alternates: { languages: alternates },
+        });
+      }
+    }
+  }
+
+  // Tag pages with language alternates
+  const allUniqueTags = new Set<string>();
+  for (const lang of languages) {
+    const tags = getAllTags(lang);
+    tags.forEach(t => allUniqueTags.add(t));
+  }
+
+  for (const tag of allUniqueTags) {
+    const tagLangs = languages.filter(l => getContentsByTag(l, tag).length > 0);
+    if (tagLangs.length === 0) continue;
+
+    const alternates: Record<string, string> = {};
+    for (const l of tagLangs) {
+      alternates[l] = `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`;
+    }
+    
+    // Add x-default
+    if (alternates['en']) {
+      alternates['x-default'] = alternates['en'];
+    } else {
+      alternates['x-default'] = alternates[tagLangs[0]];
+    }
+
+    for (const l of tagLangs) {
+      entries.push({
+        url: `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.6,
+        alternates: { languages: alternates },
+      });
     }
   }
 

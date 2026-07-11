@@ -27,7 +27,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image src="/brand/sigil-64.png" alt="FRC" width={24} height={24} className="opacity-70" />
               <span className="text-frc-gold text-sm font-medium tracking-wide">
-                Fractal Resonance Cognition
+                Fractal Resonance Coherence
               </span>
             </div>
             <p className="text-frc-text-dim text-xs leading-relaxed max-w-sm mb-4">
@@ -48,6 +48,7 @@ export function Footer() {
               <Link href={`${basePath}/articles`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.articles}</Link>
               <Link href={`${basePath}/blog`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.blog}</Link>
               <Link href={`${basePath}/topics`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.topics}</Link>
+              <Link href={`${basePath}/tags`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.tags}</Link>
               <Link href={`${basePath}/people`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.people}</Link>
               <Link href={`${basePath}/papers`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.papers}</Link>
               <Link href={`${basePath}/formulas`} className="text-frc-text-dim hover:text-frc-gold">{dict.nav.formulas}</Link>
@@ -60,6 +61,9 @@ export function Footer() {
           <div>
             <p className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest mb-4">{dict.footer.external}</p>
             <div className="flex flex-col gap-2 text-sm">
+              <Link href={`${basePath}/join`} className="text-frc-text-dim hover:text-frc-gold">
+                {dict.nav.join}
+              </Link>
               <a href="https://zenodo.org/communities/frc" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 Zenodo
               </a>
@@ -78,9 +82,15 @@ export function Footer() {
               <a href="https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13" target="_blank" rel="noopener noreferrer" className="text-frc-text-dim hover:text-frc-gold">
                 {dict.nav.askAi} (NotebookLM)
               </a>
-              <Link href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
+              <a href="/llms.txt" className="text-frc-text-dim hover:text-frc-gold">
                 llms.txt
-              </Link>
+              </a>
+              <a href={`/${lang}/feed.xml`} className="text-frc-text-dim hover:text-frc-gold flex items-center gap-1">
+                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
+                </svg>
+                RSS
+              </a>
             </div>
           </div>
         </div>

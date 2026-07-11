@@ -1,8 +1,8 @@
 /**
  * Schema.org JSON-LD generators for FRC
  *
- * 13 schema types:
- * Site-level: WebSite, SearchAction, ResearchProject, Organization, Person
+ * Schema types:
+ * Site-level: WebSite, ResearchProject, Organization, Person
  * Paper-level: ScholarlyArticle, VideoObject, ImageObject, AggregateRating,
  *              BreadcrumbList, CreativeWorkSeries, LearningResource
  * Concept-level: DefinedTerm, DefinedTermSet
@@ -72,24 +72,16 @@ export interface BreadcrumbItem {
 
 // ─── Site-Level Schemas ────────────────────────────────────────────────────
 
-/** WebSite + SearchAction — enables sitelinks search box */
+/** WebSite */
 export function schemaWebSite() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
-    name: 'Fractal Resonance Cognition',
+    name: 'Fractal Resonance Coherence',
     url: SITE_URL,
-    description: 'Research platform for the Fractal Resonance Cognition framework — exploring consciousness, coherence, and quantum foundations.',
+    description: 'Living research corpus for Fractal Resonance Coherence, centered on entropy-coherence reciprocity, mathematical results, and scoped operational tests.',
     inLanguage: 'en',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -99,16 +91,17 @@ export function schemaResearchProject() {
     '@context': 'https://schema.org',
     '@type': 'ResearchProject',
     '@id': `${SITE_URL}/#project`,
-    name: 'Fractal Resonance Cognition (FRC)',
+    name: 'Fractal Resonance Coherence (FRC)',
     url: SITE_URL,
-    description: 'A research framework formalizing the reciprocal relationship between entropy and coherence, with applications in quantum mechanics, thermodynamics, and consciousness studies.',
+    description: 'A living research program studying scale-declared entropy-coherence reciprocity, mathematical results, and model-specific tests; its proposed universal physical extension remains conjectural.',
     foundingDate: '2024',
     founder: { '@id': `${SITE_URL}/#author` },
     knowsAbout: [
       'Quantum Coherence',
       'Entropy-Coherence Reciprocity',
       'Universal Coherence Condition',
-      'Consciousness',
+      'Open Systems',
+      'Quantum Foundations',
       'Thermodynamics',
     ],
   };
@@ -327,7 +320,7 @@ export function schemaLearningResource(paper: PaperMeta) {
     author: { '@id': `${SITE_URL}/#author` },
     educationalLevel: 'Advanced',
     learningResourceType: 'Research Paper',
-    teaches: paper.tags.map(tag => ({
+    teaches: (Array.isArray(paper.tags) ? paper.tags : []).map(tag => ({
       '@type': 'DefinedTerm',
       name: tag,
       inDefinedTermSet: { '@id': `${SITE_URL}/#termset-frc` },
@@ -360,7 +353,7 @@ export function schemaDefinedTermSet(concepts: ConceptMeta[]) {
     '@type': 'DefinedTermSet',
     '@id': `${SITE_URL}/#termset-frc`,
     name: 'FRC Concepts',
-    description: 'Core concepts and terminology of the Fractal Resonance Cognition framework.',
+    description: 'Core concepts and terminology of the Fractal Resonance Coherence framework.',
     url: `${SITE_URL}/en/concepts`,
     creator: { '@id': `${SITE_URL}/#author` },
     hasDefinedTerm: concepts.map(c => ({
@@ -394,35 +387,29 @@ export function schemaDefinedTerm(concept: ConceptMeta) {
 
 // ─── Data-Level Schemas ────────────────────────────────────────────────────
 
-/** Dataset — API data endpoints */
+/** Dataset - static machine-readable resources */
 export function schemaDataset() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     '@id': `${SITE_URL}/#dataset`,
-    name: 'Fractal Resonance Cognition Research Data',
-    description: 'Structured research data from the FRC framework including papers, concepts, equations, and knowledge graph relationships.',
+    name: 'Fractal Resonance Coherence Research Corpus',
+    description: 'Static machine-readable metadata and retrieval resources for the living Fractal Resonance Coherence corpus.',
     url: `${SITE_URL}/for-ai`,
     creator: { '@id': `${SITE_URL}/#author` },
-    license: 'https://opensource.org/licenses/BSL-1.1',
+    license: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
     distribution: [
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/concepts`,
-        name: 'FRC Concepts API',
+        contentUrl: `${SITE_URL}/catalog.json`,
+        name: 'FRC Corpus Catalog',
       },
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/papers`,
-        name: 'FRC Papers API',
-      },
-      {
-        '@type': 'DataDownload',
-        encodingFormat: 'application/json',
-        contentUrl: `${SITE_URL}/api/graph`,
-        name: 'FRC Knowledge Graph API',
+        contentUrl: `${SITE_URL}/search-index.json`,
+        name: 'FRC Search Index',
       },
       {
         '@type': 'DataDownload',
@@ -435,7 +422,7 @@ export function schemaDataset() {
       'coherence',
       'entropy',
       'quantum mechanics',
-      'consciousness',
+      'open systems',
       'FRC',
       'fractal resonance',
     ],
@@ -505,6 +492,478 @@ export function schemaConceptPage(concept: ConceptMeta) {
     '@graph': [
       { ...breadcrumbs, '@context': undefined },
       { ...term, '@context': undefined },
+    ],
+  };
+}
+
+// ─── Book Schemas ───────────────────────────────────────────────────────────
+
+export interface BookMeta {
+  id: string;
+  title: string;
+  description: string;
+  author: string;
+  lang: string;
+  datePublished?: string;
+  image?: string;
+  isbn?: string;
+  chapters?: ChapterMeta[];
+}
+
+export interface ChapterMeta {
+  id: string;
+  title: string;
+  description?: string;
+  position: number;
+  bookId: string;
+  lang: string;
+}
+
+/** Book schema for book landing pages */
+export function schemaBook(book: BookMeta) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    '@id': `${SITE_URL}/${book.lang}/books/${book.id}`,
+    name: book.title,
+    description: book.description,
+    author: { '@id': `${SITE_URL}/#author` },
+    publisher: { '@id': `${SITE_URL}/#org` },
+    inLanguage: book.lang,
+    isAccessibleForFree: true,
+    url: `${SITE_URL}/${book.lang}/books/${book.id}`,
+  };
+
+  if (book.datePublished) schema.datePublished = book.datePublished;
+  if (book.image) schema.image = book.image.startsWith('/') ? `${SITE_URL}${book.image}` : book.image;
+  if (book.isbn) schema.isbn = book.isbn;
+
+  if (book.chapters && book.chapters.length > 0) {
+    schema.hasPart = book.chapters.map(ch => ({
+      '@type': 'Chapter',
+      '@id': `${SITE_URL}/${ch.lang}/books/${ch.bookId}/chapter/${ch.id}`,
+      name: ch.title,
+      position: ch.position,
+    }));
+  }
+
+  return schema;
+}
+
+/** Chapter schema for individual book chapters */
+export function schemaChapter(chapter: ChapterMeta, bookTitle: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Chapter',
+    '@id': `${SITE_URL}/${chapter.lang}/books/${chapter.bookId}/chapter/${chapter.id}`,
+    name: chapter.title,
+    description: chapter.description,
+    position: chapter.position,
+    isPartOf: {
+      '@type': 'Book',
+      '@id': `${SITE_URL}/${chapter.lang}/books/${chapter.bookId}`,
+      name: bookTitle,
+    },
+    author: { '@id': `${SITE_URL}/#author` },
+    inLanguage: chapter.lang,
+  };
+}
+
+/** Generate schemas for a book page */
+export function schemaBookPage(book: BookMeta) {
+  const breadcrumbs = schemaBreadcrumbList([
+    { name: 'FRC', url: '/' },
+    { name: 'Books', url: `/${book.lang}/books` },
+    { name: book.title, url: `/${book.lang}/books/${book.id}` },
+  ]);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...breadcrumbs, '@context': undefined },
+      { ...schemaBook(book), '@context': undefined },
+    ],
+  };
+}
+
+/** Generate schemas for a chapter page */
+export function schemaChapterPage(chapter: ChapterMeta, bookTitle: string) {
+  const breadcrumbs = schemaBreadcrumbList([
+    { name: 'FRC', url: '/' },
+    { name: 'Books', url: `/${chapter.lang}/books` },
+    { name: bookTitle, url: `/${chapter.lang}/books/${chapter.bookId}` },
+    { name: chapter.title, url: `/${chapter.lang}/books/${chapter.bookId}/chapter/${chapter.id}` },
+  ]);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...breadcrumbs, '@context': undefined },
+      { ...schemaChapter(chapter, bookTitle), '@context': undefined },
+    ],
+  };
+}
+
+// ─── Blog Schemas ───────────────────────────────────────────────────────────
+
+export interface BlogPostMeta {
+  id: string;
+  title: string;
+  description: string;
+  author?: string;
+  date: string;
+  modifiedDate?: string;
+  tags: string[];
+  lang: string;
+  image?: string;
+  wordCount?: number;
+}
+
+/** BlogPosting schema for blog posts */
+export function schemaBlogPosting(post: BlogPostMeta) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${SITE_URL}/${post.lang}/blog/${post.id}`,
+    headline: post.title,
+    description: post.description,
+    author: post.author
+      ? { '@type': 'Person', name: post.author }
+      : { '@id': `${SITE_URL}/#author` },
+    datePublished: post.date,
+    keywords: post.tags,
+    inLanguage: post.lang,
+    publisher: { '@id': `${SITE_URL}/#org` },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/${post.lang}/blog/${post.id}`,
+    },
+    isPartOf: {
+      '@type': 'Blog',
+      '@id': `${SITE_URL}/#blog`,
+      name: 'FRC Blog',
+    },
+  };
+
+  if (post.modifiedDate) schema.dateModified = post.modifiedDate;
+  if (post.image) schema.image = post.image.startsWith('/') ? `${SITE_URL}${post.image}` : post.image;
+  if (post.wordCount) schema.wordCount = post.wordCount;
+
+  return schema;
+}
+
+/** Generate schemas for a blog post page */
+export function schemaBlogPostPage(post: BlogPostMeta) {
+  const breadcrumbs = schemaBreadcrumbList([
+    { name: 'FRC', url: '/' },
+    { name: 'Blog', url: `/${post.lang}/blog` },
+    { name: post.title, url: `/${post.lang}/blog/${post.id}` },
+  ]);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...breadcrumbs, '@context': undefined },
+      { ...schemaBlogPosting(post), '@context': undefined },
+    ],
+  };
+}
+
+// ─── FAQ Schema ─────────────────────────────────────────────────────────────
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+/** FAQPage schema for FAQ content */
+export function schemaFAQPage(items: FAQItem[], pageUrl: string, pageName: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': pageUrl,
+    name: pageName,
+    mainEntity: items.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+// ─── Profile Schema ─────────────────────────────────────────────────────────
+
+export interface ProfileMeta {
+  id: string;
+  name: string;
+  role: string;
+  description: string;
+  lang: string;
+  image?: string;
+  links?: { label: string; url: string }[];
+  tags?: string[];
+}
+
+/** ProfilePage schema for people pages */
+export function schemaProfilePage(profile: ProfileMeta) {
+  const sameAs = profile.links?.map(l => l.url).filter(url =>
+    url.startsWith('https://orcid.org') ||
+    url.startsWith('https://github.com') ||
+    url.startsWith('https://linkedin.com') ||
+    url.startsWith('https://twitter.com') ||
+    url.startsWith('https://researchgate.net')
+  ) || [];
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${SITE_URL}/${profile.lang}/people/${profile.id}`,
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/${profile.lang}/people/${profile.id}#person`,
+      name: profile.name,
+      jobTitle: profile.role,
+      description: profile.description,
+      image: profile.image ? (profile.image.startsWith('/') ? `${SITE_URL}${profile.image}` : profile.image) : undefined,
+      sameAs: sameAs.length > 0 ? sameAs : undefined,
+      knowsAbout: profile.tags,
+      worksFor: { '@id': `${SITE_URL}/#org` },
+    },
+  };
+}
+
+/** Generate schemas for a profile page */
+export function schemaPersonPage(profile: ProfileMeta) {
+  const breadcrumbs = schemaBreadcrumbList([
+    { name: 'FRC', url: '/' },
+    { name: 'People', url: `/${profile.lang}/people` },
+    { name: profile.name, url: `/${profile.lang}/people/${profile.id}` },
+  ]);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...breadcrumbs, '@context': undefined },
+      { ...schemaProfilePage(profile), '@context': undefined },
+    ],
+  };
+}
+
+// ─── Speakable Schema ───────────────────────────────────────────────────────
+
+/** SpeakableSpecification for voice assistant optimization */
+export function schemaSpeakable(cssSelectors: string[]) {
+  return {
+    '@type': 'SpeakableSpecification',
+    cssSelector: cssSelectors,
+  };
+}
+
+/** Add speakable to any schema */
+export function withSpeakable<T extends Record<string, unknown>>(
+  schema: T,
+  selectors: string[] = ['h1', '.abstract', 'blockquote']
+): T & { speakable: ReturnType<typeof schemaSpeakable> } {
+  return {
+    ...schema,
+    speakable: schemaSpeakable(selectors),
+  };
+}
+
+// ─── HowTo Schema ───────────────────────────────────────────────────────────
+
+export interface HowToStep {
+  name: string;
+  text: string;
+  url?: string;
+  image?: string;
+}
+
+export interface HowToMeta {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+  totalTime?: string; // ISO 8601 duration
+  lang: string;
+  url: string;
+}
+
+/** HowTo schema for tutorial/guide content */
+export function schemaHowTo(howto: HowToMeta) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    '@id': howto.url,
+    name: howto.name,
+    description: howto.description,
+    inLanguage: howto.lang,
+    totalTime: howto.totalTime,
+    step: howto.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: step.url,
+      image: step.image,
+    })),
+  };
+}
+
+// ─── Collection/List Schemas ────────────────────────────────────────────────
+
+export interface ListItemMeta {
+  name: string;
+  url: string;
+  description?: string;
+  image?: string;
+}
+
+/** ItemList schema for index pages */
+export function schemaItemList(
+  items: ListItemMeta[],
+  listName: string,
+  listUrl: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': listUrl,
+    name: listName,
+    url: listUrl,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url.startsWith('/') ? `${SITE_URL}${item.url}` : item.url,
+      description: item.description,
+      image: item.image,
+    })),
+  };
+}
+
+/** CollectionPage schema for listing pages */
+export function schemaCollectionPage(
+  name: string,
+  description: string,
+  url: string,
+  items: ListItemMeta[],
+  lang: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': url,
+    name,
+    description,
+    url,
+    inLanguage: lang,
+    mainEntity: schemaItemList(items, name, url),
+  };
+}
+
+// ─── Code Schema ────────────────────────────────────────────────────────────
+
+export interface CodeMeta {
+  name: string;
+  description: string;
+  codeRepository?: string;
+  programmingLanguage: string;
+  codeSampleType?: string;
+  url: string;
+}
+
+/** SoftwareSourceCode schema for code examples */
+export function schemaSoftwareSourceCode(code: CodeMeta) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    '@id': code.url,
+    name: code.name,
+    description: code.description,
+    codeRepository: code.codeRepository || 'https://github.com/servathadi/fractalresonance',
+    programmingLanguage: code.programmingLanguage,
+    codeSampleType: code.codeSampleType || 'code snippet',
+    author: { '@id': `${SITE_URL}/#author` },
+    license: 'https://opensource.org/licenses/BSL-1.1',
+  };
+}
+
+// ─── Article Schema (for articles section) ──────────────────────────────────
+
+export interface ArticleMeta {
+  id: string;
+  title: string;
+  description: string;
+  author?: string;
+  date: string;
+  modifiedDate?: string;
+  tags: string[];
+  lang: string;
+  image?: string;
+  video?: {
+    url: string;
+    embedUrl?: string;
+    thumbnailUrl?: string;
+    duration?: string;
+  };
+}
+
+/** Article schema for article pages */
+export function schemaArticle(article: ArticleMeta) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${SITE_URL}/${article.lang}/articles/${article.id}`,
+    headline: article.title,
+    description: article.description,
+    author: article.author
+      ? { '@type': 'Person', name: article.author }
+      : { '@id': `${SITE_URL}/#author` },
+    datePublished: article.date,
+    keywords: article.tags,
+    inLanguage: article.lang,
+    publisher: { '@id': `${SITE_URL}/#org` },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/${article.lang}/articles/${article.id}`,
+    },
+  };
+
+  if (article.modifiedDate) schema.dateModified = article.modifiedDate;
+  if (article.image) schema.image = article.image.startsWith('/') ? `${SITE_URL}${article.image}` : article.image;
+
+  if (article.video) {
+    schema.video = {
+      '@type': 'VideoObject',
+      name: `${article.title} — Video`,
+      description: article.description,
+      thumbnailUrl: article.video.thumbnailUrl,
+      contentUrl: article.video.url,
+      embedUrl: article.video.embedUrl,
+      duration: article.video.duration,
+    };
+  }
+
+  return schema;
+}
+
+/** Generate schemas for an article page */
+export function schemaArticlePage(article: ArticleMeta) {
+  const breadcrumbs = schemaBreadcrumbList([
+    { name: 'FRC', url: '/' },
+    { name: 'Articles', url: `/${article.lang}/articles` },
+    { name: article.title, url: `/${article.lang}/articles/${article.id}` },
+  ]);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...breadcrumbs, '@context': undefined },
+      { ...schemaArticle(article), '@context': undefined },
     ],
   };
 }

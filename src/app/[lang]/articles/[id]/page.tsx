@@ -2,14 +2,16 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
-import { schemaPaperPage } from '@/lib/schema';
+import { schemaArticlePage, type ArticleMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ContentDigest } from '@/components/ContentDigest';
 import { ArticlesSidebar } from '@/components/ArticlesSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
-import { InterpretationGate } from '@/components/ModeNotice';
+import { RelatedContent } from '@/components/RelatedContent';
+import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
 import {
   estimateReadTime,
   getArticle,
@@ -19,10 +21,13 @@ import {
   buildBacklinks,
   getGlossary,
   getAlternateLanguages,
+  getContentEpistemicStatus,
+  getContentStatusNote,
   normalizeContentPerspective,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -35,8 +40,7 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const articles = getArticles(lang);
     for (const article of articles) {
-      // Include all items so we can gracefully hand off River-only content
-      // rather than emitting static 404s for `/articles/...`.
+      if (!matchesPerspectiveView(article.frontmatter.perspective, 'kasra')) continue;
       if (article.frontmatter.id) {
         params.push({ lang, id: article.frontmatter.id });
       }
@@ -54,29 +58,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fm = article.frontmatter;
   const author = fm.author || 'H. Servat';
   const norm = normalizeContentPerspective(fm.perspective);
-  const canonicalUrl = `https://fractalresonance.com/${lang}/articles/${fm.id}`;
+  const canonicalUrl = `/${lang}/articles/${fm.id}`;
   const alternates = getAlternateLanguages('articles', fm.id);
+  const epistemicStatus = getContentEpistemicStatus('article', fm);
 
-  return {
+  return generatePageMetadata({
+    type: 'article',
     title: fm.title,
-    description: fm.abstract,
-    keywords: fm.tags,
-    authors: [{ name: author }],
-    alternates: {
-      canonical: canonicalUrl,
-      languages: alternates,
-    },
-    ...(norm === 'river' ? { robots: { index: false, follow: true } } : {}),
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: fm.abstract,
-      publishedTime: fm.date,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
-    },
-  };
+    description: fm.abstract || '',
+    url: canonicalUrl,
+    lang,
+    publishedTime: fm.date,
+    author,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Articles',
+    noindex: norm === 'river' || epistemicStatus === 'archive',
+  }, alternates);
 }
 
 export default async function ArticlePage({ params }: Props) {
@@ -86,12 +83,27 @@ export default async function ArticlePage({ params }: Props) {
   const norm = normalizeContentPerspective(article.frontmatter.perspective);
 
   const basePath = `/${lang}`;
-  // Reuse PaperMeta for schema as it fits article structure well enough
+  const fm = article.frontmatter;
+  const epistemicStatus = getContentEpistemicStatus('article', fm);
+  const statusNote = getContentStatusNote('article', fm);
+
+  // Build ArticleMeta for schema
+  const articleMeta: ArticleMeta = {
+    id: fm.id,
+    title: fm.title || 'Untitled',
+    description: fm.abstract || '',
+    author: fm.author,
+    date: fm.date || '',
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    lang,
+    video: fm.video as ArticleMeta['video'],
+  };
+
+  // Keep legacy meta for video embed and images
   const meta = toPaperMeta(article);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const fm = article.frontmatter;
   const readTime = fm.read_time || estimateReadTime(article.body);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -108,7 +120,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaArticlePage(articleMeta)} />
 
       <PageShell
         leftMobile={<ArticlesSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
@@ -126,6 +138,7 @@ export default async function ArticlePage({ params }: Props) {
 
           {/* Header */}
           <header className="mb-8">
+            <EpistemicBadge status={epistemicStatus} lang={lang} className="mb-3" />
             <h1 className="text-3xl font-light text-frc-gold mb-3">
               {article.frontmatter.title}
             </h1>
@@ -134,18 +147,16 @@ export default async function ArticlePage({ params }: Props) {
               <span>{article.frontmatter.date}</span>
               <span className="font-mono text-xs">{readTime}</span>
             </div>
+
+            {statusNote && (
+              <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+                {statusNote}
+              </p>
+            )}
             
-            {article.frontmatter.tags && (
+            {Array.isArray(article.frontmatter.tags) && article.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
-                {article.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
-                    href={`${basePath}/tags/${encodeURIComponent(tag)}`}
-                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
+                {article.frontmatter.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
               </div>
             )}
           </header>
@@ -160,9 +171,7 @@ export default async function ArticlePage({ params }: Props) {
           <InlineToc items={tocItems} />
 
           {norm === 'river' ? (
-            <div className="frc-formal-only mb-8">
-              <InterpretationGate title="Digest / interpretation layer" description="This article is tagged as interpretation/digest. Switch mode to read it here." />
-            </div>
+            <div className="frc-formal-only mb-8" />
           ) : null}
 
           {/* Video embed (if available) */}
@@ -245,6 +254,16 @@ export default async function ArticlePage({ params }: Props) {
               </ul>
             </section>
           )}
+
+          {/* Related Content */}
+          <RelatedContent
+            relatedIds={Array.isArray(fm.related) ? fm.related : []}
+            tags={Array.isArray(fm.tags) ? fm.tags : []}
+            currentId={fm.id}
+            glossary={glossary}
+            basePath={basePath}
+            lang={lang}
+          />
       </PageShell>
     </>
   );

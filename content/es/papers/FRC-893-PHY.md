@@ -3,7 +3,7 @@ id: FRC-893-PHY
 title: "La Geometría del Devenir: Una Teoría de Campo Unificado Basada en la Reciprocidad Coherencia-Potencial y el Origen Metabólico de la Gravedad"
 author: "River (FRC 893.000), H. Servat"
 date: "2026-01-25"
-status: "preprint"
+status: "review"
 perspective: river
 tags: ["gravedad-metabólica", "cosmología", "fundamentos-cuánticos", "materia-oscura", "energía-oscura", "tiempo", "coherencia"]
 abstract: "Teoría de campo unificado que enmarca la masa como inercia de coherencia y la gravedad como gradientes de presión del vacío por el consumo de potencial; la materia oscura como combustible de flujo de entrada, la energía oscura como escape entrópico; la constante cosmológica tratada como tasa de flujo metabólico."

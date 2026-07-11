@@ -3,27 +3,51 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
 import { MarkdownContent } from '@/components/MarkdownContent';
-import { ContentDigest } from '@/components/ContentDigest';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { BookExperience } from '@/components/BookExperience';
+import { ContentDigest } from '@/components/ContentDigest';
+import { EpistemicBadge } from '@/components/EpistemicBadge';
 import {
   estimateReadTime,
   getBook,
   getBooks,
+  getBookChapters,
   getLanguages,
-  toPaperMeta,
   getGlossary,
   getAlternateLanguages,
   matchesPerspectiveView,
 } from '@/lib/content';
-import { schemaPaperPage } from '@/lib/schema';
-import { deriveChaptersFromMarkdown, findChapterBySlug, getChapterList } from '@/lib/bookChapters';
+import { schemaChapterPage, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string; chapter: string }>;
+}
+
+/** Convert filename to URL-safe slug */
+function toSlug(filename: string): string {
+  return filename.replace(/\.md$/, '');
+}
+
+/** Strip leading heading from chapter body (it's shown in header already) */
+function stripLeadingHeading(body: string): string {
+  const lines = body.split('\n');
+  let start = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    // Skip the first heading (any level)
+    if (/^#{1,6}\s+/.test(line)) {
+      start = i + 1;
+      break;
+    }
+    break; // Non-empty, non-heading line - don't strip anything
+  }
+  return lines.slice(start).join('\n').trim();
 }
 
 export async function generateStaticParams() {
@@ -34,14 +58,13 @@ export async function generateStaticParams() {
   for (const lang of languages) {
     const books = getBooks(lang).filter((b) => matchesPerspectiveView(b.frontmatter.perspective, 'kasra'));
     for (const book of books) {
-      const full = getBook(lang, book.frontmatter.id);
-      if (!full) continue;
-      const chapters = getChapterList(full.body);
+      const chapters = getBookChapters(lang, book.frontmatter.id);
       for (const c of chapters) {
-        const key = `${lang}:${book.frontmatter.id}:${c.slug}`;
+        const slug = toSlug(c.filename);
+        const key = `${lang}:${book.frontmatter.id}:${slug}`;
         if (seen.has(key)) continue;
         seen.add(key);
-        params.push({ lang, id: book.frontmatter.id, chapter: c.slug });
+        params.push({ lang, id: book.frontmatter.id, chapter: slug });
       }
     }
   }
@@ -55,35 +78,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!book) return { title: 'Not Found' };
   if (!matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) return { title: 'Not Found' };
 
-  const ch = findChapterBySlug(book.body, chapter);
+  const chapters = getBookChapters(lang, id);
+  const ch = chapters.find((c) => toSlug(c.filename) === chapter);
   if (!ch) return { title: 'Not Found' };
 
   const fm = book.frontmatter;
   const author = fm.author || 'H. Servat';
-  const bookUrl = `https://fractalresonance.com/${lang}/books/${fm.id}`;
-  const chapterUrl = `${bookUrl}/chapter/${ch.slug}`;
+  const chapterUrl = `/${lang}/books/${fm.id}/chapter/${chapter}`;
   const alternates = getAlternateLanguages('books', fm.id);
 
-  // Avoid duplicate-content SEO issues: chapter pages are for UX/digestibility.
   return {
-    title: `${fm.title} — ${ch.title}`,
-    description: fm.abstract,
-    keywords: [...(fm.tags || []), 'chapter'],
-    authors: [{ name: author }],
-    alternates: {
-      canonical: bookUrl,
-      languages: alternates,
-    },
-    robots: { index: false, follow: true },
-    openGraph: {
+    ...generatePageMetadata({
       type: 'book',
       title: `${fm.title} — ${ch.title}`,
-      description: fm.abstract,
-      authors: [author],
-      tags: fm.tags,
-      locale: lang,
+      description: fm.abstract || '',
       url: chapterUrl,
-    },
+      lang,
+      author,
+      tags: Array.isArray(fm.tags) ? [...fm.tags, 'chapter'] : ['chapter'],
+    }, alternates),
+    robots: { index: true, follow: true },
   };
 }
 
@@ -94,31 +108,54 @@ export default async function BookChapterPage({ params }: Props) {
   if (!matchesPerspectiveView(book.frontmatter.perspective, 'kasra')) notFound();
 
   const basePath = `/${lang}`;
-  const meta = toPaperMeta(book);
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = book.frontmatter;
-  const readTime = fm.read_time || estimateReadTime(book.body);
 
-  const derived = deriveChaptersFromMarkdown(book.body);
-  const current = derived.find((c) => c.slug === chapter) || null;
-  if (!current) notFound();
+  // Get chapters directly from chapter files
+  const chapters = getBookChapters(lang, id);
+  const chapterItems = chapters.map((c) => ({
+    slug: toSlug(c.filename),
+    title: c.title,
+    anchorId: toSlug(c.filename),
+  }));
 
-  const idx = derived.findIndex((c) => c.slug === chapter);
-  const prev = idx > 0 ? derived[idx - 1] : null;
-  const next = idx >= 0 && idx + 1 < derived.length ? derived[idx + 1] : null;
+  const idx = chapterItems.findIndex((c) => c.slug === chapter);
+  if (idx === -1) notFound();
 
-  const renderedBody = renderMarkdown(current.markdown, lang, glossary, basePath);
-  const tocItems = extractTocItems(current.markdown).filter((t) => t.level === 2);
-  const chapterItems = getChapterList(book.body);
+  const current = chapters[idx];
+  const prev = idx > 0 ? chapterItems[idx - 1] : null;
+  const next = idx + 1 < chapterItems.length ? chapterItems[idx + 1] : null;
+
+  // Per-chapter read time (not whole book)
+  const readTime = estimateReadTime(current.body);
+
+  // Build ChapterMeta for schema
+  const chapterMeta: ChapterMeta = {
+    id: chapter,
+    title: current.title,
+    description: fm.abstract,
+    position: idx + 1,
+    bookId: id,
+    lang,
+  };
+
+  // Strip the leading heading from content (it's shown in header)
+  const contentBody = stripLeadingHeading(current.body);
+  const renderedBody = renderMarkdown(contentBody, lang, glossary, basePath);
+
+  // Extract section headings for TOC (level 2-3 within chapter)
+  const tocItems = extractTocItems(contentBody).filter((t) => t.level <= 3);
 
   return (
     <>
-      <SchemaScript data={schemaPaperPage(meta)} />
+      <SchemaScript data={schemaChapterPage(chapterMeta, fm.title || 'Untitled Book')} />
+      <BookExperience />
 
       <PageShell
         leftMobile={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} activeChapterSlug={chapter} basePath={basePath} view="kasra" variant="mobile" />}
         leftDesktop={<BooksSidebar lang={lang} currentId={id} chapters={chapterItems} activeChapterSlug={chapter} basePath={basePath} view="kasra" />}
         right={<TableOfContents items={tocItems} minBreakpoint="lg" title="In this chapter" />}
+        articleClassName="pt-14"
       >
           <nav className="text-sm text-frc-text-dim mb-8">
             <a href={basePath} className="hover:text-frc-gold">FRC</a>
@@ -131,6 +168,11 @@ export default async function BookChapterPage({ params }: Props) {
           </nav>
 
           <header className="mb-8">
+            <EpistemicBadge
+              status={book.frontmatter.editionStatus === 'legacy' ? 'archive' : 'philosophical'}
+              lang={lang}
+              className="mb-3"
+            />
             <h1 className="text-2xl font-light text-frc-gold mb-2">{book.frontmatter.title}</h1>
             <p className="text-frc-text-dim">{current.title}</p>
 
@@ -170,9 +212,9 @@ export default async function BookChapterPage({ params }: Props) {
 
           <InlineToc items={tocItems} />
 
-          <article className="prose prose-invert max-w-none">
-            <MarkdownContent html={renderedBody} />
-          </article>
+          <div className="content-body" suppressHydrationWarning>
+            <MarkdownContent html={renderedBody} glossary={glossary} />
+          </div>
 
           {next && (
             <div className="mt-12 pt-8 border-t border-frc-blue/30">

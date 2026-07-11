@@ -78,13 +78,17 @@ export function TextSharePopover() {
         top: `${popover.y}px`,
         transform: 'translate(-50%, -100%)',
       }}
-      onMouseDown={(e) => {
-        e.preventDefault(); // Prevent losing selection
+      onMouseEnter={() => {
+        // Cancel auto-hide when hovering over popover
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
       }}
     >
       {/* Copy */}
-      <button onClick={copyText} title={copied ? 'Copied!' : 'Copy text'}>
+      <button
+        onClick={copyText}
+        onMouseDown={(e) => e.preventDefault()}
+        title={copied ? 'Copied!' : 'Copy text'}
+      >
         {copied ? (
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 6L9 17l-5-5" />
@@ -98,14 +102,22 @@ export function TextSharePopover() {
       </button>
 
       {/* Twitter/X */}
-      <button onClick={shareTwitter} title="Share on X">
+      <button
+        onClick={shareTwitter}
+        onMouseDown={(e) => e.preventDefault()}
+        title="Share on X"
+      >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       </button>
 
       {/* Share link */}
-      <button onClick={shareLink} title="Copy page link">
+      <button
+        onClick={shareLink}
+        onMouseDown={(e) => e.preventDefault()}
+        title="Copy page link"
+      >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
           <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />

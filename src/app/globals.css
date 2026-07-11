@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════
+   SELF-HOSTED FONTS: IRANSans (Farsi)
+   ═══════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/iransans/IRANSansWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -16,7 +52,7 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Charter', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-farsi: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+  --font-farsi: 'IRANSans', 'Vazirmatn', 'Inter', system-ui, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -27,12 +63,12 @@
   --frc-void: #FAFBFC;
   --frc-void-light: #F0F2F5;
   --frc-text: #1A1D23;
-  --frc-text-dim: #4B5563;
+  --frc-text-dim: #445063;
   --frc-blue: #CBD5E1;
   --frc-blue-light: #94A3B8;
   --frc-gold: #96780A;
   --frc-gold-light: #A8871E;
-  --frc-steel: #64748B;
+  --frc-steel: #55657A;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -43,12 +79,12 @@
   --frc-void: #0B1020;
   --frc-void-light: #0E1428;
   --frc-text: #E6E8EC;
-  --frc-text-dim: #9CA3AF;
+  --frc-text-dim: #AEB5C1;
   --frc-blue: #1F3A5F;
   --frc-blue-light: #2E4A7D;
   --frc-gold: #C9A227;
   --frc-gold-light: #D4A84B;
-  --frc-steel: #6B7280;
+  --frc-steel: #8993A5;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -65,9 +101,72 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════
-   MODE: Formal / Interpretation / Both
+   ACCESSIBILITY
+   ═══════════════════════════════════════════════════ */
+
+/* Screen reader only — visually hidden but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus,
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: revert;
+  margin: revert;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus visible styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-frc-gold);
+  outline-offset: 2px;
+}
+
+/* Remove default focus ring when not keyboard navigating */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-frc-gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   MODE GATE
    Single canonical URL; the mode controls visibility.
-   Default is Formal (if the attribute isn't set yet).
+   (Mode selector UI removed; default is formal.)
    ═══════════════════════════════════════════════════ */
 
 html:not([data-frc-mode]) .frc-interpretation-only {
@@ -322,6 +421,9 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   border: 1px solid var(--color-frc-blue);
   border-left: 3px solid var(--color-frc-gold);
   padding: 1.5rem 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
   color: var(--color-frc-gold);
   position: relative;
   margin: 2rem 0;
@@ -434,6 +536,8 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   text-decoration: none;
   border-bottom: 1px solid color-mix(in srgb, var(--color-frc-gold) 30%, transparent);
   transition: border-bottom-color 0.2s ease;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .content-body a:hover {
@@ -478,6 +582,22 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
+.content-body .table-wrap {
+  margin: 2.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-frc-blue);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--color-frc-void-light) 35%, transparent);
+}
+
+.content-body .table-wrap table {
+  margin: 0;
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
 .content-body table {
   width: 100%;
   border-collapse: collapse;
@@ -513,6 +633,13 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   font-size: 1.125rem;
 }
 
+.content-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ═══════════════════════════════════════════════════
    UTILITY STYLES
    ═══════════════════════════════════════════════════ */
@@ -533,6 +660,96 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   padding-top: 1.5rem;
 }
 
+/* ═══════════════════════════════════════════════════
+   BOOK EXPERIENCE (progress + restore + lightbox)
+   ═══════════════════════════════════════════════════ */
+
+#frc-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: color-mix(in srgb, var(--color-frc-blue) 35%, transparent);
+  z-index: 90;
+}
+
+.frc-reading-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-frc-blue-light), var(--color-frc-gold));
+  transition: width 0.1s ease-out;
+}
+
+.frc-restore-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 5.5rem;
+  transform: translateX(-50%);
+  z-index: 95;
+}
+
+.frc-restore-card {
+  background: color-mix(in srgb, var(--color-frc-void) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-frc-gold) 30%, transparent);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.frc-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-frc-void) 25%, black);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.frc-lightbox-inner {
+  max-width: min(1100px, 96vw);
+  max-height: 92vh;
+  display: grid;
+  gap: 0.75rem;
+  align-items: start;
+  justify-items: center;
+}
+
+.frc-lightbox-img {
+  max-width: 100%;
+  max-height: 82vh;
+  border: 1px solid var(--color-frc-blue);
+  box-shadow: 0 30px 45px -15px rgb(0 0 0 / 0.6);
+}
+
+.frc-lightbox-caption {
+  color: var(--color-frc-text);
+  font-size: 0.875rem;
+  opacity: 0.9;
+  text-align: center;
+  max-width: 60ch;
+}
+
+.frc-lightbox-close {
+  justify-self: end;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--color-frc-gold) 40%, transparent);
+  background: color-mix(in srgb, var(--color-frc-void) 75%, transparent);
+  color: var(--color-frc-text);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.frc-lightbox-close:hover {
+  border-color: var(--color-frc-gold);
+}
+
 .tag {
   display: inline-block;
   font-size: 0.6875rem;
@@ -542,6 +759,10 @@ html[data-frc-mode="interpretation"] .frc-formal-only {
   color: var(--color-frc-text-dim);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.mu-tag {
+  text-transform: none;
 }
 
 .line-clamp-2 {
@@ -595,6 +816,11 @@ a, button {
 
   .section-marker::before {
     display: none;
+  }
+
+  .equation-block {
+    padding: 1.25rem 1.25rem;
+    font-size: 1rem;
   }
 }
 

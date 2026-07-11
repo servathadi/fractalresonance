@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { SchemaScript } from '@/components/SchemaScript';
+import { schemaPersonPage, type ProfileMeta } from '@/lib/schema';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { PeopleSidebar } from '@/components/PeopleSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { RelatedContent } from '@/components/RelatedContent';
 import {
   estimateReadTime,
   getPerson,
@@ -17,6 +20,7 @@ import {
   getWorkForPerson,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 export const dynamicParams = false;
 
@@ -46,21 +50,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!person) return { title: 'Not Found' };
   const fm = person.frontmatter;
 
-  return {
+  // Extract first and last name for OG profile
+  const nameParts = (fm.title || '').split(' ');
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(' ');
+
+  return generatePageMetadata({
+    type: 'profile',
     title: fm.title,
-    description: fm.tagline || fm.abstract,
-    keywords: fm.tags,
-    authors: [{ name: fm.title }],
-    alternates: {
-      canonical: `https://fractalresonance.com/${lang}/people/${fm.id}`,
-    },
-    openGraph: {
-      type: 'profile',
-      title: fm.title,
-      description: fm.tagline || fm.abstract,
-      locale: lang,
-    },
-  };
+    description: fm.tagline || fm.abstract || '',
+    url: `/${lang}/people/${fm.id}`,
+    lang,
+    image: fm.avatar, // Use avatar for profile OG image
+    firstName,
+    lastName,
+    username: fm.id,
+  });
 }
 
 export default async function PersonPage({ params }: Props) {
@@ -72,9 +77,24 @@ export default async function PersonPage({ params }: Props) {
   const basePath = `/${lang}`;
   const fm = person.frontmatter;
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(person.body);
+
+  // Build ProfileMeta for schema
+  const profileMeta: ProfileMeta = {
+    id: fm.id,
+    name: fm.title || 'Unknown',
+    role: fm.role || '',
+    description: fm.tagline || fm.abstract || '',
+    lang,
+    image: fm.avatar, // Use avatar field for profile image
+    links: Array.isArray(fm.links) ? fm.links.map((l: { label?: string; url?: string }) => ({
+      label: l.label || '',
+      url: l.url || '',
+    })) : [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+  };
 
   const renderedBody = renderMarkdown(person.body, lang, glossary, basePath);
   const tocItems = extractTocItems(person.body).filter((t) => t.level === 2);
@@ -89,7 +109,9 @@ export default async function PersonPage({ params }: Props) {
   }, {} as Record<string, typeof work>);
 
   return (
-    <PageShell
+    <>
+      <SchemaScript data={schemaPersonPage(profileMeta)} />
+      <PageShell
       leftMobile={<PeopleSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" variant="mobile" />}
       leftDesktop={<PeopleSidebar lang={lang} currentId={id} basePath={basePath} view="kasra" />}
       right={<TableOfContents items={tocItems} />}
@@ -185,5 +207,6 @@ export default async function PersonPage({ params }: Props) {
         </section>
       )}
     </PageShell>
+    </>
   );
 }

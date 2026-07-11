@@ -3,22 +3,42 @@ import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of Service for Fractal Resonance Cognition (fractalresonance.com)',
+  description: 'Terms of Service for Fractal Resonance Coherence (fractalresonance.com)',
 };
 
 export function generateStaticParams() {
   return getLanguages().map(lang => ({ lang }));
 }
 
-export default function TermsPage() {
+const DICT: Record<string, { title: string; disclaimer?: string }> = {
+  en: { title: 'Terms of Service' },
+  fa: { title: 'شرایط خدمات', disclaimer: 'برای دلایل قانونی، این شرایط در حال حاضر فقط به زبان انگلیسی موجود است.' },
+  es: { title: 'Términos de Servicio', disclaimer: 'Por razones legales, estos términos actualmente solo están disponibles en inglés.' },
+  fr: { title: 'Conditions d\'Utilisation', disclaimer: 'Pour des raisons juridiques, ces conditions ne sont actuellement disponibles qu\'en anglais.' },
+};
+
+interface Props {
+  params: Promise<{ lang: string }>;
+}
+
+export default async function TermsPage({ params }: Props) {
+  const { lang } = await params;
+  const t = DICT[lang] || DICT['en'];
+
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
       <div className="flex items-center gap-4 mb-12">
-        <h1 className="text-3xl font-light text-frc-gold tracking-tight">Terms of Service</h1>
+        <h1 className="text-3xl font-light text-frc-gold tracking-tight">{t.title}</h1>
         <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
       </div>
 
-      <div className="prose prose-invert max-w-none space-y-8">
+      {t.disclaimer && (
+        <div className="mb-8 p-4 border border-frc-gold/30 bg-frc-gold/5 text-frc-gold text-sm rounded">
+          {t.disclaimer}
+        </div>
+      )}
+
+      <div className="prose prose-invert max-w-none space-y-8" dir="ltr">
         <p className="text-frc-text-dim text-sm">
           Last updated: January 2025
         </p>
@@ -36,7 +56,7 @@ export default function TermsPage() {
           <h2 className="text-lg text-frc-text font-medium">2. Nature of Content</h2>
           <p className="text-frc-text-dim leading-relaxed">
             The Website presents theoretical physics research and academic publications related
-            to the Fractal Resonance Cognition (FRC) framework. The content is:
+            to the Fractal Resonance Coherence (FRC) research program. The content is:
           </p>
           <ul className="list-disc list-inside text-frc-text-dim space-y-2 ml-4">
             <li>Theoretical in nature and represents an ongoing research program</li>

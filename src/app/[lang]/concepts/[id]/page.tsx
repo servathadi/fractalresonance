@@ -8,9 +8,12 @@ import { ConceptsSidebar } from '@/components/ConceptsSidebar';
 import { TableOfContents } from '@/components/TableOfContents';
 import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
+import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { TaxonomyLink } from '@/components/TaxonomyLink';
 import { schemaConceptPage } from '@/lib/schema';
-import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { getConcept, getConcepts, getLanguages, toConceptMeta, buildBacklinks, getGlossary, getAlternateLanguages, getContentEpistemicStatus, getContentStatusNote, matchesPerspectiveView } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
+import { generatePageMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{ lang: string; id: string }>;
@@ -39,24 +42,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const fm = concept.frontmatter;
   const description = concept.body.split('\n\n').find(p => p && !p.startsWith('#')) || '';
-  const conceptUrl = `https://fractalresonance.com/${lang}/concepts/${fm.id}`;
+  const conceptUrl = `/${lang}/concepts/${fm.id}`;
   const alternates = getAlternateLanguages('concepts', fm.id);
+  const epistemicStatus = getContentEpistemicStatus('concept', fm);
 
-  return {
-    title: `${fm.title} — FRC Concept`,
-    description: description.slice(0, 160),
-    keywords: fm.tags,
-    alternates: {
-      canonical: conceptUrl,
-      languages: alternates,
-    },
-    openGraph: {
-      type: 'article',
-      title: fm.title,
-      description: description.slice(0, 160),
-      locale: lang,
-    },
-  };
+  return generatePageMetadata({
+    type: 'article',
+    title: fm.title,
+    description: description,
+    url: conceptUrl,
+    lang,
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    section: 'Concepts',
+    noindex: epistemicStatus === 'archive',
+  }, alternates);
 }
 
 export default async function ConceptPage({ params }: Props) {
@@ -66,10 +65,12 @@ export default async function ConceptPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const meta = toConceptMeta(concept);
-  const backlinks = buildBacklinks(lang);
+  const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const fm = concept.frontmatter;
+  const epistemicStatus = getContentEpistemicStatus('concept', fm);
+  const statusNote = getContentStatusNote('concept', fm);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const prereqLinks = (fm.prerequisites || []).map((pid) => {
@@ -101,20 +102,18 @@ export default async function ConceptPage({ params }: Props) {
 
           {/* Header */}
           <header className="mb-8">
+            <EpistemicBadge status={epistemicStatus} lang={lang} className="mb-3" />
             <h1 className="text-3xl font-light text-frc-gold mb-3">
               {concept.frontmatter.title}
             </h1>
-            {concept.frontmatter.tags && (
+            {statusNote && (
+              <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+                {statusNote}
+              </p>
+            )}
+            {Array.isArray(concept.frontmatter.tags) && concept.frontmatter.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-3">
-                {concept.frontmatter.tags.map(tag => (
-                  <Link 
-                    key={tag} 
-                    href={`${basePath}/tags/${encodeURIComponent(tag)}`}
-                    className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
+                {concept.frontmatter.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
               </div>
             )}
           </header>
@@ -133,7 +132,7 @@ export default async function ConceptPage({ params }: Props) {
           </div>
 
           {/* Related concepts */}
-          {concept.frontmatter.related && concept.frontmatter.related.length > 0 && (
+          {Array.isArray(concept.frontmatter.related) && concept.frontmatter.related.length > 0 && (
             <section className="mt-12 border-t border-frc-blue pt-6">
               <h3 className="text-sm font-medium text-frc-text-dim uppercase tracking-wider mb-3">
                 Related Concepts

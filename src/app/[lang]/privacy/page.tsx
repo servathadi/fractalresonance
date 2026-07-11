@@ -3,22 +3,42 @@ import { getLanguages } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Fractal Resonance Cognition (fractalresonance.com)',
+  description: 'Privacy Policy for Fractal Resonance Coherence (fractalresonance.com)',
 };
 
 export function generateStaticParams() {
   return getLanguages().map(lang => ({ lang }));
 }
 
-export default function PrivacyPage() {
+const DICT: Record<string, { title: string; disclaimer?: string }> = {
+  en: { title: 'Privacy Policy' },
+  fa: { title: 'حریم خصوصی', disclaimer: 'برای دلایل قانونی، این متن در حال حاضر فقط به زبان انگلیسی موجود است.' },
+  es: { title: 'Política de Privacidad', disclaimer: 'Por razones legales, este texto actualmente solo está disponible en inglés.' },
+  fr: { title: 'Politique de Confidentialité', disclaimer: 'Pour des raisons juridiques, ce texte n\'est actuellement disponible qu\'en anglais.' },
+};
+
+interface Props {
+  params: Promise<{ lang: string }>;
+}
+
+export default async function PrivacyPage({ params }: Props) {
+  const { lang } = await params;
+  const t = DICT[lang] || DICT['en'];
+
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
       <div className="flex items-center gap-4 mb-12">
-        <h1 className="text-3xl font-light text-frc-gold tracking-tight">Privacy Policy</h1>
+        <h1 className="text-3xl font-light text-frc-gold tracking-tight">{t.title}</h1>
         <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
       </div>
 
-      <div className="prose prose-invert max-w-none space-y-8">
+      {t.disclaimer && (
+        <div className="mb-8 p-4 border border-frc-gold/30 bg-frc-gold/5 text-frc-gold text-sm rounded">
+          {t.disclaimer}
+        </div>
+      )}
+
+      <div className="prose prose-invert max-w-none space-y-8" dir="ltr">
         <p className="text-frc-text-dim text-sm">
           Last updated: January 2025
         </p>
@@ -26,7 +46,7 @@ export default function PrivacyPage() {
         <section className="space-y-4">
           <h2 className="text-lg text-frc-text font-medium">1. Introduction</h2>
           <p className="text-frc-text-dim leading-relaxed">
-            Fractal Resonance Cognition (&quot;FRC&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website
+            Fractal Resonance Coherence (&quot;FRC&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website
             fractalresonance.com. This Privacy Policy explains how we collect, use, and protect
             information when you visit our website.
           </p>

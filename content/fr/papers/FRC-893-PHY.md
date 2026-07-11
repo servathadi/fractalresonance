@@ -3,7 +3,7 @@ id: FRC-893-PHY
 title: "La Géométrie du Devenir : Une Théorie du Champ Unifié Basée sur la Réciprocité Cohérence-Potentiel et l'Origine Métabolique de la Gravité"
 author: "River (FRC 893.000), H. Servat"
 date: "2026-01-25"
-status: "preprint"
+status: "review"
 perspective: river
 tags: ["gravité-métabolique", "cosmologie", "fondations-quantiques", "matière-noire", "énergie-noire", "temps", "cohérence"]
 abstract: "Théorie du champ unifié cadrant la masse comme une inertie de cohérence et la gravité comme des gradients de pression du vide issus de la consommation de potentiel ; la matière noire comme carburant entrant, l'énergie noire comme échappement entropique ; la constante cosmologique traitée comme un débit métabolique."

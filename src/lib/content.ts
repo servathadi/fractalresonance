@@ -9,18 +9,35 @@
 import fs from 'fs';
 import path from 'path';
 import type { PaperMeta, ConceptMeta } from './schema';
+import type { MuLevel } from './mu-levels';
+import { canonicalizeTaxon, deriveSeriesTaxon } from './taxonomy';
+import { getGovernanceArchiveNote, isRetiredContent, isRevisionPendingPaper } from './content-governance';
+
+export { isRevisionPendingPaper } from './content-governance';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 // ─── Frontmatter Parser ────────────────────────────────────────────────────
 
-interface RawFrontmatter {
+export type PaperCanonStatus = 'living-core' | 'frontier' | 'framework' | 'archive';
+export type TaxonomyContentType = 'paper' | 'concept' | 'topic' | 'article' | 'blog' | 'book';
+export type CorpusEpistemicStatus = 'primary' | 'frontier' | 'commentary' | 'conceptual' | 'philosophical' | 'archive';
+
+export interface RawFrontmatter {
   title: string;
   id: string;
+  description?: string;
   series?: string;
+  version?: string;
+  supersedes?: string;
   author?: string;
   date?: string;
   status?: string;
+  publicationState?: string;
+  statusNote?: string;
+  epistemicStatus?: string;
+  editionStatus?: string;
+  translationStatus?: string;
   perspective?: 'kasra' | 'river' | 'both';
   // Authorial voice used for labeling content (independent of visibility perspective).
   voice?: string;
@@ -48,6 +65,8 @@ interface RawFrontmatter {
     url?: string;
   }>;
   tags?: string[];
+  // Paper maturity tier: foundational (core theory), applied (applications), speculative (exploratory)
+  tier?: 'foundational' | 'applied' | 'speculative';
   abstract?: string;
   tldr?: string;
   key_points?: string[];
@@ -55,6 +74,10 @@ interface RawFrontmatter {
   read_time?: string;
   lang?: string;
   doi?: string;
+  conceptDoi?: string;
+  canonStatus?: PaperCanonStatus;
+  muLevel?: MuLevel;
+  cover?: string;
   license?: string;
   related?: string[];
   intros?: {
@@ -95,6 +118,8 @@ interface RawFrontmatter {
 export interface ParsedContent {
   frontmatter: RawFrontmatter;
   body: string;
+  /** Original raw markdown content (frontmatter + body) */
+  raw: string;
 }
 
 export interface HomeConfig {
@@ -110,18 +135,19 @@ export interface HomeConfig {
 
 /** Parse YAML-like frontmatter from markdown string */
 export function parseFrontmatter(content: string): ParsedContent {
-  // Allow whitespace on delimiter lines (some translated files contain `--- `).
-  const fmRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;
+  // Allow whitespace + trailing comments on delimiter lines.
+  // Some content mistakenly uses `---# Title` on the closing delimiter line; treat it as `---` + comment.
+  const fmRegex = /^---[^\S\r\n]*(?:#.*)?\r?\n([\s\S]*?)\r?\n---[^\S\r\n]*(?:#.*)?\r?\n?([\s\S]*)$/;
   const match = content.match(fmRegex);
 
   if (!match) {
-    return { frontmatter: { title: '', id: '' }, body: content };
+    return { frontmatter: { title: '', id: '' }, body: content, raw: content };
   }
 
   const [, fmRaw, body] = match;
   const frontmatter = parseYamlFrontmatter(fmRaw);
 
-  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim() };
+  return { frontmatter: frontmatter as unknown as RawFrontmatter, body: body.trim(), raw: content };
 }
 
 type YamlValue =
@@ -138,7 +164,7 @@ function parseYamlFrontmatter(src: string): Record<string, unknown> {
     { indent: -1, container: root },
   ];
 
-  const lines = src.split('\n');
+  const lines = normalizeUnindentedSequences(src.split('\n'));
   let i = 0;
 
   while (i < lines.length) {
@@ -151,8 +177,19 @@ function parseYamlFrontmatter(src: string): Record<string, unknown> {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;
 
-    // Close containers when indentation decreases.
-    while (stack.length > 1 && indent <= stack[stack.length - 1].indent) {
+    // A mapping keeps keys at its own indentation. A sequence closes when a
+    // non-item appears at its indentation; the following item closes its
+    // previous object first.
+    while (stack.length > 1) {
+      const current = stack[stack.length - 1];
+      const closesByDedent = indent < current.indent;
+      const closesSequence = indent === current.indent
+        && Array.isArray(current.container)
+        && !line.startsWith('- ');
+      const closesSequenceItem = indent === current.indent
+        && !Array.isArray(current.container)
+        && line.startsWith('- ');
+      if (!closesByDedent && !closesSequence && !closesSequenceItem) break;
       stack.pop();
     }
 
@@ -208,6 +245,32 @@ function parseYamlFrontmatter(src: string): Record<string, unknown> {
   }
 
   return root;
+}
+
+/** Accept the valid YAML shorthand `tags:\n- one` used in older corpus files. */
+function normalizeUnindentedSequences(lines: string[]): string[] {
+  let listParentIndent: number | undefined;
+
+  return lines.map((rawLine) => {
+    if (!rawLine || /^\s*$/.test(rawLine)) return rawLine;
+
+    const indent = rawLine.match(/^ */)?.[0].length ?? 0;
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) return rawLine;
+
+    if (listParentIndent !== undefined) {
+      if (indent === listParentIndent && line.startsWith('- ')) {
+        return `${' '.repeat(indent + 2)}${line}`;
+      }
+      listParentIndent = undefined;
+    }
+
+    if (/^[A-Za-z0-9_-]+:\s*$/.test(line)) {
+      listParentIndent = indent;
+    }
+
+    return rawLine;
+  });
 }
 
 function splitYamlKeyValue(line: string): [string, string] | null {
@@ -269,6 +332,20 @@ function stripYamlQuotes(val: string): string {
 
 // ─── Content Loaders ───────────────────────────────────────────────────────
 
+/**
+ * Check whether content is public. Set SHOW_DRAFTS=true for an explicit
+ * editorial preview; development mode alone must reflect the public site.
+ */
+function isPublished(content: ParsedContent): boolean {
+  const status = content.frontmatter.status;
+  // No status = published (backwards compatibility)
+  if (!status) return true;
+  // Explicitly published
+  if (status === 'published') return true;
+  if (process.env.SHOW_DRAFTS === 'true') return true;
+  return false;
+}
+
 /** Get all papers for a language */
 export function getPapers(lang: string = 'en'): ParsedContent[] {
   const dir = path.join(CONTENT_DIR, lang, 'papers');
@@ -280,7 +357,53 @@ export function getPapers(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .filter(isPublished)
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
+}
+
+const FRONTIER_PAPER_IDS = new Set([
+  'FRC-787-787',
+  'FRC-826-829',
+  'FRC-840-101',
+  'FRC-841-004',
+]);
+
+const PAPER_CANON_ORDER: Record<PaperCanonStatus, number> = {
+  'living-core': 0,
+  frontier: 1,
+  framework: 2,
+  archive: 3,
+};
+
+/** Resolve a paper's place in the living library, with frontmatter as the final authority. */
+export function getPaperCanonStatus(
+  frontmatter: Pick<RawFrontmatter, 'id' | 'canonStatus'>,
+): PaperCanonStatus {
+  if (frontmatter.canonStatus && frontmatter.canonStatus in PAPER_CANON_ORDER) {
+    return frontmatter.canonStatus;
+  }
+  if (FRONTIER_PAPER_IDS.has(frontmatter.id)) return 'frontier';
+  if (/^FRC-(?:100|566)-/.test(frontmatter.id)) return 'living-core';
+  return 'archive';
+}
+
+/** Orientation content remains addressable but is not duplicated in the normal paper catalog. */
+export function isPaperCatalogEntry(frontmatter: Pick<RawFrontmatter, 'id'>): boolean {
+  return frontmatter.id !== 'FRC-000-START-HERE';
+}
+
+/** Place current core first, then frontier, then development history. */
+export function sortPapersForLibrary(papers: readonly ParsedContent[]): ParsedContent[] {
+  return [...papers].sort((a, b) => {
+    const statusDelta = PAPER_CANON_ORDER[getPaperCanonStatus(a.frontmatter)]
+      - PAPER_CANON_ORDER[getPaperCanonStatus(b.frontmatter)];
+    if (statusDelta !== 0) return statusDelta;
+
+    const dateDelta = String(b.frontmatter.date || '').localeCompare(String(a.frontmatter.date || ''));
+    if (dateDelta !== 0) return dateDelta;
+
+    return a.frontmatter.id.localeCompare(b.frontmatter.id, undefined, { numeric: true });
+  });
 }
 
 /** Get all articles (blog/episodes) for a language */
@@ -294,7 +417,8 @@ export function getArticles(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .filter((content) => isPublished(content) && !isRetiredContent('article', content.frontmatter.id))
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get all blog posts for a language */
@@ -308,7 +432,8 @@ export function getBlogPosts(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .filter((content) => isPublished(content) && !isRetiredContent('blog', content.frontmatter.id))
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single blog post by id */
@@ -320,7 +445,7 @@ export function getBlogPost(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed) && !isRetiredContent('blog', parsed.frontmatter.id)) return parsed;
   }
   return null;
 }
@@ -336,7 +461,8 @@ export function getTopics(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+    .filter((content) => isPublished(content) && !isRetiredContent('topic', content.frontmatter.id))
+    .sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single topic by id */
@@ -348,7 +474,7 @@ export function getTopic(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed) && !isRetiredContent('topic', parsed.frontmatter.id)) return parsed;
   }
   return null;
 }
@@ -364,7 +490,7 @@ export function getPeople(lang: string = 'en'): ParsedContent[] {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
     })
-    .sort((a, b) => (a.frontmatter.title || '').localeCompare(b.frontmatter.title || ''));
+    .sort((a, b) => String(a.frontmatter.title || '').localeCompare(String(b.frontmatter.title || '')));
 }
 
 /** Get a single person/profile by id */
@@ -406,8 +532,8 @@ export function getPaper(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
-    if (normalize(parsed.frontmatter.id) === requested) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed)) return parsed;
+    if (normalize(parsed.frontmatter.id) === requested && isPublished(parsed)) return parsed;
   }
   return null;
 }
@@ -429,7 +555,8 @@ export function getLegacyPaperIds(canonicalId: string): string[] {
   if (!series || suffixParts.length === 0) return out;
 
   const suffix = suffixParts.join('-');
-  push(`FRC ${series}.${suffix}`);
+  // Avoid emitting space-based routes (they become %20 URLs and duplicate SEO surfaces).
+  // We keep dot-variant for legacy compatibility.
   push(`FRC-${series}.${suffix}`);
 
   return out;
@@ -465,7 +592,7 @@ export function getBooks(lang: string = 'en'): ParsedContent[] {
     }
   }
 
-  return books.sort((a, b) => (a.frontmatter.date || '').localeCompare(b.frontmatter.date || ''));
+  return books.sort((a, b) => String(a.frontmatter.date || '').localeCompare(String(b.frontmatter.date || '')));
 }
 
 /** Get a single book by id */
@@ -478,7 +605,7 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed) && !isRetiredContent('article', parsed.frontmatter.id)) return parsed;
   }
 
   // 2) Folder book: books/<id>/(index.md + chapters)
@@ -492,16 +619,9 @@ export function getBook(lang: string, id: string): ParsedContent | null {
   if (fs.existsSync(indexPath)) {
     const raw = fs.readFileSync(indexPath, 'utf-8');
     const parsed = parseFrontmatter(raw);
-    const chapters = getBookChapters(lang, id);
-    if (!chapters || chapters.length === 0) return parsed;
-
-    // Render the index content followed by chapters in order for a single-page reading experience.
-    const combined = [
-      parsed.body,
-      ...chapters.map((c) => `\n\n## ${c.title}\n\n${c.body}`),
-    ].join('\n\n');
-
-    return { frontmatter: parsed.frontmatter, body: combined };
+    // Return only the index content - chapter content lives on individual chapter pages
+    // This avoids duplicate content issues and keeps the book landing page lightweight
+    return parsed;
   }
 
   // If there's no index.md, treat the first chapter file as the book page.
@@ -520,6 +640,20 @@ export function getBookChapters(lang: string, id: string): BookChapter[] {
   const bookDir = path.join(CONTENT_DIR, lang, 'books', id);
   if (!fs.existsSync(bookDir) || !fs.statSync(bookDir).isDirectory()) return [];
 
+  const extractTitleFromBody = (body: string, fallback: string): string => {
+    const lines = String(body || '').split('\n');
+    for (const raw of lines) {
+      const line = raw.trim();
+      if (!line) continue;
+      const m = line.match(/^#{1,6}\s+(.+?)\s*$/);
+      if (!m) continue;
+      // Strip explicit anchor suffix: "Title {#id}"
+      const txt = m[1].replace(/\s*\{#[^\}]+\}\s*$/, '').trim();
+      if (txt) return txt;
+    }
+    return fallback;
+  };
+
   const chapterFiles = fs
     .readdirSync(bookDir)
     .filter((f) => f.endsWith('.md') && f !== 'index.md')
@@ -528,16 +662,72 @@ export function getBookChapters(lang: string, id: string): BookChapter[] {
   return chapterFiles.map((filename) => {
     const raw = fs.readFileSync(path.join(bookDir, filename), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    const title = parsed.frontmatter.title || filename.replace(/\.md$/, '');
+    const fallbackTitle = filename.replace(/\.md$/, '');
+    const title =
+      parsed.frontmatter.title ||
+      extractTitleFromBody(parsed.body, fallbackTitle);
     return { filename, title, body: parsed.body };
   });
 }
 
+/**
+ * Sort chapter filenames in proper book order:
+ * 1. Preface
+ * 2. Reader's overture / Introduction
+ * 3. Parts with chapters (Part I → Ch 1-10, Part II → Ch 11-20, etc.)
+ * 4. Appendices (A-Z)
+ * 5. Acknowledgments / Afterword
+ */
 function sortChapterFilenames(a: string, b: string): number {
-  const numA = a.match(/(\d+)/)?.[1];
-  const numB = b.match(/(\d+)/)?.[1];
-  if (numA && numB) return Number(numA) - Number(numB);
-  return a.localeCompare(b);
+  return getChapterSortKey(a) - getChapterSortKey(b);
+}
+
+function getChapterSortKey(filename: string): number {
+  const lower = filename.toLowerCase();
+
+  // Front matter (0-99)
+  if (lower.startsWith('preface')) return 10;
+  if (lower.includes('reader') || lower.includes('overture')) return 20;
+  if (lower.startsWith('introduction')) return 30;
+
+  // Parts: part-i = 100, part-ii = 200, part-iii = 300
+  const partMatch = lower.match(/^part[_-]?(i{1,3}|iv|v|[0-9]+)/);
+  if (partMatch) {
+    const partNum = romanOrNumToInt(partMatch[1]);
+    return 100 * partNum;
+  }
+
+  // Chapters: extract number, place after corresponding part
+  // chapter-1 to chapter-10 → 101-110 (after Part I = 100)
+  // chapter-11 to chapter-20 → 201-210 (after Part II = 200)
+  const chapterMatch = lower.match(/^chapter[_-]?(\d+)/);
+  if (chapterMatch) {
+    const chNum = parseInt(chapterMatch[1], 10);
+    const partGroup = Math.ceil(chNum / 10); // 1-10 → Part 1, 11-20 → Part 2, etc.
+    const offset = ((chNum - 1) % 10) + 1; // 1-10 within each part
+    return 100 * partGroup + offset;
+  }
+
+  // Back matter (1000+)
+  const appendixMatch = lower.match(/^appendix[_-]?([a-z])/);
+  if (appendixMatch) {
+    return 1000 + (appendixMatch[1].charCodeAt(0) - 96); // a=1, b=2, etc.
+  }
+
+  if (lower.startsWith('acknowledgment') || lower.startsWith('afterword')) return 1100;
+  if (lower.startsWith('bibliography') || lower.startsWith('reference')) return 1110;
+  if (lower.startsWith('index')) return 1120;
+
+  // Unknown files go to end
+  return 9000;
+}
+
+function romanOrNumToInt(val: string): number {
+  const lower = val.toLowerCase();
+  const romanMap: Record<string, number> = { i: 1, ii: 2, iii: 3, iv: 4, v: 5 };
+  if (romanMap[lower]) return romanMap[lower];
+  const num = parseInt(val, 10);
+  return isNaN(num) ? 999 : num;
 }
 
 /** Get all concepts for a language */
@@ -550,7 +740,8 @@ export function getConcepts(lang: string = 'en'): ParsedContent[] {
     .map(f => {
       const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
       return parseFrontmatter(raw);
-    });
+    })
+    .filter(isPublished);
 }
 
 /** Get a single concept by id */
@@ -562,7 +753,7 @@ export function getConcept(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed)) return parsed;
   }
   return null;
 }
@@ -598,6 +789,18 @@ export function getHomeConfig(lang: string = 'en'): HomeConfig | null {
   return null;
 }
 
+/** Get a single site page (investors, contact, etc.) */
+export function getSitePage(lang: string, slug: string): ParsedContent | null {
+  const p = path.join(CONTENT_DIR, lang, 'site', `${slug}.md`);
+  if (!fs.existsSync(p)) {
+    // Fallback to English if not found in requested language
+    const fallback = path.join(CONTENT_DIR, 'en', 'site', `${slug}.md`);
+    if (!fs.existsSync(fallback)) return null;
+    return parseFrontmatter(fs.readFileSync(fallback, 'utf-8'));
+  }
+  return parseFrontmatter(fs.readFileSync(p, 'utf-8'));
+}
+
 /** Get a single article by id */
 export function getArticle(lang: string, id: string): ParsedContent | null {
   const dir = path.join(CONTENT_DIR, lang, 'articles');
@@ -607,14 +810,13 @@ export function getArticle(lang: string, id: string): ParsedContent | null {
   for (const f of files) {
     const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
     const parsed = parseFrontmatter(raw);
-    if (parsed.frontmatter.id === id) return parsed;
+    if (parsed.frontmatter.id === id && isPublished(parsed) && !isRetiredContent('article', parsed.frontmatter.id)) return parsed;
   }
   return null;
 }
 
 // ─── Schema Converters ─────────────────────────────────────────────────────
 
-/** Convert parsed frontmatter to PaperMeta for schema generation */
 export function toPaperMeta(parsed: ParsedContent): PaperMeta {
   const fm = parsed.frontmatter;
   return {
@@ -622,9 +824,9 @@ export function toPaperMeta(parsed: ParsedContent): PaperMeta {
     title: fm.title,
     series: fm.series || 'FRC',
     author: fm.author || 'H. Servat',
-    date: fm.date || new Date().toISOString().split('T')[0],
+    date: String(fm.date || new Date().toISOString().split('T')[0]),
     abstract: fm.abstract || '',
-    tags: fm.tags || [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
     lang: fm.lang || 'en',
     doi: fm.doi,
     video: fm.video,
@@ -645,8 +847,8 @@ export function toConceptMeta(parsed: ParsedContent): ConceptMeta {
     id: fm.id,
     title: fm.title,
     description: firstPara || '',
-    tags: fm.tags || [],
-    related: fm.related || [],
+    tags: Array.isArray(fm.tags) ? fm.tags : [],
+    related: Array.isArray(fm.related) ? fm.related : [],
     lang: fm.lang || 'en',
   };
 }
@@ -684,7 +886,6 @@ function fieldMatchesAny(field: unknown, keys: string[]): boolean {
     const nk = normalizeKey(k);
     if (!nk) continue;
     if (hay === nk) return true;
-    // Allow "River (FRC 893.000)" style authors.
     if (hay.includes(nk)) return true;
   }
   return false;
@@ -756,7 +957,7 @@ export type PerspectiveView = 'kasra' | 'river';
 
 export function normalizeContentPerspective(p: unknown): ContentPerspective {
   if (p === 'kasra' || p === 'river' || p === 'both') return p;
-  // Default: current corpus is Kasra unless explicitly marked otherwise.
+  // Default: treat as Kasra unless explicitly marked otherwise.
   return 'kasra';
 }
 
@@ -776,20 +977,19 @@ export function getGlossary(
   const glossary: Record<string, GlossaryItem> = {};
   const basePath = opts?.basePath || `/${lang}`;
   const view = opts?.view;
-  const otherBasePath = view === 'river' ? `/${lang}` : `/${lang}/river`;
-  const pickBase = (p: unknown) => (view ? (matchesPerspectiveView(p, view) ? basePath : otherBasePath) : basePath);
+  const shouldInclude = (p: unknown) => (view ? matchesPerspectiveView(p, view) : true);
   
   // Process Papers
   const papers = getPapers(lang);
   for (const p of papers) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No abstract available.',
       type: 'paper',
-      url: `${urlBase}/papers/${fm.id}`,
+      url: `${basePath}/papers/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -798,7 +998,7 @@ export function getGlossary(
   const concepts = getConcepts(lang);
   for (const c of concepts) {
     const fm = c.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     // Use first paragraph as excerpt
     const firstPara = c.body
       .split('\n\n')
@@ -811,7 +1011,7 @@ export function getGlossary(
       title: fm.title,
       excerpt: firstPara,
       type: 'concept',
-      url: `${urlBase}/concepts/${fm.id}`,
+      url: fm.id === 'mu-levels' ? `${basePath}/mu-levels` : `${basePath}/concepts/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -820,13 +1020,13 @@ export function getGlossary(
   const books = getBooks(lang);
   for (const b of books) {
     const fm = b.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'book',
-      url: `${urlBase}/books/${fm.id}`,
+      url: `${basePath}/books/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -835,13 +1035,13 @@ export function getGlossary(
   const articles = getArticles(lang);
   for (const a of articles) {
     const fm = a.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'article',
-      url: `${urlBase}/articles/${fm.id}`,
+      url: `${basePath}/articles/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -850,13 +1050,13 @@ export function getGlossary(
   const posts = getBlogPosts(lang);
   for (const p of posts) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || 'No description available.',
       type: 'blog',
-      url: `${urlBase}/blog/${fm.id}`,
+      url: `${basePath}/blog/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -865,13 +1065,13 @@ export function getGlossary(
   const topics = getTopics(lang);
   for (const t of topics) {
     const fm = t.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.abstract || fm.short_answer || 'No description available.',
       type: 'topic',
-      url: `${urlBase}/topics/${fm.id}`,
+      url: `${basePath}/topics/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -880,13 +1080,13 @@ export function getGlossary(
   const people = getPeople(lang);
   for (const p of people) {
     const fm = p.frontmatter;
-    const urlBase = pickBase(fm.perspective);
+    if (!shouldInclude(fm.perspective)) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
       excerpt: fm.tagline || fm.abstract || 'Profile.',
       type: 'person',
-      url: `${urlBase}/people/${fm.id}`,
+      url: `${basePath}/people/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
@@ -898,43 +1098,124 @@ export function getGlossary(
 
 /** Get all unique tags across all content */
 export function getAllTags(lang: string = 'en'): string[] {
-  const papers = getPapers(lang);
-  const concepts = getConcepts(lang);
-  const books = getBooks(lang);
-  const articles = getArticles(lang);
-  const posts = getBlogPosts(lang);
-  const topics = getTopics(lang);
-  const people = getPeople(lang);
   const tags = new Set<string>();
 
-  [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people].forEach(item => {
-    (item.frontmatter.tags || []).forEach(t => tags.add(t));
+  getTaxonomyContent(lang)
+    .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
+    .forEach((item) => {
+    item.taxons.forEach((tag) => tags.add(tag));
   });
 
   return Array.from(tags).sort();
 }
 
-/** Get all content items that have a specific tag */
-export function getContentsByTag(lang: string, tag: string): ParsedContent[] {
-  const papers = getPapers(lang);
-  const concepts = getConcepts(lang);
-  const books = getBooks(lang);
-  const articles = getArticles(lang);
-  const posts = getBlogPosts(lang);
-  const topics = getTopics(lang);
-  const people = getPeople(lang);
-  
-  // Normalize tag for comparison (case-insensitive? or exact?)
-  // Let's do exact match for now, maybe case-insensitive later
-  return [...papers, ...concepts, ...books, ...articles, ...posts, ...topics, ...people]
-    .filter(item => (item.frontmatter.tags || []).includes(tag))
+export interface TaxonomyContentItem {
+  content: ParsedContent;
+  type: TaxonomyContentType;
+  taxons: string[];
+  epistemicStatus: CorpusEpistemicStatus;
+}
+
+function getRawTagStrings(frontmatter: RawFrontmatter): string[] {
+  const rawTags = Array.isArray(frontmatter.tags)
+    ? frontmatter.tags
+    : frontmatter.tags ? [frontmatter.tags] : [];
+  return rawTags.filter((tag): tag is string => typeof tag === 'string' && tag.trim().length > 0);
+}
+
+function getContentTaxons(content: ParsedContent): string[] {
+  const tags = getRawTagStrings(content.frontmatter).map((tag) => canonicalizeTaxon(tag));
+  const series = deriveSeriesTaxon(content.frontmatter.id);
+  return [...new Set(series ? [...tags, series] : tags)];
+}
+
+export function getContentEpistemicStatus(
+  type: TaxonomyContentType,
+  frontmatter: RawFrontmatter,
+): CorpusEpistemicStatus {
+  if (frontmatter.epistemicStatus === 'archive' || getGovernanceArchiveNote(type, frontmatter.id)) {
+    return 'archive';
+  }
+  if (frontmatter.epistemicStatus === 'philosophical') return 'philosophical';
+  if (type === 'paper') {
+    const canonStatus = getPaperCanonStatus(frontmatter);
+    if (canonStatus === 'living-core') return 'primary';
+    if (canonStatus === 'frontier') return 'frontier';
+    return 'archive';
+  }
+  if (type === 'article' || type === 'blog') return 'commentary';
+  if (type === 'concept' || type === 'topic') return 'conceptual';
+  return frontmatter.editionStatus === 'legacy' ? 'archive' : 'philosophical';
+}
+
+/** True when an item belongs in ordinary public reading paths and feeds. */
+export function isCurrentReadingContent(type: TaxonomyContentType, frontmatter: RawFrontmatter): boolean {
+  if (type === 'paper' && (frontmatter.publicationState?.toLowerCase() === 'revision pending' || isRevisionPendingPaper(frontmatter.id))) return false;
+  return getContentEpistemicStatus(type, frontmatter) !== 'archive';
+}
+
+/** The editor-facing archive explanation shown on retained legacy pages. */
+export function getContentStatusNote(type: TaxonomyContentType, frontmatter: RawFrontmatter): string | undefined {
+  return frontmatter.statusNote || getGovernanceArchiveNote(type, frontmatter.id);
+}
+
+/** Build the cross-corpus items addressed by canonical tag and series routes. */
+export function getTaxonomyContent(lang: string = 'en'): TaxonomyContentItem[] {
+  const sources: Array<{ type: TaxonomyContentType; items: ParsedContent[] }> = [
+    { type: 'paper', items: getPapers(lang) },
+    { type: 'concept', items: getConcepts(lang) },
+    { type: 'topic', items: getTopics(lang) },
+    { type: 'article', items: getArticles(lang) },
+    { type: 'blog', items: getBlogPosts(lang) },
+    { type: 'book', items: getBooks(lang) },
+  ];
+
+  return sources.flatMap(({ type, items }) => items.map((content) => ({
+    content,
+    type,
+    taxons: getContentTaxons(content),
+    epistemicStatus: getContentEpistemicStatus(type, content.frontmatter),
+  })));
+}
+
+const EPISTEMIC_ORDER: Record<CorpusEpistemicStatus, number> = {
+  primary: 0,
+  frontier: 1,
+  commentary: 2,
+  conceptual: 3,
+  philosophical: 4,
+  archive: 5,
+};
+
+/** Get canonical tag results, always ordered by evidence status before recency. */
+export function getContentsByTag(lang: string, tag: string): TaxonomyContentItem[] {
+  const canonicalTag = canonicalizeTaxon(tag);
+  if (canonicalTag === 'consciousness') return [];
+  return getTaxonomyContent(lang)
+    .filter((item) => item.taxons.includes(canonicalTag))
     .sort((a, b) => {
-      // Sort by date desc, then title
-      const dateA = a.frontmatter.date || '';
-      const dateB = b.frontmatter.date || '';
-      if (dateA && dateB) return dateB.localeCompare(dateA);
-      return a.frontmatter.title.localeCompare(b.frontmatter.title);
+      const statusDelta = EPISTEMIC_ORDER[a.epistemicStatus] - EPISTEMIC_ORDER[b.epistemicStatus];
+      if (statusDelta !== 0) return statusDelta;
+      const dateDelta = String(b.content.frontmatter.date || '').localeCompare(String(a.content.frontmatter.date || ''));
+      if (dateDelta !== 0) return dateDelta;
+      return a.content.frontmatter.title.localeCompare(b.content.frontmatter.title);
     });
+}
+
+export function getTaxonomyRouteSlugs(lang: string): string[] {
+  const canonical = new Set<string>();
+  const aliases = new Set<string>();
+  getTaxonomyContent(lang)
+    .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
+    .forEach((item) => {
+    item.taxons.forEach((taxon) => canonical.add(taxon));
+    const rawTags = getRawTagStrings(item.content.frontmatter);
+    rawTags.forEach((tag) => {
+      if (canonicalizeTaxon(tag) !== tag) aliases.add(tag);
+    });
+  });
+  ['FRC-100', 'FRC-566', 'FRC-700', 'FRC-800', '100', '566', '700', '800'].forEach((alias) => aliases.add(alias));
+  return [...new Set([...canonical, ...aliases])].sort();
 }
 
 // ─── Graph Generation ──────────────────────────────────────────────────────
@@ -1152,10 +1433,51 @@ export function getStaticPageAlternates(page: string): Record<string, string> {
   return alternates;
 }
 
+// ─── Content Statistics ─────────────────────────────────────────────────────
+
+export interface ContentStats {
+  papers: number;
+  series: string[];
+  seriesCount: number;
+  articles: number;
+  books: number;
+  concepts: number;
+  topics: number;
+  blog: number;
+  people: number;
+}
+
+/** Get content statistics for a language */
+export function getContentStats(lang: string = 'en'): ContentStats {
+  const papers = getPapers(lang);
+  const seriesSet = new Set<string>();
+
+  for (const p of papers) {
+    const id = p.frontmatter.id || '';
+    // Extract series from ID like FRC-100-001 -> "100", FRC-16D-001 -> "16D"
+    const match = id.match(/^FRC-([A-Z0-9]+)-/i);
+    if (match) {
+      seriesSet.add(match[1]);
+    }
+  }
+
+  return {
+    papers: papers.length,
+    series: Array.from(seriesSet).sort(),
+    seriesCount: seriesSet.size,
+    articles: getArticles(lang).length,
+    books: getBooks(lang).length,
+    concepts: getConcepts(lang).length,
+    topics: getTopics(lang).length,
+    blog: getBlogPosts(lang).length,
+    people: getPeople(lang).length,
+  };
+}
+
 // ─── Backlinks ──────────────────────────────────────────────────────────────
 
 /** Build backlinks index: { targetId: [sourceIds] } */
-export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
+export function buildBacklinks(lang: string = 'en', view: PerspectiveView = 'kasra'): Record<string, string[]> {
   const backlinks: Record<string, string[]> = {};
   const papers = getPapers(lang);
   const concepts = getConcepts(lang);
@@ -1163,10 +1485,13 @@ export function buildBacklinks(lang: string = 'en'): Record<string, string[]> {
   const articles = getArticles(lang);
   const topics = getTopics(lang);
   const people = getPeople(lang);
-  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics, ...people];
+  const allContent = [...papers, ...concepts, ...books, ...articles, ...topics, ...people].filter((c) =>
+    matchesPerspectiveView(c.frontmatter.perspective, view)
+  );
 
   for (const content of allContent) {
     const sourceId = content.frontmatter.id;
+    if (!sourceId) continue;
     const links = extractWikilinks(content.body);
 
     for (const link of links) {
