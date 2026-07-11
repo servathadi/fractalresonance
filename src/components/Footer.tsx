@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { getDictionary } from '@/lib/dictionaries';
 import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
+import { BrandMark } from './BrandMark';
 
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
@@ -25,7 +25,7 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/brand/sigil-64.png" alt="FRC" width={24} height={24} className="opacity-70" />
+              <BrandMark alt="FRC" width={24} height={24} className="opacity-70" />
               <span className="text-frc-gold text-sm font-medium tracking-wide">
                 Fractal Resonance Coherence
               </span>

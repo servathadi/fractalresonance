@@ -45,7 +45,7 @@ function generateAtom(lang: string, entries: FeedEntry[]): string {
     <uri>${SITE_URL}</uri>
   </author>
   <icon>${SITE_URL}/favicon.ico</icon>
-  <logo>${SITE_URL}/brand/fractal-resonance-logo.jpg</logo>
+  <logo>${SITE_URL}/brand/frc-resonance-mark-light.png</logo>
   <rights>Copyright ${new Date().getFullYear()} Hadi Servat. All rights reserved.</rights>
   ${sortedEntries.map(entry => `
   <entry>
