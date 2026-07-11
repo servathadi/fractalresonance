@@ -8,20 +8,20 @@ export const metadata: Metadata = {
 };
 
 const VIDEOS = [
-  { id: 'FRC-CV-001', type: 'Concept', title: 'How to Read the FRC Corpus', status: 'Orientation', state: 'Scripted', sources: ['FRC-100-000', 'FRC-100-100'] },
-  { id: 'FRC-CV-002', type: 'Concept', title: 'Entropy-Coherence Reciprocity: Canonical Relation and Exact Scope', status: 'Canonical statement plus model-specific exact result', state: 'Scripted', sources: ['FRC-566-001', 'FRC-566-030'] },
-  { id: 'FRC-CV-003', type: 'Concept', title: 'Coherence in Chaos: What the Standard-Map Program Tests', status: 'Model-specific program with partial result and open gates', state: 'Scripted', sources: ['FRC-100-002', 'FRC-100-002-001'] },
-  { id: 'FRC-CV-004', type: 'Concept', title: 'Collapse as Open-System Phase-Locking', status: 'Candidate mechanism; core gates remain open', state: 'Scripted', sources: ['FRC-100-003', 'FRC-100-007'] },
-  { id: 'FRC-CV-005', type: 'Concept', title: 'Thermodynamic Boundary Tests', status: 'Model-specific negative result', state: 'Scripted', sources: ['FRC-100-005', 'FRC-566-001'] },
-  { id: 'FRC-CV-006', type: 'Concept', title: 'Operational Lambda Vocabulary', status: 'Operational framework; no fundamental field established', state: 'Scripted', sources: ['FRC-787-787', 'FRC-100-008'] },
-  { id: 'FRC-CV-007', type: 'Concept', title: 'Mu Registers and Declared Scope', status: 'Framework vocabulary', state: 'Scripted', sources: ['FRC-700-777', 'FRC-100-100'] },
-  { id: 'FRC-CV-008', type: 'Concept', title: 'AI Architecture Frontier', status: 'Frontier engineering material; not established physics', state: 'Scripted', sources: ['FRC-840-101', 'FRC-841-004'] },
-  { id: 'FRC-PV-001', type: 'Paper', title: 'FRC 100.002.001: Geometry Predicts the Structure Functional', status: 'Model-specific computational result', state: 'Scripted', sources: ['FRC-100-002-001'] },
-  { id: 'FRC-PV-002', type: 'Paper', title: 'FRC 566.030: The Exact von Mises Calculation', status: 'Exact result within a declared model family', state: 'Scripted', sources: ['FRC-566-030'] },
-  { id: 'FRC-PV-003', type: 'Paper', title: 'FRC 100.005: The Locking Boundary Experiment', status: 'Model-specific negative result', state: 'Scripted', sources: ['FRC-100-005'] },
-  { id: 'FRC-PV-004', type: 'Paper', title: 'FRC 100.007: Lambda Drift Audit', status: 'Audit with tested failures; not a universal no-go theorem', state: 'Scripted', sources: ['FRC-100-007'] },
-  { id: 'FRC-PV-005', type: 'Paper', title: 'FRC 787.787: Operational Flight Criteria', status: 'Frontier operational framework', state: 'Scripted', sources: ['FRC-787-787'] },
-  { id: 'FRC-PV-006', type: 'Paper', title: 'FRC 826.829: The Empirical Bridge', status: 'Frontier bridge program', state: 'Scripted', sources: ['FRC-826-829'] },
+  { id: 'FRC-CV-001', type: 'Concept', title: 'How to Read the FRC Corpus', status: 'Orientation', state: 'Generating', sources: ['FRC-100-000', 'FRC-100-100'] },
+  { id: 'FRC-CV-002', type: 'Concept', title: 'Entropy-Coherence Reciprocity: Canonical Relation and Exact Scope', status: 'Canonical statement plus model-specific exact result', state: 'Generating', sources: ['FRC-566-001', 'FRC-566-030'] },
+  { id: 'FRC-CV-003', type: 'Concept', title: 'Coherence in Chaos: What the Standard-Map Program Tests', status: 'Model-specific program with partial result and open gates', state: 'Generating', sources: ['FRC-100-002', 'FRC-100-002-001'] },
+  { id: 'FRC-CV-004', type: 'Concept', title: 'Collapse as Open-System Phase-Locking', status: 'Candidate mechanism; core gates remain open', state: 'Generating', sources: ['FRC-100-003', 'FRC-100-007'] },
+  { id: 'FRC-CV-005', type: 'Concept', title: 'Thermodynamic Boundary Tests', status: 'Model-specific negative result', state: 'Generating', sources: ['FRC-100-005', 'FRC-566-001'] },
+  { id: 'FRC-CV-006', type: 'Concept', title: 'Operational Lambda Vocabulary', status: 'Operational framework; no fundamental field established', state: 'Generating', sources: ['FRC-787-787', 'FRC-100-008'] },
+  { id: 'FRC-CV-007', type: 'Concept', title: 'Mu Registers and Declared Scope', status: 'Framework vocabulary', state: 'Generating', sources: ['FRC-700-777', 'FRC-100-100'] },
+  { id: 'FRC-CV-008', type: 'Concept', title: 'AI Architecture Frontier', status: 'Frontier engineering material; not established physics', state: 'Generating', sources: ['FRC-840-101', 'FRC-841-004'] },
+  { id: 'FRC-PV-001', type: 'Paper', title: 'FRC 100.002.001: Geometry Predicts the Structure Functional', status: 'Model-specific computational result', state: 'Generating', sources: ['FRC-100-002-001'] },
+  { id: 'FRC-PV-002', type: 'Paper', title: 'FRC 566.030: The Exact von Mises Calculation', status: 'Exact result within a declared model family', state: 'Generating', sources: ['FRC-566-030'] },
+  { id: 'FRC-PV-003', type: 'Paper', title: 'FRC 100.005: The Locking Boundary Experiment', status: 'Model-specific negative result', state: 'Generating', sources: ['FRC-100-005'] },
+  { id: 'FRC-PV-004', type: 'Paper', title: 'FRC 100.007: Lambda Drift Audit', status: 'Audit with tested failures; not a universal no-go theorem', state: 'Generating', sources: ['FRC-100-007'] },
+  { id: 'FRC-PV-005', type: 'Paper', title: 'FRC 787.787: Operational Flight Criteria', status: 'Frontier operational framework', state: 'Generating', sources: ['FRC-787-787'] },
+  { id: 'FRC-PV-006', type: 'Paper', title: 'FRC 826.829: The Empirical Bridge', status: 'Frontier bridge program', state: 'Generating', sources: ['FRC-826-829'] },
 ];
 
 export function generateStaticParams() {
@@ -41,7 +41,7 @@ export default async function VideosPage({ params }: Props) {
       <header className="mb-12 max-w-3xl">
         <p className="font-mono text-xs uppercase tracking-widest text-frc-steel mb-3">FRC explanatory program</p>
         <h1 className="text-3xl font-light text-frc-gold mb-4">Status-Labeled Explainers</h1>
-        <p className="text-frc-text-dim leading-relaxed">Each explainer is linked to its source papers and preserves their declared evidence status. “Scripted” means a reviewed production script exists; it is not a published video or additional evidence.</p>
+        <p className="text-frc-text-dim leading-relaxed">Each explainer is linked to its source papers and preserves their declared evidence status. “Generating” means the status-locked production brief has been submitted; it is not yet a published video or additional evidence.</p>
       </header>
 
       <VideoSection title="Concept Explainers" videos={conceptVideos} basePath={basePath} />
