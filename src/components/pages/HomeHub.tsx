@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { BrandMark } from '@/components/BrandMark';
 import { getGlossary, getHomeConfig, getPapers } from '@/lib/content';
 import type { PerspectiveView } from '@/lib/content';
 
@@ -123,7 +123,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
         <div className="max-w-6xl mx-auto px-6 py-10 sm:py-14 lg:py-16 relative z-10">
           <div className="relative max-w-3xl">
             <div className="flex items-center gap-4 mb-6 animate-fade-up stagger-1">
-              <Image src="/brand/sigil-64.png" alt="FRC attractor mark" width={48} height={48} className="opacity-90" />
+              <BrandMark alt="FRC attractor mark" width={48} height={48} className="opacity-90" />
               <div className="h-px flex-1 bg-gradient-to-r from-frc-gold/40 to-transparent" />
             </div>
             <h1 className="animate-fade-up stagger-2 text-4xl sm:text-5xl lg:text-[3.5rem] font-light text-frc-gold mb-5 tracking-normal leading-[1.12]">

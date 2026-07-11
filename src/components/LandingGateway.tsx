@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { BrandMark } from './BrandMark';
 import type { FrcMode } from '@/components/ModeProvider';
 
 export function LandingGateway() {
@@ -33,13 +33,7 @@ export function LandingGateway() {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Sigil */}
         <div className="mb-8 animate-fade-up">
-          <Image
-            src="/brand/sigil-64.png"
-            alt="FRC"
-            width={64}
-            height={64}
-            className="mx-auto opacity-80"
-          />
+          <BrandMark alt="FRC" width={64} height={64} className="mx-auto opacity-80" />
         </div>
 
         {/* Title */}

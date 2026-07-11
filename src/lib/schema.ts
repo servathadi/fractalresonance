@@ -115,7 +115,7 @@ export function schemaOrganization() {
     '@id': `${SITE_URL}/#org`,
     name: 'Fractal Resonance',
     url: SITE_URL,
-    logo: `${SITE_URL}/brand/logo.png`,
+    logo: `${SITE_URL}/brand/frc-resonance-mark-light.png`,
     sameAs: [
       'https://github.com/servathadi/fractalresonance',
       'https://zenodo.org/communities/frc',

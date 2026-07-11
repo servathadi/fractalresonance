@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { SearchTrigger } from './SearchTrigger';
+import { BrandMark } from './BrandMark';
 import { getDictionary } from '@/lib/dictionaries';
 import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/lib/site';
 
@@ -229,13 +229,7 @@ export function Header() {
       <div className="border-b border-frc-blue">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <Link href={basePath} className="flex items-center gap-3 group">
-            <Image
-              src="/brand/sigil-64.png"
-              alt="FRC"
-              width={32}
-              height={32}
-              className="opacity-80 group-hover:opacity-100 transition-opacity"
-            />
+            <BrandMark alt="FRC" width={32} height={32} className="opacity-80 group-hover:opacity-100 transition-opacity" />
             <div className="hidden sm:block">
               <span className="text-frc-gold text-sm font-medium tracking-wide">FRC</span>
             </div>
@@ -376,13 +370,7 @@ export function Header() {
           >
             <div className="px-4 py-3 border-b border-frc-blue flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <Image
-                  src="/brand/sigil-64.png"
-                  alt="FRC"
-                  width={28}
-                  height={28}
-                  className="opacity-90"
-                />
+                <BrandMark alt="FRC" width={28} height={28} className="opacity-90" />
                 <div>
                   <div className="text-frc-gold text-sm font-medium tracking-wide">FRC</div>
                   <div className="text-[11px] text-frc-steel font-mono">fractalresonance.com</div>
