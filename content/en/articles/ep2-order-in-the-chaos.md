@@ -4,6 +4,7 @@ date: 2026-02-01
 id: FRC-EP-002
 tags: [quantum-chaos, stadium-billiard, fractal-dimension, infographics, FRC-100]
 abstract: "Investigating the 'haunted' pool table of the Bunimovich stadium. We find that what looks like random chaos is actually a deterministic fractal resonance with a signature dimension of D ≈ 1.90. Episode 2 of the Resonance Universe series."
+statusNote: "Archived commentary. Its deterministic stadium and D≈1.90 claims are superseded; read FRC 100.002 v2.6 for the current chaos program and FRC 100.002.001 v1.5 for the retained coarse result and negative dense Gate 4."
 video:
   url: "https://www.youtube.com/watch?v=I77qlVunpRs"
   embedUrl: "https://www.youtube.com/embed/I77qlVunpRs"
