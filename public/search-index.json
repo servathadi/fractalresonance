@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11T14:32:08.575Z",
+  "generated": "2026-07-12T23:52:31.437Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -39,7 +39,7 @@
       "type": "papers",
       "lang": "en",
       "title": "Accessible Phase-Space Geometry Predicts the Structure Functional in the Mixed Standard Map",
-      "abstract": "FRC 100.002 v2.5 defined the structure functional Σ = S_vM(C) − S and deferred whether persistent mixed-regime Σ(∞) tracks measured phase-space geometry. Instrument A measures Σ(∞) from evolved ensembles over 12 seeds. Instrument B independently classifies the torus by finite-time Lyapunov exponent, flood-fills the accessible chaotic component from a wrapped seed region, and predicts Σ from the component's phase marginal with no fitted amplitude. Over K_c ≤ K ≤ 2.0, the prediction has 9.7% median relative error, versus 18.9% for a fitted island-area proxy. A 1000-realization fixed-area shuffle null gives zero exceedances and corrected empirical p = 1/1001 at K=K_c, 1.4, and 2.0; the real prediction lies 33.6–198.4 standard deviations above random placement. Thus spatial arrangement of the excluded regular region, not area alone, carries the predicted signal throughout the estimator-clean window. Grid, FTLE-time, and threshold convergence are reported. Below K_c the uniform-fill assumption fails by a factor of two; above K ≈ 2 histogram-bias corrections approach or exceed the signal.",
+      "abstract": "FRC 100.002 defines the structure functional Σ = S_vM(C) − S, equivalently the KL projection deficit from the measured phase marginal to the matched von Mises maximum-entropy member. Instrument A measures Σ(∞) from evolved ensembles over 12 seeds. Instrument B independently classifies the torus by finite-time Lyapunov exponent, flood-fills the accessible chaotic component, and predicts Σ from the component's phase marginal with no fitted amplitude. Over K_c ≤ K ≤ 2.0, the original coarse sweep retains 9.7% median relative error, versus 18.9% for a fitted island-area proxy; fixed-area shuffle nulls reject random placement. A subsequently frozen dense Gate 4 test selected the strongest geometry-curvature window automatically and evaluated ten unseen midpoint conditions with 12 new seeds each. There measured Σ has essentially no rank relation to regular area (ρ=0.030, one-sided permutation p=0.477), while negative entropy supplies a stronger monotonic rank baseline (ρ=0.964). The full geometry prediction has 8.7% median magnitude error but is beaten by the frozen area-only baseline at 6.6%. Estimator, seed, null, and convergence controls pass. The coarse magnitude correspondence remains a scoped result; the registered route to pillar-level fine geometric discrimination is not passed and is closed without window search.",
       "tags": [
         "chaos",
         "standard-map",
@@ -71,12 +71,12 @@
         "zero-fitted-parameter",
         "frc-100"
       ],
-      "content": "FRC 100.002.001 v1.3 — Accessible Phase-Space Geometry Predicts the Structure Functional Paper ID: FRC 100.002.001. Answer-appendix line of FRC 100.002, executing the computation deferred in 100.002 v2.5 §12.1. Pilot-grade positive result with kept negatives and statistical geometry nulls; not a promotion of the parent to pillar status. Version 1.3 hardens the result through three independent adversarial reviews (§12): the magnitude claim is seed-averaged and uncertainty-bounded, and the...",
+      "content": "FRC 100.002.001 v1.5 — Accessible Phase-Space Geometry Predicts the Structure Functional Paper ID: FRC 100.002.001. Answer-appendix line of FRC 100.002. The coarse-window magnitude result and geometry null remain, but the registered dense Gate 4 follow-up is negative. This version reports both at equal volume and does not promote the parent to pillar status. 1. The question this appendix decides FRC 100.002 v2.6 §5.2 defines the structure functional $$ \\Sigma(t)=S{\\rm...",
       "url": "/en/papers/FRC-100-002-001",
-      "date": "Thu Jul 09 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
-      "version": "v1.3",
+      "date": "Sat Jul 11 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v1.5",
       "muLevel": "mu1",
-      "doi": "10.5281/zenodo.21298188",
+      "doi": "10.5281/zenodo.21328429",
       "conceptDoi": "10.5281/zenodo.21298187",
       "epistemicStatus": "frontier",
       "retrievalPriority": 80
@@ -86,7 +86,7 @@
       "type": "papers",
       "lang": "en",
       "title": "Coherence in Chaos: Diffusion, Localization, and Decoherence in the Standard Map / Quantum Kicked Rotor Family",
-      "abstract": "FRC 100.002 v2.5 preserves the Standard Map / Quantum Kicked Rotor chaos program, the KAM-structure functional, localization/decoherence pilots, the Ruelle-Pollicott negative result, and the demoted stadium appendix. It corrects only the framework ledger notation. The canonical reciprocity law remains dS + k* d ln C = 0. In this paper's declared information-nat realization k*_{mu_nat}=1, and J_sys=d[S_sys,mu+k*_{mu_nat} ln C_mu]/dt is reported only as a system-only diagnostic. Because no environment is modeled, J_sys is not automatically entropy production or a boundary residual. The relation lambda=-d_eS is admissible under a declared boundary convention and is neither imposed universally nor rejected by fiat.",
+      "abstract": "FRC 100.002 v2.6 preserves the Standard Map / Quantum Kicked Rotor chaos program, the KAM-structure functional, localization/decoherence pilots, the Ruelle-Pollicott negative result, and the demoted stadium appendix. It records the completed registered dense classical Gate 4 test as a negative result: fine KAM-area tracking fails, while the earlier coarse zero-parameter magnitude correspondence survives in its scoped form. This route does not promote the paper as a pillar. The canonical reciprocity law remains dS + k* d ln C = 0. In this paper's declared information-nat realization k*_{mu_nat}=1, and J_sys=d[S_sys,mu+k*_{mu_nat} ln C_mu]/dt remains a system-only diagnostic, not automatically entropy production or a boundary residual.",
       "tags": [
         "chaos",
         "standard-map",
@@ -114,12 +114,12 @@
         "open-systems",
         "frc-100"
       ],
-      "content": "FRC 100.002 v2.5 - Coherence in Chaos 1. Position in the basin series and lineage The 100 series is the basin of the FRC corpus: each paper carries the current settled statement of one foundational claim, and is updated in place as the framework moves. This document is the updated statement of 100.002. It replaces the v1 stadium-billiard paper as the carrier of the chaos claim and retains the stadium result as a demoted case study in Appendix A with its corrected caveats. Computational results...",
+      "content": "FRC 100.002 v2.6 - Coherence in Chaos 1. Position in the basin series and lineage The 100 series is the basin of the FRC corpus: each paper carries the current settled statement of one foundational claim, and is updated in place as the framework moves. This document is the updated statement of 100.002. It replaces the v1 stadium-billiard paper as the carrier of the chaos claim and retains the stadium result as a demoted case study in Appendix A with its corrected caveats. Computational results...",
       "url": "/en/papers/FRC-100-002",
-      "date": "Wed Jul 08 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
-      "version": "v2.5",
+      "date": "Sat Jul 11 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v2.6",
       "muLevel": "mu1",
-      "doi": "10.5281/zenodo.21298157",
+      "doi": "10.5281/zenodo.21328428",
       "conceptDoi": "10.5281/zenodo.15079277",
       "epistemicStatus": "primary",
       "retrievalPriority": 100
@@ -456,16 +456,16 @@
       "id": "FRC-787-787",
       "type": "papers",
       "lang": "en",
-      "title": "Lambda-Flight v1.1: Operational and Latent Coherence Transport Models",
-      "abstract": "FRC 787.787 v1.1 separates three objects previously called Lambda. Lambda_obs=Lambda0 ln C_obs is an operational transform of preregistered observables; Lambda_eq is an observation-derived target; Lambda_dyn is an optional latent reaction-diffusion state that relaxes toward that target. A transport model must select Lambda_obs or separately validated Lambda_dyn before scoring. Support for Lambda_dyn requires improvement over the observation-only model and an equal-feature non-Lambda latent baseline. Even successful residual prediction would not establish a fundamental field. The nested baselines, negative controls, six test cards, and numerical regime pilot are retained. The pilot calibrates a chosen PDE and does not validate a physical Lambda-Flight mechanism.",
+      "title": "Lambda-Flight v1.2: Operational and Latent Coherence Transport Models",
+      "abstract": "FRC 787.787 v1.2 separates three objects previously called Lambda. Lambda_obs=Lambda0 ln C_obs is an operational transform of preregistered observables; Lambda_eq is an observation-derived target; Lambda_dyn is an optional latent reaction-diffusion state that relaxes toward that target. A transport model must select Lambda_obs or separately validated Lambda_dyn before scoring. Support for Lambda_dyn requires improvement over the observation-only model and an equal-feature non-Lambda latent baseline. Even successful residual prediction would not establish a fundamental field. The nested baselines, negative controls, six test cards, and numerical regime pilot are retained. Version 1.2 adds a locally frozen secondary-data test of P3 on a public Rijke-tube benchmark. The composite is not promoted on that benchmark: its negative held-out point estimate is accompanied by low power, a class/protocol confound, and an imperfect equal-information control. The external test concerns predictive early warning only and does not test entropy-coherence reciprocity.",
       "tags": [],
       "taxons": [],
       "content": "1. Scope FRC 787.787 is a framework paper for coherent transport in driven open physical systems. It is not a claim of a new fundamental force, a replacement for accepted equations, or a license to reinterpret famous experiments after the fact. The framework asks one testable question: does a measured coherence field improve held-out prediction after the accepted baseline has already been given a fair chance? If the answer is no, Lambda-Flight fails for that platform. If the answer is yes, the...",
       "url": "/en/papers/FRC-787-787",
-      "date": "2026-07-09",
-      "version": "v1.1",
+      "date": "2026-07-12",
+      "version": "v1.2",
       "muLevel": "mu4",
-      "doi": "10.5281/zenodo.21298185",
+      "doi": "10.5281/zenodo.21328432",
       "conceptDoi": "10.5281/zenodo.21266619",
       "epistemicStatus": "frontier",
       "retrievalPriority": 80

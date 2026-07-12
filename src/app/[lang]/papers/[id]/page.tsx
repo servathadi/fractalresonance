@@ -273,7 +273,7 @@ export default async function PaperPage({ params }: Props) {
           )}
 
           {/* Body — rendered from trusted local markdown files at build time */}
-          <div className={`content-body min-w-0 max-w-full overflow-x-auto ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
+          <div className={`content-body min-w-0 max-w-full overflow-x-hidden ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 
