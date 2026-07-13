@@ -113,7 +113,7 @@ export default async function PaperPage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const canonicalId = paper.frontmatter.id;
-  const hasPdf = fs.existsSync(path.join(process.cwd(), 'public', 'papers', `${canonicalId}.pdf`));
+  const hasPdf = fs.existsSync(path.join(process.cwd(), 'public', 'paper-pdfs', `${canonicalId}.pdf`));
   const meta = toPaperMeta(paper);
   const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[canonicalId] || [];
@@ -193,7 +193,7 @@ export default async function PaperPage({ params }: Props) {
                   ))}
                   {hasPdf && (
                     <a
-                      href={`/papers/${canonicalId}.pdf`}
+                      href={`/paper-pdfs/${canonicalId}.pdf`}
                       download
                       title="Download the DOI-stamped PDF (also permanently archived on Zenodo via the DOI)"
                       className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 border border-frc-blue rounded-md text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
