@@ -1,5 +1,6 @@
 # v1 URL compatibility — preserve all existing routes
 /papers  /en/papers  301
+/papers/:id.pdf  /paper-pdfs/:id.pdf  301
 /papers/*  /en/papers/:splat  301
 /books  /en/books  301
 /books/*  /en/books/:splat  301
