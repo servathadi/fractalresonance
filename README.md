@@ -1,150 +1,125 @@
-# Fractal Resonance Coherence — Web Platform
+<div align="center">
+  <a href="https://fractalresonance.com">
+    <img src="public/brand/banner.jpg" alt="Fractal Resonance Coherence" width="100%">
+  </a>
 
-**A research vault for the FRC framework, built AI-first and human-readable.**
+# Fractal Resonance Coherence
 
-```
-fractalresonance.com
-```
+**An open research corpus and web platform for coherence, reciprocity, scale-aware dynamics, and falsifiable tests.**
 
-## Quick Start
+[![Website](https://img.shields.io/badge/website-fractalresonance.com-C9A227?style=flat-square)](https://fractalresonance.com)
+[![Zenodo](https://img.shields.io/badge/Zenodo-FRC_community-1682D4?style=flat-square)](https://zenodo.org/communities/frc)
+[![License](https://img.shields.io/badge/license-CC_BY--NC--ND_4.0-6B7280?style=flat-square)](#license)
+[![Status](https://img.shields.io/badge/status-open_research_program-1F3A5F?style=flat-square)](#research-posture)
+</div>
+
+## What FRC is
+
+Fractal Resonance Coherence (FRC) is an open research program investigating how coherence, entropy, coupling, and scale interact in open systems. Its papers range from exact mathematical results and operational models to conjectures and empirical test programs.
+
+This repository is the public source for [fractalresonance.com](https://fractalresonance.com). It contains the research corpus, publication assets, machine-readable catalogs, and the Next.js application that presents them.
+
+> FRC is a developing framework, not an established physical theory. Each paper carries explicit publication, epistemic, and canon-status labels so mathematical results, model-dependent findings, conjectures, and open tests are not read as interchangeable claims.
+
+## Start here
+
+| Route | Purpose |
+|---|---|
+| [FRC 100.000 — Canonical stance and reading map](https://fractalresonance.com/en/papers/FRC-100-000) | Version-aware entrance to the framework |
+| [Paper catalog](https://fractalresonance.com/en/papers) | Browse the public corpus and status labels |
+| [FRC 830 — Reciprocity Mathematics](https://fractalresonance.com/en/papers/FRC-830-000) | Exact coordinate results, lift obstructions, and scoped no-go results |
+| [Zenodo community](https://zenodo.org/communities/frc) | Deposited releases and DOI records |
+| [For AI](https://fractalresonance.com/for-ai) | Machine-readable orientation and retrieval routes |
+
+## FRC 830 — Reciprocity Mathematics
+
+The six-paper 830 set asks what additional structure would be required to promote FRC’s normalized entropy–coherence ledger from bookkeeping into a genuine duality. It proves exact coordinate-level results, types operational morphisms, derives lift obstructions, and states clearly where physical promotion remains open.
+
+| Paper | Focus | Read |
+|---|---|---|
+| **830.000** — What Would Make FRC Reciprocity a Duality? | Terminology lock and promotion gates | [Web](https://fractalresonance.com/en/papers/FRC-830-000) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-000.pdf) |
+| **830.001** — The Reciprocity One-Form | Affine classification and domain rigidity | [Web](https://fractalresonance.com/en/papers/FRC-830-001) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-001.pdf) |
+| **830.002** — Operational Registers and Morphisms | Typed registers and reciprocity-preserving arrows | [Web](https://fractalresonance.com/en/papers/FRC-830-002) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-002.pdf) |
+| **830.003** — Exact Phase-Family Test | Von Mises lift obstruction | [Web](https://fractalresonance.com/en/papers/FRC-830-003) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-003.pdf) |
+| **830.004** — Dimension Threshold | One-parameter and qubit lift obstructions | [Web](https://fractalresonance.com/en/papers/FRC-830-004) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-004.pdf) |
+| **830.005** — FRC and Quantum Born Reciprocity | Present-structure obstruction to Majid-style self-duality | [Web](https://fractalresonance.com/en/papers/FRC-830-005) · [PDF](https://fractalresonance.com/paper-pdfs/FRC-830-005.pdf) |
+
+Shared release: [Zenodo concept DOI 10.5281/zenodo.21385391](https://doi.org/10.5281/zenodo.21385391).
+
+## Research posture
+
+The corpus separates four kinds of work:
+
+- **Exact mathematics** — proofs and classifications within declared assumptions.
+- **Operational models** — register-specific constructions and simulations.
+- **Physical conjectures** — proposed interpretations that still require independent tests.
+- **Empirical gates** — experiments or datasets capable of supporting, narrowing, or falsifying a claim.
+
+Current papers are preprints or research candidates unless their individual records state otherwise. Follow the labels and version information on each paper rather than inferring status from the FRC name.
+
+## Repository map
+
+| Path | Responsibility |
+|---|---|
+| `content/{lang}/` | Markdown papers, books, articles, concepts, and topics |
+| `public/paper-pdfs/` | Public PDF carriers linked from paper pages |
+| `public/media/` | Covers, figures, and release images |
+| `registry/` | Public paper registry and DOI projection |
+| `src/app/` | Next.js routes and static-page generation |
+| `src/components/` | Reading, navigation, search, and status interfaces |
+| `scripts/` | Catalog generation, content validation, and governance checks |
+| `docs/` | Architecture, content, brand, and operating documentation |
+
+## Development
 
 ```bash
 git clone https://github.com/servathadi/fractalresonance.git
 cd fractalresonance
-
 npm install
-npm run dev        # localhost:3000
-npm run build      # Static export → Cloudflare Pages
+npm run dev
 ```
 
-## Features
+The local application runs at `http://localhost:3000`.
 
-| Feature | Description |
-|---------|-------------|
-| Light/Dark Theme | `next-themes` with CSS variable swap. Default: dark. Toggle in header micro-bar. |
-| Reading Mode | Floating book icon on paper pages. Hides chrome, centers content at 680px. Esc to exit. |
-| Text Share | Select any text → popover with Copy, Tweet, Link buttons. |
-| Video Series | 7-episode grid on homepage with slide thumbnails linked to YouTube playlist. |
-| SEO Infrastructure | Dynamic sitemap, Google Scholar meta, Dublin Core, JSON-LD SchemaOrg. |
-| Wikilinks | `[[FRC-100-001]]` cross-references between papers with backlinks. |
-| Multi-language | English + Farsi (extensible to any language). |
-| Academic Profiles | ORCID, ResearchGate, Academia.edu, Google Scholar linked. |
+Before proposing a change:
 
-## Architecture
-
-```
-content/              ← Markdown content (Obsidian-compatible)
-├── en/papers/        ← English papers
-├── en/concepts/      ← Concept pages
-├── fa/papers/        ← Farsi papers
-└── {lang}/{type}/    ← Any language
-
-sources/              ← Raw source material (not deployed)
-├── slides/           ← Presentation PDFs + extracted images
-└── README.md         ← Pipeline docs
-
-src/                  ← Next.js 15 + React 19 + TypeScript
-├── app/              ← Pages, routes, layout
-│   ├── page.tsx      ← Homepage (hero, video, equations, papers, video series)
-│   ├── layout.tsx    ← Root layout (ThemeProvider, Header, Footer, TextSharePopover)
-│   ├── sitemap.ts    ← Dynamic sitemap generation
-│   └── [lang]/       ← Localized pages (papers, formulas, about, etc.)
-├── components/       ← UI components
-│   ├── Header.tsx    ← Nav + ORCID link + ThemeToggle
-│   ├── Footer.tsx    ← Links (Zenodo, ORCID, ResearchGate, Academia, GitHub)
-│   ├── ThemeProvider.tsx  ← next-themes wrapper
-│   ├── ThemeToggle.tsx    ← Sun/moon icon toggle
-│   ├── ReadingMode.tsx    ← Floating reading mode button
-│   ├── TextSharePopover.tsx ← Selection-based share UI
-│   ├── VideoSeries.tsx    ← Episode grid with slide thumbnails
-│   ├── Sidebar.tsx        ← Paper tree navigation
-│   ├── TableOfContents.tsx ← Auto-generated ToC with scroll tracking
-│   ├── MarkdownContent.tsx ← Renders HTML from markdown
-│   └── SchemaScript.tsx   ← JSON-LD injection
-└── lib/              ← Utilities
-    ├── content.ts    ← Markdown parser, paper/concept loaders
-    ├── markdown.ts   ← Markdown → HTML renderer, ToC extractor
-    └── schema.ts     ← JSON-LD generators (Person, Dataset, ScholarlyArticle)
-
-public/               ← Static assets (deployed)
-├── brand/            ← Logo (SVG, JPG), banner
-├── media/slides/     ← Presentation slide images (covers + diagrams)
-├── infographics/     ← NotebookLM infographic slides
-└── llms.txt          ← LLM discovery file
-
-docs/                 ← Project documentation
-├── ARCHITECTURE.md   ← System architecture
-├── BRAND.md          ← Color, typography, design rules
-├── FORMULAS.md       ← All FRC equations
-├── PAPERS.md         ← Paper series index
-├── CONTENT_PIPELINE.md ← Content processing workflow
-└── CONTRIBUTING.md   ← Contribution guidelines
+```bash
+npm run validate
+npm run governance:check
+npm run test:run
+npm run build
 ```
 
-## Theme System
+The repository currently has known Vitest configuration debt around `@/` path aliases and React test setup. Content validation, targeted routing tests, and the production build remain required gates; do not describe the full suite as green until that harness is repaired.
 
-```
-next-themes (client) → sets .dark class on <html>
-                      ↓
-CSS variables in :root (light) / .dark (dark)
-                      ↓
-Tailwind @theme inline → utilities auto-resolve via CSS vars
-```
-
-| Variable | Dark (brand default) | Light |
-|----------|---------------------|-------|
-| `--frc-void` | `#0B1020` | `#FAFBFC` |
-| `--frc-text` | `#E6E8EC` | `#1A1D23` |
-| `--frc-text-dim` | `#9CA3AF` | `#5A6170` |
-| `--frc-blue` | `#1F3A5F` | `#CBD5E1` |
-| `--frc-gold` | `#C9A227` | `#96780A` (WCAG AA) |
-| `--frc-steel` | `#6B7280` | `#64748B` |
-
-## YouTube Series
-
-7-episode playlist: [Fractal Resonance Coherence](https://www.youtube.com/playlist?list=PLhRVhnQbVX2XOn3e-HjD1J0NcaEzMDQJY)
-
-| Ep | Title | URL |
-|----|-------|-----|
-| 1 | The Ghost in the Machine | youtu.be/PjWnk7RjItc |
-| 2 | Order in the Chaos | youtu.be/I77qlVunpRs |
-| 3 | The Engine of Coherence | youtu.be/Cy_5ofEuHLA |
-| 4 | The Vortex of Reality | youtu.be/i-mDr5wz1hA |
-| 5 | The Illusion of Chance | youtu.be/Y2_85m-zVV0 |
-| 6 | Hunting for the Glitch | youtu.be/fthtrwfoytg |
-| 7 | The Resonant Mind (Finale) | youtu.be/UwE_SNAioTs |
-
-## SEO & Discoverability
-
-- **Dynamic sitemap** — auto-generated from all pages with correct dates
-- **Google Scholar meta** — `citation_title`, `citation_author`, `citation_doi`, etc.
-- **Dublin Core** — `DC.title`, `DC.creator`, `DC.date`, `DC.identifier`
-- **JSON-LD** — ScholarlyArticle, Person (ORCID/RG/Academia), Dataset (Zenodo), WebSite
-- **Academic profiles** — ORCID, ResearchGate, Academia.edu, Google Scholar
-- **`/llms.txt`** — LLM discovery endpoint
-
-## Stack
+## Platform
 
 | Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15, React 19, TypeScript |
-| Styling | Tailwind CSS 4, CSS custom properties |
-| Theme | next-themes (dark/light with system detection) |
-| Content | Markdown + YAML frontmatter (Obsidian-compatible) |
-| Hosting | Cloudflare Pages (static export, global CDN) |
-| Source | GitHub (`servathadi/fractalresonance`, branch: `main`) |
-| Deploy | Push to main → Cloudflare auto-deploys |
+|---|---|
+| Application | Next.js 15, React 19, TypeScript |
+| Styling | Tailwind CSS 4 and CSS custom properties |
+| Content | Markdown and YAML frontmatter |
+| Discovery | Sitemap, Google Scholar metadata, Dublin Core, JSON-LD, `llms.txt` |
+| Hosting | Cloudflare Pages static export |
+| Archival | Zenodo DOI releases |
+
+## Deployment safety
+
+This is the live source repository for `fractalresonance.com`. Work on a feature branch, run the gates above, deploy a Cloudflare preview, and obtain human visual approval before updating production.
+
+The Cloudflare project’s production-branch setting has drifted historically, so verify it before any manual upload. The GitHub Actions deployment token also requires repair as of July 2026; do not assume a successful push implies a successful Cloudflare deployment.
 
 ## Links
 
-- Production: https://fractalresonance.com
-- Channel: https://www.youtube.com/@fractalresonance
-- ORCID: https://orcid.org/0009-0004-7412-5129
-- Zenodo: https://zenodo.org/communities/frc
-- ResearchGate: https://www.researchgate.net/profile/Hadi-Servat
-- Issues: https://github.com/servathadi/fractalresonance/issues
+- [Website](https://fractalresonance.com)
+- [Papers](https://fractalresonance.com/en/papers)
+- [Zenodo](https://zenodo.org/communities/frc)
+- [YouTube](https://www.youtube.com/@fractalresonance)
+- [ORCID](https://orcid.org/0009-0004-7412-5129)
+- [Issues](https://github.com/servathadi/fractalresonance/issues)
 
----
+## License
+
+Research texts and repository content are released under **CC BY-NC-ND 4.0** unless a specific file states otherwise.
 
 **Author:** Hadi Servat
-**License:** CC BY-NC-ND 4.0
