@@ -1,3 +1,48 @@
+# FRC README and Repository Profile Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Turn `servathadi/fractalresonance` into a tidy research-first GitHub landing page with a branded header, accurate scientific posture, clear corpus navigation, and complete repository metadata.
+
+**Architecture:** Replace the root README with a compact portal that reuses the tracked FRC banner and sends mutable scientific detail to canonical website pages. Keep developer setup and deployment safety in lower sections. Apply GitHub description, homepage, and topics through repository metadata after the README commit is ready.
+
+**Tech Stack:** GitHub-flavored Markdown, tracked static assets, Next.js 15 repository tooling, GitHub CLI.
+
+## Global Constraints
+
+- Use the existing `public/brand/banner.jpg`; do not generate replacement artwork.
+- Do not claim independent peer review, physical validation, or consensus acceptance.
+- If `k*` appears, call it the scale-invariant Boltzmann bridge; never describe it as a fixed fitted constant.
+- Preserve the CC BY-NC-ND 4.0 license statement.
+- Do not change manuscripts, paper metadata, evidence status, website UI, or the Cloudflare GitHub Actions secret.
+- Do not claim that GitHub Actions deployment is currently healthy.
+
+---
+
+### Task 1: Research-first README
+
+**Files:**
+- Modify: `README.md`
+
+**Interfaces:**
+- Consumes: `public/brand/banner.jpg`, the public FRC paper routes, the six `public/paper-pdfs/FRC-830-00N.pdf` assets, and the repository’s existing npm scripts.
+- Produces: a GitHub-renderable README that serves public readers first and maintainers second.
+
+- [ ] **Step 1: Run the structural check and verify that the current README fails the new design contract**
+
+Run:
+
+```bash
+node -e 'const fs=require("fs");const s=fs.readFileSync("README.md","utf8");const required=["public/brand/banner.jpg","## What FRC is","## Start here","## FRC 830 — Reciprocity Mathematics","## Research posture","## Development","## Deployment safety"];const missing=required.filter(x=>!s.includes(x));console.log({missing});process.exit(missing.length?1:0)'
+```
+
+Expected: exit 1 with all or most required markers listed in `missing`.
+
+- [ ] **Step 2: Replace `README.md` with the approved research-first content**
+
+Use this complete structure and copy:
+
+```markdown
 <div align="center">
   <a href="https://fractalresonance.com">
     <img src="public/brand/banner.jpg" alt="Fractal Resonance Coherence" width="100%">
@@ -123,3 +168,109 @@ The Cloudflare project’s production-branch setting has drifted historically, s
 Research texts and repository content are released under **CC BY-NC-ND 4.0** unless a specific file states otherwise.
 
 **Author:** Hadi Servat
+```
+
+- [ ] **Step 3: Run the structural check and confirm it passes**
+
+Run the Step 1 command again.
+
+Expected: `{ missing: [] }` and exit 0.
+
+- [ ] **Step 4: Verify local asset and route references**
+
+Run:
+
+```bash
+test -f public/brand/banner.jpg
+for n in 000 001 002 003 004 005; do test -f "public/paper-pdfs/FRC-830-$n.pdf"; done
+git diff --check
+```
+
+Expected: all commands exit 0 with no output from `git diff --check`.
+
+- [ ] **Step 5: Commit the README**
+
+```bash
+git add README.md
+git commit -m "docs: make repository landing page research-first"
+```
+
+Expected: one commit modifying only `README.md`.
+
+---
+
+### Task 2: Verification and GitHub publication
+
+**Files:**
+- Modify during build, then restore generated timestamps: `public/catalog.json`, `public/search-index.json`, `public/search-index-{en,es,fa,fr}.json`
+- Create and commit: `docs/superpowers/plans/2026-07-15-readme-repository-profile.md`
+- Repository metadata: GitHub description, homepage, and topics for `servathadi/fractalresonance`
+
+**Interfaces:**
+- Consumes: the committed README, npm validation/build scripts, GitHub CLI authentication, and the repository’s default `main` branch.
+- Produces: a verified branch, merged public README, and populated GitHub repository profile.
+
+- [ ] **Step 1: Run documentation-relevant gates**
+
+```bash
+npm run validate
+npm exec vitest run src/__tests__/paper-pdf-routing.test.ts src/__tests__/responsive-table-css.test.ts
+npm run build
+```
+
+Expected: validation passes with the existing legacy warnings, 7 targeted tests pass, and the static build completes. Restore only regenerated timestamp fields afterward and confirm `git diff --check` passes.
+
+- [ ] **Step 2: Commit the implementation plan**
+
+```bash
+git add docs/superpowers/plans/2026-07-15-readme-repository-profile.md
+git commit -m "docs: plan FRC repository profile refresh"
+```
+
+Expected: one plan-document commit.
+
+- [ ] **Step 3: Push the feature branch and open a pull request**
+
+```bash
+git push -u origin codex/frc-readme-polish
+gh pr create --repo servathadi/fractalresonance --base main --head codex/frc-readme-polish --title "Polish the FRC repository landing page" --body "Reframes the public README as a research-first portal, reuses the existing FRC banner, adds the FRC 830 set and explicit evidence posture, and retains concise development and deployment guidance."
+```
+
+Expected: branch push succeeds and GitHub returns a pull-request URL.
+
+- [ ] **Step 4: Merge the approved pull request**
+
+```bash
+gh pr merge --repo servathadi/fractalresonance --squash --delete-branch=false
+```
+
+Expected: pull request reports `MERGED`. A Cloudflare workflow failure caused solely by the already-known stale token is recorded but does not invalidate the GitHub README publication.
+
+- [ ] **Step 5: Apply repository metadata**
+
+```bash
+gh repo edit servathadi/fractalresonance \
+  --description "Open research corpus and web platform for Fractal Resonance Coherence (FRC): coherence, reciprocity, scale-aware dynamics, papers, models, and falsifiable tests." \
+  --homepage "https://fractalresonance.com" \
+  --add-topic fractal-resonance \
+  --add-topic coherence \
+  --add-topic open-systems \
+  --add-topic nonlinear-dynamics \
+  --add-topic mathematical-physics \
+  --add-topic research \
+  --add-topic nextjs \
+  --add-topic cloudflare-pages
+```
+
+Expected: command exits 0.
+
+- [ ] **Step 6: Verify the public repository**
+
+```bash
+gh repo view servathadi/fractalresonance --json description,homepageUrl,repositoryTopics,defaultBranchRef,url
+gh api repos/servathadi/fractalresonance/readme --jq '.html_url'
+gh pr view --repo servathadi/fractalresonance --json state,mergedAt,mergeCommit,url
+```
+
+Expected: description and homepage match the approved values, all eight topics appear, the README resolves on `main`, and the pull request state is `MERGED`.
+
