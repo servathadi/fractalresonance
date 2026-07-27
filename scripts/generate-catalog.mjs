@@ -76,6 +76,7 @@ function inferEpistemicStatus(type, item) {
 
   if (type === 'papers') {
     if (item.canonStatus === 'frontier') return 'frontier';
+    if (item.canonStatus === 'framework') return 'philosophical';
     if (item.canonStatus === 'archive') return 'archive';
     if (/^FRC-(100|566)(?:-|$)/i.test(item.id || '')) return 'primary';
     if (FRONTIER_PAPERS.has(String(item.id || '').toUpperCase())) return 'frontier';

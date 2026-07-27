@@ -91,6 +91,8 @@ function getEpistemicMetadata(type, id, bookId = null, frontmatter = {}) {
   } else if (type === 'papers') {
     if (frontmatter.canonStatus === 'frontier') {
       epistemicStatus = 'frontier';
+    } else if (frontmatter.canonStatus === 'framework') {
+      epistemicStatus = 'philosophical';
     } else if (frontmatter.canonStatus === 'archive') {
       epistemicStatus = 'archive';
     } else if (/^FRC-(100|566)(?:-|$)/i.test(id)) {
