@@ -1141,6 +1141,7 @@ export function getContentEpistemicStatus(
     const canonStatus = getPaperCanonStatus(frontmatter);
     if (canonStatus === 'living-core') return 'primary';
     if (canonStatus === 'frontier') return 'frontier';
+    if (canonStatus === 'framework') return 'philosophical';
     return 'archive';
   }
   if (type === 'article' || type === 'blog') return 'commentary';

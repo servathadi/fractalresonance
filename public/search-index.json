@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T23:33:15.953Z",
+  "generated": "2026-07-27T18:20:18.429Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -416,6 +416,274 @@
       "conceptDoi": "10.5281/zenodo.21253574",
       "epistemicStatus": "primary",
       "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-700-000",
+      "type": "papers",
+      "lang": "en",
+      "title": "The Threshold Charter: Evidence, Interpretation, and Register Discipline v0.1",
+      "abstract": "This charter defines the FRC 700.00x series as threshold work: it governs transitions among physical observations, formal models, operational realizations, and FRC μ interpretations without treating those domains as interchangeable. It classifies claims, fixes a one-way evidence rule, specifies the μ topology as an FRC convention, and requires an interface record whenever a conclusion crosses a declared boundary. Exact results from the FRC 830 series may constrain μ interpretations; μ resemblance cannot prove those results. The charter adds no physical law or universal ontology.",
+      "tags": [
+        "thresholds",
+        "mu-levels",
+        "evidence",
+        "interpretation",
+        "register-discipline",
+        "scope"
+      ],
+      "taxons": [
+        "thresholds",
+        "mu-levels",
+        "evidence",
+        "interpretation",
+        "register-discipline",
+        "scope",
+        "frc-700"
+      ],
+      "content": "FRC 700.000 v0.1 - The Threshold Charter 0. Result in one paragraph The FRC 700.00x series is a series of threshold papers, not a new branch of physics. Its subject is the disciplined passage from one description to another. This paper establishes four claim classes, a forward evidence rule, a non-transfer rule, and a minimum threshold record. The FRC μ topology may organize an account of ground, constituents, units, relations, logic, history, story, integration, witness, boundary, and...",
+      "url": "/en/papers/FRC-700-000",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-001",
+      "type": "papers",
+      "lang": "en",
+      "title": "The Two-Face Threshold: Inward Realization, Selective Interface, and Outward Participation v0.1",
+      "abstract": "A bounded unit has an inward realization and an outward participation only relative to a declared boundary. Between them lies a selective interface, not an identity. This paper represents a threshold by an inward space X, environment E, boundary, outward description L, and map ell:X→L. It proves that a noninjective interface cannot support unique inward reconstruction and gives a finite fiber example. FRC 830 strong morphisms then provide a stricter commuting-square test for proposed transformations. The result constrains the FRC μ lens without deriving the 830 mathematics from it.",
+      "tags": [
+        "thresholds",
+        "interface",
+        "inward-outward",
+        "non-reconstruction",
+        "ledger",
+        "mu-levels"
+      ],
+      "taxons": [
+        "thresholds",
+        "interface",
+        "inward-outward",
+        "non-reconstruction",
+        "ledger",
+        "mu-levels",
+        "frc-700"
+      ],
+      "content": "FRC 700.001 v0.1 - The Two-Face Threshold 0. Result in one paragraph A unit's inward and outward faces are roles on opposite sides of a declared threshold. They are not two substances, and they are not the entropy and coherence coordinates of an FRC ledger. Write the inward realization as $X$, its environment as $E$, its boundary as $\\partial X$, its outward-description space as $L$, and its selective interface as $\\ell:X\\to L$. The exact result is elementary but decisive: if $\\ell$ is...",
+      "url": "/en/papers/FRC-700-001",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-002",
+      "type": "papers",
+      "lang": "en",
+      "title": "The Recursive Boundary: Whole–Unit Reindexing in the μ Topology v0.1",
+      "abstract": "FRC μ assignments are indexed relations among an object, its role, and a declared system boundary; they are not permanent labels attached to objects. This paper defines a bounded system, an indexed role map, and a boundary-change record. It proves the consistency of whole–unit reindexing: the same object can be a bounded unit at one boundary and a component of a larger unit at another without contradiction because the predicates have different boundary indices. 'Fractal' is restricted to recurrence of the component–unit–relation pattern under boundary change, not geometric self-similarity or fractal dimension.",
+      "tags": [
+        "thresholds",
+        "nested-systems",
+        "boundary",
+        "role-indexing",
+        "structural-recurrence",
+        "mu-levels"
+      ],
+      "taxons": [
+        "thresholds",
+        "nested-systems",
+        "boundary",
+        "role-indexing",
+        "structural-recurrence",
+        "mu-levels",
+        "frc-700"
+      ],
+      "content": "FRC 700.002 v0.1 - The Recursive Boundary 0. Result in one paragraph An object does not carry one context-free μ number. It receives a role relative to a declared boundary. Write a bounded system as $Sb=(Xb,Eb,\\partialb)$ and the role of an object $o$ as $\\rhob(o)$. Then $\\rhob(o)=\\mu2$ at one boundary and $\\rhoc(o)=\\mu1$ or a component-role at a larger boundary is no contradiction: the predicates are indexed by different systems. This makes the FRC topology nested. It is called fractal only in...",
+      "url": "/en/papers/FRC-700-002",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-003",
+      "type": "papers",
+      "lang": "en",
+      "title": "Return Is an Update: Memory, Feedback, and the Next Ground v0.1",
+      "abstract": "The FRC toroidal qualifier means that outward passage can return into a later ground, not that the path is a geometric circle. This paper models a state-and-environment update and separates memory, feedback, delay, and environmental input. If a selective threshold merges two reachable states and every downstream step is deterministic under fixed inputs, the completed cycle cannot distinguish their histories. Its return map is noninjective on those histories. The next ground need not equal the prior ground; equality requires a separate recurrence test.",
+      "tags": [
+        "thresholds",
+        "toroidal-return",
+        "feedback",
+        "memory",
+        "noninvertibility",
+        "mu-levels"
+      ],
+      "taxons": [
+        "thresholds",
+        "toroidal-return",
+        "feedback",
+        "memory",
+        "noninvertibility",
+        "mu-levels",
+        "frc-700"
+      ],
+      "content": "FRC 700.003 v0.1 - Return Is an Update 0. Result in one paragraph In the FRC μ topology, toroidal return means that outward participation can feed a later ground. It does not mean that a system travels around a physical torus or returns unchanged. For a fixed cycle write $z{n+1}=T(zn,en)$, where $zn$ is the declared ground-state record and $en$ is environmental input. If two reachable intermediate states are collapsed by one selective interface and all later steps are deterministic under the...",
+      "url": "/en/papers/FRC-700-003",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-004",
+      "type": "papers",
+      "lang": "en",
+      "title": "History, Story, and Witness: The Semantic Threshold v0.1",
+      "abstract": "FRC distinguishes a recorded history from its story and from a system's response. This paper defines a history space, a narrative map, and a context-indexed witness-response map. A noninjective narrative does not reconstruct its history, while one history can support several narratives when the map or context changes. Integration, monitoring, reportability, reflective witness, and subjective consciousness remain separate. A claim that a story changes a physical trajectory must identify a causal carrier and comparison protocol. The result governs the μ5–μ6 threshold without treating meaning as unreal or automatically causal.",
+      "tags": [
+        "thresholds",
+        "history",
+        "narrative",
+        "witness",
+        "semantics",
+        "non-reconstruction",
+        "mu-levels"
+      ],
+      "taxons": [
+        "thresholds",
+        "history",
+        "narrative",
+        "witness",
+        "semantics",
+        "non-reconstruction",
+        "mu-levels",
+        "frc-700"
+      ],
+      "content": "FRC 700.004 v0.1 - History, Story, and Witness 0. Result in one paragraph Events, stories, and responses are separate objects. Let $\\mathcal H$ be a space of recorded histories, $\\mathcal M$ a space of narratives or meaning assignments, and $N:\\mathcal H\\to\\mathcal M$ a declared narrative map. Let $W$ map a history, its narrative, and a context to an action, judgment, or report. If $N$ is noninjective, the narrative alone cannot reconstruct which history occurred. If the map or context changes,...",
+      "url": "/en/papers/FRC-700-004",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu5",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-005",
+      "type": "papers",
+      "lang": "en",
+      "title": "The μ Atlas: Cross-System Assignment and Failure Audit v0.1",
+      "abstract": "This paper turns the FRC μ topology into an auditable assignment task. It provides an authorial atlas for an egg, human, AI thread-agent, football match, ship, and solar system, while allowing absent and unresolved registers. Each application declares its unit, boundary, selective interface, retained and discarded information, testable link, and prohibited inference. A preregistered protocol then asks at least three blinded independent raters to classify fixed cases and records raw agreement and Fleiss' kappa before adjudication. Version 0.1 contains no independent-rater data and makes no reproducibility claim. Agreement would support methodological usability; structured disagreement would locate ambiguous definitions; arbitrary assignment would force revision or rejection.",
+      "tags": [
+        "thresholds",
+        "mu-atlas",
+        "cross-system",
+        "audit",
+        "inter-rater-agreement",
+        "failure-conditions"
+      ],
+      "taxons": [
+        "thresholds",
+        "mu-atlas",
+        "cross-system",
+        "audit",
+        "inter-rater-agreement",
+        "failure-conditions",
+        "frc-700"
+      ],
+      "content": "FRC 700.005 v0.1 - The μ Atlas 0. Result in one paragraph The μ topology becomes methodologically useful only if people other than its author can apply it under fixed instructions and expose where it fails. This paper supplies an assignment record, a six-system authorial atlas, and a preregistered independent-rater protocol. A μ assignment is always indexed by object, role, boundary, and evidence status; absent and unresolved are valid outcomes. Version 0.1 reports no independent-rater data....",
+      "url": "/en/papers/FRC-700-005",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-006",
+      "type": "papers",
+      "lang": "en",
+      "title": "The Reflexive Threshold: Corpus Integration, Witness, and Claim-Graph Audit v0.1",
+      "abstract": "This paper treats the FRC corpus as a declared bounded unit and asks what may legitimately occupy its mu6 role. It defines a typed claim graph, class-specific promotion certificates, and a witness audit that detects unsupported promotions, unresolved dependencies, contradictions, boundary drift, and required repairs. A no-silent-promotion theorem proves that an interpretive path cannot license a formal, model-specific, or empirical conclusion unless the path contains the corresponding certificate. The result is a governance theorem, not a theorem about nature. Mu6 here means status-preserving integration and critical audit; it is neither corpus consciousness nor self-validation. Applications to the FRC 566, 787, and 830 series and to both current philosophical books show how the audit preserves useful synthesis while refusing evidential inflation.",
+      "tags": [
+        "thresholds",
+        "claim-graph",
+        "corpus-audit",
+        "witness",
+        "evidence",
+        "no-silent-promotion"
+      ],
+      "taxons": [
+        "thresholds",
+        "claim-graph",
+        "corpus-audit",
+        "witness",
+        "evidence",
+        "no-silent-promotion",
+        "frc-700"
+      ],
+      "content": "FRC 700.006 v0.1 - The Reflexive Threshold 0. Result in one paragraph When FRC itself is the declared unit, its μ6 role can be made precise as an auditable operation: integrate claims while preserving their classes, dependencies, boundaries, contradictions, and kill conditions. This paper represents the corpus by a typed claim graph $G$, attaches certificates to class-promoting edges, and defines a witness audit $W(G)$. The no-silent-promotion theorem then states that a path made only of...",
+      "url": "/en/papers/FRC-700-006",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu6",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
+    },
+    {
+      "id": "FRC-700-007",
+      "type": "papers",
+      "lang": "en",
+      "title": "The FRC Threshold Handbook: A Standalone Onboarding and Application Protocol v0.1",
+      "abstract": "This handbook is a self-contained entry point to the FRC threshold method. A technically literate reader or fresh AI context can use this paper alone to classify claims, declare a boundary, map inward realization through a selective interface to outward participation, assign boundary-indexed mu roles, distinguish trajectory from story and integration from witness, construct an updated ground, apply the FRC 830 state/ledger constraints, and run the corpus-witness audit. The canonical entropy-coherence relation is stated with its scale-invariant starred Boltzmann bridge and its physical extension remains conjectural. A complete football example, five compact cases, a ten-step workflow, an AI onboarding block, exercises, answers, and a frozen fresh-reader rubric are included. No independent reader or model has yet validated the handbook's usability.",
+      "tags": [
+        "thresholds",
+        "handbook",
+        "onboarding",
+        "mu-topology",
+        "interfaces",
+        "claim-status",
+        "audit"
+      ],
+      "taxons": [
+        "thresholds",
+        "handbook",
+        "onboarding",
+        "mu-topology",
+        "interfaces",
+        "claim-status",
+        "audit",
+        "frc-700"
+      ],
+      "content": "FRC 700.007 v0.1 - The FRC Threshold Handbook 0. One-page orientation What is FRC? Fractal Resonance Coherence (FRC) is a status-labeled research program about entropy, coherence, boundaries, open systems, observation, and the passage between descriptions. Its corpus contains interpretive frameworks, exact mathematics, model-specific studies, empirical protocols, and philosophical books. These are not interchangeable kinds of claim. What are threshold papers? FRC 7xx papers are threshold...",
+      "url": "/en/papers/FRC-700-007",
+      "date": "Thu Jul 16 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "version": "v0.1",
+      "muLevel": "mu6",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "philosophical",
+      "retrievalPriority": 40
     },
     {
       "id": "FRC-700-777",
@@ -3184,15 +3452,15 @@
     }
   ],
   "stats": {
-    "total": 109,
+    "total": 117,
     "byLang": {
-      "en": 64,
+      "en": 72,
       "es": 15,
       "fa": 15,
       "fr": 15
     },
     "byType": {
-      "papers": 41,
+      "papers": 49,
       "articles": 8,
       "concepts": 16,
       "topics": 8,

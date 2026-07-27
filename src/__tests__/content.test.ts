@@ -1,11 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import {
+  getContentEpistemicStatus,
   getPaperCanonStatus,
+  isCurrentReadingContent,
   isPaperCatalogEntry,
   parseFrontmatter,
   sortPapersForLibrary,
   type ParsedContent,
-} from '@/lib/content';
+} from '../lib/content';
+import { getGovernanceArchiveNote } from '../lib/content-governance';
 
 describe('Content utilities', () => {
   it('parses frontmatter when closing delimiter has an inline comment', () => {
@@ -76,6 +79,19 @@ Body`);
   it('keeps the duplicate orientation page out of the normal catalog', () => {
     expect(isPaperCatalogEntry({ id: 'FRC-000-START-HERE' })).toBe(false);
     expect(isPaperCatalogEntry({ id: 'FRC-100-000' })).toBe(true);
+  });
+
+  it('keeps published framework papers in current discovery paths', () => {
+    const frontmatter = {
+      id: 'FRC-700-007',
+      canonStatus: 'framework' as const,
+      epistemicStatus: 'threshold-framework',
+    };
+
+    expect(getPaperCanonStatus(frontmatter)).toBe('framework');
+    expect(getGovernanceArchiveNote('paper', frontmatter.id)).toBeUndefined();
+    expect(getContentEpistemicStatus('paper', frontmatter)).toBe('philosophical');
+    expect(isCurrentReadingContent('paper', frontmatter)).toBe(true);
   });
 
   it('orders living core before frontier and archive, with current core first', () => {
