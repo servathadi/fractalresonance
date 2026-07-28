@@ -1,0 +1,4 @@
+Fractal Resonance public deployment
+Source commit: 318100d0b62d767c61db978b9128e9439e7b9e35
+Public corpus: FRC 700.000–700.007 and FRC 830.000–830.005 included
+Triggered: 2026-07-28
