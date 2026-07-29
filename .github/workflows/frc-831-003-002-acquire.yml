@@ -1,0 +1,54 @@
+name: Temporary FRC 831.003.002 dataset acquisition
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - .github/workflows/frc-831-003-002-acquire.yml
+      - tmp/FRC-831-003-002-FIGSHARE-LINK.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Acquire publisher minimum dataset
+        env:
+          DATA_URL: https://springernature.figshare.com/ndownloader/files/55140461
+        run: |
+          set -euo pipefail
+          mkdir -p artifact
+          curl --fail --location --retry 5 --retry-all-errors \
+            "$DATA_URL" \
+            --output artifact/patterns_3mms.nxs
+          test -s artifact/patterns_3mms.nxs
+          sha256sum artifact/patterns_3mms.nxs | tee artifact/SHA256SUMS.txt
+          file artifact/patterns_3mms.nxs | tee artifact/FILE_TYPE.txt
+          cat > artifact/PROVENANCE.json <<'JSON'
+          {
+            "article_doi": "10.1038/s41566-026-01892-5",
+            "dataset_doi": "10.6084/m9.figshare.29241950",
+            "download_endpoint": "https://springernature.figshare.com/ndownloader/files/55140461",
+            "file_name": "patterns_3mms.nxs",
+            "license": "CC BY 4.0",
+            "purpose": "Temporary acquisition for FRC 831.003.002 external-data certificate"
+          }
+          JSON
+      - name: Upload acquisition artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frc-831-003-002-minimum-dataset
+          path: artifact/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
