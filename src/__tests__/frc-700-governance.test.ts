@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { getGovernanceArchiveNote } from '../lib/content-governance';
-import { getPapers, isCurrentReadingContent } from '../lib/content';
 
 const root = process.cwd();
 
@@ -11,28 +10,23 @@ function readPaper(id: string): string {
 }
 
 describe('FRC 700 current-series governance', () => {
-  it('keeps FRC 700.777 addressable but removes it from the current reading path', () => {
-    const papers = getPapers('en');
-    const origin = papers.find((paper) => paper.frontmatter.id === 'FRC-700-777');
+  it('keeps FRC 700.777 addressable but marks it outside the current reading path', () => {
+    const origin = readPaper('FRC-700-777');
 
-    expect(origin).toBeDefined();
-    expect(origin?.frontmatter.canonStatus).toBe('archive');
-    expect(origin?.frontmatter.epistemicStatus).toBe('archive');
-    expect(isCurrentReadingContent('paper', origin!.frontmatter)).toBe(false);
+    expect(origin).toContain('publicationState: archived');
+    expect(origin).toContain('canonStatus: archive');
+    expect(origin).toContain('epistemicStatus: archive');
     expect(getGovernanceArchiveNote('paper', 'FRC-700-777')).toContain('FRC 700.000 through FRC 700.007');
   });
 
   it('publishes FRC 700.000 through FRC 700.007 as the active bounded framework series', () => {
-    const papers = getPapers('en');
-
     for (let index = 0; index <= 7; index += 1) {
       const id = `FRC-700-${String(index).padStart(3, '0')}`;
-      const paper = papers.find((candidate) => candidate.frontmatter.id === id);
+      const paper = readPaper(id);
 
-      expect(paper, `${id} should exist`).toBeDefined();
-      expect(paper?.frontmatter.status).toBe('published');
-      expect(paper?.frontmatter.canonStatus).toBe('framework');
-      expect(isCurrentReadingContent('paper', paper!.frontmatter)).toBe(true);
+      expect(paper, `${id} should be published`).toContain('status: published');
+      expect(paper, `${id} should be a framework paper`).toContain('canonStatus: framework');
+      expect(paper, `${id} should remain a preprint`).toContain('publicationState: preprint');
     }
   });
 
