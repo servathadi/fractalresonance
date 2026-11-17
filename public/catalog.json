@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-07-27T18:20:18.800Z",
+  "generated": "2026-11-17T01:26:33.442Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -1609,7 +1609,7 @@
           "title": "Resonant Computing: Coherence Processing Units and Non-Boolean Logic",
           "url": "https://fractalresonance.com/en/papers/FRC-841-004",
           "path": "/en/papers/FRC-841-004",
-          "abstract": "Proposes a computing architecture based on coupled oscillators rather than",
+          "abstract": "Proposes a computing architecture based on coupled oscillators rather than logic gates. Introduces the Resonant Bit (R-bit), which stores information in phase relations to a global coherence field, and the Coherence Processing Unit (CPU), which computes via deterministic phase-locking dynamics. We analyze error correction, computational complexity, and advantages over both classical and quantum computing paradigms.",
           "date": "2026-02-10",
           "author": "Hadi Servat",
           "muLevel": "mu4",

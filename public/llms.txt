@@ -2,7 +2,7 @@
 # https://fractalresonance.com
 # Author: Hadi Servat (ORCID: 0009-0004-7412-5129)
 # License: CC BY-NC-ND 4.0
-# Updated: 2026-07-10
+# Updated: 2026-11-17
 
 ## Standalone stance file
 
@@ -44,6 +44,8 @@ Born-rule status:
 - μ0: ground; μ1: physical / atomic; μ2: cellular / living structure; μ3: affective / neural; μ4: logical / conceptual; μ5: archetypal / symbolic; μ6: witness; μ7: outside the declared system.
 - A technical claim must still declare its system, boundary, observable, and status. A result at one register does not establish a result at another.
 
+The listings below reflect the current English website manuscripts. Publication status and evidence scope are independent; a reading route is not an evidence ranking.
+
 ## Canon map
 
 Current core:
@@ -54,13 +56,18 @@ Revision pending (living identifiers, not current evidence):
 - FRC-100-001, FRC-100-004, FRC-100-006, FRC-100-006-002, FRC-100-010, FRC-566-010, FRC-566-020.
 
 Frontier:
+- FRC-100-002-001: scoped coarse geometry result with a retained negative dense Gate 4 result.
 - FRC-787-787: operational and latent coherence-transport protocol.
 - FRC-826-829: status-labeled mathematical foundations and open problems.
 - FRC-840-101: phase-attention boundary.
 - FRC-841-004: resonant-computing proposal.
 
+Additional series:
+- FRC-700-000 through FRC-700-007: threshold-framework preprints; independent review pending.
+- FRC-830-000 through FRC-830-005: terminology, formal mathematics, and scoped lift obstructions; read each paper’s status label. No physical self-duality is established.
+
 Framework note:
-- FRC-700-777: μ-register scope model. It is philosophical/formal, not primary physical evidence, and does not reactivate archived 700-series material.
+- FRC-700-777: μ-register scope model. It is philosophical/formal, not primary physical evidence.
 
 Archive / development history:
 - FRC-16D series.
@@ -85,15 +92,15 @@ URL: https://fractalresonance.com/en/papers/FRC-100-005
 Concept DOI: 10.5281/zenodo.17438230
 Role: Closure-specific thermodynamic boundary experiment; not a universal replacement law.
 
-FRC-100-002: Coherence in Chaos v2.5
+FRC-100-002: Coherence in Chaos v2.6
 URL: https://fractalresonance.com/en/papers/FRC-100-002
 Concept DOI: 10.5281/zenodo.15079277
 Role: Standard Map / Quantum Kicked Rotor chaos program and scoped negative results.
 
-FRC-100-002-001: Accessible Phase-Space Geometry Predicts the Structure Functional v1.3
+FRC-100-002-001: Accessible Phase-Space Geometry Predicts the Structure Functional v1.5
 URL: https://fractalresonance.com/en/papers/FRC-100-002-001
 Concept DOI: 10.5281/zenodo.21298187
-Role: Null-controlled classical answer appendix. Accessible geometry predicts Sigma in the clean mixed-regime window; spatial arrangement beats the fixed-area shuffle null. Gate 4 remains open.
+Role: The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established.
 
 FRC-100-100: Standalone Stance v1.0
 URL: https://fractalresonance.com/en/papers/FRC-100-100
@@ -132,7 +139,7 @@ Role: Vocabulary crosswalk; use with, not instead of, primary papers.
 
 ## Frontier papers
 
-FRC-787-787: Lambda-Flight v1.1
+FRC-787-787: Lambda-Flight v1.2
 URL: https://fractalresonance.com/en/papers/FRC-787-787
 Concept DOI: 10.5281/zenodo.21266619
 
@@ -142,11 +149,44 @@ Concept DOI: 10.5281/zenodo.21254441
 
 FRC-840-101: The Phase-Attention Boundary
 URL: https://fractalresonance.com/en/papers/FRC-840-101
+Concept DOI: 10.5281/zenodo.20416011
 DOI listed by current paper: 10.5281/zenodo.20416012
 
 FRC-841-004: Resonant Computing
 URL: https://fractalresonance.com/en/papers/FRC-841-004
 DOI: not currently declared.
+
+## Additional public series
+
+### FRC 700 — Threshold Papers
+
+The website contains FRC-700-000 through FRC-700-007 as v0.1 framework preprints with independent review pending. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. No DOI or downloadable paper PDF is declared for these eight records in the current website source.
+
+| Paper | Version | Reading page |
+|---|---|---|
+| FRC-700-000 — The Threshold Charter: Evidence, Interpretation, and Register Discipline v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-000) |
+| FRC-700-001 — The Two-Face Threshold: Inward Realization, Selective Interface, and Outward Participation v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-001) |
+| FRC-700-002 — The Recursive Boundary: Whole–Unit Reindexing in the μ Topology v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-002) |
+| FRC-700-003 — Return Is an Update: Memory, Feedback, and the Next Ground v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-003) |
+| FRC-700-004 — History, Story, and Witness: The Semantic Threshold v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-004) |
+| FRC-700-005 — The μ Atlas: Cross-System Assignment and Failure Audit v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-005) |
+| FRC-700-006 — The Reflexive Threshold: Corpus Integration, Witness, and Claim-Graph Audit v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-006) |
+| FRC-700-007 — The FRC Threshold Handbook: A Standalone Onboarding and Application Protocol v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-700-007) |
+
+### FRC 830 — Reciprocity Mathematics
+
+Read FRC-830-000 for the terminology charter, then the declared mathematical results and lift obstructions in FRC-830-001 through FRC-830-005. These are preprints with paper-specific status labels. Exact ledger-coordinate results and scoped obstructions do not establish physical, categorical, or Majid-style self-duality.
+
+| Paper | Version | Reading page |
+|---|---|---|
+| FRC-830-000 — What Would Make FRC Reciprocity a Duality? v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-830-000) |
+| FRC-830-001 — The Reciprocity One-Form v0.1: Affine Classification and Domain Rigidity | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-830-001) |
+| FRC-830-002 — Operational Registers and Reciprocity-Preserving Morphisms v0.1 | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-830-002) |
+| FRC-830-003 — Exact Phase-Family Test of FRC Duality v0.1: A Lift Obstruction on the von Mises Manifold | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-830-003) |
+| FRC-830-004 — Dimension Threshold for FRC Reciprocity v0.1: One-Parameter and Qubit Lift Obstructions | v0.1 | [Read](https://fractalresonance.com/en/papers/FRC-830-004) |
+| FRC-830-005 — FRC and Quantum Born Reciprocity v0.2: A Present-Structure Obstruction to Majid-Style Self-Duality | v0.2 | [Read](https://fractalresonance.com/en/papers/FRC-830-005) |
+
+Shared release: concept DOI `10.5281/zenodo.21385391`; version DOI `10.5281/zenodo.21385392`. Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.
 
 ## Machine-readable resources
 
