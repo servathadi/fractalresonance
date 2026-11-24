@@ -235,12 +235,13 @@ export function loadCanonicalPapers(root = DEFAULT_ROOT) {
     const canonStatus = resolveCanonStatus(fm);
     const catalogEpistemicStatus = inferCatalogEpistemicStatus(fm);
     const epistemicStatus = fm.epistemicStatus ? String(fm.epistemicStatus) : catalogEpistemicStatus;
+    const rawPublicationState = fm.publicationState ? String(fm.publicationState) : null;
     const isRevisionPending =
       REVISION_PENDING_PAPERS.has(id.toUpperCase()) ||
-      String(fm.publicationState || '').toLowerCase() === 'revision pending';
+      String(rawPublicationState || '').toLowerCase() === 'revision pending';
     const publicationState = isRevisionPending
       ? 'revision pending'
-      : (fm.publicationState ? String(fm.publicationState) : null);
+      : rawPublicationState;
     const isArchive =
       canonStatus === 'archive' ||
       catalogEpistemicStatus === 'archive' ||
@@ -258,6 +259,7 @@ export function loadCanonicalPapers(root = DEFAULT_ROOT) {
       conceptDoi: fm.conceptDoi ? String(fm.conceptDoi) : null,
       series: fm.series ? String(fm.series) : null,
       muLevel: fm.muLevel ? String(fm.muLevel) : null,
+      rawPublicationState,
       publicationState,
       canonStatus,
       epistemicStatus,

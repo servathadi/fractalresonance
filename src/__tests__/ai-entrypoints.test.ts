@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   checkAiEntrypoints,
   generateEntrypoints,
+  loadCanonicalPapers,
 } from '../../scripts/generate-ai-entrypoints.mjs';
 
 const root = process.cwd();
@@ -158,6 +159,27 @@ describe('AI-facing entrypoints generation and drift checks', () => {
       const driftResult = checkAiEntrypoints(tmpRoot);
       expect(driftResult.ok).toBe(false);
       expect(driftResult.errors.some((e) => e.includes('public/llms.txt'))).toBe(true);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('preserves rawPublicationState before normalization so governance catches frontmatter regressions', () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'frc-raw-pubstate-'));
+    try {
+      const tmpPapersDir = path.join(tmpRoot, 'content', 'en', 'papers');
+      fs.mkdirSync(tmpPapersDir, { recursive: true });
+      fs.mkdirSync(path.join(tmpRoot, 'public'), { recursive: true });
+      fs.symlinkSync(path.join(root, 'public', 'paper-pdfs'), path.join(tmpRoot, 'public', 'paper-pdfs'));
+
+      const srcPaper = fs.readFileSync(path.join(root, 'content', 'en', 'papers', 'FRC-100-001.md'), 'utf8');
+      const mutated = srcPaper.replace(/publicationState:\s*revision pending/, 'publicationState: preprint');
+      fs.writeFileSync(path.join(tmpPapersDir, 'FRC-100-001.md'), mutated, 'utf8');
+
+      const [paper] = loadCanonicalPapers(tmpRoot);
+      expect(paper.id).toBe('FRC-100-001');
+      expect(paper.rawPublicationState).toBe('preprint');
+      expect(paper.publicationState).toBe('revision pending');
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }

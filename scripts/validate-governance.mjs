@@ -116,15 +116,17 @@ function main() {
     }
   }
 
-  // 4. Revision-pending living identifiers
+  // 4. Revision-pending living identifiers (validate raw frontmatter before normalization)
   for (const id of REVISION_PENDING_PAPERS) {
     const p = byId.get(id);
     if (!p) {
       errors.push(`Missing revision-pending paper ${id}.`);
       continue;
     }
-    if (p.publicationState !== 'revision pending') {
-      errors.push(`${id} must have publicationState="revision pending" (got ${JSON.stringify(p.publicationState)}).`);
+    if (String(p.rawPublicationState || '').toLowerCase() !== 'revision pending') {
+      errors.push(
+        `${id} frontmatter must declare publicationState="revision pending" (got ${JSON.stringify(p.rawPublicationState)}).`,
+      );
     }
   }
 
