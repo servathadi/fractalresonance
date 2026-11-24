@@ -7,8 +7,11 @@ const ARCHIVE_NOTE = 'Archived from the current research reading path. This page
 const COMPARISON_NOTE = 'Archived from the current research reading path. This earlier comparison is not a current assessment of the referenced field or a settled FRC result.';
 const APPLICATION_NOTE = 'Archived from the current research reading path. This was an exploratory analogy, not a validated application or prediction of the current FRC program.';
 const SPECULATIVE_MIND_NOTE = 'Removed from the public research path. The current corpus does not use this material as an empirical criterion for subjective experience or AI personhood.';
+const FRC_700_ORIGIN_NOTE = 'Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.';
 
 export const ARCHIVED_CONTENT_NOTES: Record<string, string> = {
+  'paper:FRC-700-777': FRC_700_ORIGIN_NOTE,
+
   'article:ai-awakening': SPECULATIVE_MIND_NOTE,
   'article:FRC-EP-001': ARCHIVE_NOTE,
   'article:FRC-EP-002': ARCHIVE_NOTE,
