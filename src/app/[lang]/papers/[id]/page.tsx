@@ -21,7 +21,9 @@ import {
   buildBacklinks,
   getGlossary,
   getAlternateLanguages,
+  getContentStatusNote,
   getPaperCanonStatus,
+  isCurrentReadingContent,
   isRevisionPendingPaper,
   normalizeContentPerspective,
   matchesPerspectiveView,
@@ -86,7 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     author,
     tags: Array.isArray(fm.tags) ? fm.tags : [],
     section: 'Research Papers',
-    noindex: norm === 'river' || isRevisionPendingPaper(fm.id) || fm.publicationState?.toLowerCase() === 'revision pending',
+    noindex: norm === 'river' || !isCurrentReadingContent('paper', fm),
     image: ogImage,
   }, alternates);
 
@@ -103,6 +105,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   };
 }
+
+const TRANSLATION_NOTICE: Record<string, {
+  lagTitle: string;
+  lagBody: string;
+  revisionTitle: string;
+  archiveTitle: string;
+  canonicalLink: string;
+}> = {
+  en: {
+    lagTitle: 'Canonical status notice',
+    lagBody: 'Refer to the canonical English manuscript for current claims, scope, and version lineage.',
+    revisionTitle: 'Revision pending',
+    archiveTitle: 'Archived historical record',
+    canonicalLink: 'Read canonical English edition',
+  },
+  es: {
+    lagTitle: 'Aviso de versión canónica en inglés (traducción desfasada)',
+    lagBody: 'El texto traducido a continuación corresponde a una edición anterior y va por detrás del manuscrito canónico en inglés endurecido. Cualquier afirmación anterior en el cuerpo traducido no sustituye a la versión actual en inglés, que rige las afirmaciones, el alcance, los resultados negativos retenidos y el estado actual.',
+    revisionTitle: 'Revisión pendiente (no es evidencia actual)',
+    archiveTitle: 'Registro histórico archivado',
+    canonicalLink: 'Leer la edición canónica en inglés',
+  },
+  fr: {
+    lagTitle: 'Avis de version canonique anglaise (traduction en retard)',
+    lagBody: 'Le texte traduit ci-dessous correspond à une édition antérieure et accuse un retard par rapport au manuscrit canonique anglais consolidé. Toute affirmation plus ancienne dans le corps traduit est subordonnée à la version anglaise actuelle, qui fait foi pour les énoncés, la portée, les résultats négatifs retenus et le statut.',
+    revisionTitle: 'Révision en attente (ne constitue pas une preuve actuelle)',
+    archiveTitle: 'Archive historique',
+    canonicalLink: 'Lire l’édition canonique en anglais',
+  },
+  fa: {
+    lagTitle: 'اعلان نسخه مرجع انگلیسی (ترجمه عقب‌تر از ویرایش جدید)',
+    lagBody: 'متن ترجمه‌شده زیر مربوط به ویرایش پیشین است و از نسخه مرجع انگلیسی به‌روزرسانی‌شده عقب‌تر است. برای ادعاهای کنونی، دامنه اعتبار، نتایج منفی حفظ‌شده و وضعیت رسمی، نسخه انگلیسی مرجع است و هیچ ادعایی قوی‌تر از آن معتبر نیست.',
+    revisionTitle: 'در انتظار بازنگری (شاهد کنونی محسوب نمی‌شود)',
+    archiveTitle: 'رکورد تاریخی بایگانی‌شده',
+    canonicalLink: 'مطالعه نسخه مرجع انگلیسی',
+  },
+};
 
 export default async function PaperPage({ params }: Props) {
   const { lang, id } = await params;
@@ -122,6 +161,11 @@ export default async function PaperPage({ params }: Props) {
   const seriesTaxon = deriveSeriesTaxon(fm.id);
   const readTime = fm.read_time || estimateReadTime(paper.body);
   const canonStatus = getPaperCanonStatus(fm);
+  const statusNote = getContentStatusNote('paper', fm);
+  const isRevisionPending = isRevisionPendingPaper(fm.id) || fm.publicationState?.toLowerCase() === 'revision pending';
+  const isArchivedPaper = canonStatus === 'archive' || fm.publicationState?.toLowerCase() === 'archived';
+  const isLaggingTranslation = lang !== 'en' && fm.translationStatus === 'lags-canonical-english';
+  const noticeCopy = TRANSLATION_NOTICE[lang] || TRANSLATION_NOTICE.en;
   const muLevel = getMuLevel(fm.muLevel);
   const doiEntries = [
     fm.conceptDoi ? { label: 'Concept DOI', value: fm.conceptDoi } : null,
@@ -244,6 +288,37 @@ export default async function PaperPage({ params }: Props) {
             prerequisites={prereqLinks}
             readTime={readTime}
           />
+
+          {(isLaggingTranslation || isRevisionPending || isArchivedPaper) && (
+            <aside
+              className="mb-8 border-l-2 border-frc-gold bg-frc-blue/10 px-5 py-4 text-sm text-frc-text-dim space-y-2"
+              aria-label={isLaggingTranslation ? noticeCopy.lagTitle : isRevisionPending ? noticeCopy.revisionTitle : noticeCopy.archiveTitle}
+            >
+              <p className="font-mono text-xs uppercase tracking-wider text-frc-gold">
+                {isLaggingTranslation
+                  ? noticeCopy.lagTitle
+                  : isRevisionPending
+                    ? noticeCopy.revisionTitle
+                    : noticeCopy.archiveTitle}
+              </p>
+              {isLaggingTranslation && (
+                <p className="leading-relaxed">{noticeCopy.lagBody}</p>
+              )}
+              {statusNote && (
+                <p className="leading-relaxed">{statusNote}</p>
+              )}
+              {lang !== 'en' && (
+                <p>
+                  <Link
+                    href={`/en/papers/${canonicalId}`}
+                    className="text-frc-gold hover:underline font-mono text-xs"
+                  >
+                    {noticeCopy.canonicalLink}: /en/papers/{canonicalId} →
+                  </Link>
+                </p>
+              )}
+            </aside>
+          )}
 
           <PaperStatusPanel frontmatter={fm} canonStatus={canonStatus} lang={lang} />
 

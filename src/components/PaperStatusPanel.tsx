@@ -12,7 +12,7 @@ const OPEN_WORK: Record<string, string> = {
   'FRC-566-030': 'The exact family contains no bath or independent entropy-production channel.',
   'FRC-787-787': 'Independent platform validation and wins over equal-feature baselines remain required.',
   'FRC-826-829': 'Definitions and propositions are retained separately from conjectures and open problems.',
-  'FRC-700-777': 'The interface record needs real case studies; this note does not establish cross-register causation or physical reciprocity.',
+  'FRC-700-777': 'Superseded origin note: use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.',
 };
 
 const LABELS: Record<string, Record<string, string>> = {
@@ -42,7 +42,14 @@ export function PaperStatusPanel({
   lang: string;
 }) {
   const t = LABELS[lang] || LABELS.en;
-  const statement = frontmatter.tldr || frontmatter.abstract || frontmatter.statusNote || 'See the paper abstract and scope statement.';
+  const isRevisionOrArchive =
+    canonStatus === 'archive'
+    || frontmatter.publicationState?.toLowerCase() === 'revision pending'
+    || frontmatter.publicationState?.toLowerCase() === 'archived'
+    || frontmatter.translationStatus === 'lags-canonical-english';
+  const statement = isRevisionOrArchive
+    ? (frontmatter.statusNote || frontmatter.tldr || frontmatter.abstract || 'See the paper abstract and scope statement.')
+    : (frontmatter.tldr || frontmatter.abstract || frontmatter.statusNote || 'See the paper abstract and scope statement.');
   const openWork = OPEN_WORK[frontmatter.id] || 'Review the paper’s declared scope, controls, limitations, and kill conditions.';
   const lineage = frontmatter.supersedes
     ? `${t.supersedes}: ${frontmatter.supersedes}`

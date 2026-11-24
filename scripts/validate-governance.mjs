@@ -8,8 +8,9 @@
  *   2. FRC 700.000–700.007 are published framework preprints with status labels.
  *   3. FRC 830.000–830.005 are published preprints with status labels and no-promotion language.
  *   4. Revision-pending living identifiers declare publicationState: revision pending.
- *   5. Retired mind-content records and archived/revision-pending papers are excluded from active search/discovery.
+ *   5. Retired mind-content records and archived/revision-pending papers are excluded from active search/discovery across all languages.
  *   6. public/catalog.json, public/llms.txt, public/agent.md, and public/agent.json match canonical English frontmatter with zero drift.
+ *   7. Cross-language translation metadata/DOI parity and no-stale-claims rules pass across es/fa/fr.
  */
 
 import fs from 'node:fs';
@@ -20,6 +21,7 @@ import {
   checkAiEntrypoints,
   loadCanonicalPapers,
 } from './generate-ai-entrypoints.mjs';
+import { ALL_LANGS, validateTranslations } from './validate-translations.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -130,7 +132,7 @@ function main() {
     }
   }
 
-  // 5. Catalog and search-index governance hygiene
+  // 5. Catalog and search-index governance hygiene (all languages)
   const catalog = readJson('public/catalog.json', errors);
   if (catalog?.content) {
     for (const [lang, byType] of Object.entries(catalog.content)) {
@@ -146,20 +148,22 @@ function main() {
     }
   }
 
-  const searchIndex = readJson('public/search-index.json', errors);
-  if (Array.isArray(searchIndex?.documents)) {
-    for (const doc of searchIndex.documents) {
-      if (doc.type === 'papers' && doc.id === 'FRC-700-777') {
-        errors.push('public/search-index.json must exclude archived origin note FRC-700-777.');
-      }
-      if (doc.type === 'papers' && doc.id === 'FRC-000-START-HERE') {
-        errors.push('public/search-index.json must exclude superseded alias FRC-000-START-HERE.');
-      }
-      if (doc.type === 'papers' && REVISION_PENDING_PAPERS.has(String(doc.id).toUpperCase())) {
-        errors.push(`public/search-index.json must exclude revision-pending paper ${doc.id}.`);
-      }
-      if (RETIRED_MIND_CONTENT_IDS[doc.type]?.has(doc.id)) {
-        errors.push(`public/search-index.json leaks retired content ${doc.type}:${doc.id}.`);
+  for (const relPath of ['public/search-index.json', ...ALL_LANGS.map((l) => `public/search-index-${l}.json`)]) {
+    const searchIndex = readJson(relPath, errors);
+    if (Array.isArray(searchIndex?.documents)) {
+      for (const doc of searchIndex.documents) {
+        if (doc.type === 'papers' && doc.id === 'FRC-700-777') {
+          errors.push(`${relPath} must exclude archived origin note FRC-700-777.`);
+        }
+        if (doc.type === 'papers' && doc.id === 'FRC-000-START-HERE') {
+          errors.push(`${relPath} must exclude superseded alias FRC-000-START-HERE.`);
+        }
+        if (doc.type === 'papers' && REVISION_PENDING_PAPERS.has(String(doc.id).toUpperCase())) {
+          errors.push(`${relPath} must exclude revision-pending paper ${doc.id}.`);
+        }
+        if (RETIRED_MIND_CONTENT_IDS[doc.type]?.has(doc.id)) {
+          errors.push(`${relPath} leaks retired content ${doc.type}:${doc.id}.`);
+        }
       }
     }
   }
@@ -201,6 +205,12 @@ function main() {
     }
   }
 
+  // 7. Cross-language translation parity & DOI hygiene
+  const trResult = validateTranslations(ROOT);
+  if (!trResult.ok) {
+    errors.push(...trResult.errors);
+  }
+
   if (errors.length > 0) {
     console.error(`✗ Governance check FAILED (${errors.length} issue(s)):\n`);
     for (const err of errors) {
@@ -210,7 +220,9 @@ function main() {
     return;
   }
 
-  console.log(`✓ Governance check PASSED (${papers.length} published English papers, FRC 700/830 boundaries, catalog, search index, and AI entrypoints verified).`);
+  console.log(
+    `✓ Governance check PASSED (${papers.length} published English papers, FRC 700/830 boundaries, catalog, search indexes, AI entrypoints, and ${trResult.stats.translatedPapersChecked} translated papers verified).`,
+  );
 }
 
 main();

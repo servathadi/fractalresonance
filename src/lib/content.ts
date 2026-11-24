@@ -34,7 +34,9 @@ export interface RawFrontmatter {
   date?: string;
   status?: string;
   publicationState?: string;
+  statusLabel?: string;
   statusNote?: string;
+  supersededBy?: string;
   epistemicStatus?: string;
   editionStatus?: string;
   translationStatus?: string;
@@ -235,9 +237,9 @@ function parseYamlFrontmatter(src: string): Record<string, unknown> {
 
     const [key, rawVal] = kv;
     if (rawVal === '') {
-      const nested = inferYamlContainer(lines, i, indent + 2);
+      const nested = inferYamlContainer(lines, i, indent + 1);
       (ctx as Record<string, unknown>)[key] = nested;
-      stack.push({ indent, container: nested });
+      stack.push({ indent: indent + 1, container: nested });
       continue;
     }
 
@@ -250,6 +252,7 @@ function parseYamlFrontmatter(src: string): Record<string, unknown> {
 /** Accept the valid YAML shorthand `tags:\n- one` used in older corpus files. */
 function normalizeUnindentedSequences(lines: string[]): string[] {
   let listParentIndent: number | undefined;
+  let inUnindentedSequence = false;
 
   return lines.map((rawLine) => {
     if (!rawLine || /^\s*$/.test(rawLine)) return rawLine;
@@ -260,13 +263,19 @@ function normalizeUnindentedSequences(lines: string[]): string[] {
 
     if (listParentIndent !== undefined) {
       if (indent === listParentIndent && line.startsWith('- ')) {
+        inUnindentedSequence = true;
+        return `${' '.repeat(indent + 2)}${line}`;
+      }
+      if (inUnindentedSequence && indent > listParentIndent) {
         return `${' '.repeat(indent + 2)}${line}`;
       }
       listParentIndent = undefined;
+      inUnindentedSequence = false;
     }
 
     if (/^[A-Za-z0-9_-]+:\s*$/.test(line)) {
       listParentIndent = indent;
+      inUnindentedSequence = false;
     }
 
     return rawLine;
@@ -1133,7 +1142,11 @@ export function getContentEpistemicStatus(
   type: TaxonomyContentType,
   frontmatter: RawFrontmatter,
 ): CorpusEpistemicStatus {
-  if (frontmatter.epistemicStatus === 'archive' || getGovernanceArchiveNote(type, frontmatter.id)) {
+  if (
+    frontmatter.epistemicStatus === 'archive'
+    || frontmatter.publicationState?.toLowerCase() === 'archived'
+    || getGovernanceArchiveNote(type, frontmatter.id)
+  ) {
     return 'archive';
   }
   if (frontmatter.epistemicStatus === 'philosophical') return 'philosophical';
