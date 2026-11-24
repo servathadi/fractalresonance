@@ -4,7 +4,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { ResearchMapSection } from '../components/ResearchMapSection';
-import { getHomeConfig, getSitePage } from '../lib/content';
+import { getHomeConfig, getPaper, getSitePage, parseFrontmatter } from '../lib/content';
 import { buildResearchMap } from '../lib/research-map';
 
 const root = process.cwd();
@@ -125,5 +125,35 @@ describe('Homepage and start-here current research map (#313)', () => {
     expect(startHere!.body).toContain('FRC 830.001–830.005');
     expect(startHere!.body).toContain('FRC 700.000–700.007');
     expect(startHere!.body).toContain('does not claim to have derived the Born rule');
+  });
+
+  it('falls back to canonical English URLs when a localized paper revision lags the advertised English version/DOI', () => {
+    for (const lang of ['es', 'fa', 'fr']) {
+      const map = buildResearchMap(lang, `/${lang}`);
+      expect(map.canonicalReciprocity?.href).toBe('/en/papers/FRC-566-001');
+      expect(map.empiricalPrograms.find((p) => p.id === 'FRC-100-002')?.href).toBe('/en/papers/FRC-100-002');
+    }
+  });
+
+  it('preserves multi-property unindented YAML object sequences (e.g. FRC-840-LTM-001 images) alongside mapping dedent', () => {
+    const parsed = parseFrontmatter(`---
+id: test-doc
+images:
+- url: /first.png
+  caption: First
+- url: /second.png
+  caption: Second
+lang: en
+---
+Body`);
+    expect(parsed.frontmatter.images).toEqual([
+      { url: '/first.png', caption: 'First' },
+      { url: '/second.png', caption: 'Second' },
+    ]);
+    expect(parsed.frontmatter.lang).toBe('en');
+
+    const ltm = getPaper('en', 'FRC-840-LTM-001');
+    expect(ltm?.frontmatter.images).toHaveLength(2);
+    expect(ltm?.frontmatter.images?.[1]?.url).toBe('/media/en/papers/FRC-840-LTM-001/ltm_results.png');
   });
 });

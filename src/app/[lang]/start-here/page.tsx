@@ -39,7 +39,8 @@ export default async function StartHerePage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const glossary = getGlossary(lang);
-  const langPaperIds = new Set(getPapers(lang).map((p) => p.frontmatter.id));
+  const enById = new Map(getPapers('en').map((p) => [p.frontmatter.id, p]));
+  const langById = new Map(getPapers(lang).map((p) => [p.frontmatter.id, p]));
   const researchMap = buildResearchMap(lang, basePath);
   const bodyHtml = renderMarkdown(page.body, lang, glossary, basePath);
   
@@ -48,7 +49,21 @@ export default async function StartHerePage({ params }: Props) {
   const buildingNow = fm.building_now || [];
   const t = labels[lang] || labels.en;
 
-  const paperHref = (id: string) => (langPaperIds.has(id) ? `${basePath}/papers/${id}` : `/en/papers/${id}`);
+  const paperHref = (id: string) => {
+    if (lang === 'en') return `${basePath}/papers/${id}`;
+    const en = enById.get(id);
+    const tr = langById.get(id);
+    if (
+      en &&
+      tr &&
+      tr.frontmatter.translationStatus !== 'lags-canonical-english' &&
+      (!en.frontmatter.version || tr.frontmatter.version === en.frontmatter.version) &&
+      (!en.frontmatter.doi || tr.frontmatter.doi === en.frontmatter.doi)
+    ) {
+      return `${basePath}/papers/${id}`;
+    }
+    return `/en/papers/${id}`;
+  };
 
   return (
     <main className="min-h-[80vh]">

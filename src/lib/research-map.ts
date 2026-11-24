@@ -99,8 +99,27 @@ function hasPaperPdf(id: string): boolean {
   return fs.existsSync(path.join(process.cwd(), 'public', 'paper-pdfs', `${id}.pdf`));
 }
 
-function resolvePaperHref(id: string, lang: string, langPaperIds: Set<string>, basePath: string): string {
-  if (langPaperIds.has(id)) {
+function hasMatchingLocalizedRevision(enPaper: ParsedContent, localizedPaper: ParsedContent | undefined): boolean {
+  if (!localizedPaper) return false;
+  const enFm = enPaper.frontmatter;
+  const trFm = localizedPaper.frontmatter;
+  if (trFm.translationStatus === 'lags-canonical-english') return false;
+  if (enFm.version && trFm.version !== enFm.version) return false;
+  if (enFm.doi && trFm.doi !== enFm.doi) return false;
+  return true;
+}
+
+function resolvePaperHref(
+  paper: ParsedContent,
+  lang: string,
+  langPaperMap: Map<string, ParsedContent>,
+  basePath: string,
+): string {
+  const id = paper.frontmatter.id;
+  if (lang === 'en') {
+    return `${basePath}/papers/${id}`;
+  }
+  if (hasMatchingLocalizedRevision(paper, langPaperMap.get(id))) {
     return `${basePath}/papers/${id}`;
   }
   return `/en/papers/${id}`;
@@ -109,7 +128,7 @@ function resolvePaperHref(id: string, lang: string, langPaperIds: Set<string>, b
 function toMapPaper(
   paper: ParsedContent,
   lang: string,
-  langPaperIds: Set<string>,
+  langPaperMap: Map<string, ParsedContent>,
   basePath: string,
   meta: {
     statusCategory: ResearchStatusCategory;
@@ -123,7 +142,7 @@ function toMapPaper(
     id: fm.id,
     title: fm.title,
     version: fm.version || null,
-    href: resolvePaperHref(fm.id, lang, langPaperIds, basePath),
+    href: resolvePaperHref(paper, lang, langPaperMap, basePath),
     pdfHref: hasPaperPdf(fm.id) ? `/paper-pdfs/${fm.id}.pdf` : null,
     doi: fm.doi || null,
     conceptDoi: fm.conceptDoi || null,
@@ -142,17 +161,18 @@ function comparePaperIds(a: string, b: string): number {
 
 /**
  * Build the current public research map from canonical English paper frontmatter,
- * resolving links to localized pages when available and falling back cleanly to /en/papers/<id>.
+ * linking to a localized page only when it matches the advertised English revision,
+ * and falling back to /en/papers/<id> otherwise.
  */
 export function buildResearchMap(lang: string, basePath: string): ResearchMapData {
   const enPapers = getPapers('en').filter((p) => p.frontmatter.id && p.frontmatter.id !== 'FRC-000-START-HERE');
   const langPapers = lang === 'en' ? enPapers : getPapers(lang);
   const enById = new Map(enPapers.map((p) => [p.frontmatter.id, p]));
-  const langPaperIds = new Set(langPapers.map((p) => p.frontmatter.id));
+  const langPaperMap = new Map(langPapers.map((p) => [p.frontmatter.id, p]));
 
   const p566 = enById.get('FRC-566-001');
   const canonicalReciprocity = p566
-    ? toMapPaper(p566, lang, langPaperIds, basePath, {
+    ? toMapPaper(p566, lang, langPaperMap, basePath, {
       statusCategory: 'conjectures-empirical-gates',
       statusBadge: 'Canonical relation · Operational bookkeeping / Physical conjecture',
       summary: 'Scale-invariant relation dS + k* d ln C = 0. Operational bookkeeping and control-law use at declared boundaries is distinct from the open conjecture of universal physical reciprocity.',
@@ -169,7 +189,7 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
         statusBadge: 'Exact mathematics · Preprint',
         summary: p.frontmatter.tldr || p.frontmatter.abstract || 'Reciprocity Mathematics preprint.',
       };
-      return toMapPaper(p, lang, langPaperIds, basePath, meta);
+      return toMapPaper(p, lang, langPaperMap, basePath, meta);
     });
 
   const recConceptDois = [...new Set(recPapers.map((p) => p.conceptDoi).filter(Boolean))];
@@ -180,7 +200,7 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
     .sort((a, b) => comparePaperIds(a.frontmatter.id, b.frontmatter.id))
     .map((p) => {
       const fm = p.frontmatter as typeof p.frontmatter & { statusLabel?: string };
-      return toMapPaper(p, lang, langPaperIds, basePath, {
+      return toMapPaper(p, lang, langPaperMap, basePath, {
         statusCategory: 'framework-methodology',
         statusBadge: 'Framework / methodology · Independent review pending',
         summary: fm.statusLabel || fm.abstract || 'Threshold-framework preprint.',
@@ -192,7 +212,7 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
     .map((id) => {
       const p = enById.get(id);
       if (!p) return null;
-      return toMapPaper(p, lang, langPaperIds, basePath, EMPIRICAL_SUMMARIES[id]);
+      return toMapPaper(p, lang, langPaperMap, basePath, EMPIRICAL_SUMMARIES[id]);
     })
     .filter((item): item is ResearchMapPaper => item !== null);
 

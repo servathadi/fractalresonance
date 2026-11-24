@@ -99,11 +99,23 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
   const researchMap = buildResearchMap(lang, basePath);
   const t = (key: string) => DICT[lang]?.[key] || DICT.en[key];
 
+  const enPaperMap = new Map(getPapers('en').map((p) => [p.frontmatter.id, p]));
+  const langPaperMap = new Map(papers.map((p) => [p.frontmatter.id, p]));
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
   const resolveTarget = (target?: string, url?: string) => {
     if (url) return url;
     if (!target) return basePath;
     if (staticTargets.has(target)) return `${basePath}/${target}`;
+    if (lang !== 'en' && enPaperMap.has(target)) {
+      const en = enPaperMap.get(target)!;
+      const tr = langPaperMap.get(target);
+      const matchesRevision =
+        tr &&
+        tr.frontmatter.translationStatus !== 'lags-canonical-english' &&
+        (!en.frontmatter.version || tr.frontmatter.version === en.frontmatter.version) &&
+        (!en.frontmatter.doi || tr.frontmatter.doi === en.frontmatter.doi);
+      return matchesRevision ? `${basePath}/papers/${target}` : `/en/papers/${target}`;
+    }
     const item = glossary[target];
     if (item?.url) return item.url;
     return `/en/papers/${target}`;
@@ -132,7 +144,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
               <p className="text-frc-text text-lg sm:text-xl leading-relaxed font-light">{t('subtitle')}</p>
               <p className="text-frc-text-dim text-sm leading-relaxed">{t('boundary')}</p>
             </div>
-            <Link href={`${basePath}/papers/FRC-566-001`} className="animate-fade-up stagger-4 nested-border inline-block mb-8 group">
+            <Link href={resolveTarget('FRC-566-001')} className="animate-fade-up stagger-4 nested-border inline-block mb-8 group">
               <div className="nested-border-inner">
                 <p className="font-mono text-[0.625rem] text-frc-steel mb-2 uppercase tracking-widest">FRC 566.001 · canonical relation</p>
                 <p className="font-mono text-lg sm:text-xl text-frc-gold-light" dir="ltr">dS + k<span className="text-frc-gold">*</span> d ln C = 0</p>
