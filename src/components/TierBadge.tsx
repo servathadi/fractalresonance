@@ -80,7 +80,7 @@ export function inferTier(
 
   // Infer from paper series if not explicitly set
   if (paperId) {
-    if (paperId.startsWith('FRC-100') || paperId.startsWith('FRC-566') || paperId.startsWith('FRC-16D')) {
+    if (paperId.startsWith('FRC-100') || paperId.startsWith('FRC-566')) {
       return 'foundational';
     }
     if (paperId.startsWith('FRC-8')) {
