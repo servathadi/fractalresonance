@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { BrandMark } from '@/components/BrandMark';
+import { ResearchMapSection } from '@/components/ResearchMapSection';
 import { getGlossary, getHomeConfig, getPapers } from '@/lib/content';
+import { buildResearchMap } from '@/lib/research-map';
 import type { PerspectiveView } from '@/lib/content';
 
 function getBasePath(lang: string, view: PerspectiveView): string {
@@ -27,16 +29,16 @@ const DICT: Record<string, Record<string, string>> = {
     observable: 'Chaos structure functional',
     criterion: 'Localization crossover target',
     currentWork: 'Current program',
-    work1: 'Complete the KAM, quantum, and cross-mechanism gates registered in FRC 100.002.',
-    work2: 'Test Lambda-Flight criteria across independent physical and computational platforms.',
-    work3: 'Keep living papers, books, concept DOIs, and machine-readable indexes aligned.',
+    work1: 'FRC 830.000–830.005: independent proof review of exact ledger classification and lift obstructions; general nonunital CPTP lift remains open.',
+    work2: 'FRC 700.000–700.007: independent review and inter-rater audit of the active threshold-framework protocol (superseding FRC 700.777).',
+    work3: 'FRC 100.002 / 100.002.001 & 787.787: dense classical Gate 4 closed negatively; quantum, cross-mechanism, and held-out platform gates remain open.',
     evidence: 'Claim boundaries',
-    established: 'Established in scope',
-    establishedText: 'Mathematical identities, reproducible computations, and reported negative results.',
-    active: 'Under active test',
-    activeText: 'Chaos, localization, boundary, and cross-platform coherence programs.',
-    conjectural: 'Conjectural',
-    conjecturalText: 'Universal physical reciprocity, a fundamental Lambda field, and the Born mechanism.',
+    established: 'Exact & retained negatives',
+    establishedText: 'Proved ledger identities, typed morphisms, scoped lift obstructions, and explicitly retained negative results (including dense Gate 4).',
+    active: 'Framework & scoped models',
+    activeText: 'Threshold-framework register discipline (FRC 700.000–700.007), chaos/localization models, and operational transport protocols.',
+    conjectural: 'Conjectures & open gates',
+    conjecturalText: 'Universal physical reciprocity, a fundamental Lambda field, Born-rule emergence, and physical or Majid-style self-duality remain unestablished.',
     publications: 'Corpus access',
     indexed: 'indexed paper records',
     versions: 'Versioned records and concept DOIs where declared',
@@ -53,12 +55,12 @@ const DICT: Record<string, Record<string, string>> = {
     equations: 'Cuatro anclas, cuatro estados', allFormulas: 'Índice de fórmulas',
     canonical: 'Relación canónica', exact: 'Identidad exacta de von Mises', observable: 'Funcional de estructura del caos', criterion: 'Objetivo de cruce de localización',
     currentWork: 'Programa actual',
-    work1: 'Completar las pruebas KAM, cuánticas y entre mecanismos registradas en FRC 100.002.',
-    work2: 'Probar los criterios Lambda-Flight en plataformas físicas y computacionales independientes.',
-    work3: 'Mantener alineados artículos, libros, DOI conceptuales e índices legibles por máquinas.',
-    evidence: 'Límites de las afirmaciones', established: 'Establecido en su alcance', establishedText: 'Identidades matemáticas, cálculos reproducibles y resultados negativos publicados.',
-    active: 'En prueba activa', activeText: 'Programas de caos, localización, fronteras y coherencia entre plataformas.',
-    conjectural: 'Conjetural', conjecturalText: 'Reciprocidad física universal, un campo Lambda fundamental y el mecanismo de Born.',
+    work1: 'FRC 830.000–830.005: revisión independiente de la clasificación afín y obstrucciones de elevación; la elevación CPTP general sigue abierta.',
+    work2: 'FRC 700.000–700.007: revisión independiente de la serie marco de umbrales que sustituye a FRC 700.777.',
+    work3: 'FRC 100.002 / 100.002.001 y 787.787: la Puerta 4 densa cerró negativamente; siguen abiertas las puertas cuánticas y de plataforma.',
+    evidence: 'Límites de las afirmaciones', established: 'Matemática exacta y negativos', establishedText: 'Identidades demostradas, obstrucciones acotadas y resultados negativos retenidos (incluida la Puerta 4 densa).',
+    active: 'Marco y modelos acotados', activeText: 'Disciplina de registros (FRC 700.000–700.007), modelos de caos y protocolos operacionales.',
+    conjectural: 'Conjeturas y puertas abiertas', conjecturalText: 'Reciprocidad física universal, campo Lambda fundamental, derivación de Born y autodualidad física siguen sin establecerse.',
     publications: 'Acceso al corpus', indexed: 'registros de artículos indexados', versions: 'Registros versionados y DOI conceptuales cuando se declaran', aiFiles: 'Catálogo e interfaces para IA', orcid: 'Registro ORCID del autor',
   },
   fr: {
@@ -70,8 +72,8 @@ const DICT: Record<string, Record<string, string>> = {
     featured: 'Recherche actuelle', featuredDesc: 'Les formulations vivantes les plus récentes du cadre, avec identifiants FRC stables et versions suivies.',
     equations: 'Quatre repères, quatre statuts', allFormulas: 'Index des formules',
     canonical: 'Relation canonique', exact: 'Identité exacte de von Mises', observable: 'Fonctionnelle de structure du chaos', criterion: 'Cible de transition de localisation',
-    currentWork: 'Programme actuel', work1: 'Achever les tests KAM, quantiques et inter-mécanismes enregistrés dans FRC 100.002.', work2: 'Tester les critères Lambda-Flight sur des plateformes physiques et numériques indépendantes.', work3: 'Maintenir l’alignement des articles, livres, DOI conceptuels et index lisibles par machine.',
-    evidence: 'Limites des affirmations', established: 'Établi dans son cadre', establishedText: 'Identités mathématiques, calculs reproductibles et résultats négatifs rapportés.', active: 'En cours de test', activeText: 'Programmes sur le chaos, la localisation, les frontières et la cohérence multi-plateforme.', conjectural: 'Conjectural', conjecturalText: 'Réciprocité physique universelle, champ Lambda fondamental et mécanisme de Born.',
+    currentWork: 'Programme actuel', work1: 'FRC 830.000–830.005 : relecture indépendante de la classification affine et des obstructions de relèvement ; le relèvement CPTP général reste ouvert.', work2: 'FRC 700.000–700.007 : relecture indépendante de la série-cadre des seuils remplaçant FRC 700.777.', work3: 'FRC 100.002 / 100.002.001 et 787.787 : la Porte 4 dense est fermée négativement ; les portes quantiques et de plateforme restent ouvertes.',
+    evidence: 'Limites des affirmations', established: 'Mathématiques exactes et négatifs', establishedText: 'Identités prouvées, obstructions cadrées et résultats négatifs retenus (dont la Porte 4 dense).', active: 'Cadre et modèles cadrés', activeText: 'Discipline des registres (FRC 700.000–700.007), modèles de chaos et protocoles opérationnels.', conjectural: 'Conjectures et portes ouvertes', conjecturalText: 'Réciprocité physique universelle, champ Lambda fondamental, règle de Born et auto-dualité physique restent non établies.',
     publications: 'Accès au corpus', indexed: 'articles indexés', versions: 'Versions et DOI conceptuels lorsqu’ils sont déclarés', aiFiles: 'Catalogue et points d’entrée pour IA', orcid: 'Fiche ORCID de l’auteur',
   },
   fa: {
@@ -83,19 +85,18 @@ const DICT: Record<string, Record<string, string>> = {
     featured: 'پژوهش‌های کنونی', featuredDesc: 'جدیدترین بیان‌های زنده چارچوب با شناسه‌های پایدار FRC و نسخه‌های ثبت‌شده.',
     equations: 'چهار لنگر، چهار وضعیت', allFormulas: 'فهرست فرمول‌ها',
     canonical: 'رابطه بنیادی', exact: 'همانی دقیق فون‌مایزز', observable: 'تابع ساختار آشوب', criterion: 'هدف گذار موضعی‌شدن',
-    currentWork: 'برنامه کنونی', work1: 'تکمیل آزمون‌های KAM، کوانتومی و بین‌سازوکاری ثبت‌شده در FRC 100.002.', work2: 'آزمون معیارهای Lambda-Flight روی بسترهای مستقل فیزیکی و محاسباتی.', work3: 'هم‌راستا نگه‌داشتن مقالات، کتاب‌ها، DOIها و نمایه‌های ماشین‌خوان.',
-    evidence: 'مرز ادعاها', established: 'تثبیت‌شده در دامنه', establishedText: 'همانی‌های ریاضی، محاسبات بازتولیدپذیر و نتایج منفی گزارش‌شده.', active: 'در حال آزمون', activeText: 'برنامه‌های آشوب، موضعی‌شدن، مرز و همدوسی میان‌بستری.', conjectural: 'فرضیه‌ای', conjecturalText: 'جهان‌شمولی فیزیکی تقابل، میدان بنیادی لاندا و سازوکار بورن.',
+    currentWork: 'برنامه کنونی', work1: 'FRC 830.000–830.005: داوری مستقل رده‌بندی آفین و انسدادهای بالابری؛ بالابری کلی CPTP همچنان باز است.', work2: 'FRC 700.000–700.007: داوری مستقل مجموعه چارچوب آستانه که جایگزین FRC 700.777 شده است.', work3: 'FRC 100.002 / 100.002.001 و 787.787: دروازه ۴ متراکم به‌صورت منفی بسته شد؛ دروازه‌های کوانتومی و بسترهای مستقل همچنان بازند.',
+    evidence: 'مرز ادعاها', established: 'ریاضیات دقیق و نتایج منفی', establishedText: 'همانی‌های اثبات‌شده، انسدادهای محدود و نتایج منفی حفظ‌شده (از جمله دروازه ۴ متراکم).', active: 'چارچوب و مدل‌های محدود', activeText: 'انضباط ثبت‌های μ (FRC 700.000–700.007)، مدل‌های آشوب و پروتکل‌های عملیاتی.', conjectural: 'حدس‌ها و دروازه‌های باز', conjecturalText: 'جهان‌شمولی فیزیکی تقابل، میدان بنیادی لاندا، استخراج قاعده بورن و خوددوگانی فیزیکی اثبات نشده‌اند.',
     publications: 'دسترسی به پیکره', indexed: 'رکورد مقاله نمایه‌شده', versions: 'نسخه‌ها و DOI مفهومی در صورت اعلام', aiFiles: 'فهرست و ورودی‌های ماشین‌خوان', orcid: 'رکورد ORCID نویسنده',
   },
 };
-
-const FEATURED_IDS = ['FRC-100-002', 'FRC-566-001', 'FRC-826-829'];
 
 export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveView }) {
   const basePath = getBasePath(lang, view);
   const papers = getPapers(lang);
   const glossary = getGlossary(lang, { basePath, view });
   const home = getHomeConfig(lang);
+  const researchMap = buildResearchMap(lang, basePath);
   const t = (key: string) => DICT[lang]?.[key] || DICT.en[key];
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
@@ -104,7 +105,8 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
     if (!target) return basePath;
     if (staticTargets.has(target)) return `${basePath}/${target}`;
     const item = glossary[target];
-    return item?.url || `${basePath}/papers/${target}`;
+    if (item?.url) return item.url;
+    return `/en/papers/${target}`;
   };
 
   const startHere = (home?.startHere?.[view] || home?.startHere?.kasra || []).map((item, index) => ({
@@ -113,9 +115,6 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
     desc: item.desc || '',
     href: resolveTarget(item.target, item.url),
   }));
-
-  const paperMap = new Map(papers.map((paper) => [paper.frontmatter.id, paper]));
-  const featured = FEATURED_IDS.map((id) => paperMap.get(id)).filter(Boolean);
 
   return (
     <main className="min-h-[80vh]">
@@ -167,28 +166,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
         </div>
       </section>
 
-      {featured.length > 0 && (
-        <section className="border-y border-frc-blue/60 bg-frc-void-light">
-          <div className="max-w-6xl mx-auto px-6 py-14">
-            <div className="section-marker mb-3" data-section="§01"><h2 className="text-lg text-frc-text font-medium">{t('featured')}</h2></div>
-            <p className="text-sm text-frc-text-dim max-w-2xl mb-8 leading-relaxed">{t('featuredDesc')}</p>
-            <div className="grid md:grid-cols-3 gap-5">
-              {featured.map((paper) => {
-                if (!paper) return null;
-                const fm = paper.frontmatter;
-                return (
-                  <Link key={fm.id} href={`${basePath}/papers/${fm.id}`} className="group border border-frc-blue bg-frc-void hover:border-frc-gold/70 transition-colors p-5 min-w-0">
-                    <div>
-                      <div className="font-mono text-[0.6875rem] text-frc-gold mb-2">{fm.id} · {fm.version}</div>
-                      <h3 className="text-sm text-frc-text group-hover:text-frc-gold leading-snug transition-colors">{fm.title}</h3>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
+      <ResearchMapSection data={researchMap} lang={lang} sectionMarker="§01" />
 
       <section className="max-w-6xl mx-auto px-6 py-14">
         <div className="section-marker mb-8" data-section="§02">
@@ -228,7 +206,7 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
         <div className="max-w-6xl mx-auto px-6 py-10">
           <h2 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-5">{t('publications')}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-frc-text-dim">
-            <span>{papers.length} {t('indexed')}</span>
+            <span>{researchMap.totalPublishedEnglishPapers} {t('indexed')}</span>
             <span>{t('versions')}</span>
             <Link href="/for-ai" className="hover:text-frc-gold transition-colors">{t('aiFiles')}</Link>
             <a href="https://orcid.org/0009-0004-7412-5129" target="_blank" rel="noopener noreferrer" className="hover:text-frc-gold transition-colors">{t('orcid')}</a>
