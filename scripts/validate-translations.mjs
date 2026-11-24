@@ -325,8 +325,13 @@ export function validateTranslations(root = DEFAULT_ROOT) {
     }
   }
 
-  const searchIndexPath = path.join(publicDir, 'search-index.json');
-  if (fs.existsSync(searchIndexPath)) {
+  const searchIndexFiles = [
+    'search-index.json',
+    ...ALL_LANGS.map((l) => `search-index-${l}.json`),
+  ];
+  for (const idxFile of searchIndexFiles) {
+    const searchIndexPath = path.join(publicDir, idxFile);
+    if (!fs.existsSync(searchIndexPath)) continue;
     try {
       const searchIndex = JSON.parse(fs.readFileSync(searchIndexPath, 'utf-8'));
       for (const doc of searchIndex.documents || []) {
@@ -340,14 +345,14 @@ export function validateTranslations(root = DEFAULT_ROOT) {
           normalizeValue(enPaper?.data?.epistemicStatus) === 'archive' ||
           normalizeValue(enPaper?.data?.publicationState)?.toLowerCase() === 'archived';
         if (isRevPending) {
-          errors.push(`public/search-index.json (${doc.lang}): must exclude revision-pending paper ${doc.id}.`);
+          errors.push(`public/${idxFile} (${doc.lang}): must exclude revision-pending paper ${doc.id}.`);
         }
         if (isArchived) {
-          errors.push(`public/search-index.json (${doc.lang}): must exclude archived paper ${doc.id}.`);
+          errors.push(`public/${idxFile} (${doc.lang}): must exclude archived paper ${doc.id}.`);
         }
       }
     } catch (err) {
-      errors.push(`public/search-index.json: invalid JSON (${err.message}).`);
+      errors.push(`public/${idxFile}: invalid JSON (${err.message}).`);
     }
   }
 

@@ -138,4 +138,27 @@ lang: es
       expect(p002?.frontmatter.translationStatus).toBe('lags-canonical-english');
     }
   });
+
+  it('rejects revision-pending or archived papers leaked into per-language search indexes', () => {
+    const tmpRoot = makeIsolatedRepoCopy();
+    try {
+      const esIdxPath = path.join(tmpRoot, 'public', 'search-index-es.json');
+      const esIdx = JSON.parse(fs.readFileSync(esIdxPath, 'utf8'));
+      esIdx.documents.push({
+        id: 'FRC-100-006',
+        type: 'papers',
+        lang: 'es',
+        title: 'Leaked revision-pending paper',
+      });
+      fs.writeFileSync(esIdxPath, JSON.stringify(esIdx));
+
+      const result = validateTranslations(tmpRoot);
+      expect(result.ok).toBe(false);
+      expect(
+        result.errors.some((e) => e.includes('public/search-index-es.json') && e.includes('FRC-100-006')),
+      ).toBe(true);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
 });
