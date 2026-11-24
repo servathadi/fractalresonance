@@ -4,7 +4,7 @@ import { getMuLevel } from '@/lib/mu-levels';
 const OPEN_WORK: Record<string, string> = {
   'FRC-100-000': 'Router only: evaluate the cited primary papers rather than treating this map as evidence.',
   'FRC-100-002': 'KAM correspondence, crossover tolerance, and out-of-sample mechanism collapse remain open.',
-  'FRC-100-002-001': 'A dense resonance-window sweep is required to test whether the structure functional beats entropy-only ranking; quantum and cross-mechanism gates remain open.',
+  'FRC-100-002-001': 'The registered dense Gate 4 route is closed negatively. The coarse result remains scoped; no quantum gate or cross-mechanism collapse is established.',
   'FRC-100-003': 'Operational equivalence, no-signaling, and environment accounting remain open.',
   'FRC-100-005': 'The negative result remains scoped to the tested closure and normalization.',
   'FRC-100-007': 'The audited implementations fail in scope; no replacement ontology is established.',
@@ -46,7 +46,7 @@ export function PaperStatusPanel({
   const openWork = OPEN_WORK[frontmatter.id] || 'Review the paper’s declared scope, controls, limitations, and kill conditions.';
   const lineage = frontmatter.supersedes
     ? `${t.supersedes}: ${frontmatter.supersedes}`
-    : `${frontmatter.version || t.current} · ${t.current}`;
+    : frontmatter.version ? `${frontmatter.version} · ${t.current}` : t.current;
   const muLevel = getMuLevel(frontmatter.muLevel);
 
   return (
