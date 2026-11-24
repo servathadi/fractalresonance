@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-17T01:26:33.442Z",
+  "generated": "2026-11-24T15:34:01.450Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -1109,17 +1109,18 @@
           "title": "FRC 700.777 v1.0 - μ Registers: A Nested Scope Model for Scale-Declared Reciprocity",
           "url": "https://fractalresonance.com/en/papers/FRC-700-777",
           "path": "/en/papers/FRC-700-777",
-          "abstract": "FRC 700.777 defines μ registers as a nested scope model for the FRC corpus. μ0 names the prior ground; μ1–μ4 describe an organism's interior registers; μ5–μ6 its symbolic and witnessing envelope; and μ7 the boundary-shell coupled to what lies outside the declared system. The note distinguishes this map from physical scale selection and from the starred Boltzmann bridge k*. A μ label declares where a claim speaks; it neither sets k*, proves cross-register causation, nor transfers evidence between registers. The paper supplies an interface record for any proposed cross-register study and keeps the canonical physical relation unchanged.",
+          "abstract": "FRC 700.777 is the historical origin note for the μ-register scope model. It remains available for provenance, but it is superseded by FRC 700.000 through FRC 700.007 as the active threshold-series framework. The note distinguishes μ scope labels from physical scale selection and from the starred Boltzmann bridge k*. It does not establish a physical hierarchy, cross-register causation, or evidence transfer.",
           "date": "2026-07-10",
           "author": "H. Servat",
           "doi": "10.5281/zenodo.21298190",
           "conceptDoi": "10.5281/zenodo.21298189",
           "version": "v1.0",
           "muLevel": "mu4",
-          "publicationState": "preprint",
-          "epistemicStatus": "philosophical",
-          "retrievalPriority": 40,
-          "canonStatus": "framework",
+          "statusNote": "Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.",
+          "publicationState": "archived",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
+          "canonStatus": "archive",
           "tier": "speculative",
           "series": "FRC 700",
           "tags": [
@@ -1129,7 +1130,8 @@
             "reciprocity",
             "open-systems",
             "philosophy",
-            "methodology"
+            "methodology",
+            "archive"
           ],
           "taxons": [
             "mu-levels",
@@ -1139,10 +1141,11 @@
             "open-systems",
             "philosophy",
             "methodology",
+            "archive",
             "frc-700"
           ],
           "status": "published",
-          "wordCount": 1358
+          "wordCount": 1476
         },
         {
           "id": "FRC-787-787",
@@ -2945,7 +2948,7 @@
           "abstract": "Propone una arquitectura de computación basada en osciladores acoplados en lugar de puertas lógicas. Introduce el Bit Resonante (R-bit), que almacena información en relaciones de fase con un campo de coherencia global, y la Unidad de Procesamiento de Coherencia (CPU), que computa a través de dinámicas de bloqueo de fase deterministas. Analizamos la corrección de errores, la complejidad computacional y las ventajas sobre los paradigmas de computación clásica y cuántica.",
           "date": "2026-02-10",
           "author": "Hadi Servat",
-          "doi": "10.5281/zenodo.PLACEHOLDER",
+          "publicationState": "frontier proposal; no Zenodo DOI registered",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
           "series": "FRC 800",
@@ -4191,7 +4194,7 @@
           "abstract": "یک معماری رایانش بر اساس نوسانگرهای جفت شده به جای دروازه‌های منطقی پیشنهاد می‌کند. بیت رزونانسی (R-bit) را معرفی می‌کند که اطلاعات را در روابط فاز با یک میدان همدوسی جهانی ذخیره می‌کند، و واحد پردازش همدوسی (CPU) که از طریق دینامیک دترمنیستی قفل فاز محاسبه می‌کند. ما تصحیح خطا، پیچیدگی محاسباتی و مزایای آن نسبت به پارادایم‌های رایانش کلاسیک و کوانتومی را تجزیه و تحلیل می‌کنیم.",
           "date": "2026-02-10",
           "author": "Hadi Servat",
-          "doi": "10.5281/zenodo.PLACEHOLDER",
+          "publicationState": "frontier proposal; no Zenodo DOI registered",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
           "series": "FRC 800",
@@ -5437,7 +5440,7 @@
           "abstract": "Propose une architecture informatique basée sur des oscillateurs couplés plutôt que sur des portes logiques. Introduit le Bit Résonant (R-bit), qui stocke l'information dans des relations de phase avec un champ de cohérence global, et l'Unité de Traitement de Cohérence (CPU), qui calcule via des dynamiques de verrouillage de phase déterministes. Nous analysons la correction d'erreurs, la complexité computationnelle et les avantages par rapport aux paradigmes informatiques classiques et quantiques.",
           "date": "2026-02-10",
           "author": "Hadi Servat",
-          "doi": "10.5281/zenodo.PLACEHOLDER",
+          "publicationState": "frontier proposal; no Zenodo DOI registered",
           "epistemicStatus": "frontier",
           "retrievalPriority": 80,
           "series": "FRC 800",

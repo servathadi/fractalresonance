@@ -4,10 +4,39 @@ import { getPapers, getArticles, getConcepts, getBooks, getBlogPosts, getTopics,
 export const dynamic = 'force-static';
 
 const SITE_URL = 'https://fractalresonance.com';
+const FALLBACK_LAST_MODIFIED = new Date('2026-07-28T00:00:00.000Z');
+
+function parseValidDate(value?: string | Date | null): Date | null {
+  if (!value) return null;
+  const parsed = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function maxDate(dates: Array<Date | null | undefined>, fallback: Date = FALLBACK_LAST_MODIFIED): Date {
+  let latest: Date | null = null;
+  for (const candidate of dates) {
+    if (!candidate) continue;
+    if (!latest || candidate.getTime() > latest.getTime()) {
+      latest = candidate;
+    }
+  }
+  return latest ?? fallback;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const languages = getLanguages();
   const entries: MetadataRoute.Sitemap = [];
+
+  // Compute deterministic collection-level lastModified dates from frontmatter
+  const allContentDates: Array<Date | null> = [];
+  for (const lang of languages) {
+    for (const p of getPapers(lang)) allContentDates.push(parseValidDate(p.frontmatter.date));
+    for (const a of getArticles(lang)) allContentDates.push(parseValidDate(a.frontmatter.date));
+    for (const b of getBooks(lang)) allContentDates.push(parseValidDate(b.frontmatter.date));
+    for (const post of getBlogPosts(lang)) allContentDates.push(parseValidDate(post.frontmatter.date));
+    for (const topic of getTopics(lang)) allContentDates.push(parseValidDate(topic.frontmatter.date));
+  }
+  const siteLastModified = maxDate(allContentDates, FALLBACK_LAST_MODIFIED);
 
   // Homepage with language alternates
   const homeAlternates: Record<string, string> = {};
@@ -16,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   entries.push({
     url: SITE_URL,
-    lastModified: new Date(),
+    lastModified: siteLastModified,
     changeFrequency: 'weekly',
     priority: 1.0,
     alternates: { languages: homeAlternates },
@@ -30,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const lang of languages) {
       entries.push({
         url: `${SITE_URL}/${lang}/${page}`,
-        lastModified: new Date(),
+        lastModified: siteLastModified,
         changeFrequency: 'monthly',
         priority: 0.8,
         alternates: { languages: alternates },
@@ -39,7 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Paper pages with language alternates
-  // Get unique paper IDs across all languages
   const seenPaperIds = new Set<string>();
   for (const lang of languages) {
     const papers = getPapers(lang).filter((paper) => isCurrentReadingContent('paper', paper.frontmatter));
@@ -48,11 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenPaperIds.has(id)) continue;
       seenPaperIds.add(id);
 
+      const lastModified = parseValidDate(paper.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('papers', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/papers/${id}`,
-          lastModified: paper.frontmatter.date ? new Date(paper.frontmatter.date) : new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.9,
           alternates: { languages: alternates },
@@ -70,11 +99,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenArticleIds.has(id)) continue;
       seenArticleIds.add(id);
 
+      const lastModified = parseValidDate(article.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('articles', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/articles/${id}`,
-          lastModified: article.frontmatter.date ? new Date(article.frontmatter.date) : new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.9,
           alternates: { languages: alternates },
@@ -92,11 +122,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenConceptIds.has(id)) continue;
       seenConceptIds.add(id);
 
+      const lastModified = parseValidDate(concept.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('concepts', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/concepts/${id}`,
-          lastModified: new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.85,
           alternates: { languages: alternates },
@@ -114,11 +145,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenBookIds.has(id)) continue;
       seenBookIds.add(id);
 
+      const lastModified = parseValidDate(book.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('books', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/books/${id}`,
-          lastModified: book.frontmatter.date ? new Date(book.frontmatter.date) : new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.9,
           alternates: { languages: alternates },
@@ -136,11 +168,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenBlogIds.has(id)) continue;
       seenBlogIds.add(id);
 
+      const lastModified = parseValidDate(post.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('blog', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/blog/${id}`,
-          lastModified: post.frontmatter.date ? new Date(post.frontmatter.date) : new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.8,
           alternates: { languages: alternates },
@@ -158,11 +191,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenTopicIds.has(id)) continue;
       seenTopicIds.add(id);
 
+      const lastModified = parseValidDate(topic.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('topics', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/topics/${id}`,
-          lastModified: topic.frontmatter.date ? new Date(topic.frontmatter.date) : new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.8,
           alternates: { languages: alternates },
@@ -180,11 +214,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (seenPeopleIds.has(id)) continue;
       seenPeopleIds.add(id);
 
+      const lastModified = parseValidDate(person.frontmatter.date) ?? siteLastModified;
       const alternates = getAlternateLanguages('people', id);
       for (const altLang of Object.keys(alternates).filter(l => l !== 'x-default')) {
         entries.push({
           url: `${SITE_URL}/${altLang}/people/${id}`,
-          lastModified: new Date(),
+          lastModified,
           changeFrequency: 'monthly',
           priority: 0.7,
           alternates: { languages: alternates },
@@ -208,8 +243,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const l of tagLangs) {
       alternates[l] = `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`;
     }
-    
-    // Add x-default
     if (alternates['en']) {
       alternates['x-default'] = alternates['en'];
     } else {
@@ -217,9 +250,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const l of tagLangs) {
+      const items = getContentsByTag(l, tag);
+      const tagLastModified = maxDate(items.map((item) => parseValidDate(item.content.frontmatter.date)), siteLastModified);
       entries.push({
         url: `${SITE_URL}/${l}/tags/${encodeURIComponent(tag)}`,
-        lastModified: new Date(),
+        lastModified: tagLastModified,
         changeFrequency: 'weekly',
         priority: 0.6,
         alternates: { languages: alternates },
