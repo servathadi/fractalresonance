@@ -387,18 +387,42 @@ export function schemaDefinedTerm(concept: ConceptMeta) {
 
 // ─── Data-Level Schemas ────────────────────────────────────────────────────
 
-/** Dataset - static machine-readable resources */
+/** Dataset - live static machine-readable resources (Issue #92) */
 export function schemaDataset() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     '@id': `${SITE_URL}/#dataset`,
     name: 'Fractal Resonance Coherence Research Corpus',
-    description: 'Static machine-readable metadata and retrieval resources for the living Fractal Resonance Coherence corpus.',
+    description: 'Static machine-readable metadata, discovery manifests, and public falsification ledger for the living Fractal Resonance Coherence corpus.',
     url: `${SITE_URL}/for-ai`,
     creator: { '@id': `${SITE_URL}/#author` },
     license: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+    includedInDataCatalog: {
+      '@type': 'DataCatalog',
+      '@id': `${SITE_URL}/#datacatalog`,
+      name: 'Fractal Resonance Coherence Machine-Readable Catalog',
+      url: `${SITE_URL}/for-ai`,
+    },
     distribution: [
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/plain',
+        contentUrl: `${SITE_URL}/llms.txt`,
+        name: 'FRC LLM Discovery Summary',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
+        contentUrl: `${SITE_URL}/agent.json`,
+        name: 'FRC Agent Manifest',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'text/markdown',
+        contentUrl: `${SITE_URL}/agent.md`,
+        name: 'FRC Agent Quickstart',
+      },
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
@@ -408,14 +432,26 @@ export function schemaDataset() {
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
+        contentUrl: `${SITE_URL}/falsification-ledger.json`,
+        name: 'FRC Public Falsification & Negative-Gate Ledger',
+      },
+      {
+        '@type': 'DataDownload',
+        encodingFormat: 'application/json',
         contentUrl: `${SITE_URL}/search-index.json`,
         name: 'FRC Search Index',
       },
       {
         '@type': 'DataDownload',
+        encodingFormat: 'application/xml',
+        contentUrl: `${SITE_URL}/sitemap.xml`,
+        name: 'FRC XML Sitemap',
+      },
+      {
+        '@type': 'DataDownload',
         encodingFormat: 'text/plain',
-        contentUrl: `${SITE_URL}/llms.txt`,
-        name: 'FRC LLM Summary',
+        contentUrl: `${SITE_URL}/robots.txt`,
+        name: 'FRC Crawl Directives',
       },
     ],
     keywords: [
@@ -425,9 +461,10 @@ export function schemaDataset() {
       'open systems',
       'FRC',
       'fractal resonance',
+      'falsification ledger',
     ],
     isAccessibleForFree: true,
-    measurementTechnique: 'Theoretical framework with mathematical formalization',
+    measurementTechnique: 'Theoretical framework with mathematical formalization and status-labeled empirical gates',
   };
 }
 

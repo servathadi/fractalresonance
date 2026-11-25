@@ -4,7 +4,7 @@ id: addiction-coherence-trap
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "مکانیزم"
     answer: "اعتیاد را به عنوان باریک شدن دریچه مدل‌سازی کنید: قفل فاز نشانه->پاداش غالب می‌شود؛ ترک، از دست دادن سریع همدوسی (افزایش آنتروپی) است. بهبودی ساخت الگوهای همدوسی جایگزینِ قوی‌تر است."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # اعتیاد: یک تله همدوسی

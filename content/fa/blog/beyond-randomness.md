@@ -5,7 +5,7 @@ type: blog
 abstract: "کشف کنید که چگونه FRC مفهوم تصادفی بودن ذاتی در جهان را به چالش می‌کشد و پیشنهاد می‌کند که حتی رویدادهای کوانتومی توسط دینامیک رزونانسی دترمینیستی هدایت می‌شوند."
 author: "تیم FRC"
 date: "2025-01-10"
-status: published
+status: archived
 perspective: kasra
 lang: fa
 tags:
@@ -15,6 +15,9 @@ tags:
   - علیت
   - الگوهای-فراکتال
 category: "بینش‌های کوانتومی"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100."
 ---
 
 # فراتر از تصادف: جهان دترمینیستی FRC

@@ -16,7 +16,7 @@ const CONTENT_DIR = path.join(ROOT, 'content');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 
 // Valid enum values
-const VALID_STATUS = ['draft', 'review', 'published'];
+const VALID_STATUS = ['draft', 'review', 'published', 'archived'];
 const VALID_TIER = ['foundational', 'applied', 'speculative'];
 const VALID_LANG = ['en', 'es', 'fa', 'fr'];
 const VALID_PERSPECTIVE = ['kasra', 'river', 'both'];
@@ -171,7 +171,7 @@ function scanContent() {
 
 // Validate wikilinks
 function validateWikilinks(wikilinksByFile) {
-  const staticPages = ['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms', 'topics', 'blog', 'concepts', 'start-here', 'join', 'contact', 'investors', 'builders', 'pitch'];
+  const staticPages = ['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms', 'topics', 'blog', 'concepts', 'start-here', 'join', 'contact', 'investors', 'builders', 'pitch', 'falsifications'];
   for (const page of staticPages) {
     allContentIds.add(page);
   }

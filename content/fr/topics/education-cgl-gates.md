@@ -4,7 +4,7 @@ id: education-cgl-gates
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "systèmes"
     answer: "Mesurez le changement de cohérence (proxy alpha) et mettez à jour seulement quand la porte est ouverte ; traitez l'ennui comme un signal de contrôle, pas comme un défaut de caractère."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Éducation : Portes d'apprentissage et ennui

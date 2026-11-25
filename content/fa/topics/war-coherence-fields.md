@@ -4,7 +4,7 @@ id: war-coherence-fields
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "رئالیسم ترمودینامیک"
     answer: "درگیری‌ها را به عنوان رقابتِ همدوسی مدل‌سازی کنید: شکست در قفل فاز منجر به جنگ آنتروپیک می‌شود؛ حل و فصل زمانی رخ می‌دهد که تزریق مداوم آنتروپی، همدوسی داخلی خودِ متجاوز را سریع‌تر از حریف منحل کند."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # جنگ: رقابتِ همدوسی با همدوسی

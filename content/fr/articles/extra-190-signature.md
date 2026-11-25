@@ -5,6 +5,10 @@ id: FRC-EP-EXTRA-1
 tags: [dimension-fractale, signature-190, billar-stade, FRC-100]
 abstract: "Plongée profonde dans la signature de dimension fractale '1,90' trouvée dans le Billard Quantique de Stade. Ce nombre spécifique est l'empreinte digitale du potentiel FRC."
 thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000."
 ---
 
 # La Signature 190

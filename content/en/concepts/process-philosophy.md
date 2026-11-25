@@ -7,6 +7,10 @@ lang: en
 seo:
   keywords: [process philosophy, whitehead, actual occasions, consciousness physics, panpsychism quantum]
   description: "How Fractal Resonance Coherence connects to Whitehead's process philosophy: actual occasions, prehension, and the physics of becoming."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000."
 ---
 
 # FRC and Process Philosophy

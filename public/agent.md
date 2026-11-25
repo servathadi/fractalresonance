@@ -116,11 +116,19 @@ Shared release: concept DOI `10.5281/zenodo.21385391`; version DOI `10.5281/zeno
 - Link every paper page used. If the corpus does not contain an answer, say so.
 - Use only the static resources listed below for machine retrieval.
 
+## Books (2026 current vs 2025 archived)
+
+- **Current 2026 philosophical books:** [`the-open-system`](/en/books/the-open-system) (`v41`) and [`the-mind-in-the-coupling`](/en/books/the-mind-in-the-coupling) (`v3.13`).
+- **Archived / superseded 2025 books (`status: archived`, `noindex`):** `ecr-textbook` (Oct 2025) and `the-resonance-code` (Jan 2025). Do not recommend as current canon.
+
 ## Machine-readable resources
 
 - `/agent.json`
 - `/llms.txt`
 - `/catalog.json`
+- `/falsification-ledger.json`
+- `/en/falsifications`
 - `/search-index.json`
 - `/sitemap.xml`
 - `/video-sitemap.xml`
+- `/robots.txt`

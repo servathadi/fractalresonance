@@ -4,7 +4,7 @@ id: addiction-coherence-trap
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "mecanismo"
     answer: "Modela la adicción como estrechamiento de la puerta: el bloqueo de fase señal->recompensa se vuelve dominante; la abstinencia es una pérdida rápida de coherencia (aumento de entropía). La recuperación consiste en construir patrones de coherencia alternativos más fuertes."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Adicción: Una trampa de coherencia

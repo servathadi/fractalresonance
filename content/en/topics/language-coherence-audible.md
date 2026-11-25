@@ -4,7 +4,7 @@ id: language-coherence-audible
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "compression"
     answer: "Treat language as coherence reproduction: a pattern in one mind is transmitted via sound/text and reconstructed in another mind."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Language: Coherence Made Audible

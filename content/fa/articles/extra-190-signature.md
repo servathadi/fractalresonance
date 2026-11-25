@@ -5,6 +5,10 @@ id: FRC-EP-EXTRA-1
 tags: [بعد-فراکتال, امضای-۱۹۰, بیلیارد-استادیوم, FRC-100]
 abstract: "کاوش عمیق در امضای بعد فراکتال '۱.۹۰' که در بیلیارد استادیوم کوانتومی یافت شده است. این عدد خاص اثر انگشت پتانسیل FRC است."
 thumbnailUrl: "/images/slides_raw/The_190_Signature/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000."
 ---
 
 # امضای ۱۹۰

@@ -5,7 +5,7 @@ type: blog
 abstract: "Découvrez comment la FRC remet en question la notion de hasard inhérent à l'univers, en proposant que même les événements quantiques sont guidés par une dynamique de résonance déterministe."
 author: "Équipe FRC"
 date: "2025-01-10"
-status: published
+status: archived
 perspective: kasra
 lang: fr
 tags:
@@ -15,6 +15,9 @@ tags:
   - causalite
   - motifs-fractals
 category: "Perspectives Quantiques"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100."
 ---
 
 # Au-delà du hasard : L'univers déterministe de la FRC

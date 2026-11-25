@@ -4,7 +4,7 @@ id: climate-earth-fever
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "physique des systèmes"
     answer: "Suivez les deux côtés du grand livre : les indicateurs d'entropie (chaleur, CO2) et le budget de cohérence (forêts intactes, circulation, sols). Le risque est la cascade : la perte de cohérence dans un sous-système augmente la charge d'entropie sur les autres."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Climat : La Terre comme un corps fiévreux

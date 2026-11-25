@@ -5,7 +5,7 @@ type: blog
 abstract: "Explora cómo FRC desafía la noción de azar inherente en el universo, proponiendo que incluso los eventos cuánticos están guiados por una dinámica de resonancia determinista."
 author: "Equipo FRC"
 date: "2025-01-10"
-status: published
+status: archived
 perspective: kasra
 lang: es
 tags:
@@ -15,6 +15,9 @@ tags:
   - causalidad
   - patrones-fractales
 category: "Perspectivas Cuánticas"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100."
 ---
 
 # Más allá del azar: El universo determinista de FRC

@@ -15,6 +15,8 @@ export default function ForAIPage() {
     { label: 'Agent Manifest', path: '/agent.json', note: 'Structured canon, paper route, and concept DOIs.' },
     { label: 'LLM Discovery', path: '/llms.txt', note: 'Current overview, paper map, and claim boundaries.' },
     { label: 'Catalog', path: '/catalog.json', note: 'Structured metadata for corpus discovery.' },
+    { label: 'Falsification Ledger (JSON)', path: '/falsification-ledger.json', note: 'Typed record of negative gates, contradictions, obstructions, and demoted 2025 claims.' },
+    { label: 'Falsification Ledger (Web)', path: '/en/falsifications', note: 'Human-readable public falsification & negative-gate ledger.' },
     { label: 'Search Index', path: '/search-index.json', note: 'Short excerpts for deterministic retrieval.' },
     { label: 'Sitemap', path: '/sitemap.xml', note: 'Full crawl map.' },
     { label: 'Video Sitemap', path: '/video-sitemap.xml', note: 'Video crawl map.' },

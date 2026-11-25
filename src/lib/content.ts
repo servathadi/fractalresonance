@@ -33,6 +33,7 @@ export interface RawFrontmatter {
   author?: string;
   date?: string;
   status?: string;
+  noindex?: boolean;
   publicationState?: string;
   statusLabel?: string;
   statusNote?: string;
@@ -349,8 +350,8 @@ function isPublished(content: ParsedContent): boolean {
   const status = content.frontmatter.status;
   // No status = published (backwards compatibility)
   if (!status) return true;
-  // Explicitly published
-  if (status === 'published') return true;
+  // Explicitly published or archived (archived pages stay addressable with noindex + archive banner)
+  if (status === 'published' || status === 'archived') return true;
   if (process.env.SHOW_DRAFTS === 'true') return true;
   return false;
 }
@@ -1143,8 +1144,10 @@ export function getContentEpistemicStatus(
   frontmatter: RawFrontmatter,
 ): CorpusEpistemicStatus {
   if (
-    frontmatter.epistemicStatus === 'archive'
+    frontmatter.status === 'archived'
+    || frontmatter.epistemicStatus === 'archive'
     || frontmatter.publicationState?.toLowerCase() === 'archived'
+    || frontmatter.editionStatus === 'legacy'
     || getGovernanceArchiveNote(type, frontmatter.id)
   ) {
     return 'archive';
@@ -1165,6 +1168,7 @@ export function getContentEpistemicStatus(
 /** True when an item belongs in ordinary public reading paths and feeds. */
 export function isCurrentReadingContent(type: TaxonomyContentType, frontmatter: RawFrontmatter): boolean {
   if (type === 'paper' && (frontmatter.publicationState?.toLowerCase() === 'revision pending' || isRevisionPendingPaper(frontmatter.id))) return false;
+  if (frontmatter.status === 'archived' || frontmatter.noindex === true) return false;
   return getContentEpistemicStatus(type, frontmatter) !== 'archive';
 }
 

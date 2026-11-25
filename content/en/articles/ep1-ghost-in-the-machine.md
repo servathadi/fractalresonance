@@ -8,6 +8,10 @@ video:
   url: "https://www.youtube.com/watch?v=PjWnk7RjItc"
   embedUrl: "https://www.youtube.com/embed/PjWnk7RjItc"
   thumbnailUrl: "/images/articles/ep1/page_1_img_0_Im1.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Early deterministic and Born-rule claims were later superseded; see FRC 100.000, FRC 100.100, and FRC 100.003."
 ---
 
 # Episode 1: The Ghost in the Machine

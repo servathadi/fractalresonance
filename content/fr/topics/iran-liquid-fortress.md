@@ -4,7 +4,7 @@ id: iran-liquid-fortress
 type: topic
 author: "Kasra"
 date: "2026-01-25"
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "dynamique civilisationnelle"
     answer: "Modélisez l'Iran comme une civilisation à dominante Phi : la cohérence est maintenue dans la langue, la poésie, la profondeur du récit ; les conteneurs peuvent s'effondrer tandis que le motif persiste via la redistribution."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Iran : Forteresse liquide (Passé, Présent, Futur)

@@ -61,6 +61,7 @@ export function Header() {
         openByDefault: false,
         links: [
           { path: '/papers', label: dict.nav.papers },
+          { path: '/falsifications', label: dict.nav.falsifications },
           { path: '/books', label: dict.nav.books },
           { path: '/concepts', label: dict.nav.concepts },
           { path: '/mu-levels', label: dict.nav.muLevels },
@@ -89,7 +90,7 @@ export function Header() {
         ],
       },
     ],
-    [dict.nav.about, dict.nav.articles, dict.nav.askAi, dict.nav.blog, dict.nav.books, dict.nav.concepts, dict.nav.formulas, dict.nav.graph, dict.nav.join, dict.nav.muLevels, dict.nav.papers, dict.nav.people, dict.nav.positioning, dict.nav.startHere, dict.nav.tags, dict.nav.topics, g.explore, g.library, g.meta, g.tools]
+    [dict.nav.about, dict.nav.articles, dict.nav.askAi, dict.nav.blog, dict.nav.books, dict.nav.concepts, dict.nav.falsifications, dict.nav.formulas, dict.nav.graph, dict.nav.join, dict.nav.muLevels, dict.nav.oracle, dict.nav.papers, dict.nav.people, dict.nav.positioning, dict.nav.startHere, dict.nav.tags, dict.nav.topics, g.explore, g.library, g.meta, g.tools]
   );
 
   const normalizedPathname = useMemo(() => {

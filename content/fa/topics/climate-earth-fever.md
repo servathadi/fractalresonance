@@ -4,7 +4,7 @@ id: climate-earth-fever
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "فیزیک سیستم‌ها"
     answer: "هر دو طرف دفتر کل را ردیابی کنید: شاخص‌های آنتروپی (گرما، دی‌اکسید کربن) و بودجه همدوسی (جنگل‌های بکر، جریان‌های اقیانوسی، خاک). خطر در ریزش آبشاری است: از دست دادن همدوسی در یک زیرسیستم، بار آنتروپی را بر سایرین افزایش می‌دهد."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # اقلیم: زمین به مثابه بدنی در تب

@@ -4,7 +4,7 @@ id: food-coherence-alchemy
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "alquimia"
     answer: "Trata la cocina como transferencia de coherencia: la comida codifica la práctica, el lugar y los bucles de retroalimentación; la comida industrial optimiza la reproducibilidad y a menudo pierde contenido de coherencia."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Alimentación: Alquimia de la coherencia

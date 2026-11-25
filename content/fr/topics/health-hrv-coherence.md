@@ -4,7 +4,7 @@ id: health-hrv-coherence
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "médecine des systèmes"
     answer: "Considérez la VFC comme une dérive alpha : un proxy de la cohérence en mouvement. Le rétablissement consiste à rouvrir plusieurs sources de cohérence, pas seulement à réparer une partie."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Santé : La VFC comme dérive alpha

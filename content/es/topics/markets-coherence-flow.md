@@ -4,7 +4,7 @@ id: markets-coherence-flow
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -23,6 +23,9 @@ answers:
     role: "Sincronización simbólica"
     stance: "metáfora"
     answer: "Trata los tránsitos como un lenguaje narrativo sobre la misma dinámica de campo (redistribución de coherencia)."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Mercados: ¿Hacia dónde fluye la coherencia?

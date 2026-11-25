@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getLanguages, getBooks, matchesPerspectiveView } from '@/lib/content';
+import { getLanguages, getBooks, isCurrentReadingContent, matchesPerspectiveView } from '@/lib/content';
 import { BooksIndex } from '@/components/pages/BooksIndex';
 import { BooksSidebar } from '@/components/BooksSidebar';
 import { SchemaScript } from '@/components/SchemaScript';
@@ -7,7 +7,7 @@ import { schemaCollectionPage, type ListItemMeta } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Books',
-  description: 'Longer-form writing for the FRC project (primers, textbooks, and narrative frames).',
+  description: 'Longer-form philosophical writing for the FRC project (current 2026 books and archived 2025 historical editions).',
 };
 
 export function generateStaticParams() {
@@ -22,11 +22,19 @@ export default async function BooksPage({ params }: Props) {
   const { lang } = await params;
   const basePath = `/${lang}`;
 
-  const books = getBooks(lang).filter(b => matchesPerspectiveView(b.frontmatter.perspective, 'kasra'));
-  const items: ListItemMeta[] = books.map(b => ({
-    name: b.frontmatter.title,
-    url: `${basePath}/books/${b.frontmatter.id}`,
-    description: b.frontmatter.abstract,
+  const localCurrent = getBooks(lang).filter(
+    (b) => isCurrentReadingContent('book', b.frontmatter) && matchesPerspectiveView(b.frontmatter.perspective, 'kasra'),
+  );
+  const schemaBooks = localCurrent.length > 0
+    ? localCurrent.map((b) => ({ book: b, url: `${basePath}/books/${b.frontmatter.id}` }))
+    : getBooks('en')
+      .filter((b) => isCurrentReadingContent('book', b.frontmatter))
+      .map((b) => ({ book: b, url: `/en/books/${b.frontmatter.id}` }));
+
+  const items: ListItemMeta[] = schemaBooks.map(({ book, url }) => ({
+    name: book.frontmatter.title,
+    url,
+    description: book.frontmatter.abstract,
   }));
 
   const collectionSchema = schemaCollectionPage(

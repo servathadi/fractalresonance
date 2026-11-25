@@ -7,6 +7,10 @@ lang: fa
 seo:
   keywords: [فلسفه فرآیند, وایت‌هد, مناسبت‌های واقعی, فیزیک آگاهی, همه‌روان‌انگاری کوانتومی]
   description: "چگونگی پیوند همدوسی رزونانس فراکتال با فلسفه فرآیند وایت‌هد: مناسبت‌های واقعی، دریافت (prehension)، و فیزیکِ شدن (becoming)."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000."
 ---
 
 # FRC و فلسفه فرآیند

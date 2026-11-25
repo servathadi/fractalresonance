@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   schemaWebSite,
+  schemaDataset,
+  schemaSiteGraph,
   schemaScholarlyArticle,
   schemaBreadcrumbList,
   schemaBook,
@@ -18,7 +20,7 @@ import {
 
 describe('Schema.org generators', () => {
   describe('schemaWebSite', () => {
-    it('should generate valid WebSite schema', () => {
+    it('should generate valid WebSite schema with no dead /search SearchAction (Issue #92)', () => {
       const schema = schemaWebSite();
       
       expect(schema['@context']).toBe('https://schema.org');
@@ -26,6 +28,33 @@ describe('Schema.org generators', () => {
       expect(schema.name).toBe('Fractal Resonance Coherence');
       expect(schema.url).toBe('https://fractalresonance.com');
       expect('potentialAction' in schema).toBe(false);
+      expect(JSON.stringify(schema)).not.toContain('SearchAction');
+      expect(JSON.stringify(schema)).not.toContain('/search');
+    });
+  });
+
+  describe('schemaDataset and schemaSiteGraph (Issue #92)', () => {
+    it('should expose only live static machine-readable endpoints and zero /api/* or /search URLs', () => {
+      const dataset = schemaDataset();
+      const siteGraph = schemaSiteGraph();
+      const serialized = `${JSON.stringify(dataset)}\n${JSON.stringify(siteGraph)}`;
+
+      expect(serialized).not.toContain('/api/');
+      expect(serialized).not.toContain('SearchAction');
+      expect(serialized).not.toContain('https://fractalresonance.com/search"');
+
+      const urls = dataset.distribution.map((d) => d.contentUrl);
+      expect(urls).toEqual(
+        expect.arrayContaining([
+          'https://fractalresonance.com/llms.txt',
+          'https://fractalresonance.com/agent.json',
+          'https://fractalresonance.com/catalog.json',
+          'https://fractalresonance.com/falsification-ledger.json',
+          'https://fractalresonance.com/sitemap.xml',
+          'https://fractalresonance.com/robots.txt',
+        ]),
+      );
+      expect(dataset.includedInDataCatalog['@type']).toBe('DataCatalog');
     });
   });
 

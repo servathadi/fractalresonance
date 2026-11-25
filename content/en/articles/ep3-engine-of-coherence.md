@@ -8,6 +8,10 @@ video:
   url: "https://www.youtube.com/watch?v=Cy_5ofEuHLA"
   embedUrl: "https://www.youtube.com/embed/Cy_5ofEuHLA"
   thumbnailUrl: "/images/slides_raw/Fractal_Resonance_Quantum_Theory__1_/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Reflects an early visual formulation superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 566.001."
 ---
 
 # Episode 3: The Engine of Coherence

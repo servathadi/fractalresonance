@@ -10,6 +10,7 @@ import { PageShell } from '@/components/PageShell';
 import { BookExperience } from '@/components/BookExperience';
 import { ContentDigest } from '@/components/ContentDigest';
 import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { ArchivedBookBanner } from '@/components/ArchivedBookBanner';
 import {
   estimateReadTime,
   getBook,
@@ -18,6 +19,7 @@ import {
   getLanguages,
   getGlossary,
   getAlternateLanguages,
+  getContentEpistemicStatus,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { schemaChapterPage, type ChapterMeta } from '@/lib/schema';
@@ -86,6 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const author = fm.author || 'H. Servat';
   const chapterUrl = `/${lang}/books/${fm.id}/chapter/${chapter}`;
   const alternates = getAlternateLanguages('books', fm.id);
+  const isArchived = getContentEpistemicStatus('book', fm) === 'archive' || fm.noindex === true;
 
   return {
     ...generatePageMetadata({
@@ -96,8 +99,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       lang,
       author,
       tags: Array.isArray(fm.tags) ? [...fm.tags, 'chapter'] : ['chapter'],
+      noindex: isArchived,
     }, alternates),
-    robots: { index: true, follow: true },
+    robots: isArchived ? { index: false, follow: true } : { index: true, follow: true },
   };
 }
 
@@ -169,7 +173,7 @@ export default async function BookChapterPage({ params }: Props) {
 
           <header className="mb-8">
             <EpistemicBadge
-              status={book.frontmatter.editionStatus === 'legacy' ? 'archive' : 'philosophical'}
+              status={getContentEpistemicStatus('book', fm)}
               lang={lang}
               className="mb-3"
             />
@@ -185,6 +189,10 @@ export default async function BookChapterPage({ params }: Props) {
               </Link>
             </div>
           </header>
+
+          {getContentEpistemicStatus('book', fm) === 'archive' && (
+            <ArchivedBookBanner lang={lang} bookId={fm.id} statusNote={fm.statusNote} />
+          )}
 
           <ContentDigest
             tldr={fm.tldr}

@@ -4,7 +4,7 @@ id: health-hrv-coherence
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "systems medicine"
     answer: "Treat HRV as alpha drift: a proxy for coherence-in-motion. Recovery is reopening multiple coherence sources, not just fixing a part."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Health: HRV as Alpha Drift

@@ -4,7 +4,7 @@ id: dreams-nightly-nigredo
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "سیستم‌ها"
     answer: "با REM به عنوان یادگیری داخلی با آلفای بالا برخورد کنید: انحلال، ترکیب مجدد را ممکن می‌سازد؛ کابوس‌ها زمانی رخ می‌دهند که آنتروپی سریع‌تر از شکل‌گیری همدوسی جدید بالا برود."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # رویاها: نیگردویِ شبانه

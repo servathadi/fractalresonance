@@ -4,7 +4,7 @@ id: cities-coherence-concrete
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "dinámica de redes"
     answer: "Trata la vitalidad urbana como coherencia: densidad + mezcla + conectividad + tiempo. Mide el campo entre nodos, no solo los edificios."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Ciudades: Coherencia hecha de concreto

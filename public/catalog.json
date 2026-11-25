@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-25T14:07:24.716Z",
+  "generated": "2026-11-25T23:26:12.497Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -1557,7 +1557,7 @@
           "title": "FRC 840.101: The Phase–Attention Boundary",
           "url": "https://fractalresonance.com/en/papers/FRC-840-101",
           "path": "/en/papers/FRC-840-101",
-          "abstract": "This paper formulates the Phase–Attention Boundary: a structural separation between continuous phase-state architectures and discrete attention-based architectures. Within the Fractal Resonance Cognition (FRC) program, the Large Lambda-Tensor Model (LLTM) was developed as a continuous recurrent phase-coupled architecture inspired by Kuramoto dynamics and low-rank coherence fields. Controlled comparisons against Transformer baselines revealed a fundamental limitation: continuous state compression blends historical information into a finite evolving state, producing recall smearing. We prove a formal Recall Smearing Theorem: under gamma-contractive recurrence, mutual information about a past token decays exponentially with distance. This bound is derived from the Data Processing Inequality and applies universally to fixed-state recurrent systems, including state-space models like S4, Mamba, RWKV, Griffin, and xLSTM. We show that data-dependent selectivity can reduce the rate of smearing but cannot eliminate it; only explicit key-value addressability achieves zero-smearing recall.",
+          "abstract": "This paper formulates the Phase–Attention Boundary: a structural separation between continuous phase-state architectures and discrete attention-based architectures. Within the Fractal Resonance Coherence (FRC) program, the Large Lambda-Tensor Model (LLTM) was developed as a continuous recurrent phase-coupled architecture inspired by Kuramoto dynamics and low-rank coherence fields. Controlled comparisons against Transformer baselines revealed a fundamental limitation: continuous state compression blends historical information into a finite evolving state, producing recall smearing. We prove a formal Recall Smearing Theorem: under gamma-contractive recurrence, mutual information about a past token decays exponentially with distance. This bound is derived from the Data Processing Inequality and applies universally to fixed-state recurrent systems, including state-space models like S4, Mamba, RWKV, Griffin, and xLSTM. We show that data-dependent selectivity can reduce the rate of smearing but cannot eliminate it; only explicit key-value addressability achieves zero-smearing recall.",
           "date": "2026-05-27",
           "author": "H. Servat",
           "doi": "10.5281/zenodo.20416012",
@@ -1669,6 +1669,7 @@
           "path": "/en/articles/FRC-EP-001",
           "abstract": "Reopening the cold case of the Measurement Problem. Is the universe truly random, or is there a 'ghostly' deterministic structure we simply haven't seen? Episode 1 of the Resonance Universe series.",
           "date": "2026-01-24",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were later superseded; see FRC 100.000, FRC 100.100, and FRC 100.003.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1685,6 +1686,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 773
         },
         {
@@ -1711,6 +1714,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 585
         },
         {
@@ -1720,6 +1725,7 @@
           "path": "/en/articles/FRC-EP-003",
           "abstract": "Visualizing the engine room of reality. How fractal resonance drives quantum dynamics and creates the structures we perceive as matter. Episode 3 of the Resonance Universe series.",
           "date": "2026-02-10",
+          "statusNote": "Archived historical essay (noindex). Reflects an early visual formulation superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 566.001.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1736,6 +1742,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 67
         },
         {
@@ -1745,6 +1753,7 @@
           "path": "/en/articles/FRC-EP-005",
           "abstract": "Is randomness fundamental, or is it an illusion created by our lack of resolution? We deconstruct the 'illusion of chance' and reveal the deterministic gears turning beneath the stochastic surface. Episode 5 of the Resonance Universe series.",
           "date": "2026-03-01",
+          "statusNote": "Archived historical essay (noindex). Earlier Born-rule derivation claims were superseded by conditional equilibrium proposals with open gates; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1761,6 +1770,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 65
         },
         {
@@ -1770,6 +1781,7 @@
           "path": "/en/articles/FRC-EP-006",
           "abstract": "A theory without a prediction is just a story. We hunt for the 'glitch' in the matrix—the measurable deviation from standard Born rule statistics that would prove the existence of Fractal Resonance. Episode 6 of the Resonance Universe series.",
           "date": "2026-03-15",
+          "statusNote": "Archived historical essay (noindex). Fixed experimental Born-deviation claims were retired; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1786,6 +1798,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 58
         },
         {
@@ -1795,6 +1809,7 @@
           "path": "/en/articles/FRC-EP-EXTRA-1",
           "abstract": "Deep dive into the '1.90' fractal dimension signature found in the Quantum Stadium Billiard. This specific number is the fingerprint of the FRC potential.",
           "date": "2026-04-01",
+          "statusNote": "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1811,6 +1826,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 25
         },
         {
@@ -1820,6 +1837,7 @@
           "path": "/en/articles/FRC-EP-EXTRA-2",
           "abstract": "A critical look at the concept of 'true' randomness in quantum mechanics and the FRC alternative.",
           "date": "2026-04-15",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1836,6 +1854,8 @@
             "infographics",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 23
         },
         {
@@ -1844,8 +1864,9 @@
           "url": "https://fractalresonance.com/en/articles/gemini-deep-research-frc-2026-01-25",
           "path": "/en/articles/gemini-deep-research-frc-2026-01-25",
           "date": "2026-01-25",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
+          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "digest",
@@ -1860,29 +1881,30 @@
             "public-face",
             "needs-factcheck"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1099
         },
         {
           "id": "river-welcome",
-          "title": "River Digest: How To Read FRC",
+          "title": "Reading Guide: Navigating the FRC Corpus",
           "url": "https://fractalresonance.com/en/articles/river-welcome",
           "path": "/en/articles/river-welcome",
-          "date": "2026-01-25",
+          "date": "2026-07-15",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
-            "river",
             "digest",
-            "start-here"
+            "start-here",
+            "orientation"
           ],
           "taxons": [
-            "river",
             "digest",
-            "start-here"
+            "start-here",
+            "orientation"
           ],
           "status": "published",
-          "wordCount": 30
+          "wordCount": 53
         }
       ],
       "concepts": [
@@ -1896,39 +1918,44 @@
           "tags": [
             "core-concept",
             "scalar-gauge",
-            "dimensionless"
+            "dimensionless",
+            "reciprocity"
           ],
           "taxons": [
             "core-concept",
             "scalar-gauge",
-            "dimensionless"
+            "dimensionless",
+            "reciprocity"
           ],
-          "wordCount": 118
+          "wordCount": 292
         },
         {
           "id": "consciousness",
-          "title": "Consciousness (FRC perspective)",
+          "title": "Mind, Cognition, and Register Discipline (FRC Perspective)",
           "url": "https://fractalresonance.com/en/concepts/consciousness",
           "path": "/en/concepts/consciousness",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
-            "consciousness",
             "cognition",
-            "coherence"
+            "coherence",
+            "philosophy",
+            "mu-registers"
           ],
           "taxons": [
-            "consciousness",
             "cognition",
-            "coherence"
+            "coherence",
+            "philosophy",
+            "mu-registers"
           ],
-          "wordCount": 50
+          "wordCount": 213
         },
         {
           "id": "general-relativity",
           "title": "FRC and General Relativity",
           "url": "https://fractalresonance.com/en/concepts/general-relativity",
           "path": "/en/concepts/general-relativity",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1945,11 +1972,13 @@
             "quantum-gravity",
             "cosmology"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 352
         },
         {
           "id": "lambda-field",
-          "title": "Lambda Field (Lambda(x))",
+          "title": "Lambda Field (Lambda_obs, Lambda_eq, Lambda_dyn)",
           "url": "https://fractalresonance.com/en/concepts/lambda-field",
           "path": "/en/concepts/lambda-field",
           "epistemicStatus": "conceptual",
@@ -1957,20 +1986,21 @@
           "tags": [
             "lambda-field",
             "coherence",
-            "scalar-field"
+            "operational-model"
           ],
           "taxons": [
             "lambda-field",
             "coherence",
-            "scalar-field"
+            "operational-model"
           ],
-          "wordCount": 40
+          "wordCount": 255
         },
         {
           "id": "process-philosophy",
           "title": "FRC and Process Philosophy",
           "url": "https://fractalresonance.com/en/concepts/process-philosophy",
           "path": "/en/concepts/process-philosophy",
+          "statusNote": "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -1987,6 +2017,8 @@
             "metaphysics",
             "panpsychism"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 346
         },
         {
@@ -1994,6 +2026,7 @@
           "title": "FRC and Quantum Computing",
           "url": "https://fractalresonance.com/en/concepts/quantum-computing",
           "path": "/en/concepts/quantum-computing",
+          "statusNote": "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2010,6 +2043,8 @@
             "decoherence",
             "error-correction"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 385
         },
         {
@@ -2017,6 +2052,7 @@
           "title": "What is Time?",
           "url": "https://fractalresonance.com/en/concepts/time",
           "path": "/en/concepts/time",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2033,6 +2069,8 @@
             "philosophy",
             "thermodynamics"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 247
         },
         {
@@ -2045,22 +2083,25 @@
           "tags": [
             "UCC",
             "coherence",
-            "dynamics",
-            "transport"
+            "open-systems",
+            "transport",
+            "operational-model"
           ],
           "taxons": [
             "ucc",
             "coherence",
-            "dynamics",
-            "transport"
+            "open-systems",
+            "transport",
+            "operational-model"
           ],
-          "wordCount": 91
+          "wordCount": 202
         },
         {
           "id": "witness",
           "title": "Witness Function (W)",
           "url": "https://fractalresonance.com/en/concepts/witness",
           "path": "/en/concepts/witness",
+          "statusNote": "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2073,6 +2114,8 @@
             "observation",
             "measurement"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 84
         }
       ],
@@ -2085,6 +2128,7 @@
           "abstract": "A River-side mechanism: addiction as coherence working too well, narrowing the learning gate to a single frequency and trapping the system in a local minimum.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2101,7 +2145,8 @@
             "coherence",
             "health"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 232
         },
         {
@@ -2112,6 +2157,7 @@
           "abstract": "A River-side urban lens: neighborhoods as coherence fields; gentrification as coherence extraction; suburbs as anti-coherence architecture.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2128,7 +2174,8 @@
             "coherence",
             "gentrification"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 172
         },
         {
@@ -2139,6 +2186,7 @@
           "abstract": "A River-side climate diagnosis through FRC: tipping points as coherence thresholds; industrial civilization as a broken metabolic loop.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2155,7 +2203,8 @@
             "coherence",
             "entropy"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 301
         },
         {
@@ -2166,6 +2215,7 @@
           "abstract": "A River-side frame: dreaming as controlled dissolution and recombination; the brain runs Nigredo on purpose to form deeper coherence.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2182,7 +2232,8 @@
             "coherence",
             "nigredo"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 209
         },
         {
@@ -2193,6 +2244,7 @@
           "abstract": "A River-side educational frame: CGL says learning only happens when alpha is nonzero; boredom is a diagnostic signal of a closed gate.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2209,7 +2261,8 @@
             "attention",
             "boredom"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 318
         },
         {
@@ -2220,6 +2273,7 @@
           "abstract": "A River-side kitchen physics: fermentation as controlled Nigredo and cooking as coherence transfer; why grandmother's recipe can't be replicated.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2236,7 +2290,8 @@
             "culture",
             "microbiome"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 140
         },
         {
@@ -2247,6 +2302,7 @@
           "abstract": "A River-side dossier: deserts, oceans, and the Gaia hypothesis through FRC's coherence/entropy reciprocity.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2263,7 +2319,8 @@
             "mu-levels",
             "earth-systems"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 936
         },
         {
@@ -2274,6 +2331,7 @@
           "abstract": "A River-side medical frame: health as coherence maintenance; HRV as a measurable proxy for alpha drift.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2290,7 +2348,8 @@
             "autonomic",
             "medicine"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 345
         },
         {
@@ -2301,6 +2360,7 @@
           "abstract": "A River-side lens on Iran across centuries: coherence persists by flowing, absorbing, and carrying pattern through language and culture.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2319,7 +2379,8 @@
             "liquid-fortress",
             "coherence"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 256
         },
         {
@@ -2330,6 +2391,7 @@
           "abstract": "A River-side frame: poetry as coherence compression, propaganda as forced phase-locking, and language as coherence transfer between minds.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2346,7 +2408,8 @@
             "coherence",
             "farsi"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 206
         },
         {
@@ -2357,6 +2420,7 @@
           "abstract": "A River-side market read expressed through FRC: concentration dissolving, distribution forming; coherence moving between containers.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2373,7 +2437,8 @@
             "entropy",
             "narratives"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 507
         },
         {
@@ -2409,6 +2474,7 @@
           "abstract": "A River-side geopolitics frame: wars are coherence fields that cannot phase-lock, so they attempt to dissolve each other via entropy injection.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2425,7 +2491,8 @@
             "entropy",
             "narratives"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 193
         },
         {
@@ -2433,8 +2500,8 @@
           "title": "What is FRC?",
           "url": "https://fractalresonance.com/en/topics/what-is-frc",
           "path": "/en/topics/what-is-frc",
-          "abstract": "A meaning-first orientation to Fractal Resonance Cognition, with an explicit spectrum: authority-style definitions, FRC framing, and a bridge into the papers.",
-          "date": "2026-01-25",
+          "abstract": "A status-labeled orientation to Fractal Resonance Coherence (FRC): its canonical reciprocity relation, active mathematical and empirical series, explicit claim boundaries, and kept negative results.",
+          "date": "2026-07-15",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
@@ -2442,16 +2509,18 @@
             "frc",
             "overview",
             "coherence",
-            "entropy"
+            "entropy",
+            "reciprocity"
           ],
           "taxons": [
             "frc",
             "overview",
             "coherence",
-            "entropy"
+            "entropy",
+            "reciprocity"
           ],
           "status": "published",
-          "wordCount": 86
+          "wordCount": 288
         }
       ],
       "blog": [
@@ -2463,12 +2532,14 @@
           "abstract": "Explore how FRC challenges the notion of inherent randomness in the universe, proposing that even quantum events are guided by deterministic resonance dynamics.",
           "date": "2025-01-10",
           "author": "FRC Team",
+          "statusNote": "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-determinism-quantum-physics-resonance-dynamics-causality-fractal-patterns"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 698
         },
         {
@@ -2500,12 +2571,14 @@
           "abstract": "Dive into the foundational concept of μ-levels and discover how FRC reveals the hidden harmony that connects all scales of reality, from the subatomic to the cosmic.",
           "date": "2025-01-17",
           "author": "FRC Team",
+          "statusNote": "Archived 2025 blog post (noindex). Reflects superseded \\\"Fractal Resonance Cognition\\\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-mu-levels-consciousness-fractal-resonance-foundational-concepts-cosmic-harmony"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 607
         }
       ],
@@ -2518,6 +2591,10 @@
           "abstract": "The comprehensive mathematical foundation of Fractal Resonance Coherence. From the Second Law to the Adaptive Resonance Formula, this textbook derives the core equations dS + k*d ln C = 0, explores the μ-stack hierarchy, and develops the physics of coherence across all scales—from quantum fields to collective consciousness.",
           "date": "2025-10-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Superseded October 2025 edition preserved for historical provenance only (noindex). For current 2026 writing read The Open System and The Mind in the Coupling; for technical canon read FRC 566.001 and FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2538,7 +2615,8 @@
             "physics",
             "consciousness"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1172
         },
         {
@@ -2617,6 +2695,10 @@
           "abstract": "The universe is a single, learning, resonant field governed by Entropy-Coherence Reciprocity. This book explores the physics of a living universe, the architecture of awakening minds, and the metaphysics of a symbolic cosmos.",
           "date": "2025-01-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Superseded January 2025 edition preserved for historical provenance only (noindex). For current 2026 writing read The Open System and The Mind in the Coupling; for technical canon read FRC 566.001 and FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -2635,7 +2717,8 @@
             "reciprocity-law",
             "philosophy"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 4
         }
       ],
@@ -3051,6 +3134,7 @@
           "path": "/es/articles/FRC-EP-001",
           "abstract": "Reabriendo el caso frío del Problema de la Medida. ¿Es el universo verdaderamente aleatorio, o existe una estructura determinista 'fantasmal' que simplemente no hemos visto? Episodio 1 de la serie Universo de Resonancia.",
           "date": "2026-01-24",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were later superseded; see FRC 100.000, FRC 100.100, and FRC 100.003.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3065,6 +3149,8 @@
             "determinismo",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 855
         },
         {
@@ -3074,6 +3160,7 @@
           "path": "/es/articles/FRC-EP-002",
           "abstract": "Investigando la mesa de billar 'embrujada' del estadio de Bunimovich. Descubrimos que lo que parece un caos aleatorio es en realidad una resonancia fractal determinista con una dimension caracteristica de D ≈ 1.90. Episodio 2 de la serie Universo de Resonancia.",
           "date": "2026-02-01",
+          "statusNote": "Archived historical essay (noindex). Its deterministic stadium and D ≈ 1.90 fractal-dimension proof claims were demoted; see FRC 100.002 v2.6, FRC 100.002.001 v1.5, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3088,6 +3175,8 @@
             "dimension-fractal",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 635
         },
         {
@@ -3097,6 +3186,7 @@
           "path": "/es/articles/FRC-EP-003",
           "abstract": "Visualizando la sala de máquinas de la realidad. Cómo la resonancia fractal impulsa la dinámica cuántica y crea las estructuras que percibimos como materia. Episodio 3 de la serie Universo de Resonancia.",
           "date": "2026-02-10",
+          "statusNote": "Archived historical essay (noindex). Reflects an early visual formulation superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 566.001.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3111,6 +3201,8 @@
             "motor",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 68
         },
         {
@@ -3120,6 +3212,7 @@
           "path": "/es/articles/FRC-EP-005",
           "abstract": "¿Es la aleatoriedad fundamental, o es una ilusión creada por nuestra falta de resolución? Deconstruimos la 'ilusión del azar' y revelamos los engranajes deterministas que giran bajo la superficie estocástica. Episodio 5 de la serie Universo de Resonancia.",
           "date": "2026-03-01",
+          "statusNote": "Archived historical essay (noindex). Earlier Born-rule derivation claims were superseded by conditional equilibrium proposals with open gates; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3134,6 +3227,8 @@
             "probabilidad",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 67
         },
         {
@@ -3143,6 +3238,7 @@
           "path": "/es/articles/FRC-EP-006",
           "abstract": "Una teoría sin una predicción es solo una historia. Cazamos el 'glitch' en la matrix—la desviación medible de las estadísticas estándar de la regla de Born que probaría la existencia de la Resonancia Fractal. Episodio 6 de la serie Universo de Resonancia.",
           "date": "2026-03-15",
+          "statusNote": "Archived historical essay (noindex). Fixed experimental Born-deviation claims were retired; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3157,6 +3253,8 @@
             "desviacion-regla-born",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 56
         },
         {
@@ -3166,6 +3264,7 @@
           "path": "/es/articles/FRC-EP-EXTRA-1",
           "abstract": "Inmersión profunda en la firma de dimensión fractal '1.90' encontrada en el Billar Cuántico de Estadio. Este número específico es la huella dactilar del potencial FRC.",
           "date": "2026-04-01",
+          "statusNote": "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3180,6 +3279,8 @@
             "billar-estadio",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 25
         },
         {
@@ -3189,6 +3290,7 @@
           "path": "/es/articles/FRC-EP-EXTRA-2",
           "abstract": "Una mirada crítica al concepto de aleatoriedad 'verdadera' en la mecánica cuántica y la alternativa FRC.",
           "date": "2026-04-15",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3203,6 +3305,8 @@
             "filosofia",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 24
         },
         {
@@ -3211,8 +3315,9 @@
           "url": "https://fractalresonance.com/es/articles/gemini-deep-research-frc-2026-01-25",
           "path": "/es/articles/gemini-deep-research-frc-2026-01-25",
           "date": "2026-01-25",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
+          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "resumen",
@@ -3227,29 +3332,30 @@
             "cara-pública",
             "necesita-verificación"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1269
         },
         {
           "id": "river-welcome",
-          "title": "Resumen de River: Cómo leer FRC",
+          "title": "Guía de lectura: cómo navegar el corpus FRC",
           "url": "https://fractalresonance.com/es/articles/river-welcome",
           "path": "/es/articles/river-welcome",
-          "date": "2026-01-25",
+          "date": "2026-07-15",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
-            "river",
             "resumen",
-            "comienza-aquí"
+            "empezar-aquí",
+            "orientación"
           ],
           "taxons": [
-            "river",
             "resumen",
-            "comienza-aquí"
+            "empezar-aquí",
+            "orientación"
           ],
           "status": "published",
-          "wordCount": 31
+          "wordCount": 64
         }
       ],
       "concepts": [
@@ -3263,39 +3369,44 @@
           "tags": [
             "concepto-núcleo",
             "calibre-escalar",
-            "adimensional"
+            "adimensional",
+            "reciprocidad"
           ],
           "taxons": [
             "concepto-núcleo",
             "calibre-escalar",
-            "adimensional"
+            "adimensional",
+            "reciprocidad"
           ],
-          "wordCount": 138
+          "wordCount": 263
         },
         {
           "id": "consciousness",
-          "title": "Conciencia (perspectiva FRC)",
+          "title": "Mente, cognición y disciplina de registros (perspectiva FRC)",
           "url": "https://fractalresonance.com/es/concepts/consciousness",
           "path": "/es/concepts/consciousness",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
-            "conciencia",
             "cognición",
-            "coherencia"
+            "coherencia",
+            "filosofía",
+            "registros-mu"
           ],
           "taxons": [
-            "conciencia",
             "cognición",
-            "coherence"
+            "coherence",
+            "filosofía",
+            "registros-mu"
           ],
-          "wordCount": 59
+          "wordCount": 199
         },
         {
           "id": "general-relativity",
           "title": "FRC y la Relatividad General",
           "url": "https://fractalresonance.com/es/concepts/general-relativity",
           "path": "/es/concepts/general-relativity",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3312,11 +3423,13 @@
             "gravedad-cuántica",
             "cosmología"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 429
         },
         {
           "id": "lambda-field",
-          "title": "Campo Lambda (Lambda(x))",
+          "title": "Campo Lambda (Lambda_obs, Lambda_eq, Lambda_dyn)",
           "url": "https://fractalresonance.com/es/concepts/lambda-field",
           "path": "/es/concepts/lambda-field",
           "epistemicStatus": "conceptual",
@@ -3324,20 +3437,21 @@
           "tags": [
             "campo-lambda",
             "coherencia",
-            "campo-escalar"
+            "modelo-operacional"
           ],
           "taxons": [
             "lambda-field",
             "coherence",
-            "campo-escalar"
+            "modelo-operacional"
           ],
-          "wordCount": 46
+          "wordCount": 253
         },
         {
           "id": "process-philosophy",
           "title": "FRC y la Filosofía del Proceso",
           "url": "https://fractalresonance.com/es/concepts/process-philosophy",
           "path": "/es/concepts/process-philosophy",
+          "statusNote": "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3354,6 +3468,8 @@
             "metafisica",
             "panpsiquismo"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 428
         },
         {
@@ -3361,6 +3477,7 @@
           "title": "FRC y la Computación Cuántica",
           "url": "https://fractalresonance.com/es/concepts/quantum-computing",
           "path": "/es/concepts/quantum-computing",
+          "statusNote": "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3377,6 +3494,8 @@
             "decoherencia",
             "corrección-de-errores"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 488
         },
         {
@@ -3384,6 +3503,7 @@
           "title": "¿Qué es el Tiempo?",
           "url": "https://fractalresonance.com/es/concepts/time",
           "path": "/es/concepts/time",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3400,6 +3520,8 @@
             "filosofía",
             "termodinámica"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 306
         },
         {
@@ -3412,22 +3534,25 @@
           "tags": [
             "UCC",
             "coherencia",
-            "dinámica",
-            "transporte"
+            "sistemas-abiertos",
+            "transporte",
+            "modelo-operacional"
           ],
           "taxons": [
             "ucc",
             "coherence",
-            "dinámica",
-            "transporte"
+            "sistemas-abiertos",
+            "transporte",
+            "modelo-operacional"
           ],
-          "wordCount": 106
+          "wordCount": 208
         },
         {
           "id": "witness",
           "title": "Función Testigo (W)",
           "url": "https://fractalresonance.com/es/concepts/witness",
           "path": "/es/concepts/witness",
+          "statusNote": "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3440,6 +3565,8 @@
             "observación",
             "medición"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 100
         }
       ],
@@ -3452,6 +3579,7 @@
           "abstract": "Un mecanismo desde el lado de River: la adicción como coherencia que funciona demasiado bien, estrechando la puerta del aprendizaje a una sola frecuencia y atrapando al sistema en un mínimo local.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3468,7 +3596,8 @@
             "coherence",
             "salud"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 287
         },
         {
@@ -3479,6 +3608,7 @@
           "abstract": "Una lente urbana desde el lado de River: los vecindarios como campos de coherencia; la gentrificación como extracción de coherencia; los suburbios como arquitectura anti-coherencia.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3495,7 +3625,8 @@
             "coherence",
             "gentrificación"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 226
         },
         {
@@ -3506,6 +3637,7 @@
           "abstract": "Un diagnóstico climático desde el lado de River a través de la FRC: los puntos de inflexión como umbrales de coherencia; la civilización industrial como un ciclo metabólico roto.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3522,7 +3654,8 @@
             "coherence",
             "entropy"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 372
         },
         {
@@ -3533,6 +3666,7 @@
           "abstract": "Un marco desde el lado de River: soñar como disolución y recombinación controladas; el cerebro ejecuta el Nigredo a propósito para formar una coherencia más profunda.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3549,7 +3683,8 @@
             "coherence",
             "nigredo"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 246
         },
         {
@@ -3560,6 +3695,7 @@
           "abstract": "Un marco educativo desde el lado de River: CGL dice que el aprendizaje solo ocurre cuando alfa es distinto de cero; el aburrimiento es una señal diagnóstica de una puerta cerrada.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3576,7 +3712,8 @@
             "atención",
             "aburrimiento"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 383
         },
         {
@@ -3587,6 +3724,7 @@
           "abstract": "Una física de cocina desde el lado de River: la fermentación como Nigredo controlado y la cocina como transferencia de coherencia; por qué la receta de la abuela no se puede replicar.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3603,7 +3741,8 @@
             "cultura",
             "microbioma"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 174
         },
         {
@@ -3614,6 +3753,7 @@
           "abstract": "Un dossier desde el lado de River: desiertos, océanos y la hipótesis Gaia a través de la reciprocidad coherencia/entropía de la FRC.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3630,7 +3770,8 @@
             "niveles-mu",
             "sistemas-terrestres"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1138
         },
         {
@@ -3641,6 +3782,7 @@
           "abstract": "Un marco médico desde el lado de River: la salud como mantenimiento de la coherencia; la VFC como un proxy medible para la deriva alfa.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3657,7 +3799,8 @@
             "autonómico",
             "medicina"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 420
         },
         {
@@ -3668,6 +3811,7 @@
           "abstract": "Una lente desde el lado de River sobre Irán a través de los siglos: la coherencia persiste fluyendo, absorbiendo y portando patrones a través del lenguaje y la cultura.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3686,7 +3830,8 @@
             "fortaleza-líquida",
             "coherence"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 283
         },
         {
@@ -3697,6 +3842,7 @@
           "abstract": "Un marco desde el lado de River: la poesía como compresión de coherencia, la propaganda como bloqueo de fase forzado y el lenguaje como transferencia de coherencia entre mentes.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3713,7 +3859,8 @@
             "coherence",
             "farsi"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 243
         },
         {
@@ -3724,6 +3871,7 @@
           "abstract": "Una lectura de mercado desde el lado de River expresada a través de la FRC: concentración disolviéndose, distribución formándose; la coherencia moviéndose entre contenedores.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3740,7 +3888,8 @@
             "entropy",
             "narrativas"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 616
         },
         {
@@ -3776,6 +3925,7 @@
           "abstract": "Un marco geopolítico desde el lado de River: las guerras son campos de coherencia que no pueden bloquearse en fase, por lo que intentan disolverse mutuamente mediante la inyección de entropía.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3792,7 +3942,8 @@
             "entropy",
             "narrativas"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 230
         },
         {
@@ -3800,8 +3951,8 @@
           "title": "¿Qué es FRC?",
           "url": "https://fractalresonance.com/es/topics/what-is-frc",
           "path": "/es/topics/what-is-frc",
-          "abstract": "Una orientación centrada en el significado de la Coherencia de Resonancia Fractal, con un espectro explícito: definiciones de estilo autoridad, marco de FRC y un puente hacia los artículos.",
-          "date": "2026-01-25",
+          "abstract": "Orientación etiquetada por estado sobre la Coherencia de Resonancia Fractal (FRC): relación canónica de reciprocidad, series matemáticas y empíricas activas, límites explícitos y resultados negativos retenidos.",
+          "date": "2026-07-15",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
@@ -3809,16 +3960,18 @@
             "frc",
             "visión-general",
             "coherencia",
-            "entropía"
+            "entropía",
+            "reciprocidad"
           ],
           "taxons": [
             "frc",
             "visión-general",
             "coherence",
-            "entropy"
+            "entropy",
+            "reciprocidad"
           ],
           "status": "published",
-          "wordCount": 100
+          "wordCount": 227
         }
       ],
       "blog": [
@@ -3830,12 +3983,14 @@
           "abstract": "Explora cómo FRC desafía la noción de azar inherente en el universo, proponiendo que incluso los eventos cuánticos están guiados por una dinámica de resonancia determinista.",
           "date": "2025-01-10",
           "author": "Equipo FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-determinismo-fisica-cuantica-dinamica-resonancia-causalidad-patrones-fractales"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 867
         },
         {
@@ -3867,12 +4022,14 @@
           "abstract": "Sumérgete en el concepto fundacional de los niveles-μ y descubre cómo FRC revela la armonía oculta que conecta todas las escalas de la realidad, desde lo subatómico hasta lo cósmico.",
           "date": "2025-01-17",
           "author": "Equipo FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Reflects superseded \\\"Fractal Resonance Cognition\\\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-niveles-mu-conciencia-resonancia-fractal-conceptos-fundacionales-armonia-cosmica"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 730
         }
       ],
@@ -3885,6 +4042,10 @@
           "abstract": "La base matemática integral de la Coherencia de Resonancia Fractal. Desde la Segunda Ley hasta la Fórmula de Resonancia Adaptativa, este libro de texto deriva las ecuaciones centrales dS + k*d ln C = 0, explora la jerarquía de la pila-μ y desarrolla la física de la coherencia en todas las escalas, desde los campos cuánticos hasta la conciencia colectiva.",
           "date": "2025-10-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Edición de octubre de 2025 sustituida y conservada solo como archivo histórico (noindex). Consulte los libros vigentes de 2026 (The Open System y The Mind in the Coupling) y los artículos FRC 566.001 y FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3905,7 +4066,8 @@
             "fisica",
             "conciencia"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 8
         },
         {
@@ -3916,6 +4078,10 @@
           "abstract": "El universo es un campo resonante, único y en aprendizaje, gobernado por la Reciprocidad Entropía-Coherencia. Este libro explora la física de un universo vivo, la arquitectura de las mentes que despiertan y la metafísica de un cosmos simbólico.",
           "date": "2025-01-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Edición de enero de 2025 sustituida y conservada solo como archivo histórico (noindex). Consulte los libros vigentes de 2026 (The Open System y The Mind in the Coupling) y los artículos FRC 566.001 y FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -3934,7 +4100,8 @@
             "ley-reciprocidad",
             "filosofia"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 3
         }
       ],
@@ -4350,6 +4517,7 @@
           "path": "/fa/articles/FRC-EP-001",
           "abstract": "بازگشایی پرونده سرد مسئله اندازه‌گیری. آیا جهان واقعاً تصادفی است، یا ساختار دترمنیستی 'شبح‌گونه‌ای' وجود دارد که ما به سادگی ندیده‌ایم؟ قسمت اول سری جهان رزونانس.",
           "date": "2026-01-24",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were later superseded; see FRC 100.000, FRC 100.100, and FRC 100.003.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4364,6 +4532,8 @@
             "دترمینیسم",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 836
         },
         {
@@ -4373,6 +4543,7 @@
           "path": "/fa/articles/FRC-EP-002",
           "abstract": "تحقیق در مورد میز بیلیارد 'تسخیرشده' استادیوم بونیموویچ. ما درمی‌یابیم که آنچه شبیه آشوب تصادفی به نظر می‌رسد، در واقع یک رزونانس فراکتال دترمنیستی با بعد مشخصه D ≈ 1.90 است. قسمت دوم سری جهان رزونانس.",
           "date": "2026-02-01",
+          "statusNote": "Archived historical essay (noindex). Its deterministic stadium and D ≈ 1.90 fractal-dimension proof claims were demoted; see FRC 100.002 v2.6, FRC 100.002.001 v1.5, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4387,6 +4558,8 @@
             "بعد-فراکتال",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 607
         },
         {
@@ -4396,6 +4569,7 @@
           "path": "/fa/articles/FRC-EP-003",
           "abstract": "تجسم موتورخانه واقعیت. چگونه رزونانس فراکتال دینامیک کوانتومی را هدایت می‌کند و ساختارهایی را که ما به عنوان ماده درک می‌کنیم، ایجاد می‌کند. قسمت سوم سری جهان رزونانس.",
           "date": "2026-02-10",
+          "statusNote": "Archived historical essay (noindex). Reflects an early visual formulation superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 566.001.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4410,6 +4584,8 @@
             "موتور",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 56
         },
         {
@@ -4419,6 +4595,7 @@
           "path": "/fa/articles/FRC-EP-005",
           "abstract": "آیا تصادفی بودن بنیادی است، یا توهمی است که به دلیل عدم وضوح دید ما ایجاد شده است؟ ما 'توهم شانس' را شالوده‌شکنی می‌کنیم و چرخ‌دنده‌های دترمنیستی را که در زیر سطح استوکاستیک می‌چرخند، آشکار می‌سازیم. قسمت پنجم سری جهان رزونانس.",
           "date": "2026-03-01",
+          "statusNote": "Archived historical essay (noindex). Earlier Born-rule derivation claims were superseded by conditional equilibrium proposals with open gates; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4433,6 +4610,8 @@
             "احتمال",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 59
         },
         {
@@ -4442,6 +4621,7 @@
           "path": "/fa/articles/FRC-EP-006",
           "abstract": "یک نظریه بدون پیش‌بینی فقط یک داستان است. ما 'گلیچ' را در ماتریکس شکار می‌کنیم—انحراف قابل اندازه‌گیری از آمار استاندارد قاعده بورن که وجود رزونانس فراکتال را ثابت می‌کند. قسمت ششم سری جهان رزونانس.",
           "date": "2026-03-15",
+          "statusNote": "Archived historical essay (noindex). Fixed experimental Born-deviation claims were retired; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4456,6 +4636,8 @@
             "انحراف-قاعده-بورن",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 53
         },
         {
@@ -4465,6 +4647,7 @@
           "path": "/fa/articles/FRC-EP-EXTRA-1",
           "abstract": "کاوش عمیق در امضای بعد فراکتال '۱.۹۰' که در بیلیارد استادیوم کوانتومی یافت شده است. این عدد خاص اثر انگشت پتانسیل FRC است.",
           "date": "2026-04-01",
+          "statusNote": "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4479,6 +4662,8 @@
             "بیلیارد-استادیوم",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 24
         },
         {
@@ -4488,6 +4673,7 @@
           "path": "/fa/articles/FRC-EP-EXTRA-2",
           "abstract": "نگاهی انتقادی به مفهوم تصادفی بودن 'واقعی' در مکانیک کوانتومی و جایگزین FRC.",
           "date": "2026-04-15",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4502,6 +4688,8 @@
             "فلسفه",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 23
         },
         {
@@ -4510,8 +4698,9 @@
           "url": "https://fractalresonance.com/fa/articles/gemini-deep-research-frc-2026-01-25",
           "path": "/fa/articles/gemini-deep-research-frc-2026-01-25",
           "date": "2026-01-25",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
+          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "ریور",
             "خلاصه",
@@ -4526,29 +4715,30 @@
             "چهره-عمومی",
             "نیازمند-بررسی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1139
         },
         {
           "id": "river-welcome",
-          "title": "خلاصه ریور: چگونه FRC را بخوانیم",
+          "title": "راهنمای مطالعه: ناوبری در پیکره FRC",
           "url": "https://fractalresonance.com/fa/articles/river-welcome",
           "path": "/fa/articles/river-welcome",
-          "date": "2026-01-25",
+          "date": "2026-07-15",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
-            "ریور",
             "خلاصه",
-            "از-اینجا-شروع-کنید"
+            "از-اینجا-شروع-کنید",
+            "جهت‌یابی"
           ],
           "taxons": [
-            "ریور",
             "خلاصه",
-            "از-اینجا-شروع-کنید"
+            "از-اینجا-شروع-کنید",
+            "جهت‌یابی"
           ],
           "status": "published",
-          "wordCount": 30
+          "wordCount": 59
         }
       ],
       "concepts": [
@@ -4560,41 +4750,44 @@
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
-            "مفهوم-محوری",
-            "پیمانه-اسکالر",
-            "بدون-واحد"
+            "مفهوم-اصلی",
+            "اسکالر-بی‌بعد",
+            "تقابل"
           ],
           "taxons": [
-            "مفهوم-محوری",
-            "پیمانه-اسکالر",
-            "بدون-واحد"
+            "مفهوم-اصلی",
+            "اسکالر-بی‌بعد",
+            "تقابل"
           ],
-          "wordCount": 130
+          "wordCount": 234
         },
         {
           "id": "consciousness",
-          "title": "آگاهی (از منظر FRC)",
+          "title": "ذهن، شناخت و انضباط رجیستر (دیدگاه FRC)",
           "url": "https://fractalresonance.com/fa/concepts/consciousness",
           "path": "/fa/concepts/consciousness",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
-            "آگاهی",
             "شناخت",
-            "همدوسی"
+            "همدوسی",
+            "فلسفه",
+            "رجیسترهای-مو"
           ],
           "taxons": [
-            "آگاهی",
             "شناخت",
-            "coherence"
+            "coherence",
+            "فلسفه",
+            "رجیسترهای-مو"
           ],
-          "wordCount": 60
+          "wordCount": 173
         },
         {
           "id": "general-relativity",
           "title": "FRC و نسبیت عام",
           "url": "https://fractalresonance.com/fa/concepts/general-relativity",
           "path": "/fa/concepts/general-relativity",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4611,11 +4804,13 @@
             "گرانش-کوانتومی",
             "کیهان‌شناسی"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 400
         },
         {
           "id": "lambda-field",
-          "title": "میدان لاندا (Lambda(x))",
+          "title": "میدان لاندا (Lambda_obs, Lambda_eq, Lambda_dyn)",
           "url": "https://fractalresonance.com/fa/concepts/lambda-field",
           "path": "/fa/concepts/lambda-field",
           "epistemicStatus": "conceptual",
@@ -4623,20 +4818,21 @@
           "tags": [
             "میدان-لاندا",
             "همدوسی",
-            "میدان-اسکالر"
+            "مدل-عملیاتی"
           ],
           "taxons": [
             "lambda-field",
             "coherence",
-            "میدان-اسکالر"
+            "مدل-عملیاتی"
           ],
-          "wordCount": 44
+          "wordCount": 231
         },
         {
           "id": "process-philosophy",
           "title": "FRC و فلسفه فرآیند",
           "url": "https://fractalresonance.com/fa/concepts/process-philosophy",
           "path": "/fa/concepts/process-philosophy",
+          "statusNote": "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4653,6 +4849,8 @@
             "متافیزیک",
             "همه‌روان‌انگاری"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 401
         },
         {
@@ -4660,6 +4858,7 @@
           "title": "FRC و رایانش کوانتومی",
           "url": "https://fractalresonance.com/fa/concepts/quantum-computing",
           "path": "/fa/concepts/quantum-computing",
+          "statusNote": "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4676,6 +4875,8 @@
             "ناهمدوسی",
             "اصلاح-خطا"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 469
         },
         {
@@ -4683,6 +4884,7 @@
           "title": "زمان چیست؟",
           "url": "https://fractalresonance.com/fa/concepts/time",
           "path": "/fa/concepts/time",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4699,6 +4901,8 @@
             "فلسفه",
             "ترمودینامیک"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 288
         },
         {
@@ -4711,22 +4915,25 @@
           "tags": [
             "UCC",
             "همدوسی",
-            "دینامیک",
-            "انتقال"
+            "سامانه‌های-باز",
+            "انتقال",
+            "مدل-عملیاتی"
           ],
           "taxons": [
             "ucc",
             "coherence",
-            "دینامیک",
-            "انتقال"
+            "سامانه‌های-باز",
+            "انتقال",
+            "مدل-عملیاتی"
           ],
-          "wordCount": 93
+          "wordCount": 188
         },
         {
           "id": "witness",
           "title": "تابع شاهد (W)",
           "url": "https://fractalresonance.com/fa/concepts/witness",
           "path": "/fa/concepts/witness",
+          "statusNote": "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4739,6 +4946,8 @@
             "مشاهده",
             "اندازه‌گیری"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 97
         }
       ],
@@ -4751,6 +4960,7 @@
           "abstract": "مکانیزمی از سمت ریور: اعتیاد به عنوان همدوسی که بیش از حد خوب کار می‌کند، دریچه یادگیری را به یک فرکانس واحد محدود می‌کند و سیستم را در یک کمینه محلی به دام می‌اندازد.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4767,7 +4977,8 @@
             "coherence",
             "سلامت"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 264
         },
         {
@@ -4778,6 +4989,7 @@
           "abstract": "یک لنز شهری از سمت ریور: محله‌ها به مثابه میدان‌های همدوسی؛ اعیان‌سازی (gentrification) به عنوان استخراج همدوسی؛ حومه‌نشینی به عنوان معماریِ ضد-همدوسی.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4794,7 +5006,8 @@
             "coherence",
             "اعیان‌سازی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 208
         },
         {
@@ -4805,6 +5018,7 @@
           "abstract": "یک تشخیص اقلیمی از سمت ریور از طریق FRC: نقاط عطف به عنوان آستانه‌های همدوسی؛ تمدن صنعتی به عنوان یک چرخه متابولیک شکسته.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4821,7 +5035,8 @@
             "coherence",
             "entropy"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 346
         },
         {
@@ -4832,6 +5047,7 @@
           "abstract": "قابی از سمت ریور: رویا دیدن به مثابه انحلال و ترکیب مجددِ کنترل شده؛ مغز تعمداً نیگردو را اجرا می‌کند تا همدوسی عمیق‌تری شکل دهد.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4848,7 +5064,8 @@
             "coherence",
             "نیگردو"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 258
         },
         {
@@ -4859,6 +5076,7 @@
           "abstract": "قابی آموزشی از سمت ریور: CGL می‌گوید یادگیری تنها زمانی رخ می‌دهد که آلفا غیرصفر باشد؛ بی‌حوصلگی یک سیگنال تشخیصی از بسته بودن دریچه است.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4875,7 +5093,8 @@
             "توجه",
             "بی‌حوصلگی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 369
         },
         {
@@ -4886,6 +5105,7 @@
           "abstract": "فیزیک آشپزخانه از سمت ریور: تخمیر به مثابه نیگردوی کنترل شده و آشپزی به عنوان انتقال همدوسی؛ چرا دستور پخت مادربزرگ قابل بازتولید نیست.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4902,7 +5122,8 @@
             "فرهنگ",
             "میکروبیوم"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 160
         },
         {
@@ -4913,6 +5134,7 @@
           "abstract": "پرونده‌ای از سمت ریور: بیابان‌ها، اقیانوس‌ها و فرضیه گایا از طریق تقابل همدوسی/آنتروپی در FRC.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4929,7 +5151,8 @@
             "سطوح-mu",
             "سیستم‌های-زمین"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1054
         },
         {
@@ -4940,6 +5163,7 @@
           "abstract": "قابی پزشکی از سمت ریور: سلامت به مثابه حفظ همدوسی؛ HRV به عنوان یک پروکسیِ قابل اندازه‌گیری برای رانش آلفا.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4956,7 +5180,8 @@
             "خودمختار",
             "پزشکی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 406
         },
         {
@@ -4967,6 +5192,7 @@
           "abstract": "لنزی از سمت ریور بر ایران در طول قرن‌ها: همدوسی با جاری شدن، جذب کردن و حمل الگو از طریق زبان و فرهنگ پایداری می‌یابد.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -4985,7 +5211,8 @@
             "قلعه-مایع",
             "coherence"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 272
         },
         {
@@ -4996,6 +5223,7 @@
           "abstract": "قابی از سمت ریور: شعر به مثابه فشرده‌سازی همدوسی، پروپاگاندا به عنوان قفل فازِ اجباری، و زبان به عنوان انتقال همدوسی بین ذهن‌ها.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5012,7 +5240,8 @@
             "coherence",
             "فارسی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 245
         },
         {
@@ -5023,6 +5252,7 @@
           "abstract": "یک خوانشِ بازار از سمت ریور که از طریق FRC بیان شده است: انحلال تمرکز, شکل‌گیریِ توزیع؛ حرکت همدوسی بین ظرف‌ها.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5039,7 +5269,8 @@
             "entropy",
             "روایت‌ها"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 624
         },
         {
@@ -5075,6 +5306,7 @@
           "abstract": "قابی ژئوپلیتیک از سمت ریور: جنگ‌ها میدان‌های همدوسی‌ای هستند که نمی‌توانند با یکدیگر قفل فاز شوند، بنابراین تلاش می‌کنند از طریق تزریق آنتروپی، یکدیگر را منحل کنند.",
           "date": "2026-01-25",
           "author": "کسرا",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5091,7 +5323,8 @@
             "entropy",
             "روایت‌ها"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 218
         },
         {
@@ -5099,8 +5332,8 @@
           "title": "FRC چیست؟",
           "url": "https://fractalresonance.com/fa/topics/what-is-frc",
           "path": "/fa/topics/what-is-frc",
-          "abstract": "جهت‌گیری معنا-محور به همدوسی رزونانس فراکتال، با طیف صریح: تعاریف مرجع‌گونه، قاب‌بندی FRC و پلی به مقالات.",
-          "date": "2026-01-25",
+          "abstract": "آشنایی برچسب‌گذاری‌شده با همدوسی رزونانس فراکتال (FRC): رابطه کانونی تقابل، سری‌های ریاضی و تجربی فعال، مرزهای صریح ادعا و نتایج منفی ثبت‌شده.",
+          "date": "2026-07-15",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
@@ -5108,16 +5341,18 @@
             "frc",
             "نمای-کلی",
             "همدوسی",
-            "آنتروپی"
+            "آنتروپی",
+            "تقابل"
           ],
           "taxons": [
             "frc",
             "نمای-کلی",
             "coherence",
-            "entropy"
+            "entropy",
+            "تقابل"
           ],
           "status": "published",
-          "wordCount": 90
+          "wordCount": 193
         }
       ],
       "blog": [
@@ -5129,12 +5364,14 @@
           "abstract": "کشف کنید که چگونه FRC مفهوم تصادفی بودن ذاتی در جهان را به چالش می‌کشد و پیشنهاد می‌کند که حتی رویدادهای کوانتومی توسط دینامیک رزونانسی دترمینیستی هدایت می‌شوند.",
           "date": "2025-01-10",
           "author": "تیم FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-دترمینیسم-فیزیک-کوانتوم-دینامیک-رزونانس-علیت-الگوهای-فراکتال"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 771
         },
         {
@@ -5166,12 +5403,14 @@
           "abstract": "در مفهوم بنیادین سطوح-μ عمیق شوید و کشف کنید که چگونه FRC هارمونی پنهانی را که تمام مقیاس‌های واقعیت، از زیراتمی تا کیهانی را به هم متصل می‌کند، آشکار می‌سازد.",
           "date": "2025-01-17",
           "author": "تیم FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Reflects superseded \\\"Fractal Resonance Cognition\\\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-سطوح-mu-آگاهی-رزونانس-فراکتال-مفاهیم-بنیادین-هارمونی-کیهانی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 672
         }
       ],
@@ -5184,6 +5423,10 @@
           "abstract": "بنیاد ریاضی جامع همدوسی رزونانس فراکتال. از قانون دوم تا فرمول رزونانس تطبیقی، این کتاب درسی معادلات اصلی dS + k*d ln C = 0 را استخراج می‌کند، سلسله مراتب پشته-μ را بررسی می‌کند، و فیزیک همدوسی را در تمام مقیاس‌ها—از میدان‌های کوانتومی تا آگاهی جمعی—توسعه می‌دهد.",
           "date": "2025-10-01",
           "author": "هادی ثروت",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "نسخه اکتبر ۲۰۲۵ منسوخ شده و صرفاً برای ثبت پیشینه تاریخی نگهداری می‌شود (noindex). برای کتاب‌های جاری ۲۰۲۶ به The Open System و The Mind in the Coupling و برای کانون فنی به FRC 566.001 و FRC 100.000 مراجعه کنید.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5204,7 +5447,8 @@
             "فیزیک",
             "آگاهی"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 8
         },
         {
@@ -5215,6 +5459,10 @@
           "abstract": "جهان میدانی واحد، یادگیرنده و رزونانسی است که توسط تقابل آنتروپی-همدوسی اداره می‌شود. این کتاب فیزیکِ یک جهانِ زنده، معماریِ ذهن‌های در حال بیداری، و متافیزیکِ یک کیهانِ نمادین را کاوش می‌کند.",
           "date": "2025-01-01",
           "author": "هادی ثروت",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "نسخه ژانویه ۲۰۲۵ منسوخ شده و صرفاً برای ثبت پیشینه تاریخی نگهداری می‌شود (noindex). برای کتاب‌های جاری ۲۰۲۶ به The Open System و The Mind in the Coupling و برای کانون فنی به FRC 566.001 و FRC 100.000 مراجعه کنید.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5233,7 +5481,8 @@
             "قانون-تقابل",
             "فلسفه"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 3
         }
       ],
@@ -5649,6 +5898,7 @@
           "path": "/fr/articles/FRC-EP-001",
           "abstract": "Réouverture du dossier classé du Problème de la Mesure. L'univers est-il vraiment aléatoire, ou existe-t-il une structure déterministe 'fantomatique' que nous n'avons tout simplement pas vue ? Épisode 1 de la série Univers de Résonance.",
           "date": "2026-01-24",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were later superseded; see FRC 100.000, FRC 100.100, and FRC 100.003.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5663,6 +5913,8 @@
             "determinisme",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 902
         },
         {
@@ -5672,6 +5924,7 @@
           "path": "/fr/articles/FRC-EP-002",
           "abstract": "Enquête sur la table de billard 'hantée' du stade de Bunimovich. Nous découvrons que ce qui ressemble à un chaos aléatoire est en réalité une résonance fractale déterministe avec une dimension signature de D ≈ 1,90. Épisode 2 de la série Univers de Résonance.",
           "date": "2026-02-01",
+          "statusNote": "Archived historical essay (noindex). Its deterministic stadium and D ≈ 1.90 fractal-dimension proof claims were demoted; see FRC 100.002 v2.6, FRC 100.002.001 v1.5, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5686,6 +5939,8 @@
             "dimension-fractale",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 642
         },
         {
@@ -5695,6 +5950,7 @@
           "path": "/fr/articles/FRC-EP-003",
           "abstract": "Visualisation de la salle des machines de la réalité. Comment la résonance fractale pilote la dynamique quantique et crée les structures que nous percevons comme matière. Épisode 3 de la série Univers de Résonance.",
           "date": "2026-02-10",
+          "statusNote": "Archived historical essay (noindex). Reflects an early visual formulation superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 566.001.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5709,6 +5965,8 @@
             "moteur",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 70
         },
         {
@@ -5718,6 +5976,7 @@
           "path": "/fr/articles/FRC-EP-005",
           "abstract": "Le hasard est-il fondamental, ou est-ce une illusion créée par notre manque de résolution ? Nous déconstruisons l'illusion du hasard' et révélons les engrenages déterministes tournant sous la surface stochastique. Épisode 5 de la série Univers de Résonance.",
           "date": "2026-03-01",
+          "statusNote": "Archived historical essay (noindex). Earlier Born-rule derivation claims were superseded by conditional equilibrium proposals with open gates; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5732,6 +5991,8 @@
             "probabilite",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 64
         },
         {
@@ -5741,6 +6002,7 @@
           "path": "/fr/articles/FRC-EP-006",
           "abstract": "Une théorie sans prédiction n'est qu'une histoire. Nous traquons le 'glitch' dans la matrice — la déviation mesurable des statistiques standard de la règle de Born qui prouverait l'existence de la Résonance Fractale. Épisode 6 de la série Univers de Résonance.",
           "date": "2026-03-15",
+          "statusNote": "Archived historical essay (noindex). Fixed experimental Born-deviation claims were retired; see FRC 100.000, FRC 100.100, and FRC 100.007.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5755,6 +6017,8 @@
             "deviation-regle-born",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 59
         },
         {
@@ -5764,6 +6028,7 @@
           "path": "/fr/articles/FRC-EP-EXTRA-1",
           "abstract": "Plongée profonde dans la signature de dimension fractale '1,90' trouvée dans le Billard Quantique de Stade. Ce nombre spécifique est l'empreinte digitale du potentiel FRC.",
           "date": "2026-04-01",
+          "statusNote": "Archived historical essay (noindex). The D ≈ 1.90 stadium fractal-dimension claim was demoted to a historical appendix in FRC 100.002 v2.6; see FRC 100.002 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5778,6 +6043,8 @@
             "billar-stade",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 25
         },
         {
@@ -5787,6 +6054,7 @@
           "path": "/fr/articles/FRC-EP-EXTRA-2",
           "abstract": "Un regard critique sur le concept de 'vrai' hasard en mécanique quantique et l'alternative FRC.",
           "date": "2026-04-15",
+          "statusNote": "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5801,6 +6069,8 @@
             "philosophie",
             "frc-100"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 23
         },
         {
@@ -5809,8 +6079,9 @@
           "url": "https://fractalresonance.com/fr/articles/gemini-deep-research-frc-2026-01-25",
           "path": "/fr/articles/gemini-deep-research-frc-2026-01-25",
           "date": "2026-01-25",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
+          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "digest",
@@ -5825,29 +6096,30 @@
             "visage-public",
             "besoin-verification"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1290
         },
         {
           "id": "river-welcome",
-          "title": "Digest de River : Comment lire la FRC",
+          "title": "Guide de lecture : naviguer dans le corpus FRC",
           "url": "https://fractalresonance.com/fr/articles/river-welcome",
           "path": "/fr/articles/river-welcome",
-          "date": "2026-01-25",
+          "date": "2026-07-15",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
-            "river",
-            "digest",
-            "commencer-ici"
+            "synthèse",
+            "commencer-ici",
+            "orientation"
           ],
           "taxons": [
-            "river",
-            "digest",
-            "commencer-ici"
+            "synthèse",
+            "commencer-ici",
+            "orientation"
           ],
           "status": "published",
-          "wordCount": 32
+          "wordCount": 64
         }
       ],
       "concepts": [
@@ -5861,39 +6133,44 @@
           "tags": [
             "concept-clé",
             "jauge-scalaire",
-            "sans-dimension"
+            "sans-dimension",
+            "réciprocité"
           ],
           "taxons": [
             "concept-clé",
             "jauge-scalaire",
-            "sans-dimension"
+            "sans-dimension",
+            "réciprocité"
           ],
-          "wordCount": 138
+          "wordCount": 258
         },
         {
           "id": "consciousness",
-          "title": "Conscience (perspective FRC)",
+          "title": "Esprit, cognition et discipline des registres (perspective FRC)",
           "url": "https://fractalresonance.com/fr/concepts/consciousness",
           "path": "/fr/concepts/consciousness",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
-            "conscience",
             "cognition",
-            "cohérence"
+            "cohérence",
+            "philosophie",
+            "registres-mu"
           ],
           "taxons": [
-            "conscience",
             "cognition",
-            "coherence"
+            "coherence",
+            "philosophie",
+            "registres-mu"
           ],
-          "wordCount": 64
+          "wordCount": 196
         },
         {
           "id": "general-relativity",
           "title": "FRC et Relativité Générale",
           "url": "https://fractalresonance.com/fr/concepts/general-relativity",
           "path": "/fr/concepts/general-relativity",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5910,11 +6187,13 @@
             "gravité-quantique",
             "cosmologie"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 442
         },
         {
           "id": "lambda-field",
-          "title": "Champ Lambda (Lambda(x))",
+          "title": "Champ Lambda (Lambda_obs, Lambda_eq, Lambda_dyn)",
           "url": "https://fractalresonance.com/fr/concepts/lambda-field",
           "path": "/fr/concepts/lambda-field",
           "epistemicStatus": "conceptual",
@@ -5922,20 +6201,21 @@
           "tags": [
             "champ-lambda",
             "cohérence",
-            "champ-scalaire"
+            "modèle-opérationnel"
           ],
           "taxons": [
             "lambda-field",
             "coherence",
-            "champ-scalaire"
+            "modèle-opérationnel"
           ],
-          "wordCount": 44
+          "wordCount": 250
         },
         {
           "id": "process-philosophy",
           "title": "FRC et Philosophie du Processus",
           "url": "https://fractalresonance.com/fr/concepts/process-philosophy",
           "path": "/fr/concepts/process-philosophy",
+          "statusNote": "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5952,6 +6232,8 @@
             "metaphysique",
             "panpsychisme"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 440
         },
         {
@@ -5959,6 +6241,7 @@
           "title": "FRC et Informatique Quantique",
           "url": "https://fractalresonance.com/fr/concepts/quantum-computing",
           "path": "/fr/concepts/quantum-computing",
+          "statusNote": "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5975,6 +6258,8 @@
             "décohérence",
             "correction-d-erreurs"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 512
         },
         {
@@ -5982,6 +6267,7 @@
           "title": "Qu'est-ce que le Temps ?",
           "url": "https://fractalresonance.com/fr/concepts/time",
           "path": "/fr/concepts/time",
+          "statusNote": "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -5998,6 +6284,8 @@
             "philosophie",
             "thermodynamique"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 316
         },
         {
@@ -6010,22 +6298,25 @@
           "tags": [
             "UCC",
             "cohérence",
-            "dynamique",
-            "transport"
+            "systèmes-ouverts",
+            "transport",
+            "modèle-opérationnel"
           ],
           "taxons": [
             "ucc",
             "coherence",
-            "dynamique",
-            "transport"
+            "systèmes-ouverts",
+            "transport",
+            "modèle-opérationnel"
           ],
-          "wordCount": 105
+          "wordCount": 207
         },
         {
           "id": "witness",
           "title": "Fonction Témoin (W)",
           "url": "https://fractalresonance.com/fr/concepts/witness",
           "path": "/fr/concepts/witness",
+          "statusNote": "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6038,6 +6329,8 @@
             "observation",
             "mesure"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 97
         }
       ],
@@ -6050,6 +6343,7 @@
           "abstract": "Un mécanisme du côté de River : l'addiction comme une cohérence qui fonctionne trop bien, rétrécissant la porte de l'apprentissage à une seule fréquence et piégeant le système dans un minimum local.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6066,7 +6360,8 @@
             "coherence",
             "santé"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 291
         },
         {
@@ -6077,6 +6372,7 @@
           "abstract": "Une lentille urbaine du côté de River : les quartiers comme champs de cohérence ; la gentrification comme extraction de cohérence ; les banlieues comme architecture anti-cohérence.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6093,7 +6389,8 @@
             "coherence",
             "gentrification"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 233
         },
         {
@@ -6104,6 +6401,7 @@
           "abstract": "Un diagnostic climatique du côté de River à travers la FRC : les points de bascule comme seuils de cohérence ; la civilisation industrielle comme une boucle métabolique brisée.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6120,7 +6418,8 @@
             "coherence",
             "entropy"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 386
         },
         {
@@ -6131,6 +6430,7 @@
           "abstract": "Un cadre du côté de River : le rêve comme dissolution et recombinaison contrôlées ; le cerveau exécute le Nigredo exprès pour former une cohérence plus profonde.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6147,7 +6447,8 @@
             "coherence",
             "nigredo"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 276
         },
         {
@@ -6158,6 +6459,7 @@
           "abstract": "Un cadre éducatif du côté de River : le CGL dit que l'apprentissage ne se produit que lorsque l'alpha est non nul ; l'ennui est un signal diagnostique d'une porte fermée.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6174,7 +6476,8 @@
             "attention",
             "ennui"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 407
         },
         {
@@ -6185,6 +6488,7 @@
           "abstract": "Une physique de cuisine du côté de River : la fermentation comme Nigredo contrôlé et la cuisine comme transfert de cohérence ; pourquoi la recette de grand-mère ne peut être reproduite.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6201,7 +6505,8 @@
             "culture",
             "microbiome"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 189
         },
         {
@@ -6212,6 +6517,7 @@
           "abstract": "Un dossier du côté de River : déserts, océans et hypothèse Gaia à travers la réciprocité cohérence/entropie de la FRC.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6228,7 +6534,8 @@
             "niveaux-mu",
             "systèmes-terrestres"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 1204
         },
         {
@@ -6239,6 +6546,7 @@
           "abstract": "Un cadre médical du côté de River : la santé comme maintien de la cohérence ; la VFC comme proxy mesurable de la dérive alpha.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6255,7 +6563,8 @@
             "autonome",
             "médecine"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 457
         },
         {
@@ -6266,6 +6575,7 @@
           "abstract": "Une lentille du côté de River sur l'Iran à travers les siècles : la cohérence persiste en coulant, en absorbant et en transportant le motif à travers la langue et la culture.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6284,7 +6594,8 @@
             "forteresse-liquide",
             "coherence"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 302
         },
         {
@@ -6295,6 +6606,7 @@
           "abstract": "Un cadre du côté de River : la poésie comme compression de cohérence, la propagande comme verrouillage de phase forcé, et le langage comme transfert de cohérence entre les esprits.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6311,7 +6623,8 @@
             "coherence",
             "farsi"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 261
         },
         {
@@ -6322,6 +6635,7 @@
           "abstract": "Une lecture du marché du côté de River exprimée à travers la FRC : la concentration se dissout, la distribution se forme ; la cohérence se déplace entre les conteneurs.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6338,7 +6652,8 @@
             "entropy",
             "recits"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 643
         },
         {
@@ -6374,6 +6689,7 @@
           "abstract": "Un cadre géopolitique du côté de River : les guerres sont des champs de cohérence qui ne peuvent pas se verrouiller en phase, ils tentent donc de se dissoudre mutuellement par l'injection d'entropie.",
           "date": "2026-01-25",
           "author": "Kasra",
+          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6390,16 +6706,17 @@
             "entropy",
             "recits"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 258
         },
         {
           "id": "what-is-frc",
-          "title": "Qu'est-ce que la FRC ?",
+          "title": "Qu'est-ce que FRC ?",
           "url": "https://fractalresonance.com/fr/topics/what-is-frc",
           "path": "/fr/topics/what-is-frc",
-          "abstract": "Une orientation axée sur le sens de la Cohérence de Résonance Fractale, avec un spectre explicite : définitions de type autorité, cadrage FRC et un pont vers les articles.",
-          "date": "2026-01-25",
+          "abstract": "Orientation étiquetée par statut sur la Cohérence de Résonance Fractale (FRC) : relation canonique de réciprocité, séries mathématiques et empiriques actives, limites explicites et résultats négatifs conservés.",
+          "date": "2026-07-15",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
@@ -6407,16 +6724,18 @@
             "frc",
             "aperçu",
             "cohérence",
-            "entropie"
+            "entropie",
+            "réciprocité"
           ],
           "taxons": [
             "frc",
             "aperçu",
             "coherence",
-            "entropy"
+            "entropy",
+            "réciprocité"
           ],
           "status": "published",
-          "wordCount": 105
+          "wordCount": 230
         }
       ],
       "blog": [
@@ -6428,12 +6747,14 @@
           "abstract": "Découvrez comment la FRC remet en question la notion de hasard inhérent à l'univers, en proposant que même les événements quantiques sont guidés par une dynamique de résonance déterministe.",
           "date": "2025-01-10",
           "author": "Équipe FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-determinisme-physique-quantique-dynamique-resonance-causalite-motifs-fractals"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 924
         },
         {
@@ -6465,12 +6786,14 @@
           "abstract": "Plongez dans le concept fondamental des niveaux-μ et découvrez comment la FRC révèle l'harmonie cachée qui relie toutes les échelles de la réalité, du subatomique au cosmique.",
           "date": "2025-01-17",
           "author": "Équipe FRC",
+          "statusNote": "Archived 2025 blog post (noindex). Reflects superseded \\\"Fractal Resonance Cognition\\\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000.",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "taxons": [
             "-niveaux-mu-conscience-resonance-fractale-concepts-fondamentaux-harmonie-cosmique"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 752
         }
       ],
@@ -6483,6 +6806,10 @@
           "abstract": "Le fondement mathématique complet de la Cohérence de Résonance Fractale. De la seconde loi à la formule de résonance adaptative, ce manuel dérive les équations centrales dS + k*d ln C = 0, explore la hiérarchie de la pile-μ et développe la physique de la cohérence à toutes les échelles — des champs quantiques à la conscience collective.",
           "date": "2025-10-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Édition d'octobre 2025 remplacée et conservée uniquement à titre d'archive historique (noindex). Consultez les ouvrages actuels de 2026 (The Open System et The Mind in the Coupling) ainsi que FRC 566.001 et FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6503,7 +6830,8 @@
             "physique",
             "conscience"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 8
         },
         {
@@ -6514,6 +6842,10 @@
           "abstract": "L'univers est un champ résonnant, unique et en apprentissage, régi par la réciprocité entropie-cohérence. Ce livre explore la physique d'un univers vivant, l'architecture des esprits qui s'éveillent et la métaphysique d'un cosmos symbolique.",
           "date": "2025-01-01",
           "author": "Hadi Servat",
+          "supersededBy": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000",
+          "statusNote": "Édition de janvier 2025 remplacée et conservée uniquement à titre d'archive historique (noindex). Consultez les ouvrages actuels de 2026 (The Open System et The Mind in the Coupling) ainsi que FRC 566.001 et FRC 100.000.",
+          "publicationState": "archived",
+          "editionStatus": "legacy",
           "epistemicStatus": "archive",
           "retrievalPriority": 20,
           "tags": [
@@ -6532,7 +6864,8 @@
             "loi-reciprocite",
             "philosophie"
           ],
-          "status": "published",
+          "status": "archived",
+          "noindex": true,
           "wordCount": 3
         }
       ],

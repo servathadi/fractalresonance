@@ -420,9 +420,17 @@ export function ResearchMapSection({
 
         {/* 5. Explicit Non-Claims / Claim Boundaries */}
         <div className="border border-frc-blue bg-frc-void p-5">
-          <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest mb-3">
-            {c.boundariesHeading}
-          </h3>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest">
+              {c.boundariesHeading}
+            </h3>
+            <a
+              href={`/${lang}/falsifications`}
+              className="font-mono text-[0.6875rem] text-frc-gold hover:underline"
+            >
+              Public Falsification &amp; Negative-Gate Ledger →
+            </a>
+          </div>
           <ul className="grid sm:grid-cols-2 gap-3 text-xs text-frc-text-dim leading-relaxed">
             {c.boundaries.map((line) => (
               <li key={line} className="border-l border-frc-blue pl-3">

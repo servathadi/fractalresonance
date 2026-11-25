@@ -4,6 +4,10 @@ title: "Función Testigo (W)"
 tags: [testigo, observación, medición]
 related: [coherencia, conciencia, FRC-100-003]
 lang: es
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000."
 ---
 
 # Función Testigo (W)

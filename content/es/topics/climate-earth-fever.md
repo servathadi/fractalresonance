@@ -4,7 +4,7 @@ id: climate-earth-fever
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "física de sistemas"
     answer: "Rastrea ambos lados del libro mayor: indicadores de entropía (calor, CO2) y presupuesto de coherencia (bosques intactos, circulación, suelo). El riesgo es de cascada: la pérdida de coherencia en un subsistema aumenta la carga de entropía en otros."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Clima: La Tierra como un cuerpo con fiebre

@@ -8,6 +8,10 @@ video:
   url: "https://www.youtube.com/watch?v=Y2_85m-zVV0"
   embedUrl: "https://www.youtube.com/embed/Y2_85m-zVV0"
   thumbnailUrl: "/images/slides_raw/The_Illusion_of_Chance/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Earlier Born-rule derivation claims were superseded by conditional equilibrium proposals with open gates; see FRC 100.000, FRC 100.100, and FRC 100.007."
 ---
 
 # Episodio 5: La Ilusión del Azar

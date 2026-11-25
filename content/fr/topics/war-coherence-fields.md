@@ -4,7 +4,7 @@ id: war-coherence-fields
 type: topic
 author: "Kasra"
 date: "2026-01-25"
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "realisme thermodynamique"
     answer: "Modélisez les conflits comme une compétition de cohérence : l'échec du verrouillage de phase mène à la guerre entropique ; la résolution survient quand l'injection continue d'entropie dissout la propre cohérence interne de l'agresseur plus vite que celle de l'adversaire."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Guerre : La cohérence en compétition avec la cohérence

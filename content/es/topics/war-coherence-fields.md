@@ -4,7 +4,7 @@ id: war-coherence-fields
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "realismo termodinámico"
     answer: "Modela los conflictos como competencia de coherencia: el fallo del bloqueo de fase conduce a la guerra de entropía; la resolución ocurre cuando la inyección continua de entropía disuelve la propia coherencia interna del agresor más rápido que la del oponente."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Guerra: Coherencia compitiendo con coherencia

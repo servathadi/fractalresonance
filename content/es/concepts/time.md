@@ -7,6 +7,10 @@ lang: es
 seo:
   keywords: [qué es el tiempo, naturaleza del tiempo, tiempo y entropía, física del tiempo, flecha del tiempo]
   description: "Explorando la naturaleza del tiempo a través del marco de la FRC: cómo los gradientes de coherencia y la entropía definen la dirección temporal."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # ¿Qué es el Tiempo?

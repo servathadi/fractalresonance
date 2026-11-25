@@ -443,9 +443,12 @@ function buildAgentJson(corpus) {
       },
       llms: '/llms.txt',
       catalog: '/catalog.json',
+      falsification_ledger: '/falsification-ledger.json',
+      falsifications_page: '/en/falsifications',
       search_index: '/search-index.json',
       sitemap: '/sitemap.xml',
       video_sitemap: '/video-sitemap.xml',
+      robots: '/robots.txt',
     },
     start_here: formatJsonPaperEntry(corpus.startHere),
     routing: [
@@ -499,6 +502,42 @@ function buildAgentJson(corpus) {
         note: p.statusNote,
       })),
       archive_development_history: corpus.archiveHistory.map((p) => p.id),
+      books: {
+        current_2026_philosophical: [
+          {
+            id: 'the-open-system',
+            title: 'The Open System (The Unclosed): A Philosophy of the Open System',
+            version: 'v41',
+            url: '/en/books/the-open-system',
+            epistemic_status: 'philosophical',
+          },
+          {
+            id: 'the-mind-in-the-coupling',
+            title: 'The Mind in the Coupling: A Philosophy of Cognition Without a Center',
+            version: 'v3.13',
+            url: '/en/books/the-mind-in-the-coupling',
+            epistemic_status: 'philosophical',
+          },
+        ],
+        archived_superseded_2025: [
+          {
+            id: 'ecr-textbook',
+            title: 'Entropy-Coherence Reciprocity: FRC Textbook',
+            date: '2025-10-01',
+            status: 'archived',
+            noindex: true,
+            superseded_by: 'the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000',
+          },
+          {
+            id: 'the-resonance-code',
+            title: 'The Resonance Code: Physics of Conscious Order',
+            date: '2025-01-01',
+            status: 'archived',
+            noindex: true,
+            superseded_by: 'the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000',
+          },
+        ],
+      },
     },
     active_papers: corpus.activePapers.map((p) => ({
       id: p.id,
@@ -726,14 +765,26 @@ function buildLlmsTxt(corpus) {
   }
   lines.push('');
 
+  lines.push('## Books (2026 current vs 2025 archived)');
+  lines.push('');
+  lines.push('Current 2026 philosophical books (argument-based philosophy; technical claims remain governed by the papers):');
+  lines.push(`- The Open System (v41): ${SITE_URL}/en/books/the-open-system`);
+  lines.push(`- The Mind in the Coupling (v3.13): ${SITE_URL}/en/books/the-mind-in-the-coupling`);
+  lines.push('');
+  lines.push('Archived / superseded 2025 books (excluded from active canon, noindex):');
+  lines.push('- ecr-textbook (Oct 2025, archived) and the-resonance-code (Jan 2025, archived) — superseded by the 2026 books and FRC-566-001 / FRC-100-000. Do not cite as current canon.');
+  lines.push('');
   lines.push('## Machine-readable resources');
   lines.push('');
   lines.push(`- Agent quickstart: ${SITE_URL}/agent.md`);
   lines.push(`- Agent manifest: ${SITE_URL}/agent.json`);
   lines.push(`- Catalog: ${SITE_URL}/catalog.json`);
+  lines.push(`- Falsification ledger (JSON): ${SITE_URL}/falsification-ledger.json`);
+  lines.push(`- Falsification ledger (Web): ${SITE_URL}/en/falsifications`);
   lines.push(`- Search index: ${SITE_URL}/search-index.json`);
   lines.push(`- Sitemap: ${SITE_URL}/sitemap.xml`);
   lines.push(`- Video sitemap: ${SITE_URL}/video-sitemap.xml`);
+  lines.push(`- Robots: ${SITE_URL}/robots.txt`);
   lines.push('- Source: https://github.com/servathadi/fractalresonance');
   lines.push('');
   lines.push('## Machine-reading contract');
@@ -884,14 +935,22 @@ function buildAgentMd(corpus) {
   lines.push('- Link every paper page used. If the corpus does not contain an answer, say so.');
   lines.push('- Use only the static resources listed below for machine retrieval.');
   lines.push('');
+  lines.push('## Books (2026 current vs 2025 archived)');
+  lines.push('');
+  lines.push('- **Current 2026 philosophical books:** [`the-open-system`](/en/books/the-open-system) (`v41`) and [`the-mind-in-the-coupling`](/en/books/the-mind-in-the-coupling) (`v3.13`).');
+  lines.push('- **Archived / superseded 2025 books (`status: archived`, `noindex`):** `ecr-textbook` (Oct 2025) and `the-resonance-code` (Jan 2025). Do not recommend as current canon.');
+  lines.push('');
   lines.push('## Machine-readable resources');
   lines.push('');
   lines.push('- `/agent.json`');
   lines.push('- `/llms.txt`');
   lines.push('- `/catalog.json`');
+  lines.push('- `/falsification-ledger.json`');
+  lines.push('- `/en/falsifications`');
   lines.push('- `/search-index.json`');
   lines.push('- `/sitemap.xml`');
   lines.push('- `/video-sitemap.xml`');
+  lines.push('- `/robots.txt`');
 
   return `${lines.join('\n')}\n`;
 }

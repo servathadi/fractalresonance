@@ -4,7 +4,7 @@ id: gaia-sahara-ocean-coherence
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "field functionalism"
     answer: "Use FRC as a substrate-independent lens: any system that runs the non-trivial dS <-> d ln C exchange can be described as 'alive by function' at its accessible mu-range."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Gaia: Sahara, Ocean, and Coherence Pumps

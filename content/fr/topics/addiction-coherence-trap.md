@@ -4,7 +4,7 @@ id: addiction-coherence-trap
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "mécanisme"
     answer: "Modélisez l'addiction comme un rétrécissement de la porte : le verrouillage de phase signal->récompense devient dominant ; le sevrage est une perte rapide de cohérence (montée de l'entropie). Le rétablissement consiste à construire des modèles de cohérence alternatifs plus forts."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Addiction : Un piège à cohérence

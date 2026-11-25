@@ -7,6 +7,10 @@ lang: es
 seo:
   keywords: [gravedad cuántica, relatividad general mecánica cuántica, coherencia del espacio-tiempo, decoherencia gravitacional]
   description: "Cómo la FRC se conecta con la relatividad general de Einstein: coherencia en el espacio-tiempo curvo, decoherencia gravitacional y caminos hacia la gravedad cuántica."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # FRC y la Relatividad General

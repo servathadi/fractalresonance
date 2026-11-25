@@ -4,7 +4,7 @@ id: iran-liquid-fortress
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "dinámica civilizatoria"
     answer: "Modela a Irán como una civilización Phi-dominante: coherencia mantenida en el lenguaje, la poesía, la profundidad narrativa; los contenedores pueden colapsar mientras el patrón persiste a través de la redistribución."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Irán: Fortaleza líquida (Pasado, Presente, Futuro)

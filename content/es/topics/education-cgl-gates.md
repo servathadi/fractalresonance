@@ -4,7 +4,7 @@ id: education-cgl-gates
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "sistemas"
     answer: "Mide el cambio de coherencia (proxy alfa) y actualiza solo cuando la puerta está abierta; trata el aburrimiento como una señal de control, no como un defecto de carácter."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Educación: Puertas de aprendizaje y aburrimiento

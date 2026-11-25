@@ -4,6 +4,10 @@ title: "Witness Function (W)"
 tags: [witness, observation, measurement]
 related: [coherence, consciousness, FRC-100-003]
 lang: en
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). For current μ-register discipline see FRC 700.000–700.007 and FRC 100.000."
 ---
 
 # Witness Function (W)

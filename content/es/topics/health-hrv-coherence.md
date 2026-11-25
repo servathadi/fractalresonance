@@ -4,7 +4,7 @@ id: health-hrv-coherence
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "medicina de sistemas"
     answer: "Trata la VFC como deriva alfa: un proxy para la coherencia en movimiento. La recuperación consiste en reabrir múltiples fuentes de coherencia, no solo arreglar una parte."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Salud: La VFC como deriva alfa

@@ -7,6 +7,10 @@ lang: fa
 seo:
   keywords: [زمان چیست, ماهیت زمان, زمان و آنتروپی, فیزیک زمان, پیکان زمان]
   description: "کاوش در ماهیت زمان از طریق چارچوب FRC: چگونه گرادیان‌های همدوسی و آنتروپی جهتِ زمانی را تعریف می‌کنند."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # زمان چیست؟

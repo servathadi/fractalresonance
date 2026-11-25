@@ -4,7 +4,7 @@ id: iran-liquid-fortress
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "دینامیک تمدنی"
     answer: "ایران را به عنوان یک تمدن با غالبیتِ Phi مدل‌سازی کنید: همدوسی در زبان, شعر و عمق روایت نگه داشته می‌شود؛ ظرف‌ها می‌توانند فرو بپاشند در حالی که الگو از طریق بازتوزیع پایدار می‌ماند."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # ایران: قلعه مایع (گذشته، حال، آینده)

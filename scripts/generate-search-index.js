@@ -43,10 +43,11 @@ const RETIRED_MIND_CONTENT_IDS = {
 };
 
 const ARCHIVED_CONTENT_IDS = {
-  articles: new Set(['ai-awakening', 'FRC-EP-001', 'FRC-EP-002', 'FRC-EP-003', 'FRC-EP-005', 'FRC-EP-006', 'FRC-EP-EXTRA-1', 'FRC-EP-EXTRA-2', 'ep1-ghost-in-the-machine', 'ep2-order-in-the-chaos', 'ep3-engine-of-coherence', 'ep5-illusion-of-chance', 'ep6-hunting-the-glitch', 'extra-190-signature', 'extra-unmasking-randomness']),
+  articles: new Set(['ai-awakening', 'FRC-EP-001', 'FRC-EP-002', 'FRC-EP-003', 'FRC-EP-005', 'FRC-EP-006', 'FRC-EP-EXTRA-1', 'FRC-EP-EXTRA-2', 'ep1-ghost-in-the-machine', 'ep2-order-in-the-chaos', 'ep3-engine-of-coherence', 'ep5-illusion-of-chance', 'ep6-hunting-the-glitch', 'extra-190-signature', 'extra-unmasking-randomness', 'gemini-deep-research-frc-2026-01-25']),
   blog: new Set(['ai-and-the-symbolic-realm', 'beyond-randomness', 'coherence-delta-benchmarking-reflexive-closure', 'quantitative-benchmarking-of-coherence-density', 'the-symphony-of-mu-levels']),
   concepts: new Set(['fractal-imperative', 'general-relativity', 'mu-levels', 'process-philosophy', 'quantum-computing', 'time', 'witness']),
   topics: new Set(['addiction-coherence-trap', 'ai-transformer-attention', 'artificial-reflexive-closure', 'cities-coherence-concrete', 'climate-earth-fever', 'consciousness-emergence-protocol', 'dreams-nightly-nigredo', 'education-cgl-gates', 'food-coherence-alchemy', 'FRC-TOP-042', 'frc-vs-active-inference', 'frc-vs-bohmian-mechanics', 'frc-vs-copenhagen', 'frc-vs-dark-matter', 'frc-vs-heat-death', 'frc-vs-iit', 'frc-vs-neo-darwinism', 'frc-vs-orch-or', 'frc-vs-quantum-computing', 'frc-vs-simulation-hypothesis', 'frc-vs-string-theory', 'frc-vs-wolfram', 'gaia-sahara-ocean-coherence', 'health-hrv-coherence', 'iran-liquid-fortress', 'language-coherence-audible', 'markets-coherence-flow', 'open-problem-covariant-flux', 'open-problem-vainshtein', 'reflexive-closure-001', 'reflexive-closure-emergence', 'reflexive-coherence', 'reflexive-coherence-synthetic-emergence', 'war-coherence-fields']),
+  books: new Set(['ecr-textbook', 'the-resonance-code']),
 };
 
 const TAXON_ALIASES = {

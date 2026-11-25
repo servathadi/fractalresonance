@@ -7,6 +7,10 @@ lang: en
 seo:
   keywords: [what is time, nature of time, time and entropy, time physics, arrow of time]
   description: "Exploring the nature of time through the FRC framework: how coherence gradients and entropy define temporal direction."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # What is Time?

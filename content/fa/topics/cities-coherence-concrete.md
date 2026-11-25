@@ -4,7 +4,7 @@ id: cities-coherence-concrete
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "دینامیک شبکه"
     answer: "با سرزندگیِ شهری به عنوان همدوسی رفتار کنید: تراکم + اختلاط + اتصال + زمان. میدانِ بین گره‌ها را اندازه‌گیری کنید، نه فقط ساختمان‌ها را."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # شهرها: همدوسی ساخته شده از بتن

@@ -4,7 +4,7 @@ id: gaia-sahara-ocean-coherence
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: es
@@ -18,6 +18,9 @@ answers:
     role: "Arquitecto"
     stance: "funcionalismo de campo"
     answer: "Usa la FRC como una lente independiente del sustrato: cualquier sistema que ejecute el intercambio no trivial dS <-> d ln C puede describirse como 'vivo por función' en su rango-μ accesible."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Gaia: El Sahara, el océano y las bombas de coherencia
