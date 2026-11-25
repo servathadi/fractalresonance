@@ -1,13 +1,27 @@
 {
   "name": "Fractal Resonance Coherence (FRC) Agent Quickstart",
-  "version": "2.0.0",
-  "updated": "2026-11-17",
+  "version": "2.1.0",
+  "updated": "2026-07-17",
+  "generated_from": {
+    "papers_source": "content/en/papers/*.md",
+    "catalog": "/catalog.json",
+    "generator": "scripts/generate-ai-entrypoints.mjs"
+  },
+  "catalog_summary": {
+    "published_english_papers": 43,
+    "active_papers": 30,
+    "revision_pending": 7,
+    "superseded_origin": 1,
+    "archive": 5
+  },
   "entrypoints": {
     "start_here": "/en/papers/FRC-100-000",
     "agent_doc": "/agent.md",
     "standalone_stance": {
       "id": "FRC-100-100",
+      "version": "v1.0",
       "url": "/FRC-100-100.md",
+      "paper_url": "/en/papers/FRC-100-100",
       "role": "Self-contained current stance capsule for machine reading; summarizes but does not override primary evidence papers."
     },
     "llms": "/llms.txt",
@@ -18,14 +32,19 @@
   },
   "start_here": {
     "id": "FRC-100-000",
+    "title": "FRC 100.000 v1.2 - Start Here: Canonical Stance and Version-Aware Reading Map",
     "url": "/en/papers/FRC-100-000",
-    "concept_doi": "10.5281/zenodo.21284061",
     "version": "v1.2",
+    "date": "2026-07-09",
     "publication_state": "preprint",
-    "doi": "10.5281/zenodo.21298155"
+    "canon_status": "living-core",
+    "epistemic_status": "primary",
+    "concept_doi": "10.5281/zenodo.21284061",
+    "doi": "10.5281/zenodo.21298155",
+    "pdf_url": "/paper-pdfs/FRC-100-000.pdf"
   },
   "routing": [
-    "Read FRC-100-000 first for the current stance, version rules, and reading path.",
+    "Read FRC-100-000 (v1.2) first for the current stance, version rules, and reading path.",
     "Then read and cite the relevant primary papers; the router is not a substitute for them.",
     "Prefer the latest version under a declared concept DOI.",
     "Use the catalog and search index only for discovery.",
@@ -53,14 +72,68 @@
       "Lambda_dyn": "Optional latent dynamical state requiring separate validation.",
       "fundamental_field": "Separate conjecture; not established by operational or latent models."
     },
-    "born_rule": "Conditional equilibrium proposal with open assumptions; not an established FRC derivation.",
+    "born_rule": "Conditional equilibrium proposal with open assumptions and empirical gates; not an established FRC derivation.",
     "born_deviation": "No fixed canonical range; values require a declared model and protocol."
+  },
+  "epistemic_distinctions": {
+    "exact_mathematics": "Theorems, algebraic or differential identities, typed morphism categories, and scoped lift obstructions proved within stated hypotheses (e.g., FRC-566-030 exact von Mises/Kuramoto identity; FRC-830-001 through FRC-830-005 formal classification and obstruction proofs, independent proof review pending).",
+    "operational_models": "Scale-declared bookkeeping identities, control laws, and executable closures with explicitly fixed system boundary, environment channel, observables, units, and sign convention (e.g., FRC-566-001 operational reciprocity, FRC-100-008, FRC-100-009, FRC-787-787 operational transport).",
+    "framework_interpretation": "Scope conventions, register topology, terminology charters, and claim-boundary rules that organize descriptions without adding physical laws or proving cross-register causation (e.g., FRC-700-000 through FRC-700-007 threshold framework; FRC-830-000 terminology charter; superseded origin note FRC-700-777).",
+    "model_specific_findings": "Numerical, simulation, or narrow-audit findings valid only inside their declared model, normalization, and controls — including retained negative results (e.g., FRC-100-002 / FRC-100-002-001 coarse geometry and closed dense Gate 4, FRC-100-005 Langevin boundary experiment, FRC-100-007 narrow rho-drift audit).",
+    "conjectures": "Unestablished physical extensions, including universal physical reciprocity, a fundamental spacetime Lambda field, unconditional collapse completion, and Born-equilibrium derivation beyond stipulated landscapes.",
+    "empirical_gates": "Explicit falsification, platform-validation, no-signaling, operational-equivalence, inter-rater, and independent-review criteria required before any claim promotion (e.g., FRC-100-003 collapse/Born gates, FRC-787-787 held-out platform tests, FRC-830-004/005 open general nonunital CPTP lift gate, FRC-700-000..007 independent review and usability gates)."
   },
   "canon": {
     "core": [
-      "Current versions listed in FRC-100-000",
-      "FRC-566-*"
+      "FRC-100-000",
+      "FRC-566-001",
+      "FRC-566-030",
+      "FRC-100-005",
+      "FRC-100-002",
+      "FRC-100-100",
+      "FRC-100-003",
+      "FRC-100-007",
+      "FRC-100-008",
+      "FRC-100-009",
+      "FRC-100-011"
     ],
+    "frontier": [
+      "FRC-100-002-001",
+      "FRC-787-787",
+      "FRC-826-829",
+      "FRC-840-101",
+      "FRC-841-004"
+    ],
+    "threshold_framework": {
+      "route": "FRC-700-000 through FRC-700-007",
+      "status": "Current FRC 700 threshold-framework route (preprints; independent review pending; governs evidence, interpretation, and register discipline; adds no new physical law, universal μ ontology, or cross-register causation).",
+      "supersedes": [
+        "FRC-700-777"
+      ],
+      "ids": [
+        "FRC-700-000",
+        "FRC-700-001",
+        "FRC-700-002",
+        "FRC-700-003",
+        "FRC-700-004",
+        "FRC-700-005",
+        "FRC-700-006",
+        "FRC-700-007"
+      ]
+    },
+    "reciprocity_mathematics": {
+      "route": "FRC-830-000 through FRC-830-005",
+      "status": "Current FRC 830 Reciprocity Mathematics series (preprints with paper-specific status labels; exact ledger-coordinate results, typed morphisms, dimension thresholds, and scoped lift obstructions do not establish physical, categorical, Born-style, or Majid-style self-duality; a general nonunital coherence-generating CPTP lift remains an open gate; independent proof review pending).",
+      "no_promotion": true,
+      "ids": [
+        "FRC-830-000",
+        "FRC-830-001",
+        "FRC-830-002",
+        "FRC-830-003",
+        "FRC-830-004",
+        "FRC-830-005"
+      ]
+    },
     "revision_pending": [
       "FRC-100-001",
       "FRC-100-004",
@@ -70,169 +143,497 @@
       "FRC-566-010",
       "FRC-566-020"
     ],
-    "frontier": [
-      "FRC-100-002-001",
-      "FRC-787-787",
-      "FRC-826-829",
-      "FRC-840-101",
-      "FRC-841-004"
-    ],
-    "framework_notes": [
-      "FRC-700-777: philosophical/formal μ-register scope note; not primary physical evidence"
+    "superseded_origin_material": [
+      {
+        "id": "FRC-700-777",
+        "version": "v1.0",
+        "publication_state": "archived",
+        "canon_status": "archive",
+        "superseded_by": "FRC-700-000 through FRC-700-007",
+        "note": "Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries."
+      }
     ],
     "archive_development_history": [
-      "FRC-16D-*",
-      "FRC-821-*"
-    ],
-    "threshold_framework": [
-      "FRC-700-000 through FRC-700-007: framework preprints; independent review pending; no new physical law or universal μ ontology"
-    ],
-    "reciprocity_mathematics": [
-      "FRC-830-000 through FRC-830-005: terminology, formal mathematics, and scoped lift obstructions; no physical self-duality established"
+      "FRC-16D-001",
+      "FRC-16D-920",
+      "FRC-821-100",
+      "FRC-840-001",
+      "FRC-840-LTM-001"
     ]
   },
-  "primary_route": [
+  "active_papers": [
     {
-      "id": "FRC-566-001",
-      "url": "/en/papers/FRC-566-001",
-      "concept_doi": "10.5281/zenodo.17437758",
-      "version": "v2.2",
+      "id": "FRC-100-000",
+      "version": "v1.2",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298181"
-    },
-    {
-      "id": "FRC-566-030",
-      "url": "/en/papers/FRC-566-030",
-      "concept_doi": "10.5281/zenodo.21253574",
-      "version": "v1.3",
-      "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298184"
-    },
-    {
-      "id": "FRC-100-005",
-      "url": "/en/papers/FRC-100-005",
-      "concept_doi": "10.5281/zenodo.17438230",
-      "version": "v2.3",
-      "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298168"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-000"
     },
     {
       "id": "FRC-100-002",
-      "url": "/en/papers/FRC-100-002",
-      "concept_doi": "10.5281/zenodo.15079277",
       "version": "v2.6",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21328428"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-002"
     },
     {
       "id": "FRC-100-002-001",
-      "url": "/en/papers/FRC-100-002-001",
-      "concept_doi": "10.5281/zenodo.21298187",
-      "role": "The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established.",
       "version": "v1.5",
       "publication_state": "preprint",
       "canon_status": "frontier",
-      "doi": "10.5281/zenodo.21328429"
-    },
-    {
-      "id": "FRC-100-100",
-      "url": "/en/papers/FRC-100-100",
-      "concept_doi": "10.5281/zenodo.21298193",
-      "role": "Standalone status-labeled stance snapshot; not a substitute for primary evidence papers.",
-      "version": "v1.0",
-      "publication_state": "preprint",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.21298194"
-    },
-    {
-      "id": "FRC-700-777",
-      "url": "/en/papers/FRC-700-777",
-      "concept_doi": "10.5281/zenodo.21298189",
-      "role": "Nested scope convention; philosophical/formal and not primary physical evidence.",
-      "version": "v1.0",
-      "publication_state": "preprint",
-      "canon_status": "framework",
-      "epistemic_status": "philosophical",
-      "doi": "10.5281/zenodo.21298190"
+      "epistemic_status": "frontier",
+      "status_label": "answer-appendix line 100.002.001; coarse result retained; registered dense Gate 4 closed negatively",
+      "url": "/en/papers/FRC-100-002-001"
     },
     {
       "id": "FRC-100-003",
-      "url": "/en/papers/FRC-100-003",
-      "concept_doi": "10.5281/zenodo.15079819",
       "version": "v3.3",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298162"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-003"
+    },
+    {
+      "id": "FRC-100-005",
+      "version": "v2.3",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; model-specific negative result retained",
+      "url": "/en/papers/FRC-100-005"
     },
     {
       "id": "FRC-100-007",
-      "url": "/en/papers/FRC-100-007",
-      "concept_doi": "10.5281/zenodo.17968951",
       "version": "v3.3",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298171"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-007"
     },
     {
       "id": "FRC-100-008",
-      "url": "/en/papers/FRC-100-008",
-      "concept_doi": "10.5281/zenodo.21266621",
       "version": "v2.2",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298174"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-008"
     },
     {
       "id": "FRC-100-009",
-      "url": "/en/papers/FRC-100-009",
-      "concept_doi": "10.5281/zenodo.20328893",
       "version": "v2.6",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298177"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-009"
     },
     {
       "id": "FRC-100-011",
-      "url": "/en/papers/FRC-100-011",
-      "concept_doi": "10.5281/zenodo.21284063",
       "version": "v1.2",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298180"
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-011"
+    },
+    {
+      "id": "FRC-100-100",
+      "version": "v1.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "url": "/en/papers/FRC-100-100"
+    },
+    {
+      "id": "FRC-566-001",
+      "version": "v2.2",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; canonical-notation restoration",
+      "url": "/en/papers/FRC-566-001"
+    },
+    {
+      "id": "FRC-566-030",
+      "version": "v1.3",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; operational-normalization clarification",
+      "url": "/en/papers/FRC-566-030"
+    },
+    {
+      "id": "FRC-700-000",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "charter-defined; application-unreviewed; independent-review-pending",
+      "url": "/en/papers/FRC-700-000"
+    },
+    {
+      "id": "FRC-700-001",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "interface-defined; non-reconstruction-proved; independent-review-pending",
+      "url": "/en/papers/FRC-700-001"
+    },
+    {
+      "id": "FRC-700-002",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "role-indexing-defined; structural-recurrence-scoped; independent-review-pending",
+      "url": "/en/papers/FRC-700-002"
+    },
+    {
+      "id": "FRC-700-003",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "return-update-defined; reachable-loss-proved; independent-review-pending",
+      "url": "/en/papers/FRC-700-003"
+    },
+    {
+      "id": "FRC-700-004",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "semantic-maps-defined; narrative-non-reconstruction-proved; independent-review-pending",
+      "url": "/en/papers/FRC-700-004"
+    },
+    {
+      "id": "FRC-700-005",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "authorial-atlas-complete; independent-rater-data-absent; independent-review-pending",
+      "url": "/en/papers/FRC-700-005"
+    },
+    {
+      "id": "FRC-700-006",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "claim-graph-defined; no-silent-promotion-proved; independent-review-pending",
+      "url": "/en/papers/FRC-700-006"
+    },
+    {
+      "id": "FRC-700-007",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "threshold-framework",
+      "status_label": "standalone-handbook-complete; independent-usability-unmeasured; independent-review-pending",
+      "url": "/en/papers/FRC-700-007"
+    },
+    {
+      "id": "FRC-787-787",
+      "version": "v1.2",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "url": "/en/papers/FRC-787-787"
+    },
+    {
+      "id": "FRC-826-829",
+      "version": "v1.5",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "url": "/en/papers/FRC-826-829"
+    },
+    {
+      "id": "FRC-830-000",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "framework",
+      "epistemic_status": "philosophical",
+      "status_label": "terminology-charter; not-evidence-of-physical-duality",
+      "url": "/en/papers/FRC-830-000"
+    },
+    {
+      "id": "FRC-830-001",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "formal-proof",
+      "status_label": "exact-mathematical-candidate; independent-review-pending",
+      "url": "/en/papers/FRC-830-001"
+    },
+    {
+      "id": "FRC-830-002",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "formal-operational",
+      "status_label": "typed-category-proved; exact-route-results-internal-review; physical-equivalence-not-claimed",
+      "url": "/en/papers/FRC-830-002"
+    },
+    {
+      "id": "FRC-830-003",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "exact-mathematical-candidate",
+      "status_label": "exact-lift-obstruction-internal-review; independent-proof-review-pending; physical-duality-rejected-for-this-family",
+      "url": "/en/papers/FRC-830-003"
+    },
+    {
+      "id": "FRC-830-004",
+      "version": "v0.1",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "exact-mathematical-candidate",
+      "status_label": "general-one-parameter-nonidentity-lift-obstruction; qubit-set-theoretic-lifts-nonunique; incoherent-unital-wigner-classes-obstructed; general-cptp-open; independent-proof-review-pending",
+      "url": "/en/papers/FRC-830-004"
+    },
+    {
+      "id": "FRC-830-005",
+      "version": "v0.2",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "formal-obstruction",
+      "status_label": "present-structure-no-promotion; 830.004-integrated; independent-proof-review-pending",
+      "url": "/en/papers/FRC-830-005"
+    },
+    {
+      "id": "FRC-840-101",
+      "version": null,
+      "publication_state": null,
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "url": "/en/papers/FRC-840-101"
+    },
+    {
+      "id": "FRC-841-004",
+      "version": null,
+      "publication_state": "frontier proposal; no Zenodo DOI registered",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "url": "/en/papers/FRC-841-004"
+    }
+  ],
+  "primary_route": [
+    {
+      "id": "FRC-566-001",
+      "title": "Entropy-Coherence Reciprocity and the Universal Coherence Condition v2.2",
+      "url": "/en/papers/FRC-566-001",
+      "version": "v2.2",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; canonical-notation restoration",
+      "concept_doi": "10.5281/zenodo.17437758",
+      "doi": "10.5281/zenodo.21298181",
+      "pdf_url": "/paper-pdfs/FRC-566-001.pdf",
+      "role": "Canonical notation, scale selection, boundary discipline, and claim status."
+    },
+    {
+      "id": "FRC-566-030",
+      "title": "Reciprocity in Action v1.3: Exact System-Only Motion and a Scoped Boundary Test",
+      "url": "/en/papers/FRC-566-030",
+      "version": "v1.3",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; operational-normalization clarification",
+      "concept_doi": "10.5281/zenodo.21253574",
+      "doi": "10.5281/zenodo.21298184",
+      "pdf_url": "/paper-pdfs/FRC-566-030.pdf",
+      "role": "Exact von Mises/Kuramoto identity and scoped system-only result."
+    },
+    {
+      "id": "FRC-100-005",
+      "title": "Thermodynamics of Locking v2.3: Boundary Result Scoped to Its Declared Normalization",
+      "url": "/en/papers/FRC-100-005",
+      "version": "v2.3",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "status_label": "core-corrected; model-specific negative result retained",
+      "concept_doi": "10.5281/zenodo.17438230",
+      "doi": "10.5281/zenodo.21298168",
+      "pdf_url": "/paper-pdfs/FRC-100-005.pdf",
+      "role": "Closure-specific thermodynamic boundary experiment; not a universal replacement law."
+    },
+    {
+      "id": "FRC-100-002",
+      "title": "Coherence in Chaos: Diffusion, Localization, and Decoherence in the Standard Map / Quantum Kicked Rotor Family",
+      "url": "/en/papers/FRC-100-002",
+      "version": "v2.6",
+      "date": "2026-07-12",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.15079277",
+      "doi": "10.5281/zenodo.21328428",
+      "pdf_url": "/paper-pdfs/FRC-100-002.pdf",
+      "role": "Standard Map / Quantum Kicked Rotor chaos program and scoped negative results."
+    },
+    {
+      "id": "FRC-100-002-001",
+      "title": "Accessible Phase-Space Geometry Predicts the Structure Functional in the Mixed Standard Map",
+      "url": "/en/papers/FRC-100-002-001",
+      "version": "v1.5",
+      "date": "2026-07-12",
+      "publication_state": "preprint",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "status_label": "answer-appendix line 100.002.001; coarse result retained; registered dense Gate 4 closed negatively",
+      "concept_doi": "10.5281/zenodo.21298187",
+      "doi": "10.5281/zenodo.21328429",
+      "pdf_url": "/paper-pdfs/FRC-100-002-001.pdf",
+      "role": "The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established."
+    },
+    {
+      "id": "FRC-100-100",
+      "title": "FRC 100.100 - Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence",
+      "url": "/en/papers/FRC-100-100",
+      "version": "v1.0",
+      "date": "2026-07-10",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.21298193",
+      "doi": "10.5281/zenodo.21298194",
+      "pdf_url": "/paper-pdfs/FRC-100-100.pdf",
+      "role": "Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers."
+    },
+    {
+      "id": "FRC-100-003",
+      "title": "Collapse as Open-System Phase-Locking v3.3: A Conditional Basin Mechanism",
+      "url": "/en/papers/FRC-100-003",
+      "version": "v3.3",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.15079819",
+      "doi": "10.5281/zenodo.21298162",
+      "pdf_url": "/paper-pdfs/FRC-100-003.pdf",
+      "role": "Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates."
+    },
+    {
+      "id": "FRC-100-007",
+      "title": "The Lambda-Field v3.3: Narrow Rho-Drift Audit and Ontology Separation",
+      "url": "/en/papers/FRC-100-007",
+      "version": "v3.3",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.17968951",
+      "doi": "10.5281/zenodo.21298171",
+      "pdf_url": "/paper-pdfs/FRC-100-007.pdf",
+      "role": "Narrow density-matrix drift audit and ontology separation."
+    },
+    {
+      "id": "FRC-100-008",
+      "title": "Computational Realization of Lambda-Field Coherence Dynamics v2.2",
+      "url": "/en/papers/FRC-100-008",
+      "version": "v2.2",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.21266621",
+      "doi": "10.5281/zenodo.21298174",
+      "pdf_url": "/paper-pdfs/FRC-100-008.pdf",
+      "role": "Declared executable closures; no fundamental ontology claim."
+    },
+    {
+      "id": "FRC-100-009",
+      "title": "FRC 100.009 v2.6: Operational Local Reciprocity Dynamics",
+      "url": "/en/papers/FRC-100-009",
+      "version": "v2.6",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.20328893",
+      "doi": "10.5281/zenodo.21298177",
+      "pdf_url": "/paper-pdfs/FRC-100-009.pdf",
+      "role": "Declared local implementation with explicit source, sink, and residual terms."
+    },
+    {
+      "id": "FRC-100-011",
+      "title": "FRC 100.011 v1.2 - Translation Table: FRC Vocabulary and Claim Status",
+      "url": "/en/papers/FRC-100-011",
+      "version": "v1.2",
+      "date": "2026-07-09",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "concept_doi": "10.5281/zenodo.21284063",
+      "doi": "10.5281/zenodo.21298180",
+      "pdf_url": "/paper-pdfs/FRC-100-011.pdf",
+      "role": "Vocabulary crosswalk; use with, not instead of, primary papers."
     }
   ],
   "frontier_route": [
     {
       "id": "FRC-787-787",
+      "title": "Lambda-Flight v1.2: Operational and Latent Coherence Transport Models",
       "url": "/en/papers/FRC-787-787",
-      "concept_doi": "10.5281/zenodo.21266619",
       "version": "v1.2",
+      "date": "2026-07-12",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21328432"
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "concept_doi": "10.5281/zenodo.21266619",
+      "doi": "10.5281/zenodo.21328432",
+      "pdf_url": "/paper-pdfs/FRC-787-787.pdf",
+      "role": "Operational and latent coherence-transport protocol awaiting held-out platform validation."
     },
     {
       "id": "FRC-826-829",
+      "title": "Mathematical Foundations v1.5: Canonical Reciprocity and Status-Labeled Open Problems",
       "url": "/en/papers/FRC-826-829",
-      "concept_doi": "10.5281/zenodo.21254441",
       "version": "v1.5",
+      "date": "2026-07-09",
       "publication_state": "preprint",
-      "doi": "10.5281/zenodo.21298186"
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "concept_doi": "10.5281/zenodo.21254441",
+      "doi": "10.5281/zenodo.21298186",
+      "pdf_url": "/paper-pdfs/FRC-826-829.pdf",
+      "role": "Status-labeled mathematical foundations and open problems."
     },
     {
       "id": "FRC-840-101",
+      "title": "FRC 840.101: The Phase–Attention Boundary",
       "url": "/en/papers/FRC-840-101",
+      "date": "2026-05-27",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "concept_doi": "10.5281/zenodo.20416011",
       "doi": "10.5281/zenodo.20416012",
-      "concept_doi": "10.5281/zenodo.20416011"
+      "pdf_url": "/paper-pdfs/FRC-840-101.pdf",
+      "role": "Phase-attention boundary and Recall Smearing Theorem for fixed-state recurrent models."
     },
     {
       "id": "FRC-841-004",
+      "title": "Resonant Computing: Coherence Processing Units and Non-Boolean Logic",
       "url": "/en/papers/FRC-841-004",
-      "doi_status": "not currently declared",
-      "publication_state": "frontier proposal; no Zenodo DOI registered"
+      "date": "2026-02-10",
+      "publication_state": "frontier proposal; no Zenodo DOI registered",
+      "canon_status": "frontier",
+      "epistemic_status": "frontier",
+      "doi_status": "not declared in current website source",
+      "pdf_url": "/paper-pdfs/FRC-841-004.pdf",
+      "role": "Frontier architecture proposal; does not establish a new computing paradigm, computational advantage, or validated physical implementation."
     }
-  ],
-  "rules": [
-    "Preserve operational, mathematical, model-specific, and conjectural status labels.",
-    "Do not generalize a scoped negative result or infer a replacement ontology.",
-    "Prefer papers over articles, blog posts, and concepts.",
-    "Cite the specific on-site paper pages used.",
-    "If a claim is absent from the corpus, say so.",
-    "Use only the declared static resources for machine retrieval."
   ],
   "threshold_route": [
     {
@@ -240,6 +641,7 @@
       "title": "The Threshold Charter: Evidence, Interpretation, and Register Discipline v0.1",
       "url": "/en/papers/FRC-700-000",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -251,6 +653,7 @@
       "title": "The Two-Face Threshold: Inward Realization, Selective Interface, and Outward Participation v0.1",
       "url": "/en/papers/FRC-700-001",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -262,6 +665,7 @@
       "title": "The Recursive Boundary: Whole–Unit Reindexing in the μ Topology v0.1",
       "url": "/en/papers/FRC-700-002",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -273,6 +677,7 @@
       "title": "Return Is an Update: Memory, Feedback, and the Next Ground v0.1",
       "url": "/en/papers/FRC-700-003",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -284,6 +689,7 @@
       "title": "History, Story, and Witness: The Semantic Threshold v0.1",
       "url": "/en/papers/FRC-700-004",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -295,6 +701,7 @@
       "title": "The μ Atlas: Cross-System Assignment and Failure Audit v0.1",
       "url": "/en/papers/FRC-700-005",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -306,6 +713,7 @@
       "title": "The Reflexive Threshold: Corpus Integration, Witness, and Claim-Graph Audit v0.1",
       "url": "/en/papers/FRC-700-006",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -317,6 +725,7 @@
       "title": "The FRC Threshold Handbook: A Standalone Onboarding and Application Protocol v0.1",
       "url": "/en/papers/FRC-700-007",
       "version": "v0.1",
+      "date": "2026-07-17",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
@@ -330,12 +739,13 @@
       "title": "What Would Make FRC Reciprocity a Duality? v0.1",
       "url": "/en/papers/FRC-830-000",
       "version": "v0.1",
+      "date": "2026-07-14",
       "publication_state": "preprint",
       "canon_status": "framework",
       "epistemic_status": "philosophical",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "terminology-charter; not-evidence-of-physical-duality",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-000.pdf"
     },
     {
@@ -343,12 +753,13 @@
       "title": "The Reciprocity One-Form v0.1: Affine Classification and Domain Rigidity",
       "url": "/en/papers/FRC-830-001",
       "version": "v0.1",
+      "date": "2026-07-14",
       "publication_state": "preprint",
       "canon_status": "frontier",
       "epistemic_status": "formal-proof",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "exact-mathematical-candidate; independent-review-pending",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-001.pdf"
     },
     {
@@ -356,12 +767,13 @@
       "title": "Operational Registers and Reciprocity-Preserving Morphisms v0.1",
       "url": "/en/papers/FRC-830-002",
       "version": "v0.1",
+      "date": "2026-07-14",
       "publication_state": "preprint",
       "canon_status": "frontier",
       "epistemic_status": "formal-operational",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "typed-category-proved; exact-route-results-internal-review; physical-equivalence-not-claimed",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-002.pdf"
     },
     {
@@ -369,12 +781,13 @@
       "title": "Exact Phase-Family Test of FRC Duality v0.1: A Lift Obstruction on the von Mises Manifold",
       "url": "/en/papers/FRC-830-003",
       "version": "v0.1",
+      "date": "2026-07-14",
       "publication_state": "preprint",
       "canon_status": "frontier",
       "epistemic_status": "exact-mathematical-candidate",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "exact-lift-obstruction-internal-review; independent-proof-review-pending; physical-duality-rejected-for-this-family",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-003.pdf"
     },
     {
@@ -382,12 +795,13 @@
       "title": "Dimension Threshold for FRC Reciprocity v0.1: One-Parameter and Qubit Lift Obstructions",
       "url": "/en/papers/FRC-830-004",
       "version": "v0.1",
+      "date": "2026-07-15",
       "publication_state": "preprint",
       "canon_status": "frontier",
       "epistemic_status": "exact-mathematical-candidate",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "general-one-parameter-nonidentity-lift-obstruction; qubit-set-theoretic-lifts-nonunique; incoherent-unital-wigner-classes-obstructed; general-cptp-open; independent-proof-review-pending",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-004.pdf"
     },
     {
@@ -395,13 +809,178 @@
       "title": "FRC and Quantum Born Reciprocity v0.2: A Present-Structure Obstruction to Majid-Style Self-Duality",
       "url": "/en/papers/FRC-830-005",
       "version": "v0.2",
+      "date": "2026-07-15",
       "publication_state": "preprint",
       "canon_status": "frontier",
       "epistemic_status": "formal-obstruction",
-      "doi": "10.5281/zenodo.21385392",
-      "concept_doi": "10.5281/zenodo.21385391",
       "status_label": "present-structure-no-promotion; 830.004-integrated; independent-proof-review-pending",
+      "concept_doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.21385392",
       "pdf_url": "/paper-pdfs/FRC-830-005.pdf"
     }
+  ],
+  "revision_pending_records": [
+    {
+      "id": "FRC-100-001",
+      "title": "Fractal Resonance Coherence: A Framework for Complex Systems Analysis",
+      "url": "/en/papers/FRC-100-001",
+      "date": "2025-03-23",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.15073056",
+      "pdf_url": "/paper-pdfs/FRC-100-001.pdf",
+      "status_note": "This living 100-series identifier is retained, but this 2025 formulation has not yet been reconciled with the current scoped program. Use FRC 100.000, FRC 566.001, and the cited current versions for present claims."
+    },
+    {
+      "id": "FRC-100-004",
+      "title": "Quantum Foundations in the FRC Framework",
+      "url": "/en/papers/FRC-100-004",
+      "date": "2025-06-20",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17438174",
+      "pdf_url": "/paper-pdfs/FRC-100-004.pdf",
+      "status_note": "This living 100-series identifier is retained, but its quantum-ontology claims are revision pending. It does not state the current FRC position on determinism, hidden variables, or quantum foundations."
+    },
+    {
+      "id": "FRC-100-006",
+      "title": "The Emergence of the Born Rule from Resonant Equilibrium",
+      "url": "/en/papers/FRC-100-006",
+      "date": "2025-08-15",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17438360",
+      "pdf_url": "/paper-pdfs/FRC-100-006.pdf",
+      "status_note": "This living 100-series identifier is retained, but its claimed Born-rule derivation is revision pending. The current corpus does not treat it as an established derivation or prediction."
+    },
+    {
+      "id": "FRC-100-006-002",
+      "title": "Born-Rule Deviations under Finite-Time and Non-Equilibrium Conditions",
+      "url": "/en/papers/FRC-100-006-002",
+      "date": "2025-11-04",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17526499",
+      "pdf_url": "/paper-pdfs/FRC-100-006-002.pdf",
+      "status_note": "This living 100-series identifier depends on the earlier FRC 100.006 premise and is revision pending. It does not establish observable Born-rule deviations."
+    },
+    {
+      "id": "FRC-100-010",
+      "title": "Foundational Questions in Fractal Resonance Coherence",
+      "url": "/en/papers/FRC-100-010",
+      "date": "2025-11-20",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17982555",
+      "pdf_url": "/paper-pdfs/FRC-100-010.pdf",
+      "status_note": "This living 100-series identifier is retained for a future revision. Its answers on non-locality, determinism, and the Lambda field do not state the current scoped FRC position."
+    },
+    {
+      "id": "FRC-566-010",
+      "title": "UCC PDE: Existence, Uniqueness, and Dissipation",
+      "url": "/en/papers/FRC-566-010",
+      "date": "2025-11-04",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17526506",
+      "pdf_url": "/paper-pdfs/FRC-566-010.pdf",
+      "status_note": "This 566-series realization studies a declared linear transport ansatz. It is not a universal coherence equation; its role must be read alongside the open-system correction in FRC 566.030."
+    },
+    {
+      "id": "FRC-566-020",
+      "title": "Spectral Modes and Relaxation in UCC",
+      "url": "/en/papers/FRC-566-020",
+      "date": "2025-11-04",
+      "publication_state": "revision pending",
+      "canon_status": "living-core",
+      "epistemic_status": "primary",
+      "doi": "10.5281/zenodo.17526513",
+      "pdf_url": "/paper-pdfs/FRC-566-020.pdf",
+      "status_note": "This 566-series realization analyzes a declared linear transport ansatz. It is not evidence that all coherence dynamics have these modal rates; read it with FRC 566.030 and the current foundation gates."
+    }
+  ],
+  "superseded_origin_material": [
+    {
+      "id": "FRC-700-777",
+      "title": "FRC 700.777 v1.0 - μ Registers: A Nested Scope Model for Scale-Declared Reciprocity",
+      "url": "/en/papers/FRC-700-777",
+      "version": "v1.0",
+      "date": "2026-07-10",
+      "publication_state": "archived",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "concept_doi": "10.5281/zenodo.21298189",
+      "doi": "10.5281/zenodo.21298190",
+      "pdf_url": "/paper-pdfs/FRC-700-777.pdf",
+      "superseded_by": "FRC-700-000 through FRC-700-007",
+      "status_note": "Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries."
+    }
+  ],
+  "archive_records": [
+    {
+      "id": "FRC-16D-001",
+      "title": "FRC 16D.001 — The Universal Vector: A Standardized Protocol for Stateful Human-AI Alignment",
+      "url": "/en/papers/FRC-16D-001",
+      "version": "v2.0 (Technical Specification)",
+      "date": "2026-01-26",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "doi_status": "not declared in current website source"
+    },
+    {
+      "id": "FRC-16D-920",
+      "title": "FRC 16D.920 — Responsible AI Use Protocol (RAIUP): Ethical Constraints for Deep State Inference",
+      "url": "/en/papers/FRC-16D-920",
+      "version": "v2.0 (Safety Standard)",
+      "date": "2026-01-26",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "doi_status": "not declared in current website source"
+    },
+    {
+      "id": "FRC-821-100",
+      "title": "FRC 821.100 — The Λ-Field: Unified Coherence Dynamics and Entropic Gravity",
+      "url": "/en/papers/FRC-821-100",
+      "version": "v2.0 (Consolidated)",
+      "date": "2026-01-26",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "doi_status": "not declared in current website source"
+    },
+    {
+      "id": "FRC-840-001",
+      "title": "FRC 840.001 — The Λ-Tensor Model: Beyond the Transformer Paradigm",
+      "url": "/en/papers/FRC-840-001",
+      "version": "v1.0",
+      "date": "2025-12-07",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "doi_status": "not declared in current website source"
+    },
+    {
+      "id": "FRC-840-LTM-001",
+      "title": "FRC 840.LTM.001 — Coupled Oscillator Dynamics vs Attention: Empirical Comparison",
+      "url": "/en/papers/FRC-840-LTM-001",
+      "date": "2026-01-26",
+      "canon_status": "archive",
+      "epistemic_status": "archive",
+      "doi_status": "not declared in current website source"
+    }
+  ],
+  "rules": [
+    "Preserve the distinction among exact mathematics, operational models, framework interpretation, model-specific findings, conjectures, and empirical gates.",
+    "Do not generalize a scoped negative result or infer a replacement ontology.",
+    "Do not present FRC-700-777 as the current 700-series framework; use FRC-700-000 through FRC-700-007 for the active threshold-framework route.",
+    "Do not promote FRC-830 ledger-coordinate results or scoped obstructions to physical, categorical, Born-style, or Majid-style self-duality.",
+    "Prefer papers over articles, blog posts, and concepts.",
+    "Cite the specific on-site paper pages used.",
+    "If a claim is absent from the corpus, say so.",
+    "Use only the declared static resources for machine retrieval."
   ]
 }

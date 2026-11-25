@@ -88,13 +88,21 @@ function inferEpistemicStatus(type, item) {
   return null;
 }
 
+function finalizeScalar(parts) {
+  const joined = parts.join(' ').trim();
+  if ((joined.startsWith("'") && joined.endsWith("'")) || (joined.startsWith('"') && joined.endsWith('"'))) {
+    return joined.slice(1, -1);
+  }
+  return joined;
+}
+
 // Simple YAML frontmatter parser
 function parseFrontmatter(content) {
   const match = content.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/);
   if (!match) return { frontmatter: {}, body: content };
 
   const fm = {};
-  const lines = match[1].split('\n');
+  const lines = match[1].split(/\r?\n/);
   let currentKey = null;
   let currentValue = [];
   let inArray = false;
@@ -106,7 +114,7 @@ function parseFrontmatter(content) {
     const keyMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
     if (keyMatch) {
       if (currentKey) {
-        fm[currentKey] = inArray ? currentValue : currentValue.join('\n').trim();
+        fm[currentKey] = inArray ? currentValue : finalizeScalar(currentValue);
       }
       currentKey = keyMatch[1];
       const val = keyMatch[2].trim();
@@ -117,14 +125,15 @@ function parseFrontmatter(content) {
         fm[currentKey] = val.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
         currentKey = null;
         currentValue = [];
-      } else if (val.startsWith("'") || val.startsWith('"')) {
-        fm[currentKey] = val.replace(/^['"]|['"]$/g, '');
+      } else if ((val.startsWith("'") && val.endsWith("'") && val.length > 1) || (val.startsWith('"') && val.endsWith('"') && val.length > 1)) {
+        fm[currentKey] = val.slice(1, -1);
         currentKey = null;
         currentValue = [];
       } else {
-        fm[currentKey] = val;
-        currentKey = null;
-        currentValue = [];
+        // Keep currentKey open so indented continuation lines (e.g. folded multi-line
+        // quoted or unquoted YAML scalars) append cleanly.
+        currentValue = [val];
+        inArray = false;
       }
       inArray = false;
     } else if (line.startsWith('- ')) {
@@ -136,7 +145,7 @@ function parseFrontmatter(content) {
   }
 
   if (currentKey) {
-    fm[currentKey] = inArray ? currentValue : currentValue.join('\n').trim();
+    fm[currentKey] = inArray ? currentValue : finalizeScalar(currentValue);
   }
 
   return { frontmatter: fm, body: match[2].trim() };
@@ -153,7 +162,7 @@ function readContentDir(lang, type) {
       return [path.join(entry.name, 'index.md')];
     }
     return [];
-  });
+  }).sort();
 
   return files.map(f => {
     const content = fs.readFileSync(path.join(dir, f), 'utf-8');
@@ -168,7 +177,8 @@ function getLanguages() {
     .filter(f => {
       const full = path.join(CONTENT_DIR, f);
       return fs.statSync(full).isDirectory() && f !== 'inbox';
-    });
+    })
+    .sort();
 }
 
 function buildCatalog() {
@@ -219,6 +229,8 @@ function buildCatalog() {
         if (item.version) entry.version = item.version;
         if (item.muLevel) entry.muLevel = item.muLevel;
         if (item.supersedes) entry.supersedes = item.supersedes;
+        if (item.supersededBy) entry.supersededBy = item.supersededBy;
+        if (item.statusLabel) entry.statusLabel = item.statusLabel;
         if (item.statusNote) entry.statusNote = item.statusNote;
         if (item.publicationState) entry.publicationState = item.publicationState;
         if (type === 'papers' && REVISION_PENDING_PAPERS.has(String(item.id || '').toUpperCase())) entry.publicationState = 'revision pending';
