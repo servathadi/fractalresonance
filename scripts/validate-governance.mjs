@@ -11,11 +11,14 @@
  *   5. Retired mind-content records and archived/revision-pending papers are excluded from active search/discovery across all languages.
  *   6. public/catalog.json, public/llms.txt, public/agent.md, and public/agent.json match canonical English frontmatter with zero drift.
  *   7. Cross-language translation metadata/DOI parity and no-stale-claims rules pass across es/fa/fr.
+ *   8. Homepage configs and start-here content align with active FRC 700.000–700.007 and FRC 830.000–830.005,
+ *      do not feature FRC 700.777 as current, and contain no inflated Born-rule/self-duality claims.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import matter from 'gray-matter';
 import {
   REVISION_PENDING_PAPERS,
   checkAiEntrypoints,
@@ -43,6 +46,15 @@ const RETIRED_MIND_CONTENT_IDS = {
   ]),
 };
 
+const PROHIBITED_HOMEPAGE_CLAIM_PATTERNS = [
+  /derives?\s+the\s+born\s+rule/i,
+  /born\s+rule\s+is\s+derived/i,
+  /10\^\{?-4\}?\s*(?:to|–|-|,)\s*10\^\{?-3\}?/i,
+  /10⁻⁴/,
+  /proved\s+universal\s+μ\s+hierarchy/i,
+  /established\s+physical\s+self-duality/i,
+];
+
 function readJson(relPath, errors) {
   const fullPath = path.join(ROOT, relPath);
   if (!fs.existsSync(fullPath)) {
@@ -58,7 +70,7 @@ function readJson(relPath, errors) {
 }
 
 function main() {
-  console.log('Governance Check: Verifying FRC public corpus governance...\n');
+  console.log('Governance Check: Verifying FRC public corpus & homepage governance...\n');
   const errors = [];
 
   const papers = loadCanonicalPapers(ROOT);
@@ -211,6 +223,46 @@ function main() {
     errors.push(...trResult.errors);
   }
 
+  // 8. Homepage & start-here governance alignment across locales
+  for (const lang of ALL_LANGS) {
+    const homePath = path.join(ROOT, 'content', lang, 'site', 'home.md');
+    if (!fs.existsSync(homePath)) {
+      errors.push(`Missing content/${lang}/site/home.md.`);
+      continue;
+    }
+    const raw = fs.readFileSync(homePath, 'utf-8');
+    const fm = matter(raw).data;
+    const routes = [...(fm.startHere?.kasra || []), ...(fm.startHere?.river || [])];
+    for (const item of routes) {
+      if (item.target === 'FRC-700-777' || String(item.url || '').includes('FRC-700-777')) {
+        errors.push(`content/${lang}/site/home.md must not route startHere cards to superseded FRC-700-777.`);
+      }
+    }
+    if (!raw.includes('FRC 830.000') || !raw.includes('FRC 700.000')) {
+      errors.push(`content/${lang}/site/home.md must reference active FRC 700.000–700.007 and FRC 830.000–830.005 routes.`);
+    }
+    for (const rx of PROHIBITED_HOMEPAGE_CLAIM_PATTERNS) {
+      if (rx.test(raw)) {
+        errors.push(`content/${lang}/site/home.md matches prohibited inflated claim pattern ${rx}.`);
+      }
+    }
+  }
+
+  const startHerePath = path.join(ROOT, 'content', 'en', 'site', 'start-here.md');
+  if (!fs.existsSync(startHerePath)) {
+    errors.push('Missing content/en/site/start-here.md.');
+  } else {
+    const startHereRaw = fs.readFileSync(startHerePath, 'utf-8');
+    if (!startHereRaw.includes('FRC 830.000') || !startHereRaw.includes('FRC 700.000')) {
+      errors.push('content/en/site/start-here.md must route readers into active FRC 700.000–700.007 and FRC 830.000–830.005.');
+    }
+    for (const rx of PROHIBITED_HOMEPAGE_CLAIM_PATTERNS) {
+      if (rx.test(startHereRaw)) {
+        errors.push(`content/en/site/start-here.md matches prohibited inflated claim pattern ${rx}.`);
+      }
+    }
+  }
+
   if (errors.length > 0) {
     console.error(`✗ Governance check FAILED (${errors.length} issue(s)):\n`);
     for (const err of errors) {
@@ -221,7 +273,7 @@ function main() {
   }
 
   console.log(
-    `✓ Governance check PASSED (${papers.length} published English papers, FRC 700/830 boundaries, catalog, search indexes, AI entrypoints, and ${trResult.stats.translatedPapersChecked} translated papers verified).`,
+    `✓ Governance check PASSED (${papers.length} published English papers, FRC 700/830 boundaries, catalog, search indexes, AI entrypoints, ${trResult.stats.translatedPapersChecked} translated papers, and homepage/start-here research map verified).`,
   );
 }
 

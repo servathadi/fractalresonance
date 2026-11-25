@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getLanguages, getSitePage, getGlossary } from '@/lib/content';
+import { getLanguages, getSitePage, getGlossary, getPapers } from '@/lib/content';
+import { buildResearchMap } from '@/lib/research-map';
 import { renderMarkdown } from '@/lib/markdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import { ResearchMapSection } from '@/components/ResearchMapSection';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -37,6 +39,9 @@ export default async function StartHerePage({ params }: Props) {
 
   const basePath = `/${lang}`;
   const glossary = getGlossary(lang);
+  const enById = new Map(getPapers('en').map((p) => [p.frontmatter.id, p]));
+  const langById = new Map(getPapers(lang).map((p) => [p.frontmatter.id, p]));
+  const researchMap = buildResearchMap(lang, basePath);
   const bodyHtml = renderMarkdown(page.body, lang, glossary, basePath);
   
   const fm = page.frontmatter as any;
@@ -44,56 +49,76 @@ export default async function StartHerePage({ params }: Props) {
   const buildingNow = fm.building_now || [];
   const t = labels[lang] || labels.en;
 
+  const paperHref = (id: string) => {
+    if (lang === 'en') return `${basePath}/papers/${id}`;
+    const en = enById.get(id);
+    const tr = langById.get(id);
+    if (
+      en &&
+      tr &&
+      tr.frontmatter.translationStatus !== 'lags-canonical-english' &&
+      (!en.frontmatter.version || tr.frontmatter.version === en.frontmatter.version) &&
+      (!en.frontmatter.doi || tr.frontmatter.doi === en.frontmatter.doi)
+    ) {
+      return `${basePath}/papers/${id}`;
+    }
+    return `/en/papers/${id}`;
+  };
+
   return (
-    <main className="max-w-5xl mx-auto px-6 py-14">
-      <nav className="text-sm text-frc-text-dim mb-8">
-        <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
-        <span className="mx-2">/</span>
-        <span className="text-frc-text">{fm.title}</span>
-      </nav>
+    <main className="min-h-[80vh]">
+      <div className="max-w-6xl mx-auto px-6 py-14">
+        <nav className="text-sm text-frc-text-dim mb-8">
+          <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
+          <span className="mx-2">/</span>
+          <span className="text-frc-text">{fm.title}</span>
+        </nav>
 
-      <header className="mb-10">
-        <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
-        <p className="text-frc-text-dim max-w-2xl leading-relaxed">
-          {fm.description}
-        </p>
-      </header>
+        <header className="mb-10">
+          <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
+          <p className="text-frc-text-dim max-w-3xl leading-relaxed">
+            {fm.description}
+          </p>
+        </header>
 
-      {path.length > 0 && (
-        <section className="grid sm:grid-cols-3 gap-4 mb-10">
-          {path.map((it: any) => (
-            <Link key={it.id} href={`${basePath}/papers/${it.id}`} className="card block p-5 group">
-              <div className="flex items-start gap-4">
-                <span className="font-mono text-xs text-frc-gold shrink-0 mt-0.5 tabular-nums">{it.k}</span>
-                <div className="min-w-0">
-                  <h2 className="text-frc-text group-hover:text-frc-gold transition-colors text-sm font-medium leading-snug">
-                    {it.title}
-                  </h2>
-                  <div className="text-[10px] text-frc-steel font-mono mt-2">{it.id}</div>
-                  <p className="text-xs text-frc-text-dim mt-2 leading-relaxed">{it.desc}</p>
+        {path.length > 0 && (
+          <section className="grid sm:grid-cols-3 gap-4 mb-10">
+            {path.map((it: any) => (
+              <Link key={it.id} href={paperHref(it.id)} className="card block p-5 group">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-xs text-frc-gold shrink-0 mt-0.5 tabular-nums">{it.k}</span>
+                  <div className="min-w-0">
+                    <h2 className="text-frc-text group-hover:text-frc-gold transition-colors text-sm font-medium leading-snug">
+                      {it.title}
+                    </h2>
+                    <div className="text-[10px] text-frc-steel font-mono mt-2">{it.id}</div>
+                    <p className="text-xs text-frc-text-dim mt-2 leading-relaxed">{it.desc}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </section>
-      )}
-
-      {buildingNow.length > 0 && (
-        <section className="border border-frc-blue rounded-lg p-6 mb-10">
-          <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">{t.building}</h2>
-          <ul className="space-y-2 text-sm text-frc-text-dim">
-            {buildingNow.map((step: string, i: number) => (
-              <li key={i}>- {step}</li>
+              </Link>
             ))}
-          </ul>
-        </section>
-      )}
+          </section>
+        )}
 
-      <div className="prose prose-invert max-w-none mb-10">
-        <MarkdownContent html={bodyHtml} glossary={glossary} />
+        {buildingNow.length > 0 && (
+          <section className="border border-frc-blue p-6 mb-10">
+            <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">{t.building}</h2>
+            <ul className="space-y-2 text-sm text-frc-text-dim">
+              {buildingNow.map((step: string, i: number) => (
+                <li key={i}>- {step}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <div className="prose prose-invert max-w-none mb-10">
+          <MarkdownContent html={bodyHtml} glossary={glossary} />
+        </div>
       </div>
 
-      <div className="mt-10 border-t border-frc-blue pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+      <ResearchMapSection data={researchMap} lang={lang} sectionMarker="§01" />
+
+      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
         <div>
           <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">{t.continue}</div>
           <p className="text-sm text-frc-text-dim leading-relaxed">{t.continueText}</p>
