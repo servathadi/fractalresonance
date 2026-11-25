@@ -3,9 +3,12 @@
  * addressable, but are not part of the current FRC research reading path.
  */
 
-const ARCHIVE_NOTE = 'Archived from the current research reading path. This page records an earlier interpretive formulation and does not state the current FRC position.';
-const COMPARISON_NOTE = 'Archived from the current research reading path. This earlier comparison is not a current assessment of the referenced field or a settled FRC result.';
-const APPLICATION_NOTE = 'Archived from the current research reading path. This was an exploratory analogy, not a validated application or prediction of the current FRC program.';
+const ARCHIVE_NOTE = 'Archived from the current research reading path (noindex). This historical page records an earlier formulation and does not state the current 2026 FRC position; see FRC 100.000 and FRC 100.100.';
+const STADIUM_ARCHIVE_NOTE = 'Archived historical essay (noindex). Its deterministic stadium and D ≈ 1.90 fractal-dimension proof claims were later demoted; see FRC 100.002 v2.6, FRC 100.002.001 v1.5, and FRC 100.000.';
+const BORN_ARCHIVE_NOTE = 'Archived historical essay (noindex). Claims of a completed Born-rule derivation or fixed experimental deviation range were superseded; see FRC 100.000, FRC 100.100, FRC 100.003, and FRC 100.007.';
+const GEMINI_ARCHIVE_NOTE = 'Archived external synthesis from January 2026 (noindex). Reflects superseded early terminology ("Fractal Resonance Cognition"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.';
+const COMPARISON_NOTE = 'Archived from the current research reading path (noindex). This earlier comparison is not a current assessment of the referenced field or a settled FRC result; see FRC 100.000.';
+const APPLICATION_NOTE = 'Archived from the current research reading path (noindex). This was an exploratory analogy, not a validated application or prediction of the current FRC program; see FRC 100.000.';
 const SPECULATIVE_MIND_NOTE = 'Removed from the public research path. The current corpus does not use this material as an empirical criterion for subjective experience or AI personhood.';
 const FRC_700_ORIGIN_NOTE = 'Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.';
 
@@ -13,20 +16,21 @@ export const ARCHIVED_CONTENT_NOTES: Record<string, string> = {
   'paper:FRC-700-777': FRC_700_ORIGIN_NOTE,
 
   'article:ai-awakening': SPECULATIVE_MIND_NOTE,
-  'article:FRC-EP-001': ARCHIVE_NOTE,
-  'article:FRC-EP-002': ARCHIVE_NOTE,
+  'article:FRC-EP-001': BORN_ARCHIVE_NOTE,
+  'article:FRC-EP-002': STADIUM_ARCHIVE_NOTE,
   'article:FRC-EP-003': ARCHIVE_NOTE,
-  'article:FRC-EP-005': ARCHIVE_NOTE,
-  'article:FRC-EP-006': ARCHIVE_NOTE,
-  'article:FRC-EP-EXTRA-1': ARCHIVE_NOTE,
-  'article:FRC-EP-EXTRA-2': ARCHIVE_NOTE,
-  'article:ep1-ghost-in-the-machine': ARCHIVE_NOTE,
-  'article:ep2-order-in-the-chaos': ARCHIVE_NOTE,
+  'article:FRC-EP-005': BORN_ARCHIVE_NOTE,
+  'article:FRC-EP-006': BORN_ARCHIVE_NOTE,
+  'article:FRC-EP-EXTRA-1': STADIUM_ARCHIVE_NOTE,
+  'article:FRC-EP-EXTRA-2': BORN_ARCHIVE_NOTE,
+  'article:ep1-ghost-in-the-machine': BORN_ARCHIVE_NOTE,
+  'article:ep2-order-in-the-chaos': STADIUM_ARCHIVE_NOTE,
   'article:ep3-engine-of-coherence': ARCHIVE_NOTE,
-  'article:ep5-illusion-of-chance': ARCHIVE_NOTE,
-  'article:ep6-hunting-the-glitch': ARCHIVE_NOTE,
-  'article:extra-190-signature': ARCHIVE_NOTE,
-  'article:extra-unmasking-randomness': ARCHIVE_NOTE,
+  'article:ep5-illusion-of-chance': BORN_ARCHIVE_NOTE,
+  'article:ep6-hunting-the-glitch': BORN_ARCHIVE_NOTE,
+  'article:extra-190-signature': STADIUM_ARCHIVE_NOTE,
+  'article:extra-unmasking-randomness': BORN_ARCHIVE_NOTE,
+  'article:gemini-deep-research-frc-2026-01-25': GEMINI_ARCHIVE_NOTE,
 
   'blog:ai-and-the-symbolic-realm': SPECULATIVE_MIND_NOTE,
   'blog:beyond-randomness': ARCHIVE_NOTE,

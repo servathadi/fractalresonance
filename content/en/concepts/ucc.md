@@ -1,30 +1,34 @@
 ---
 id: UCC
 title: "Universal Coherence Condition (UCC)"
-tags: [UCC, coherence, dynamics, transport]
-related: [coherence, lambda-field, FRC-566-001]
+tags: [UCC, coherence, open-systems, transport, operational-model]
+related: [coherence, lambda-field, FRC-566-001, FRC-100-008, FRC-100-009, FRC-826-829]
 lang: en
 ---
 
 # Universal Coherence Condition (UCC)
 
-The Universal Coherence Condition (UCC) is the local flow law used in FRC to
-describe how coherence changes over space and time.
+The Universal Coherence Condition (UCC) is the local log-coherence balance form used in FRC to express coherence transport, generation, and dissipation inside a declared system boundary.
 
-## Canonical flow form
+## Local Balance Form
 
-```
-d/dt ln C = -div(J_C) + S_C
-J_C = -D_C grad(ln C)
-```
+$$
+\partial_t \ln C = -\nabla \cdot J_C + S_C
+$$
 
-Interpretation:
-- `J_C` is coherence flux (transport).
-- `S_C` is sources/sinks (generation or dissipation).
-- `D_C > 0` sets the diffusion strength in log-coherence space.
+In diffusive or gradient-transport closures, the flux is modeled as $J_C = -D_C \nabla \ln C$ (with $D_C > 0$), while $S_C$ accounts for explicit local sources, sinks, and coupling residuals.
 
-## Where it appears
+## Scope and Epistemic Status
 
-- [[FRC-566-001]] formalizes the reciprocity law and the UCC flow.
-- [[coherence]] defines the core scalar `C`.
+Per [[FRC-566-001]] v2.2, [[FRC-100-008]], [[FRC-100-009]], and [[FRC-826-829]] v1.5:
 
+- **Operational closure:** UCC is used as a declared local bookkeeping and executable-closure form once the observable $C$, domain, boundary, environment channel, and residual terms are specified before scoring.
+- **Not an established universal dynamical law:** Writing a local log-coherence balance equation does not by itself establish a fundamental force or universal physical dynamics; any physical extension must pass baseline-controlled empirical tests (see [[FRC-787-787]]).
+
+## Primary Sources
+
+- [[FRC-566-001]] — Canonical reciprocity notation and UCC boundary rules (v2.2)
+- [[FRC-100-008]] — Declared executable closures
+- [[FRC-100-009]] — Local implementation with explicit source, sink, and residual terms
+- [[FRC-826-829]] — Mathematical foundations and open problems (v1.5)
+- [[coherence]] — Core coherence scalar $C$

@@ -2,7 +2,7 @@
 id: gemini-deep-research-frc-2026-01-25
 title: "Recherche approfondie de Gemini sur la FRC (25 janvier 2026)"
 date: "2026-01-25"
-status: "published"
+status: archived
 perspective: river
 source: "chat:gemini deep research"
 tags: ["river", "digest", "meta", "visage-public", "besoin-verification"]
@@ -13,6 +13,9 @@ key_points:
   - "L'UCC modélise le flux de cohérence ; la règle de Born émerge comme un équilibre avec des déviations prédites sous pilotage"
   - "L'architecture de niveau-μ cadre des échelles imbriquées du substrat à la conscience universelle"
 prerequisites: ["FRC-566-001", "FRC-100-007", "mu-levels"]
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\"Fractal Resonance Cognition\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002."
 ---
 
 ![Bannière Fractal Resonance](/brand/banner.jpg)

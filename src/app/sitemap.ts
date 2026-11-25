@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Static pages with language alternates
-  const staticPages = ['about', 'articles', 'papers', 'books', 'blog', 'topics', 'people', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'join', 'privacy', 'terms', 'investors', 'pitch', 'builders', 'start-here', 'oracle', 'concepts', 'tags'];
+  const staticPages = ['about', 'articles', 'papers', 'books', 'blog', 'topics', 'people', 'formulas', 'positioning', 'mu-levels', 'graph', 'contact', 'join', 'privacy', 'terms', 'investors', 'pitch', 'builders', 'start-here', 'oracle', 'concepts', 'tags', 'falsifications'];
 
   for (const page of staticPages) {
     const alternates = getStaticPageAlternates(page);
@@ -136,10 +136,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Book pages with language alternates
+  // Book pages with language alternates (exclude archived/superseded editions)
   const seenBookIds = new Set<string>();
   for (const lang of languages) {
-    const books = getBooks(lang);
+    const books = getBooks(lang).filter((book) => isCurrentReadingContent('book', book.frontmatter));
     for (const book of books) {
       const id = book.frontmatter.id;
       if (seenBookIds.has(id)) continue;

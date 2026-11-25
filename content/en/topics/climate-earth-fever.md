@@ -4,7 +4,7 @@ id: climate-earth-fever
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "systems physics"
     answer: "Track both sides of the ledger: entropy indicators (heat, CO2) and coherence budget (intact forests, circulation, soil). The risk is cascade: coherence loss in one subsystem increases entropy load on others."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Climate: Earth as a Body Running a Fever

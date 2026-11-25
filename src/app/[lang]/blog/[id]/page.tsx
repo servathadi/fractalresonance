@@ -11,6 +11,7 @@ import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { RelatedContent } from '@/components/RelatedContent';
 import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { ArchivedContentBanner } from '@/components/ArchivedContentBanner';
 import { TaxonomyLink } from '@/components/TaxonomyLink';
 import { VoiceTag } from '@/components/VoiceTag';
 import { estimateReadTime, getBlogPost, getBlogPosts, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, getContentEpistemicStatus, getContentStatusNote, matchesPerspectiveView } from '@/lib/content';
@@ -129,9 +130,13 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="font-mono text-xs">{readTime}</span>
           </div>
           {statusNote && (
-            <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
-              {statusNote}
-            </p>
+            epistemicStatus === 'archive' ? (
+              <ArchivedContentBanner lang={lang} note={statusNote} />
+            ) : (
+              <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+                {statusNote}
+              </p>
+            )
           )}
           {Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">

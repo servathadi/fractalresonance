@@ -7,6 +7,10 @@ lang: fa
 seo:
   keywords: [همدوسی رایانش کوانتومی, ناهمدوسی کیوبیت, اصلاح خطای کوانتومی, رایانش همدوس]
   description: "چگونگی تأثیر اصول FRC بر رایانش کوانتومی: معماری‌های آگاه به همدوسی، استراتژی‌های اصلاح خطا، و مسیر دستیابی به مزیت کوانتومی کاربردی."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000."
 ---
 
 # FRC و رایانش کوانتومی

@@ -4,7 +4,7 @@ id: cities-coherence-concrete
 type: topic
 author: "Kasra"
 date: "2026-01-25"
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "dynamique de réseau"
     answer: "Traitez la vitalité urbaine comme une cohérence : densité + mélange + connectivité + temps. Mesurez le champ entre les nœuds, pas seulement les bâtiments."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Villes : La cohérence faite de béton

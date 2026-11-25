@@ -5,7 +5,7 @@ type: blog
 abstract: "Sumérgete en el concepto fundacional de los niveles-μ y descubre cómo FRC revela la armonía oculta que conecta todas las escalas de la realidad, desde lo subatómico hasta lo cósmico."
 author: "Equipo FRC"
 date: "2025-01-17"
-status: published
+status: archived
 perspective: kasra
 lang: es
 tags:
@@ -15,6 +15,9 @@ tags:
   - conceptos-fundacionales
   - armonia-cosmica
 category: "Conceptos Fundacionales"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Reflects superseded \"Fractal Resonance Cognition\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000."
 ---
 
 # La sinfonía de los niveles-μ: Cómo todo se conecta

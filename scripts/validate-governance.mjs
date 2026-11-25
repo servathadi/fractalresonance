@@ -24,6 +24,7 @@ import {
   checkAiEntrypoints,
   loadCanonicalPapers,
 } from './generate-ai-entrypoints.mjs';
+import { checkFalsificationLedger } from './generate-falsification-ledger.mjs';
 import { ALL_LANGS, validateTranslations } from './validate-translations.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -261,6 +262,142 @@ function main() {
         errors.push(`content/en/site/start-here.md matches prohibited inflated claim pattern ${rx}.`);
       }
     }
+  }
+
+  // 9. Active (non-archived) pages across papers, books, articles, concepts, blog, and topics
+  // must not carry retired 2025 claims or PLACEHOLDER DOIs.
+  const ARCHIVED_BOOK_IDS = ['ecr-textbook', 'the-resonance-code'];
+  const FRONTIER_PAPER_IDS = new Set(['FRC-787-787', 'FRC-826-829', 'FRC-840-101', 'FRC-841-004']);
+  const NEGATION_CONTEXT_RX = /not a pillar|not universal|demoted|withdrawn|retired|superseded|archived|quarantined|development history|no fitted|not current|relegat|descartad|retirad|archiv|retrograd|بایگانی|منسوخ|تنزل|کنار گذاشته/i;
+
+  for (const lang of ALL_LANGS) {
+    // Verify superseded 2025 books are archived + noindex across every locale
+    for (const bookId of ARCHIVED_BOOK_IDS) {
+      const bookIndex = path.join(ROOT, 'content', lang, 'books', bookId, 'index.md');
+      if (!fs.existsSync(bookIndex)) continue;
+      const raw = fs.readFileSync(bookIndex, 'utf-8');
+      const fm = matter(raw).data;
+      if (fm.status !== 'archived' || fm.epistemicStatus !== 'archive' || fm.noindex !== true) {
+        errors.push(
+          `content/${lang}/books/${bookId}/index.md must declare status="archived", epistemicStatus="archive", and noindex=true.`,
+        );
+      }
+    }
+
+    for (const type of ['papers', 'books', 'articles', 'concepts', 'blog', 'topics']) {
+      const typeDir = path.join(ROOT, 'content', lang, type);
+      if (!fs.existsSync(typeDir)) continue;
+      const files =
+        type === 'books'
+          ? fs
+              .readdirSync(typeDir, { withFileTypes: true })
+              .filter((e) => e.isDirectory())
+              .map((e) => path.join(typeDir, e.name, 'index.md'))
+              .filter((p) => fs.existsSync(p))
+          : fs
+              .readdirSync(typeDir, { withFileTypes: true })
+              .filter((e) => e.isFile() && e.name.endsWith('.md'))
+              .map((e) => path.join(typeDir, e.name));
+
+      for (const filePath of files) {
+        const rel = path.relative(ROOT, filePath);
+        const raw = fs.readFileSync(filePath, 'utf-8');
+        const normalized = raw.replace(/^(---)[^\S\r\n]*#.*$/gm, '$1');
+        const parsed = matter(normalized);
+        const fm = parsed.data;
+        const id = String(fm.id || path.basename(filePath, '.md'));
+
+        if (/\bPLACEHOLDER\b/i.test(raw)) {
+          errors.push(`${rel}: contains forbidden PLACEHOLDER token.`);
+        }
+
+        const isPaperArchive =
+          type === 'papers' &&
+          (fm.canonStatus === 'archive' ||
+            (!fm.canonStatus && !/^FRC-(?:100|566)-/i.test(id) && !FRONTIER_PAPER_IDS.has(id.toUpperCase())) ||
+            id === 'FRC-000-START-HERE' ||
+            REVISION_PENDING_PAPERS.has(id.toUpperCase()));
+
+        const isArchived =
+          fm.status === 'archived' ||
+          fm.epistemicStatus === 'archive' ||
+          fm.editionStatus === 'legacy' ||
+          String(fm.publicationState || '').toLowerCase() === 'archived' ||
+          String(fm.publicationState || '').toLowerCase() === 'revision pending' ||
+          RETIRED_MIND_CONTENT_IDS[type]?.has(id) ||
+          isPaperArchive;
+
+        if (isArchived) continue;
+
+        // Strip trailing References section only for papers so historical bibliographic titles don't false-positive.
+        // For translated papers explicitly flagged lags-canonical-english, check frontmatter metadata/abstract.
+        const isLaggingPaperTranslation =
+          type === 'papers' && lang !== 'en' && String(fm.translationStatus || '') === 'lags-canonical-english';
+        const textToCheck = isLaggingPaperTranslation
+          ? raw.slice(0, raw.indexOf('\n---', 3) + 4)
+          : type === 'papers'
+            ? raw.split(/\r?\n##+\s+(?:\d+\.\s*)?References\b/i)[0]
+            : raw;
+
+        if (/fractal\s+resonance\s+cognition/i.test(textToCheck)) {
+          errors.push(`${rel}: active page uses retired 2025 name "Fractal Resonance Cognition".`);
+        }
+
+        for (const line of textToCheck.split(/\r?\n/)) {
+          if (/(?:D\s*[≈~=]\s*1\.90|1\.90\s*(?:fractal|signature|dimension))/i.test(line) && !NEGATION_CONTEXT_RX.test(line)) {
+            errors.push(`${rel}: active page contains unhedged D ≈ 1.90 stadium proof claim ("${line.trim().slice(0, 100)}").`);
+          }
+          if (/\b16D\b/.test(line) && !NEGATION_CONTEXT_RX.test(line)) {
+            errors.push(`${rel}: active page contains unhedged 16D canonical claim ("${line.trim().slice(0, 100)}").`);
+          }
+        }
+      }
+    }
+  }
+
+  // Ensure archived 2025 books are excluded from search-index*.json
+  for (const relPath of ['public/search-index.json', ...ALL_LANGS.map((l) => `public/search-index-${l}.json`)]) {
+    const searchIndex = readJson(relPath, errors);
+    if (Array.isArray(searchIndex?.documents)) {
+      for (const doc of searchIndex.documents) {
+        if (doc.type === 'books' && ARCHIVED_BOOK_IDS.includes(doc.bookId || doc.id)) {
+          errors.push(`${relPath} leaks archived 2025 book ${doc.bookId || doc.id}.`);
+        }
+      }
+    }
+  }
+
+  // 10. Public falsification ledger verification
+  const ledgerCheck = checkFalsificationLedger(ROOT);
+  if (!ledgerCheck.ok) {
+    errors.push(...ledgerCheck.errors);
+  }
+
+  // 11. Issue #92 structured data hygiene (no dead /search SearchAction or /api/* endpoints)
+  const schemaPath = path.join(ROOT, 'src', 'lib', 'schema.ts');
+  if (fs.existsSync(schemaPath)) {
+    const schemaSrc = fs.readFileSync(schemaPath, 'utf-8');
+    if (/\bSearchAction\b/.test(schemaSrc) || /\/search['"`?]/.test(schemaSrc)) {
+      errors.push('src/lib/schema.ts must not advertise dead /search or SearchAction endpoints (Issue #92).');
+    }
+    if (/\/api\//.test(schemaSrc)) {
+      errors.push('src/lib/schema.ts must not advertise nonexistent /api/* endpoints (Issue #92).');
+    }
+  }
+
+  // 12. Ensure no stray "* 2.*" macOS Finder duplicate files exist under src/
+  function findFinderDuplicates(dir) {
+    const hits = [];
+    if (!fs.existsSync(dir)) return hits;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) hits.push(...findFinderDuplicates(full));
+      else if (/\s2\.[A-Za-z0-9]+$/.test(entry.name)) hits.push(path.relative(ROOT, full));
+    }
+    return hits;
+  }
+  for (const dup of findFinderDuplicates(path.join(ROOT, 'src'))) {
+    errors.push(`Stray duplicate file found: ${dup}`);
   }
 
   if (errors.length > 0) {

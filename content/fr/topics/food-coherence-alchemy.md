@@ -4,7 +4,7 @@ id: food-coherence-alchemy
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "alchimie"
     answer: "Traitez la cuisine comme un transfert de cohérence : le repas encode la pratique, le lieu et les boucles de rétroaction ; la nourriture industrielle optimise la reproductibilité et perd souvent son contenu de cohérence."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Alimentation : L'alchimie de la cohérence

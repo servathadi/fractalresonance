@@ -5,7 +5,7 @@ type: blog
 abstract: "Explore how FRC challenges the notion of inherent randomness in the universe, proposing that even quantum events are guided by deterministic resonance dynamics."
 author: "FRC Team"
 date: "2025-01-10"
-status: published
+status: archived
 perspective: kasra
 lang: en
 tags:
@@ -15,6 +15,9 @@ tags:
   - causality
   - fractal-patterns
 category: "Quantum Insights"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Early deterministic claims were superseded by the 2026 status-labeled corpus; see FRC 100.000 and FRC 100.100."
 ---
 
 # Beyond Randomness: FRC's Deterministic Universe

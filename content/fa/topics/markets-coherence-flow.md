@@ -4,7 +4,7 @@ id: markets-coherence-flow
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -23,6 +23,9 @@ answers:
     role: "زمان‌بندی نمادین"
     stance: "استعاره"
     answer: "با ترانزیت‌ها به عنوان یک زبان روایی بر روی همان دینامیک‌های میدانی (بازتوزیع همدوسی) برخورد کنید."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # بازارها: همدوسی به کجا جریان دارد؟

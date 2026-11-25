@@ -4,7 +4,7 @@ id: language-coherence-audible
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "فشرده‌سازی"
     answer: "با زبان به عنوان بازتولید همدوسی برخورد کنید: الگویی در یک ذهن از طریق صدا/متن منتقل شده و در ذهن دیگری بازسازی می‌شود."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # زبان: همدوسیِ شنیدنی شده

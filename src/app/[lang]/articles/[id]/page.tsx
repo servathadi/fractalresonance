@@ -11,6 +11,7 @@ import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { RelatedContent } from '@/components/RelatedContent';
 import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { ArchivedContentBanner } from '@/components/ArchivedContentBanner';
 import { TaxonomyLink } from '@/components/TaxonomyLink';
 import {
   estimateReadTime,
@@ -149,9 +150,13 @@ export default async function ArticlePage({ params }: Props) {
             </div>
 
             {statusNote && (
-              <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
-                {statusNote}
-              </p>
+              epistemicStatus === 'archive' ? (
+                <ArchivedContentBanner lang={lang} note={statusNote} />
+              ) : (
+                <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+                  {statusNote}
+                </p>
+              )
             )}
             
             {Array.isArray(article.frontmatter.tags) && article.frontmatter.tags.length > 0 && (

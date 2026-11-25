@@ -8,6 +8,10 @@ video:
   url: "https://www.youtube.com/watch?v=fthtrwfoytg"
   embedUrl: "https://www.youtube.com/embed/fthtrwfoytg"
   thumbnailUrl: "/images/slides_raw/Hunting_the_Glitch/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Fixed experimental Born-deviation claims were retired; see FRC 100.000, FRC 100.100, and FRC 100.007."
 ---
 
 # Episode 6: Hunting for the Glitch

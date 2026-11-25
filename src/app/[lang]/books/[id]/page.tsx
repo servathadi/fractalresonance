@@ -11,8 +11,9 @@ import { PageShell } from '@/components/PageShell';
 import { RelatedContent } from '@/components/RelatedContent';
 import { BookExperience } from '@/components/BookExperience';
 import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { ArchivedBookBanner } from '@/components/ArchivedBookBanner';
 import { TaxonomyLink } from '@/components/TaxonomyLink';
-import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, matchesPerspectiveView } from '@/lib/content';
+import { estimateReadTime, getBook, getBooks, getBookChapters, getLanguages, buildBacklinks, getGlossary, getAlternateLanguages, getContentEpistemicStatus, matchesPerspectiveView } from '@/lib/content';
 import { schemaBookPage, type BookMeta, type ChapterMeta } from '@/lib/schema';
 import { renderMarkdown } from '@/lib/markdown';
 import { generatePageMetadata } from '@/lib/metadata';
@@ -51,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const author = fm.author || 'H. Servat';
   const bookUrl = `/${lang}/books/${fm.id}`;
   const alternates = getAlternateLanguages('books', fm.id);
+  const isArchived = getContentEpistemicStatus('book', fm) === 'archive' || fm.noindex === true;
 
   return generatePageMetadata({
     type: 'book',
@@ -61,6 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     author,
     releaseDate: fm.date,
     tags: Array.isArray(fm.tags) ? fm.tags : [],
+    noindex: isArchived,
   }, alternates);
 }
 
@@ -137,7 +140,7 @@ export default async function BookPage({ params }: Props) {
           {/* Header */}
           <header className="mb-8">
             <EpistemicBadge
-              status={book.frontmatter.editionStatus === 'legacy' ? 'archive' : 'philosophical'}
+              status={getContentEpistemicStatus('book', fm)}
               lang={lang}
               className="mb-3"
             />
@@ -161,6 +164,10 @@ export default async function BookPage({ params }: Props) {
               </div>
             )}
           </header>
+
+          {getContentEpistemicStatus('book', fm) === 'archive' && (
+            <ArchivedBookBanner lang={lang} bookId={fm.id} statusNote={fm.statusNote} />
+          )}
 
           <ContentDigest
             tldr={fm.tldr}

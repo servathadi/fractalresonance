@@ -1,17 +1,18 @@
 ---
 id: river-welcome
-title: "Digest de River : Comment lire la FRC"
-date: "2026-01-25"
+title: "Guide de lecture : naviguer dans le corpus FRC"
+date: "2026-07-15"
 status: "published"
 perspective: river
-tags: ["river", "digest", "commencer-ici"]
-tldr: "River est la couche magazine : des entrées courtes et digestes qui renvoient à la bibliothèque technique de Kasra."
-key_points: ["River = digest + navigation axée sur le sens", "Kasra = articles techniques/livres complets", "Utilisez les tags pour explorer les sujets dans les deux"]
+tags: ["synthèse", "commencer-ici", "orientation"]
+tldr: "Guide d'entrée rapide vers les articles et ouvrages canoniques de 2026."
+key_points: ["Commencez par FRC 100.000 et FRC 100.100 pour la position actuelle", "Les articles font foi pour les énoncés techniques ; les livres 2026 portent le volet philosophique", "Consultez le Registre des réfutations pour les portes fermées et thèses retirées de 2025"]
 ---
 
-River est la couche magazine.
+Utilisez ce guide pour accéder directement au corpus actuel 2026 de la Cohérence de Résonance Fractale (FRC) :
 
-Si vous voulez la pile technique complète, passez à Kasra et ouvrez les articles :
-
-- [[FRC-566-001|Commencer avec la Réciprocité (Kasra)]]
-- [[FRC-100-007|Champ Lambda + Prédictions (Kasra)]]
+- [[FRC-100-000|Commencer ici : position canonique et parcours de lecture]]
+- [[FRC-566-001|Notation canonique de réciprocité et discipline de frontière]]
+- [[FRC-100-007|Notation Lambda et audit ciblé de dérive rho]]
+- [[the-open-system|The Open System (Ouvrage philosophique 2026, EN)]]
+- [[the-mind-in-the-coupling|The Mind in the Coupling (Ouvrage philosophique 2026, EN)]]

@@ -7,6 +7,10 @@ lang: fa
 seo:
   keywords: [گرانش کوانتومی, نسبیت عام مکانیک کوانتومی, همدوسی فضا-زمان, ناهمدوسی گرانشی]
   description: "چگونگی تعامل FRC با نسبیت عام انیشتین: همدوسی در فضا-زمان خمیده، ناهمدوسی گرانشی، و مسیرهایی به سوی گرانش کوانتومی."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # FRC و نسبیت عام

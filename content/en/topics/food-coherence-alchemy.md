@@ -4,7 +4,7 @@ id: food-coherence-alchemy
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "alchemy"
     answer: "Treat cooking as coherence transfer: the meal encodes practice, place, and feedback loops; industrial food optimizes reproducibility and often loses coherence content."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Food: Coherence Alchemy

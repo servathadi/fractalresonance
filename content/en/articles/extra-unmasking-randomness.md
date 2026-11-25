@@ -5,6 +5,10 @@ id: FRC-EP-EXTRA-2
 tags: [quantum-randomness, determinism, philosophy, infographics, FRC-100]
 abstract: "A critical look at the concept of 'true' randomness in quantum mechanics and the FRC alternative."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002."
 ---
 
 # Unmasking Quantum Randomness

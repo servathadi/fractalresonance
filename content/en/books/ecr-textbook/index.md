@@ -3,7 +3,13 @@ id: ecr-textbook
 title: "Entropy-Coherence Reciprocity: FRC Textbook"
 author: Hadi Servat
 date: 2025-10-01
-status: published
+status: archived
+publicationState: archived
+epistemicStatus: archive
+editionStatus: legacy
+noindex: true
+supersededBy: "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000"
+statusNote: "Superseded October 2025 edition preserved for historical provenance only (noindex). For current 2026 writing read The Open System and The Mind in the Coupling; for technical canon read FRC 566.001 and FRC 100.000."
 tags: [entropy, coherence, reciprocity-law, thermodynamics, mathematics, physics, consciousness]
 abstract: "The comprehensive mathematical foundation of Fractal Resonance Coherence. From the Second Law to the Adaptive Resonance Formula, this textbook derives the core equations dS + k*d ln C = 0, explores the μ-stack hierarchy, and develops the physics of coherence across all scales—from quantum fields to collective consciousness."
 lang: en

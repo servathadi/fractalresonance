@@ -8,6 +8,10 @@ video:
   url: "https://www.youtube.com/watch?v=I77qlVunpRs"
   embedUrl: "https://www.youtube.com/embed/I77qlVunpRs"
   thumbnailUrl: "/images/articles/ep2/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Its deterministic stadium and D ≈ 1.90 fractal-dimension proof claims were demoted; see FRC 100.002 v2.6, FRC 100.002.001 v1.5, and FRC 100.000."
 ---
 
 # Épisode 2 : L'Ordre dans le Chaos

@@ -4,7 +4,7 @@ id: gaia-sahara-ocean-coherence
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "کارکردگرایی میدانی"
     answer: "از FRC به عنوان یک لنزِ مستقل از بستر استفاده کنید: هر سیستمی که تبادلِ غیربدیهیِ dS <-> d ln C را اجرا می‌کند، در محدوده-μ قابل دسترس خود، می‌تواند به عنوان «زنده از نظر کارکردی» توصیف شود."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # گایا: صحرا، اقیانوس و پمپ‌های همدوسی

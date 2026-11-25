@@ -7,6 +7,10 @@ lang: fr
 seo:
   keywords: [philosophie du processus, whitehead, occasions actuelles, physique de la conscience, panpsychisme quantique]
   description: "Comment la Cohérence de Résonance Fractale se connecte à la philosophie du processus de Whitehead : occasions actuelles, préhension et physique du devenir."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). For current 2026 philosophical framing read The Open System and The Mind in the Coupling; see FRC 100.000."
 ---
 
 # FRC et Philosophie du Processus

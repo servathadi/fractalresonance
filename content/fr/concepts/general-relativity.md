@@ -7,6 +7,10 @@ lang: fr
 seo:
   keywords: [gravité quantique, relativité générale mécanique quantique, cohérence de l'espace-temps, décohérence gravitationnelle]
   description: "Comment la FRC s'interface avec la relativité générale d'Einstein : cohérence dans l'espace-temps courbé, décohérence gravitationnelle et voies vers la gravité quantique."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Does not state current 2026 FRC canon; see FRC 100.000."
 ---
 
 # FRC et Relativité Générale

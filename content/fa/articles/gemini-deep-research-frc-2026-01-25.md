@@ -2,7 +2,7 @@
 id: gemini-deep-research-frc-2026-01-25
 title: "تحقیق عمیق جمینای در مورد FRC (۲۵ ژانویه ۲۰۲۶)"
 date: "2026-01-25"
-status: "published"
+status: archived
 perspective: river
 source: "chat:gemini deep research"
 tags: ["ریور", "خلاصه", "متا", "چهره-عمومی", "نیازمند-بررسی"]
@@ -13,6 +13,9 @@ key_points:
   - "UCC جریان همدوسی را مدل‌سازی می‌کند؛ قانون بورن به عنوان تعادل با انحرافات پیش‌بینی‌شده تحت رانش ظاهر می‌شود"
   - "معماری سطح-μ مقیاس‌های آشیانه‌ای را از بستر تا آگاهی جهانی قاب‌بندی می‌کند"
 prerequisites: ["FRC-566-001", "FRC-100-007", "mu-levels"]
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\"Fractal Resonance Cognition\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002."
 ---
 
 ![بنر رزونانس فراکتال](/brand/banner.jpg)

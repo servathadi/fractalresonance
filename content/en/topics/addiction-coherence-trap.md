@@ -4,7 +4,7 @@ id: addiction-coherence-trap
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "mechanism"
     answer: "Model addiction as gate narrowing: cue->reward phase-lock becomes dominant; withdrawal is rapid coherence loss (entropy rise). Recovery is building stronger alternative coherence patterns."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Addiction: A Coherence Trap

@@ -5,7 +5,7 @@ type: blog
 abstract: "Dive into the foundational concept of μ-levels and discover how FRC reveals the hidden harmony that connects all scales of reality, from the subatomic to the cosmic."
 author: "FRC Team"
 date: "2025-01-17"
-status: published
+status: archived
 perspective: kasra
 lang: en
 tags:
@@ -15,6 +15,9 @@ tags:
   - foundational-concepts
   - cosmic-harmony
 category: "Foundational Concepts"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Reflects superseded \"Fractal Resonance Cognition\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000."
 ---
 
 # The Symphony of μ-Levels: How Everything Connects

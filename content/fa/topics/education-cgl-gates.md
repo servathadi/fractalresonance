@@ -4,7 +4,7 @@ id: education-cgl-gates
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "سیستم‌ها"
     answer: "تغییر همدوسی (پروکسی آلفا) را اندازه‌گیری کنید و تنها زمانی به‌روزرسانی کنید که دریچه باز است؛ با بی‌حوصلگی به عنوان یک سیگنال کنترلی برخورد کنید، نه یک نقص اخلاقی."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # آموزش: دریچه‌های یادگیری و بی‌حوصلگی

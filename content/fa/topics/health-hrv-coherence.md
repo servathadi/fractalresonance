@@ -4,7 +4,7 @@ id: health-hrv-coherence
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "پزشکی سیستم‌ها"
     answer: "با HRV به عنوان رانش آلفا برخورد کنید: پروکسی‌ای برای همدوسیِ در حرکت. بهبودی، باز کردن مجدد منابع متعدد همدوسی است، نه فقط تعمیر یک قطعه."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # سلامت: HRV به مثابه رانش آلفا

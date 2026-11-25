@@ -22,6 +22,7 @@ export const dictionaries = {
       investors: 'Research Program',
       positioning: 'Positioning',
       muLevels: 'μ-Levels',
+      falsifications: 'Falsifications',
     },
     footer: {
       description: 'A living, status-labeled research program for entropy-coherence reciprocity, open systems, chaos, measurement, and computation.',
@@ -53,6 +54,7 @@ export const dictionaries = {
       investors: 'Inversores',
       positioning: 'Posicionamiento',
       muLevels: 'Niveles-μ',
+      falsifications: 'Falsaciones',
     },
     footer: {
       description: 'Un programa de investigación vivo sobre reciprocidad entropía-coherencia, sistemas abiertos, caos, medición y computación.',
@@ -84,6 +86,7 @@ export const dictionaries = {
       investors: 'Investisseurs',
       positioning: 'Positionnement',
       muLevels: 'Niveaux-μ',
+      falsifications: 'Réfutations',
     },
     footer: {
       description: 'Un programme de recherche vivant sur la réciprocité entropie-cohérence, les systèmes ouverts, le chaos, la mesure et le calcul.',
@@ -115,6 +118,7 @@ export const dictionaries = {
       investors: 'سرمایه‌گذاران',
       positioning: 'موقعیت‌یابی',
       muLevels: 'سطوح-μ',
+      falsifications: 'ابطال‌ها',
     },
     footer: {
       description: 'یک برنامه پژوهشی زنده درباره تقابل آنتروپی-همدوسی، سامانه‌های باز، آشوب، اندازه‌گیری و محاسبه.',

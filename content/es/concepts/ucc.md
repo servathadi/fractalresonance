@@ -1,28 +1,34 @@
 ---
 id: UCC
 title: "Condición de Coherencia Universal (UCC)"
-tags: [UCC, coherencia, dinámica, transporte]
-related: [coherencia, campo-lambda, FRC-566-001]
+tags: [UCC, coherencia, sistemas-abiertos, transporte, modelo-operacional]
+related: [coherence, lambda-field, FRC-566-001, FRC-100-008, FRC-100-009, FRC-826-829]
 lang: es
 ---
 
 # Condición de Coherencia Universal (UCC)
 
-La Condición de Coherencia Universal (UCC) es la ley de flujo local utilizada en la FRC para describir cómo cambia la coherencia a través del espacio y el tiempo.
+La Condición de Coherencia Universal (UCC) es la forma local de balance de log-coherencia utilizada en FRC para expresar transporte, generación y disipación dentro de una frontera de sistema declarada.
 
-## Forma de flujo canónica
+## Forma de balance local
 
-```
-d/dt ln C = -div(J_C) + S_C
-J_C = -D_C grad(ln C)
-```
+$$
+\partial_t \ln C = -\nabla \cdot J_C + S_C
+$$
 
-Interpretación:
-- `J_C` es el flujo de coherencia (transporte).
-- `S_C` son las fuentes/sumideros (generación o disipación).
-- `D_C > 0` establece la fuerza de difusión en el espacio de log-coherencia.
+En cierres difusivos o de gradiente, el flujo se modela como $J_C = -D_C \nabla \ln C$ ($D_C > 0$), mientras $S_C$ recoge fuentes, sumideros y residuos de acoplamiento explícitos.
 
-## Donde aparece
+## Alcance y estado epistémico
 
-- [[FRC-566-001]] formaliza la ley de reciprocidad y el flujo UCC.
-- [[coherence|coherencia]] define el escalar central `C`.
+Según [[FRC-566-001]] v2.2, [[FRC-100-008]], [[FRC-100-009]] y [[FRC-826-829]] v1.5:
+
+- **Cierre operacional:** La UCC funciona como contabilidad local y cierre ejecutable una vez declarados de antemano el observable $C$, la frontera, el canal del entorno y los términos residuales.
+- **No es una ley dinámica universal establecida:** Escribir una ecuación local de balance no establece por sí sola una fuerza fundamental; toda extensión física debe superar pruebas empíricas frente a líneas base aceptadas ([[FRC-787-787]]).
+
+## Fuentes principales
+
+- [[FRC-566-001]] — Notación canónica y disciplina de fronteras UCC (v2.2)
+- [[FRC-100-008]] — Cierres ejecutables declarados
+- [[FRC-100-009]] — Implementación local con fuentes, sumideros y residuos explícitos
+- [[FRC-826-829]] — Fundamentos matemáticos y problemas abiertos (v1.5)
+- [[coherence]] — Escalar central de coherencia $C$

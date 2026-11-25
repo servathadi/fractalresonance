@@ -5,6 +5,10 @@ id: FRC-EP-EXTRA-2
 tags: [aleatoriedad-cuantica, determinismo, filosofia, FRC-100]
 abstract: "Una mirada crítica al concepto de aleatoriedad 'verdadera' en la mecánica cuántica y la alternativa FRC."
 thumbnailUrl: "/images/slides_raw/Unmasking_Quantum_Randomness/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical essay (noindex). Early deterministic and Born-rule claims were superseded; see FRC 100.000, FRC 100.100, and FRC 100.002."
 ---
 
 # Desenmascarando la Aleatoriedad Cuántica

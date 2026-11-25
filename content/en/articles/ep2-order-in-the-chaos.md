@@ -9,6 +9,9 @@ video:
   url: "https://www.youtube.com/watch?v=I77qlVunpRs"
   embedUrl: "https://www.youtube.com/embed/I77qlVunpRs"
   thumbnailUrl: "/images/articles/ep2/slide_001.png"
+status: archived
+epistemicStatus: archive
+noindex: true
 ---
 
 # Episode 2: Order in the Chaos

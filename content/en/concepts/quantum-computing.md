@@ -7,6 +7,10 @@ lang: en
 seo:
   keywords: [quantum computing coherence, qubit decoherence, quantum error correction, coherent computing]
   description: "How FRC principles inform quantum computing: coherence-aware architectures, error correction strategies, and the path to practical quantum advantage."
+status: archived
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived historical concept note (noindex). Contains demoted D ≈ 1.90 claims; see FRC 841.004, FRC 100.002, and FRC 100.000."
 ---
 
 # FRC and Quantum Computing

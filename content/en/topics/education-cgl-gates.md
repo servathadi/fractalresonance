@@ -4,7 +4,7 @@ id: education-cgl-gates
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: en
@@ -18,6 +18,9 @@ answers:
     role: "Architect"
     stance: "systems"
     answer: "Measure coherence change (alpha proxy) and update only when the gate is open; treat boredom as a control signal, not a character flaw."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Education: Learning Gates and Boredom

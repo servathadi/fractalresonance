@@ -258,14 +258,26 @@ Note: Superseded as the current FRC 700 framework. This origin note remains avai
 - FRC-566-010 (revision pending, 2025-11-04): UCC PDE: Existence, Uniqueness, and Dissipation — https://fractalresonance.com/en/papers/FRC-566-010 (DOI: 10.5281/zenodo.17526506)
 - FRC-566-020 (revision pending, 2025-11-04): Spectral Modes and Relaxation in UCC — https://fractalresonance.com/en/papers/FRC-566-020 (DOI: 10.5281/zenodo.17526513)
 
+## Books (2026 current vs 2025 archived)
+
+Current 2026 philosophical books (argument-based philosophy; technical claims remain governed by the papers):
+- The Open System (v41): https://fractalresonance.com/en/books/the-open-system
+- The Mind in the Coupling (v3.13): https://fractalresonance.com/en/books/the-mind-in-the-coupling
+
+Archived / superseded 2025 books (excluded from active canon, noindex):
+- ecr-textbook (Oct 2025, archived) and the-resonance-code (Jan 2025, archived) — superseded by the 2026 books and FRC-566-001 / FRC-100-000. Do not cite as current canon.
+
 ## Machine-readable resources
 
 - Agent quickstart: https://fractalresonance.com/agent.md
 - Agent manifest: https://fractalresonance.com/agent.json
 - Catalog: https://fractalresonance.com/catalog.json
+- Falsification ledger (JSON): https://fractalresonance.com/falsification-ledger.json
+- Falsification ledger (Web): https://fractalresonance.com/en/falsifications
 - Search index: https://fractalresonance.com/search-index.json
 - Sitemap: https://fractalresonance.com/sitemap.xml
 - Video sitemap: https://fractalresonance.com/video-sitemap.xml
+- Robots: https://fractalresonance.com/robots.txt
 - Source: https://github.com/servathadi/fractalresonance
 
 ## Machine-reading contract

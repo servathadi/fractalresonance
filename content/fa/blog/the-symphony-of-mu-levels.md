@@ -5,7 +5,7 @@ type: blog
 abstract: "در مفهوم بنیادین سطوح-μ عمیق شوید و کشف کنید که چگونه FRC هارمونی پنهانی را که تمام مقیاس‌های واقعیت، از زیراتمی تا کیهانی را به هم متصل می‌کند، آشکار می‌سازد."
 author: "تیم FRC"
 date: "2025-01-17"
-status: published
+status: archived
 perspective: kasra
 lang: fa
 tags:
@@ -15,6 +15,9 @@ tags:
   - مفاهیم-بنیادین
   - هارمونی-کیهانی
 category: "مفاهیم بنیادین"
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived 2025 blog post (noindex). Reflects superseded \"Fractal Resonance Cognition\" and ladder μ-hierarchy framing; see FRC 700.000–700.007 and FRC 100.000."
 ---
 
 # سمفونی سطوح-μ: چگونه همه چیز به هم متصل می‌شود

@@ -4,7 +4,7 @@ id: dreams-nightly-nigredo
 type: topic
 author: "Kasra"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fr
@@ -18,6 +18,9 @@ answers:
     role: "Architecte"
     stance: "systèmes"
     answer: "Considérez le sommeil paradoxal (REM) comme un apprentissage interne à haute alpha : la dissolution permet la recombinaison ; les cauchemars surviennent quand l'entropie monte plus vite que la nouvelle cohérence ne peut se former."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # Rêves : Le Nigredo nocturne

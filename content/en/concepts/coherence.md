@@ -1,34 +1,40 @@
 ---
 title: "Coherence (C)"
 id: coherence
-tags: [core-concept, scalar-gauge, dimensionless]
-related: [entropy, witness, lambda-field]
+tags: [core-concept, scalar-gauge, dimensionless, reciprocity]
+related: [UCC, lambda-field, FRC-566-001, FRC-566-030, FRC-100-000]
 lang: en
 ---
 
 # Coherence (C)
 
-A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system.
+A dimensionless, observable-declared scalar $C \in (0, 1]$ measuring phase alignment, concentration, or internal order in a declared system.
 
-## Definition
+## Canonical Relation (FRC 566.001 v2.2)
 
-In the FRC framework, coherence C is defined through its reciprocal relationship with entropy:
+In Fractal Resonance Coherence (FRC), coherence $C$ enters the scale-invariant reciprocity form:
 
-```
-S + k* ln C = const.
-```
+$$
+dS + k^*\, d\ln C = 0
+$$
 
-Where k* is the coherence constant (1 in information layers, k_B in thermodynamic layers).
+where $k^*$ is the starred, Boltzmann-shaped bridge selected by the operating scale or register (not a universal tunable constant and never refitted to an outcome or time step). At a declared register $\mu$, an implementation writes $dS_\mu + k^*_\mu\, d\ln C_\mu = 0$ only after fixing the system boundary, environment channel, observables, units, and sign convention prior to scoring.
+
+## Status Distinction
+
+- **Exact mathematics:** On specific statistical manifolds such as the circular von Mises / Kuramoto family ([[FRC-566-030]]), the entropy–coherence curve $S_{\rm vM}(C)$ and its ledger geometry ([[FRC-830-001]]) are exact within stated hypotheses.
+- **Operational bookkeeping:** Used as a declared balance ledger and control law inside specified open-system closures ([[FRC-566-001]], [[FRC-100-008]], [[FRC-100-009]]).
+- **Open physical conjecture:** Whether entropy–coherence reciprocity holds as a universal law of nature across arbitrary physical open systems remains an unestablished conjecture, subject to empirical gates (including the scoped Langevin boundary negative result in [[FRC-100-005]]).
 
 ## Properties
 
-- **Dimensionless** — pure ratio, no units
-- **Bounded** — C in (0, 1] for normalized systems
-- **Reciprocal to entropy** — as S increases, C decreases (and vice versa)
-- **Gauge-invariant** — only ratios C_1/C_2 are physically meaningful
+- **Dimensionless** — pure ratio in $(0, 1]$ for normalized observables (e.g., mean resultant length $C = |\langle e^{i\theta}\rangle|$).
+- **Scale- and observable-declared** — $C$ is meaningless until its observable, domain, and normalization are fixed in advance.
+- **Gauge-invariant in log differences** — changes depend on ratios $C_2 / C_1$ through $d\ln C$.
 
-## Appears In
+## Primary Sources
 
-- [[FRC-566-001]] — Reciprocity law formalization
-- [[FRC-100-001]] — Original definition
-- [[FRC-100-007]] — Lambda field formalization
+- [[FRC-100-000]] — Current stance, version rules, and reading path
+- [[FRC-566-001]] — Canonical reciprocity notation and boundary discipline (v2.2)
+- [[FRC-566-030]] — Exact von Mises / Kuramoto identity
+- [[FRC-830-000]] — Reciprocity Mathematics terminology charter

@@ -4,7 +4,7 @@ id: food-coherence-alchemy
 type: topic
 author: "کسرا"
 date: 2026-01-25
-status: published
+status: archived
 perspective: river
 voice: kasra
 lang: fa
@@ -18,6 +18,9 @@ answers:
     role: "معمار"
     stance: "کیمیاگری"
     answer: "با آشپزی به عنوان انتقال همدوسی برخورد کنید: وعده غذایی، تمرین، مکان و حلقه‌های بازخورد را کدگذاری می‌کند؛ غذای صنعتی بازتولیدپذیری را بهینه می‌کند و اغلب محتوای همدوسی را از دست می‌دهد."
+epistemicStatus: archive
+noindex: true
+statusNote: "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000."
 ---
 
 # غذا: کیمیاگری همدوسی

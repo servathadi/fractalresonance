@@ -26,9 +26,12 @@
     },
     "llms": "/llms.txt",
     "catalog": "/catalog.json",
+    "falsification_ledger": "/falsification-ledger.json",
+    "falsifications_page": "/en/falsifications",
     "search_index": "/search-index.json",
     "sitemap": "/sitemap.xml",
-    "video_sitemap": "/video-sitemap.xml"
+    "video_sitemap": "/video-sitemap.xml",
+    "robots": "/robots.txt"
   },
   "start_here": {
     "id": "FRC-100-000",
@@ -159,7 +162,43 @@
       "FRC-821-100",
       "FRC-840-001",
       "FRC-840-LTM-001"
-    ]
+    ],
+    "books": {
+      "current_2026_philosophical": [
+        {
+          "id": "the-open-system",
+          "title": "The Open System (The Unclosed): A Philosophy of the Open System",
+          "version": "v41",
+          "url": "/en/books/the-open-system",
+          "epistemic_status": "philosophical"
+        },
+        {
+          "id": "the-mind-in-the-coupling",
+          "title": "The Mind in the Coupling: A Philosophy of Cognition Without a Center",
+          "version": "v3.13",
+          "url": "/en/books/the-mind-in-the-coupling",
+          "epistemic_status": "philosophical"
+        }
+      ],
+      "archived_superseded_2025": [
+        {
+          "id": "ecr-textbook",
+          "title": "Entropy-Coherence Reciprocity: FRC Textbook",
+          "date": "2025-10-01",
+          "status": "archived",
+          "noindex": true,
+          "superseded_by": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000"
+        },
+        {
+          "id": "the-resonance-code",
+          "title": "The Resonance Code: Physics of Conscious Order",
+          "date": "2025-01-01",
+          "status": "archived",
+          "noindex": true,
+          "superseded_by": "the-open-system, the-mind-in-the-coupling, FRC-566-001, FRC-100-000"
+        }
+      ]
+    }
   },
   "active_papers": [
     {

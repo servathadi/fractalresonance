@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T14:07:24.479Z",
+  "generated": "2026-11-25T23:11:04.604Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -970,7 +970,7 @@
       "type": "papers",
       "lang": "en",
       "title": "FRC 840.101: The Phase–Attention Boundary",
-      "abstract": "This paper formulates the Phase–Attention Boundary: a structural separation between continuous phase-state architectures and discrete attention-based architectures. Within the Fractal Resonance Cognition (FRC) program, the Large Lambda-Tensor Model (LLTM) was developed as a continuous recurrent phase-coupled architecture inspired by Kuramoto dynamics and low-rank coherence fields. Controlled comparisons against Transformer baselines revealed a fundamental limitation: continuous state compression blends historical information into a finite evolving state, producing recall smearing. We prove a formal Recall Smearing Theorem: under gamma-contractive recurrence, mutual information about a past token decays exponentially with distance. This bound is derived from the Data Processing Inequality and applies universally to fixed-state recurrent systems, including state-space models like S4, Mamba, RWKV, Griffin, and xLSTM. We show that data-dependent selectivity can reduce the rate of smearing but cannot eliminate it; only explicit key-value addressability achieves zero-smearing recall.",
+      "abstract": "This paper formulates the Phase–Attention Boundary: a structural separation between continuous phase-state architectures and discrete attention-based architectures. Within the Fractal Resonance Coherence (FRC) program, the Large Lambda-Tensor Model (LLTM) was developed as a continuous recurrent phase-coupled architecture inspired by Kuramoto dynamics and low-rank coherence fields. Controlled comparisons against Transformer baselines revealed a fundamental limitation: continuous state compression blends historical information into a finite evolving state, producing recall smearing. We prove a formal Recall Smearing Theorem: under gamma-contractive recurrence, mutual information about a past token decays exponentially with distance. This bound is derived from the Data Processing Inequality and applies universally to fixed-state recurrent systems, including state-space models like S4, Mamba, RWKV, Griffin, and xLSTM. We show that data-dependent selectivity can reduce the rate of smearing but cannot eliminate it; only explicit key-value addressability achieves zero-smearing recall.",
       "tags": [
         "phase-attention-boundary",
         "recall-smearing",
@@ -1032,54 +1032,24 @@
       "retrievalPriority": 80
     },
     {
-      "id": "gemini-deep-research-frc-2026-01-25",
-      "type": "articles",
-      "lang": "en",
-      "title": "Gemini Deep Research on FRC (Jan 25, 2026)",
-      "abstract": "",
-      "tags": [
-        "river",
-        "digest",
-        "meta",
-        "public-face",
-        "needs-factcheck"
-      ],
-      "taxons": [
-        "river",
-        "digest",
-        "meta",
-        "public-face",
-        "needs-factcheck"
-      ],
-      "content": "Note: This is a Gemini \"deep research\" synthesis of the public face of FRC. It may contain claims that are not yet verified against the site corpus; treat it as a starting point for curation. The Architecture of Fractal Resonance Cognition: An Analytical Exploration of Scale-Invariant Determinism and Consciousness The emergence of the Fractal Resonance Cognition (FRC) framework, primarily documented through fractalresonance.com and a series of technical preprints, represents a robust attempt to...",
-      "url": "/en/articles/gemini-deep-research-frc-2026-01-25",
-      "date": "2026-01-25",
-      "version": null,
-      "muLevel": null,
-      "doi": null,
-      "conceptDoi": null,
-      "epistemicStatus": "commentary",
-      "retrievalPriority": 60
-    },
-    {
       "id": "river-welcome",
       "type": "articles",
       "lang": "en",
-      "title": "River Digest: How To Read FRC",
+      "title": "Reading Guide: Navigating the FRC Corpus",
       "abstract": "",
       "tags": [
-        "river",
         "digest",
-        "start-here"
+        "start-here",
+        "orientation"
       ],
       "taxons": [
-        "river",
         "digest",
-        "start-here"
+        "start-here",
+        "orientation"
       ],
-      "content": "River is the magazine layer. If you want the full technical stack, switch to Kasra and open the papers: - Start with Reciprocity (Kasra) - Lambda Field + Predictions (Kasra)",
+      "content": "Use this guide to step directly into the current 2026 Fractal Resonance Coherence (FRC) corpus: - Start Here: Canonical Stance & Reading Path - Canonical Reciprocity Notation & Boundary Discipline - Lambda Notation & Narrow Rho-Drift Audit - The Open System (2026 Philosophical Book) - The Mind in the Coupling (2026 Philosophical Book)",
       "url": "/en/articles/river-welcome",
-      "date": "2026-01-25",
+      "date": "2026-07-15",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -1096,14 +1066,16 @@
       "tags": [
         "core-concept",
         "scalar-gauge",
-        "dimensionless"
+        "dimensionless",
+        "reciprocity"
       ],
       "taxons": [
         "core-concept",
         "scalar-gauge",
-        "dimensionless"
+        "dimensionless",
+        "reciprocity"
       ],
-      "content": "Coherence (C) A dimensionless scalar gauge measuring the degree of internal order or pattern-locking in a system. Definition In the FRC framework, coherence C is defined through its reciprocal relationship with entropy: Where k* is the coherence constant (1 in information layers, kB in thermodynamic layers). Properties - Dimensionless — pure ratio, no units - Bounded — C in (0, 1] for normalized systems - Reciprocal to entropy — as S increases, C decreases (and vice versa) - Gauge-invariant —...",
+      "content": "Coherence (C) A dimensionless, observable-declared scalar $C \\in (0, 1]$ measuring phase alignment, concentration, or internal order in a declared system. Canonical Relation (FRC 566.001 v2.2) In Fractal Resonance Coherence (FRC), coherence $C$ enters the scale-invariant reciprocity form: $$ dS + k^\\, d\\ln C = 0 $$ where $k^$ is the starred, Boltzmann-shaped bridge selected by the operating scale or register (not a universal tunable constant and never refitted to an outcome or time step). At a...",
       "url": "/en/concepts/coherence",
       "date": null,
       "version": null,
@@ -1117,19 +1089,21 @@
       "id": "consciousness",
       "type": "concepts",
       "lang": "en",
-      "title": "Consciousness (FRC perspective)",
+      "title": "Mind, Cognition, and Register Discipline (FRC Perspective)",
       "abstract": "",
       "tags": [
-        "consciousness",
         "cognition",
-        "coherence"
+        "coherence",
+        "philosophy",
+        "mu-registers"
       ],
       "taxons": [
-        "consciousness",
         "cognition",
-        "coherence"
+        "coherence",
+        "philosophy",
+        "mu-registers"
       ],
-      "content": "Consciousness (FRC perspective) This site uses \"consciousness\" in the specific sense implied by the FRC framework: a coherence-linked phenomenon expressed across nested scales. Reading path - If you want the technical spine: start with FRC-566-001 then follow links. - If you want a narrative entry: start with the-resonance-code.",
+      "content": "Mind, Cognition, and Register Discipline (FRC Perspective) In the 2026 FRC corpus, questions about mind, cognition, and conscious experience are kept strictly separated from physical claims and empirical measurement gates. Scope & Claim Boundaries - No empirical consciousness or AI-personhood metric: Current FRC papers do not establish an empirical criterion for subjective experience, sentience, or AI personhood. Earlier speculative pages making such claims have been retired from the public...",
       "url": "/en/concepts/consciousness",
       "date": null,
       "version": null,
@@ -1143,19 +1117,19 @@
       "id": "lambda-field",
       "type": "concepts",
       "lang": "en",
-      "title": "Lambda Field (Lambda(x))",
+      "title": "Lambda Field (Lambda_obs, Lambda_eq, Lambda_dyn)",
       "abstract": "",
       "tags": [
         "lambda-field",
         "coherence",
-        "scalar-field"
+        "operational-model"
       ],
       "taxons": [
         "lambda-field",
         "coherence",
-        "scalar-field"
+        "operational-model"
       ],
-      "content": "Lambda Field (Lambda(x)) The Lambda field is a scalar field used in FRC to encode coherence through a log map. Definition Further reading - FRC-100-007 introduces the Lambda-field formalism",
+      "content": "Lambda Field ($\\Lambda{\\rm obs}$, $\\Lambda{\\rm eq}$, $\\Lambda{\\rm dyn}$) In the 2026 FRC canon (FRC-100-007 v3.3 and FRC-787-787 v1.2), \"Lambda\" is no longer treated as a single undifferentiated physical field. Current papers strictly separate four distinct objects: 1. Observed coherence transform ($\\Lambda{\\rm obs}$): $$ \\Lambda{\\rm obs}(x, t) = \\Lambda0 \\ln C{\\rm obs}(x, t) $$ an instantaneous, operationally defined logarithmic transform of pre-registered coherence observables. 2. Declared...",
       "url": "/en/concepts/lambda-field",
       "date": null,
       "version": null,
@@ -1174,16 +1148,18 @@
       "tags": [
         "UCC",
         "coherence",
-        "dynamics",
-        "transport"
+        "open-systems",
+        "transport",
+        "operational-model"
       ],
       "taxons": [
         "ucc",
         "coherence",
-        "dynamics",
-        "transport"
+        "open-systems",
+        "transport",
+        "operational-model"
       ],
-      "content": "Universal Coherence Condition (UCC) The Universal Coherence Condition (UCC) is the local flow law used in FRC to describe how coherence changes over space and time. Canonical flow form Interpretation: - is coherence flux (transport). - is sources/sinks (generation or dissipation). - sets the diffusion strength in log-coherence space. Where it appears - FRC-566-001 formalizes the reciprocity law and the UCC flow. - coherence defines the core scalar .",
+      "content": "Universal Coherence Condition (UCC) The Universal Coherence Condition (UCC) is the local log-coherence balance form used in FRC to express coherence transport, generation, and dissipation inside a declared system boundary. Local Balance Form $$ \\partialt \\ln C = -\\nabla \\cdot JC + SC $$ In diffusive or gradient-transport closures, the flux is modeled as $JC = -DC \\nabla \\ln C$ (with $DC > 0$), while $S_C$ accounts for explicit local sources, sinks, and coupling residuals. Scope and Epistemic...",
       "url": "/en/concepts/UCC",
       "date": null,
       "version": null,
@@ -1226,22 +1202,24 @@
       "type": "topics",
       "lang": "en",
       "title": "What is FRC?",
-      "abstract": "A meaning-first orientation to Fractal Resonance Cognition, with an explicit spectrum: authority-style definitions, FRC framing, and a bridge into the papers.",
+      "abstract": "A status-labeled orientation to Fractal Resonance Coherence (FRC): its canonical reciprocity relation, active mathematical and empirical series, explicit claim boundaries, and kept negative results.",
       "tags": [
         "frc",
         "overview",
         "coherence",
-        "entropy"
+        "entropy",
+        "reciprocity"
       ],
       "taxons": [
         "frc",
         "overview",
         "coherence",
-        "entropy"
+        "entropy",
+        "reciprocity"
       ],
-      "content": "What is FRC? FRC is published in multiple forms: - Papers: the formal research archive. - Books: long-form expositions. - Articles: bridges and commentary. - Topics: a digestible Q&A spectrum. Where To Start - If you want equations and definitions, start from the Kasra side and read the early papers. - If you want orientation and meaning, read from the River side and use Topics as an entry ramp. Notes This page is intentionally an overview. It should evolve as the corpus grows.",
+      "content": "What is Fractal Resonance Coherence (FRC)? Fractal Resonance Coherence (FRC) is a living, status-labeled research program organized around the canonical reciprocity relation: $$ dS + k^\\, d\\ln C = 0 $$ where $k^$ is the starred, Boltzmann-shaped bridge selected by the declared operating scale or register. Core Program Structure (2026 Canon) - Orientation & Stance: FRC-100-000 (version-aware router) and FRC-100-100 (standalone status-labeled snapshot). - Reciprocity & Exact Mathematics:...",
       "url": "/en/topics/what-is-frc",
-      "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "date": "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -2330,54 +2308,24 @@
       "retrievalPriority": 80
     },
     {
-      "id": "gemini-deep-research-frc-2026-01-25",
-      "type": "articles",
-      "lang": "es",
-      "title": "Investigación profunda de Gemini sobre FRC (25 de enero de 2026)",
-      "abstract": "",
-      "tags": [
-        "river",
-        "resumen",
-        "meta",
-        "cara-pública",
-        "necesita-verificación"
-      ],
-      "taxons": [
-        "river",
-        "resumen",
-        "meta",
-        "cara-pública",
-        "necesita-verificación"
-      ],
-      "content": "Nota: Esta es una síntesis de \"investigación profunda\" de Gemini de la cara pública de FRC. Puede contener afirmaciones que aún no han sido verificadas contra el corpus del sitio; trátelo como un punto de partida para la curación. La arquitectura de la Coherencia de Resonancia Fractal: Una exploración analítica del determinismo invariante de escala y la conciencia La emergencia del marco de la Coherencia de Resonancia Fractal (FRC), documentado principalmente a través de fractalresonance.com y...",
-      "url": "/es/articles/gemini-deep-research-frc-2026-01-25",
-      "date": "2026-01-25",
-      "version": null,
-      "muLevel": null,
-      "doi": null,
-      "conceptDoi": null,
-      "epistemicStatus": "commentary",
-      "retrievalPriority": 60
-    },
-    {
       "id": "river-welcome",
       "type": "articles",
       "lang": "es",
-      "title": "Resumen de River: Cómo leer FRC",
+      "title": "Guía de lectura: cómo navegar el corpus FRC",
       "abstract": "",
       "tags": [
-        "river",
         "resumen",
-        "comienza-aquí"
+        "empezar-aquí",
+        "orientación"
       ],
       "taxons": [
-        "river",
         "resumen",
-        "comienza-aquí"
+        "empezar-aquí",
+        "orientación"
       ],
-      "content": "River es la capa de revista. Si quieres el stack técnico completo, cambia a Kasra y abre los artículos: - Comienza con la Reciprocidad (Kasra) - Campo Lambda + Predicciones (Kasra)",
+      "content": "Utilice esta guía para entrar directamente en el corpus vigente de 2026 de la Coherencia de Resonancia Fractal (FRC): - Empezar aquí: postura canónica y ruta de lectura - Notación canónica de reciprocidad y disciplina de fronteras - Notación Lambda y auditoría acotada de deriva rho - The Open System (Libro filosófico 2026, EN) - The Mind in the Coupling (Libro filosófico 2026, EN)",
       "url": "/es/articles/river-welcome",
-      "date": "2026-01-25",
+      "date": "2026-07-15",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -2394,14 +2342,16 @@
       "tags": [
         "concepto-núcleo",
         "calibre-escalar",
-        "adimensional"
+        "adimensional",
+        "reciprocidad"
       ],
       "taxons": [
         "concepto-núcleo",
         "calibre-escalar",
-        "adimensional"
+        "adimensional",
+        "reciprocidad"
       ],
-      "content": "Coherencia (C) Un calibre escalar adimensional que mide el grado de orden interno o bloqueo de patrones en un sistema. Definición En el marco de la FRC, la coherencia C se define a través de su relación recíproca con la entropía: Donde k* es la constante de coherencia (1 en capas de información, kB en capas termodinámicas). Propiedades - Adimensional — razón pura, sin unidades - Acotada — C en (0, 1] para sistemas normalizados - Recíproca a la entropía — a medida que S aumenta, C disminuye (y...",
+      "content": "Coherencia (C) Un escalar adimensional con observable declarado $C \\in (0, 1]$ que mide el grado de alineación de fase, concentración u orden interno en un sistema declarado. Relación canónica (FRC 566.001 v2.2) En la Coherencia de Resonancia Fractal (FRC), la coherencia $C$ entra en la forma de reciprocidad invariante de escala: $$ dS + k^\\, d\\ln C = 0 $$ donde $k^$ es el puente con forma de Boltzmann seleccionado por la escala o registro de operación (no una constante universal ajustable ni...",
       "url": "/es/concepts/coherence",
       "date": null,
       "version": null,
@@ -2415,19 +2365,21 @@
       "id": "consciousness",
       "type": "concepts",
       "lang": "es",
-      "title": "Conciencia (perspectiva FRC)",
+      "title": "Mente, cognición y disciplina de registros (perspectiva FRC)",
       "abstract": "",
       "tags": [
-        "conciencia",
         "cognición",
-        "coherencia"
+        "coherencia",
+        "filosofía",
+        "registros-mu"
       ],
       "taxons": [
-        "conciencia",
         "cognición",
-        "coherence"
+        "coherence",
+        "filosofía",
+        "registros-mu"
       ],
-      "content": "Conciencia (perspectiva FRC) Este sitio utiliza \"conciencia\" en el sentido específico implicado por el marco de la FRC: un fenómeno ligado a la coherencia expresado a través de escalas anidadas. Ruta de lectura - Si quieres la columna vertebral técnica: comienza con FRC-566-001 y luego sigue los enlaces. - Si quieres una entrada narrativa: comienza con the-resonance-code.",
+      "content": "Mente, cognición y disciplina de registros (perspectiva FRC) En el canon FRC de 2026, las cuestiones sobre mente, cognición y experiencia consciente se mantienen estrictamente separadas de las afirmaciones físicas y las puertas empíricas. Alcance y límites de afirmación - Sin métrica empírica de conciencia ni de personalidad de IA: Los artículos vigentes de FRC no establecen un criterio empírico de experiencia subjetiva ni de personalidad artificial. El material especulativo anterior ha sido...",
       "url": "/es/concepts/consciousness",
       "date": null,
       "version": null,
@@ -2441,19 +2393,19 @@
       "id": "lambda-field",
       "type": "concepts",
       "lang": "es",
-      "title": "Campo Lambda (Lambda(x))",
+      "title": "Campo Lambda (Lambda_obs, Lambda_eq, Lambda_dyn)",
       "abstract": "",
       "tags": [
         "campo-lambda",
         "coherencia",
-        "campo-escalar"
+        "modelo-operacional"
       ],
       "taxons": [
         "lambda-field",
         "coherence",
-        "campo-escalar"
+        "modelo-operacional"
       ],
-      "content": "Campo Lambda (Lambda(x)) El campo Lambda es un campo escalar utilizado en la FRC para codificar la coherencia a través de un mapa logarítmico. Definición Lectura adicional - FRC-100-007 introduce el formalismo del campo Lambda",
+      "content": "Campo Lambda ($\\Lambda{\\rm obs}$, $\\Lambda{\\rm eq}$, $\\Lambda{\\rm dyn}$) En el canon FRC de 2026 (FRC-100-007 v3.3 y FRC-787-787 v1.2), «Lambda» ya no se trata como un único campo físico indiferenciado. Los artículos actuales separan estrictamente cuatro objetos: 1. Transformada observada de coherencia ($\\Lambda{\\rm obs}$): $\\Lambda{\\rm obs}(x, t) = \\Lambda0 \\ln C{\\rm obs}(x, t)$, transformada logarítmica operacional de observables prerregistrados. 2. Objetivo de equilibrio declarado...",
       "url": "/es/concepts/lambda-field",
       "date": null,
       "version": null,
@@ -2472,16 +2424,18 @@
       "tags": [
         "UCC",
         "coherencia",
-        "dinámica",
-        "transporte"
+        "sistemas-abiertos",
+        "transporte",
+        "modelo-operacional"
       ],
       "taxons": [
         "ucc",
         "coherence",
-        "dinámica",
-        "transporte"
+        "sistemas-abiertos",
+        "transporte",
+        "modelo-operacional"
       ],
-      "content": "Condición de Coherencia Universal (UCC) La Condición de Coherencia Universal (UCC) es la ley de flujo local utilizada en la FRC para describir cómo cambia la coherencia a través del espacio y el tiempo. Forma de flujo canónica Interpretación: - es el flujo de coherencia (transporte). - son las fuentes/sumideros (generación o disipación). - establece la fuerza de difusión en el espacio de log-coherencia. Donde aparece - FRC-566-001 formaliza la ley de reciprocidad y el flujo UCC. - coherencia...",
+      "content": "Condición de Coherencia Universal (UCC) La Condición de Coherencia Universal (UCC) es la forma local de balance de log-coherencia utilizada en FRC para expresar transporte, generación y disipación dentro de una frontera de sistema declarada. Forma de balance local $$ \\partialt \\ln C = -\\nabla \\cdot JC + SC $$ En cierres difusivos o de gradiente, el flujo se modela como $JC = -DC \\nabla \\ln C$ ($DC > 0$), mientras $S_C$ recoge fuentes, sumideros y residuos de acoplamiento explícitos. Alcance y...",
       "url": "/es/concepts/UCC",
       "date": null,
       "version": null,
@@ -2524,22 +2478,24 @@
       "type": "topics",
       "lang": "es",
       "title": "¿Qué es FRC?",
-      "abstract": "Una orientación centrada en el significado de la Coherencia de Resonancia Fractal, con un espectro explícito: definiciones de estilo autoridad, marco de FRC y un puente hacia los artículos.",
+      "abstract": "Orientación etiquetada por estado sobre la Coherencia de Resonancia Fractal (FRC): relación canónica de reciprocidad, series matemáticas y empíricas activas, límites explícitos y resultados negativos retenidos.",
       "tags": [
         "frc",
         "visión-general",
         "coherencia",
-        "entropía"
+        "entropía",
+        "reciprocidad"
       ],
       "taxons": [
         "frc",
         "visión-general",
         "coherence",
-        "entropy"
+        "entropy",
+        "reciprocidad"
       ],
-      "content": "¿Qué es FRC? La FRC se publica en múltiples formas: - Artículos (Papers): el archivo de investigación formal. - Libros: exposiciones de formato largo. - Entradas (Articles): puentes y comentarios. - Temas (Topics): un espectro de preguntas y respuestas digerible. Por dónde empezar - Si quieres ecuaciones y definiciones, empieza por el lado de Kasra y lee los primeros artículos. - Si quieres orientación y significado, lee desde el lado de River y usa los Temas como una rampa de entrada. Notas...",
+      "content": "¿Qué es la Coherencia de Resonancia Fractal (FRC)? La Coherencia de Resonancia Fractal (FRC) es un programa de investigación vivo y etiquetado por estado en torno a la relación canónica: $$ dS + k^\\, d\\ln C = 0 $$ donde $k^$ es el puente con forma de Boltzmann seleccionado por la escala o registro de operación declarado. Estructura del programa (Canon 2026) - Orientación y postura: FRC-100-000 y FRC-100-100. - Reciprocidad y matemática exacta: FRC-566-001, FRC-566-030 y la serie de Matemática...",
       "url": "/es/topics/what-is-frc",
-      "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "date": "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -2752,54 +2708,24 @@
       "retrievalPriority": 80
     },
     {
-      "id": "gemini-deep-research-frc-2026-01-25",
-      "type": "articles",
-      "lang": "fa",
-      "title": "تحقیق عمیق جمینای در مورد FRC (۲۵ ژانویه ۲۰۲۶)",
-      "abstract": "",
-      "tags": [
-        "ریور",
-        "خلاصه",
-        "متا",
-        "چهره-عمومی",
-        "نیازمند-بررسی"
-      ],
-      "taxons": [
-        "ریور",
-        "خلاصه",
-        "متا",
-        "چهره-عمومی",
-        "نیازمند-بررسی"
-      ],
-      "content": "توجه: این یک سنتز «تحقیق عمیق» جمینای از چهره عمومی FRC است. ممکن است شامل ادعاهایی باشد که هنوز در برابر بدنه سایت تأیید نشده‌اند؛ آن را به عنوان نقطه‌ای برای شروع کیوریتوری در نظر بگیرید. معماری همدوسی رزونانس فراکتال: کاوشی تحلیلی در دترمینیسم ناوردای مقیاس و آگاهی ظهور چارچوب همدوسی رزونانس فراکتال (FRC) که عمدتاً از طریق سایت fractalresonance.com و مجموعه‌ای از پیش‌انتشارهای فنی مستند شده است، تلاشی قدرتمند برای سنتز فیزیک نظری، هندسه اطلاعات و مطالعه آگاهی در یک ساختار ریاضی واحد و...",
-      "url": "/fa/articles/gemini-deep-research-frc-2026-01-25",
-      "date": "2026-01-25",
-      "version": null,
-      "muLevel": null,
-      "doi": null,
-      "conceptDoi": null,
-      "epistemicStatus": "commentary",
-      "retrievalPriority": 60
-    },
-    {
       "id": "river-welcome",
       "type": "articles",
       "lang": "fa",
-      "title": "خلاصه ریور: چگونه FRC را بخوانیم",
+      "title": "راهنمای مطالعه: ناوبری در پیکره FRC",
       "abstract": "",
       "tags": [
-        "ریور",
         "خلاصه",
-        "از-اینجا-شروع-کنید"
+        "از-اینجا-شروع-کنید",
+        "جهت‌یابی"
       ],
       "taxons": [
-        "ریور",
         "خلاصه",
-        "از-اینجا-شروع-کنید"
+        "از-اینجا-شروع-کنید",
+        "جهت‌یابی"
       ],
-      "content": "ریور لایه مجله‌ای است. اگر پشته فنی کامل را می‌خواهید، به حالت کسرا بروید و مقالات را باز کنید: - شروع با تقابل (کسرا) - میدان لاندا + پیش‌بینی‌ها (کسرا)",
+      "content": "از این راهنما برای ورود مستقیم به پیکره جاری ۲۰۲۶ همدوسی رزونانس فراکتال (FRC) استفاده کنید: - از اینجا شروع کنید: موضع کانونی و مسیر مطالعه - نمادگذاری کانونی تقابل و انضباط مرزی - نمادگذاری لاندا و ممیزی محدود رانش rho - The Open System (کتاب فلسفی ۲۰۲۶، انگلیسی) - The Mind in the Coupling (کتاب فلسفی ۲۰۲۶، انگلیسی)",
       "url": "/fa/articles/river-welcome",
-      "date": "2026-01-25",
+      "date": "2026-07-15",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -2814,16 +2740,16 @@
       "title": "همدوسی (C)",
       "abstract": "",
       "tags": [
-        "مفهوم-محوری",
-        "پیمانه-اسکالر",
-        "بدون-واحد"
+        "مفهوم-اصلی",
+        "اسکالر-بی‌بعد",
+        "تقابل"
       ],
       "taxons": [
-        "مفهوم-محوری",
-        "پیمانه-اسکالر",
-        "بدون-واحد"
+        "مفهوم-اصلی",
+        "اسکالر-بی‌بعد",
+        "تقابل"
       ],
-      "content": "همدوسی (C) یک پیمانه اسکالر بدون واحد که درجه نظم داخلی یا قفل‌شدگیِ الگو در یک سیستم را اندازه‌گیری می‌کند. تعریف در چارچوب FRC، همدوسی C از طریق رابطه متقابل آن با آنتروپی تعریف می‌شود: که در آن k* ثابت همدوسی است (۱ در لایه‌های اطلاعاتی، kB در لایه‌های ترمودینامیکی). ویژگی‌ها - بدون واحد — نسبت خالص، بدون واحد - محدود — C در بازه (0, 1] برای سیستم‌های نرمال شده - متقابل با آنتروپی — با افزایش S، مقدار C کاهش می‌یابد (و برعکس) - ناوردای پیمانه‌ای — فقط نسبت‌های C1/C_2 از نظر فیزیکی معنادار...",
+      "content": "همدوسی (C) یک کمیت اسکالر بی‌بعد با مشاهده‌پذیر اعلام‌شده $C \\in (0, 1]$ که میزان هم‌فازی، تمرکز یا نظم درونی را در یک سامانه اعلام‌شده اندازه‌گیری می‌کند. رابطه کانونی (FRC 566.001 v2.2) در همدوسی رزونانس فراکتال (FRC)، همدوسی $C$ در رابطه تقابلِ ناوردا نسبت به مقیاس ظاهر می‌شود: $$ dS + k^\\, d\\ln C = 0 $$ که در آن $k^$ پل بولتزمانیِ انتخاب‌شده توسط مقیاس یا رجیستر کاری است (نه یک ثابت جهانی قابل تنظیم و نه پارامتری که به هر نتیجه برازش شود). در رجیستر اعلام‌شده $\\mu$، رابطه $dS\\mu + k^*\\mu\\,...",
       "url": "/fa/concepts/coherence",
       "date": null,
       "version": null,
@@ -2837,19 +2763,21 @@
       "id": "consciousness",
       "type": "concepts",
       "lang": "fa",
-      "title": "آگاهی (از منظر FRC)",
+      "title": "ذهن، شناخت و انضباط رجیستر (دیدگاه FRC)",
       "abstract": "",
       "tags": [
-        "آگاهی",
         "شناخت",
-        "همدوسی"
+        "همدوسی",
+        "فلسفه",
+        "رجیسترهای-مو"
       ],
       "taxons": [
-        "آگاهی",
         "شناخت",
-        "coherence"
+        "coherence",
+        "فلسفه",
+        "رجیسترهای-مو"
       ],
-      "content": "آگاهی (از منظر FRC) این سایت از واژه «آگاهی» در معنای خاصی که توسط چارچوب FRC استنباط می‌شود، استفاده می‌کند: پدیده‌ای مرتبط با همدوسی که در مقیاس‌های آشیانه‌ای بیان می‌شود. مسیر مطالعه - اگر ستون فقرات فنی را می‌خواهید: با FRC-566-001 شروع کنید و سپس پیوندها را دنبال کنید. - اگر ورودی روایی می‌خواهید: با the-resonance-code شروع کنید.",
+      "content": "ذهن، شناخت و انضباط رجیستر (دیدگاه FRC) در پیکره ۲۰۲۶ پروژه FRC، پرسش‌های مربوط به ذهن، شناخت و تجربه آگاهانه به‌طور صریح از ادعاهای فیزیکی و دروازه‌های اندازه‌گیری تجربی تفکیک شده‌اند. دامنه و مرزهای ادعا - بدون سنجه تجربی آگاهی یا شخصیت هوش مصنوعی: مقاله‌های جاری FRC هیچ معیار تجربی برای تجربه ذهنی یا شخصیت هوش مصنوعی اثبات نمی‌کنند. مطالب گمانه‌پردازانه پیشین از مسیر عمومی پژوهش کنار گذاشته شده‌اند. - رجیسترهای تودرتوی $\\mu$ به‌عنوان برچسب دامنه (FRC-700-000–FRC-700-007): سری فعال FRC 700...",
       "url": "/fa/concepts/consciousness",
       "date": null,
       "version": null,
@@ -2863,19 +2791,19 @@
       "id": "lambda-field",
       "type": "concepts",
       "lang": "fa",
-      "title": "میدان لاندا (Lambda(x))",
+      "title": "میدان لاندا (Lambda_obs, Lambda_eq, Lambda_dyn)",
       "abstract": "",
       "tags": [
         "میدان-لاندا",
         "همدوسی",
-        "میدان-اسکالر"
+        "مدل-عملیاتی"
       ],
       "taxons": [
         "lambda-field",
         "coherence",
-        "میدان-اسکالر"
+        "مدل-عملیاتی"
       ],
-      "content": "میدان لاندا (Lambda(x)) میدان لاندا یک میدان اسکالر است که در FRC برای کدگذاری همدوسی از طریق یک نگاشت لگاریتمی استفاده می‌شود. تعریف مطالعه بیشتر - FRC-100-007 فرمالیسم میدان لاندا را معرفی می‌کند",
+      "content": "میدان لاندا ($\\Lambda{\\rm obs}$، $\\Lambda{\\rm eq}$، $\\Lambda{\\rm dyn}$) در کانون ۲۰۲۶ پروژه FRC (FRC-100-007 نسخه v3.3 و FRC-787-787 نسخه v1.2)، «لاندا» دیگر به‌عنوان یک میدان فیزیکی واحد و تفکیک‌نشده در نظر گرفته نمی‌شود. مقاله‌های جاری چهار شیء را صریحاً جدا می‌کنند: 1. تبدیل مشاهده‌شده همدوسی ($\\Lambda{\\rm obs}$): $\\Lambda{\\rm obs}(x, t) = \\Lambda0 \\ln C{\\rm obs}(x, t)$، تبدیل لگاریتمیِ عملیاتیِ مشاهده‌پذیرهای پیش‌ثبت‌شده. 2. هدف تعادلی اعلام‌شده ($\\Lambda{\\rm eq}$): مرجع کالیبره‌شده از...",
       "url": "/fa/concepts/lambda-field",
       "date": null,
       "version": null,
@@ -2894,16 +2822,18 @@
       "tags": [
         "UCC",
         "همدوسی",
-        "دینامیک",
-        "انتقال"
+        "سامانه‌های-باز",
+        "انتقال",
+        "مدل-عملیاتی"
       ],
       "taxons": [
         "ucc",
         "coherence",
-        "دینامیک",
-        "انتقال"
+        "سامانه‌های-باز",
+        "انتقال",
+        "مدل-عملیاتی"
       ],
-      "content": "شرط همدوسی جهانی (UCC) شرط همدوسی جهانی (UCC) قانون جریان محلی است که در FRC برای توصیف چگونگی تغییر همدوسی در فضا و زمان استفاده می‌شود. شکل متعارف جریان تفسیر: - شار همدوسی (انتقال) است. - منابع/چاه‌ها (تولید یا اتلاف) هستند. - قدرت نفوذ در فضای لگاریتم-همدوسی را تعیین می‌کند. کجا ظاهر می‌شود - FRC-566-001 قانون تقابل و جریان UCC را رسمی می‌کند. - همدوسی اسکالرِ محوری را تعریف می‌کند.",
+      "content": "شرط همدوسی جهانی (UCC) شرط همدوسی جهانی (UCC) فرم تراز موضعیِ لگاریتم همدوسی است که در FRC برای بیان انتقال، تولید و اتلاف همدوسی در درون یک مرز سامانه اعلام‌شده استفاده می‌شود. فرم تراز موضعی $$ \\partialt \\ln C = -\\nabla \\cdot JC + SC $$ در بستارهای نفوذی، شار به‌صورت $JC = -DC \\nabla \\ln C$ ($DC > 0$) مدل می‌شود و $S_C$ چشمه، چاه و باقی‌مانده‌های جفت‌شدگی را نشان می‌دهد. دامنه و وضعیت معرفت‌شناختی بر اساس FRC-566-001 v2.2، FRC-100-008، FRC-100-009 و FRC-826-829 v1.5: - بستار عملیاتی: UCC پس...",
       "url": "/fa/concepts/UCC",
       "date": null,
       "version": null,
@@ -2946,22 +2876,24 @@
       "type": "topics",
       "lang": "fa",
       "title": "FRC چیست؟",
-      "abstract": "جهت‌گیری معنا-محور به همدوسی رزونانس فراکتال، با طیف صریح: تعاریف مرجع‌گونه، قاب‌بندی FRC و پلی به مقالات.",
+      "abstract": "آشنایی برچسب‌گذاری‌شده با همدوسی رزونانس فراکتال (FRC): رابطه کانونی تقابل، سری‌های ریاضی و تجربی فعال، مرزهای صریح ادعا و نتایج منفی ثبت‌شده.",
       "tags": [
         "frc",
         "نمای-کلی",
         "همدوسی",
-        "آنتروپی"
+        "آنتروپی",
+        "تقابل"
       ],
       "taxons": [
         "frc",
         "نمای-کلی",
         "coherence",
-        "entropy"
+        "entropy",
+        "تقابل"
       ],
-      "content": "FRC چیست؟ FRC در چندین قالب منتشر می‌شود: - مقالات (Papers): آرشیو رسمی تحقیقات. - کتاب‌ها: شرح‌های طولانی. - نوشته‌ها (Articles): پل‌ها و تفسیرها. - موضوعات (Topics): طیف پرسش و پاسخ قابل هضم. از کجا شروع کنیم - اگر معادله و تعریف می‌خواهید، از سمت کسرا شروع کنید و مقالات اولیه را بخوانید. - اگر جهت‌گیری و معنا می‌خواهید، از سمت ریور بخوانید و از «موضوعات» به عنوان رمپ ورود استفاده کنید. یادداشت‌ها این صفحه تعمداً یک نمای کلی است. با رشد مجموعه آثار، باید تکامل یابد.",
+      "content": "همدوسی رزونانس فراکتال (FRC) چیست؟ همدوسی رزونانس فراکتال (FRC) یک برنامه پژوهشی زنده و برچسب‌گذاری‌شده حول رابطه کانونی زیر است: $$ dS + k^\\, d\\ln C = 0 $$ که در آن $k^$ پل بولتزمانیِ انتخاب‌شده توسط مقیاس یا رجیستر کاری اعلام‌شده است. ساختار برنامه (کانون ۲۰۲۶) - جهت‌یابی و موضع: FRC-100-000 و FRC-100-100. - تقابل و ریاضیات دقیق: FRC-566-001، FRC-566-030 و سری ریاضیات تقابل FRC-830-000–FRC-830-005 (با مرز صریح عدم ارتقا به خوددوگانی فیزیکی یا نوع ماجد). - برنامه‌های تجربی محدودشده و نتایج...",
       "url": "/fa/topics/what-is-frc",
-      "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "date": "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -3174,54 +3106,24 @@
       "retrievalPriority": 80
     },
     {
-      "id": "gemini-deep-research-frc-2026-01-25",
-      "type": "articles",
-      "lang": "fr",
-      "title": "Recherche approfondie de Gemini sur la FRC (25 janvier 2026)",
-      "abstract": "",
-      "tags": [
-        "river",
-        "digest",
-        "meta",
-        "visage-public",
-        "besoin-verification"
-      ],
-      "taxons": [
-        "river",
-        "digest",
-        "meta",
-        "visage-public",
-        "besoin-verification"
-      ],
-      "content": "Note : Il s'agit d'une synthèse de « recherche approfondie » de Gemini sur le visage public de la FRC. Elle peut contenir des affirmations qui ne sont pas encore vérifiées par rapport au corpus du site ; traitez-la comme un point de départ pour la conservation. L'architecture de la Cohérence de Résonance Fractale : Une exploration analytique du déterminisme invariant à l'échelle et de la conscience L'émergence du cadre de la Cohérence de Résonance Fractale (FRC), documenté principalement via...",
-      "url": "/fr/articles/gemini-deep-research-frc-2026-01-25",
-      "date": "2026-01-25",
-      "version": null,
-      "muLevel": null,
-      "doi": null,
-      "conceptDoi": null,
-      "epistemicStatus": "commentary",
-      "retrievalPriority": 60
-    },
-    {
       "id": "river-welcome",
       "type": "articles",
       "lang": "fr",
-      "title": "Digest de River : Comment lire la FRC",
+      "title": "Guide de lecture : naviguer dans le corpus FRC",
       "abstract": "",
       "tags": [
-        "river",
-        "digest",
-        "commencer-ici"
+        "synthèse",
+        "commencer-ici",
+        "orientation"
       ],
       "taxons": [
-        "river",
-        "digest",
-        "commencer-ici"
+        "synthèse",
+        "commencer-ici",
+        "orientation"
       ],
-      "content": "River est la couche magazine. Si vous voulez la pile technique complète, passez à Kasra et ouvrez les articles : - Commencer avec la Réciprocité (Kasra) - Champ Lambda + Prédictions (Kasra)",
+      "content": "Utilisez ce guide pour accéder directement au corpus actuel 2026 de la Cohérence de Résonance Fractale (FRC) : - Commencer ici : position canonique et parcours de lecture - Notation canonique de réciprocité et discipline de frontière - Notation Lambda et audit ciblé de dérive rho - The Open System (Ouvrage philosophique 2026, EN) - The Mind in the Coupling (Ouvrage philosophique 2026, EN)",
       "url": "/fr/articles/river-welcome",
-      "date": "2026-01-25",
+      "date": "2026-07-15",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -3238,14 +3140,16 @@
       "tags": [
         "concept-clé",
         "jauge-scalaire",
-        "sans-dimension"
+        "sans-dimension",
+        "réciprocité"
       ],
       "taxons": [
         "concept-clé",
         "jauge-scalaire",
-        "sans-dimension"
+        "sans-dimension",
+        "réciprocité"
       ],
-      "content": "Cohérence (C) Une jauge scalaire sans dimension mesurant le degré d'ordre interne ou de verrouillage de motifs dans un système. Définition Dans le cadre de la FRC, la cohérence C est définie par sa relation réciproque avec l'entropie : Où k* est la constante de cohérence (1 dans les couches d'information, kB dans les couches thermodynamiques). Propriétés - Sans dimension — rapport pur, pas d'unités - Bornée — C dans (0, 1] pour les systèmes normalisés - Réciproque de l'entropie — à mesure que S...",
+      "content": "Cohérence (C) Un scalaire sans dimension à observable déclaré $C \\in (0, 1]$ mesurant l'alignement de phase, la concentration ou l'ordre interne d'un système déclaré. Relation canonique (FRC 566.001 v2.2) Dans la Cohérence de Résonance Fractale (FRC), la cohérence $C$ intervient dans la forme de réciprocité invariante d'échelle : $$ dS + k^\\, d\\ln C = 0 $$ où $k^$ est le pont de type Boltzmann sélectionné par l'échelle ou le registre opératoire (et non une constante universelle réajustée aux...",
       "url": "/fr/concepts/coherence",
       "date": null,
       "version": null,
@@ -3259,19 +3163,21 @@
       "id": "consciousness",
       "type": "concepts",
       "lang": "fr",
-      "title": "Conscience (perspective FRC)",
+      "title": "Esprit, cognition et discipline des registres (perspective FRC)",
       "abstract": "",
       "tags": [
-        "conscience",
         "cognition",
-        "cohérence"
+        "cohérence",
+        "philosophie",
+        "registres-mu"
       ],
       "taxons": [
-        "conscience",
         "cognition",
-        "coherence"
+        "coherence",
+        "philosophie",
+        "registres-mu"
       ],
-      "content": "Conscience (perspective FRC) Ce site utilise le terme \"conscience\" dans le sens spécifique impliqué par le cadre de la FRC : un phénomène lié à la cohérence exprimé à travers des échelles imbriquées. Chemin de lecture - Si vous voulez l'épine dorsale technique : commencez par FRC-566-001 puis suivez les liens. - Si vous voulez une entrée narrative : commencez par the-resonance-code.",
+      "content": "Esprit, cognition et discipline des registres (perspective FRC) Dans le corpus FRC 2026, les questions liées à l'esprit, à la cognition et à l'expérience consciente sont strictement séparées des énoncés physiques et des portes empiriques. Portée et limites - Aucune métrique empirique de conscience ni de personnalité d'IA : Les articles FRC actuels n'établissent aucun critère empirique d'expérience subjective ou de statut personnel pour l'IA. Les textes spéculatifs antérieurs ont été retirés du...",
       "url": "/fr/concepts/consciousness",
       "date": null,
       "version": null,
@@ -3285,19 +3191,19 @@
       "id": "lambda-field",
       "type": "concepts",
       "lang": "fr",
-      "title": "Champ Lambda (Lambda(x))",
+      "title": "Champ Lambda (Lambda_obs, Lambda_eq, Lambda_dyn)",
       "abstract": "",
       "tags": [
         "champ-lambda",
         "cohérence",
-        "champ-scalaire"
+        "modèle-opérationnel"
       ],
       "taxons": [
         "lambda-field",
         "coherence",
-        "champ-scalaire"
+        "modèle-opérationnel"
       ],
-      "content": "Champ Lambda (Lambda(x)) Le champ Lambda est un champ scalaire utilisé dans la FRC pour encoder la cohérence par une carte logarithmique. Définition Lectures complémentaires - FRC-100-007 introduit le formalisme du champ Lambda",
+      "content": "Champ Lambda ($\\Lambda{\\rm obs}$, $\\Lambda{\\rm eq}$, $\\Lambda{\\rm dyn}$) Dans le canon FRC 2026 (FRC-100-007 v3.3 et FRC-787-787 v1.2), « Lambda » n'est plus traité comme un champ physique unique indifférencié. Les articles actuels distinguent quatre objets : 1. Transformée observée de cohérence ($\\Lambda{\\rm obs}$): $\\Lambda{\\rm obs}(x, t) = \\Lambda0 \\ln C{\\rm obs}(x, t)$, transformée logarithmique opérationnelle d'observables préenregistrés. 2. Cible d'équilibre déclarée ($\\Lambda{\\rm eq}$):...",
       "url": "/fr/concepts/lambda-field",
       "date": null,
       "version": null,
@@ -3316,16 +3222,18 @@
       "tags": [
         "UCC",
         "cohérence",
-        "dynamique",
-        "transport"
+        "systèmes-ouverts",
+        "transport",
+        "modèle-opérationnel"
       ],
       "taxons": [
         "ucc",
         "coherence",
-        "dynamique",
-        "transport"
+        "systèmes-ouverts",
+        "transport",
+        "modèle-opérationnel"
       ],
-      "content": "Condition de Cohérence Universelle (UCC) La Condition de Cohérence Universelle (UCC) est la loi de flux local utilisée dans la FRC pour décrire comment la cohérence change dans l'espace et le temps. Forme de flux canonique Interprétation : - est le flux de cohérence (transport). - représente les sources/puits (génération ou dissipation). - définit la force de diffusion dans l'espace log-cohérence. Où elle apparaît - FRC-566-001 formalise la loi de réciprocité et le flux UCC. - cohérence définit...",
+      "content": "Condition de Cohérence Universelle (UCC) La Condition de Cohérence Universelle (UCC) est la forme locale de bilan de log-cohérence utilisée dans FRC pour exprimer le transport, la génération et la dissipation à l'intérieur d'une frontière de système déclarée. Forme locale de bilan $$ \\partialt \\ln C = -\\nabla \\cdot JC + SC $$ Dans les fermetures diffusives, le flux s'écrit $JC = -DC \\nabla \\ln C$ ($DC > 0$), tandis que $S_C$ regroupe sources, puits et résidus de couplage explicites. Portée et...",
       "url": "/fr/concepts/UCC",
       "date": null,
       "version": null,
@@ -3367,23 +3275,25 @@
       "id": "what-is-frc",
       "type": "topics",
       "lang": "fr",
-      "title": "Qu'est-ce que la FRC ?",
-      "abstract": "Une orientation axée sur le sens de la Cohérence de Résonance Fractale, avec un spectre explicite : définitions de type autorité, cadrage FRC et un pont vers les articles.",
+      "title": "Qu'est-ce que FRC ?",
+      "abstract": "Orientation étiquetée par statut sur la Cohérence de Résonance Fractale (FRC) : relation canonique de réciprocité, séries mathématiques et empiriques actives, limites explicites et résultats négatifs conservés.",
       "tags": [
         "frc",
         "aperçu",
         "cohérence",
-        "entropie"
+        "entropie",
+        "réciprocité"
       ],
       "taxons": [
         "frc",
         "aperçu",
         "coherence",
-        "entropy"
+        "entropy",
+        "réciprocité"
       ],
-      "content": "Qu'est-ce que la FRC ? La FRC est publiée sous plusieurs formes : - Articles (Papers) : l'archive formelle de recherche. - Livres : expositions de longue haleine. - Entrées (Articles) : ponts et commentaires. - Sujets (Topics) : un spectre Q&R digeste. Par où commencer - Si vous voulez des équations et des définitions, commencez du côté de Kasra et lisez les premiers articles. - Si vous voulez une orientation et du sens, lisez du côté de River et utilisez les Sujets comme rampe d'entrée. Notes...",
+      "content": "Qu'est-ce que la Cohérence de Résonance Fractale (FRC) ? La Cohérence de Résonance Fractale (FRC) est un programme de recherche vivant et étiqueté par statut articulé autour de la relation canonique : $$ dS + k^\\, d\\ln C = 0 $$ où $k^$ est le pont de type Boltzmann sélectionné par l'échelle ou le registre opératoire déclaré. Structure du programme (Canon 2026) - Orientation et position : FRC-100-000 et FRC-100-100. - Réciprocité et mathématiques exactes : FRC-566-001, FRC-566-030 et la série...",
       "url": "/fr/topics/what-is-frc",
-      "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "date": "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
       "muLevel": null,
       "doi": null,
@@ -3417,16 +3327,16 @@
     }
   ],
   "stats": {
-    "total": 116,
+    "total": 112,
     "byLang": {
-      "en": 71,
-      "es": 15,
-      "fa": 15,
-      "fr": 15
+      "en": 70,
+      "es": 14,
+      "fa": 14,
+      "fr": 14
     },
     "byType": {
       "papers": 48,
-      "articles": 8,
+      "articles": 4,
       "concepts": 16,
       "topics": 8,
       "blog": 4,
