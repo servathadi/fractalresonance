@@ -120,12 +120,26 @@ describe('Active-content stale-claim governance regressions', () => {
   });
 
   it('catches unhedged retired claims across clauses: Born rule, FRC 821, LaTeX D \\approx 1.90, 16D, and mixed retired+active sentences', () => {
-    // Mixed retired + active sentence MUST fail (clause-scoped negation)
+    // Mixed retired + active sentence MUST fail (clause-scoped negation: semicolon, year-period, contrastive clauses)
     const mixedIssues = checkActiveTextForStaleClaims(
       'The retired hypothesis is obsolete; 16D is now established physical canon.',
       'content/en/topics/test.md',
     );
     expect(mixedIssues.length).toBeGreaterThan(0);
+
+    expect(
+      checkActiveTextForStaleClaims(
+        'The earlier hypothesis was retired in 2025. 16D is now established physical canon.',
+        'content/en/topics/test.md',
+      ).length,
+    ).toBeGreaterThan(0);
+
+    expect(
+      checkActiveTextForStaleClaims(
+        'The earlier 16D framework was retired, but 16D is now established physical canon.',
+        'content/en/topics/test.md',
+      ).length,
+    ).toBeGreaterThan(0);
 
     // LaTeX D \approx 1.90 / D\approx 1.90 / D \simeq 1.90 MUST fail
     expect(
@@ -138,9 +152,18 @@ describe('Active-content stale-claim governance regressions', () => {
       checkActiveTextForStaleClaims('Fractal dimension $D \\simeq 1.90$ confirms the potential.', 'content/fr/concepts/test.md').length,
     ).toBeGreaterThan(0);
 
-    // Unhedged Born-rule derivation / deviation claims MUST fail across locales
+    // Unhedged Born-rule derivation (present, past, perfect, passive) / deviation claims MUST fail across locales
     expect(
       checkActiveTextForStaleClaims('FRC derives the Born rule from phase-locking dynamics.', 'content/en/concepts/test.md').length,
+    ).toBeGreaterThan(0);
+    expect(
+      checkActiveTextForStaleClaims('FRC has derived the Born rule from phase-locking dynamics.', 'content/en/concepts/test.md').length,
+    ).toBeGreaterThan(0);
+    expect(
+      checkActiveTextForStaleClaims('The Born rule has been derived by FRC.', 'content/en/concepts/test.md').length,
+    ).toBeGreaterThan(0);
+    expect(
+      checkActiveTextForStaleClaims('FRC derived the Born rule and the Born rule was derived from coherence.', 'content/en/concepts/test.md').length,
     ).toBeGreaterThan(0);
     expect(
       checkActiveTextForStaleClaims('FRC predicts a fixed deviation of 10^{-4} to 10^{-3}.', 'content/en/concepts/test.md').length,
@@ -172,6 +195,8 @@ describe('Active-content stale-claim governance regressions', () => {
       'The stadium value $D \\approx 1.90$ is demoted and not universal.',
       'The 16D and FRC 821 branches are archived development history, not current core.',
       'The Born rule is not derived by FRC, and FRC has no fixed 10^{-4} to 10^{-3} deviation range.',
+      'FRC has not derived the Born rule.',
+      'The Born rule has not been derived by FRC.',
       'FRC no ha derivado la regla de Born y las ramas 16D y FRC 821 están archivadas.',
       'FRC ne revendique pas la dérivation de la règle de Born et les branches 16D et FRC 821 sont archivées.',
       'شاخه‌های 16D و FRC 821 بایگانی شده‌اند و FRC مدعی استخراج قاعده بورن نیست.',
@@ -181,30 +206,60 @@ describe('Active-content stale-claim governance regressions', () => {
     }
   });
 
-  it('exits with code 1 from CLI when an active page introduces a mixed retired+active 16D claim, and exits 0 when negated', () => {
-    const failingRoot = makeTempRepoCopy((tmpRoot) => {
-      const target = path.join(tmpRoot, 'content', 'en', 'topics', 'what-is-frc.md');
-      fs.appendFileSync(target, '\nThe retired hypothesis is obsolete; 16D is now established physical canon.\n');
-    });
+  it('exits with code 1 from CLI on year-period, contrastive, and completed/passive Born repros, and exits 0 on negated controls', () => {
+    const failingCases: Array<{ label: string; line: string; expectedErr: string }> = [
+      {
+        label: 'year-period split 16D',
+        line: 'The earlier hypothesis was retired in 2025. 16D is now established physical canon.',
+        expectedErr: 'unhedged 16D canonical claim',
+      },
+      {
+        label: 'contrastive but-clause 16D',
+        line: 'The earlier 16D framework was retired, but 16D is now established physical canon.',
+        expectedErr: 'unhedged 16D canonical claim',
+      },
+      {
+        label: 'present-perfect Born derivation',
+        line: 'FRC has derived the Born rule from phase-locking dynamics.',
+        expectedErr: 'unhedged Born-rule derivation',
+      },
+      {
+        label: 'passive-perfect Born derivation',
+        line: 'The Born rule has been derived by FRC.',
+        expectedErr: 'unhedged Born-rule derivation',
+      },
+    ];
+
+    for (const tc of failingCases) {
+      const failingRoot = makeTempRepoCopy((tmpRoot) => {
+        const target = path.join(tmpRoot, 'content', 'en', 'topics', 'what-is-frc.md');
+        fs.appendFileSync(target, `\n${tc.line}\n`);
+      });
+      try {
+        const run = spawnSync(process.execPath, [path.join(root, 'scripts', 'validate-governance.mjs'), `--root=${failingRoot}`], {
+          encoding: 'utf8',
+        });
+        expect(run.status, `${tc.label} must exit 1`).toBe(1);
+        expect(run.stderr, `${tc.label} stderr`).toContain(tc.expectedErr);
+      } finally {
+        fs.rmSync(failingRoot, { recursive: true, force: true });
+      }
+    }
 
     const passingRoot = makeTempRepoCopy((tmpRoot) => {
       const target = path.join(tmpRoot, 'content', 'en', 'topics', 'what-is-frc.md');
-      fs.appendFileSync(target, '\nThe retired 2025 name Fractal Resonance Cognition is not the current program name.\n');
+      fs.appendFileSync(
+        target,
+        '\nThe retired 2025 name Fractal Resonance Cognition is not the current program name.\nFRC has not derived the Born rule. The Born rule has not been derived by FRC.\n',
+      );
     });
 
     try {
-      const failRun = spawnSync(process.execPath, [path.join(root, 'scripts', 'validate-governance.mjs'), `--root=${failingRoot}`], {
-        encoding: 'utf8',
-      });
-      expect(failRun.status).toBe(1);
-      expect(failRun.stderr).toContain('unhedged 16D canonical claim');
-
       const passRun = spawnSync(process.execPath, [path.join(root, 'scripts', 'validate-governance.mjs'), `--root=${passingRoot}`], {
         encoding: 'utf8',
       });
       expect(passRun.status).toBe(0);
     } finally {
-      fs.rmSync(failingRoot, { recursive: true, force: true });
       fs.rmSync(passingRoot, { recursive: true, force: true });
     }
   });

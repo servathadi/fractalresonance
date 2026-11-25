@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_ROOT = path.join(__dirname, '..');
 
 export const NEGATION_CONTEXT_RX =
-  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+derived|not\s+an?\s+established|does\s+not\s+(?:derive|claim|establish|assert|predict)|do\s+not\s+(?:claim|assert|present|derive)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+derived|not\s+an?\s+established|does\s+not\s+(?:derive|claim|establish|assert|predict)|do\s+not\s+(?:claim|assert|present|derive)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
 
 const ACTIVE_STALE_CLAIM_RULES = [
   {
@@ -57,7 +57,7 @@ const ACTIVE_STALE_CLAIM_RULES = [
   },
   {
     id: 'unhedged-born-rule',
-    pattern: /(?:derives?\s+the\s+born\s+rule|born\s+rule\s+(?:is\s+derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند|born[\s-]rule\s+deviation[^.;!?]{0,40}10\^?\{?-4|10\^\{?-4\}?\s*(?:to|–|-|,)\s*10\^\{?-3\}?|10⁻⁴)/i,
+    pattern: /(?:(?:(?:has|have)\s+(?:already\s+)?)?deriv(?:es?|ed)\s+the\s+born\s+rule|born\s+rule\s+(?:(?:is|was|has\s+been|had\s+been)\s+(?:already\s+)?)?(?:derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند|born[\s-]rule\s+deviation[^.;!?]{0,40}10\^?\{?-4|10\^\{?-4\}?\s*(?:to|–|-|,)\s*10\^\{?-3\}?|10⁻⁴)/i,
     message: 'contains unhedged Born-rule derivation or fixed deviation-range claim',
   },
 ];
@@ -68,12 +68,15 @@ const NEGATED_LIST_LEAD_RX =
 /**
  * Split a line into clauses/sentences so negation/demotion framing in one clause
  * cannot exempt an affirmative retired claim in another clause on the same line.
- * Keeps inline em-dash appositives/definitions intact while splitting on `;`, `!`, `?`, `|`,
- * and sentence-ending periods (outside numeric decimals/identifiers like 1.90 or 100.002).
+ * Preserves decimals/identifiers (digit.digit with no following whitespace) and
+ * inline em-dash appositives/definitions, while splitting on `;`, `!`, `?`, `|`,
+ * sentence-ending `.` followed by whitespace/EOL (including years like `2025. `),
+ * and contrastive conjunction clauses (`, but `, `, however `, `, yet `, `, whereas `, `, while `).
  */
 export function splitIntoClauses(line) {
-  return String(line || '')
-    .split(/(?:[;!?|]+|(?<![0-9])\.(?=\s|$))/)
+  const withoutListPrefix = String(line || '').replace(/^\s*(?:[-*+]|\d+\.)\s+/, '');
+  return withoutListPrefix
+    .split(/(?:[;!?|]+|\.(?=\s|$)|,\s+(?:but|however|yet|whereas|while)\b)/i)
     .map((s) => s.trim())
     .filter(Boolean);
 }
