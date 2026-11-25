@@ -6,7 +6,6 @@ author: "FRC"
 date: 2026-07-15
 status: published
 perspective: both
-voice: kasra
 lang: fr
 tags: [frc, aperçu, cohérence, entropie, réciprocité]
 abstract: "Orientation étiquetée par statut sur la Cohérence de Résonance Fractale (FRC) : relation canonique de réciprocité, séries mathématiques et empiriques actives, limites explicites et résultats négatifs conservés."
@@ -27,7 +26,7 @@ answers:
     role: "Synthèse canonique"
     stance: "status-labeled"
     answer: "FRC repose sur la relation canonique dS + k* d ln C = 0 utilisée opérationnellement comme identité comptable déclarée par échelle et loi de contrôle. Son extension physique universelle demeure une conjecture ouverte. FRC ne revendique pas avoir dérivé la règle de Born, ne fixe aucune plage universelle d'écart à Born et publie ses portes négatives au même titre que ses résultats positifs."
-  - lens: "river"
+  - lens: "Philosophie FRC"
     by: "Philosophie FRC"
     role: "Livres 2026"
     stance: "philosophical"

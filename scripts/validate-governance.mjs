@@ -29,7 +29,88 @@ import { ALL_LANGS, validateTranslations } from './validate-translations.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT = path.join(__dirname, '..');
+const DEFAULT_ROOT = path.join(__dirname, '..');
+
+export const NEGATION_CONTEXT_RX =
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+derived|not\s+an?\s+established|does\s+not\s+(?:derive|claim|establish|assert|predict)|do\s+not\s+(?:claim|assert|present|derive)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+
+const ACTIVE_STALE_CLAIM_RULES = [
+  {
+    id: 'retired-cognition-name',
+    pattern: /fractal\s+resonance\s+cognition/i,
+    message: 'uses retired 2025 name "Fractal Resonance Cognition" without explicit historical/negation framing',
+  },
+  {
+    id: 'unhedged-d190',
+    pattern: /(?:\bD\s*(?:\\approx|\\simeq|\\sim|[≈~=])\s*1[.,]90|\b1[.,]90\s*(?:fractal|signature|dimension)|stadium[^.;!?]{0,40}1[.,]90)/i,
+    message: 'contains unhedged D ≈ 1.90 stadium proof claim',
+  },
+  {
+    id: 'unhedged-16d',
+    pattern: /\b16D\b/,
+    message: 'contains unhedged 16D canonical claim',
+  },
+  {
+    id: 'unhedged-821',
+    pattern: /(?:\bFRC[\s.-]?821\b|\b821[\s.-]\d{3}\b|\b821\s+(?:series|branch|canon|framework|paper|model|theory)\b)/i,
+    message: 'contains unhedged FRC 821 canonical claim',
+  },
+  {
+    id: 'unhedged-born-rule',
+    pattern: /(?:derives?\s+the\s+born\s+rule|born\s+rule\s+(?:is\s+derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند|born[\s-]rule\s+deviation[^.;!?]{0,40}10\^?\{?-4|10\^\{?-4\}?\s*(?:to|–|-|,)\s*10\^\{?-3\}?|10⁻⁴)/i,
+    message: 'contains unhedged Born-rule derivation or fixed deviation-range claim',
+  },
+];
+
+const NEGATED_LIST_LEAD_RX =
+  /\b(?:do\s+not\s+revive|do\s+not\s+claim|retired\s+claims|withdrawn\s+claims|demoted\s+claims|explicit\s+non-claims)\b[^.\n]*:\s*$/i;
+
+/**
+ * Split a line into clauses/sentences so negation/demotion framing in one clause
+ * cannot exempt an affirmative retired claim in another clause on the same line.
+ * Keeps inline em-dash appositives/definitions intact while splitting on `;`, `!`, `?`, `|`,
+ * and sentence-ending periods (outside numeric decimals/identifiers like 1.90 or 100.002).
+ */
+export function splitIntoClauses(line) {
+  return String(line || '')
+    .split(/(?:[;!?|]+|(?<![0-9])\.(?=\s|$))/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Scan active (non-archived) text clause-by-clause for unhedged retired claims.
+ */
+export function checkActiveTextForStaleClaims(text, rel) {
+  const issues = [];
+  let inNegatedList = false;
+
+  for (const rawLine of String(text || '').split(/\r?\n/)) {
+    const trimmed = rawLine.trim();
+    if (!trimmed) continue;
+
+    const isListItem = /^(?:[-*+]|\d+\.)\s+/.test(trimmed);
+    if (NEGATED_LIST_LEAD_RX.test(trimmed)) {
+      inNegatedList = true;
+      continue;
+    }
+    if (!isListItem) {
+      inNegatedList = false;
+    } else if (inNegatedList) {
+      continue;
+    }
+
+    for (const clause of splitIntoClauses(rawLine)) {
+      const plainClause = clause.replace(/[*_`]+/g, '');
+      for (const rule of ACTIVE_STALE_CLAIM_RULES) {
+        if (rule.pattern.test(plainClause) && !NEGATION_CONTEXT_RX.test(plainClause)) {
+          issues.push(`${rel}: active page ${rule.message} ("${clause.slice(0, 120)}").`);
+        }
+      }
+    }
+  }
+  return issues;
+}
 
 const RETIRED_MIND_CONTENT_IDS = {
   articles: new Set(['ai-awakening']),
@@ -56,8 +137,8 @@ const PROHIBITED_HOMEPAGE_CLAIM_PATTERNS = [
   /established\s+physical\s+self-duality/i,
 ];
 
-function readJson(relPath, errors) {
-  const fullPath = path.join(ROOT, relPath);
+function readJson(root, relPath, errors) {
+  const fullPath = path.join(root, relPath);
   if (!fs.existsSync(fullPath)) {
     errors.push(`${relPath} is missing.`);
     return null;
@@ -70,11 +151,10 @@ function readJson(relPath, errors) {
   }
 }
 
-function main() {
-  console.log('Governance Check: Verifying FRC public corpus & homepage governance...\n');
+export function validateGovernance(root = DEFAULT_ROOT) {
   const errors = [];
 
-  const papers = loadCanonicalPapers(ROOT);
+  const papers = loadCanonicalPapers(root);
   const byId = new Map(papers.map((p) => [p.id, p]));
 
   // 1. FRC 700.777 superseded historical/origin governance
@@ -146,7 +226,7 @@ function main() {
   }
 
   // 5. Catalog and search-index governance hygiene (all languages)
-  const catalog = readJson('public/catalog.json', errors);
+  const catalog = readJson(root, 'public/catalog.json', errors);
   if (catalog?.content) {
     for (const [lang, byType] of Object.entries(catalog.content)) {
       if (byType.papers?.some((p) => p.id === 'FRC-000-START-HERE')) {
@@ -162,7 +242,7 @@ function main() {
   }
 
   for (const relPath of ['public/search-index.json', ...ALL_LANGS.map((l) => `public/search-index-${l}.json`)]) {
-    const searchIndex = readJson(relPath, errors);
+    const searchIndex = readJson(root, relPath, errors);
     if (Array.isArray(searchIndex?.documents)) {
       for (const doc of searchIndex.documents) {
         if (doc.type === 'papers' && doc.id === 'FRC-700-777') {
@@ -182,12 +262,12 @@ function main() {
   }
 
   // 6. AI entrypoints + catalog parity and semantic governance
-  const drift = checkAiEntrypoints(ROOT);
+  const drift = checkAiEntrypoints(root);
   if (!drift.ok) {
     errors.push(...drift.errors);
   }
 
-  const agentJson = readJson('public/agent.json', errors);
+  const agentJson = readJson(root, 'public/agent.json', errors);
   if (agentJson) {
     const primaryIds = new Set((agentJson.primary_route || []).map((p) => p.id));
     const thresholdIds = new Set((agentJson.threshold_route || []).map((p) => p.id));
@@ -219,14 +299,14 @@ function main() {
   }
 
   // 7. Cross-language translation parity & DOI hygiene
-  const trResult = validateTranslations(ROOT);
+  const trResult = validateTranslations(root);
   if (!trResult.ok) {
     errors.push(...trResult.errors);
   }
 
   // 8. Homepage & start-here governance alignment across locales
   for (const lang of ALL_LANGS) {
-    const homePath = path.join(ROOT, 'content', lang, 'site', 'home.md');
+    const homePath = path.join(root, 'content', lang, 'site', 'home.md');
     if (!fs.existsSync(homePath)) {
       errors.push(`Missing content/${lang}/site/home.md.`);
       continue;
@@ -249,7 +329,7 @@ function main() {
     }
   }
 
-  const startHerePath = path.join(ROOT, 'content', 'en', 'site', 'start-here.md');
+  const startHerePath = path.join(root, 'content', 'en', 'site', 'start-here.md');
   if (!fs.existsSync(startHerePath)) {
     errors.push('Missing content/en/site/start-here.md.');
   } else {
@@ -268,12 +348,11 @@ function main() {
   // must not carry retired 2025 claims or PLACEHOLDER DOIs.
   const ARCHIVED_BOOK_IDS = ['ecr-textbook', 'the-resonance-code'];
   const FRONTIER_PAPER_IDS = new Set(['FRC-787-787', 'FRC-826-829', 'FRC-840-101', 'FRC-841-004']);
-  const NEGATION_CONTEXT_RX = /not a pillar|not universal|demoted|withdrawn|retired|superseded|archived|quarantined|development history|no fitted|not current|relegat|descartad|retirad|archiv|retrograd|بایگانی|منسوخ|تنزل|کنار گذاشته/i;
 
   for (const lang of ALL_LANGS) {
     // Verify superseded 2025 books are archived + noindex across every locale
     for (const bookId of ARCHIVED_BOOK_IDS) {
-      const bookIndex = path.join(ROOT, 'content', lang, 'books', bookId, 'index.md');
+      const bookIndex = path.join(root, 'content', lang, 'books', bookId, 'index.md');
       if (!fs.existsSync(bookIndex)) continue;
       const raw = fs.readFileSync(bookIndex, 'utf-8');
       const fm = matter(raw).data;
@@ -285,7 +364,7 @@ function main() {
     }
 
     for (const type of ['papers', 'books', 'articles', 'concepts', 'blog', 'topics']) {
-      const typeDir = path.join(ROOT, 'content', lang, type);
+      const typeDir = path.join(root, 'content', lang, type);
       if (!fs.existsSync(typeDir)) continue;
       const files =
         type === 'books'
@@ -300,7 +379,7 @@ function main() {
               .map((e) => path.join(typeDir, e.name));
 
       for (const filePath of files) {
-        const rel = path.relative(ROOT, filePath);
+        const rel = path.relative(root, filePath);
         const raw = fs.readFileSync(filePath, 'utf-8');
         const normalized = raw.replace(/^(---)[^\S\r\n]*#.*$/gm, '$1');
         const parsed = matter(normalized);
@@ -339,25 +418,14 @@ function main() {
             ? raw.split(/\r?\n##+\s+(?:\d+\.\s*)?References\b/i)[0]
             : raw;
 
-        if (/fractal\s+resonance\s+cognition/i.test(textToCheck)) {
-          errors.push(`${rel}: active page uses retired 2025 name "Fractal Resonance Cognition".`);
-        }
-
-        for (const line of textToCheck.split(/\r?\n/)) {
-          if (/(?:D\s*[≈~=]\s*1\.90|1\.90\s*(?:fractal|signature|dimension))/i.test(line) && !NEGATION_CONTEXT_RX.test(line)) {
-            errors.push(`${rel}: active page contains unhedged D ≈ 1.90 stadium proof claim ("${line.trim().slice(0, 100)}").`);
-          }
-          if (/\b16D\b/.test(line) && !NEGATION_CONTEXT_RX.test(line)) {
-            errors.push(`${rel}: active page contains unhedged 16D canonical claim ("${line.trim().slice(0, 100)}").`);
-          }
-        }
+        errors.push(...checkActiveTextForStaleClaims(textToCheck, rel));
       }
     }
   }
 
   // Ensure archived 2025 books are excluded from search-index*.json
   for (const relPath of ['public/search-index.json', ...ALL_LANGS.map((l) => `public/search-index-${l}.json`)]) {
-    const searchIndex = readJson(relPath, errors);
+    const searchIndex = readJson(root, relPath, errors);
     if (Array.isArray(searchIndex?.documents)) {
       for (const doc of searchIndex.documents) {
         if (doc.type === 'books' && ARCHIVED_BOOK_IDS.includes(doc.bookId || doc.id)) {
@@ -368,13 +436,13 @@ function main() {
   }
 
   // 10. Public falsification ledger verification
-  const ledgerCheck = checkFalsificationLedger(ROOT);
+  const ledgerCheck = checkFalsificationLedger(root);
   if (!ledgerCheck.ok) {
     errors.push(...ledgerCheck.errors);
   }
 
   // 11. Issue #92 structured data hygiene (no dead /search SearchAction or /api/* endpoints)
-  const schemaPath = path.join(ROOT, 'src', 'lib', 'schema.ts');
+  const schemaPath = path.join(root, 'src', 'lib', 'schema.ts');
   if (fs.existsSync(schemaPath)) {
     const schemaSrc = fs.readFileSync(schemaPath, 'utf-8');
     if (/\bSearchAction\b/.test(schemaSrc) || /\/search['"`?]/.test(schemaSrc)) {
@@ -392,15 +460,32 @@ function main() {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) hits.push(...findFinderDuplicates(full));
-      else if (/\s2\.[A-Za-z0-9]+$/.test(entry.name)) hits.push(path.relative(ROOT, full));
+      else if (/\s2\.[A-Za-z0-9]+$/.test(entry.name)) hits.push(path.relative(root, full));
     }
     return hits;
   }
-  for (const dup of findFinderDuplicates(path.join(ROOT, 'src'))) {
+  for (const dup of findFinderDuplicates(path.join(root, 'src'))) {
     errors.push(`Stray duplicate file found: ${dup}`);
   }
 
-  if (errors.length > 0) {
+  return {
+    ok: errors.length === 0,
+    errors,
+    stats: {
+      publishedEnglishPapers: papers.length,
+      translatedPapersChecked: trResult.stats.translatedPapersChecked,
+    },
+  };
+}
+
+function main() {
+  const rootArg = process.argv.find((a) => a.startsWith('--root='));
+  const targetRoot = rootArg ? path.resolve(rootArg.slice('--root='.length)) : DEFAULT_ROOT;
+
+  console.log('Governance Check: Verifying FRC public corpus & homepage governance...\n');
+  const { ok, errors, stats } = validateGovernance(targetRoot);
+
+  if (!ok) {
     console.error(`✗ Governance check FAILED (${errors.length} issue(s)):\n`);
     for (const err of errors) {
       console.error(`  - ${err}`);
@@ -410,8 +495,10 @@ function main() {
   }
 
   console.log(
-    `✓ Governance check PASSED (${papers.length} published English papers, FRC 700/830 boundaries, catalog, search indexes, AI entrypoints, ${trResult.stats.translatedPapersChecked} translated papers, and homepage/start-here research map verified).`,
+    `✓ Governance check PASSED (${stats.publishedEnglishPapers} published English papers, FRC 700/830 boundaries, catalog, search indexes, AI entrypoints, ${stats.translatedPapersChecked} translated papers, and homepage/start-here research map verified).`,
   );
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(__filename)) {
+  main();
+}

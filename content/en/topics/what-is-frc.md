@@ -6,7 +6,6 @@ author: "FRC"
 date: 2026-07-15
 status: published
 perspective: both
-voice: kasra
 lang: en
 tags: [frc, overview, coherence, entropy, reciprocity]
 abstract: "A status-labeled orientation to Fractal Resonance Coherence (FRC): its canonical reciprocity relation, active mathematical and empirical series, explicit claim boundaries, and kept negative results."
@@ -27,7 +26,7 @@ answers:
     role: "Canonical Summary"
     stance: "status-labeled"
     answer: "FRC begins from the canonical scale-invariant relation dS + k* d ln C = 0, used operationally as a scale-declared bookkeeping identity and control law. Its proposed universal physical extension remains an open conjecture. FRC does not claim to have derived the Born rule, does not assert a fixed Born-deviation range, and keeps negative gates visible alongside positive results."
-  - lens: "river"
+  - lens: "FRC Philosophy"
     by: "FRC Philosophy"
     role: "2026 Books"
     stance: "philosophical"

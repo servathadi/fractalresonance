@@ -6,7 +6,6 @@ author: "FRC"
 date: 2026-07-15
 status: published
 perspective: both
-voice: kasra
 lang: es
 tags: [frc, visión-general, coherencia, entropía, reciprocidad]
 abstract: "Orientación etiquetada por estado sobre la Coherencia de Resonancia Fractal (FRC): relación canónica de reciprocidad, series matemáticas y empíricas activas, límites explícitos y resultados negativos retenidos."
@@ -27,7 +26,7 @@ answers:
     role: "Resumen canónico"
     stance: "status-labeled"
     answer: "FRC parte de la relación canónica dS + k* d ln C = 0 usada operacionalmente como identidad contable declarada por escala y ley de control. Su extensión física universal sigue siendo una conjetura abierta. FRC no afirma haber derivado la regla de Born ni fija un rango universal de desviación, y publica sus puertas negativas junto a sus resultados positivos."
-  - lens: "river"
+  - lens: "Filosofía FRC"
     by: "Filosofía FRC"
     role: "Libros 2026"
     stance: "philosophical"

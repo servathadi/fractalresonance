@@ -17,7 +17,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "validate": "node scripts/validate-content.mjs && node scripts/validate-translations.mjs && node scripts/generate-falsification-ledger.mjs --check && node scripts/generate-ai-entrypoints.mjs --check",
+    "validate": "node scripts/validate-content.mjs && node scripts/validate-translations.mjs && node scripts/generate-falsification-ledger.mjs --check && node scripts/generate-ai-entrypoints.mjs --check && node scripts/validate-governance.mjs",
     "validate:ai-entrypoints": "node scripts/generate-ai-entrypoints.mjs --check",
     "validate:translations": "node scripts/validate-translations.mjs",
     "governance:check": "node scripts/validate-governance.mjs",

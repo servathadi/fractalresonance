@@ -14,10 +14,10 @@
     "DEMOTED": "Earlier claim, origin note, or book edition superseded by the 2026 status-labeled corpus and quarantined to historical archive (noindex)."
   },
   "summary": {
-    "totalEntries": 11,
+    "totalEntries": 10,
     "byDisposition": {
       "NO_GAIN": 1,
-      "CONTRADICTED": 3,
+      "CONTRADICTED": 2,
       "UNDERPOWERED": 1,
       "STRUCTURAL_OBSTRUCTION": 1,
       "DEMOTED": 5
@@ -182,41 +182,19 @@
       ]
     },
     {
-      "id": "FL-622-108-ROTATION",
-      "title": "FRC 622.108 External 57-Split Rotation Falsification Test",
-      "sourceIds": [
-        "FRC-622-108"
-      ],
-      "sourceVersions": [
-        "external-audit"
-      ],
-      "dateRecorded": "2026-07-15",
-      "disposition": "CONTRADICTED",
-      "domain": "External Empirical Gate / Rotation Split Test",
-      "claimTested": "Out-of-sample persistence and positive slope (FRC-beta) of the hypothesized FRC rotation-coherence signature across 57 independent split rotations.",
-      "evidenceSummary": "Contradicted across all three sweeps: 1 of 38 positive splits in sweeps 1–2, 0 of 19 positive splits in sweep 3, and negative aggregate slope FRC-beta = -0.1577.",
-      "metrics": {
-        "total_splits": 57,
-        "sweep_1_2_positive": 1,
-        "sweep_1_2_total": 38,
-        "sweep_3_positive": 0,
-        "sweep_3_total": 19,
-        "frc_beta": -0.1577
-      },
-      "scopeBoundary": "External falsification test; blocks promotion of the tested rotation signature and is retained permanently in the public falsification ledger.",
-      "urls": [],
-      "dois": []
-    },
-    {
       "id": "FL-DEMOTED-D190",
       "title": "Retired 2025 Claim: Stadium Billiard D ≈ 1.90 Fractal-Dimension Proof",
       "sourceIds": [
         "FRC-100-002",
+        "FRC-100-000",
         "FRC-EP-002",
         "FRC-EP-EXTRA-1"
       ],
       "sourceVersions": [
-        "v2.6"
+        "v2.6",
+        "v1.2",
+        "archived",
+        "archived"
       ],
       "dateRecorded": "2026-07-12",
       "disposition": "DEMOTED",
@@ -230,7 +208,8 @@
         "/en/papers/FRC-100-000"
       ],
       "dois": [
-        "10.5281/zenodo.21328428"
+        "10.5281/zenodo.21328428",
+        "10.5281/zenodo.21298155"
       ]
     },
     {
@@ -243,8 +222,10 @@
         "FRC-100-007"
       ],
       "sourceVersions": [
-        "v2.1",
-        "v1.0"
+        "v1.2",
+        "v1.0",
+        "v3.3",
+        "v3.3"
       ],
       "dateRecorded": "2026-07-10",
       "disposition": "DEMOTED",
@@ -260,7 +241,10 @@
         "/en/papers/FRC-100-007"
       ],
       "dois": [
-        "10.5281/zenodo.21298194"
+        "10.5281/zenodo.21298155",
+        "10.5281/zenodo.21298194",
+        "10.5281/zenodo.21298162",
+        "10.5281/zenodo.21298171"
       ]
     },
     {
@@ -272,7 +256,9 @@
         "FRC-100-000"
       ],
       "sourceVersions": [
-        "archive"
+        "archive",
+        "archive",
+        "v1.2"
       ],
       "dateRecorded": "2026-07-10",
       "disposition": "DEMOTED",
