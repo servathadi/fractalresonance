@@ -42,12 +42,12 @@ const LABELS: Record<string, Record<EpistemicStatus, string>> = {
 };
 
 const STYLES: Record<EpistemicStatus, string> = {
-  primary: 'border-frc-gold/50 bg-frc-gold/10 text-frc-gold',
-  frontier: 'border-cyan-600/40 bg-cyan-600/10 text-cyan-700 dark:text-cyan-300',
-  commentary: 'border-frc-blue bg-frc-blue/15 text-frc-text-dim',
-  conceptual: 'border-emerald-600/35 bg-emerald-600/10 text-emerald-700 dark:text-emerald-300',
-  philosophical: 'border-violet-600/35 bg-violet-600/10 text-violet-700 dark:text-violet-300',
-  archive: 'border-frc-steel/35 bg-frc-steel/10 text-frc-steel',
+  primary: 'border-l-2 border-frc-gold text-frc-gold pl-2',
+  frontier: 'border-l-2 border-frc-gold/70 text-frc-text pl-2',
+  commentary: 'border-l-2 border-frc-blue-light text-frc-text-dim pl-2',
+  conceptual: 'border-l-2 border-frc-blue text-frc-text-dim pl-2',
+  philosophical: 'border-l-2 border-frc-gold/50 text-frc-text-dim pl-2',
+  archive: 'border-l-2 border-frc-steel text-frc-steel pl-2',
 };
 
 interface EpistemicBadgeProps {
@@ -61,7 +61,7 @@ export function EpistemicBadge({ status, lang = 'en', className = '' }: Epistemi
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center rounded-[2px] border px-1.5 py-0.5 font-mono text-[0.7rem] font-medium leading-4 uppercase ${STYLES[status]} ${className}`.trim()}
+      className={`inline-flex shrink-0 items-center font-mono text-[0.8125rem] font-medium leading-4 ${STYLES[status]} ${className}`.trim()}
       data-epistemic-status={status}
     >
       {label}

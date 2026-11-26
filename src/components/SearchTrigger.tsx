@@ -45,8 +45,8 @@ export function SearchTrigger({ className = '' }: SearchTriggerProps) {
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         />
       </svg>
-      <span className="hidden lg:inline text-xs">
-        <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-frc-blue/20 border border-frc-blue/50 rounded">
+      <span className="hidden lg:inline text-[0.8125rem]">
+        <kbd className="px-1.5 py-0.5 text-[0.8125rem] font-mono bg-frc-void-light border border-frc-blue text-frc-steel">
           /
         </kbd>
       </span>

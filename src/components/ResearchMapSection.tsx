@@ -163,7 +163,6 @@ const COPY: Record<string, CopyBlock> = {
 export function ResearchMapSection({
   data,
   lang,
-  sectionMarker = '§01',
 }: {
   data: ResearchMapData;
   lang: string;
@@ -172,101 +171,95 @@ export function ResearchMapSection({
   const c = COPY[lang] || COPY.en;
 
   return (
-    <section className="border-y border-frc-blue/60 bg-frc-void-light" aria-labelledby="current-research-map">
+    <section className="border-b border-frc-blue bg-frc-void-light" aria-labelledby="current-research-map">
       <div className="max-w-6xl mx-auto px-6 py-14 space-y-12">
         {/* Heading */}
-        <div>
-          <div className="section-marker mb-3" data-section={sectionMarker}>
-            <h2 id="current-research-map" className="text-lg text-frc-text font-medium">
-              {c.sectionTitle}
-            </h2>
-          </div>
-          <p className="text-sm text-frc-text-dim max-w-3xl leading-relaxed">
+        <div className="max-w-3xl">
+          <h2 id="current-research-map" className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-2">
+            {c.sectionTitle}
+          </h2>
+          <p className="text-sm text-frc-text-dim leading-relaxed">
             {c.sectionSubtitle}
           </p>
         </div>
 
-        {/* Status taxonomy legend — visible BEFORE readers enter any paper */}
-        <div className="border border-frc-blue bg-frc-void p-5">
-          <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest mb-4">
+        {/* Status taxonomy legend — clean hairline columns */}
+        <div className="border-y border-frc-blue py-6">
+          <h3 className="text-sm font-medium text-frc-gold mb-4">
             {c.statusLegendTitle}
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="border-l-2 border-frc-gold pl-3 min-w-0">
-              <div className="font-mono text-xs text-frc-text uppercase tracking-wider mb-1">{c.exactLabel}</div>
-              <p className="text-xs text-frc-text-dim leading-relaxed">{c.exactDesc}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="border-s-2 border-frc-gold ps-3.5 min-w-0">
+              <div className="text-sm font-medium text-frc-text mb-1">{c.exactLabel}</div>
+              <p className="text-sm text-frc-text-dim leading-relaxed">{c.exactDesc}</p>
             </div>
-            <div className="border-l-2 border-frc-blue pl-3 min-w-0">
-              <div className="font-mono text-xs text-frc-text uppercase tracking-wider mb-1">{c.frameworkLabel}</div>
-              <p className="text-xs text-frc-text-dim leading-relaxed">{c.frameworkDesc}</p>
+            <div className="border-s-2 border-frc-blue-light ps-3.5 min-w-0">
+              <div className="text-sm font-medium text-frc-text mb-1">{c.frameworkLabel}</div>
+              <p className="text-sm text-frc-text-dim leading-relaxed">{c.frameworkDesc}</p>
             </div>
-            <div className="border-l-2 border-frc-steel pl-3 min-w-0">
-              <div className="font-mono text-xs text-frc-text uppercase tracking-wider mb-1">{c.modelLabel}</div>
-              <p className="text-xs text-frc-text-dim leading-relaxed">{c.modelDesc}</p>
+            <div className="border-s-2 border-frc-steel ps-3.5 min-w-0">
+              <div className="text-sm font-medium text-frc-text mb-1">{c.modelLabel}</div>
+              <p className="text-sm text-frc-text-dim leading-relaxed">{c.modelDesc}</p>
             </div>
-            <div className="border-l-2 border-frc-gold/60 pl-3 min-w-0">
-              <div className="font-mono text-xs text-frc-text uppercase tracking-wider mb-1">{c.conjectureLabel}</div>
-              <p className="text-xs text-frc-text-dim leading-relaxed">{c.conjectureDesc}</p>
+            <div className="border-s-2 border-frc-gold/60 ps-3.5 min-w-0">
+              <div className="text-sm font-medium text-frc-text mb-1">{c.conjectureLabel}</div>
+              <p className="text-sm text-frc-text-dim leading-relaxed">{c.conjectureDesc}</p>
             </div>
           </div>
         </div>
 
         {/* 1. Canonical Reciprocity Statement (FRC 566.001) */}
         {data.canonicalReciprocity && (
-          <div>
-            <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest mb-4">
-              {c.canonicalHeading}
-            </h3>
-            <div className="border border-frc-gold/70 bg-frc-void p-5">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                <span className="font-mono text-xs text-frc-gold">
-                  {data.canonicalReciprocity.id}{data.canonicalReciprocity.version ? ` · ${data.canonicalReciprocity.version}` : ''}
-                </span>
-                <span className="font-mono text-[0.6875rem] px-2 py-0.5 border border-frc-blue text-frc-text-dim">
-                  {data.canonicalReciprocity.statusBadge}
-                </span>
-              </div>
-              <a
-                href={data.canonicalReciprocity.href}
-                className="text-base text-frc-text hover:text-frc-gold transition-colors font-medium block mb-2"
-              >
-                {data.canonicalReciprocity.title}
+          <div className="border-s-2 border-frc-gold ps-5">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1.5">
+              <h3 className="text-sm font-medium text-frc-gold">{c.canonicalHeading}</h3>
+              <span className="font-mono text-[0.8125rem] text-frc-text-dim">
+                {data.canonicalReciprocity.statusBadge}
+              </span>
+            </div>
+            <div className="font-mono text-sm text-frc-gold mb-1 tabular-nums">
+              {data.canonicalReciprocity.id}{data.canonicalReciprocity.version ? ` · ${data.canonicalReciprocity.version}` : ''}
+            </div>
+            <a
+              href={data.canonicalReciprocity.href}
+              className="text-base text-frc-text hover:text-frc-gold transition-colors font-medium block mb-2"
+            >
+              {data.canonicalReciprocity.title}
+            </a>
+            <p className="text-sm text-frc-text-dim leading-relaxed max-w-[65ch] mb-3">
+              {data.canonicalReciprocity.summary}
+            </p>
+            <div className="flex flex-wrap gap-5 text-sm">
+              <a href={data.canonicalReciprocity.href} className="text-frc-gold hover:underline">
+                {c.readPaper} →
               </a>
-              <p className="text-xs text-frc-text-dim leading-relaxed mb-3">
-                {data.canonicalReciprocity.summary}
-              </p>
-              <div className="flex flex-wrap gap-3 text-xs font-mono">
-                <a href={data.canonicalReciprocity.href} className="text-frc-gold hover:underline">
-                  {c.readPaper} →
+              {data.canonicalReciprocity.pdfHref && (
+                <a href={data.canonicalReciprocity.pdfHref} className="text-frc-text-dim hover:text-frc-gold">
+                  {c.pdfLabel}
                 </a>
-                {data.canonicalReciprocity.pdfHref && (
-                  <a href={data.canonicalReciprocity.pdfHref} className="text-frc-text-dim hover:text-frc-gold">
-                    {c.pdfLabel}
-                  </a>
-                )}
-                {data.canonicalReciprocity.conceptDoi && (
-                  <a
-                    href={`https://doi.org/${data.canonicalReciprocity.conceptDoi}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-frc-steel hover:text-frc-gold"
-                  >
-                    Concept DOI: {data.canonicalReciprocity.conceptDoi}
-                  </a>
-                )}
-              </div>
+              )}
+              {data.canonicalReciprocity.conceptDoi && (
+                <a
+                  href={`https://doi.org/${data.canonicalReciprocity.conceptDoi}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[0.8125rem] text-frc-steel hover:text-frc-gold"
+                >
+                  Concept DOI: {data.canonicalReciprocity.conceptDoi}
+                </a>
+              )}
             </div>
           </div>
         )}
 
         {/* 2. Reciprocity Mathematics (FRC 830.000–830.005) */}
         {data.reciprocityMathematics.papers.length > 0 && (
-          <div>
-            <div className="flex flex-wrap items-baseline justify-between gap-3 mb-3">
-              <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest">
+          <div className="pt-2 border-t border-frc-blue">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 pt-6 mb-2">
+              <h3 className="text-base font-medium text-frc-text">
                 {c.reciprocityHeading}
               </h3>
-              <div className="flex flex-wrap gap-3 font-mono text-[0.6875rem]">
+              <div className="flex flex-wrap gap-4 font-mono text-[0.8125rem]">
                 {data.reciprocityMathematics.sharedConceptDoi && (
                   <a
                     href={`https://doi.org/${data.reciprocityMathematics.sharedConceptDoi}`}
@@ -289,31 +282,29 @@ export function ResearchMapSection({
                 )}
               </div>
             </div>
-            <p className="text-xs text-frc-text-dim max-w-4xl leading-relaxed mb-5">
+            <p className="text-sm text-frc-text-dim max-w-[68ch] leading-relaxed mb-6">
               {c.reciprocityIntro}
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
               {data.reciprocityMathematics.papers.map((paper) => (
-                <article key={paper.id} className="border border-frc-blue bg-frc-void p-4 flex flex-col justify-between min-w-0">
+                <article key={paper.id} className="border-t border-frc-blue/80 pt-4 flex flex-col justify-between min-w-0">
                   <div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="font-mono text-[0.6875rem] text-frc-gold">
-                        {paper.id}{paper.version ? ` · ${paper.version}` : ''}
-                      </span>
+                    <div className="font-mono text-[0.8125rem] text-frc-gold mb-1 tabular-nums">
+                      {paper.id}{paper.version ? ` · ${paper.version}` : ''}
                     </div>
-                    <div className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-wider mb-2">
+                    <div className="text-[0.8125rem] text-frc-steel mb-2">
                       {paper.statusBadge}
                     </div>
-                    <h4 className="text-sm text-frc-text leading-snug mb-2">
+                    <h4 className="text-base font-medium text-frc-text leading-snug mb-2">
                       <a href={paper.href} className="hover:text-frc-gold transition-colors">
                         {paper.title}
                       </a>
                     </h4>
-                    <p className="text-xs text-frc-text-dim leading-relaxed mb-4">
+                    <p className="text-sm text-frc-text-dim leading-relaxed mb-3">
                       {paper.summary}
                     </p>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-frc-blue/40 font-mono text-[0.6875rem]">
+                  <div className="flex flex-wrap items-center gap-4 text-sm">
                     <a href={paper.href} className="text-frc-gold hover:underline">
                       {c.readPaper} →
                     </a>
@@ -331,30 +322,30 @@ export function ResearchMapSection({
 
         {/* 3. Threshold Papers (FRC 700.000–700.007) + Superseded Historical Link */}
         {data.thresholdPapers.length > 0 && (
-          <div>
-            <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest mb-3">
+          <div className="pt-2 border-t border-frc-blue">
+            <h3 className="text-base font-medium text-frc-text pt-6 mb-2">
               {c.thresholdHeading}
             </h3>
-            <p className="text-xs text-frc-text-dim max-w-4xl leading-relaxed mb-5">
+            <p className="text-sm text-frc-text-dim max-w-[68ch] leading-relaxed mb-6">
               {c.thresholdIntro}
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5">
               {data.thresholdPapers.map((paper) => (
-                <article key={paper.id} className="border border-frc-blue bg-frc-void p-4 flex flex-col justify-between min-w-0">
+                <article key={paper.id} className="border-t border-frc-blue/80 pt-3.5 flex flex-col justify-between min-w-0">
                   <div>
-                    <div className="font-mono text-[0.6875rem] text-frc-gold mb-1">
+                    <div className="font-mono text-[0.8125rem] text-frc-gold mb-1 tabular-nums">
                       {paper.id}{paper.version ? ` · ${paper.version}` : ''}
                     </div>
-                    <div className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-wider mb-2">
+                    <div className="text-[0.8125rem] text-frc-steel mb-1.5">
                       {paper.statusBadge}
                     </div>
-                    <h4 className="text-sm text-frc-text leading-snug mb-2">
+                    <h4 className="text-sm font-medium text-frc-text leading-snug mb-2">
                       <a href={paper.href} className="hover:text-frc-gold transition-colors">
                         {paper.title}
                       </a>
                     </h4>
                   </div>
-                  <div className="pt-2 border-t border-frc-blue/40 font-mono text-[0.6875rem]">
+                  <div className="text-sm">
                     <a href={paper.href} className="text-frc-gold hover:underline">
                       {c.readPaper} →
                     </a>
@@ -363,12 +354,12 @@ export function ResearchMapSection({
               ))}
             </div>
             {data.supersededOrigin && (
-              <div className="mt-4 border-l-2 border-frc-steel pl-4 py-1 text-xs text-frc-steel">
+              <div className="mt-6 border-s-2 border-frc-steel ps-4 py-1 text-sm text-frc-steel">
                 <span>{c.historicalContextLabel} </span>
                 <a href={data.supersededOrigin.href} className="text-frc-text-dim hover:text-frc-gold underline font-mono">
                   {data.supersededOrigin.id}
                 </a>
-                <span> — {data.supersededOrigin.note}</span>
+                <span> ({data.supersededOrigin.note})</span>
               </div>
             )}
           </div>
@@ -376,33 +367,33 @@ export function ResearchMapSection({
 
         {/* 4. Scoped Empirical & Model-Specific Programs */}
         {data.empiricalPrograms.length > 0 && (
-          <div>
-            <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest mb-3">
+          <div className="pt-2 border-t border-frc-blue">
+            <h3 className="text-base font-medium text-frc-text pt-6 mb-2">
               {c.empiricalHeading}
             </h3>
-            <p className="text-xs text-frc-text-dim max-w-4xl leading-relaxed mb-5">
+            <p className="text-sm text-frc-text-dim max-w-[68ch] leading-relaxed mb-6">
               {c.empiricalIntro}
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-8">
               {data.empiricalPrograms.map((paper) => (
-                <article key={paper.id} className="border border-frc-blue bg-frc-void p-5 flex flex-col justify-between min-w-0">
+                <article key={paper.id} className="border-t border-frc-blue/80 pt-4 flex flex-col justify-between min-w-0">
                   <div>
-                    <div className="font-mono text-[0.6875rem] text-frc-gold mb-1">
+                    <div className="font-mono text-[0.8125rem] text-frc-gold mb-1 tabular-nums">
                       {paper.id}{paper.version ? ` · ${paper.version}` : ''}
                     </div>
-                    <div className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-wider mb-2">
+                    <div className="text-[0.8125rem] text-frc-steel mb-2">
                       {paper.statusBadge}
                     </div>
-                    <h4 className="text-sm text-frc-text leading-snug mb-2">
+                    <h4 className="text-base font-medium text-frc-text leading-snug mb-2">
                       <a href={paper.href} className="hover:text-frc-gold transition-colors">
                         {paper.title}
                       </a>
                     </h4>
-                    <p className="text-xs text-frc-text-dim leading-relaxed mb-4">
+                    <p className="text-sm text-frc-text-dim leading-relaxed mb-3">
                       {paper.summary}
                     </p>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-frc-blue/40 font-mono text-[0.6875rem]">
+                  <div className="flex flex-wrap items-center gap-4 text-sm">
                     <a href={paper.href} className="text-frc-gold hover:underline">
                       {c.readPaper} →
                     </a>
@@ -419,21 +410,21 @@ export function ResearchMapSection({
         )}
 
         {/* 5. Explicit Non-Claims / Claim Boundaries */}
-        <div className="border border-frc-blue bg-frc-void p-5">
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <h3 className="font-mono text-[0.6875rem] text-frc-gold uppercase tracking-widest">
+        <div className="pt-6 border-t border-frc-blue">
+          <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
+            <h3 className="text-base font-medium text-frc-text">
               {c.boundariesHeading}
             </h3>
             <a
               href={`/${lang}/falsifications`}
-              className="font-mono text-[0.6875rem] text-frc-gold hover:underline"
+              className="text-sm text-frc-gold hover:underline"
             >
               Public Falsification &amp; Negative-Gate Ledger →
             </a>
           </div>
-          <ul className="grid sm:grid-cols-2 gap-3 text-xs text-frc-text-dim leading-relaxed">
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-frc-text-dim leading-relaxed">
             {c.boundaries.map((line) => (
-              <li key={line} className="border-l border-frc-blue pl-3">
+              <li key={line} className="border-s border-frc-blue ps-3.5">
                 {line}
               </li>
             ))}

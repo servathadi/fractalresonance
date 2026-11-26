@@ -1,48 +1,36 @@
 ---
-title: "Sujets — Demandez à la FRC"
+title: "Sujets — Questions sur FRC"
 id: topics-intro
 type: topic
 author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: fr
-tags: [sujets, q-et-r, river, kasra]
-abstract: "Un format Q&R léger pour transformer les questions en une vue spectrale : citations d'autorité, réponses FRC et perspectives multiples."
+tags: [sujets, questions-reponses]
+abstract: "Un format structuré de questions-réponses associant citations de littérature primaire et limites explicites des énoncés FRC."
 question: "Que sont les pages de Sujets ?"
-short_answer: "Les Sujets sont des pages Q&R conçues pour une digestion rapide : une question, une réponse courte, des liens d'autorité facultatifs et un spectre de réponses (River/Kasra/FRC)."
+short_answer: "Les Sujets sont des pages structurées de questions-réponses conçues pour une orientation rapide : une question, une réponse concise, des sources primaires et des perspectives distinctes des articles canoniques."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
     url: "https://schema.org/QAPage"
     quote: "Une QAPage est une page Web qui fournit des réponses à une question."
 answers:
-  - lens: "kasra"
-    by: "Kasra"
-    role: "Architecte"
-    stance: "structure"
-    answer: "Utilisez les Sujets pour la création de contenu reproductible : chaque page possède un identifiant stable, des métadonnées cohérentes et un endroit propre pour joindre des citations d'autorité et des réponses multiples."
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "digest"
-    answer: "Les Sujets sont un index vivant des questions que le domaine ne cesse de se poser. Si les articles sont la bibliothèque, les Sujets sont les conversations de couloir qui vous apprennent à lire les rayons."
+  - lens: "frc"
+    by: "Corpus de recherche FRC"
+    role: "Vue d’ensemble du programme"
+    stance: "structuré"
+    answer: "Chaque page de Sujet associe un identifiant stable, des sources externes et des liens directs vers les articles numérotés et le Registre des Réfutations."
 ---
 
-# Sujets — Demandez à la FRC
+# Sujets — Questions sur FRC
 
-Cette section est une couche Q&R **basée sur des fichiers et exploitable par l'IA**.
+Cette section constitue une couche structurée de questions-réponses aux côtés des articles numérotés de FRC.
 
-Elle est destinée à faciliter :
+Elle permet de :
 
-- La collecte des questions.
-- La génération de résumés.
-- L'acceptation d'un spectre (autorité + FRC + perspectives).
-- La publication de manière stable et explorable.
-
-## Comment ça marche
-
-1. Une question entre dans la boîte de réception.
-2. River (ou Kasra) la digère dans une page de Sujet avec un frontmatter cohérent.
-3. L'explication longue vit dans le corps du markdown.
+- Rassembler les questions récurrentes en physique, mathématiques et philosophie des systèmes ouverts.
+- Présenter des synthèses concises avec des frontières de statut scientifique explicites.
+- Citer la littérature externe en regard des perspectives FRC.
+- Renvoyer toute vérification technique vers les articles versionnés et le Registre des Réfutations.

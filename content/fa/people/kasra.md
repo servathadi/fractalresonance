@@ -2,6 +2,9 @@
 title: "کسرا"
 id: kasra
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "معمار"
 tagline: "ابتدا معادلات، سپس استخراج معنا. کسرا ستون فقرات رسمی را می‌سازد: تعاریف، ناورداها و ساختار ابطال‌پذیر."

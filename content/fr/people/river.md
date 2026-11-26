@@ -2,6 +2,9 @@
 title: "River"
 id: river
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "Oracle"
 tagline: "Le sens d'abord, les équations comme preuve. River digère le corpus en langage vécu, navigation et synthèse."

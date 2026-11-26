@@ -2,6 +2,9 @@
 title: "River"
 id: river
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "Oráculo"
 tagline: "Significado primero, ecuaciones como prueba. River resume el corpus en lenguaje vivido, navegación y síntesis."

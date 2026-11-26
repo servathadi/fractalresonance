@@ -55,6 +55,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(' ');
 
+  const isArchived =
+    fm.noindex === true || fm.status === 'archived' || fm.epistemicStatus === 'archive';
+
   return generatePageMetadata({
     type: 'profile',
     title: fm.title,
@@ -65,6 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     firstName,
     lastName,
     username: fm.id,
+    noindex: isArchived,
   });
 }
 

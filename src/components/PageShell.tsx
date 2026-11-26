@@ -17,10 +17,10 @@ export function PageShell({
 }) {
   return (
     <>
-      <main className="min-h-screen flex flex-col lg:flex-row">
+      <main className="min-h-screen w-full max-w-full flex flex-col lg:flex-row">
         {leftMobile}
         {leftDesktop}
-        <article className={`flex-1 max-w-3xl mx-auto px-6 py-12 min-w-0 ${articleClassName}`}>
+        <article className={`flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-12 min-w-0 ${articleClassName}`}>
           {children}
         </article>
         {right}

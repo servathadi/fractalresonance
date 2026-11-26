@@ -1,0 +1,254 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, expect, it } from 'vitest';
+import {
+  EDGE_SCOPE_TAGS,
+  getBlogPost,
+  getGlossary,
+  getGraphData,
+  getPerson,
+  getTopic,
+  normalizeEdgeScopeTag,
+  normalizePrimarySources,
+  parseFrontmatter,
+} from '@/lib/content';
+import { EdgeScopeBadge } from '@/components/EdgeScopeBadge';
+import { PrimarySourcesBlock } from '@/components/PrimarySourcesBlock';
+import { VoiceTag } from '@/components/VoiceTag';
+import { HomeHub } from '@/components/pages/HomeHub';
+import { BooksIndex } from '@/components/pages/BooksIndex';
+import FalsificationsPage from '@/app/[lang]/falsifications/page';
+import PeoplePage from '@/app/[lang]/people/page';
+import StartHerePage from '@/app/[lang]/start-here/page';
+import TopicPage from '@/app/[lang]/topics/[id]/page';
+import TagPage from '@/app/[lang]/tags/[tag]/page';
+
+describe('Phase 1B editorial polish and Edge / Field Notes readiness', () => {
+  it('parses and normalizes scopeTag and primarySources from YAML frontmatter and rejects inherited prototype keys', () => {
+    const parsed = parseFrontmatter(`---
+id: edge-2026-11-28
+title: "Edge Dispatch: Non-equilibrium phase-locking in driven open cavities"
+date: 2026-11-28
+status: published
+scopeTag: "test-idea"
+primarySources:
+  - title: "Driven-dissipative synchronization in photonic lattices"
+    authors: "A. Researcher, B. Author"
+    year: 2026
+    venue: "Physical Review Letters"
+    doi: "10.1103/PhysRevLett.136.010001"
+    arxiv: "2601.01234"
+    note: "Experimental benchmark candidate for cross-mechanism coherence transport."
+  - "H. Servat, FRC 787.787: Operational Lambda-Flight Protocol (2026)"
+lang: en
+---
+
+Dispatch body.`);
+
+    expect(normalizeEdgeScopeTag(parsed.frontmatter.scopeTag)).toBe('Test Idea');
+    expect(normalizeEdgeScopeTag('Structural Analogy')).toBe('Structural Analogy');
+    expect(normalizeEdgeScopeTag('open-question')).toBe('Open Question');
+    expect(normalizeEdgeScopeTag('counter evidence')).toBe('Counter-Evidence');
+    expect(normalizeEdgeScopeTag('not-a-valid-tag')).toBeUndefined();
+
+    // Inherited prototype keys must never resolve to truthy values
+    for (const protoKey of ['constructor', '__proto__', 'toString', 'valueOf', 'hasOwnProperty']) {
+      expect(normalizeEdgeScopeTag(protoKey)).toBeUndefined();
+      expect(
+        renderToStaticMarkup(
+          React.createElement(EdgeScopeBadge, { scopeTag: protoKey as never, lang: 'en', variant: 'banner' }),
+        ),
+      ).toBe('');
+    }
+
+    const sources = normalizePrimarySources(parsed.frontmatter.primarySources);
+    expect(sources).toHaveLength(2);
+    expect(sources[0]).toMatchObject({
+      title: 'Driven-dissipative synchronization in photonic lattices',
+      authors: 'A. Researcher, B. Author',
+      year: 2026,
+      venue: 'Physical Review Letters',
+      doi: '10.1103/PhysRevLett.136.010001',
+      arxiv: '2601.01234',
+    });
+    expect(sources[1]).toEqual({
+      title: 'H. Servat, FRC 787.787: Operational Lambda-Flight Protocol (2026)',
+    });
+  });
+
+  it('renders EdgeScopeBadge across all 4 scope tags and PrimarySourcesBlock rejecting unsafe, protocol-relative, and backslash URLs', () => {
+    for (const tag of EDGE_SCOPE_TAGS) {
+      const inlineHtml = renderToStaticMarkup(
+        React.createElement(EdgeScopeBadge, { scopeTag: tag, lang: 'en', variant: 'inline' }),
+      );
+      expect(inlineHtml).toContain(`data-edge-scope="${tag}"`);
+      expect(inlineHtml).toContain(tag);
+
+      const bannerHtml = renderToStaticMarkup(
+        React.createElement(EdgeScopeBadge, { scopeTag: tag, lang: 'en', variant: 'banner', basePath: '/en' }),
+      );
+      expect(bannerHtml).toContain(`data-edge-scope="${tag}"`);
+      expect(bannerHtml).toContain('/en/papers');
+      expect(bannerHtml).not.toMatch(/Kasra|River \(Oracle\)/i);
+    }
+
+    const sourcesHtml = renderToStaticMarkup(
+      React.createElement(PrimarySourcesBlock, {
+        lang: 'en',
+        sources: [
+          {
+            title: 'Valid external paper',
+            authors: 'Jane Doe',
+            year: 2026,
+            doi: '10.5281/zenodo.21385391',
+            arxiv: '2601.01234',
+          },
+          {
+            title: 'Valid internal path',
+            url: '/en/papers/FRC-566-001',
+          },
+          {
+            title: 'Unsafe javascript protocol',
+            url: 'javascript:alert(1)',
+          },
+          {
+            title: 'Unsafe protocol-relative URL',
+            url: '//evil.example/phish',
+          },
+          {
+            title: 'Unsafe backslash URL',
+            url: '/\\evil.example/phish',
+          },
+          {
+            title: 'Unsafe tab control URL',
+            url: '/\t/evil.example/phish',
+          },
+          {
+            title: 'Unsafe newline control URL',
+            url: '/\n/evil.example/phish',
+          },
+          {
+            title: 'Unsafe carriage-return control URL',
+            url: '/\r/evil.example/phish',
+          },
+        ],
+      }),
+    );
+
+    expect(sourcesHtml).toContain('data-primary-sources="true"');
+    expect(sourcesHtml).toContain('https://doi.org/10.5281/zenodo.21385391');
+    expect(sourcesHtml).toContain('https://arxiv.org/abs/2601.01234');
+    expect(sourcesHtml).toContain('href="/en/papers/FRC-566-001"');
+    expect(sourcesHtml).toContain('Unsafe javascript protocol');
+    expect(sourcesHtml).toContain('Unsafe protocol-relative URL');
+    expect(sourcesHtml).toContain('Unsafe backslash URL');
+    expect(sourcesHtml).toContain('Unsafe tab control URL');
+    expect(sourcesHtml).toContain('Unsafe newline control URL');
+    expect(sourcesHtml).toContain('Unsafe carriage-return control URL');
+    expect(sourcesHtml).not.toContain('javascript:');
+    expect(sourcesHtml).not.toContain('evil.example');
+  });
+
+  it('keeps blog-welcome, topics-intro, TopicPage, and historical people stubs free of active persona leaks across all locales', async () => {
+    for (const lang of ['en', 'es', 'fr', 'fa']) {
+      const post = getBlogPost(lang, 'blog-welcome');
+      expect(post, `${lang}/blog/blog-welcome should exist`).not.toBeNull();
+      expect(post!.raw).not.toMatch(/River \(Oracle\)|Kasra \(Architect\)|voice:\s*(kasra|river)/i);
+      expect(normalizeEdgeScopeTag(post!.frontmatter.scopeTag)).toBe('Open Question');
+
+      const topic = getTopic(lang, 'topics-intro');
+      expect(topic, `${lang}/topics/topics-intro should exist`).not.toBeNull();
+      expect(topic!.frontmatter.voice).toBeUndefined();
+      expect(topic!.raw).not.toMatch(/River \(Oracle\)|Kasra \(Architect\)|voice:\s*(kasra|river)/i);
+
+      for (const personaId of ['kasra', 'river']) {
+        const stub = getPerson(lang, personaId);
+        expect(stub, `${lang}/people/${personaId} should remain addressable`).not.toBeNull();
+        expect(stub!.frontmatter.status).toBe('archived');
+        expect(stub!.frontmatter.noindex).toBe(true);
+      }
+
+      // Global search glossary (both default and explicit view) must exclude archived/noindex personas and river-only archived excerpts
+      for (const glossary of [
+        getGlossary(lang),
+        getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' }),
+      ]) {
+        expect(glossary['kasra']).toBeUndefined();
+        expect(glossary['river']).toBeUndefined();
+        for (const item of Object.values(glossary)) {
+          expect(item.title, `${lang} glossary title for ${item.id}`).not.toMatch(/^(?:Kasra|River|کسرا|ریور)$/i);
+          expect(item.excerpt, `${lang} glossary excerpt for ${item.id}`).not.toMatch(/River-side|از سمت ریور|Kasra \(Architect\)|River \(Oracle\)/i);
+        }
+      }
+
+      // Knowledge graph must exclude archived/noindex persona nodes
+      const graph = getGraphData(lang, 'kasra');
+      expect(graph.nodes.some((n) => n.type === 'person' && ['kasra', 'river'].includes(n.id))).toBe(false);
+      expect(graph.links.some((l) => ['kasra', 'river'].includes(l.source) || ['kasra', 'river'].includes(l.target))).toBe(false);
+
+      // People page JSON-LD schema must exclude archived/noindex persona stubs
+      const peopleEl = await PeoplePage({ params: Promise.resolve({ lang }) });
+      const peopleHtml = renderToStaticMarkup(peopleEl);
+      expect(peopleHtml).not.toMatch(/\/people\/(?:kasra|river)\b|Kasra|River|کسرا|ریور/i);
+
+      // Start-here page must not serialize archived persona excerpts
+      const startHereEl = await StartHerePage({ params: Promise.resolve({ lang }) });
+      const startHereHtml = renderToStaticMarkup(startHereEl);
+      expect(startHereHtml).not.toMatch(/River-side|از سمت ریور|Kasra \(Architect\)|River \(Oracle\)/i);
+    }
+
+    // Indexable Persian tag pages must not leak archived persona abstracts or persona related tags
+    for (const faTag of ['entropy', 'coherence', 'خلاصه']) {
+      const tagEl = await TagPage({ params: Promise.resolve({ lang: 'fa', tag: faTag }) });
+      const tagHtml = renderToStaticMarkup(tagEl);
+      expect(tagHtml, `/fa/tags/${faTag} must not leak ریور or کسرا`).not.toMatch(/ریور|کسرا/);
+    }
+
+    const topicEl = await TopicPage({ params: Promise.resolve({ lang: 'en', id: 'topics-intro' }) });
+    const topicHtml = renderToStaticMarkup(topicEl);
+    expect(topicHtml).not.toMatch(/Voice:\s*(River|Kasra)/i);
+
+    expect(renderToStaticMarkup(React.createElement(VoiceTag, { voice: 'kasra' }))).toBe('');
+    expect(renderToStaticMarkup(React.createElement(VoiceTag, { voice: 'river' }))).toBe('');
+  });
+
+  it('renders homepage with falsifiable core statement and 3-pillar research entry', async () => {
+    const el = await HomeHub({ lang: 'en', view: 'kasra' });
+    const html = renderToStaticMarkup(el);
+
+    expect(html).toContain('dS + k');
+    expect(html).toContain('d ln C = 0');
+    expect(html).toContain('566.001');
+    expect(html).toContain('830.000');
+    expect(html).toContain('700.000');
+    expect(html).toContain('787.787');
+    expect(html).toContain('826.829');
+    expect(html).toContain('The Open System');
+    expect(html).toContain('The Mind in the Coupling');
+    expect(html).toContain('/en/falsifications');
+    expect(html).toContain('/en/books');
+    expect(html).toContain('/en/papers');
+  });
+
+  it('renders BooksIndex separating Current 2026 books from Archived 2025 books', () => {
+    const html = renderToStaticMarkup(
+      React.createElement(BooksIndex, { lang: 'en', basePath: '/en', view: 'kasra', embedded: true }),
+    );
+    expect(html).toContain('Current 2026 books');
+    expect(html).toContain('The Open System');
+    expect(html).toContain('The Mind in the Coupling');
+    expect(html).toContain('Archived 2025 books');
+    expect(html).toContain('ecr-textbook');
+    expect(html).toContain('the-resonance-code');
+  });
+
+  it('renders FalsificationsPage with all 5 dispositions and zero forbidden neon color classes', async () => {
+    const el = await FalsificationsPage({ params: Promise.resolve({ lang: 'en' }) });
+    const html = renderToStaticMarkup(el);
+
+    for (const disp of ['CONTRADICTED', 'NO_GAIN', 'UNDERPOWERED', 'STRUCTURAL_OBSTRUCTION', 'DEMOTED']) {
+      expect(html).toContain(`data-disposition="${disp}"`);
+    }
+    expect(html).not.toMatch(/\b(?:red|amber|sky|violet|purple|emerald|cyan)-\d{3}\b/);
+  });
+});

@@ -2,6 +2,9 @@
 title: "Kasra"
 id: kasra
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "Arquitecto"
 tagline: "Ecuaciones primero, significado derivado. Kasra construye la columna vertebral formal: definiciones, invariantes y estructura falsable."

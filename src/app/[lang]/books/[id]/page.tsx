@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SchemaScript } from '@/components/SchemaScript';
@@ -130,39 +131,62 @@ export default async function BookPage({ params }: Props) {
       >
           {/* Breadcrumb */}
           <nav className="text-sm text-frc-text-dim mb-8">
-            <a href={basePath} className="hover:text-frc-gold">FRC</a>
-            <span className="mx-2">/</span>
-            <a href={`${basePath}/books`} className="hover:text-frc-gold">Books</a>
-            <span className="mx-2">/</span>
+            <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
+            <span className="mx-2 text-frc-blue">/</span>
+            <Link href={`${basePath}/books`} className="hover:text-frc-gold transition-colors">Books</Link>
+            <span className="mx-2 text-frc-blue">/</span>
             <span className="text-frc-text">{book.frontmatter.title}</span>
           </nav>
 
-          {/* Header */}
-          <header className="mb-8">
-            <EpistemicBadge
-              status={getContentEpistemicStatus('book', fm)}
-              lang={lang}
-              className="mb-3"
-            />
-            <h1 className="text-3xl font-light text-frc-gold mb-3">
-              {book.frontmatter.title}
-            </h1>
-            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-              <span>{book.frontmatter.author || 'H. Servat'}</span>
-              {book.frontmatter.version && <span className="font-mono text-frc-gold">{book.frontmatter.version}</span>}
-              {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
-              <span className="font-mono text-xs">{readTime}</span>
-              {BOOK_PDFS[id] && (
-                <a href={BOOK_PDFS[id]} target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline">
-                  Read PDF
-                </a>
+          {/* Header — academic-press monograph spread */}
+          <header className="mb-10 pb-8 border-b border-frc-blue">
+            <div className={book.frontmatter.cover ? 'grid sm:grid-cols-[120px_1fr] gap-6 items-start' : ''}>
+              {book.frontmatter.cover && (
+                <div className="relative aspect-[2/3] w-[112px] sm:w-full border border-frc-blue bg-frc-void-light shrink-0">
+                  <Image
+                    src={book.frontmatter.cover}
+                    alt={`Cover of ${book.frontmatter.title}`}
+                    fill
+                    sizes="120px"
+                    className="object-cover object-top"
+                  />
+                </div>
               )}
-            </div>
-            {Array.isArray(book.frontmatter.tags) && book.frontmatter.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-3">
-                {book.frontmatter.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
+              <div className="min-w-0">
+                <EpistemicBadge
+                  status={getContentEpistemicStatus('book', fm)}
+                  lang={lang}
+                  className="mb-3"
+                />
+                <h1 className="text-3xl sm:text-[2.125rem] font-light text-frc-gold tracking-[-0.025em] leading-[1.15] mb-3">
+                  {book.frontmatter.title}
+                </h1>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-frc-text-dim tabular-nums">
+                  <span>{book.frontmatter.author || 'Hadi Servat'}</span>
+                  {book.frontmatter.version && <span className="font-mono text-frc-gold">{book.frontmatter.version}</span>}
+                  {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
+                  <span className="font-mono text-[0.8125rem] text-frc-steel">{readTime}</span>
+                  {BOOK_PDFS[id] && (
+                    <a href={BOOK_PDFS[id]} target="_blank" rel="noopener noreferrer" className="text-frc-gold hover:underline">
+                      Download PDF
+                    </a>
+                  )}
+                </div>
+                {Array.isArray(book.frontmatter.tags) && book.frontmatter.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {book.frontmatter.tags.map(tag => (
+                      <TaxonomyLink
+                        key={tag}
+                        taxon={tag}
+                        basePath={basePath}
+                        lang={lang}
+                        className="tag hover:text-frc-gold hover:border-frc-gold transition-colors"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </header>
 
           {getContentEpistemicStatus('book', fm) === 'archive' && (
@@ -178,39 +202,53 @@ export default async function BookPage({ params }: Props) {
 
           {/* Abstract */}
           {book.frontmatter.abstract && (
-            <blockquote className="border-l-3 border-frc-gold pl-4 text-frc-text-dim italic mb-8">
+            <blockquote className="border-s-2 border-frc-gold ps-5 text-base text-frc-text-dim leading-relaxed max-w-[65ch] mb-10">
               {book.frontmatter.abstract}
             </blockquote>
           )}
 
           <InlineToc items={tocItems} title="Book index" />
 
-          {/* Chapter view */}
+          {/* Chapter contents — hairline-ruled academic monograph index */}
           {chapterItems.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-xs text-frc-steel uppercase tracking-widest mb-3">Chapters</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {chapterItems.map((c, idx) => (
-                  <Link
-                    key={c.slug}
-                    href={`${basePath}/books/${id}/chapter/${c.slug}`}
-                    className="card block p-4 group"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="font-mono text-xs text-frc-steel shrink-0 tabular-nums mt-0.5">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span className="text-sm text-frc-text group-hover:text-frc-gold transition-colors">
-                        {c.title}
-                      </span>
-                    </div>
-                  </Link>
-                ))}
+            <section className="mb-10" aria-labelledby="book-chapters-heading">
+              <div className="flex items-baseline justify-between gap-4 mb-4">
+                <h2 id="book-chapters-heading" className="text-xl font-medium text-frc-text tracking-[-0.015em]">
+                  Contents
+                </h2>
+                <Link
+                  href={`${basePath}/books/${id}/chapter/${chapterItems[0].slug}`}
+                  className="text-sm text-frc-gold hover:underline"
+                >
+                  Begin reading →
+                </Link>
               </div>
+              <ol className="divide-y divide-frc-blue/60 border-y border-frc-blue">
+                {chapterItems.map((c, idx) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`${basePath}/books/${id}/chapter/${c.slug}`}
+                      className="flex items-baseline justify-between gap-4 py-3.5 group"
+                    >
+                      <div className="flex items-baseline gap-4 min-w-0">
+                        <span className="font-mono text-sm text-frc-steel shrink-0 tabular-nums w-6">
+                          {String(idx + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-base text-frc-text group-hover:text-frc-gold transition-colors leading-snug">
+                          {c.title}
+                        </span>
+                      </div>
+                      <span className="text-sm text-frc-steel group-hover:text-frc-gold transition-colors shrink-0" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
             </section>
           )}
 
-          <div className="content-body" suppressHydrationWarning>
+          <div className="content-body min-w-0 max-w-full overflow-x-hidden" suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 

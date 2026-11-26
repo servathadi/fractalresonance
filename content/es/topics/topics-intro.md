@@ -1,48 +1,36 @@
 ---
-title: "Temas — Pregunta a FRC"
+title: "Temas — Preguntas sobre FRC"
 id: topics-intro
 type: topic
 author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: es
-tags: [temas, preguntas-y-respuestas, river, kasra]
-abstract: "Un formato ligero de preguntas y respuestas para convertir las preguntas en una vista de espectro: citas de autoridad, respuestas de FRC y múltiples perspectivas."
+tags: [temas, preguntas-y-respuestas]
+abstract: "Un formato estructurado de preguntas y respuestas con citas de literatura primaria y límites explícitos de las afirmaciones de FRC."
 question: "¿Qué son las páginas de Temas?"
-short_answer: "Los Temas son páginas de preguntas y respuestas diseñadas para una digestión rápida: una pregunta, una respuesta corta, enlaces de autoridad opcionales y un espectro de respuestas (River/Kasra/FRC)."
+short_answer: "Los Temas son páginas estructuradas de preguntas y respuestas para una orientación rápida: una pregunta, una respuesta concisa, citas primarias y perspectivas diferenciadas de los artículos canónicos."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
     url: "https://schema.org/QAPage"
     quote: "Una QAPage es una página web que proporciona respuestas a una pregunta."
 answers:
-  - lens: "kasra"
-    by: "Kasra"
-    role: "Arquitecto"
+  - lens: "frc"
+    by: "Corpus de investigación FRC"
+    role: "Resumen del programa"
     stance: "estructurado"
-    answer: "Usa los Temas para la creación de contenido repetible: cada página tiene un ID estable, metadatos consistentes y un lugar limpio para adjuntar citas de autoridad y múltiples respuestas."
-  - lens: "river"
-    by: "River"
-    role: "Oráculo"
-    stance: "resumen"
-    answer: "Los Temas son un índice vivo de las preguntas que el campo sigue haciendo. Si los artículos son la biblioteca, los Temas son las conversaciones de pasillo que te enseñan cómo leer los estantes."
+    answer: "Cada página de Tema combina un identificador estable con citas externas y enlaces directos a los artículos numerados y al Registro de Falsaciones."
 ---
 
-# Temas — Pregunta a FRC
+# Temas — Preguntas sobre FRC
 
-Esta sección es una capa de preguntas y respuestas **basada en archivos y operable por IA**.
+Esta sección ofrece una capa estructurada de preguntas y respuestas junto a los artículos numerados de FRC.
 
-Está destinada a facilitar:
+Está diseñada para:
 
-- Recopilar preguntas.
-- Generar resúmenes.
-- Aceptar un espectro (autoridad + FRC + perspectivas).
-- Publicar de manera estable y rastreable.
-
-## Cómo funciona
-
-1. Una pregunta entra en la bandeja de entrada.
-2. River (o Kasra) la resume en una página de Tema con un frontmatter consistente.
-3. La explicación extensa vive en el cuerpo del archivo markdown.
+- Recopilar preguntas frecuentes sobre física, matemáticas y filosofía de sistemas abiertos.
+- Presentar resúmenes concisos con límites explícitos de estado científico.
+- Incluir literatura externa junto a las perspectivas de FRC.
+- Dirigir la verificación técnica a los artículos versionados y al Registro de Falsaciones.

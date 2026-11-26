@@ -11,6 +11,8 @@ import { InlineToc } from '@/components/InlineToc';
 import { PageShell } from '@/components/PageShell';
 import { RelatedContent } from '@/components/RelatedContent';
 import { EpistemicBadge } from '@/components/EpistemicBadge';
+import { EdgeScopeBadge } from '@/components/EdgeScopeBadge';
+import { PrimarySourcesBlock } from '@/components/PrimarySourcesBlock';
 import { ArchivedContentBanner } from '@/components/ArchivedContentBanner';
 import { TaxonomyLink } from '@/components/TaxonomyLink';
 import {
@@ -25,6 +27,8 @@ import {
   getContentEpistemicStatus,
   getContentStatusNote,
   normalizeContentPerspective,
+  normalizeEdgeScopeTag,
+  normalizePrimarySources,
   matchesPerspectiveView,
 } from '@/lib/content';
 import { renderMarkdown, extractTocItems } from '@/lib/markdown';
@@ -87,6 +91,8 @@ export default async function ArticlePage({ params }: Props) {
   const fm = article.frontmatter;
   const epistemicStatus = getContentEpistemicStatus('article', fm);
   const statusNote = getContentStatusNote('article', fm);
+  const scopeTag = normalizeEdgeScopeTag(fm.scopeTag);
+  const primarySources = normalizePrimarySources(fm.primarySources);
 
   // Build ArticleMeta for schema
   const articleMeta: ArticleMeta = {
@@ -138,29 +144,36 @@ export default async function ArticlePage({ params }: Props) {
           </nav>
 
           {/* Header */}
-          <header className="mb-8">
-            <EpistemicBadge status={epistemicStatus} lang={lang} className="mb-3" />
-            <h1 className="text-3xl font-light text-frc-gold mb-3">
+          <header className="mb-8 pb-6 border-b border-frc-blue">
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <EpistemicBadge status={epistemicStatus} lang={lang} />
+              {scopeTag && <EdgeScopeBadge scopeTag={scopeTag} lang={lang} />}
+            </div>
+            <h1 className="text-3xl sm:text-[2.125rem] font-light text-frc-gold tracking-[-0.025em] leading-[1.15] mb-3">
               {article.frontmatter.title}
             </h1>
-            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim">
-              <span>{article.frontmatter.author || 'H. Servat'}</span>
+            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim tabular-nums">
+              <span>{article.frontmatter.author || 'Hadi Servat'}</span>
               <span>{article.frontmatter.date}</span>
-              <span className="font-mono text-xs">{readTime}</span>
+              <span className="font-mono text-[0.8125rem] text-frc-steel">{readTime}</span>
             </div>
+
+            {scopeTag && epistemicStatus !== 'archive' && (
+              <EdgeScopeBadge scopeTag={scopeTag} lang={lang} variant="banner" basePath={basePath} />
+            )}
 
             {statusNote && (
               epistemicStatus === 'archive' ? (
                 <ArchivedContentBanner lang={lang} note={statusNote} />
               ) : (
-                <p className="mt-4 border-l-2 border-frc-gold/60 pl-3 text-sm text-frc-text-dim">
+                <p className="mt-4 border-s-2 border-frc-gold/60 ps-3.5 text-sm text-frc-text-dim">
                   {statusNote}
                 </p>
               )
             )}
-            
+
             {Array.isArray(article.frontmatter.tags) && article.frontmatter.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-3">
+              <div className="flex flex-wrap gap-2 mt-4">
                 {article.frontmatter.tags.map(tag => <TaxonomyLink key={tag} taxon={tag} basePath={basePath} lang={lang} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors" />)}
               </div>
             )}
@@ -208,9 +221,11 @@ export default async function ArticlePage({ params }: Props) {
           )}
 
           {/* Body */}
-          <div className={`content-body ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
+          <div className={`content-body min-w-0 max-w-full overflow-x-hidden ${norm === 'river' ? 'frc-interpretation-only' : ''}`} suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
+
+          <PrimarySourcesBlock sources={primarySources} lang={lang} />
 
           {/* Images gallery */}
           {meta.images && meta.images.length > 0 && (

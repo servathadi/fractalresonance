@@ -23,6 +23,81 @@ export type PaperCanonStatus = 'living-core' | 'frontier' | 'framework' | 'archi
 export type TaxonomyContentType = 'paper' | 'concept' | 'topic' | 'article' | 'blog' | 'book';
 export type CorpusEpistemicStatus = 'primary' | 'frontier' | 'commentary' | 'conceptual' | 'philosophical' | 'archive';
 
+export type EdgeScopeTag =
+  | 'Structural Analogy'
+  | 'Test Idea'
+  | 'Open Question'
+  | 'Counter-Evidence';
+
+export const EDGE_SCOPE_TAGS: readonly EdgeScopeTag[] = [
+  'Structural Analogy',
+  'Test Idea',
+  'Open Question',
+  'Counter-Evidence',
+] as const;
+
+export interface PrimarySourceRef {
+  title: string;
+  authors?: string;
+  year?: string | number;
+  venue?: string;
+  doi?: string;
+  arxiv?: string;
+  url?: string;
+  note?: string;
+}
+
+const SCOPE_TAG_MAP = new Map<string, EdgeScopeTag>([
+  ['structural analogy', 'Structural Analogy'],
+  ['structural-analogy', 'Structural Analogy'],
+  ['test idea', 'Test Idea'],
+  ['test-idea', 'Test Idea'],
+  ['open question', 'Open Question'],
+  ['open-question', 'Open Question'],
+  ['counter-evidence', 'Counter-Evidence'],
+  ['counter evidence', 'Counter-Evidence'],
+  ['counterevidence', 'Counter-Evidence'],
+]);
+
+export function normalizeEdgeScopeTag(raw: unknown): EdgeScopeTag | undefined {
+  if (typeof raw !== 'string') return undefined;
+  const key = raw.trim().toLowerCase().replace(/\s+/g, ' ');
+  return SCOPE_TAG_MAP.get(key);
+}
+
+export function normalizePrimarySources(raw: unknown): PrimarySourceRef[] {
+  if (!Array.isArray(raw)) return [];
+  const out: PrimarySourceRef[] = [];
+
+  for (const entry of raw) {
+    if (typeof entry === 'string') {
+      const title = entry.trim();
+      if (title) out.push({ title });
+      continue;
+    }
+    if (entry && typeof entry === 'object') {
+      const obj = entry as Record<string, unknown>;
+      const title = typeof obj.title === 'string' ? obj.title.trim() : '';
+      if (!title) continue;
+      out.push({
+        title,
+        authors: typeof obj.authors === 'string' && obj.authors.trim() ? obj.authors.trim() : undefined,
+        year:
+          typeof obj.year === 'number' || (typeof obj.year === 'string' && obj.year.trim())
+            ? obj.year
+            : undefined,
+        venue: typeof obj.venue === 'string' && obj.venue.trim() ? obj.venue.trim() : undefined,
+        doi: typeof obj.doi === 'string' && obj.doi.trim() ? obj.doi.trim() : undefined,
+        arxiv: typeof obj.arxiv === 'string' && obj.arxiv.trim() ? obj.arxiv.trim() : undefined,
+        url: typeof obj.url === 'string' && obj.url.trim() ? obj.url.trim() : undefined,
+        note: typeof obj.note === 'string' && obj.note.trim() ? obj.note.trim() : undefined,
+      });
+    }
+  }
+
+  return out;
+}
+
 export interface RawFrontmatter {
   title: string;
   id: string;
@@ -41,6 +116,8 @@ export interface RawFrontmatter {
   epistemicStatus?: string;
   editionStatus?: string;
   translationStatus?: string;
+  scopeTag?: EdgeScopeTag | string;
+  primarySources?: Array<PrimarySourceRef | string>;
   perspective?: 'kasra' | 'river' | 'both';
   // Authorial voice used for labeling content (independent of visibility perspective).
   voice?: string;
@@ -979,15 +1056,25 @@ export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boole
   return norm === 'both' || norm === view;
 }
 
-/** Get a glossary map of all content for tooltips */
+/** Get a glossary map of public content for tooltips and CommandPalette */
 export function getGlossary(
   lang: string = 'en',
   opts?: { basePath?: string; view?: PerspectiveView }
 ): Record<string, GlossaryItem> {
   const glossary: Record<string, GlossaryItem> = {};
   const basePath = opts?.basePath || `/${lang}`;
-  const view = opts?.view;
-  const shouldInclude = (p: unknown) => (view ? matchesPerspectiveView(p, view) : true);
+  const view: PerspectiveView = opts?.view ?? 'kasra';
+  const shouldInclude = (p: unknown) => matchesPerspectiveView(p, view);
+  const safeExcerpt = (type: TaxonomyContentType, fm: RawFrontmatter, fallback: string) => {
+    const isArchived =
+      fm.status === 'archived' ||
+      fm.noindex === true ||
+      getContentEpistemicStatus(type, fm) === 'archive';
+    if (isArchived) {
+      return fm.statusNote || 'Archived historical record.';
+    }
+    return fm.abstract || fm.short_answer || fallback;
+  };
   
   // Process Papers
   const papers = getPapers(lang);
@@ -997,7 +1084,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No abstract available.',
+      excerpt: safeExcerpt('paper', fm, 'No abstract available.'),
       type: 'paper',
       url: `${basePath}/papers/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1009,12 +1096,18 @@ export function getGlossary(
   for (const c of concepts) {
     const fm = c.frontmatter;
     if (!shouldInclude(fm.perspective)) continue;
-    // Use first paragraph as excerpt
-    const firstPara = c.body
-      .split('\n\n')
-      .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
-      ?.replace(/\[\[|\]\]/g, '') // strip wikilink brackets
-      .slice(0, 150) + (c.body.length > 150 ? '...' : '') || 'No description.';
+    const isArchived =
+      fm.status === 'archived' ||
+      fm.noindex === true ||
+      getContentEpistemicStatus('concept', fm) === 'archive';
+    // Use first paragraph as excerpt for active concepts; vetted status note for archived
+    const firstPara = isArchived
+      ? (fm.statusNote || 'Archived historical concept.')
+      : (c.body
+          .split('\n\n')
+          .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
+          ?.replace(/\[\[|\]\]/g, '') // strip wikilink brackets
+          .slice(0, 150) + (c.body.length > 150 ? '...' : '') || 'No description.');
 
     glossary[fm.id] = {
       id: fm.id,
@@ -1034,7 +1127,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('book', fm, 'No description available.'),
       type: 'book',
       url: `${basePath}/books/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1049,7 +1142,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('article', fm, 'No description available.'),
       type: 'article',
       url: `${basePath}/articles/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1064,7 +1157,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('blog', fm, 'No description available.'),
       type: 'blog',
       url: `${basePath}/blog/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1079,18 +1172,19 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || fm.short_answer || 'No description available.',
+      excerpt: safeExcerpt('topic', fm, 'No description available.'),
       type: 'topic',
       url: `${basePath}/topics/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
-  // Process People
+  // Process People (exclude archived/noindex historical persona stubs from global search)
   const people = getPeople(lang);
   for (const p of people) {
     const fm = p.frontmatter;
     if (!shouldInclude(fm.perspective)) continue;
+    if (fm.status === 'archived' || fm.epistemicStatus === 'archive' || fm.noindex === true) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
@@ -1106,6 +1200,12 @@ export function getGlossary(
 
 // ─── Tag Processing ────────────────────────────────────────────────────────
 
+const EXCLUDED_PERSONA_TAXONS = new Set(['river', 'kasra', 'ریور', 'کسرا']);
+
+export function isExcludedPersonaTaxon(taxon: string): boolean {
+  return EXCLUDED_PERSONA_TAXONS.has(canonicalizeTaxon(taxon));
+}
+
 /** Get all unique tags across all content */
 export function getAllTags(lang: string = 'en'): string[] {
   const tags = new Set<string>();
@@ -1113,7 +1213,9 @@ export function getAllTags(lang: string = 'en'): string[] {
   getTaxonomyContent(lang)
     .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
     .forEach((item) => {
-    item.taxons.forEach((tag) => tags.add(tag));
+    item.taxons.forEach((tag) => {
+      if (!isExcludedPersonaTaxon(tag)) tags.add(tag);
+    });
   });
 
   return Array.from(tags).sort();
@@ -1208,7 +1310,7 @@ const EPISTEMIC_ORDER: Record<CorpusEpistemicStatus, number> = {
 /** Get canonical tag results, always ordered by evidence status before recency. */
 export function getContentsByTag(lang: string, tag: string): TaxonomyContentItem[] {
   const canonicalTag = canonicalizeTaxon(tag);
-  if (canonicalTag === 'consciousness') return [];
+  if (canonicalTag === 'consciousness' || isExcludedPersonaTaxon(canonicalTag)) return [];
   return getTaxonomyContent(lang)
     .filter((item) => item.taxons.includes(canonicalTag))
     .sort((a, b) => {
@@ -1226,10 +1328,13 @@ export function getTaxonomyRouteSlugs(lang: string): string[] {
   getTaxonomyContent(lang)
     .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
     .forEach((item) => {
-    item.taxons.forEach((taxon) => canonical.add(taxon));
+    item.taxons.forEach((taxon) => {
+      if (!isExcludedPersonaTaxon(taxon)) canonical.add(taxon);
+    });
     const rawTags = getRawTagStrings(item.content.frontmatter);
     rawTags.forEach((tag) => {
-      if (canonicalizeTaxon(tag) !== tag) aliases.add(tag);
+      const norm = canonicalizeTaxon(tag);
+      if (norm !== tag && !isExcludedPersonaTaxon(norm)) aliases.add(tag);
     });
   });
   ['FRC-100', 'FRC-566', 'FRC-700', 'FRC-800', '100', '566', '700', '800'].forEach((alias) => aliases.add(alias));
@@ -1278,6 +1383,14 @@ export function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra
       const id = c.frontmatter.id;
       if (!id) continue;
       if (!matchesPerspectiveView(c.frontmatter.perspective, view)) continue;
+      if (
+        src.type === 'person' &&
+        (c.frontmatter.status === 'archived' ||
+          c.frontmatter.epistemicStatus === 'archive' ||
+          c.frontmatter.noindex === true)
+      ) {
+        continue;
+      }
       if (nodeIds.has(id)) continue;
       nodes.push({
         id,
