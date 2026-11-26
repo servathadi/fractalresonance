@@ -87,12 +87,12 @@ const PAPER_ROLES = {
 };
 
 const EPISTEMIC_DISTINCTIONS = {
-  exact_mathematics: 'Theorems, algebraic or differential identities, typed morphism categories, and scoped lift obstructions proved within stated hypotheses (e.g., FRC-566-030 exact von Mises/Kuramoto identity; FRC-830-001 through FRC-830-005 formal classification and obstruction proofs, independent proof review pending).',
+  exact_mathematics: 'Theorems, algebraic or differential identities, typed morphism categories, and scoped lift obstructions proved within stated hypotheses (e.g., FRC-566-030 exact von Mises/Kuramoto identity; FRC-830-001 through FRC-830-005 formal classification and obstruction proofs, including the FRC-830-005 v0.3 open-set no-affine/CPTP qubit theorem verified across 42/42 symbolic-numerical Python checks, formal human peer review pending).',
   operational_models: 'Scale-declared bookkeeping identities, control laws, and executable closures with explicitly fixed system boundary, environment channel, observables, units, and sign convention (e.g., FRC-566-001 operational reciprocity, FRC-100-008, FRC-100-009, FRC-787-787 operational transport).',
   framework_interpretation: 'Scope conventions, register topology, terminology charters, and claim-boundary rules that organize descriptions without adding physical laws or proving cross-register causation (e.g., FRC-700-000 through FRC-700-007 threshold framework; FRC-830-000 terminology charter; superseded origin note FRC-700-777).',
   model_specific_findings: 'Numerical, simulation, or narrow-audit findings valid only inside their declared model, normalization, and controls — including retained negative results (e.g., FRC-100-002 / FRC-100-002-001 coarse geometry and closed dense Gate 4, FRC-100-005 Langevin boundary experiment, FRC-100-007 narrow rho-drift audit).',
   conjectures: 'Unestablished physical extensions, including universal physical reciprocity, a fundamental spacetime Lambda field, unconditional collapse completion, and Born-equilibrium derivation beyond stipulated landscapes.',
-  empirical_gates: 'Explicit falsification, platform-validation, no-signaling, operational-equivalence, inter-rater, and independent-review criteria required before any claim promotion (e.g., FRC-100-003 collapse/Born gates, FRC-787-787 held-out platform tests, FRC-830-004/005 open general nonunital CPTP lift gate, FRC-700-000..007 independent review and usability gates).',
+  empirical_gates: 'Explicit falsification, platform-validation, no-signaling, operational-equivalence, inter-rater, and independent-review criteria required before any claim promotion (e.g., FRC-100-003 collapse/Born gates, FRC-787-787 held-out platform tests, FRC-830-005 v0.3 closed open-set CPTP gate with residual empty-interior/projective-instrument/d>=3 gates open, FRC-700-000..007 independent review and usability gates).',
 };
 
 const MU_REGISTERS = {
@@ -257,6 +257,7 @@ export function loadCanonicalPapers(root = DEFAULT_ROOT) {
       date: normalizeDate(fm.date),
       doi: fm.doi ? String(fm.doi) : null,
       conceptDoi: fm.conceptDoi ? String(fm.conceptDoi) : null,
+      alphaxivUrl: fm.alphaxivUrl ? String(fm.alphaxivUrl) : null,
       series: fm.series ? String(fm.series) : null,
       muLevel: fm.muLevel ? String(fm.muLevel) : null,
       rawPublicationState,
@@ -374,6 +375,7 @@ function formatJsonPaperEntry(paper, { includeRole = false, includeStatusNote = 
   if (paper.statusLabel) entry.status_label = paper.statusLabel;
   if (paper.conceptDoi) entry.concept_doi = paper.conceptDoi;
   if (paper.doi) entry.doi = paper.doi;
+  if (paper.alphaxivUrl) entry.alphaxiv_url = paper.alphaxivUrl;
   if (!paper.doi && !paper.conceptDoi) {
     entry.doi_status = 'not declared in current website source';
   }
@@ -392,10 +394,15 @@ function formatJsonPaperEntry(paper, { includeRole = false, includeStatusNote = 
 
 function getSharedDois(papers) {
   const conceptDois = [...new Set(papers.map((p) => p.conceptDoi).filter(Boolean))];
-  const versionDois = [...new Set(papers.map((p) => p.doi).filter(Boolean))];
+  const versionDois = [
+    ...new Set(papers.map((p) => (p.doi && p.doi !== p.conceptDoi ? p.doi : null)).filter(Boolean)),
+  ];
+  const allShareVersionDoi =
+    versionDois.length === 1 && papers.length > 0 && papers.every((p) => p.doi === versionDois[0]);
   return {
     conceptDoi: conceptDois.length === 1 ? conceptDois[0] : null,
     versionDoi: versionDois.length === 1 ? versionDois[0] : null,
+    allShareVersionDoi,
   };
 }
 
@@ -488,7 +495,7 @@ function buildAgentJson(corpus) {
       },
       reciprocity_mathematics: {
         route: reciprocityRange,
-        status: 'Current FRC 830 Reciprocity Mathematics series (preprints with paper-specific status labels; exact ledger-coordinate results, typed morphisms, dimension thresholds, and scoped lift obstructions do not establish physical, categorical, Born-style, or Majid-style self-duality; a general nonunital coherence-generating CPTP lift remains an open gate; independent proof review pending).',
+        status: 'Current FRC 830 Reciprocity Mathematics series (preprints with paper-specific status labels; exact ledger-coordinate results, typed morphisms, dimension thresholds, and sharp lift obstructions—including FRC-830-005 v0.3 live on alphaXiv, which excludes all open-set affine/CPTP qubit channels on nonempty open coherent subsets of the Bloch ball with 1D-circle sharpness and 42/42 independent Python verification checks passing—do not establish physical, categorical, Born-style, or Majid-style self-duality; empty-interior, projective-instrument, and d>=3 gates remain open alongside formal human peer review).',
         no_promotion: true,
         ids: corpus.reciprocityMathematicsRoute.map((p) => p.id),
       },
@@ -670,7 +677,7 @@ function buildLlmsTxt(corpus) {
   lines.push(`- ${corpus.thresholdRoute[0].id} through ${corpus.thresholdRoute[corpus.thresholdRoute.length - 1].id}: active FRC 700 threshold-framework preprints (independent review pending), superseding FRC-700-777. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation.`);
   lines.push('');
   lines.push(`Current Reciprocity Mathematics series (${corpus.reciprocityMathematicsRoute.length} papers):`);
-  lines.push(`- ${corpus.reciprocityMathematicsRoute[0].id} through ${corpus.reciprocityMathematicsRoute[corpus.reciprocityMathematicsRoute.length - 1].id}: terminology charter, formal mathematics, and scoped lift obstructions. Exact ledger-coordinate results and scoped obstructions do not promote FRC reciprocity to physical, categorical, Born-style, or Majid-style self-duality; a general nonunital CPTP lift remains an open gate.`);
+  lines.push(`- ${corpus.reciprocityMathematicsRoute[0].id} through ${corpus.reciprocityMathematicsRoute[corpus.reciprocityMathematicsRoute.length - 1].id}: terminology charter, formal mathematics, and sharp lift obstructions. FRC-830-005 v0.3 (live on alphaXiv; 42/42 independent Python verification checks passing, formal human peer review pending) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (1D-circle sharp); empty-interior, projective-instrument, and d>=3 gates remain open, and no physical, categorical, Born-style, or Majid-style self-duality is established.`);
   lines.push('');
   lines.push(`Frontier (${frontierIds.length} papers):`);
   lines.push(`- ${frontierIds.join(', ')}.`);
@@ -732,16 +739,22 @@ function buildLlmsTxt(corpus) {
 
   lines.push('## Current Reciprocity Mathematics series (FRC 830.000–830.005)');
   lines.push('');
-  lines.push('Read FRC-830-000 for the terminology charter, then the declared mathematical results and scoped lift obstructions in FRC-830-001 through FRC-830-005. These are preprints with paper-specific status labels and independent proof review pending. No-promotion boundary: exact ledger-coordinate involutions, typed morphisms, dimension thresholds, and one-parameter/qubit lift obstructions do not establish physical, categorical, Born-style, or Majid-style self-duality. A general nonunital coherence-generating CPTP lift remains an open gate.');
+  lines.push('Read FRC-830-000 for the terminology charter, then the declared mathematical results and sharp lift obstructions in FRC-830-001 through FRC-830-005. FRC-830-005 v0.3 has completed independent symbolic/numerical Python verification (42/42 checks) and is live on alphaXiv (formal human peer review pending). No-promotion boundary: exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (ds/dy < 1, sharp at ds/dy = 1), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and d>=3 gates remain open.');
   lines.push('');
   lines.push('| Paper | Version | Epistemic status | Status label | Reading page |');
   lines.push('|---|---|---|---|---|');
   for (const p of corpus.reciprocityMathematicsRoute) {
-    lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.epistemicStatus} | ${p.statusLabel || '—'} | [Read](${p.fullUrl}) |`);
+    const extLink = p.alphaxivUrl ? ` · [alphaXiv](${p.alphaxivUrl})` : '';
+    lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.epistemicStatus} | ${p.statusLabel || '—'} | [Read](${p.fullUrl})${extLink} |`);
   }
   lines.push('');
   if (recDois.conceptDoi || recDois.versionDoi) {
-    lines.push(`Shared release: concept DOI \`${recDois.conceptDoi}\`; version DOI \`${recDois.versionDoi}\`. Paper PDFs use \`/paper-pdfs/<FRC-ID>.pdf\`.`);
+    const versionPart = recDois.versionDoi
+      ? recDois.allShareVersionDoi
+        ? `; version DOI \`${recDois.versionDoi}\``
+        : `; prior v0.1 series bundle DOI \`${recDois.versionDoi}\` (no separate Zenodo v0.3 version DOI minted yet)`
+      : '';
+    lines.push(`Shared release: concept DOI \`${recDois.conceptDoi}\`${versionPart}. Paper PDFs use \`/paper-pdfs/<FRC-ID>.pdf\`.`);
     lines.push('');
   }
 
@@ -891,16 +904,22 @@ function buildAgentMd(corpus) {
   lines.push('');
   lines.push('## 8) Current Reciprocity Mathematics series (FRC 830.000–830.005)');
   lines.push('');
-  lines.push('Read `FRC-830-000` for the terminology charter, then the declared mathematical results and scoped lift obstructions in `FRC-830-001` through `FRC-830-005`. These are preprints with paper-specific status labels and independent proof review pending. **No-promotion rule:** exact ledger-coordinate involutions, typed morphisms, dimension thresholds, and one-parameter/qubit lift obstructions do not establish physical, categorical, Born-style, or Majid-style self-duality. A general nonunital coherence-generating CPTP lift remains an open gate.');
+  lines.push('Read `FRC-830-000` for the terminology charter, then the declared mathematical results and sharp lift obstructions in `FRC-830-001` through `FRC-830-005`. `FRC-830-005 v0.3` has completed independent symbolic/numerical Python verification (42/42 checks) and is live on alphaXiv (formal human peer review pending). **No-promotion rule:** exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (`ds/dy < 1`, sharp at `ds/dy = 1`), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and `d >= 3` gates remain open.');
   lines.push('');
   lines.push('| Paper | Version | Epistemic status | Status label | Reading page |');
   lines.push('|---|---|---|---|---|');
   for (const p of corpus.reciprocityMathematicsRoute) {
-    lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.epistemicStatus} | ${p.statusLabel || '—'} | [Read](${p.url}) |`);
+    const extLink = p.alphaxivUrl ? ` · [alphaXiv](${p.alphaxivUrl})` : '';
+    lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.epistemicStatus} | ${p.statusLabel || '—'} | [Read](${p.url})${extLink} |`);
   }
   lines.push('');
   if (recDois.conceptDoi || recDois.versionDoi) {
-    lines.push(`Shared release: concept DOI \`${recDois.conceptDoi}\`; version DOI \`${recDois.versionDoi}\`. Paper PDFs use \`/paper-pdfs/<FRC-ID>.pdf\`.`);
+    const versionPart = recDois.versionDoi
+      ? recDois.allShareVersionDoi
+        ? `; version DOI \`${recDois.versionDoi}\``
+        : `; prior v0.1 series bundle DOI \`${recDois.versionDoi}\` (no separate Zenodo v0.3 version DOI minted yet)`
+      : '';
+    lines.push(`Shared release: concept DOI \`${recDois.conceptDoi}\`${versionPart}. Paper PDFs use \`/paper-pdfs/<FRC-ID>.pdf\`.`);
     lines.push('');
   }
   lines.push('## 9) Frontier papers');
@@ -1007,6 +1026,7 @@ export function checkCatalogParity(root = DEFAULT_ROOT) {
       ['version', p.version || undefined, cat.version],
       ['doi', p.doi || undefined, cat.doi],
       ['conceptDoi', p.conceptDoi || undefined, cat.conceptDoi],
+      ['alphaxivUrl', p.alphaxivUrl || undefined, cat.alphaxivUrl],
       ['publicationState', p.publicationState || undefined, cat.publicationState],
       ['epistemicStatus', p.catalogEpistemicStatus, cat.epistemicStatus],
       ['statusLabel', p.statusLabel || undefined, cat.statusLabel],

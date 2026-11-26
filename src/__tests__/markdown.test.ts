@@ -79,5 +79,15 @@ Final content
       
       expect(html).toContain('the paper');
     });
+
+    it('should preserve LaTeX asterisks inside inline and display math without turning them into italics', () => {
+      const markdown = 'The bridge $k^*$ satisfies $D^*\\omega = -\\omega$ and\n\n$$\nB_a^*\\sigma = \\sigma, \\qquad D^*\\omega = -\\omega. \\tag{1}\n$$';
+      const html = renderMarkdown(markdown, 'en', {}, '/en');
+
+      expect(html).not.toContain('<em>');
+      expect(html).toContain('$k^*$');
+      expect(html).toContain('$D^*\\omega = -\\omega$');
+      expect(html).toContain('B_a^*\\sigma = \\sigma');
+    });
   });
 });

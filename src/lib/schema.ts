@@ -23,6 +23,7 @@ export interface PaperMeta {
   tags: string[];
   lang: string;
   doi?: string;
+  alphaxivUrl?: string;
   video?: {
     url: string;
     embedUrl?: string;
@@ -179,7 +180,14 @@ export function schemaScholarlyArticle(paper: PaperMeta) {
         propertyID: 'DOI',
         value: paper.doi,
       },
-      sameAs: `https://doi.org/${paper.doi}`,
+    }),
+    ...((paper.doi || paper.alphaxivUrl) && {
+      sameAs:
+        paper.doi && paper.alphaxivUrl
+          ? [`https://doi.org/${paper.doi}`, paper.alphaxivUrl]
+          : paper.doi
+            ? `https://doi.org/${paper.doi}`
+            : paper.alphaxivUrl,
     }),
   };
 

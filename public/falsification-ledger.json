@@ -1,7 +1,7 @@
 {
   "name": "Fractal Resonance Coherence (FRC) Public Falsification & Negative-Gate Ledger",
   "version": "1.0.0",
-  "updated": "2026-07-15",
+  "updated": "2026-11-26",
   "url": "https://fractalresonance.com/en/falsifications",
   "jsonUrl": "https://fractalresonance.com/falsification-ledger.json",
   "generator": "scripts/generate-falsification-ledger.mjs",
@@ -150,35 +150,47 @@
     },
     {
       "id": "FL-830-005-OBSTRUCTION",
-      "title": "Present-Structure Obstruction to Born Reciprocity, Majid-Style Self-Duality, and Channel Lifts",
+      "title": "Present-Structure Obstruction to Born Reciprocity, Majid-Style Self-Duality, and Open-Set Qubit CPTP Lifts",
       "sourceIds": [
         "FRC-830-005",
         "FRC-830-004",
         "FRC-830-003"
       ],
       "sourceVersions": [
-        "v0.2",
+        "v0.3",
         "v0.1",
         "v0.1"
       ],
-      "dateRecorded": "2026-07-15",
+      "dateRecorded": "2026-11-26",
       "disposition": "STRUCTURAL_OBSTRUCTION",
       "domain": "Reciprocity Mathematics / Quantum Channels",
       "claimTested": "Whether the exact FRC normalized ledger involution D(x, y) = (-y, -x) lifts to state-space operations or establishes quantum Born reciprocity or Majid-style representation-theoretic self-duality.",
-      "evidenceSummary": "Canonical Born exchange B_a(q, p) = (ap, -q/a) is order 4 and symplectic, whereas D is order 2 and anti-symplectic (non-conjugate even by a bijection). Ledger coordinates do not reconstruct state actions (natural qubit-fiber non-reconstruction). One-parameter monotonic arenas admit no nonidentity lift (FRC 830.003–004), and the full qubit ledger excludes incoherent operations, unital CPTP channels, and unitary/antiunitary Wigner symmetries as global lifts.",
+      "evidenceSummary": "Canonical Born exchange B_a(q, p) = (ap, -q/a) is order 4 and symplectic, whereas D is order 2 and reverses the ambient area form (non-conjugate by any bijection). Ledger coordinates do not reconstruct state actions (natural qubit-fiber non-reconstruction), and primitive ambient Hopf algebraization supplies no dual object, Hopf pairing, or semidualisation. Every C^1 one-parameter family with strictly monotone coherence and slope ds/dy < 1 excludes nonidentity lifts (sharp at ds/dy = 1, witnessed by s(y) = 2 + y, tau(y) = -2 - y). On the full qubit ledger, incoherent operations, unital channels, and Wigner symmetries fail on their stated domains, and Proposition 4 (open-set no-affine-channel rigidity) excludes every affine Bloch map—hence every qubit CPTP channel (unital or nonunital), every PTP map, and every fixed-ancilla Stinespring protocol—on any nonempty open subset with C_off > 0 (exact analytic discrepancy g(1/2) = 3*sqrt(3)/16 != 7/16; proved sharp on 1D circle fibers). Independent symbolic and numerical Python verification completed (42/42 checks passing via verify_frc_830_005_v03.py, zero fitted parameters).",
       "metrics": {
         "ledger_involution_order": 2,
         "born_exchange_order": 4,
-        "excluded_qubit_classes": 3
+        "one_param_sharp_slope_threshold": 1,
+        "excluded_qubit_operation_classes": 3,
+        "open_set_affine_cptp_excluded": "all nonempty open E with C_off > 0 (1D-circle sharp)",
+        "open_set_g_half_discrepancy": 0.1127404736,
+        "verification_checks_passed": 42,
+        "verification_checks_total": 42
       },
-      "scopeBoundary": "Present-structure no-promotion obstruction (independent proof review pending). A general nonunital, coherence-generating CPTP lift remains an open mathematical gate; present ledger mathematics cannot be cited as evidence for physical, categorical, Born-style, or Majid-style self-duality.",
+      "scopeBoundary": "Present-structure no-promotion obstruction (FRC 830.005 v0.3 live on alphaXiv; independent symbolic/numerical audit completed with 42/42 checks passing, formal human peer review pending). Proposition 4 closes the open-set affine/CPTP qubit gate negatively; residual empty-interior subsets (curves/surfaces), nonlinear projective outcome-conditioned instrument maps, higher-dimensional (d >= 3) registers, and cross-register constructions remain explicitly open. Present ledger mathematics cannot be cited as evidence for physical, categorical, Born-style, or Majid-style self-duality.",
       "urls": [
         "/en/papers/FRC-830-005",
         "/en/papers/FRC-830-004",
         "/en/papers/FRC-830-003"
       ],
       "dois": [
+        "10.5281/zenodo.21385391",
         "10.5281/zenodo.21385392"
+      ],
+      "externalLinks": [
+        {
+          "label": "alphaXiv (FRC 830.005 v0.3)",
+          "url": "https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction"
+        }
       ]
     },
     {

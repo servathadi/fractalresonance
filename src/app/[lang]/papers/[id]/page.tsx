@@ -235,6 +235,17 @@ export default async function PaperPage({ params }: Props) {
                       <span className="text-frc-text break-all">{value}</span>
                     </a>
                   ))}
+                  {fm.alphaxivUrl && /^https:\/\//i.test(fm.alphaxivUrl) && (
+                    <a
+                      href={fm.alphaxivUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex max-w-full flex-wrap items-center gap-x-2 text-xs font-mono px-3 py-1.5 border border-frc-gold/60 rounded-md text-frc-gold hover:border-frc-gold transition-colors"
+                    >
+                      <span>alphaXiv</span>
+                      <span className="text-frc-text">Preprint ↗</span>
+                    </a>
+                  )}
                   {hasPdf && (
                     <a
                       href={`/paper-pdfs/${canonicalId}.pdf`}

@@ -12,6 +12,7 @@ const OPEN_WORK: Record<string, string> = {
   'FRC-566-030': 'The exact family contains no bath or independent entropy-production channel.',
   'FRC-787-787': 'Independent platform validation and wins over equal-feature baselines remain required.',
   'FRC-826-829': 'Definitions and propositions are retained separately from conjectures and open problems.',
+  'FRC-830-005': 'Open-set affine/CPTP qubit lifts are excluded (Proposition 4); empty-interior subsets, projective outcome-conditioned instruments, higher-dimensional registers (d ≥ 3), and independent Hopf/semidual structures remain open.',
   'FRC-700-777': 'Superseded origin note: use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.',
 };
 

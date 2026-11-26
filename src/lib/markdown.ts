@@ -26,7 +26,7 @@ export function renderMarkdown(
     return `<!--CODE_BLOCK_${idx}-->`;
   });
 
-  // Headings (with IDs for TOC anchoring)
+  // Headings (with IDs for TOC anchoring; run before inline-code/math placeholders so heading IDs stay stable)
   // Supports pandoc-style explicit anchors: `## Title {#my-id}`
   html = html.replace(/^(#{1,4})\s+(.+)$/gm, (_, hashes, rawText) => {
     const level = hashes.length;
@@ -34,11 +34,29 @@ export function renderMarkdown(
     return `<h${level} id="${escapeHtml(parsed.id)}">${parsed.text}</h${level}>`;
   });
 
+  // Inline code (protect before math and emphasis so symbols inside backticks are untouched)
+  const inlineCodeSpans: string[] = [];
+  html = html.replace(/`([^`\n]+)`/g, (_, code) => {
+    const idx = inlineCodeSpans.length;
+    inlineCodeSpans.push(`<code>${escapeHtml(code)}</code>`);
+    return `%%INLINE_CODE_${idx}%%`;
+  });
+
+  // Display math $$...$$ and inline math $...$ (protect before bold/italic/links so `*` in `$k^*$` or `$D^*\omega$` is never turned into `<em>`)
+  const mathSpans: string[] = [];
+  html = html.replace(/\$\$([\s\S]+?)\$\$/g, (match) => {
+    const idx = mathSpans.length;
+    mathSpans.push(match);
+    return `%%MATH_SPAN_${idx}%%`;
+  });
+  html = html.replace(/(?<!\\)\$(?!\s)((?:\\\$|[^$\n])+?)(?<!\s)\$/g, (match) => {
+    const idx = mathSpans.length;
+    mathSpans.push(match);
+    return `%%MATH_SPAN_${idx}%%`;
+  });
+
   // Blockquotes
   html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
-
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
 
   // Bold
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -110,9 +128,15 @@ export function renderMarkdown(
     })
     .join('\n');
 
-  // Restore code blocks
+  // Restore protected math, inline code, and fenced code blocks
+  for (let i = 0; i < mathSpans.length; i++) {
+    html = html.replace(`%%MATH_SPAN_${i}%%`, () => mathSpans[i]);
+  }
+  for (let i = 0; i < inlineCodeSpans.length; i++) {
+    html = html.replace(`%%INLINE_CODE_${i}%%`, () => inlineCodeSpans[i]);
+  }
   for (let i = 0; i < codeBlocks.length; i++) {
-    html = html.replace(`<!--CODE_BLOCK_${i}-->`, codeBlocks[i]);
+    html = html.replace(`<!--CODE_BLOCK_${i}-->`, () => codeBlocks[i]);
   }
 
   return html;
