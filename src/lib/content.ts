@@ -1056,15 +1056,25 @@ export function matchesPerspectiveView(p: unknown, view: PerspectiveView): boole
   return norm === 'both' || norm === view;
 }
 
-/** Get a glossary map of all content for tooltips */
+/** Get a glossary map of public content for tooltips and CommandPalette */
 export function getGlossary(
   lang: string = 'en',
   opts?: { basePath?: string; view?: PerspectiveView }
 ): Record<string, GlossaryItem> {
   const glossary: Record<string, GlossaryItem> = {};
   const basePath = opts?.basePath || `/${lang}`;
-  const view = opts?.view;
-  const shouldInclude = (p: unknown) => (view ? matchesPerspectiveView(p, view) : true);
+  const view: PerspectiveView = opts?.view ?? 'kasra';
+  const shouldInclude = (p: unknown) => matchesPerspectiveView(p, view);
+  const safeExcerpt = (type: TaxonomyContentType, fm: RawFrontmatter, fallback: string) => {
+    const isArchived =
+      fm.status === 'archived' ||
+      fm.noindex === true ||
+      getContentEpistemicStatus(type, fm) === 'archive';
+    if (isArchived) {
+      return fm.statusNote || 'Archived historical record.';
+    }
+    return fm.abstract || fm.short_answer || fallback;
+  };
   
   // Process Papers
   const papers = getPapers(lang);
@@ -1074,7 +1084,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No abstract available.',
+      excerpt: safeExcerpt('paper', fm, 'No abstract available.'),
       type: 'paper',
       url: `${basePath}/papers/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1086,12 +1096,18 @@ export function getGlossary(
   for (const c of concepts) {
     const fm = c.frontmatter;
     if (!shouldInclude(fm.perspective)) continue;
-    // Use first paragraph as excerpt
-    const firstPara = c.body
-      .split('\n\n')
-      .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
-      ?.replace(/\[\[|\]\]/g, '') // strip wikilink brackets
-      .slice(0, 150) + (c.body.length > 150 ? '...' : '') || 'No description.';
+    const isArchived =
+      fm.status === 'archived' ||
+      fm.noindex === true ||
+      getContentEpistemicStatus('concept', fm) === 'archive';
+    // Use first paragraph as excerpt for active concepts; vetted status note for archived
+    const firstPara = isArchived
+      ? (fm.statusNote || 'Archived historical concept.')
+      : (c.body
+          .split('\n\n')
+          .find(p => p && !p.startsWith('#') && !p.startsWith('---'))
+          ?.replace(/\[\[|\]\]/g, '') // strip wikilink brackets
+          .slice(0, 150) + (c.body.length > 150 ? '...' : '') || 'No description.');
 
     glossary[fm.id] = {
       id: fm.id,
@@ -1111,7 +1127,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('book', fm, 'No description available.'),
       type: 'book',
       url: `${basePath}/books/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1126,7 +1142,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('article', fm, 'No description available.'),
       type: 'article',
       url: `${basePath}/articles/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1141,7 +1157,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || 'No description available.',
+      excerpt: safeExcerpt('blog', fm, 'No description available.'),
       type: 'blog',
       url: `${basePath}/blog/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1156,7 +1172,7 @@ export function getGlossary(
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
-      excerpt: fm.abstract || fm.short_answer || 'No description available.',
+      excerpt: safeExcerpt('topic', fm, 'No description available.'),
       type: 'topic',
       url: `${basePath}/topics/${fm.id}`,
       perspective: normalizeContentPerspective(fm.perspective),
@@ -1367,6 +1383,14 @@ export function getGraphData(lang: string = 'en', view: PerspectiveView = 'kasra
       const id = c.frontmatter.id;
       if (!id) continue;
       if (!matchesPerspectiveView(c.frontmatter.perspective, view)) continue;
+      if (
+        src.type === 'person' &&
+        (c.frontmatter.status === 'archived' ||
+          c.frontmatter.epistemicStatus === 'archive' ||
+          c.frontmatter.noindex === true)
+      ) {
+        continue;
+      }
       if (nodeIds.has(id)) continue;
       nodes.push({
         id,

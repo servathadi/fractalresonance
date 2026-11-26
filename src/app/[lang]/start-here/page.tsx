@@ -73,7 +73,7 @@ export default async function StartHerePage({ params }: Props) {
   if (!page) notFound();
 
   const basePath = `/${lang}`;
-  const glossary = getGlossary(lang);
+  const glossary = getGlossary(lang, { basePath, view: 'kasra' });
   const enById = new Map(getPapers('en').map((p) => [p.frontmatter.id, p]));
   const langById = new Map(getPapers(lang).map((p) => [p.frontmatter.id, p]));
   const researchMap = buildResearchMap(lang, basePath);

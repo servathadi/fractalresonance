@@ -22,7 +22,13 @@ export default async function PeoplePage({ params }: Props) {
   const { lang } = await params;
   const basePath = `/${lang}`;
 
-  const people = getPeople(lang).filter(p => matchesPerspectiveView(p.frontmatter.perspective, 'kasra'));
+  const people = getPeople(lang).filter(
+    (p) =>
+      matchesPerspectiveView(p.frontmatter.perspective, 'kasra') &&
+      p.frontmatter.status !== 'archived' &&
+      p.frontmatter.epistemicStatus !== 'archive' &&
+      p.frontmatter.noindex !== true,
+  );
   const items: ListItemMeta[] = people.map(p => ({
     name: p.frontmatter.title,
     url: `${basePath}/people/${p.frontmatter.id}`,

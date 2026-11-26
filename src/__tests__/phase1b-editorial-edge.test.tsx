@@ -5,6 +5,7 @@ import {
   EDGE_SCOPE_TAGS,
   getBlogPost,
   getGlossary,
+  getGraphData,
   getPerson,
   getTopic,
   normalizeEdgeScopeTag,
@@ -17,6 +18,8 @@ import { VoiceTag } from '@/components/VoiceTag';
 import { HomeHub } from '@/components/pages/HomeHub';
 import { BooksIndex } from '@/components/pages/BooksIndex';
 import FalsificationsPage from '@/app/[lang]/falsifications/page';
+import PeoplePage from '@/app/[lang]/people/page';
+import StartHerePage from '@/app/[lang]/start-here/page';
 import TopicPage from '@/app/[lang]/topics/[id]/page';
 import TagPage from '@/app/[lang]/tags/[tag]/page';
 
@@ -165,10 +168,33 @@ Dispatch body.`);
         expect(stub!.frontmatter.noindex).toBe(true);
       }
 
-      // Global search glossary must exclude archived/noindex persona stubs
-      const glossary = getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' });
-      expect(glossary['kasra']).toBeUndefined();
-      expect(glossary['river']).toBeUndefined();
+      // Global search glossary (both default and explicit view) must exclude archived/noindex personas and river-only archived excerpts
+      for (const glossary of [
+        getGlossary(lang),
+        getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' }),
+      ]) {
+        expect(glossary['kasra']).toBeUndefined();
+        expect(glossary['river']).toBeUndefined();
+        for (const item of Object.values(glossary)) {
+          expect(item.title, `${lang} glossary title for ${item.id}`).not.toMatch(/^(?:Kasra|River|کسرا|ریور)$/i);
+          expect(item.excerpt, `${lang} glossary excerpt for ${item.id}`).not.toMatch(/River-side|از سمت ریور|Kasra \(Architect\)|River \(Oracle\)/i);
+        }
+      }
+
+      // Knowledge graph must exclude archived/noindex persona nodes
+      const graph = getGraphData(lang, 'kasra');
+      expect(graph.nodes.some((n) => n.type === 'person' && ['kasra', 'river'].includes(n.id))).toBe(false);
+      expect(graph.links.some((l) => ['kasra', 'river'].includes(l.source) || ['kasra', 'river'].includes(l.target))).toBe(false);
+
+      // People page JSON-LD schema must exclude archived/noindex persona stubs
+      const peopleEl = await PeoplePage({ params: Promise.resolve({ lang }) });
+      const peopleHtml = renderToStaticMarkup(peopleEl);
+      expect(peopleHtml).not.toMatch(/\/people\/(?:kasra|river)\b|Kasra|River|کسرا|ریور/i);
+
+      // Start-here page must not serialize archived persona excerpts
+      const startHereEl = await StartHerePage({ params: Promise.resolve({ lang }) });
+      const startHereHtml = renderToStaticMarkup(startHereEl);
+      expect(startHereHtml).not.toMatch(/River-side|از سمت ریور|Kasra \(Architect\)|River \(Oracle\)/i);
     }
 
     // Indexable Persian tag pages must not leak archived persona abstracts or persona related tags
