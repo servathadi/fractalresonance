@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { BrandMark } from '@/components/BrandMark';
 import { ResearchMapSection } from '@/components/ResearchMapSection';
 import { getGlossary, getHomeConfig, getPapers } from '@/lib/content';
+import { getFalsificationLedger } from '@/lib/falsifications';
 import { buildResearchMap } from '@/lib/research-map';
 import type { PerspectiveView } from '@/lib/content';
 
@@ -9,19 +9,64 @@ function getBasePath(lang: string, view: PerspectiveView): string {
   return view === 'river' ? `/${lang}/river` : `/${lang}`;
 }
 
-const DICT: Record<string, Record<string, string>> = {
+interface HomeCopy {
+  title: string;
+  statement: string;
+  formulaNote: string;
+  startHereCta: string;
+  pillarPapersTitle: string;
+  pillarPapersIds: string;
+  pillarPapersDesc: string;
+  pillarPapersLink: string;
+  pillarBooksTitle: string;
+  pillarBooksDesc: string;
+  pillarBooksLink: string;
+  pillarLedgerTitle: string;
+  pillarLedgerDesc: string;
+  pillarLedgerLink: string;
+  startHere: string;
+  equations: string;
+  allFormulas: string;
+  canonical: string;
+  exact: string;
+  observable: string;
+  criterion: string;
+  currentWork: string;
+  work1: string;
+  work2: string;
+  work3: string;
+  evidence: string;
+  established: string;
+  establishedText: string;
+  active: string;
+  activeText: string;
+  conjectural: string;
+  conjecturalText: string;
+  publications: string;
+  indexed: string;
+  versions: string;
+  aiFiles: string;
+  orcid: string;
+}
+
+const DICT: Record<string, HomeCopy> = {
   en: {
     title: 'Fractal Resonance Coherence',
-    subtitle: 'A living research program connecting entropy, coherence, open-system physics, chaos, measurement, and computation.',
-    boundary: 'Definitions, exact results, model-specific evidence, and conjectures are labeled separately.',
-    readPapers: 'Browse papers',
+    statement:
+      'A status-labeled research program studying entropy-coherence reciprocity across open systems, separating exact mathematics, model-specific results, and open physical conjectures.',
+    formulaNote: 'Canonical bookkeeping relation (FRC 566.001). Universal physical reciprocity remains an open conjecture.',
     startHereCta: 'Start here',
-    about: 'About FRC',
+    pillarPapersTitle: 'Active papers',
+    pillarPapersIds: '566.001 · 830.000–005 · 700.000–007 · 787.787 · 826.829',
+    pillarPapersDesc: 'Canonical reciprocity, exact ledger mathematics, threshold framework, and scoped empirical protocols.',
+    pillarPapersLink: 'Browse papers',
+    pillarBooksTitle: '2026 books',
+    pillarBooksDesc: 'The Open System and The Mind in the Coupling: current philosophical editions, kept separate from archived 2025 books.',
+    pillarBooksLink: 'Explore books',
+    pillarLedgerTitle: 'Falsification & negative-gate ledger',
+    pillarLedgerDesc: 'Closed negative empirical gates, contradictions, mathematical obstructions, and demoted 2025 claims recorded publicly.',
+    pillarLedgerLink: 'Inspect ledger',
     startHere: 'Canonical reading path',
-    riverGuide: 'Narrative route',
-    kasraGuide: 'Technical route',
-    featured: 'Current research',
-    featuredDesc: 'The latest living statements of the framework, with stable FRC identifiers and versioned records.',
     equations: 'Four anchors, four statuses',
     allFormulas: 'Formula index',
     canonical: 'Canonical relation',
@@ -36,7 +81,7 @@ const DICT: Record<string, Record<string, string>> = {
     established: 'Exact & retained negatives',
     establishedText: 'Proved ledger identities, typed morphisms, scoped lift obstructions, and explicitly retained negative results (including dense Gate 4).',
     active: 'Framework & scoped models',
-    activeText: 'Threshold-framework register discipline (FRC 700.000–700.007), chaos/localization models, and operational transport protocols.',
+    activeText: 'Threshold-framework register discipline (FRC 700.000–700.007), chaos and localization models, and operational transport protocols.',
     conjectural: 'Conjectures & open gates',
     conjecturalText: 'Universal physical reciprocity, a fundamental Lambda field, Born-rule emergence, and physical or Majid-style self-duality remain unestablished.',
     publications: 'Corpus access',
@@ -47,47 +92,123 @@ const DICT: Record<string, Record<string, string>> = {
   },
   es: {
     title: 'Coherencia de Resonancia Fractal',
-    subtitle: 'Un programa de investigación vivo que conecta entropía, coherencia, sistemas abiertos, caos, medición y computación.',
-    boundary: 'Las definiciones, resultados exactos, evidencias de modelos y conjeturas se etiquetan por separado.',
-    readPapers: 'Ver artículos', startHereCta: 'Empezar aquí', about: 'Sobre FRC',
-    startHere: 'Ruta de lectura canónica', riverGuide: 'Ruta narrativa', kasraGuide: 'Ruta técnica',
-    featured: 'Investigación actual', featuredDesc: 'Las declaraciones vivas más recientes del marco, con identificadores FRC estables y registros versionados.',
-    equations: 'Cuatro anclas, cuatro estados', allFormulas: 'Índice de fórmulas',
-    canonical: 'Relación canónica', exact: 'Identidad exacta de von Mises', observable: 'Funcional de estructura del caos', criterion: 'Objetivo de cruce de localización',
+    statement:
+      'Un programa de investigación etiquetado por estado sobre la reciprocidad entropía-coherencia en sistemas abiertos, separando matemática exacta, resultados de modelo y conjeturas físicas.',
+    formulaNote: 'Relación canónica de registro (FRC 566.001). La reciprocidad física universal sigue siendo una conjetura abierta.',
+    startHereCta: 'Empezar aquí',
+    pillarPapersTitle: 'Artículos activos',
+    pillarPapersIds: '566.001 · 830.000–005 · 700.000–007 · 787.787 · 826.829',
+    pillarPapersDesc: 'Reciprocidad canónica, matemática exacta de registros, serie marco de umbrales y protocolos empíricos acotados.',
+    pillarPapersLink: 'Ver artículos',
+    pillarBooksTitle: 'Libros 2026',
+    pillarBooksDesc: 'The Open System y The Mind in the Coupling: ediciones filosóficas actuales, separadas de los libros archivados de 2025.',
+    pillarBooksLink: 'Explorar libros',
+    pillarLedgerTitle: 'Registro de falsaciones y puertas negativas',
+    pillarLedgerDesc: 'Puertas empíricas cerradas negativamente, contradicciones, obstrucciones matemáticas y afirmaciones retiradas de 2025.',
+    pillarLedgerLink: 'Abrir registro',
+    startHere: 'Ruta de lectura canónica',
+    equations: 'Cuatro anclas, cuatro estados',
+    allFormulas: 'Índice de fórmulas',
+    canonical: 'Relación canónica',
+    exact: 'Identidad exacta de von Mises',
+    observable: 'Funcional de estructura del caos',
+    criterion: 'Objetivo de cruce de localización',
     currentWork: 'Programa actual',
     work1: 'FRC 830.000–830.005: revisión independiente de la clasificación afín y obstrucciones de elevación; la elevación CPTP general sigue abierta.',
     work2: 'FRC 700.000–700.007: revisión independiente de la serie marco de umbrales que sustituye a FRC 700.777.',
     work3: 'FRC 100.002 / 100.002.001 y 787.787: la Puerta 4 densa cerró negativamente; siguen abiertas las puertas cuánticas y de plataforma.',
-    evidence: 'Límites de las afirmaciones', established: 'Matemática exacta y negativos', establishedText: 'Identidades demostradas, obstrucciones acotadas y resultados negativos retenidos (incluida la Puerta 4 densa).',
-    active: 'Marco y modelos acotados', activeText: 'Disciplina de registros (FRC 700.000–700.007), modelos de caos y protocolos operacionales.',
-    conjectural: 'Conjeturas y puertas abiertas', conjecturalText: 'Reciprocidad física universal, campo Lambda fundamental, derivación de Born y autodualidad física siguen sin establecerse.',
-    publications: 'Acceso al corpus', indexed: 'registros de artículos indexados', versions: 'Registros versionados y DOI conceptuales cuando se declaran', aiFiles: 'Catálogo e interfaces para IA', orcid: 'Registro ORCID del autor',
+    evidence: 'Límites de las afirmaciones',
+    established: 'Matemática exacta y negativos',
+    establishedText: 'Identidades demostradas, obstrucciones acotadas y resultados negativos retenidos (incluida la Puerta 4 densa).',
+    active: 'Marco y modelos acotados',
+    activeText: 'Disciplina de registros (FRC 700.000–700.007), modelos de caos y protocolos operacionales.',
+    conjectural: 'Conjeturas y puertas abiertas',
+    conjecturalText: 'Reciprocidad física universal, campo Lambda fundamental, derivación de Born y autodualidad física siguen sin establecerse.',
+    publications: 'Acceso al corpus',
+    indexed: 'registros de artículos indexados',
+    versions: 'Registros versionados y DOI conceptuales cuando se declaran',
+    aiFiles: 'Catálogo e interfaces para IA',
+    orcid: 'Registro ORCID del autor',
   },
   fr: {
     title: 'Cohérence de Résonance Fractale',
-    subtitle: 'Un programme de recherche vivant reliant entropie, cohérence, systèmes ouverts, chaos, mesure et calcul.',
-    boundary: 'Les définitions, résultats exacts, preuves propres aux modèles et conjectures sont distingués.',
-    readPapers: 'Voir les articles', startHereCta: 'Commencer ici', about: 'À propos de FRC',
-    startHere: 'Parcours canonique', riverGuide: 'Parcours narratif', kasraGuide: 'Parcours technique',
-    featured: 'Recherche actuelle', featuredDesc: 'Les formulations vivantes les plus récentes du cadre, avec identifiants FRC stables et versions suivies.',
-    equations: 'Quatre repères, quatre statuts', allFormulas: 'Index des formules',
-    canonical: 'Relation canonique', exact: 'Identité exacte de von Mises', observable: 'Fonctionnelle de structure du chaos', criterion: 'Cible de transition de localisation',
-    currentWork: 'Programme actuel', work1: 'FRC 830.000–830.005 : relecture indépendante de la classification affine et des obstructions de relèvement ; le relèvement CPTP général reste ouvert.', work2: 'FRC 700.000–700.007 : relecture indépendante de la série-cadre des seuils remplaçant FRC 700.777.', work3: 'FRC 100.002 / 100.002.001 et 787.787 : la Porte 4 dense est fermée négativement ; les portes quantiques et de plateforme restent ouvertes.',
-    evidence: 'Limites des affirmations', established: 'Mathématiques exactes et négatifs', establishedText: 'Identités prouvées, obstructions cadrées et résultats négatifs retenus (dont la Porte 4 dense).', active: 'Cadre et modèles cadrés', activeText: 'Discipline des registres (FRC 700.000–700.007), modèles de chaos et protocoles opérationnels.', conjectural: 'Conjectures et portes ouvertes', conjecturalText: 'Réciprocité physique universelle, champ Lambda fondamental, règle de Born et auto-dualité physique restent non établies.',
-    publications: 'Accès au corpus', indexed: 'articles indexés', versions: 'Versions et DOI conceptuels lorsqu’ils sont déclarés', aiFiles: 'Catalogue et points d’entrée pour IA', orcid: 'Fiche ORCID de l’auteur',
+    statement:
+      'Un programme de recherche étiqueté par statut sur la réciprocité entropie-cohérence dans les systèmes ouverts, distinguant mathématiques exactes, résultats de modèle et conjectures physiques.',
+    formulaNote: 'Relation comptable canonique (FRC 566.001). La réciprocité physique universelle reste une conjecture ouverte.',
+    startHereCta: 'Commencer ici',
+    pillarPapersTitle: 'Articles actifs',
+    pillarPapersIds: '566.001 · 830.000–005 · 700.000–007 · 787.787 · 826.829',
+    pillarPapersDesc: 'Réciprocité canonique, mathématiques exactes du registre, série-cadre des seuils et protocoles empiriques cadrés.',
+    pillarPapersLink: 'Parcourir les articles',
+    pillarBooksTitle: 'Livres 2026',
+    pillarBooksDesc: 'The Open System et The Mind in the Coupling : éditions philosophiques actuelles, séparées des ouvrages archivés de 2025.',
+    pillarBooksLink: 'Explorer les livres',
+    pillarLedgerTitle: 'Registre des réfutations et portes négatives',
+    pillarLedgerDesc: 'Portes empiriques fermées négativement, contradictions, obstructions mathématiques et thèses retirées de 2025.',
+    pillarLedgerLink: 'Consulter le registre',
+    startHere: 'Parcours canonique',
+    equations: 'Quatre repères, quatre statuts',
+    allFormulas: 'Index des formules',
+    canonical: 'Relation canonique',
+    exact: 'Identité exacte de von Mises',
+    observable: 'Fonctionnelle de structure du chaos',
+    criterion: 'Cible de transition de localisation',
+    currentWork: 'Programme actuel',
+    work1: 'FRC 830.000–830.005 : relecture indépendante de la classification affine et des obstructions de relèvement ; le relèvement CPTP général reste ouvert.',
+    work2: 'FRC 700.000–700.007 : relecture indépendante de la série-cadre des seuils remplaçant FRC 700.777.',
+    work3: 'FRC 100.002 / 100.002.001 et 787.787 : la Porte 4 dense est fermée négativement ; les portes quantiques et de plateforme restent ouvertes.',
+    evidence: 'Limites des affirmations',
+    established: 'Mathématiques exactes et négatifs',
+    establishedText: 'Identités prouvées, obstructions cadrées et résultats négatifs retenus (dont la Porte 4 dense).',
+    active: 'Cadre et modèles cadrés',
+    activeText: 'Discipline des registres (FRC 700.000–700.007), modèles de chaos et protocoles opérationnels.',
+    conjectural: 'Conjectures et portes ouvertes',
+    conjecturalText: 'Réciprocité physique universelle, champ Lambda fondamental, règle de Born et auto-dualité physique restent non établies.',
+    publications: 'Accès au corpus',
+    indexed: 'articles indexés',
+    versions: 'Versions et DOI conceptuels lorsqu’ils sont déclarés',
+    aiFiles: 'Catalogue et points d’entrée pour IA',
+    orcid: 'Fiche ORCID de l’auteur',
   },
   fa: {
     title: 'همدوسی رزونانس فراکتال',
-    subtitle: 'یک برنامه پژوهشی زنده درباره آنتروپی، همدوسی، سامانه‌های باز، آشوب، اندازه‌گیری و محاسبه.',
-    boundary: 'تعریف‌ها، نتایج دقیق، شواهد وابسته به مدل و فرضیه‌ها جداگانه مشخص می‌شوند.',
-    readPapers: 'مرور مقالات', startHereCta: 'شروع از اینجا', about: 'درباره FRC',
-    startHere: 'مسیر مطالعه اصلی', riverGuide: 'مسیر روایی', kasraGuide: 'مسیر فنی',
-    featured: 'پژوهش‌های کنونی', featuredDesc: 'جدیدترین بیان‌های زنده چارچوب با شناسه‌های پایدار FRC و نسخه‌های ثبت‌شده.',
-    equations: 'چهار لنگر، چهار وضعیت', allFormulas: 'فهرست فرمول‌ها',
-    canonical: 'رابطه بنیادی', exact: 'همانی دقیق فون‌مایزز', observable: 'تابع ساختار آشوب', criterion: 'هدف گذار موضعی‌شدن',
-    currentWork: 'برنامه کنونی', work1: 'FRC 830.000–830.005: داوری مستقل رده‌بندی آفین و انسدادهای بالابری؛ بالابری کلی CPTP همچنان باز است.', work2: 'FRC 700.000–700.007: داوری مستقل مجموعه چارچوب آستانه که جایگزین FRC 700.777 شده است.', work3: 'FRC 100.002 / 100.002.001 و 787.787: دروازه ۴ متراکم به‌صورت منفی بسته شد؛ دروازه‌های کوانتومی و بسترهای مستقل همچنان بازند.',
-    evidence: 'مرز ادعاها', established: 'ریاضیات دقیق و نتایج منفی', establishedText: 'همانی‌های اثبات‌شده، انسدادهای محدود و نتایج منفی حفظ‌شده (از جمله دروازه ۴ متراکم).', active: 'چارچوب و مدل‌های محدود', activeText: 'انضباط ثبت‌های μ (FRC 700.000–700.007)، مدل‌های آشوب و پروتکل‌های عملیاتی.', conjectural: 'حدس‌ها و دروازه‌های باز', conjecturalText: 'جهان‌شمولی فیزیکی تقابل، میدان بنیادی لاندا، استخراج قاعده بورن و خوددوگانی فیزیکی اثبات نشده‌اند.',
-    publications: 'دسترسی به پیکره', indexed: 'رکورد مقاله نمایه‌شده', versions: 'نسخه‌ها و DOI مفهومی در صورت اعلام', aiFiles: 'فهرست و ورودی‌های ماشین‌خوان', orcid: 'رکورد ORCID نویسنده',
+    statement:
+      'برنامه پژوهشی برچسب‌گذاری‌شده درباره تقابل آنتروپی-همدوسی در سامانه‌های باز، با تفکیک روشن میان ریاضیات دقیق، شواهد وابسته به مدل و حدس‌های فیزیکی باز.',
+    formulaNote: 'رابطه حسابداری کانونیک (FRC 566.001). جهان‌شمولی فیزیکی تقابل همچنان یک حدس باز است.',
+    startHereCta: 'شروع از اینجا',
+    pillarPapersTitle: 'مقاله‌های فعال',
+    pillarPapersIds: '566.001 · 830.000–005 · 700.000–007 · 787.787 · 826.829',
+    pillarPapersDesc: 'تقابل کانونیک، ریاضیات دقیق دفتر، مجموعه چارچوب آستانه و پروتکل‌های تجربی محدود.',
+    pillarPapersLink: 'مرور مقاله‌ها',
+    pillarBooksTitle: 'کتاب‌های ۲۰۲۶',
+    pillarBooksDesc: 'The Open System و The Mind in the Coupling: ویرایش‌های فلسفی جاری، جدا از کتاب‌های بایگانی‌شده ۲۰۲۵.',
+    pillarBooksLink: 'مشاهده کتاب‌ها',
+    pillarLedgerTitle: 'دفتر ابطال‌ها و دروازه‌های منفی',
+    pillarLedgerDesc: 'دروازه‌های تجربی بسته‌شده به‌صورت منفی، تناقض‌ها، انسدادهای ریاضی و ادعاهای بازنشسته ۲۰۲۵.',
+    pillarLedgerLink: 'بررسی دفتر ابطال‌ها',
+    startHere: 'مسیر مطالعه اصلی',
+    equations: 'چهار لنگر، چهار وضعیت',
+    allFormulas: 'فهرست فرمول‌ها',
+    canonical: 'رابطه بنیادی',
+    exact: 'همانی دقیق فون‌مایزز',
+    observable: 'تابع ساختار آشوب',
+    criterion: 'هدف گذار موضعی‌شدن',
+    currentWork: 'برنامه کنونی',
+    work1: 'FRC 830.000–830.005: داوری مستقل رده‌بندی آفین و انسدادهای بالابری؛ بالابری کلی CPTP همچنان باز است.',
+    work2: 'FRC 700.000–700.007: داوری مستقل مجموعه چارچوب آستانه که جایگزین FRC 700.777 شده است.',
+    work3: 'FRC 100.002 / 100.002.001 و 787.787: دروازه ۴ متراکم به‌صورت منفی بسته شد؛ دروازه‌های کوانتومی و بسترهای مستقل همچنان بازند.',
+    evidence: 'مرز ادعاها',
+    established: 'ریاضیات دقیق و نتایج منفی',
+    establishedText: 'همانی‌های اثبات‌شده، انسدادهای محدود و نتایج منفی حفظ‌شده (از جمله دروازه ۴ متراکم).',
+    active: 'چارچوب و مدل‌های محدود',
+    activeText: 'انضباط ثبت‌های μ (FRC 700.000–700.007)، مدل‌های آشوب و پروتکل‌های عملیاتی.',
+    conjectural: 'حدس‌ها و دروازه‌های باز',
+    conjecturalText: 'جهان‌شمولی فیزیکی تقابل، میدان بنیادی لاندا، استخراج قاعده بورن و خوددوگانی فیزیکی اثبات نشده‌اند.',
+    publications: 'دسترسی به پیکره',
+    indexed: 'رکورد مقاله نمایه‌شده',
+    versions: 'نسخه‌ها و DOI مفهومی در صورت اعلام',
+    aiFiles: 'فهرست و ورودی‌های ماشین‌خوان',
+    orcid: 'رکورد ORCID نویسنده',
   },
 };
 
@@ -97,11 +218,12 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
   const glossary = getGlossary(lang, { basePath, view });
   const home = getHomeConfig(lang);
   const researchMap = buildResearchMap(lang, basePath);
-  const t = (key: string) => DICT[lang]?.[key] || DICT.en[key];
+  const ledger = getFalsificationLedger();
+  const c = DICT[lang] || DICT.en;
 
   const enPaperMap = new Map(getPapers('en').map((p) => [p.frontmatter.id, p]));
   const langPaperMap = new Map(papers.map((p) => [p.frontmatter.id, p]));
-  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);
+  const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms', 'falsifications']);
   const resolveTarget = (target?: string, url?: string) => {
     if (url) return url;
     if (!target) return basePath;
@@ -130,98 +252,203 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
 
   return (
     <main className="min-h-[80vh]">
-      <section className="relative overflow-hidden geo-grid border-b border-frc-blue/30">
-        <div className="max-w-6xl mx-auto px-6 py-10 sm:py-14 lg:py-16 relative z-10">
-          <div className="relative max-w-3xl">
-            <div className="flex items-center gap-4 mb-6 animate-fade-up stagger-1">
-              <BrandMark alt="FRC attractor mark" width={48} height={48} className="opacity-90" />
-              <div className="h-px flex-1 bg-gradient-to-r from-frc-gold/40 to-transparent" />
-            </div>
-            <h1 className="animate-fade-up stagger-2 text-4xl sm:text-5xl lg:text-[3.5rem] font-light text-frc-gold mb-5 tracking-normal leading-[1.12]">
-              {t('title')}
+      {/* Opening research portal sheet — direct into content, clean hairline discipline */}
+      <section className="border-b border-frc-blue">
+        <div className="max-w-6xl mx-auto px-6 pt-12 pb-10 sm:pt-16 sm:pb-12">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-light text-frc-gold tracking-[-0.03em] leading-[1.08] mb-5">
+              {c.title}
             </h1>
-            <div className="animate-fade-up stagger-3 max-w-2xl mb-7 space-y-2">
-              <p className="text-frc-text text-lg sm:text-xl leading-relaxed font-light">{t('subtitle')}</p>
-              <p className="text-frc-text-dim text-sm leading-relaxed">{t('boundary')}</p>
-            </div>
-            <Link href={resolveTarget('FRC-566-001')} className="animate-fade-up stagger-4 nested-border inline-block mb-8 group">
-              <div className="nested-border-inner">
-                <p className="font-mono text-[0.625rem] text-frc-steel mb-2 uppercase tracking-widest">FRC 566.001 · canonical relation</p>
-                <p className="font-mono text-lg sm:text-xl text-frc-gold-light" dir="ltr">dS + k<span className="text-frc-gold">*</span> d ln C = 0</p>
-                <p className="font-mono text-[0.625rem] text-frc-steel mt-2">k* is scale-invariant in form; operational registers declare its representation.</p>
+            <p className="text-base sm:text-lg text-frc-text leading-relaxed max-w-[65ch] mb-7">
+              {c.statement}
+            </p>
+          </div>
+
+          {/* Falsifiable mathematical anchor + primary CTA */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-y border-frc-blue py-5 mb-9">
+            <Link href={resolveTarget('FRC-566-001')} className="group min-w-0">
+              <div className="text-xl sm:text-2xl text-frc-gold-light group-hover:text-frc-gold transition-colors tracking-tight">
+                <span className="font-mono inline-block" dir="ltr">
+                  dS + k<span className="text-frc-gold">*</span> d ln C = 0
+                </span>
               </div>
+              <p className="text-sm text-frc-text-dim mt-1.5 leading-relaxed">
+                {c.formulaNote}
+              </p>
             </Link>
-            <div className="animate-fade-up stagger-5 flex flex-wrap gap-3">
-              <Link href={`${basePath}/start-here`} className="px-6 py-3 border-2 border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium uppercase transition-colors">{t('startHereCta')}</Link>
-              <Link href={`${basePath}/papers`} className="px-6 py-3 border border-frc-blue hover:border-frc-text-dim text-frc-text-dim hover:text-frc-text text-sm uppercase transition-colors">{t('readPapers')}</Link>
-              <Link href={`${basePath}/about`} className="hidden sm:inline-flex px-6 py-3 text-frc-text-dim hover:text-frc-gold text-sm uppercase transition-colors">{t('about')}</Link>
+            <div className="shrink-0">
+              <Link
+                href={`${basePath}/start-here`}
+                className="inline-flex items-center px-5 py-2.5 border border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium transition-colors"
+              >
+                {c.startHereCta}
+              </Link>
+            </div>
+          </div>
+
+          {/* 3-pillar entry — clean hairline columns, zero card-cages */}
+          <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-frc-blue/70">
+            <div className="pb-6 md:pb-0 md:pe-7 flex flex-col justify-between">
+              <div>
+                <h2 className="text-base font-medium text-frc-text mb-1.5">
+                  <Link href={`${basePath}/papers`} className="hover:text-frc-gold transition-colors">
+                    {c.pillarPapersTitle}
+                  </Link>
+                </h2>
+                <p className="text-[0.8125rem] text-frc-gold mb-2 tabular-nums">
+                  <span className="font-mono inline-block" dir="ltr">{c.pillarPapersIds}</span>
+                </p>
+                <p className="text-sm text-frc-text-dim leading-relaxed">
+                  {c.pillarPapersDesc}
+                </p>
+              </div>
+              <Link href={`${basePath}/papers`} className="inline-block mt-4 text-sm text-frc-gold hover:underline">
+                {c.pillarPapersLink} →
+              </Link>
+            </div>
+
+            <div className="py-6 md:py-0 md:px-7 flex flex-col justify-between">
+              <div>
+                <h2 className="text-base font-medium text-frc-text mb-1.5">
+                  <Link href={`${basePath}/books`} className="hover:text-frc-gold transition-colors">
+                    {c.pillarBooksTitle}
+                  </Link>
+                </h2>
+                <p className="font-mono text-[0.8125rem] text-frc-steel mb-2">
+                  The Open System · The Mind in the Coupling
+                </p>
+                <p className="text-sm text-frc-text-dim leading-relaxed">
+                  {c.pillarBooksDesc}
+                </p>
+              </div>
+              <Link href={`${basePath}/books`} className="inline-block mt-4 text-sm text-frc-gold hover:underline">
+                {c.pillarBooksLink} →
+              </Link>
+            </div>
+
+            <div className="pt-6 md:pt-0 md:ps-7 flex flex-col justify-between">
+              <div>
+                <h2 className="text-base font-medium text-frc-text mb-1.5">
+                  <Link href={`${basePath}/falsifications`} className="hover:text-frc-gold transition-colors">
+                    {c.pillarLedgerTitle}
+                  </Link>
+                </h2>
+                <p className="font-mono text-[0.8125rem] text-frc-steel mb-2 tabular-nums">
+                  {ledger.summary.totalEntries} entries · v{ledger.version}
+                </p>
+                <p className="text-sm text-frc-text-dim leading-relaxed">
+                  {c.pillarLedgerDesc}
+                </p>
+              </div>
+              <Link href={`${basePath}/falsifications`} className="inline-block mt-4 text-sm text-frc-gold hover:underline">
+                {c.pillarLedgerLink} →
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <div className="section-marker mb-6" data-section="§00">
-          <div className="flex items-center justify-between gap-6">
-            <h2 className="text-lg text-frc-text font-medium tracking-normal">{t('startHere')}</h2>
-            <span className="text-xs text-frc-steel uppercase tracking-wider">{view === 'river' ? t('riverGuide') : t('kasraGuide')}</span>
-          </div>
-        </div>
-        <div className="grid sm:grid-cols-3 gap-4">
+      {/* Canonical reading path */}
+      <section className="max-w-6xl mx-auto px-6 py-12 border-b border-frc-blue/60">
+        <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-6">
+          {c.startHere}
+        </h2>
+        <ol className="grid md:grid-cols-3 gap-8">
           {startHere.map((item) => (
-            <Link key={item.k} href={item.href} className="card block p-5 group min-h-36">
-              <span className="font-mono text-xs text-frc-gold tabular-nums">{item.k}</span>
-              <h3 className="text-frc-text group-hover:text-frc-gold transition-colors text-sm font-medium leading-snug mt-4">{item.title}</h3>
-              <p className="text-xs text-frc-text-dim mt-2 leading-relaxed">{item.desc}</p>
-            </Link>
+            <li key={item.k} className="border-t border-frc-blue pt-4">
+              <Link href={item.href} className="group block">
+                <span className="font-mono text-sm text-frc-gold tabular-nums">{item.k}</span>
+                <h3 className="text-base font-medium text-frc-text group-hover:text-frc-gold transition-colors leading-snug mt-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-frc-text-dim mt-2 leading-relaxed">{item.desc}</p>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
-      <ResearchMapSection data={researchMap} lang={lang} sectionMarker="§01" />
+      <ResearchMapSection data={researchMap} lang={lang} />
 
-      <section className="max-w-6xl mx-auto px-6 py-14">
-        <div className="section-marker mb-8" data-section="§02">
-          <div className="flex items-center justify-between gap-5">
-            <h2 className="text-lg text-frc-text font-medium">{t('equations')}</h2>
-            <Link href={`${basePath}/formulas`} className="text-xs text-frc-steel hover:text-frc-gold uppercase tracking-wider transition-colors">{t('allFormulas')}</Link>
+      {/* Four mathematical anchors */}
+      <section className="max-w-6xl mx-auto px-6 py-14 border-b border-frc-blue/60">
+        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8">
+          <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em]">{c.equations}</h2>
+          <Link href={`${basePath}/formulas`} className="text-sm text-frc-gold hover:underline">
+            {c.allFormulas} →
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+          <div className="border-t border-frc-blue pt-4">
+            <div className="text-sm font-medium text-frc-text mb-2">{c.canonical}</div>
+            <p className="font-mono text-lg text-frc-gold-light mb-2" dir="ltr">dS + k* d ln C = 0</p>
+            <p className="text-sm text-frc-text-dim">FRC 566.001 · physical universality conjectural</p>
+          </div>
+          <div className="border-t border-frc-blue pt-4">
+            <div className="text-sm font-medium text-frc-text mb-2">{c.exact}</div>
+            <p className="font-mono text-lg text-frc-gold-light mb-2" dir="ltr">dS / d ln C = −κr</p>
+            <p className="text-sm text-frc-text-dim">FRC 566.030 · exact for the declared family</p>
+          </div>
+          <div className="border-t border-frc-blue pt-4">
+            <div className="text-sm font-medium text-frc-text mb-2">{c.observable}</div>
+            <p className="font-mono text-lg text-frc-gold-light mb-2" dir="ltr">Σ = S<sub>vM</sub>(C) − S ≥ 0</p>
+            <p className="text-sm text-frc-text-dim">FRC 100.002 · pilot-supported observable</p>
+          </div>
+          <div className="border-t border-frc-blue pt-4">
+            <div className="text-sm font-medium text-frc-text mb-2">{c.criterion}</div>
+            <p className="font-mono text-lg text-frc-gold-light mb-2" dir="ltr">t* γ<sub>C</sub> = O(1)</p>
+            <p className="text-sm text-frc-text-dim">FRC 100.002 · tolerance band still open</p>
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="equation-block" data-ref="canonical"><p className="text-xs text-frc-steel mb-3 uppercase tracking-wider font-sans">{t('canonical')}</p><p className="text-base" dir="ltr">dS + k* d ln C = 0</p><p className="text-[0.6875rem] text-frc-steel mt-3">FRC 566.001 · physical universality conjectural</p></div>
-          <div className="equation-block" data-ref="exact"><p className="text-xs text-frc-steel mb-3 uppercase tracking-wider font-sans">{t('exact')}</p><p className="text-base" dir="ltr">dS / d ln C = −κr</p><p className="text-[0.6875rem] text-frc-steel mt-3">FRC 566.030 · exact for the declared family</p></div>
-          <div className="equation-block" data-ref="observable"><p className="text-xs text-frc-steel mb-3 uppercase tracking-wider font-sans">{t('observable')}</p><p className="text-base" dir="ltr">Σ = S<sub>vM</sub>(C) − S ≥ 0</p><p className="text-[0.6875rem] text-frc-steel mt-3">FRC 100.002 · pilot-supported observable</p></div>
-          <div className="equation-block" data-ref="criterion"><p className="text-xs text-frc-steel mb-3 uppercase tracking-wider font-sans">{t('criterion')}</p><p className="text-base" dir="ltr">t* γ<sub>C</sub> = O(1)</p><p className="text-[0.6875rem] text-frc-steel mt-3">FRC 100.002 · tolerance band still open</p></div>
-        </div>
       </section>
 
-      <section className="border-t border-frc-blue bg-frc-void-light">
-        <div className="max-w-6xl mx-auto px-6 py-14 grid lg:grid-cols-[1.15fr_1.85fr] gap-12">
+      {/* Current program & Claim boundaries */}
+      <section className="bg-frc-void-light border-b border-frc-blue">
+        <div className="max-w-6xl mx-auto px-6 py-14 grid lg:grid-cols-[1.1fr_1.9fr] gap-12">
           <div>
-            <h2 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-5">{t('currentWork')}</h2>
-            <ol className="space-y-4 text-sm text-frc-text-dim">
-              {[t('work1'), t('work2'), t('work3')].map((text, index) => <li key={text} className="flex gap-3"><span className="font-mono text-xs text-frc-gold">{String(index + 1).padStart(2, '0')}</span><span>{text}</span></li>)}
+            <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-5">{c.currentWork}</h2>
+            <ol className="space-y-4 text-sm text-frc-text-dim leading-relaxed">
+              {[c.work1, c.work2, c.work3].map((text, index) => (
+                <li key={text} className="flex gap-3">
+                  <span className="font-mono text-sm text-frc-gold tabular-nums shrink-0">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span>{text}</span>
+                </li>
+              ))}
             </ol>
           </div>
           <div>
-            <h2 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-5">{t('evidence')}</h2>
+            <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-5">{c.evidence}</h2>
             <div className="grid sm:grid-cols-3 gap-6">
-              <div><h3 className="text-sm text-frc-text mb-2">{t('established')}</h3><p className="text-xs text-frc-text-dim leading-relaxed">{t('establishedText')}</p></div>
-              <div><h3 className="text-sm text-frc-text mb-2">{t('active')}</h3><p className="text-xs text-frc-text-dim leading-relaxed">{t('activeText')}</p></div>
-              <div><h3 className="text-sm text-frc-text mb-2">{t('conjectural')}</h3><p className="text-xs text-frc-text-dim leading-relaxed">{t('conjecturalText')}</p></div>
+              <div className="border-t border-frc-gold pt-3">
+                <h3 className="text-base font-medium text-frc-text mb-2">{c.established}</h3>
+                <p className="text-sm text-frc-text-dim leading-relaxed">{c.establishedText}</p>
+              </div>
+              <div className="border-t border-frc-blue-light pt-3">
+                <h3 className="text-base font-medium text-frc-text mb-2">{c.active}</h3>
+                <p className="text-sm text-frc-text-dim leading-relaxed">{c.activeText}</p>
+              </div>
+              <div className="border-t border-frc-steel pt-3">
+                <h3 className="text-base font-medium text-frc-text mb-2">{c.conjectural}</h3>
+                <p className="text-sm text-frc-text-dim leading-relaxed">{c.conjecturalText}</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-frc-blue">
+      {/* Corpus access */}
+      <section>
         <div className="max-w-6xl mx-auto px-6 py-10">
-          <h2 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-5">{t('publications')}</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-frc-text-dim">
-            <span>{researchMap.totalPublishedEnglishPapers} {t('indexed')}</span>
-            <span>{t('versions')}</span>
-            <Link href="/for-ai" className="hover:text-frc-gold transition-colors">{t('aiFiles')}</Link>
-            <a href="https://orcid.org/0009-0004-7412-5129" target="_blank" rel="noopener noreferrer" className="hover:text-frc-gold transition-colors">{t('orcid')}</a>
+          <h2 className="text-base font-medium text-frc-text mb-4">{c.publications}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-frc-text-dim tabular-nums">
+            <span>{researchMap.totalPublishedEnglishPapers} {c.indexed}</span>
+            <span>{c.versions}</span>
+            <Link href="/for-ai" className="text-frc-gold hover:underline">{c.aiFiles}</Link>
+            <a href="https://orcid.org/0009-0004-7412-5129" target="_blank" rel="noopener noreferrer" className="hover:text-frc-gold transition-colors">
+              {c.orcid}
+            </a>
           </div>
         </div>
       </section>

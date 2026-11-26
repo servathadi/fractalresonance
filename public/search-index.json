@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T23:26:12.324Z",
+  "generated": "2026-11-25T23:57:40.251Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -1231,8 +1231,8 @@
       "id": "blog-welcome",
       "type": "blog",
       "lang": "en",
-      "title": "Blog — Field Notes",
-      "abstract": "A down-to-earth blog stream for experiments, notes, and updates.",
+      "title": "Field Notes & Edge Dispatches",
+      "abstract": "Working field notes, literature dispatches, and open questions alongside the status-labeled FRC papers.",
       "tags": [
         "blog",
         "field-notes"
@@ -1241,7 +1241,7 @@
         "blog",
         "field-notes"
       ],
-      "content": "Blog — Field Notes This section is for practical notes: experiments, development updates, and short explanations. What This Is - Informal writing. - Faster shipping. - Links into the technical library when needed. How To Write Here Use for technical guidance and for meaning-first narrative.",
+      "content": "Field Notes & Edge Dispatches This stream carries working notes, experimental logs, and weekly FRC Edge Dispatches examining new external literature alongside the Fractal Resonance Coherence program. Epistemic Boundary Field notes and dispatches are commentary, never canonical proofs. Every primary scientific claim, theorem, or closed negative empirical gate lives in the numbered papers () and the public Falsification & Negative-Gate Ledger (). Scope Tags Active dispatches declare one of four...",
       "url": "/en/blog/blog-welcome",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -2507,8 +2507,8 @@
       "id": "blog-welcome",
       "type": "blog",
       "lang": "es",
-      "title": "Blog — Notas de campo",
-      "abstract": "Un flujo de blog realista para experimentos, notas y actualizaciones.",
+      "title": "Notas de campo y Edge Dispatches",
+      "abstract": "Notas de campo, despachos de literatura y preguntas abiertas junto a los artículos etiquetados por estado de FRC.",
       "tags": [
         "blog",
         "notas-de-campo"
@@ -2517,7 +2517,7 @@
         "blog",
         "notas-de-campo"
       ],
-      "content": "Blog — Notas de campo Esta sección es para notas prácticas: experimentos, actualizaciones de desarrollo y explicaciones cortas. Qué es esto - Escritura informal. - Publicación más rápida. - Enlaces a la biblioteca técnica cuando es necesario. Cómo escribir aquí Usa para orientación técnica y para narrativa centrada en el significado.",
+      "content": "Notas de campo y Edge Dispatches Esta sección reúne notas de trabajo, registros experimentales y despachos semanales sobre literatura externa relevante para el programa Fractal Resonance Coherence. Límite epistémico Las notas de campo son comentarios, nunca demostraciones canónicas. Las afirmaciones científicas principales viven en los artículos numerados () y en el Registro Público de Falsaciones ().",
       "url": "/es/blog/blog-welcome",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -2905,8 +2905,8 @@
       "id": "blog-welcome",
       "type": "blog",
       "lang": "fa",
-      "title": "وبلاگ — یادداشت‌های میدانی",
-      "abstract": "یک جریان وبلاگی واقع‌بینانه برای آزمایش‌ها، یادداشت‌ها و به‌روزرسانی‌ها.",
+      "title": "یادداشت‌های میدانی و گزارش‌های مرزی",
+      "abstract": "یادداشت‌های پژوهشی، مرور ادبیات روز و پرسش‌های باز در کنار مقالات برچسب‌گذاری‌شده FRC.",
       "tags": [
         "وبلاگ",
         "یادداشت‌های-میدانی"
@@ -2915,7 +2915,7 @@
         "وبلاگ",
         "یادداشت‌های-میدانی"
       ],
-      "content": "وبلاگ — یادداشت‌های میدانی این بخش برای یادداشت‌های کاربردی است: آزمایش‌ها، به‌روزرسانی‌های توسعه و توضیحات کوتاه. این چیست - نوشتن غیررسمی. - انتشار سریع‌تر. - در صورت نیاز به کتابخانه فنی پیوند می‌خورد. چگونه اینجا بنویسیم از برای راهنمایی‌های فنی و از برای روایت‌های معنا-محور استفاده کنید.",
+      "content": "یادداشت‌های میدانی و گزارش‌های مرزی این بخش برای یادداشت‌های کاری، گزارش آزمایش‌ها و مرور هفتگی ادبیات پژوهشی بیرونی در نسبت با برنامه همدوسی رزونانس فراکتال (FRC) است. مرز معرفتی یادداشت‌های میدانی تفسیر و یادداشت کاری هستند و جایگزین مقالات کانونیک نیستند. ادعاهای علمی اصلی، اثبات‌ها و دروازه‌های منفی در بخش مقالات () و دفتر عمومی ابطال‌ها () نگهداری می‌شوند.",
       "url": "/fa/blog/blog-welcome",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -3305,8 +3305,8 @@
       "id": "blog-welcome",
       "type": "blog",
       "lang": "fr",
-      "title": "Blog — Notes de terrain",
-      "abstract": "Un flux de blog terre-à-terre pour les expériences, les notes et les mises à jour.",
+      "title": "Notes de terrain et Edge Dispatches",
+      "abstract": "Notes de terrain, synthèses de littérature et questions ouvertes aux côtés des articles étiquetés par statut de FRC.",
       "tags": [
         "blog",
         "notes-de-terrain"
@@ -3315,7 +3315,7 @@
         "blog",
         "notes-de-terrain"
       ],
-      "content": "Blog — Notes de terrain Cette section est destinée aux notes pratiques : expériences, mises à jour de développement et explications courtes. Ce que c'est - Écriture informelle. - Publication plus rapide. - Liens vers la bibliothèque technique si nécessaire. Comment écrire ici Utilisez pour les conseils techniques et pour un récit axé sur le sens.",
+      "content": "Notes de terrain et Edge Dispatches Cette rubrique rassemble des notes de travail, journaux d'expériences et dépêches hebdomadaires mettant la littérature récente en regard du programme Fractal Resonance Coherence. Limite épistémique Les notes de terrain relèvent du commentaire et non de la preuve canonique. Les résultats primaires et portes négatives figurent dans les articles numérotés () et dans le Registre Public des Réfutations ().",
       "url": "/fr/blog/blog-welcome",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,

@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-25T23:26:12.497Z",
+  "generated": "2026-11-25T23:57:40.445Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -2544,12 +2544,12 @@
         },
         {
           "id": "blog-welcome",
-          "title": "Blog — Field Notes",
+          "title": "Field Notes & Edge Dispatches",
           "url": "https://fractalresonance.com/en/blog/blog-welcome",
           "path": "/en/blog/blog-welcome",
-          "abstract": "A down-to-earth blog stream for experiments, notes, and updates.",
+          "abstract": "Working field notes, literature dispatches, and open questions alongside the status-labeled FRC papers.",
           "date": "2026-01-25",
-          "author": "H. Servat",
+          "author": "Hadi Servat",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
@@ -2561,7 +2561,7 @@
             "field-notes"
           ],
           "status": "published",
-          "wordCount": 52
+          "wordCount": 132
         },
         {
           "id": "the-symphony-of-mu-levels",
@@ -3995,12 +3995,12 @@
         },
         {
           "id": "blog-welcome",
-          "title": "Blog — Notas de campo",
+          "title": "Notas de campo y Edge Dispatches",
           "url": "https://fractalresonance.com/es/blog/blog-welcome",
           "path": "/es/blog/blog-welcome",
-          "abstract": "Un flujo de blog realista para experimentos, notas y actualizaciones.",
+          "abstract": "Notas de campo, despachos de literatura y preguntas abiertas junto a los artículos etiquetados por estado de FRC.",
           "date": "2026-01-25",
-          "author": "H. Servat",
+          "author": "Hadi Servat",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
@@ -5376,12 +5376,12 @@
         },
         {
           "id": "blog-welcome",
-          "title": "وبلاگ — یادداشت‌های میدانی",
+          "title": "یادداشت‌های میدانی و گزارش‌های مرزی",
           "url": "https://fractalresonance.com/fa/blog/blog-welcome",
           "path": "/fa/blog/blog-welcome",
-          "abstract": "یک جریان وبلاگی واقع‌بینانه برای آزمایش‌ها، یادداشت‌ها و به‌روزرسانی‌ها.",
+          "abstract": "یادداشت‌های پژوهشی، مرور ادبیات روز و پرسش‌های باز در کنار مقالات برچسب‌گذاری‌شده FRC.",
           "date": "2026-01-25",
-          "author": "هـ. ثروت",
+          "author": "هادی ثروت",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
@@ -5393,7 +5393,7 @@
             "یادداشت‌های-میدانی"
           ],
           "status": "published",
-          "wordCount": 54
+          "wordCount": 61
         },
         {
           "id": "the-symphony-of-mu-levels",
@@ -6759,12 +6759,12 @@
         },
         {
           "id": "blog-welcome",
-          "title": "Blog — Notes de terrain",
+          "title": "Notes de terrain et Edge Dispatches",
           "url": "https://fractalresonance.com/fr/blog/blog-welcome",
           "path": "/fr/blog/blog-welcome",
-          "abstract": "Un flux de blog terre-à-terre pour les expériences, les notes et les mises à jour.",
+          "abstract": "Notes de terrain, synthèses de littérature et questions ouvertes aux côtés des articles étiquetés par statut de FRC.",
           "date": "2026-01-25",
-          "author": "H. Servat",
+          "author": "Hadi Servat",
           "epistemicStatus": "commentary",
           "retrievalPriority": 60,
           "tags": [
@@ -6776,7 +6776,7 @@
             "notes-de-terrain"
           ],
           "status": "published",
-          "wordCount": 65
+          "wordCount": 66
         },
         {
           "id": "the-symphony-of-mu-levels",

@@ -22,12 +22,24 @@ const DISPOSITION_ORDER: FalsificationDisposition[] = [
   'DEMOTED',
 ];
 
-const DISPOSITION_STYLES: Record<FalsificationDisposition, string> = {
-  CONTRADICTED: 'border-red-500/50 bg-red-500/10 text-red-700 dark:text-red-300',
-  NO_GAIN: 'border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-300',
-  UNDERPOWERED: 'border-sky-500/50 bg-sky-500/10 text-sky-700 dark:text-sky-300',
-  STRUCTURAL_OBSTRUCTION: 'border-violet-500/50 bg-violet-500/10 text-violet-700 dark:text-violet-300',
-  DEMOTED: 'border-frc-steel/50 bg-frc-steel/10 text-frc-steel',
+/**
+ * Crisp, disciplined typographic status styles strictly within the FRC brand palette
+ * (zero neon pills, zero forbidden colors, sharp architectural lines).
+ */
+const DISPOSITION_TAG_STYLES: Record<FalsificationDisposition, string> = {
+  CONTRADICTED: 'border-s-2 border-frc-gold ps-2.5 text-frc-gold font-medium',
+  NO_GAIN: 'border-s-2 border-frc-gold/75 ps-2.5 text-frc-text font-medium',
+  UNDERPOWERED: 'border-s-2 border-frc-blue-light ps-2.5 text-frc-text-dim font-medium',
+  STRUCTURAL_OBSTRUCTION: 'border-s-2 border-frc-text-dim ps-2.5 text-frc-text font-medium',
+  DEMOTED: 'border-s-2 border-frc-steel ps-2.5 text-frc-steel font-normal',
+};
+
+const DISPOSITION_BORDER_ACCENT: Record<FalsificationDisposition, string> = {
+  CONTRADICTED: 'border-s-2 border-frc-gold',
+  NO_GAIN: 'border-s-2 border-frc-gold/60',
+  UNDERPOWERED: 'border-s-2 border-frc-blue-light',
+  STRUCTURAL_OBSTRUCTION: 'border-s-2 border-frc-text-dim/70',
+  DEMOTED: 'border-s-2 border-frc-steel/60',
 };
 
 const PAGE_COPY: Record<
@@ -53,9 +65,9 @@ const PAGE_COPY: Record<
       'Every closed negative empirical gate, direct contradiction, underpowered benchmark, mathematical obstruction, and demoted 2025 claim is recorded publicly at equal volume alongside active research.',
     metaDesc:
       'Public record of FRC negative empirical gates, direct contradictions, underpowered benchmarks, mathematical obstructions, and demoted legacy claims.',
-    jsonDownload: 'Download JSON (/falsification-ledger.json)',
-    canonRouter: 'Current Stance (FRC 100.000)',
-    legendTitle: 'Disposition definitions',
+    jsonDownload: 'Download JSON',
+    canonRouter: 'Current stance (FRC 100.000)',
+    legendTitle: 'Disposition taxonomy',
     claimLabel: 'Claim tested',
     evidenceLabel: 'Recorded outcome',
     scopeLabel: 'Scope boundary',
@@ -69,9 +81,9 @@ const PAGE_COPY: Record<
       'Cada puerta empírica cerrada negativamente, contradicción directa, prueba con baja potencia, obstrucción matemática y afirmación retirada de 2025 se publica con el mismo peso que la investigación activa.',
     metaDesc:
       'Registro público de puertas empíricas negativas, contradicciones, obstrucciones estructurales y afirmaciones retiradas de FRC.',
-    jsonDownload: 'Descargar JSON (/falsification-ledger.json)',
+    jsonDownload: 'Descargar JSON',
     canonRouter: 'Postura actual (FRC 100.000)',
-    legendTitle: 'Definiciones de disposición',
+    legendTitle: 'Taxonomía de disposiciones',
     claimLabel: 'Afirmación evaluada',
     evidenceLabel: 'Resultado registrado',
     scopeLabel: 'Límite de alcance',
@@ -85,9 +97,9 @@ const PAGE_COPY: Record<
       'Chaque porte empirique fermée négativement, contradiction directe, banc d’essai sous-dimensionné, obstruction mathématique et thèse retirée de 2025 est consigné publiquement à volume égal avec la recherche active.',
     metaDesc:
       'Registre public des portes négatives, contradictions, obstructions mathématiques et thèses rétrogradées de FRC.',
-    jsonDownload: 'Télécharger JSON (/falsification-ledger.json)',
+    jsonDownload: 'Télécharger JSON',
     canonRouter: 'Position actuelle (FRC 100.000)',
-    legendTitle: 'Définitions des statuts',
+    legendTitle: 'Taxonomie des statuts',
     claimLabel: 'Énoncé testé',
     evidenceLabel: 'Résultat constaté',
     scopeLabel: 'Limite de portée',
@@ -101,9 +113,9 @@ const PAGE_COPY: Record<
       'تمام دروازه‌های تجربی بسته‌شده به‌صورت منفی، تناقض‌های مستقیم، محک‌های کم‌توان، انسدادهای ریاضی و ادعاهای بازنشسته ۲۰۲۵ به‌صورت عمومی و هم‌سطح با پژوهش فعال ثبت می‌شوند.',
     metaDesc:
       'ثبت عمومی دروازه‌های تجربی منفی، تناقض‌ها، انسدادهای ساختاری و ادعاهای تنزل‌یافته در پروژه FRC.',
-    jsonDownload: 'دریافت JSON (/falsification-ledger.json)',
+    jsonDownload: 'دریافت JSON',
     canonRouter: 'موضع جاری (FRC 100.000)',
-    legendTitle: 'تعریف وضعیت‌ها',
+    legendTitle: 'رده‌بندی وضعیت‌ها',
     claimLabel: 'ادعای آزموده‌شده',
     evidenceLabel: 'نتیجه ثبت‌شده',
     scopeLabel: 'مرز دامنه',
@@ -151,58 +163,63 @@ export default async function FalsificationsPage({ params }: Props) {
   return (
     <>
       <SchemaScript data={collectionSchema} />
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-6 py-12 sm:py-16">
         <nav className="text-sm text-frc-text-dim mb-8">
-          <Link href={basePath} className="hover:text-frc-gold">FRC</Link>
-          <span className="mx-2">/</span>
+          <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
+          <span className="mx-2 text-frc-blue">/</span>
           <span className="text-frc-text">{t.title}</span>
         </nav>
 
-        <header className="mb-10 border-b border-frc-blue pb-8">
-          <p className="font-mono text-xs uppercase tracking-widest text-frc-gold mb-2">
-            FRC Epistemic Accountability · v{ledger.version}
-          </p>
-          <h1 className="text-3xl font-light text-frc-gold mb-4">{t.title}</h1>
-          <p className="text-frc-text-dim leading-relaxed max-w-3xl">{t.subtitle}</p>
-          <div className="flex flex-wrap items-center gap-4 mt-6 text-xs">
-            <span className="font-mono text-frc-steel">
-              {t.updatedLabel}: {ledger.updated}
+        <header className="mb-12 border-b border-frc-blue pb-8">
+          <h1 className="text-3xl sm:text-4xl font-light text-frc-gold tracking-[-0.025em] leading-[1.12] mb-4">
+            {t.title}
+          </h1>
+          <p className="text-base text-frc-text-dim leading-relaxed max-w-[65ch]">{t.subtitle}</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 text-sm tabular-nums">
+            <span className="font-mono text-[0.8125rem] text-frc-steel">
+              v{ledger.version}
             </span>
-            <span className="font-mono text-frc-steel">
-              {t.totalLabel}: {ledger.summary.totalEntries}
+            <span className="text-frc-steel">
+              {t.updatedLabel}: <span className="font-mono text-[0.8125rem]">{ledger.updated}</span>
+            </span>
+            <span className="text-frc-steel">
+              {t.totalLabel}: <span className="font-mono text-[0.8125rem] text-frc-text">{ledger.summary.totalEntries}</span>
             </span>
             <a
               href="/falsification-ledger.json"
-              className="border border-frc-gold/60 px-3 py-1.5 font-mono text-frc-gold hover:bg-frc-gold/10 transition-colors"
+              className="text-frc-gold font-medium hover:underline"
             >
-              {t.jsonDownload}
+              {t.jsonDownload} →
             </a>
             <Link
               href="/en/papers/FRC-100-000"
-              className="border border-frc-blue px-3 py-1.5 font-mono text-frc-text-dim hover:text-frc-gold hover:border-frc-gold transition-colors"
+              className="text-frc-text-dim hover:text-frc-gold transition-colors"
             >
               {t.canonRouter}
             </Link>
           </div>
         </header>
 
-        {/* Summary counts by disposition */}
-        <section aria-labelledby="disposition-legend-heading" className="mb-10">
-          <h2 id="disposition-legend-heading" className="text-xs uppercase tracking-widest text-frc-steel mb-4">
+        {/* Disposition taxonomy strip — hairline columns, zero loud pills */}
+        <section aria-labelledby="disposition-legend-heading" className="mb-14">
+          <h2 id="disposition-legend-heading" className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-5">
             {t.legendTitle}
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 border-y border-frc-blue py-6">
             {DISPOSITION_ORDER.map((disp) => (
-              <div key={disp} className="border border-frc-blue bg-frc-void-light p-3.5">
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className={`inline-block rounded-[2px] border px-1.5 py-0.5 font-mono text-[0.65rem] uppercase ${DISPOSITION_STYLES[disp]}`}>
+              <div key={disp} className="min-w-0">
+                <div className="flex items-baseline justify-between gap-3 mb-2">
+                  <span
+                    className={`font-mono text-[0.8125rem] tracking-tight ${DISPOSITION_TAG_STYLES[disp]}`}
+                    data-disposition={disp}
+                  >
                     {disp}
                   </span>
-                  <span className="font-mono text-sm text-frc-text">
+                  <span className="font-mono text-base text-frc-text tabular-nums shrink-0">
                     {ledger.summary.byDisposition[disp] || 0}
                   </span>
                 </div>
-                <p className="text-[0.72rem] text-frc-text-dim leading-relaxed">
+                <p className="text-sm text-frc-text-dim leading-relaxed">
                   {ledger.dispositions[disp]}
                 </p>
               </div>
@@ -210,61 +227,64 @@ export default async function FalsificationsPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Entries */}
-        <section aria-label="Falsification entries" className="space-y-5">
+        {/* Ledger entries — hairline-ruled academic registry */}
+        <section aria-label="Falsification entries" className="divide-y divide-frc-blue border-b border-frc-blue">
           {ledger.entries.map((entry) => (
             <article
               key={entry.id}
               id={entry.id}
-              className="border border-frc-blue bg-frc-void-light p-6"
+              className={`py-8 first:pt-2 ps-5 ${DISPOSITION_BORDER_ACCENT[entry.disposition]}`}
             >
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className={`inline-block rounded-[2px] border px-2 py-0.5 font-mono text-[0.7rem] font-medium uppercase ${DISPOSITION_STYLES[entry.disposition]}`}>
+              <div className="flex flex-wrap items-baseline justify-between gap-3 mb-2.5">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
+                  <span
+                    className={`font-mono text-[0.8125rem] ${
+                      entry.disposition === 'CONTRADICTED'
+                        ? 'text-frc-gold font-medium'
+                        : entry.disposition === 'DEMOTED'
+                          ? 'text-frc-steel'
+                          : 'text-frc-text font-medium'
+                    }`}
+                    data-disposition={entry.disposition}
+                  >
                     {entry.disposition}
                   </span>
-                  <span className="font-mono text-xs text-frc-steel">{entry.id}</span>
-                  <span className="text-xs text-frc-steel">· {entry.domain}</span>
+                  <span className="font-mono text-[0.8125rem] text-frc-steel tabular-nums">{entry.id}</span>
+                  <span className="text-frc-steel">· {entry.domain}</span>
                 </div>
-                <span className="font-mono text-xs text-frc-steel">{entry.dateRecorded}</span>
+                <span className="font-mono text-[0.8125rem] text-frc-steel tabular-nums">{entry.dateRecorded}</span>
               </div>
 
-              <h2 className="text-lg font-medium text-frc-text mb-4">{entry.title}</h2>
+              <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em] leading-snug mb-5">
+                {entry.title}
+              </h2>
 
-              <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-frc-steel mb-1">
-                    {t.claimLabel}
-                  </dt>
+              <dl className="space-y-4 text-[0.9375rem] max-w-[68ch]">
+                <div className="grid sm:grid-cols-[152px_1fr] gap-x-6 gap-y-1">
+                  <dt className="text-sm font-medium text-frc-steel">{t.claimLabel}</dt>
                   <dd className="text-frc-text-dim leading-relaxed">{entry.claimTested}</dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-frc-steel mb-1">
-                    {t.evidenceLabel}
-                  </dt>
+                <div className="grid sm:grid-cols-[152px_1fr] gap-x-6 gap-y-1">
+                  <dt className="text-sm font-medium text-frc-steel">{t.evidenceLabel}</dt>
                   <dd className="text-frc-text leading-relaxed">{entry.evidenceSummary}</dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-[0.7rem] uppercase tracking-wider text-frc-steel mb-1">
-                    {t.scopeLabel}
-                  </dt>
+                <div className="grid sm:grid-cols-[152px_1fr] gap-x-6 gap-y-1">
+                  <dt className="text-sm font-medium text-frc-steel">{t.scopeLabel}</dt>
                   <dd className="text-frc-text-dim leading-relaxed">{entry.scopeBoundary}</dd>
                 </div>
               </dl>
 
               {(entry.urls.length > 0 || entry.dois.length > 0 || entry.sourceIds.length > 0) && (
-                <div className="mt-4 pt-4 border-t border-frc-blue/60 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
-                  <span className="font-mono text-[0.68rem] uppercase tracking-wider text-frc-steel">
-                    {t.sourcesLabel}:
-                  </span>
+                <div className="mt-5 pt-4 border-t border-frc-blue/50 flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm">
+                  <span className="text-frc-steel font-medium">{t.sourcesLabel}:</span>
                   {entry.urls.length > 0 ? (
                     entry.urls.map((url) => (
-                      <Link key={url} href={url} className="font-mono text-frc-gold hover:underline">
+                      <Link key={url} href={url} className="font-mono text-[0.8125rem] text-frc-gold hover:underline">
                         {url.split('/').pop()}
                       </Link>
                     ))
                   ) : (
-                    <span className="font-mono text-frc-text-dim">{entry.sourceIds.join(', ')}</span>
+                    <span className="font-mono text-[0.8125rem] text-frc-text-dim">{entry.sourceIds.join(', ')}</span>
                   )}
                   {entry.dois.map((doi) => (
                     <a
@@ -272,7 +292,7 @@ export default async function FalsificationsPage({ params }: Props) {
                       href={`https://doi.org/${doi}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-frc-steel hover:text-frc-gold hover:underline"
+                      className="font-mono text-[0.8125rem] text-frc-steel hover:text-frc-gold hover:underline"
                     >
                       DOI:{doi}
                     </a>

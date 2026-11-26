@@ -1,7 +1,18 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { estimateReadTime, getArticles, getPapers, isCurrentReadingContent, matchesPerspectiveView, type ParsedContent, type PerspectiveView } from '@/lib/content';
+import {
+  estimateReadTime,
+  getArticles,
+  getPapers,
+  isCurrentReadingContent,
+  matchesPerspectiveView,
+  normalizeEdgeScopeTag,
+  normalizePrimarySources,
+  type ParsedContent,
+  type PerspectiveView,
+} from '@/lib/content';
 import { ArticlesGridClient, type ArticlesGridItem } from '@/components/pages/ArticlesGridClient';
+import { EdgeScopeBadge } from '@/components/EdgeScopeBadge';
 
 const ARTICLE_EXTRAS: Record<string, { categoryKey: string; readTime?: string }> = {
   'FRC-566-001': { categoryKey: 'foundation' },
@@ -10,72 +21,76 @@ const ARTICLE_EXTRAS: Record<string, { categoryKey: string; readTime?: string }>
 
 const DICT: Record<string, Record<string, string>> = {
   en: {
-    title: 'Articles',
-    desc: 'Commentary and research notes around the Fractal Resonance Coherence corpus. Primary scientific claims belong to the numbered papers.',
-    featured: 'Featured',
-    latest: 'Latest',
-    read: 'Read →',
-    zenodoTitle: 'Complete catalog on Zenodo',
-    zenodoDesc: '9 papers published with DOI under CC BY-NC-ND 4.0',
-    viewZenodo: 'View on Zenodo →',
+    title: 'Articles & Edge Dispatches',
+    desc: 'Commentary, literature dispatches, and research notes around the Fractal Resonance Coherence corpus. Primary scientific claims and closed negative gates belong to the numbered papers and the Falsification Ledger.',
+    canonHeading: 'Canonical technical claims live in /papers',
+    canonDesc: 'Articles and Edge Dispatches carry explicit scope tags (Structural Analogy, Test Idea, Open Question, Counter-Evidence) and primary sources, and never supersede the numbered papers.',
+    canonLink: 'Open version router (FRC 100.000)',
+    ledgerLink: 'Falsification ledger',
+    latest: 'Latest dispatch',
+    read: 'Read',
+    zenodoTitle: 'Complete paper catalog on Zenodo',
+    zenodoDesc: 'Versioned preprints published with DOI under CC BY-NC-ND 4.0',
+    viewZenodo: 'View on Zenodo',
     foundation: 'Foundation',
-    coreTheory: 'Core Theory',
-    research: 'Research',
+    coreTheory: 'Core theory',
+    research: 'Commentary',
     readLabel: 'read',
+    noArticles: 'No active commentary articles yet. Weekly FRC Edge Dispatches will appear here and in Field Notes.',
   },
   fa: {
-    title: 'مقالات',
-    desc: 'انتشارات پژوهشی که چارچوب همدوسی رزونانس فراکتال را کاوش می‌کنند. هر مقاله مؤلفه‌ای از نظریه یکپارچه را ارائه می‌دهد که مکانیک کوانتومی، ترمودینامیک و آگاهی را به هم متصل می‌کند.',
-    featured: 'ویژه',
-    videoTitle: 'مقدمه‌ای بر همدوسی رزونانس فراکتال',
-    videoDesc: 'یک مقدمه ویدئویی جامع که مفاهیم اصلی تقابل آنتروپی-همدوسی، میدان لاندا و معماری آگاهی چند-مقیاسی را پوشش می‌دهد.',
-    videoLabel: 'ویدئو',
-    overview: 'نمای کلی',
-    latest: 'جدیدترین',
-    read: 'خواندن ←',
-    zenodoTitle: 'کاتالوگ کامل در Zenodo',
-    zenodoDesc: '۹ مقاله منتشر شده با DOI تحت مجوز CC BY-NC-ND 4.0',
-    viewZenodo: 'مشاهده در Zenodo ←',
+    title: 'مقالات و گزارش‌های مرزی',
+    desc: 'یادداشت‌ها، مرور ادبیات و تفسیرها پیرامون پیکره همدوسی رزونانس فراکتال. ادعاهای علمی اصلی در مقالات شماره‌گذاری‌شده و دفتر ابطال‌ها قرار دارند.',
+    canonHeading: 'ادعاهای فنی اصلی در بخش مقالات قرار دارند',
+    canonDesc: 'مقالات و گزارش‌های مرزی با برچسب دامنه صریح و منابع اصلی منتشر می‌شوند و جایگزین مقالات کانونیک نیستند.',
+    canonLink: 'مطالعه نقشه نسخه‌ها (FRC 100.000)',
+    ledgerLink: 'دفتر ابطال‌ها',
+    latest: 'جدیدترین گزارش',
+    read: 'مطالعه',
+    zenodoTitle: 'کاتالوگ کامل مقالات در Zenodo',
+    zenodoDesc: 'پیش‌چاپ‌های نسخه‌دار با DOI تحت مجوز CC BY-NC-ND 4.0',
+    viewZenodo: 'مشاهده در Zenodo',
     foundation: 'بنیاد',
     coreTheory: 'نظریه اصلی',
-    research: 'پژوهش',
+    research: 'تفسیر',
     readLabel: 'مطالعه',
+    noArticles: 'هنوز مقاله تفسیری فعالی منتشر نشده است.',
   },
   es: {
-    title: 'Artículos',
-    desc: 'Publicaciones de investigación que exploran el marco de Coherencia de Resonancia Fractal. Cada artículo presenta un componente de la teoría unificada que conecta la mecánica cuántica, la termodinámica y la conciencia.',
-    featured: 'Destacado',
-    videoTitle: 'Introducción a la Coherencia de Resonancia Fractal',
-    videoDesc: 'Una introducción completa en video que cubre los conceptos centrales de reciprocidad entropía-coherencia, el campo Lambda y la arquitectura de conciencia a múltiples escalas.',
-    videoLabel: 'VIDEO',
-    overview: 'Descripción general',
-    latest: 'Último',
-    read: 'Leer →',
+    title: 'Artículos y Edge Dispatches',
+    desc: 'Comentarios, despachos de literatura y notas de investigación en torno al corpus FRC. Las afirmaciones científicas primarias pertenecen a los artículos numerados y al Registro de Falsaciones.',
+    canonHeading: 'Las afirmaciones técnicas canónicas viven en /papers',
+    canonDesc: 'Los artículos y despachos declaran su etiqueta de alcance y fuentes primarias, sin sustituir a los artículos numerados.',
+    canonLink: 'Abrir mapa de versiones (FRC 100.000)',
+    ledgerLink: 'Registro de falsaciones',
+    latest: 'Última entrada',
+    read: 'Leer',
     zenodoTitle: 'Catálogo completo en Zenodo',
-    zenodoDesc: '9 artículos publicados con DOI bajo CC BY-NC-ND 4.0',
-    viewZenodo: 'Ver en Zenodo →',
+    zenodoDesc: 'Preprints versionados con DOI bajo CC BY-NC-ND 4.0',
+    viewZenodo: 'Ver en Zenodo',
     foundation: 'Fundación',
-    coreTheory: 'Teoría Central',
-    research: 'Investigación',
+    coreTheory: 'Teoría central',
+    research: 'Comentario',
     readLabel: 'de lectura',
+    noArticles: 'Aún no hay artículos activos.',
   },
   fr: {
-    title: 'Articles',
-    desc: 'Publications de recherche explorant le cadre de la Cohérence de Résonance Fractale. Chaque article présente une composante de la théorie unifiée reliant la mécanique quantique, la thermodynamique et la conscience.',
-    featured: 'En vedette',
-    videoTitle: 'Introduction à la Cohérence de Résonance Fractale',
-    videoDesc: 'Une introduction vidéo complète couvrant les concepts fondamentaux de la réciprocité entropie-cohérence, le champ Lambda et l\'architecture de la conscience à plusieurs échelles.',
-    videoLabel: 'VIDÉO',
-    overview: 'Vue d\'ensemble',
-    latest: 'Dernier',
-    read: 'Lire →',
+    title: 'Articles et Edge Dispatches',
+    desc: 'Commentaires, dépêches bibliographiques et notes de recherche autour du corpus FRC. Les énoncés scientifiques primaires appartiennent aux articles numérotés et au Registre des Réfutations.',
+    canonHeading: 'Les énoncés techniques canoniques figurent dans /papers',
+    canonDesc: 'Les articles et dépêches portent une étiquette de portée explicite et leurs sources primaires, sans jamais remplacer les articles numérotés.',
+    canonLink: 'Ouvrir le routeur de versions (FRC 100.000)',
+    ledgerLink: 'Registre des réfutations',
+    latest: 'Dernière publication',
+    read: 'Lire',
     zenodoTitle: 'Catalogue complet sur Zenodo',
-    zenodoDesc: '9 articles publiés avec DOI sous CC BY-NC-ND 4.0',
-    viewZenodo: 'Voir sur Zenodo →',
+    zenodoDesc: 'Prépublications versionnées avec DOI sous CC BY-NC-ND 4.0',
+    viewZenodo: 'Voir sur Zenodo',
     foundation: 'Fondation',
-    coreTheory: 'Théorie Centrale',
-    research: 'Recherche',
+    coreTheory: 'Théorie centrale',
+    research: 'Commentaire',
     readLabel: 'de lecture',
+    noArticles: 'Aucun article actif pour le moment.',
   },
 };
 
@@ -96,7 +111,7 @@ export function ArticlesIndex({
   includePapers?: boolean;
   embedded?: boolean;
 }) {
-  const t = DICT[lang] || DICT['en'];
+  const t = DICT[lang] || DICT.en;
   const papers = includePapers
     ? getPapers(lang).filter((p) => isCurrentReadingContent('paper', p.frontmatter) && matchesPerspectiveView(p.frontmatter.perspective, view))
     : [];
@@ -133,99 +148,107 @@ export function ArticlesIndex({
       date: fm.date,
       href: getHref(basePath, isPaper, fm.id),
       category: extras.category,
+      scopeTag: normalizeEdgeScopeTag(fm.scopeTag),
+      primarySourcesCount: normalizePrimarySources(fm.primarySources).length,
       tags: Array.isArray(fm.tags) ? fm.tags.filter((tag): tag is string => typeof tag === 'string') : [],
       readTime: extras.readTime,
-      ordinal: i + 2, // +1 for 1-based, +1 because 01 is "Latest"
+      ordinal: i + 2,
     };
   });
 
   const content = (
-    <div className="max-w-6xl mx-auto px-6 py-16">
-      {/* Header */}
-      <header className="mb-16">
-        <div className="flex items-center gap-4 mb-6">
-          <h1 className="text-3xl font-light text-frc-gold tracking-tight">{t.title}</h1>
-          <div className="h-px flex-1 bg-gradient-to-r from-frc-blue to-transparent" />
-        </div>
-        <p className="text-frc-text-dim max-w-2xl leading-relaxed">
+    <div className="max-w-5xl mx-auto px-6 py-12 sm:py-16">
+      <header className="mb-12 border-b border-frc-blue pb-8">
+        <h1 className="text-3xl sm:text-4xl font-light text-frc-gold tracking-[-0.025em] leading-[1.12] mb-4">
+          {t.title}
+        </h1>
+        <p className="text-base text-frc-text-dim max-w-[65ch] leading-relaxed">
           {t.desc}
         </p>
       </header>
 
-      {/* Current paper route */}
-      <section className="mb-16 border-y border-frc-blue py-7">
-        <div className="section-marker mb-6" data-section="§01">
-          <span className="font-mono text-[0.625rem] text-frc-gold uppercase tracking-widest">{t.featured}</span>
-        </div>
-        <div className="max-w-3xl">
-          <h2 className="text-xl text-frc-text font-medium mb-3 leading-snug">Current paper-led program</h2>
-          <p className="text-frc-text-dim text-sm leading-relaxed">
-            The numbered papers carry the current technical claims. Start with the version-aware reading map before using commentary or archived media.
-          </p>
-          <Link href={`${basePath}/papers/FRC-100-000`} className="inline-block mt-4 text-sm text-frc-gold hover:underline">Read FRC 100.000 &rarr;</Link>
+      {/* Boundary note separating commentary from canonical /papers */}
+      <section className="mb-12 border-s-2 border-frc-gold ps-5 py-1">
+        <h2 className="text-base font-medium text-frc-text mb-1.5">{t.canonHeading}</h2>
+        <p className="text-sm text-frc-text-dim leading-relaxed max-w-[65ch] mb-3">
+          {t.canonDesc}
+        </p>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <Link href={`${basePath}/papers/FRC-100-000`} className="text-frc-gold hover:underline">
+            {t.canonLink} →
+          </Link>
+          <Link href={`${basePath}/falsifications`} className="text-frc-text-dim hover:text-frc-gold transition-colors">
+            {t.ledgerLink} →
+          </Link>
         </div>
       </section>
 
-      {/* Latest */}
-      {featured && (
-        <section className="mb-16">
-          <div className="section-marker mb-6" data-section="§02">
-            <span className="font-mono text-[0.625rem] text-frc-steel uppercase tracking-widest">{t.latest}</span>
-          </div>
-
-          {(() => {
-            const fm = featured.frontmatter;
-            const isPaper = paperIds.has(fm.id);
-            const extras = extrasFor(featured);
-            return (
-              <Link href={getHref(basePath, isPaper, fm.id)} className="card-featured block p-8 group">
-                <div className="grid sm:grid-cols-3 gap-6">
-                  <div className="sm:col-span-2">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="tag">{extras.category}</span>
-                      <span className="text-xs text-frc-steel">{extras.readTime} {t.readLabel}</span>
-                    </div>
-                    <h3 className="text-xl text-frc-text group-hover:text-frc-gold transition-colors font-medium mb-3 leading-snug">
-                      {fm.title}
-                    </h3>
-                    {fm.abstract && (
-                      <p className="text-sm text-frc-text-dim leading-relaxed line-clamp-3">
-                        {fm.abstract}
-                      </p>
+      {!featured ? (
+        <div className="border-t border-frc-blue pt-6 text-sm text-frc-text-dim">
+          {t.noArticles}
+        </div>
+      ) : (
+        <>
+          <section className="mb-12 border-t border-frc-blue pt-8">
+            <h2 className="text-sm font-medium text-frc-steel mb-4">{t.latest}</h2>
+            {(() => {
+              const fm = featured.frontmatter;
+              const isPaper = paperIds.has(fm.id);
+              const extras = extrasFor(featured);
+              const scopeTag = normalizeEdgeScopeTag(fm.scopeTag);
+              const sourcesCount = normalizePrimarySources(fm.primarySources).length;
+              return (
+                <article className="border-s-2 border-frc-gold ps-5">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-frc-steel mb-2">
+                    {scopeTag && <EdgeScopeBadge scopeTag={scopeTag} lang={lang} />}
+                    <span>{extras.category}</span>
+                    <span className="font-mono text-[0.8125rem] tabular-nums">{extras.readTime}</span>
+                    {fm.date && <span className="font-mono text-[0.8125rem] tabular-nums">{fm.date}</span>}
+                    {sourcesCount > 0 && (
+                      <span className="font-mono text-[0.8125rem] tabular-nums">
+                        {sourcesCount} primary {sourcesCount === 1 ? 'source' : 'sources'}
+                      </span>
                     )}
                   </div>
-                  <div className="flex flex-col justify-end items-end">
-                    <span className="font-mono text-xs text-frc-steel">{fm.id}</span>
-                    <span className="text-xs text-frc-steel mt-1">{fm.date}</span>
-                    <span className="text-sm text-frc-gold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {t.read}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })()}
-        </section>
+                  <h3 className="text-xl font-medium text-frc-text leading-snug mb-2">
+                    <Link href={getHref(basePath, isPaper, fm.id)} className="hover:text-frc-gold transition-colors">
+                      {fm.title}
+                    </Link>
+                  </h3>
+                  {fm.abstract && (
+                    <p className="text-[0.9375rem] text-frc-text-dim leading-relaxed max-w-[65ch] mb-3">
+                      {fm.abstract}
+                    </p>
+                  )}
+                  <Link href={getHref(basePath, isPaper, fm.id)} className="text-sm text-frc-gold hover:underline">
+                    {t.read} →
+                  </Link>
+                </article>
+              );
+            })()}
+          </section>
+
+          {gridItems.length > 0 && (
+            <Suspense fallback={<div className="min-h-48" aria-busy="true" />}>
+              <ArticlesGridClient items={gridItems} lang={lang} />
+            </Suspense>
+          )}
+        </>
       )}
 
-      <Suspense fallback={<div className="min-h-48" aria-busy="true" />}>
-        <ArticlesGridClient items={gridItems} lang={lang} />
-      </Suspense>
-
-      {/* Zenodo CTA */}
-      <div className="ruled-line" />
-      <section className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      {/* Zenodo archive reference */}
+      <section className="mt-14 pt-8 border-t border-frc-blue flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <p className="text-frc-text text-sm font-medium mb-1">{t.zenodoTitle}</p>
-          <p className="text-frc-text-dim text-xs">{t.zenodoDesc}</p>
+          <p className="text-base text-frc-text font-medium mb-1">{t.zenodoTitle}</p>
+          <p className="text-sm text-frc-text-dim">{t.zenodoDesc}</p>
         </div>
         <a
           href="https://zenodo.org/communities/frc"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 border border-frc-blue hover:border-frc-gold text-frc-text-dim hover:text-frc-gold text-xs uppercase tracking-wider transition-all"
+          className="px-5 py-2.5 border border-frc-blue hover:border-frc-gold text-frc-text-dim hover:text-frc-gold text-sm transition-colors"
         >
-          {t.viewZenodo}
+          {t.viewZenodo} →
         </a>
       </section>
     </div>

@@ -25,11 +25,46 @@ interface Props {
   params: Promise<{ lang: string }>;
 }
 
-const labels: Record<string, { building: string; continue: string; continueText: string; papers: string; machine: string }> = {
-  en: { building: 'Current work', continue: 'Continue', continueText: 'Browse the complete corpus or open the machine-readable canon entrypoint.', papers: 'Paper library', machine: 'For AI systems' },
-  es: { building: 'Trabajo actual', continue: 'Continuar', continueText: 'Explore el corpus completo o abra la entrada canónica legible por máquinas.', papers: 'Biblioteca', machine: 'Para sistemas de IA' },
-  fr: { building: 'Travail actuel', continue: 'Continuer', continueText: 'Parcourez le corpus complet ou ouvrez le point d’entrée canonique lisible par machine.', papers: 'Bibliothèque', machine: 'Pour les systèmes IA' },
-  fa: { building: 'کار کنونی', continue: 'ادامه', continueText: 'پیکره کامل یا ورودی ماشین‌خوان قوانین را باز کنید.', papers: 'کتابخانه مقالات', machine: 'برای سامانه‌های هوش مصنوعی' },
+const labels: Record<
+  string,
+  { building: string; continue: string; continueText: string; papers: string; books: string; falsifications: string; machine: string }
+> = {
+  en: {
+    building: 'Current work',
+    continue: 'Continue into the corpus',
+    continueText: 'Open the full paper index, the 2026 philosophical books, the public falsification ledger, or the machine-readable canon.',
+    papers: 'Paper library',
+    books: '2026 books',
+    falsifications: 'Falsification ledger',
+    machine: 'For AI systems',
+  },
+  es: {
+    building: 'Trabajo actual',
+    continue: 'Continuar en el corpus',
+    continueText: 'Explore la biblioteca de artículos, los libros de 2026, el registro público de falsaciones o la entrada legible por máquinas.',
+    papers: 'Biblioteca',
+    books: 'Libros 2026',
+    falsifications: 'Registro de falsaciones',
+    machine: 'Para sistemas de IA',
+  },
+  fr: {
+    building: 'Travail actuel',
+    continue: 'Poursuivre dans le corpus',
+    continueText: 'Parcourez la bibliothèque d’articles, les ouvrages 2026, le registre public des réfutations ou le point d’entrée IA.',
+    papers: 'Bibliothèque',
+    books: 'Livres 2026',
+    falsifications: 'Registre des réfutations',
+    machine: 'Pour les systèmes IA',
+  },
+  fa: {
+    building: 'کار کنونی',
+    continue: 'ادامه در پیکره',
+    continueText: 'کتابخانه مقالات، کتاب‌های ۲۰۲۶، دفتر عمومی ابطال‌ها یا ورودی ماشین‌خوان را باز کنید.',
+    papers: 'کتابخانه مقالات',
+    books: 'کتاب‌های ۲۰۲۶',
+    falsifications: 'دفتر ابطال‌ها',
+    machine: 'برای سامانه‌های هوش مصنوعی',
+  },
 };
 
 export default async function StartHerePage({ params }: Props) {
@@ -43,7 +78,7 @@ export default async function StartHerePage({ params }: Props) {
   const langById = new Map(getPapers(lang).map((p) => [p.frontmatter.id, p]));
   const researchMap = buildResearchMap(lang, basePath);
   const bodyHtml = renderMarkdown(page.body, lang, glossary, basePath);
-  
+
   const fm = page.frontmatter as any;
   const path = fm.onboarding_path || [];
   const buildingNow = fm.building_now || [];
@@ -67,65 +102,87 @@ export default async function StartHerePage({ params }: Props) {
 
   return (
     <main className="min-h-[80vh]">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="max-w-6xl mx-auto px-6 py-12 sm:py-16">
         <nav className="text-sm text-frc-text-dim mb-8">
           <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
-          <span className="mx-2">/</span>
+          <span className="mx-2 text-frc-blue">/</span>
           <span className="text-frc-text">{fm.title}</span>
         </nav>
 
-        <header className="mb-10">
-          <h1 className="text-3xl font-light text-frc-gold mb-3">{fm.title}</h1>
-          <p className="text-frc-text-dim max-w-3xl leading-relaxed">
+        <header className="mb-12 border-b border-frc-blue pb-8">
+          <h1 className="text-3xl sm:text-4xl font-light text-frc-gold tracking-[-0.025em] leading-[1.12] mb-4">
+            {fm.title}
+          </h1>
+          <p className="text-base text-frc-text-dim max-w-[65ch] leading-relaxed">
             {fm.description}
           </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 text-sm">
+            <Link href={`${basePath}/papers`} className="text-frc-gold hover:underline">
+              {t.papers} →
+            </Link>
+            <Link href={`${basePath}/books`} className="text-frc-text-dim hover:text-frc-gold transition-colors">
+              {t.books} →
+            </Link>
+            <Link href={`${basePath}/falsifications`} className="text-frc-text-dim hover:text-frc-gold transition-colors">
+              {t.falsifications} →
+            </Link>
+          </div>
         </header>
 
         {path.length > 0 && (
-          <section className="grid sm:grid-cols-3 gap-4 mb-10">
-            {path.map((it: any) => (
-              <Link key={it.id} href={paperHref(it.id)} className="card block p-5 group">
-                <div className="flex items-start gap-4">
-                  <span className="font-mono text-xs text-frc-gold shrink-0 mt-0.5 tabular-nums">{it.k}</span>
-                  <div className="min-w-0">
-                    <h2 className="text-frc-text group-hover:text-frc-gold transition-colors text-sm font-medium leading-snug">
+          <section className="mb-12">
+            <ol className="grid sm:grid-cols-3 gap-8">
+              {path.map((it: any) => (
+                <li key={it.id} className="border-t border-frc-blue pt-4">
+                  <Link href={paperHref(it.id)} className="group block">
+                    <div className="flex items-baseline justify-between gap-2 mb-2">
+                      <span className="font-mono text-sm text-frc-gold tabular-nums">{it.k}</span>
+                      <span className="font-mono text-[0.8125rem] text-frc-steel">{it.id}</span>
+                    </div>
+                    <h2 className="text-base font-medium text-frc-text group-hover:text-frc-gold transition-colors leading-snug mb-2">
                       {it.title}
                     </h2>
-                    <div className="text-[10px] text-frc-steel font-mono mt-2">{it.id}</div>
-                    <p className="text-xs text-frc-text-dim mt-2 leading-relaxed">{it.desc}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                    <p className="text-sm text-frc-text-dim leading-relaxed">{it.desc}</p>
+                  </Link>
+                </li>
+              ))}
+            </ol>
           </section>
         )}
 
         {buildingNow.length > 0 && (
-          <section className="border border-frc-blue p-6 mb-10">
-            <h2 className="text-sm text-frc-steel uppercase tracking-wider mb-3">{t.building}</h2>
-            <ul className="space-y-2 text-sm text-frc-text-dim">
+          <section className="border-y border-frc-blue py-7 mb-12">
+            <h2 className="text-xl font-medium text-frc-text tracking-[-0.015em] mb-4">{t.building}</h2>
+            <ul className="space-y-3 text-sm text-frc-text-dim leading-relaxed max-w-[68ch]">
               {buildingNow.map((step: string, i: number) => (
-                <li key={i}>- {step}</li>
+                <li key={i} className="border-s border-frc-gold/70 ps-3.5">{step}</li>
               ))}
             </ul>
           </section>
         )}
 
-        <div className="prose prose-invert max-w-none mb-10">
+        <div className="content-body mb-6">
           <MarkdownContent html={bodyHtml} glossary={glossary} />
         </div>
       </div>
 
-      <ResearchMapSection data={researchMap} lang={lang} sectionMarker="§01" />
+      <ResearchMapSection data={researchMap} lang={lang} />
 
-      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-        <div>
-          <div className="text-xs uppercase tracking-widest text-frc-steel mb-2">{t.continue}</div>
+      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="max-w-xl">
+          <h2 className="text-base font-medium text-frc-text mb-1.5">{t.continue}</h2>
           <p className="text-sm text-frc-text-dim leading-relaxed">{t.continueText}</p>
         </div>
-        <div className="flex flex-wrap gap-3">
-          <Link href={`${basePath}/papers`} className="px-5 py-3 border border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void text-sm font-medium uppercase transition-colors">{t.papers}</Link>
-          <Link href="/for-ai" className="px-5 py-3 border border-frc-blue text-frc-text-dim hover:text-frc-gold hover:border-frc-gold text-sm uppercase transition-colors">{t.machine}</Link>
+        <div className="flex flex-wrap items-center gap-5 text-sm">
+          <Link href={`${basePath}/papers`} className="px-5 py-2.5 border border-frc-gold text-frc-gold hover:bg-frc-gold hover:text-frc-void font-medium transition-colors">
+            {t.papers}
+          </Link>
+          <Link href={`${basePath}/falsifications`} className="text-frc-text-dim hover:text-frc-gold transition-colors">
+            {t.falsifications} →
+          </Link>
+          <Link href="/for-ai" className="text-frc-text-dim hover:text-frc-gold transition-colors">
+            {t.machine} →
+          </Link>
         </div>
       </div>
     </main>

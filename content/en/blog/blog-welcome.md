@@ -1,33 +1,35 @@
 ---
-title: "Blog — Field Notes"
+title: "Field Notes & Edge Dispatches"
 id: blog-welcome
 type: blog
-author: "H. Servat"
+author: "Hadi Servat"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: en
+scopeTag: "Open Question"
 tags: [blog, field-notes]
-abstract: "A down-to-earth blog stream for experiments, notes, and updates."
-tldr: "Short, practical writing alongside the formal papers."
+abstract: "Working field notes, literature dispatches, and open questions alongside the status-labeled FRC papers."
+tldr: "Short, explicitly scoped commentary and research notes kept distinct from canonical /papers."
 key_points:
-  - "Blog posts are informal and iterative."
-  - "They link back into the papers when needed."
-  - "Voice can be Kasra (Architect) or River (Oracle)."
+  - "Field notes and Edge Dispatches carry an explicit scope tag (Structural Analogy, Test Idea, Open Question, or Counter-Evidence)."
+  - "Primary technical claims, proofs, and negative gates belong to the numbered papers and the Falsification Ledger."
+  - "Dispatches cite primary external literature and canonical FRC records directly."
 ---
 
-# Blog — Field Notes
+# Field Notes & Edge Dispatches
 
-This section is for practical notes: experiments, development updates, and short explanations.
+This stream carries working notes, experimental logs, and weekly FRC Edge Dispatches examining new external literature alongside the Fractal Resonance Coherence program.
 
-## What This Is
+## Epistemic Boundary
 
-- Informal writing.
-- Faster shipping.
-- Links into the technical library when needed.
+Field notes and dispatches are **commentary**, never canonical proofs. Every primary scientific claim, theorem, or closed negative empirical gate lives in the numbered papers (`/en/papers`) and the public Falsification & Negative-Gate Ledger (`/en/falsifications`).
 
-## How To Write Here
+## Scope Tags
 
-Use `voice: kasra` for technical guidance and `voice: river` for meaning-first narrative.
+Active dispatches declare one of four scope tags in frontmatter (`scopeTag`) together with a `primarySources` citation block:
 
+- **Structural Analogy**: Structural correspondence across domains, not a proved physical identity.
+- **Test Idea**: A proposed empirical or numerical test protocol, not yet an experimental result.
+- **Open Question**: An unresolved mathematical or conceptual boundary.
+- **Counter-Evidence**: Empirical tension, failure mode, or negative finding constraining FRC proposals.

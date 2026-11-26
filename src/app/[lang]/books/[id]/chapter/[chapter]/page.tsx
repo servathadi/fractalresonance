@@ -161,31 +161,40 @@ export default async function BookChapterPage({ params }: Props) {
         right={<TableOfContents items={tocItems} minBreakpoint="lg" title="In this chapter" />}
         articleClassName="pt-14"
       >
-          <nav className="text-sm text-frc-text-dim mb-8">
-            <a href={basePath} className="hover:text-frc-gold">FRC</a>
-            <span className="mx-2">/</span>
-            <a href={`${basePath}/books`} className="hover:text-frc-gold">Books</a>
-            <span className="mx-2">/</span>
-            <a href={`${basePath}/books/${id}`} className="hover:text-frc-gold">{book.frontmatter.title}</a>
-            <span className="mx-2">/</span>
-            <span className="text-frc-text">{current.title}</span>
+          <nav className="text-sm text-frc-text-dim mb-8 flex flex-wrap items-center gap-y-1">
+            <Link href={basePath} className="hover:text-frc-gold transition-colors">FRC</Link>
+            <span className="mx-2 text-frc-blue">/</span>
+            <Link href={`${basePath}/books`} className="hover:text-frc-gold transition-colors">Books</Link>
+            <span className="mx-2 text-frc-blue">/</span>
+            <Link href={`${basePath}/books/${id}`} className="hover:text-frc-gold transition-colors">{book.frontmatter.title}</Link>
           </nav>
 
-          <header className="mb-8">
-            <EpistemicBadge
-              status={getContentEpistemicStatus('book', fm)}
-              lang={lang}
-              className="mb-3"
-            />
-            <h1 className="text-2xl font-light text-frc-gold mb-2">{book.frontmatter.title}</h1>
-            <p className="text-frc-text-dim">{current.title}</p>
+          <header className="mb-10 pb-7 border-b border-frc-blue">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <EpistemicBadge
+                status={getContentEpistemicStatus('book', fm)}
+                lang={lang}
+              />
+              <span className="font-mono text-[0.8125rem] text-frc-steel tabular-nums">
+                {idx + 1} / {chapterItems.length}
+              </span>
+            </div>
+            <Link
+              href={`${basePath}/books/${id}`}
+              className="inline-block text-sm text-frc-text-dim hover:text-frc-gold transition-colors mb-2"
+            >
+              {book.frontmatter.title}
+            </Link>
+            <h1 className="text-3xl sm:text-[2.125rem] font-light text-frc-gold tracking-[-0.025em] leading-[1.16] mb-4">
+              {current.title}
+            </h1>
 
-            <div className="flex flex-wrap gap-4 text-sm text-frc-text-dim mt-3">
-              <span>{book.frontmatter.author || 'H. Servat'}</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-frc-text-dim tabular-nums">
+              <span>{book.frontmatter.author || 'Hadi Servat'}</span>
               {book.frontmatter.date && <span>{book.frontmatter.date}</span>}
-              <span className="font-mono text-xs">{readTime}</span>
-              <Link href={`${basePath}/books/${id}`} className="tag hover:text-frc-gold hover:border-frc-gold transition-colors">
-                Full book
+              <span className="font-mono text-[0.8125rem] text-frc-steel">{readTime}</span>
+              <Link href={`${basePath}/books/${id}`} className="text-frc-gold hover:underline">
+                Book contents
               </Link>
             </div>
           </header>
@@ -201,36 +210,58 @@ export default async function BookChapterPage({ params }: Props) {
             readTime={readTime}
           />
 
-          <div className="flex items-center justify-between gap-4 my-8">
-            {prev ? (
-              <Link className="text-sm text-frc-text-dim hover:text-frc-gold" href={`${basePath}/books/${id}/chapter/${prev.slug}`}>
-                ← {prev.title}
-              </Link>
-            ) : (
-              <span />
-            )}
-            {next ? (
-              <Link className="text-sm text-frc-text-dim hover:text-frc-gold text-right" href={`${basePath}/books/${id}/chapter/${next.slug}`}>
-                {next.title} →
-              </Link>
-            ) : (
-              <span />
-            )}
-          </div>
+          <InlineToc items={tocItems} title="In this chapter" />
 
-          <InlineToc items={tocItems} />
-
-          <div className="content-body" suppressHydrationWarning>
+          <div className="content-body min-w-0 max-w-full overflow-x-hidden" suppressHydrationWarning>
             <MarkdownContent html={renderedBody} glossary={glossary} />
           </div>
 
-          {next && (
-            <div className="mt-12 pt-8 border-t border-frc-blue/30">
-              <Link className="inline-flex items-center gap-2 text-frc-gold hover:underline" href={`${basePath}/books/${id}/chapter/${next.slug}`}>
-                Continue: {next.title} →
-              </Link>
+          {/* Unobtrusive chapter navigation footer */}
+          <nav
+            aria-label="Chapter navigation"
+            className="mt-14 pt-8 border-t border-frc-blue grid sm:grid-cols-2 gap-6"
+          >
+            <div>
+              {prev ? (
+                <Link
+                  className="group block py-1"
+                  href={`${basePath}/books/${id}/chapter/${prev.slug}`}
+                >
+                  <span className="block text-[0.8125rem] text-frc-steel mb-1">Previous chapter</span>
+                  <span className="text-base text-frc-text group-hover:text-frc-gold transition-colors">
+                    ← {prev.title}
+                  </span>
+                </Link>
+              ) : (
+                <Link className="group block py-1" href={`${basePath}/books/${id}`}>
+                  <span className="block text-[0.8125rem] text-frc-steel mb-1">Book overview</span>
+                  <span className="text-base text-frc-text group-hover:text-frc-gold transition-colors">
+                    ← {book.frontmatter.title}
+                  </span>
+                </Link>
+              )}
             </div>
-          )}
+            <div className="sm:text-end">
+              {next ? (
+                <Link
+                  className="group block py-1"
+                  href={`${basePath}/books/${id}/chapter/${next.slug}`}
+                >
+                  <span className="block text-[0.8125rem] text-frc-steel mb-1">Next chapter</span>
+                  <span className="text-base text-frc-gold group-hover:underline">
+                    {next.title} →
+                  </span>
+                </Link>
+              ) : (
+                <Link className="group block py-1" href={`${basePath}/books/${id}`}>
+                  <span className="block text-[0.8125rem] text-frc-steel mb-1">End of book</span>
+                  <span className="text-base text-frc-gold group-hover:underline">
+                    Back to contents →
+                  </span>
+                </Link>
+              )}
+            </div>
+          </nav>
       </PageShell>
     </>
   );

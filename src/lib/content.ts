@@ -23,6 +23,81 @@ export type PaperCanonStatus = 'living-core' | 'frontier' | 'framework' | 'archi
 export type TaxonomyContentType = 'paper' | 'concept' | 'topic' | 'article' | 'blog' | 'book';
 export type CorpusEpistemicStatus = 'primary' | 'frontier' | 'commentary' | 'conceptual' | 'philosophical' | 'archive';
 
+export type EdgeScopeTag =
+  | 'Structural Analogy'
+  | 'Test Idea'
+  | 'Open Question'
+  | 'Counter-Evidence';
+
+export const EDGE_SCOPE_TAGS: readonly EdgeScopeTag[] = [
+  'Structural Analogy',
+  'Test Idea',
+  'Open Question',
+  'Counter-Evidence',
+] as const;
+
+export interface PrimarySourceRef {
+  title: string;
+  authors?: string;
+  year?: string | number;
+  venue?: string;
+  doi?: string;
+  arxiv?: string;
+  url?: string;
+  note?: string;
+}
+
+const SCOPE_TAG_MAP: Record<string, EdgeScopeTag> = {
+  'structural analogy': 'Structural Analogy',
+  'structural-analogy': 'Structural Analogy',
+  'test idea': 'Test Idea',
+  'test-idea': 'Test Idea',
+  'open question': 'Open Question',
+  'open-question': 'Open Question',
+  'counter-evidence': 'Counter-Evidence',
+  'counter evidence': 'Counter-Evidence',
+  counterevidence: 'Counter-Evidence',
+};
+
+export function normalizeEdgeScopeTag(raw: unknown): EdgeScopeTag | undefined {
+  if (typeof raw !== 'string') return undefined;
+  const key = raw.trim().toLowerCase().replace(/\s+/g, ' ');
+  return SCOPE_TAG_MAP[key];
+}
+
+export function normalizePrimarySources(raw: unknown): PrimarySourceRef[] {
+  if (!Array.isArray(raw)) return [];
+  const out: PrimarySourceRef[] = [];
+
+  for (const entry of raw) {
+    if (typeof entry === 'string') {
+      const title = entry.trim();
+      if (title) out.push({ title });
+      continue;
+    }
+    if (entry && typeof entry === 'object') {
+      const obj = entry as Record<string, unknown>;
+      const title = typeof obj.title === 'string' ? obj.title.trim() : '';
+      if (!title) continue;
+      out.push({
+        title,
+        authors: typeof obj.authors === 'string' && obj.authors.trim() ? obj.authors.trim() : undefined,
+        year:
+          typeof obj.year === 'number' || (typeof obj.year === 'string' && obj.year.trim())
+            ? obj.year
+            : undefined,
+        venue: typeof obj.venue === 'string' && obj.venue.trim() ? obj.venue.trim() : undefined,
+        doi: typeof obj.doi === 'string' && obj.doi.trim() ? obj.doi.trim() : undefined,
+        arxiv: typeof obj.arxiv === 'string' && obj.arxiv.trim() ? obj.arxiv.trim() : undefined,
+        url: typeof obj.url === 'string' && obj.url.trim() ? obj.url.trim() : undefined,
+        note: typeof obj.note === 'string' && obj.note.trim() ? obj.note.trim() : undefined,
+      });
+    }
+  }
+
+  return out;
+}
+
 export interface RawFrontmatter {
   title: string;
   id: string;
@@ -41,6 +116,8 @@ export interface RawFrontmatter {
   epistemicStatus?: string;
   editionStatus?: string;
   translationStatus?: string;
+  scopeTag?: EdgeScopeTag | string;
+  primarySources?: Array<PrimarySourceRef | string>;
   perspective?: 'kasra' | 'river' | 'both';
   // Authorial voice used for labeling content (independent of visibility perspective).
   voice?: string;

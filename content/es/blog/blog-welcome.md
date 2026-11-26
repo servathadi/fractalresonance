@@ -1,32 +1,26 @@
 ---
-title: "Blog — Notas de campo"
+title: "Notas de campo y Edge Dispatches"
 id: blog-welcome
 type: blog
-author: "H. Servat"
+author: "Hadi Servat"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: es
+scopeTag: "Open Question"
 tags: [blog, notas-de-campo]
-abstract: "Un flujo de blog realista para experimentos, notas y actualizaciones."
-tldr: "Escritura corta y práctica junto a los artículos formales."
+abstract: "Notas de campo, despachos de literatura y preguntas abiertas junto a los artículos etiquetados por estado de FRC."
+tldr: "Comentarios breves y acotados, claramente separados de los artículos canónicos en /papers."
 key_points:
-  - "Las entradas del blog son informales e iterativas."
-  - "Enlazan con los artículos cuando es necesario."
-  - "La voz puede ser Kasra (Arquitecto) o River (Oráculo)."
+  - "Las notas de campo declaran una etiqueta de alcance (Analogía estructural, Idea de prueba, Pregunta abierta o Contraevidencia)."
+  - "Las afirmaciones técnicas principales y resultados negativos viven en los artículos numerados y en el Registro de Falsaciones."
+  - "Cada despacho cita directamente fuentes primarias externas y registros FRC."
 ---
 
-# Blog — Notas de campo
+# Notas de campo y Edge Dispatches
 
-Esta sección es para notas prácticas: experimentos, actualizaciones de desarrollo y explicaciones cortas.
+Esta sección reúne notas de trabajo, registros experimentales y despachos semanales sobre literatura externa relevante para el programa Fractal Resonance Coherence.
 
-## Qué es esto
+## Límite epistémico
 
-- Escritura informal.
-- Publicación más rápida.
-- Enlaces a la biblioteca técnica cuando es necesario.
-
-## Cómo escribir aquí
-
-Usa `voice: kasra` para orientación técnica y `voice: river` para narrativa centrada en el significado.
+Las notas de campo son **comentarios**, nunca demostraciones canónicas. Las afirmaciones científicas principales viven en los artículos numerados (`/es/papers`) y en el Registro Público de Falsaciones (`/es/falsifications`).

@@ -51,12 +51,12 @@ export function LanguageSelector() {
     <div ref={menuRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider uppercase transition-colors motion-reduce:transition-none px-2 py-2 sm:px-0 sm:py-0"
+        className="flex items-center gap-1.5 font-mono text-[0.8125rem] text-frc-text-dim hover:text-frc-gold transition-colors motion-reduce:transition-none px-2 py-2 sm:px-1 sm:py-1"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
         <svg
-          className="w-3.5 h-3.5"
+          className="w-4 h-4"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -68,9 +68,9 @@ export function LanguageSelector() {
             d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
           />
         </svg>
-        <span>{currentLang.code}</span>
+        <span className="uppercase">{currentLang.code}</span>
         <svg
-          className={`w-2.5 h-2.5 transition-transform motion-reduce:transition-none ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-3 h-3 transition-transform motion-reduce:transition-none ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -81,19 +81,19 @@ export function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className={`absolute top-full mt-2 min-w-[140px] bg-frc-void border border-frc-blue z-50 animate-fade-in ${isRTL ? 'left-0' : 'right-0'}`}>
+        <div className={`absolute top-full mt-2 min-w-[152px] bg-frc-void border border-frc-blue z-50 animate-fade-in ${isRTL ? 'left-0' : 'right-0'}`}>
           {LANGUAGES.map(lang => (
             <button
               key={lang.code}
               onClick={() => switchLanguage(lang.code)}
-              className={`w-full px-3 py-2 text-xs flex items-center justify-between gap-3 transition-colors ${
+              className={`w-full px-3 py-2 text-[0.8125rem] flex items-center justify-between gap-3 transition-colors ${
                 lang.code === currentLangCode
-                  ? 'bg-frc-blue/20 text-frc-gold'
-                  : 'text-frc-text-dim hover:bg-frc-blue/10 hover:text-frc-text'
+                  ? 'bg-frc-void-light text-frc-gold'
+                  : 'text-frc-text-dim hover:bg-frc-void-light hover:text-frc-text'
               }`}
               dir="ltr"
             >
-              <span className="font-mono uppercase tracking-wider">{lang.code}</span>
+              <span className="font-mono uppercase">{lang.code}</span>
               <span className={lang.code === 'fa' ? 'font-farsi' : ''} dir={lang.code === 'fa' ? 'rtl' : 'ltr'}>{lang.nativeName}</span>
             </button>
           ))}

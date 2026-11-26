@@ -25,34 +25,32 @@ export function ContentDigest({
   if (!hasAnything) return null;
 
   return (
-    <section className="card p-6 mb-8">
-      <div className="flex items-center justify-between gap-6 mb-4">
-        <h2 className="text-xs text-frc-steel uppercase tracking-widest">Digest</h2>
+    <section className="border-y border-frc-blue py-6 mb-8">
+      <div className="flex items-baseline justify-between gap-6 mb-4">
+        <h2 className="text-sm font-medium text-frc-text">Summary</h2>
         {readTime && (
-          <span className="text-[0.625rem] text-frc-steel font-mono uppercase tracking-wider">
+          <span className="text-[0.8125rem] text-frc-steel font-mono tabular-nums">
             {readTime}
           </span>
         )}
       </div>
 
       {hasTldr && (
-        <p className="text-sm text-frc-text leading-relaxed">
-          <span className="text-frc-gold font-mono text-[0.6875rem] uppercase tracking-widest mr-2">
-            TLDR
-          </span>
-          <span className="text-frc-text-dim">{tldr}</span>
+        <p className="text-sm text-frc-text-dim leading-relaxed max-w-[65ch]">
+          <span className="text-frc-gold font-medium me-2">Overview:</span>
+          <span>{tldr}</span>
         </p>
       )}
 
       {hasKeyPoints && (
         <div className="mt-5">
-          <h3 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-3">
-            Key Points
+          <h3 className="text-sm font-medium text-frc-text mb-2.5">
+            Key points
           </h3>
-          <ul className="space-y-2 text-sm text-frc-text-dim">
+          <ul className="space-y-2 text-sm text-frc-text-dim max-w-[65ch]">
             {keyPoints!.map((p, idx) => (
               <li key={idx} className="flex gap-3">
-                <span className="text-frc-gold shrink-0 font-mono text-xs mt-0.5">
+                <span className="text-frc-gold shrink-0 font-mono text-[0.8125rem] tabular-nums mt-0.5">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
                 <span>{p}</span>
@@ -64,7 +62,7 @@ export function ContentDigest({
 
       {hasPrereqs && (
         <div className="mt-5">
-          <h3 className="text-[0.6875rem] text-frc-gold font-mono uppercase tracking-widest mb-3">
+          <h3 className="text-sm font-medium text-frc-text mb-2.5">
             Prerequisites
           </h3>
           <div className="flex flex-wrap gap-2">

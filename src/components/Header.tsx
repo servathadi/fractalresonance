@@ -13,11 +13,14 @@ import { getBasePath, getLangFromPathname, getPerspectiveFromPathname } from '@/
 // RTL languages
 const RTL_LANGUAGES = ['fa', 'ar', 'he'];
 
-const MOBILE_GROUPS: Record<string, { explore: string; library: string; tools: string; meta: string; open: string; close: string }> = {
-  en: { explore: 'Explore', library: 'Library', tools: 'Tools', meta: 'Meta', open: 'Open section', close: 'Close section' },
-  fa: { explore: 'کاوش', library: 'کتابخانه', tools: 'ابزارها', meta: 'متا', open: 'باز کردن بخش', close: 'بستن بخش' },
-  es: { explore: 'Explorar', library: 'Biblioteca', tools: 'Herramientas', meta: 'Meta', open: 'Abrir sección', close: 'Cerrar sección' },
-  fr: { explore: 'Explorer', library: 'Bibliothèque', tools: 'Outils', meta: 'Meta', open: 'Ouvrir la section', close: 'Fermer la section' },
+const NAV_GROUPS: Record<
+  string,
+  { more: string; research: string; notes: string; tools: string; open: string; close: string; menu: string; settings: string; external: string }
+> = {
+  en: { more: 'Corpus', research: 'Research', notes: 'Notes & essays', tools: 'Reference & tools', open: 'Open section', close: 'Close section', menu: 'Navigation', settings: 'Preferences', external: 'External' },
+  fa: { more: 'پیکره', research: 'پژوهش', notes: 'یادداشت‌ها و جستارها', tools: 'مرجع و ابزارها', open: 'باز کردن بخش', close: 'بستن بخش', menu: 'ناوبری', settings: 'تنظیمات', external: 'پیوندهای بیرونی' },
+  es: { more: 'Corpus', research: 'Investigación', notes: 'Notas y ensayos', tools: 'Referencia y herramientas', open: 'Abrir sección', close: 'Cerrar sección', menu: 'Navegación', settings: 'Preferencias', external: 'Externo' },
+  fr: { more: 'Corpus', research: 'Recherche', notes: 'Notes et essais', tools: 'Référence et outils', open: 'Ouvrir la section', close: 'Fermer la section', menu: 'Navigation', settings: 'Préférences', external: 'Externe' },
 };
 
 export function Header() {
@@ -27,47 +30,72 @@ export function Header() {
   const basePath = getBasePath(lang, perspective);
   const isRTL = RTL_LANGUAGES.includes(lang);
   const dict = getDictionary(lang);
-  const g = MOBILE_GROUPS[lang] || MOBILE_GROUPS['en'];
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // intent
-  const [isMobileMenuRendered, setIsMobileMenuRendered] = useState(false); // mounted
-  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false); // animated in/out
+  const g = NAV_GROUPS[lang] || NAV_GROUPS.en;
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuRendered, setIsMobileMenuRendered] = useState(false);
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
   const [mobileGroupOpen, setMobileGroupOpen] = useState<Record<string, boolean>>({});
-  const [desktopGroupOpen, setDesktopGroupOpen] = useState<string | null>(null);
+  const [moreOpen, setMoreOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
   const DRAWER_ANIMATION_MS = 200;
 
-  type MobileLink = { path: string; label: string } | { href: string; label: string };
+  type NavLinkItem = { path: string; label: string } | { href: string; label: string };
 
-  const mobileGroups: Array<{ id: string; label: string; openByDefault: boolean; links: MobileLink[] }> = useMemo(
+  const primaryDesktopLinks = useMemo(
+    () => [
+      { path: '/start-here', label: dict.nav.startHere },
+      { path: '/papers', label: dict.nav.papers },
+      { path: '/books', label: dict.nav.books },
+      { path: '/falsifications', label: dict.nav.falsifications },
+      { path: '/articles', label: dict.nav.articles },
+      { path: '/blog', label: dict.nav.blog },
+    ],
+    [dict.nav.articles, dict.nav.blog, dict.nav.books, dict.nav.falsifications, dict.nav.papers, dict.nav.startHere],
+  );
+
+  const moreLinks: NavLinkItem[] = useMemo(
+    () => [
+      { path: '/formulas', label: dict.nav.formulas },
+      { path: '/concepts', label: dict.nav.concepts },
+      { path: '/mu-levels', label: dict.nav.muLevels },
+      { path: '/topics', label: dict.nav.topics },
+      { path: '/graph', label: dict.nav.graph },
+      { path: '/tags', label: dict.nav.tags },
+      { path: '/about', label: dict.nav.about },
+      { path: '/positioning', label: dict.nav.positioning },
+      { path: '/join', label: dict.nav.join },
+      { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
+    ],
+    [dict.nav.about, dict.nav.askAi, dict.nav.concepts, dict.nav.formulas, dict.nav.graph, dict.nav.join, dict.nav.muLevels, dict.nav.positioning, dict.nav.tags, dict.nav.topics],
+  );
+
+  const mobileGroups: Array<{ id: string; label: string; openByDefault: boolean; links: NavLinkItem[] }> = useMemo(
     () => [
       {
-        id: 'explore',
-        label: g.explore,
+        id: 'research',
+        label: g.research,
+        openByDefault: true,
+        links: [
+          { path: '/start-here', label: dict.nav.startHere },
+          { path: '/papers', label: dict.nav.papers },
+          { path: '/books', label: dict.nav.books },
+          { path: '/falsifications', label: dict.nav.falsifications },
+        ],
+      },
+      {
+        id: 'notes',
+        label: g.notes,
         openByDefault: true,
         links: [
           { path: '/articles', label: dict.nav.articles },
           { path: '/blog', label: dict.nav.blog },
           { path: '/topics', label: dict.nav.topics },
-          { path: '/people', label: dict.nav.people },
-          { path: '/oracle', label: dict.nav.oracle },
-        ],
-      },
-      {
-        id: 'library',
-        label: g.library,
-        openByDefault: false,
-        links: [
-          { path: '/papers', label: dict.nav.papers },
-          { path: '/falsifications', label: dict.nav.falsifications },
-          { path: '/books', label: dict.nav.books },
           { path: '/concepts', label: dict.nav.concepts },
-          { path: '/mu-levels', label: dict.nav.muLevels },
-          { path: '/tags', label: dict.nav.tags },
-          { path: '/formulas', label: dict.nav.formulas },
-          { path: '/graph', label: dict.nav.graph },
         ],
       },
       {
@@ -75,22 +103,18 @@ export function Header() {
         label: g.tools,
         openByDefault: false,
         links: [
-          { path: '/start-here', label: dict.nav.startHere },
+          { path: '/formulas', label: dict.nav.formulas },
+          { path: '/mu-levels', label: dict.nav.muLevels },
+          { path: '/graph', label: dict.nav.graph },
+          { path: '/tags', label: dict.nav.tags },
+          { path: '/about', label: dict.nav.about },
+          { path: '/positioning', label: dict.nav.positioning },
           { path: '/join', label: dict.nav.join },
           { href: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13', label: dict.nav.askAi },
         ],
       },
-      {
-        id: 'meta',
-        label: g.meta,
-        openByDefault: false,
-        links: [
-          { path: '/about', label: dict.nav.about },
-          { path: '/positioning', label: dict.nav.positioning },
-        ],
-      },
     ],
-    [dict.nav.about, dict.nav.articles, dict.nav.askAi, dict.nav.blog, dict.nav.books, dict.nav.concepts, dict.nav.falsifications, dict.nav.formulas, dict.nav.graph, dict.nav.join, dict.nav.muLevels, dict.nav.oracle, dict.nav.papers, dict.nav.people, dict.nav.positioning, dict.nav.startHere, dict.nav.tags, dict.nav.topics, g.explore, g.library, g.meta, g.tools]
+    [dict.nav, g.notes, g.research, g.tools],
   );
 
   const normalizedPathname = useMemo(() => {
@@ -106,8 +130,26 @@ export function Header() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setDesktopGroupOpen(null);
+    setMoreOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMoreOpen(false);
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [moreOpen]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -138,7 +180,7 @@ export function Header() {
     }, DRAWER_ANIMATION_MS);
 
     return undefined;
-  }, [isMobileMenuOpen, isMobileMenuRendered]);
+  }, [isMobileMenuOpen, isMobileMenuRendered, mobileGroups]);
 
   useEffect(() => {
     if (!isMobileMenuVisible) return;
@@ -159,8 +201,8 @@ export function Header() {
 
       const focusable = Array.from(
         root.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
       ).filter((el) => el.tabIndex !== -1);
 
       if (focusable.length === 0) return;
@@ -199,157 +241,130 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm ${isRTL ? 'font-farsi' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
-      {/* Top micro-bar with coordinates */}
-      <div className="border-b border-frc-blue/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-1 flex items-center justify-between gap-4">
-          <span className="font-mono text-[0.625rem] text-frc-steel tracking-wider">
-            <span className="sm:hidden">FRC.v2</span>
-            <span className="hidden sm:inline">FRC.v2 — fractalresonance.com</span>
+    <header
+      className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm border-b border-frc-blue ${isRTL ? 'font-farsi' : ''}`}
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        {/* Masthead wordmark — stronger presence than nav links */}
+        <Link href={basePath} className="flex items-center gap-3 shrink-0 group">
+          <BrandMark alt="FRC" width={28} height={28} className="opacity-90 group-hover:opacity-100 transition-opacity" />
+          <span className="text-frc-gold text-base sm:text-[1.0625rem] font-semibold tracking-tight">
+            FRC
           </span>
-          <div className="flex items-center gap-3">
-            <SearchTrigger />
-            <span className="text-frc-blue">|</span>
-            <a
-              href="https://orcid.org/0009-0004-7412-5129"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-[0.625rem] text-frc-steel hover:text-frc-gold tracking-wider hidden sm:block"
+        </Link>
+
+        {/* Single-line desktop navigation */}
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+          {primaryDesktopLinks.map((item) => (
+            <Link
+              key={item.path}
+              href={`${basePath}${item.path}`}
+              className={`text-sm px-3 py-2 transition-colors whitespace-nowrap ${
+                isActivePath(item.path)
+                  ? 'text-frc-gold font-medium'
+                  : 'text-frc-text-dim hover:text-frc-text'
+              }`}
             >
-              ORCID:0009-0004-7412-5129
-            </a>
-            <span className="text-frc-blue hidden sm:block">|</span>
-            <LanguageSelector />
-            <span className="text-frc-blue">|</span>
-            <ThemeToggle />
-          </div>
-        </div>
-      </div>
+              {item.label}
+            </Link>
+          ))}
 
-      {/* Main navigation */}
-      <div className="border-b border-frc-blue">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <Link href={basePath} className="flex items-center gap-3 group">
-            <BrandMark alt="FRC" width={32} height={32} className="opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="hidden sm:block">
-              <span className="text-frc-gold text-sm font-medium tracking-wide">FRC</span>
-            </div>
-          </Link>
-
-          <div className="flex items-center">
+          <div
+            ref={moreRef}
+            className="relative"
+            onMouseEnter={() => setMoreOpen(true)}
+            onMouseLeave={() => setMoreOpen(false)}
+          >
             <button
               type="button"
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="xl:hidden text-frc-text-dim hover:text-frc-gold transition-colors w-11 h-11 inline-flex items-center justify-center -mr-2"
-              aria-label="Open menu"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="frc-mobile-menu"
+              onClick={() => setMoreOpen((prev) => !prev)}
+              aria-haspopup="menu"
+              aria-expanded={moreOpen}
+              className="text-sm px-3 py-2 text-frc-text-dim hover:text-frc-text transition-colors inline-flex items-center gap-1 whitespace-nowrap"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+              {g.more}
+              <svg
+                className={`w-3.5 h-3.5 text-frc-steel transition-transform motion-reduce:transition-none ${
+                  moreOpen ? 'rotate-180' : ''
+                }`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <nav className="hidden xl:flex items-center gap-1">
-              {/* Primary CTAs */}
-              <Link
-                href={`${basePath}/start-here`}
-                className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
-                  isActivePath('/start-here') ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
-                }`}
-              >
-                {dict.nav.startHere}
-              </Link>
-              <Link
-                href={`${basePath}/join`}
-                className={`text-xs uppercase tracking-wider px-3 py-2 transition-colors ${
-                  isActivePath('/join') ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
-                }`}
-              >
-                {dict.nav.join}
-              </Link>
-
-              <div className="w-px h-5 bg-frc-blue/70 mx-1" />
-
-              {/* Grouped dropdowns (reduces clutter) */}
-              {mobileGroups.map((group) => (
-                <div
-                  key={`desktop:${group.id}`}
-                  className="relative"
-                  onMouseEnter={() => setDesktopGroupOpen(group.id)}
-                  onMouseLeave={() => setDesktopGroupOpen((prev) => (prev === group.id ? null : prev))}
-                >
-                  <button
-                    type="button"
-                    className="text-xs uppercase tracking-wider px-3 py-2 text-frc-text-dim hover:text-frc-gold transition-colors inline-flex items-center gap-1"
-                    aria-haspopup="menu"
-                    aria-expanded={desktopGroupOpen === group.id}
-                    onClick={() => setDesktopGroupOpen((prev) => (prev === group.id ? null : group.id))}
-                  >
-                    {group.label}
-                    <svg
-                      className={`w-3.5 h-3.5 text-frc-steel transition-transform motion-reduce:transition-none ${
-                        desktopGroupOpen === group.id ? 'rotate-180' : ''
-                      }`}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  {desktopGroupOpen === group.id ? (
-                    <div
-                      className={`absolute top-full min-w-[16rem] ${
-                        isRTL ? 'left-0' : 'right-0'
-                      }`}
-                    >
-                      {/* Hover bridge: prevents “gap closes menu” when moving cursor from button to dropdown */}
-                      <div className="h-2" aria-hidden />
-                      <div role="menu" className="border border-frc-blue bg-frc-void shadow-xl rounded-lg py-2">
-                        {group.links.map((link) =>
-                          'path' in link ? (
-                            <Link
-                              key={`desktop:${group.id}:${link.path}`}
-                              href={`${basePath}${link.path}`}
-                              onClick={() => setDesktopGroupOpen(null)}
-                              className={`block px-4 py-2 text-sm tracking-wide transition-colors ${
-                                isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
-                              }`}
-                              role="menuitem"
-                            >
-                              {link.label}
-                            </Link>
-                          ) : (
-                            <a
-                              key={`desktop:${group.id}:${link.href}`}
-                              href={link.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setDesktopGroupOpen(null)}
-                              className="block px-4 py-2 text-frc-text-dim hover:text-frc-gold text-sm tracking-wide transition-colors"
-                              role="menuitem"
-                            >
-                              {link.label}
-                            </a>
-                          )
-                        )}
-                      </div>
-                    </div>
-                  ) : null}
+            {moreOpen ? (
+              <div className={`absolute top-full min-w-[14rem] ${isRTL ? 'left-0' : 'right-0'}`}>
+                <div className="h-2" aria-hidden="true" />
+                <div role="menu" className="border border-frc-blue bg-frc-void py-2">
+                  {moreLinks.map((link) =>
+                    'path' in link ? (
+                      <Link
+                        key={`more:${link.path}`}
+                        href={`${basePath}${link.path}`}
+                        onClick={() => setMoreOpen(false)}
+                        className={`block px-4 py-2 text-sm transition-colors ${
+                          isActivePath(link.path)
+                            ? 'text-frc-gold bg-frc-void-light'
+                            : 'text-frc-text-dim hover:text-frc-text hover:bg-frc-void-light'
+                        }`}
+                        role="menuitem"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        key={`more:${link.href}`}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMoreOpen(false)}
+                        className="block px-4 py-2 text-sm text-frc-text-dim hover:text-frc-text hover:bg-frc-void-light transition-colors"
+                        role="menuitem"
+                      >
+                        {link.label}
+                      </a>
+                    ),
+                  )}
                 </div>
-              ))}
-            </nav>
+              </div>
+            ) : null}
           </div>
+        </nav>
+
+        {/* Utility cluster */}
+        <div className="flex items-center gap-3 shrink-0">
+          <SearchTrigger />
+          <span className="h-4 w-px bg-frc-blue/70" aria-hidden="true" />
+          <LanguageSelector />
+          <span className="h-4 w-px bg-frc-blue/70 hidden sm:block" aria-hidden="true" />
+          <div className="hidden sm:flex items-center">
+            <ThemeToggle />
+          </div>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="lg:hidden text-frc-text-dim hover:text-frc-gold transition-colors w-10 h-10 inline-flex items-center justify-center -me-2"
+            aria-label="Open menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="frc-mobile-menu"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
         </div>
       </div>
 
+      {/* Mobile drawer */}
       {isMobileMenuRendered ? (
-        <div className="fixed inset-0 z-[90] xl:hidden">
+        <div className="fixed inset-0 z-[90] lg:hidden">
           <div
-            className={`absolute inset-0 bg-frc-void/80 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
+            className={`absolute inset-0 bg-frc-void/85 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
               isMobileMenuVisible ? 'opacity-100' : 'opacity-0'
             }`}
             onClick={() => setIsMobileMenuOpen(false)}
@@ -361,7 +376,7 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Site menu"
-            className={`absolute top-0 ${isRTL ? 'left-0 border-r' : 'right-0 border-l'} h-full w-[85vw] max-w-sm bg-frc-void border-frc-blue shadow-2xl flex flex-col transform transition-transform duration-200 motion-reduce:transition-none ${
+            className={`absolute top-0 ${isRTL ? 'left-0 border-r' : 'right-0 border-l'} h-full w-[85vw] max-w-sm bg-frc-void border-frc-blue flex flex-col transform transition-transform duration-200 motion-reduce:transition-none ${
               isMobileMenuVisible
                 ? 'translate-x-0'
                 : isRTL
@@ -369,20 +384,17 @@ export function Header() {
                   : 'translate-x-full'
             } pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]`}
           >
-            <div className="px-4 py-3 border-b border-frc-blue flex items-center justify-between gap-4">
+            <div className="px-5 py-4 border-b border-frc-blue flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <BrandMark alt="FRC" width={28} height={28} className="opacity-90" />
-                <div>
-                  <div className="text-frc-gold text-sm font-medium tracking-wide">FRC</div>
-                  <div className="text-[11px] text-frc-steel font-mono">fractalresonance.com</div>
-                </div>
+                <BrandMark alt="FRC" width={26} height={26} className="opacity-90" />
+                <span className="text-frc-gold text-base font-semibold tracking-tight">FRC</span>
               </div>
 
               <button
                 type="button"
                 ref={closeButtonRef}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-frc-text-dim hover:text-frc-gold transition-colors w-11 h-11 inline-flex items-center justify-center -mr-2"
+                className="text-frc-text-dim hover:text-frc-gold transition-colors w-10 h-10 inline-flex items-center justify-center -me-2"
                 aria-label="Close menu"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -391,45 +403,43 @@ export function Header() {
               </button>
             </div>
 
-            <div className="px-4 py-4 overflow-y-auto flex-1 overscroll-contain">
-              <div className="text-[11px] uppercase tracking-wider text-frc-steel mb-2">
-                Navigation
-              </div>
-              <div className={`flex flex-col gap-2 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`}>
+            <div className="px-5 py-5 overflow-y-auto flex-1 overscroll-contain">
+              <div className="divide-y divide-frc-blue/60">
                 {mobileGroups.map((group) => (
                   <details
                     key={group.id}
                     open={!!mobileGroupOpen[group.id]}
-                    onToggle={(e) => { const isOpen = (e.currentTarget as HTMLDetailsElement).open; setMobileGroupOpen((prev) => ({ ...prev, [group.id]: isOpen })); }}
-                    className="group w-full border border-frc-blue/60 rounded-lg bg-frc-void-light/30"
+                    onToggle={(e) => {
+                      const isOpen = (e.currentTarget as HTMLDetailsElement).open;
+                      setMobileGroupOpen((prev) => ({ ...prev, [group.id]: isOpen }));
+                    }}
+                    className="group py-3 first:pt-0"
                   >
                     <summary
-                      className={`px-3 py-3 cursor-pointer select-none list-none flex items-center justify-between gap-3 ${
-                        isRTL ? 'flex-row-reverse' : ''
-                      }`}
+                      className="py-1.5 cursor-pointer select-none list-none flex items-center justify-between gap-3"
                       aria-label={`${mobileGroupOpen[group.id] ? g.close : g.open}: ${group.label}`}
                     >
-                      <span className="text-[11px] uppercase tracking-wider text-frc-steel">{group.label}</span>
+                      <span className="text-sm font-medium text-frc-text">{group.label}</span>
                       <svg
                         className="w-4 h-4 text-frc-steel transition-transform motion-reduce:transition-none group-open:rotate-180"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2"
+                        strokeWidth="1.75"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
 
-                    <nav className="px-3 pb-2">
+                    <nav className="pt-2 pb-1 space-y-1">
                       {group.links.map((link) =>
                         'path' in link ? (
                           <Link
                             key={`${group.id}:${link.path}`}
                             href={`${basePath}${link.path}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className={`block w-full text-sm tracking-wide py-2 transition-colors ${
-                              isActivePath(link.path) ? 'text-frc-gold' : 'text-frc-text-dim hover:text-frc-gold'
+                            className={`block py-2 text-sm transition-colors ${
+                              isActivePath(link.path) ? 'text-frc-gold font-medium' : 'text-frc-text-dim hover:text-frc-text'
                             }`}
                           >
                             {link.label}
@@ -441,45 +451,36 @@ export function Header() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block w-full text-frc-text-dim hover:text-frc-gold text-sm tracking-wide py-2 transition-colors"
+                            className="block py-2 text-sm text-frc-text-dim hover:text-frc-text transition-colors"
                           >
                             {link.label}
                           </a>
-                        )
+                        ),
                       )}
                     </nav>
                   </details>
                 ))}
               </div>
 
-              <div className="mt-5 pt-5 border-t border-frc-blue">
-                <div className="text-[11px] uppercase tracking-wider text-frc-steel mb-3">
-                  Settings
-                </div>
-                <div className={`flex flex-col gap-4 ${isRTL ? 'items-end' : 'items-start'}`}>
-                  <div className="flex items-center gap-3">
-                    <LanguageSelector />
-                    <span className="text-frc-blue">|</span>
-                    <ThemeToggle />
-                  </div>
+              <div className="mt-6 pt-5 border-t border-frc-blue flex items-center justify-between">
+                <span className="text-sm text-frc-text-dim">{g.settings}</span>
+                <div className="flex items-center gap-3">
+                  <LanguageSelector />
+                  <span className="h-4 w-px bg-frc-blue" aria-hidden="true" />
+                  <ThemeToggle />
                 </div>
               </div>
 
               <div className="mt-5 pt-5 border-t border-frc-blue">
-                <div className="text-[11px] uppercase tracking-wider text-frc-steel mb-2">
-                  External
-                </div>
                 <a
                   href="https://orcid.org/0009-0004-7412-5129"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-frc-text-dim hover:text-frc-gold text-sm tracking-wide py-2 transition-colors"
+                  className="block text-sm text-frc-text-dim hover:text-frc-gold py-1 transition-colors"
                 >
-                  ORCID
+                  ORCID: 0009-0004-7412-5129
                 </a>
               </div>
-
-              <div className="h-12" />
             </div>
           </div>
         </div>
