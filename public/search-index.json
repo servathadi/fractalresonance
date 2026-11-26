@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T00:56:12.002Z",
+  "generated": "2026-11-26T22:32:50.659Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -930,8 +930,8 @@
       "id": "FRC-830-005",
       "type": "papers",
       "lang": "en",
-      "title": "FRC and Quantum Born Reciprocity v0.2: A Present-Structure Obstruction to Majid-Style Self-Duality",
-      "abstract": "FRC has an exact normalized entropy-coherence ledger involution D(s,y)=(-y,-s), a typed category of operational registers, and now both one-parameter and full-qubit lift obstructions. This paper asks whether those results constitute Born reciprocity or Majid-style representation-theoretic self-duality. They do not. The canonical Born exchange B_a(q,p)=(ap,-q/a) is order four and symplectic, whereas D is order two and anti-symplectic on the ambient ledger plane; indeed their different orders prevent conjugacy even by a bijection. The ledger datum also does not reconstruct a state-space action, and FRC 830.004 shows that this non-reconstruction occurs in natural qubit fibers. A primitive Hopf algebraization makes D only a Hopf automorphism of one chosen ledger algebra, without an independently defined dual object, pairing, semidualisation, representation exchange, or physical state-observable map. The general one-parameter identity-lift obstruction excludes every nonidentity lift under its monotonicity hypotheses, while the full qubit ledger excludes incoherent operations, unital qubit CPTP channels, and unitary or antiunitary Wigner symmetries as global lifts. A general nonunital, coherence-generating CPTP lift remains open. Present FRC therefore has exact coordinate, typed-morphism, dimension-threshold, and scoped no-go mathematics, but not a Born- or Majid-style self-duality.",
+      "title": "FRC and Quantum Born Reciprocity v0.3: A Present-Structure Obstruction to Majid-Style Self-Duality",
+      "abstract": "FRC has an exact normalized entropy-coherence ledger involution D(x,y)=(-y,-x), a typed category of operational registers, and exact one-parameter and qubit lift obstructions. This paper asks whether those structures constitute quantum Born reciprocity or Majid-style representation-theoretic self-duality. They do not. The canonical Born exchange B_a(q,p)=(ap,-q/a) has order four and is symplectic, whereas D has order two and reverses the ambient area form; their different orders prevent conjugacy by any bijection. More decisively, the ledger datum does not reconstruct a unique state-space action, and this non-reconstruction occurs naturally in qubit fibers. A primitive Hopf algebraization makes pullback along D only a Hopf automorphism of one chosen ambient coordinate algebra, supplying neither an independently defined dual object nor a Hopf pairing, semidualisation, representation exchange, or physical state-observable map. Every C^1 one-parameter family with strictly monotone coherence and slope ds/dy < 1 (in particular the decreasing-entropy trade regime ds/dy < 0) excludes nonidentity lifts, and the threshold ds/dy = 1 is sharp. On the full qubit ledger, incoherent operations, unital channels, and Wigner symmetries fail on their stated domains, and an open-set rigidity theorem excludes every affine map of the Bloch ball—hence every CPTP qubit channel (unital or nonunital), every positive trace-preserving map, and every fixed-ancilla Stinespring protocol—from inducing D on any nonempty open subset with nonzero off-diagonal coherence. Explicit one-dimensional circle realizations show that the open-set hypothesis is sharp, leaving empty-interior subsets, projective outcome-conditioned instrument maps, higher-dimensional registers, and cross-register constructions open. Present FRC therefore possesses exact coordinate geometry, typed-morphism criteria, and sharp obstruction theorems, but not Born reciprocity or Majid-style self-duality.",
       "tags": [
         "born-reciprocity",
         "majid",
@@ -941,6 +941,7 @@
         "ledger-involution",
         "non-reconstruction",
         "lift-obstruction",
+        "cptp-obstruction",
         "no-promotion"
       ],
       "taxons": [
@@ -952,15 +953,16 @@
         "ledger-involution",
         "non-reconstruction",
         "lift-obstruction",
+        "cptp-obstruction",
         "no-promotion",
         "frc-800"
       ],
-      "content": "FRC 830.005 v0.2 - FRC and Quantum Born Reciprocity 0. Result in one paragraph Present FRC reciprocity is not quantum Born reciprocity or a Majid-style self-duality. The conclusion is structural, not rhetorical. The canonical Born exchange and the FRC ledger involution have different composition and orientation behavior. More decisively, the ledger datum $(M+,\\omega,D)$ does not determine an action on the states that generate its coordinates: inequivalent state involutions with different fixed...",
+      "content": "FRC 830.005 v0.3 — FRC and Quantum Born Reciprocity: A Present-Structure Obstruction to Majid-Style Self-Duality Epistemic Scope & Provenance - Document: FRC 830.005, Version (2026-11-26) - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) - alphaXiv Preprint (Live): https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-830-005 - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21385391 (prior archive...",
       "url": "/en/papers/FRC-830-005",
-      "date": "Wed Jul 15 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
-      "version": "v0.2",
+      "date": "Thu Nov 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v0.3",
       "muLevel": "mu4",
-      "doi": "10.5281/zenodo.21385392",
+      "doi": "10.5281/zenodo.21385391",
       "conceptDoi": "10.5281/zenodo.21385391",
       "epistemicStatus": "frontier",
       "retrievalPriority": 80

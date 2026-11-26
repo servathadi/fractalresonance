@@ -297,6 +297,19 @@ export default async function FalsificationsPage({ params }: Props) {
                       DOI:{doi}
                     </a>
                   ))}
+                  {(entry.externalLinks || [])
+                    .filter((link) => /^https:\/\//i.test(link.url))
+                    .map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-[0.8125rem] text-frc-gold hover:underline"
+                      >
+                        {link.label} ↗
+                      </a>
+                    ))}
                 </div>
               )}
             </article>

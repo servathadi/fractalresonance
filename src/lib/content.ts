@@ -155,6 +155,7 @@ export interface RawFrontmatter {
   lang?: string;
   doi?: string;
   conceptDoi?: string;
+  alphaxivUrl?: string;
   canonStatus?: PaperCanonStatus;
   muLevel?: MuLevel;
   cover?: string;
@@ -916,6 +917,7 @@ export function toPaperMeta(parsed: ParsedContent): PaperMeta {
     tags: Array.isArray(fm.tags) ? fm.tags : [],
     lang: fm.lang || 'en',
     doi: fm.doi,
+    alphaxivUrl: fm.alphaxivUrl,
     video: fm.video,
     images: fm.images,
     rating: fm.rating,

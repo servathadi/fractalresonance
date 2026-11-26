@@ -16,6 +16,7 @@ export interface ResearchMapPaper {
   pdfHref: string | null;
   doi: string | null;
   conceptDoi: string | null;
+  alphaxivUrl: string | null;
   publicationState: string | null;
   statusLabel: string | null;
   statusCategory: ResearchStatusCategory;
@@ -90,8 +91,8 @@ const RECIPROCITY_MATH_BADGES: Record<string, { statusCategory: ResearchStatusCa
   },
   'FRC-830-005': {
     statusCategory: 'exact-mathematics',
-    statusBadge: 'Exact mathematics · No-promotion obstruction',
-    summary: 'Present-structure obstruction to Born reciprocity and Majid-style self-duality; no physical or categorical self-duality established.',
+    statusBadge: 'Exact mathematics · Open-set CPTP excluded · alphaXiv live',
+    summary: 'Present-structure obstruction to Born reciprocity and Majid-style self-duality, sharpened with an open-set no-affine/CPTP qubit theorem (Proposition 4, 1D-circle sharp) and 42/42 symbolic-numerical verification checks.',
   },
 };
 
@@ -146,6 +147,7 @@ function toMapPaper(
     pdfHref: hasPaperPdf(fm.id) ? `/paper-pdfs/${fm.id}.pdf` : null,
     doi: fm.doi || null,
     conceptDoi: fm.conceptDoi || null,
+    alphaxivUrl: fm.alphaxivUrl || null,
     publicationState: fm.publicationState || null,
     statusLabel: fm.statusLabel || null,
     statusCategory: meta.statusCategory,
@@ -193,7 +195,7 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
     });
 
   const recConceptDois = [...new Set(recPapers.map((p) => p.conceptDoi).filter(Boolean))];
-  const recVersionDois = [...new Set(recPapers.map((p) => p.doi).filter(Boolean))];
+  const recVersionDois = [...new Set(recPapers.map((p) => (p.doi && p.doi !== p.conceptDoi ? p.doi : null)).filter(Boolean))];
 
   const thresholdPapers = enPapers
     .filter((p) => /^FRC-700-00\d$/.test(p.frontmatter.id) && p.frontmatter.canonStatus === 'framework')

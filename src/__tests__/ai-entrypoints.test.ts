@@ -116,9 +116,13 @@ describe('AI-facing entrypoints generation and drift checks', () => {
       ['FRC-830-002', 'v0.1'],
       ['FRC-830-003', 'v0.1'],
       ['FRC-830-004', 'v0.1'],
-      ['FRC-830-005', 'v0.2'],
+      ['FRC-830-005', 'v0.3'],
     ]);
     expect(agentJson.canon.reciprocity_mathematics.no_promotion).toBe(true);
+    const p830005 = agentJson.reciprocity_mathematics_route.find((p: { id: string }) => p.id === 'FRC-830-005');
+    expect(p830005?.alphaxiv_url).toBe(
+      'https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction',
+    );
 
     for (const text of [llmsTxt, agentMd]) {
       expect(text).toContain('Majid-style self-duality');

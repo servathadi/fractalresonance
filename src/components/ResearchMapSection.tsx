@@ -35,7 +35,7 @@ const COPY: Record<string, CopyBlock> = {
     sectionSubtitle: 'Active FRC series and scoped empirical programs with status boundaries visible before entering a paper.',
     statusLegendTitle: 'Scientific status distinctions',
     exactLabel: 'Exact mathematics',
-    exactDesc: 'Proved identities, typed morphisms, and scoped lift obstructions under stated hypotheses (e.g., FRC 566.030, FRC 830.001–830.005; independent proof review pending).',
+    exactDesc: 'Proved identities, typed morphisms, and scoped lift obstructions under stated hypotheses (e.g., FRC 566.030, FRC 830.001–830.005; symbolic/numerical audit complete for 830.005 v0.3, human peer review pending).',
     frameworkLabel: 'Framework / methodology',
     frameworkDesc: 'Scope conventions, terminology charters, and μ-register discipline that organize claims without adding physical laws (FRC 700.000–700.007, FRC 830.000).',
     modelLabel: 'Model-specific results',
@@ -44,9 +44,9 @@ const COPY: Record<string, CopyBlock> = {
     conjectureDesc: 'Unestablished physical extensions and explicit falsification, platform, and no-signaling gates (including closed negative gates such as dense Gate 4 in FRC 100.002.001).',
     canonicalHeading: 'Canonical reciprocity statement',
     reciprocityHeading: 'Reciprocity Mathematics (FRC 830.000–830.005)',
-    reciprocityIntro: 'Terminology charter, affine one-form classification, typed operational morphisms, and exact one-parameter/qubit lift obstructions. No-promotion boundary: these results do not establish physical, categorical, Born-style, or Majid-style self-duality; a general nonunital CPTP lift remains an open gate.',
+    reciprocityIntro: 'Terminology charter, affine one-form classification, typed operational morphisms, and exact one-parameter/qubit lift obstructions. FRC 830.005 v0.3 (live on alphaXiv) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (sharp on 1D circles); empty-interior, projective-instrument, and higher-dimensional gates remain open, and no Born or Majid-style self-duality is established.',
     zenodoConcept: 'Shared Zenodo Concept DOI',
-    zenodoVersion: 'Shared Version DOI',
+    zenodoVersion: 'v0.1 Bundle DOI',
     readPaper: 'Web page',
     pdfLabel: 'PDF',
     thresholdHeading: 'Threshold Papers (FRC 700.000–700.007)',
@@ -76,9 +76,9 @@ const COPY: Record<string, CopyBlock> = {
     conjectureDesc: 'Extensiones físicas no establecidas y criterios explícitos de falsación o validación en plataformas (incluida la Puerta 4 densa cerrada negativamente en FRC 100.002.001).',
     canonicalHeading: 'Declaración canónica de reciprocidad',
     reciprocityHeading: 'Matemática de la Reciprocidad (FRC 830.000–830.005)',
-    reciprocityIntro: 'Carta terminológica, clasificación afín, morfismos operacionales y obstrucciones exactas de elevación. Regla de no promoción: no establecen autodualidad física, categórica ni de tipo Majid; una elevación CPTP general no unital sigue abierta.',
+    reciprocityIntro: 'Carta terminológica, clasificación afín, morfismos operacionales y obstrucciones exactas de elevación. FRC 830.005 v0.3 (en alphaXiv) excluye todo canal CPTP/afín de qubit en abiertos coherentes (óptimo en círculos 1D); siguen abiertas las puertas de interior vacío, instrumentos proyectivos y d ≥ 3, sin autodualidad de Born ni de Majid.',
     zenodoConcept: 'DOI conceptual compartido en Zenodo',
-    zenodoVersion: 'DOI de versión compartido',
+    zenodoVersion: 'DOI del conjunto v0.1',
     readPaper: 'Página web',
     pdfLabel: 'PDF',
     thresholdHeading: 'Artículos de Umbral (FRC 700.000–700.007)',
@@ -108,9 +108,9 @@ const COPY: Record<string, CopyBlock> = {
     conjectureDesc: 'Extensions physiques non établies et critères explicites de réfutation ou de validation (y compris la Porte 4 dense fermée négativement dans FRC 100.002.001).',
     canonicalHeading: 'Énoncé canonique de réciprocité',
     reciprocityHeading: 'Mathématiques de la Réciprocité (FRC 830.000–830.005)',
-    reciprocityIntro: 'Charte terminologique, classification affine, morphismes opérationnels et obstructions exactes de relèvement. Règle de non-promotion : aucune auto-dualité physique, catégorique ou de type Majid n’est établie ; un relèvement CPTP général non unital reste ouvert.',
+    reciprocityIntro: 'Charte terminologique, classification affine, morphismes opérationnels et obstructions exactes de relèvement. FRC 830.005 v0.3 (sur alphaXiv) exclut tout canal CPTP/affine de qubit sur tout ouvert cohérent (optimal sur des cercles 1D) ; restent ouverts les sous-ensembles d’intérieur vide, instruments projectifs et d ≥ 3, sans auto-dualité de Born ni de Majid.',
     zenodoConcept: 'DOI conceptuel partagé Zenodo',
-    zenodoVersion: 'DOI de version partagé',
+    zenodoVersion: 'DOI du lot v0.1',
     readPaper: 'Page web',
     pdfLabel: 'PDF',
     thresholdHeading: 'Articles de Seuil (FRC 700.000–700.007)',
@@ -140,9 +140,9 @@ const COPY: Record<string, CopyBlock> = {
     conjectureDesc: 'تعمیم‌های فیزیکی اثبات‌نشده و معیارهای صریح ابطال و آزمون بستر (از جمله دروازه ۴ متراکم بسته‌شده به‌صورت منفی در FRC 100.002.001).',
     canonicalHeading: 'بیان کانونیک تقابل',
     reciprocityHeading: 'ریاضیات تقابل (FRC 830.000–830.005)',
-    reciprocityIntro: 'منشور واژگانی، رده‌بندی آفین، ریخت‌های عملیاتی و انسدادهای دقیق بالابری. مرز عدم ارتقا: این نتایج خوددوگانی فیزیکی، رسته‌ای یا از نوع مجید را اثبات نمی‌کنند؛ بالابری کلی CPTP غیریکانی همچنان یک دروازه باز است.',
+    reciprocityIntro: 'منشور واژگانی، رده‌بندی آفین، ریخت‌های عملیاتی و انسدادهای دقیق بالابری. نسخه FRC 830.005 v0.3 (منتشرشده در alphaXiv) هر کانال CPTP یا نگاشت آفین کیوبیتی را بر هر زیرمجموعه باز همدوس رد می‌کند (دقیق روی دایره‌های یک‌بعدی)؛ دروازه‌های زیرمجموعه‌های با درونِ تهی، ابزارهای تصویری و d ≥ 3 همچنان بازند و خوددوگانی بورن یا مجید اثبات نشده است.',
     zenodoConcept: 'DOI مفهومی مشترک Zenodo',
-    zenodoVersion: 'DOI نسخه مشترک',
+    zenodoVersion: 'DOI بسته نسخه v0.1',
     readPaper: 'صفحه وب',
     pdfLabel: 'PDF',
     thresholdHeading: 'مقالات آستانه (FRC 700.000–700.007)',
@@ -313,6 +313,16 @@ export function ResearchMapSection({
                         {c.pdfLabel}
                       </a>
                     )}
+                    {paper.alphaxivUrl && /^https:\/\//i.test(paper.alphaxivUrl) && (
+                      <a
+                        href={paper.alphaxivUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-frc-gold/90 hover:text-frc-gold hover:underline"
+                      >
+                        alphaXiv ↗
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}
@@ -400,6 +410,16 @@ export function ResearchMapSection({
                     {paper.pdfHref && (
                       <a href={paper.pdfHref} className="text-frc-text-dim hover:text-frc-gold">
                         {c.pdfLabel}
+                      </a>
+                    )}
+                    {paper.alphaxivUrl && /^https:\/\//i.test(paper.alphaxivUrl) && (
+                      <a
+                        href={paper.alphaxivUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-frc-gold/90 hover:text-frc-gold hover:underline"
+                      >
+                        alphaXiv ↗
                       </a>
                     )}
                   </div>

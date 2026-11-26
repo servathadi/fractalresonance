@@ -22,6 +22,7 @@ export interface FalsificationEntry {
   scopeBoundary: string;
   urls: string[];
   dois: string[];
+  externalLinks?: Array<{ label: string; url: string }>;
 }
 
 export interface FalsificationLedger {

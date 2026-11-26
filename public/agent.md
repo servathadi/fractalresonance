@@ -2,7 +2,7 @@
 
 This static vault contains the living **Fractal Resonance Coherence (FRC)** corpus.
 
-Updated: 2026-07-17. Generated deterministically from `content/en/papers/` and `/catalog.json` (30 active papers; 43 published English papers total). Reading order does not rank evidence or imply peer review.
+Updated: 2026-11-26. Generated deterministically from `content/en/papers/` and `/catalog.json` (30 active papers; 43 published English papers total). Reading order does not rank evidence or imply peer review.
 
 For a single self-contained model briefing with no required links, use `FRC-100-100` (v1.0) at `/FRC-100-100.md`. It summarizes the current stance but does not override primary evidence papers. This file remains the concise routing and grounding guide.
 
@@ -25,12 +25,12 @@ For a single self-contained model briefing with no required links, use `FRC-100-
 
 ## 3) Epistemic distinctions
 
-- **Exact mathematics:** Theorems, algebraic or differential identities, typed morphism categories, and scoped lift obstructions proved within stated hypotheses (e.g., FRC-566-030 exact von Mises/Kuramoto identity; FRC-830-001 through FRC-830-005 formal classification and obstruction proofs, independent proof review pending).
+- **Exact mathematics:** Theorems, algebraic or differential identities, typed morphism categories, and scoped lift obstructions proved within stated hypotheses (e.g., FRC-566-030 exact von Mises/Kuramoto identity; FRC-830-001 through FRC-830-005 formal classification and obstruction proofs, including the FRC-830-005 v0.3 open-set no-affine/CPTP qubit theorem verified across 42/42 symbolic-numerical Python checks, formal human peer review pending).
 - **Operational models:** Scale-declared bookkeeping identities, control laws, and executable closures with explicitly fixed system boundary, environment channel, observables, units, and sign convention (e.g., FRC-566-001 operational reciprocity, FRC-100-008, FRC-100-009, FRC-787-787 operational transport).
 - **Framework interpretation:** Scope conventions, register topology, terminology charters, and claim-boundary rules that organize descriptions without adding physical laws or proving cross-register causation (e.g., FRC-700-000 through FRC-700-007 threshold framework; FRC-830-000 terminology charter; superseded origin note FRC-700-777).
 - **Model-specific findings:** Numerical, simulation, or narrow-audit findings valid only inside their declared model, normalization, and controls — including retained negative results (e.g., FRC-100-002 / FRC-100-002-001 coarse geometry and closed dense Gate 4, FRC-100-005 Langevin boundary experiment, FRC-100-007 narrow rho-drift audit).
 - **Conjectures:** Unestablished physical extensions, including universal physical reciprocity, a fundamental spacetime Lambda field, unconditional collapse completion, and Born-equilibrium derivation beyond stipulated landscapes.
-- **Empirical gates:** Explicit falsification, platform-validation, no-signaling, operational-equivalence, inter-rater, and independent-review criteria required before any claim promotion (e.g., FRC-100-003 collapse/Born gates, FRC-787-787 held-out platform tests, FRC-830-004/005 open general nonunital CPTP lift gate, FRC-700-000..007 independent review and usability gates).
+- **Empirical gates:** Explicit falsification, platform-validation, no-signaling, operational-equivalence, inter-rater, and independent-review criteria required before any claim promotion (e.g., FRC-100-003 collapse/Born gates, FRC-787-787 held-out platform tests, FRC-830-005 v0.3 closed open-set CPTP gate with residual empty-interior/projective-instrument/d>=3 gates open, FRC-700-000..007 independent review and usability gates).
 
 ## 4) μ-register contract
 
@@ -80,7 +80,7 @@ For a single self-contained model briefing with no required links, use `FRC-100-
 
 ## 8) Current Reciprocity Mathematics series (FRC 830.000–830.005)
 
-Read `FRC-830-000` for the terminology charter, then the declared mathematical results and scoped lift obstructions in `FRC-830-001` through `FRC-830-005`. These are preprints with paper-specific status labels and independent proof review pending. **No-promotion rule:** exact ledger-coordinate involutions, typed morphisms, dimension thresholds, and one-parameter/qubit lift obstructions do not establish physical, categorical, Born-style, or Majid-style self-duality. A general nonunital coherence-generating CPTP lift remains an open gate.
+Read `FRC-830-000` for the terminology charter, then the declared mathematical results and sharp lift obstructions in `FRC-830-001` through `FRC-830-005`. `FRC-830-005 v0.3` has completed independent symbolic/numerical Python verification (42/42 checks) and is live on alphaXiv (formal human peer review pending). **No-promotion rule:** exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (`ds/dy < 1`, sharp at `ds/dy = 1`), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and `d >= 3` gates remain open.
 
 | Paper | Version | Epistemic status | Status label | Reading page |
 |---|---|---|---|---|
@@ -89,9 +89,9 @@ Read `FRC-830-000` for the terminology charter, then the declared mathematical r
 | FRC-830-002 — Operational Registers and Reciprocity-Preserving Morphisms v0.1 | v0.1 | formal-operational | typed-category-proved; exact-route-results-internal-review; physical-equivalence-not-claimed | [Read](/en/papers/FRC-830-002) |
 | FRC-830-003 — Exact Phase-Family Test of FRC Duality v0.1: A Lift Obstruction on the von Mises Manifold | v0.1 | exact-mathematical-candidate | exact-lift-obstruction-internal-review; independent-proof-review-pending; physical-duality-rejected-for-this-family | [Read](/en/papers/FRC-830-003) |
 | FRC-830-004 — Dimension Threshold for FRC Reciprocity v0.1: One-Parameter and Qubit Lift Obstructions | v0.1 | exact-mathematical-candidate | general-one-parameter-nonidentity-lift-obstruction; qubit-set-theoretic-lifts-nonunique; incoherent-unital-wigner-classes-obstructed; general-cptp-open; independent-proof-review-pending | [Read](/en/papers/FRC-830-004) |
-| FRC-830-005 — FRC and Quantum Born Reciprocity v0.2: A Present-Structure Obstruction to Majid-Style Self-Duality | v0.2 | formal-obstruction | present-structure-no-promotion; 830.004-integrated; independent-proof-review-pending | [Read](/en/papers/FRC-830-005) |
+| FRC-830-005 — FRC and Quantum Born Reciprocity v0.3: A Present-Structure Obstruction to Majid-Style Self-Duality | v0.3 | formal-obstruction | present-structure-no-promotion; open-set-cptp-excluded; symbolic-numerical-audit-completed | [Read](/en/papers/FRC-830-005) · [alphaXiv](https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction) |
 
-Shared release: concept DOI `10.5281/zenodo.21385391`; version DOI `10.5281/zenodo.21385392`. Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.
+Shared release: concept DOI `10.5281/zenodo.21385391`; prior v0.1 series bundle DOI `10.5281/zenodo.21385392` (no separate Zenodo v0.3 version DOI minted yet). Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.
 
 ## 9) Frontier papers
 

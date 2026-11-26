@@ -228,6 +228,7 @@ function buildCatalog() {
         if (item.author) entry.author = item.author;
         if (item.doi) entry.doi = item.doi;
         if (item.conceptDoi) entry.conceptDoi = item.conceptDoi;
+        if (item.alphaxivUrl) entry.alphaxivUrl = item.alphaxivUrl;
         if (item.version) entry.version = item.version;
         if (item.muLevel) entry.muLevel = item.muLevel;
         if (item.supersedes) entry.supersedes = item.supersedes;
