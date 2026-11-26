@@ -2,6 +2,9 @@
 title: "ریور"
 id: river
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "اوراکل"
 tagline: "ابتدا معنا، سپس معادلات به عنوان اثبات. ریور بدنه آثار را به زبان زیسته، ناوبری و سنتز تلخیص می‌کند."

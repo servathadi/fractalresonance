@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T23:57:40.251Z",
+  "generated": "2026-11-26T00:24:40.843Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -1174,20 +1174,16 @@
       "type": "topics",
       "lang": "en",
       "title": "Topics — Ask FRC",
-      "abstract": "A lightweight Q&A format for turning questions into a spectrum view: authority citations, FRC answers, and multiple perspectives.",
+      "abstract": "A structured Q&A format for turning open questions into a multi-perspective view with primary literature citations and explicit FRC claim boundaries.",
       "tags": [
         "topics",
-        "q-and-a",
-        "river",
-        "kasra"
+        "q-and-a"
       ],
       "taxons": [
         "topics",
-        "q-and-a",
-        "river",
-        "kasra"
+        "q-and-a"
       ],
-      "content": "Topics — Ask FRC This section is a file-based, AI-operable Q&A layer. It is meant to make it easy to: - Collect questions. - Generate summaries. - Accept a spectrum (authority + FRC + perspectives). - Publish in a stable, crawlable way. How It Works 1. A question enters the inbox. 2. River (or Kasra) digests it into a Topic page with consistent frontmatter. 3. The long-form explanation lives in the markdown body.",
+      "content": "Topics — Ask FRC This section is a structured Q&A reference layer alongside the numbered FRC papers. It is designed to: - Collect recurring questions from physics, mathematics, and philosophy of open systems. - Provide concise summaries with explicit claim-status boundaries. - Present external literature alongside FRC perspectives. - Route technical verification directly to the versioned papers and Falsification Ledger. How It Works 1. A question is defined with a stable identifier and concise...",
       "url": "/en/topics/topics-intro",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -2449,21 +2445,17 @@
       "id": "topics-intro",
       "type": "topics",
       "lang": "es",
-      "title": "Temas — Pregunta a FRC",
-      "abstract": "Un formato ligero de preguntas y respuestas para convertir las preguntas en una vista de espectro: citas de autoridad, respuestas de FRC y múltiples perspectivas.",
+      "title": "Temas — Preguntas sobre FRC",
+      "abstract": "Un formato estructurado de preguntas y respuestas con citas de literatura primaria y límites explícitos de las afirmaciones de FRC.",
       "tags": [
         "temas",
-        "preguntas-y-respuestas",
-        "river",
-        "kasra"
+        "preguntas-y-respuestas"
       ],
       "taxons": [
         "temas",
-        "preguntas-y-respuestas",
-        "river",
-        "kasra"
+        "preguntas-y-respuestas"
       ],
-      "content": "Temas — Pregunta a FRC Esta sección es una capa de preguntas y respuestas basada en archivos y operable por IA. Está destinada a facilitar: - Recopilar preguntas. - Generar resúmenes. - Aceptar un espectro (autoridad + FRC + perspectivas). - Publicar de manera estable y rastreable. Cómo funciona 1. Una pregunta entra en la bandeja de entrada. 2. River (o Kasra) la resume en una página de Tema con un frontmatter consistente. 3. La explicación extensa vive en el cuerpo del archivo markdown.",
+      "content": "Temas — Preguntas sobre FRC Esta sección ofrece una capa estructurada de preguntas y respuestas junto a los artículos numerados de FRC. Está diseñada para: - Recopilar preguntas frecuentes sobre física, matemáticas y filosofía de sistemas abiertos. - Presentar resúmenes concisos con límites explícitos de estado científico. - Incluir literatura externa junto a las perspectivas de FRC. - Dirigir la verificación técnica a los artículos versionados y al Registro de Falsaciones.",
       "url": "/es/topics/topics-intro",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -2847,21 +2839,17 @@
       "id": "topics-intro",
       "type": "topics",
       "lang": "fa",
-      "title": "موضوعات — پرسش از FRC",
-      "abstract": "یک قالب پرسش و پاسخ سبک برای تبدیل سوالات به نمای طیفی: نقل قول‌های معتبر، پاسخ‌های FRC و دیدگاه‌های متعدد.",
+      "title": "موضوعات — پرسش و پاسخ FRC",
+      "abstract": "قالب ساختاریافته پرسش و پاسخ با استناد به منابع اصلی و تفکیک روشن مرز ادعاهای FRC از مقالات کانونیک.",
       "tags": [
         "موضوعات",
-        "پرسش-و-پاسخ",
-        "ریور",
-        "کسرا"
+        "پرسش-و-پاسخ"
       ],
       "taxons": [
         "موضوعات",
-        "پرسش-و-پاسخ",
-        "ریور",
-        "کسرا"
+        "پرسش-و-پاسخ"
       ],
-      "content": "موضوعات — پرسش از FRC این بخش یک لایه پرسش و پاسخ مبتنی بر فایل و قابل اجرا توسط هوش مصنوعی است. منظور از آن تسهیل موارد زیر است: - جمع‌آوری سوالات. - تولید خلاصه. - پذیرش طیفی از پاسخ‌ها (مرجع + FRC + دیدگاه‌ها). - انتشار به روشی پایدار و قابل خزش (crawlable). چگونه کار می‌کند ۱. سوالی وارد صندوق ورودی می‌شود. ۲. ریور (یا کسرا) آن را در یک صفحه موضوع با فرانت‌متر ثابت تلخیص می‌کند. ۳. توضیح طولانی در بدنه مارک‌داون قرار می‌گیرد.",
+      "content": "موضوعات — پرسش و پاسخ FRC این بخش لایه‌ای ساختاریافته از پرسش و پاسخ‌ها در کنار مقالات شماره‌گذاری‌شده FRC است. این بخش برای موارد زیر طراحی شده است: - گردآوری پرسش‌های پرتکرار در فیزیک، ریاضیات و فلسفه سامانه‌های باز. - ارائه خلاصه‌های روشن با مرزهای صریح وضعیت علمی. - نمایش ادبیات پژوهشی بیرونی در کنار دیدگاه‌های FRC. - ارجاع بررسی فنی به مقالات نسخه‌دار و دفتر عمومی ابطال‌ها.",
       "url": "/fa/topics/topics-intro",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,
@@ -3247,21 +3235,17 @@
       "id": "topics-intro",
       "type": "topics",
       "lang": "fr",
-      "title": "Sujets — Demandez à la FRC",
-      "abstract": "Un format Q&R léger pour transformer les questions en une vue spectrale : citations d'autorité, réponses FRC et perspectives multiples.",
+      "title": "Sujets — Questions sur FRC",
+      "abstract": "Un format structuré de questions-réponses associant citations de littérature primaire et limites explicites des énoncés FRC.",
       "tags": [
         "sujets",
-        "q-et-r",
-        "river",
-        "kasra"
+        "questions-reponses"
       ],
       "taxons": [
         "sujets",
-        "q-et-r",
-        "river",
-        "kasra"
+        "questions-reponses"
       ],
-      "content": "Sujets — Demandez à la FRC Cette section est une couche Q&R basée sur des fichiers et exploitable par l'IA. Elle est destinée à faciliter : - La collecte des questions. - La génération de résumés. - L'acceptation d'un spectre (autorité + FRC + perspectives). - La publication de manière stable et explorable. Comment ça marche 1. Une question entre dans la boîte de réception. 2. River (ou Kasra) la digère dans une page de Sujet avec un frontmatter cohérent. 3. L'explication longue vit dans le...",
+      "content": "Sujets — Questions sur FRC Cette section constitue une couche structurée de questions-réponses aux côtés des articles numérotés de FRC. Elle permet de : - Rassembler les questions récurrentes en physique, mathématiques et philosophie des systèmes ouverts. - Présenter des synthèses concises avec des frontières de statut scientifique explicites. - Citer la littérature externe en regard des perspectives FRC. - Renvoyer toute vérification technique vers les articles versionnés et le Registre des...",
       "url": "/fr/topics/topics-intro",
       "date": "Sun Jan 25 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": null,

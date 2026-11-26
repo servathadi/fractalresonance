@@ -22,17 +22,18 @@ const HEADINGS: Record<string, { title: string; subtitle: string }> = {
 function resolveSafeHref(source: PrimarySourceRef): string | null {
   if (source.url) {
     const trimmed = source.url.trim();
-    if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith('/')) {
+    // Allow explicit http(s) URLs or strict root-relative paths (rejecting protocol-relative `//` and `/\`).
+    if (/^https?:\/\//i.test(trimmed) || /^\/(?![/\\])/.test(trimmed)) {
       return trimmed;
     }
   }
   if (source.doi) {
     const cleanDoi = source.doi.replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:/i, '').trim();
-    if (cleanDoi) return `https://doi.org/${cleanDoi}`;
+    if (cleanDoi && !/\s/.test(cleanDoi)) return `https://doi.org/${cleanDoi}`;
   }
   if (source.arxiv) {
     const cleanArxiv = source.arxiv.replace(/^arxiv:/i, '').trim();
-    if (cleanArxiv) return `https://arxiv.org/abs/${cleanArxiv}`;
+    if (cleanArxiv && !/\s/.test(cleanArxiv)) return `https://arxiv.org/abs/${cleanArxiv}`;
   }
   return null;
 }

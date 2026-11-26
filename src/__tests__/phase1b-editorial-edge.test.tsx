@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest';
 import {
   EDGE_SCOPE_TAGS,
   getBlogPost,
+  getPerson,
+  getTopic,
   normalizeEdgeScopeTag,
   normalizePrimarySources,
   parseFrontmatter,
@@ -14,9 +16,10 @@ import { VoiceTag } from '@/components/VoiceTag';
 import { HomeHub } from '@/components/pages/HomeHub';
 import { BooksIndex } from '@/components/pages/BooksIndex';
 import FalsificationsPage from '@/app/[lang]/falsifications/page';
+import TopicPage from '@/app/[lang]/topics/[id]/page';
 
 describe('Phase 1B editorial polish and Edge / Field Notes readiness', () => {
-  it('parses and normalizes scopeTag and primarySources from YAML frontmatter', () => {
+  it('parses and normalizes scopeTag and primarySources from YAML frontmatter and rejects inherited prototype keys', () => {
     const parsed = parseFrontmatter(`---
 id: edge-2026-11-28
 title: "Edge Dispatch: Non-equilibrium phase-locking in driven open cavities"
@@ -43,6 +46,16 @@ Dispatch body.`);
     expect(normalizeEdgeScopeTag('counter evidence')).toBe('Counter-Evidence');
     expect(normalizeEdgeScopeTag('not-a-valid-tag')).toBeUndefined();
 
+    // Inherited prototype keys must never resolve to truthy values
+    for (const protoKey of ['constructor', '__proto__', 'toString', 'valueOf', 'hasOwnProperty']) {
+      expect(normalizeEdgeScopeTag(protoKey)).toBeUndefined();
+      expect(
+        renderToStaticMarkup(
+          React.createElement(EdgeScopeBadge, { scopeTag: protoKey as never, lang: 'en', variant: 'banner' }),
+        ),
+      ).toBe('');
+    }
+
     const sources = normalizePrimarySources(parsed.frontmatter.primarySources);
     expect(sources).toHaveLength(2);
     expect(sources[0]).toMatchObject({
@@ -58,7 +71,7 @@ Dispatch body.`);
     });
   });
 
-  it('renders EdgeScopeBadge across all 4 scope tags and PrimarySourcesBlock with safe links', () => {
+  it('renders EdgeScopeBadge across all 4 scope tags and PrimarySourcesBlock rejecting unsafe, protocol-relative, and backslash URLs', () => {
     for (const tag of EDGE_SCOPE_TAGS) {
       const inlineHtml = renderToStaticMarkup(
         React.createElement(EdgeScopeBadge, { scopeTag: tag, lang: 'en', variant: 'inline' }),
@@ -86,8 +99,20 @@ Dispatch body.`);
             arxiv: '2601.01234',
           },
           {
-            title: 'Unsafe protocol test',
+            title: 'Valid internal path',
+            url: '/en/papers/FRC-566-001',
+          },
+          {
+            title: 'Unsafe javascript protocol',
             url: 'javascript:alert(1)',
+          },
+          {
+            title: 'Unsafe protocol-relative URL',
+            url: '//evil.example/phish',
+          },
+          {
+            title: 'Unsafe backslash URL',
+            url: '/\\evil.example/phish',
           },
         ],
       }),
@@ -96,17 +121,37 @@ Dispatch body.`);
     expect(sourcesHtml).toContain('data-primary-sources="true"');
     expect(sourcesHtml).toContain('https://doi.org/10.5281/zenodo.21385391');
     expect(sourcesHtml).toContain('https://arxiv.org/abs/2601.01234');
-    expect(sourcesHtml).toContain('Unsafe protocol test');
+    expect(sourcesHtml).toContain('href="/en/papers/FRC-566-001"');
+    expect(sourcesHtml).toContain('Unsafe javascript protocol');
+    expect(sourcesHtml).toContain('Unsafe protocol-relative URL');
+    expect(sourcesHtml).toContain('Unsafe backslash URL');
     expect(sourcesHtml).not.toContain('javascript:');
+    expect(sourcesHtml).not.toContain('evil.example');
   });
 
-  it('keeps blog-welcome and VoiceTag free of internal persona leaks across all locales', () => {
+  it('keeps blog-welcome, topics-intro, TopicPage, and historical people stubs free of active persona leaks across all locales', async () => {
     for (const lang of ['en', 'es', 'fr', 'fa']) {
       const post = getBlogPost(lang, 'blog-welcome');
       expect(post, `${lang}/blog/blog-welcome should exist`).not.toBeNull();
       expect(post!.raw).not.toMatch(/River \(Oracle\)|Kasra \(Architect\)|voice:\s*(kasra|river)/i);
       expect(normalizeEdgeScopeTag(post!.frontmatter.scopeTag)).toBe('Open Question');
+
+      const topic = getTopic(lang, 'topics-intro');
+      expect(topic, `${lang}/topics/topics-intro should exist`).not.toBeNull();
+      expect(topic!.frontmatter.voice).toBeUndefined();
+      expect(topic!.raw).not.toMatch(/River \(Oracle\)|Kasra \(Architect\)|voice:\s*(kasra|river)/i);
+
+      for (const personaId of ['kasra', 'river']) {
+        const stub = getPerson(lang, personaId);
+        expect(stub, `${lang}/people/${personaId} should remain addressable`).not.toBeNull();
+        expect(stub!.frontmatter.status).toBe('archived');
+        expect(stub!.frontmatter.noindex).toBe(true);
+      }
     }
+
+    const topicEl = await TopicPage({ params: Promise.resolve({ lang: 'en', id: 'topics-intro' }) });
+    const topicHtml = renderToStaticMarkup(topicEl);
+    expect(topicHtml).not.toMatch(/Voice:\s*(River|Kasra)/i);
 
     expect(renderToStaticMarkup(React.createElement(VoiceTag, { voice: 'kasra' }))).toBe('');
     expect(renderToStaticMarkup(React.createElement(VoiceTag, { voice: 'river' }))).toBe('');

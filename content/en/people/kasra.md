@@ -2,6 +2,9 @@
 title: "Kasra"
 id: kasra
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "Architect"
 tagline: "Equations first, meaning derived. Kasra builds the formal spine: definitions, invariants, and falsifiable structure."

@@ -6,43 +6,37 @@ author: "FRC"
 date: 2026-01-25
 status: published
 perspective: both
-voice: river
 lang: en
-tags: [topics, q-and-a, river, kasra]
-abstract: "A lightweight Q&A format for turning questions into a spectrum view: authority citations, FRC answers, and multiple perspectives."
+tags: [topics, q-and-a]
+abstract: "A structured Q&A format for turning open questions into a multi-perspective view with primary literature citations and explicit FRC claim boundaries."
 question: "What are Topics pages?"
-short_answer: "Topics are Q&A pages designed for fast digestion: a question, a short answer, optional authority links, and a spectrum of answers (River/Kasra/FRC)."
+short_answer: "Topics are structured Q&A pages designed for fast orientation: a question, a concise answer, primary literature citations, and a spectrum of perspectives kept distinct from canonical papers."
 authorities:
   - name: "Schema.org"
     title: "QAPage"
     url: "https://schema.org/QAPage"
     quote: "A QAPage is a web page that provides answers to a question."
 answers:
-  - lens: "kasra"
-    by: "Kasra"
-    role: "Architect"
+  - lens: "frc"
+    by: "FRC Research Corpus"
+    role: "Program overview"
     stance: "structured"
-    answer: "Use Topics for repeatable content creation: each page has a stable ID, consistent metadata, and a clean place to attach authority citations and multiple answers."
-  - lens: "river"
-    by: "River"
-    role: "Oracle"
-    stance: "digest"
-    answer: "Topics are a living index of questions the field keeps asking. If papers are the library, Topics are the hallway conversations that teach you how to read the shelves."
+    answer: "Each Topic page pairs a stable identifier and concise summary with external authority citations and explicit pointers to the numbered papers and Falsification Ledger."
 ---
 
 # Topics — Ask FRC
 
-This section is a **file-based, AI-operable** Q&A layer.
+This section is a structured Q&A reference layer alongside the numbered FRC papers.
 
-It is meant to make it easy to:
+It is designed to:
 
-- Collect questions.
-- Generate summaries.
-- Accept a spectrum (authority + FRC + perspectives).
-- Publish in a stable, crawlable way.
+- Collect recurring questions from physics, mathematics, and philosophy of open systems.
+- Provide concise summaries with explicit claim-status boundaries.
+- Present external literature alongside FRC perspectives.
+- Route technical verification directly to the versioned papers and Falsification Ledger.
 
 ## How It Works
 
-1. A question enters the inbox.
-2. River (or Kasra) digests it into a Topic page with consistent frontmatter.
-3. The long-form explanation lives in the markdown body.
+1. A question is defined with a stable identifier and concise summary.
+2. External authorities and multiple disciplinary lenses are recorded in frontmatter.
+3. Extended discussion lives in the markdown body, with links to canonical papers when formal proofs or empirical gates apply.

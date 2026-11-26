@@ -2,6 +2,9 @@
 title: "Kasra"
 id: kasra
 type: person
+status: archived
+epistemicStatus: archive
+noindex: true
 perspective: both
 role: "Architecte"
 tagline: "Les équations d'abord, le sens en découle. Kasra construit la colonne vertébrale formelle : définitions, invariants et structure falsifiable."

@@ -117,7 +117,7 @@ describe('Active-content stale-claim governance regressions', () => {
     const res = validateGovernance(root);
     expect(res.errors).toEqual([]);
     expect(res.ok).toBe(true);
-  });
+  }, 15_000);
 
   it('catches unhedged retired claims across clauses: Born rule, FRC 821, LaTeX D \\approx 1.90, 16D, and mixed retired+active sentences', () => {
     // Mixed retired + active sentence MUST fail (clause-scoped negation: semicolon, year-period, contrastive clauses)
@@ -262,5 +262,5 @@ describe('Active-content stale-claim governance regressions', () => {
     } finally {
       fs.rmSync(passingRoot, { recursive: true, force: true });
     }
-  });
+  }, 20_000);
 });

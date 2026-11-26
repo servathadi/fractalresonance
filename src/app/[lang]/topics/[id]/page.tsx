@@ -106,7 +106,9 @@ export default async function TopicPage({ params }: Props) {
   const backlinks = buildBacklinks(lang, 'kasra');
   const pageBacklinks = backlinks[id] || [];
   const readTime = fm.read_time || estimateReadTime(topic.body);
-  const voiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
+  const rawVoiceId = typeof fm.voice === 'string' ? fm.voice.trim() : '';
+  const isInternalPersona = ['kasra', 'river'].includes(rawVoiceId.toLowerCase());
+  const voiceId = isInternalPersona ? '' : rawVoiceId;
   const voicePerson = voiceId ? (getPerson(lang, voiceId) || getPerson('en', voiceId)) : null;
 
   const staticTargets = new Set([
@@ -323,7 +325,7 @@ export default async function TopicPage({ params }: Props) {
           </section>
         )}
 
-        <div className="content-body" suppressHydrationWarning>
+        <div className="content-body min-w-0 max-w-full overflow-x-hidden" suppressHydrationWarning>
           <MarkdownContent html={renderedBody} glossary={glossary} />
         </div>
 

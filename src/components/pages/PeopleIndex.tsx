@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { getPeople, matchesPerspectiveView, type PerspectiveView } from '@/lib/content';
 
 const DICT: Record<string, { title: string; desc: string; noProfiles: string }> = {
-  en: { title: 'Voices', desc: 'Public personas and contributors. The site currently publishes the Kasra (rigorous) library.', noProfiles: 'No profiles yet.' },
-  fa: { title: 'صداها', desc: 'شخصیت‌های عمومی سایت و مشارکت‌کنندگان. این سایت در حال حاضر کتابخانه سخت‌گیرانه (کسرا) را منتشر می‌کند.', noProfiles: 'هنوز پروفایلی وجود ندارد.' },
-  es: { title: 'Voces', desc: 'Personas públicas y colaboradores. El sitio publica actualmente la biblioteca rigurosa (Kasra).', noProfiles: 'Aún no hay perfiles.' },
-  fr: { title: 'Voix', desc: 'Personas publiques et contributeurs. Le site publie actuellement la bibliothèque rigoureuse (Kasra).', noProfiles: 'Pas encore de profils.' },
+  en: { title: 'Contributors', desc: 'Authors and maintainers of the Fractal Resonance Coherence research corpus.', noProfiles: 'No profiles yet.' },
+  fa: { title: 'مشارکت‌کنندگان', desc: 'نویسندگان و نگه‌دارندگان پیکره پژوهشی همدوسی رزونانس فراکتال.', noProfiles: 'هنوز پروفایلی وجود ندارد.' },
+  es: { title: 'Colaboradores', desc: 'Autores y mantenedores del corpus de investigación Fractal Resonance Coherence.', noProfiles: 'Aún no hay perfiles.' },
+  fr: { title: 'Contributeurs', desc: 'Auteurs et responsables du corpus de recherche Fractal Resonance Coherence.', noProfiles: 'Pas encore de profils.' },
 };
 
 export function PeopleIndex({
@@ -19,7 +19,12 @@ export function PeopleIndex({
   view: PerspectiveView;
   embedded?: boolean;
 }) {
-  const people = getPeople(lang).filter((p) => matchesPerspectiveView(p.frontmatter.perspective, view));
+  const people = getPeople(lang).filter(
+    (p) =>
+      matchesPerspectiveView(p.frontmatter.perspective, view) &&
+      p.frontmatter.status !== 'archived' &&
+      p.frontmatter.noindex !== true,
+  );
   const t = DICT[lang] || DICT['en'];
 
   const content = (

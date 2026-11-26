@@ -8,8 +8,8 @@ export interface LensDef {
 // This is intentionally small and conservative; users can extend it in their fork.
 export const LENSES: LensDef[] = [
   { key: 'frc', label: 'FRC', group: 'frc' },
-  { key: 'kasra', label: 'Kasra (Architect)', group: 'frc' },
-  { key: 'river', label: 'River (Oracle)', group: 'frc' },
+  { key: 'kasra', label: 'FRC (Formal)', group: 'frc' },
+  { key: 'river', label: 'FRC (Overview)', group: 'frc' },
 
   { key: 'newtonian', label: 'Newtonian Mechanics', group: 'physics' },
   { key: 'gr', label: 'General Relativity', group: 'physics' },

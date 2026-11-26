@@ -115,8 +115,10 @@ export function EdgeScopeBadge({
   basePath?: string;
   className?: string;
 }) {
-  const copy = (SCOPE_COPY[lang] || SCOPE_COPY.en)[scopeTag];
-  const meta = BANNER_META[lang] || BANNER_META.en;
+  const langMap = Object.hasOwn(SCOPE_COPY, lang) ? SCOPE_COPY[lang] : SCOPE_COPY.en;
+  if (typeof scopeTag !== 'string' || !Object.hasOwn(langMap, scopeTag)) return null;
+  const copy = langMap[scopeTag];
+  const meta = Object.hasOwn(BANNER_META, lang) ? BANNER_META[lang] : BANNER_META.en;
 
   if (variant === 'banner') {
     const papersHref = `${basePath || `/${lang}`}/papers`;

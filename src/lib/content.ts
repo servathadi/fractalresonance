@@ -47,22 +47,22 @@ export interface PrimarySourceRef {
   note?: string;
 }
 
-const SCOPE_TAG_MAP: Record<string, EdgeScopeTag> = {
-  'structural analogy': 'Structural Analogy',
-  'structural-analogy': 'Structural Analogy',
-  'test idea': 'Test Idea',
-  'test-idea': 'Test Idea',
-  'open question': 'Open Question',
-  'open-question': 'Open Question',
-  'counter-evidence': 'Counter-Evidence',
-  'counter evidence': 'Counter-Evidence',
-  counterevidence: 'Counter-Evidence',
-};
+const SCOPE_TAG_MAP = new Map<string, EdgeScopeTag>([
+  ['structural analogy', 'Structural Analogy'],
+  ['structural-analogy', 'Structural Analogy'],
+  ['test idea', 'Test Idea'],
+  ['test-idea', 'Test Idea'],
+  ['open question', 'Open Question'],
+  ['open-question', 'Open Question'],
+  ['counter-evidence', 'Counter-Evidence'],
+  ['counter evidence', 'Counter-Evidence'],
+  ['counterevidence', 'Counter-Evidence'],
+]);
 
 export function normalizeEdgeScopeTag(raw: unknown): EdgeScopeTag | undefined {
   if (typeof raw !== 'string') return undefined;
   const key = raw.trim().toLowerCase().replace(/\s+/g, ' ');
-  return SCOPE_TAG_MAP[key];
+  return SCOPE_TAG_MAP.get(key);
 }
 
 export function normalizePrimarySources(raw: unknown): PrimarySourceRef[] {

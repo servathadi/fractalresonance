@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-25T23:57:40.445Z",
+  "generated": "2026-11-26T00:24:41.040Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -2446,25 +2446,21 @@
           "title": "Topics — Ask FRC",
           "url": "https://fractalresonance.com/en/topics/topics-intro",
           "path": "/en/topics/topics-intro",
-          "abstract": "A lightweight Q&A format for turning questions into a spectrum view: authority citations, FRC answers, and multiple perspectives.",
+          "abstract": "A structured Q&A format for turning open questions into a multi-perspective view with primary literature citations and explicit FRC claim boundaries.",
           "date": "2026-01-25",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
             "topics",
-            "q-and-a",
-            "river",
-            "kasra"
+            "q-and-a"
           ],
           "taxons": [
             "topics",
-            "q-and-a",
-            "river",
-            "kasra"
+            "q-and-a"
           ],
           "status": "published",
-          "wordCount": 75
+          "wordCount": 108
         },
         {
           "id": "war-coherence-fields",
@@ -2745,6 +2741,8 @@
           "title": "Kasra",
           "url": "https://fractalresonance.com/en/people/kasra",
           "path": "/en/people/kasra",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "kasra",
             "architect",
@@ -2755,6 +2753,8 @@
             "architect",
             "persona"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 68
         },
         {
@@ -2762,6 +2762,8 @@
           "title": "River",
           "url": "https://fractalresonance.com/en/people/river",
           "path": "/en/people/river",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "oracle",
@@ -2772,6 +2774,8 @@
             "oracle",
             "persona"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 67
         }
       ]
@@ -3894,28 +3898,24 @@
         },
         {
           "id": "topics-intro",
-          "title": "Temas — Pregunta a FRC",
+          "title": "Temas — Preguntas sobre FRC",
           "url": "https://fractalresonance.com/es/topics/topics-intro",
           "path": "/es/topics/topics-intro",
-          "abstract": "Un formato ligero de preguntas y respuestas para convertir las preguntas en una vista de espectro: citas de autoridad, respuestas de FRC y múltiples perspectivas.",
+          "abstract": "Un formato estructurado de preguntas y respuestas con citas de literatura primaria y límites explícitos de las afirmaciones de FRC.",
           "date": "2026-01-25",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
             "temas",
-            "preguntas-y-respuestas",
-            "river",
-            "kasra"
+            "preguntas-y-respuestas"
           ],
           "taxons": [
             "temas",
-            "preguntas-y-respuestas",
-            "river",
-            "kasra"
+            "preguntas-y-respuestas"
           ],
           "status": "published",
-          "wordCount": 86
+          "wordCount": 72
         },
         {
           "id": "war-coherence-fields",
@@ -4128,6 +4128,8 @@
           "title": "Kasra",
           "url": "https://fractalresonance.com/es/people/kasra",
           "path": "/es/people/kasra",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "kasra",
             "arquitecto",
@@ -4138,6 +4140,8 @@
             "arquitecto",
             "personaje"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 77
         },
         {
@@ -4145,6 +4149,8 @@
           "title": "River",
           "url": "https://fractalresonance.com/es/people/river",
           "path": "/es/people/river",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "oráculo",
@@ -4155,6 +4161,8 @@
             "oráculo",
             "personaje"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 75
         }
       ]
@@ -5275,28 +5283,24 @@
         },
         {
           "id": "topics-intro",
-          "title": "موضوعات — پرسش از FRC",
+          "title": "موضوعات — پرسش و پاسخ FRC",
           "url": "https://fractalresonance.com/fa/topics/topics-intro",
           "path": "/fa/topics/topics-intro",
-          "abstract": "یک قالب پرسش و پاسخ سبک برای تبدیل سوالات به نمای طیفی: نقل قول‌های معتبر، پاسخ‌های FRC و دیدگاه‌های متعدد.",
+          "abstract": "قالب ساختاریافته پرسش و پاسخ با استناد به منابع اصلی و تفکیک روشن مرز ادعاهای FRC از مقالات کانونیک.",
           "date": "2026-01-25",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
             "موضوعات",
-            "پرسش-و-پاسخ",
-            "ریور",
-            "کسرا"
+            "پرسش-و-پاسخ"
           ],
           "taxons": [
             "موضوعات",
-            "پرسش-و-پاسخ",
-            "ریور",
-            "کسرا"
+            "پرسش-و-پاسخ"
           ],
           "status": "published",
-          "wordCount": 88
+          "wordCount": 69
         },
         {
           "id": "war-coherence-fields",
@@ -5509,6 +5513,8 @@
           "title": "کسرا",
           "url": "https://fractalresonance.com/fa/people/kasra",
           "path": "/fa/people/kasra",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "کسرا",
             "معمار",
@@ -5519,6 +5525,8 @@
             "معمار",
             "پرسونا"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 69
         },
         {
@@ -5526,6 +5534,8 @@
           "title": "ریور",
           "url": "https://fractalresonance.com/fa/people/river",
           "path": "/fa/people/river",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "ریور",
             "اوراکل",
@@ -5536,6 +5546,8 @@
             "اوراکل",
             "پرسونا"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 71
         }
       ]
@@ -6658,28 +6670,24 @@
         },
         {
           "id": "topics-intro",
-          "title": "Sujets — Demandez à la FRC",
+          "title": "Sujets — Questions sur FRC",
           "url": "https://fractalresonance.com/fr/topics/topics-intro",
           "path": "/fr/topics/topics-intro",
-          "abstract": "Un format Q&R léger pour transformer les questions en une vue spectrale : citations d'autorité, réponses FRC et perspectives multiples.",
+          "abstract": "Un format structuré de questions-réponses associant citations de littérature primaire et limites explicites des énoncés FRC.",
           "date": "2026-01-25",
           "author": "FRC",
           "epistemicStatus": "conceptual",
           "retrievalPriority": 50,
           "tags": [
             "sujets",
-            "q-et-r",
-            "river",
-            "kasra"
+            "questions-reponses"
           ],
           "taxons": [
             "sujets",
-            "q-et-r",
-            "river",
-            "kasra"
+            "questions-reponses"
           ],
           "status": "published",
-          "wordCount": 91
+          "wordCount": 74
         },
         {
           "id": "war-coherence-fields",
@@ -6892,6 +6900,8 @@
           "title": "Kasra",
           "url": "https://fractalresonance.com/fr/people/kasra",
           "path": "/fr/people/kasra",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "kasra",
             "architecte",
@@ -6902,6 +6912,8 @@
             "architecte",
             "persona"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 88
         },
         {
@@ -6909,6 +6921,8 @@
           "title": "River",
           "url": "https://fractalresonance.com/fr/people/river",
           "path": "/fr/people/river",
+          "epistemicStatus": "archive",
+          "retrievalPriority": 20,
           "tags": [
             "river",
             "oracle",
@@ -6919,6 +6933,8 @@
             "oracle",
             "persona"
           ],
+          "status": "archived",
+          "noindex": true,
           "wordCount": 75
         }
       ]

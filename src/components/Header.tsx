@@ -40,6 +40,7 @@ export function Header() {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
+  const moreButtonRef = useRef<HTMLButtonElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const closeTimeoutRef = useRef<number | null>(null);
   const DRAWER_ANIMATION_MS = 200;
@@ -141,7 +142,11 @@ export function Header() {
       }
     };
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMoreOpen(false);
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setMoreOpen(false);
+        moreButtonRef.current?.focus();
+      }
     };
     document.addEventListener('mousedown', onPointerDown);
     window.addEventListener('keydown', onKeyDown);
@@ -241,6 +246,7 @@ export function Header() {
   }, []);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 bg-frc-void/95 backdrop-blur-sm border-b border-frc-blue ${isRTL ? 'font-farsi' : ''}`}
       dir={isRTL ? 'rtl' : 'ltr'}
@@ -273,10 +279,9 @@ export function Header() {
           <div
             ref={moreRef}
             className="relative"
-            onMouseEnter={() => setMoreOpen(true)}
-            onMouseLeave={() => setMoreOpen(false)}
           >
             <button
+              ref={moreButtonRef}
               type="button"
               onClick={() => setMoreOpen((prev) => !prev)}
               aria-haspopup="menu"
@@ -359,10 +364,14 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer rendered outside backdrop-filter header so position:fixed fills viewport */}
       {isMobileMenuRendered ? (
-        <div className="fixed inset-0 z-[90] lg:hidden">
+        <div
+          className={`fixed inset-0 z-[90] lg:hidden ${isRTL ? 'font-farsi' : ''}`}
+          dir={isRTL ? 'rtl' : 'ltr'}
+        >
           <div
             className={`absolute inset-0 bg-frc-void/85 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
               isMobileMenuVisible ? 'opacity-100' : 'opacity-0'
@@ -485,6 +494,6 @@ export function Header() {
           </div>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }
