@@ -1163,11 +1163,12 @@ export function getGlossary(
     };
   }
 
-  // Process People
+  // Process People (exclude archived/noindex historical persona stubs from global search)
   const people = getPeople(lang);
   for (const p of people) {
     const fm = p.frontmatter;
     if (!shouldInclude(fm.perspective)) continue;
+    if (fm.status === 'archived' || fm.epistemicStatus === 'archive' || fm.noindex === true) continue;
     glossary[fm.id] = {
       id: fm.id,
       title: fm.title,
@@ -1183,6 +1184,12 @@ export function getGlossary(
 
 // ─── Tag Processing ────────────────────────────────────────────────────────
 
+const EXCLUDED_PERSONA_TAXONS = new Set(['river', 'kasra', 'ریور', 'کسرا']);
+
+export function isExcludedPersonaTaxon(taxon: string): boolean {
+  return EXCLUDED_PERSONA_TAXONS.has(canonicalizeTaxon(taxon));
+}
+
 /** Get all unique tags across all content */
 export function getAllTags(lang: string = 'en'): string[] {
   const tags = new Set<string>();
@@ -1190,7 +1197,9 @@ export function getAllTags(lang: string = 'en'): string[] {
   getTaxonomyContent(lang)
     .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
     .forEach((item) => {
-    item.taxons.forEach((tag) => tags.add(tag));
+    item.taxons.forEach((tag) => {
+      if (!isExcludedPersonaTaxon(tag)) tags.add(tag);
+    });
   });
 
   return Array.from(tags).sort();
@@ -1285,7 +1294,7 @@ const EPISTEMIC_ORDER: Record<CorpusEpistemicStatus, number> = {
 /** Get canonical tag results, always ordered by evidence status before recency. */
 export function getContentsByTag(lang: string, tag: string): TaxonomyContentItem[] {
   const canonicalTag = canonicalizeTaxon(tag);
-  if (canonicalTag === 'consciousness') return [];
+  if (canonicalTag === 'consciousness' || isExcludedPersonaTaxon(canonicalTag)) return [];
   return getTaxonomyContent(lang)
     .filter((item) => item.taxons.includes(canonicalTag))
     .sort((a, b) => {
@@ -1303,10 +1312,13 @@ export function getTaxonomyRouteSlugs(lang: string): string[] {
   getTaxonomyContent(lang)
     .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
     .forEach((item) => {
-    item.taxons.forEach((taxon) => canonical.add(taxon));
+    item.taxons.forEach((taxon) => {
+      if (!isExcludedPersonaTaxon(taxon)) canonical.add(taxon);
+    });
     const rawTags = getRawTagStrings(item.content.frontmatter);
     rawTags.forEach((tag) => {
-      if (canonicalizeTaxon(tag) !== tag) aliases.add(tag);
+      const norm = canonicalizeTaxon(tag);
+      if (norm !== tag && !isExcludedPersonaTaxon(norm)) aliases.add(tag);
     });
   });
   ['FRC-100', 'FRC-566', 'FRC-700', 'FRC-800', '100', '566', '700', '800'].forEach((alias) => aliases.add(alias));

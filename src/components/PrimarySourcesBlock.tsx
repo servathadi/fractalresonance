@@ -19,8 +19,12 @@ const HEADINGS: Record<string, { title: string; subtitle: string }> = {
   },
 };
 
+const ASCII_CONTROL_RX = /[\u0000-\u001f\u007f]/;
+
 function resolveSafeHref(source: PrimarySourceRef): string | null {
   if (source.url) {
+    // Reject any ASCII control characters (e.g. \t, \n, \r) before validating path/protocol.
+    if (ASCII_CONTROL_RX.test(source.url)) return null;
     const trimmed = source.url.trim();
     // Allow explicit http(s) URLs or strict root-relative paths (rejecting protocol-relative `//` and `/\`).
     if (/^https?:\/\//i.test(trimmed) || /^\/(?![/\\])/.test(trimmed)) {
@@ -28,10 +32,12 @@ function resolveSafeHref(source: PrimarySourceRef): string | null {
     }
   }
   if (source.doi) {
+    if (ASCII_CONTROL_RX.test(source.doi)) return null;
     const cleanDoi = source.doi.replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:/i, '').trim();
     if (cleanDoi && !/\s/.test(cleanDoi)) return `https://doi.org/${cleanDoi}`;
   }
   if (source.arxiv) {
+    if (ASCII_CONTROL_RX.test(source.arxiv)) return null;
     const cleanArxiv = source.arxiv.replace(/^arxiv:/i, '').trim();
     if (cleanArxiv && !/\s/.test(cleanArxiv)) return `https://arxiv.org/abs/${cleanArxiv}`;
   }

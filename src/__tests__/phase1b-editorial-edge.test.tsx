@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   EDGE_SCOPE_TAGS,
   getBlogPost,
+  getGlossary,
   getPerson,
   getTopic,
   normalizeEdgeScopeTag,
@@ -17,6 +18,7 @@ import { HomeHub } from '@/components/pages/HomeHub';
 import { BooksIndex } from '@/components/pages/BooksIndex';
 import FalsificationsPage from '@/app/[lang]/falsifications/page';
 import TopicPage from '@/app/[lang]/topics/[id]/page';
+import TagPage from '@/app/[lang]/tags/[tag]/page';
 
 describe('Phase 1B editorial polish and Edge / Field Notes readiness', () => {
   it('parses and normalizes scopeTag and primarySources from YAML frontmatter and rejects inherited prototype keys', () => {
@@ -114,6 +116,18 @@ Dispatch body.`);
             title: 'Unsafe backslash URL',
             url: '/\\evil.example/phish',
           },
+          {
+            title: 'Unsafe tab control URL',
+            url: '/\t/evil.example/phish',
+          },
+          {
+            title: 'Unsafe newline control URL',
+            url: '/\n/evil.example/phish',
+          },
+          {
+            title: 'Unsafe carriage-return control URL',
+            url: '/\r/evil.example/phish',
+          },
         ],
       }),
     );
@@ -125,6 +139,9 @@ Dispatch body.`);
     expect(sourcesHtml).toContain('Unsafe javascript protocol');
     expect(sourcesHtml).toContain('Unsafe protocol-relative URL');
     expect(sourcesHtml).toContain('Unsafe backslash URL');
+    expect(sourcesHtml).toContain('Unsafe tab control URL');
+    expect(sourcesHtml).toContain('Unsafe newline control URL');
+    expect(sourcesHtml).toContain('Unsafe carriage-return control URL');
     expect(sourcesHtml).not.toContain('javascript:');
     expect(sourcesHtml).not.toContain('evil.example');
   });
@@ -147,6 +164,18 @@ Dispatch body.`);
         expect(stub!.frontmatter.status).toBe('archived');
         expect(stub!.frontmatter.noindex).toBe(true);
       }
+
+      // Global search glossary must exclude archived/noindex persona stubs
+      const glossary = getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' });
+      expect(glossary['kasra']).toBeUndefined();
+      expect(glossary['river']).toBeUndefined();
+    }
+
+    // Indexable Persian tag pages must not leak archived persona abstracts or persona related tags
+    for (const faTag of ['entropy', 'coherence', 'خلاصه']) {
+      const tagEl = await TagPage({ params: Promise.resolve({ lang: 'fa', tag: faTag }) });
+      const tagHtml = renderToStaticMarkup(tagEl);
+      expect(tagHtml, `/fa/tags/${faTag} must not leak ریور or کسرا`).not.toMatch(/ریور|کسرا/);
     }
 
     const topicEl = await TopicPage({ params: Promise.resolve({ lang: 'en', id: 'topics-intro' }) });

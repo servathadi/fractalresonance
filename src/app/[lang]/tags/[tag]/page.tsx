@@ -9,6 +9,8 @@ import {
   getConcept,
   getContentsByTag,
   getLanguages,
+  isCurrentReadingContent,
+  isExcludedPersonaTaxon,
   isRevisionPendingPaper,
   getTaxonomyRouteSlugs,
   type CorpusEpistemicStatus,
@@ -119,11 +121,16 @@ export default async function TagPage({ params }: Props) {
   const entry = getTaxonomyEntry(canonicalTag);
   const concept = entry?.conceptId ? getConcept(lang, entry.conceptId) : undefined;
   const counts = new Map<string, number>();
-  results.forEach((item) => item.taxons.forEach((taxon) => {
-    if (taxon !== canonicalTag) counts.set(taxon, (counts.get(taxon) || 0) + 1);
-  }));
+  // Compute related tags strictly from current reading items, excluding archived/persona tags.
+  results
+    .filter((item) => isCurrentReadingContent(item.type, item.content.frontmatter))
+    .forEach((item) => item.taxons.forEach((taxon) => {
+      if (taxon !== canonicalTag && !isExcludedPersonaTaxon(taxon)) {
+        counts.set(taxon, (counts.get(taxon) || 0) + 1);
+      }
+    }));
   const related = [...counts.entries()]
-    .filter(([taxon]) => getContentsByTag(lang, taxon).length > 0)
+    .filter(([taxon]) => getContentsByTag(lang, taxon).some((it) => isCurrentReadingContent(it.type, it.content.frontmatter)))
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 8)
     .map(([taxon]) => taxon);
@@ -131,7 +138,10 @@ export default async function TagPage({ params }: Props) {
   const schemaItems: ListItemMeta[] = results.map((item) => ({
     name: item.content.frontmatter.title,
     url: `https://fractalresonance.com${contentHref(basePath, item)}`,
-    description: item.content.frontmatter.abstract || '',
+    description:
+      item.epistemicStatus === 'archive'
+        ? (item.content.frontmatter.statusNote || '')
+        : (item.content.frontmatter.abstract || ''),
   }));
   const collectionSchema = schemaCollectionPage(
     `${getTaxonomyLabel(canonicalTag, lang)} — FRC`,
@@ -202,7 +212,15 @@ export default async function TagPage({ params }: Props) {
                       </div>
                       <Link href={contentHref(basePath, item)} className="group">
                         <h3 className="text-lg text-frc-text group-hover:text-frc-gold transition-colors font-medium">{fm.title}</h3>
-                        {fm.abstract && <p className="text-sm text-frc-text-dim leading-relaxed mt-2 line-clamp-3">{fm.abstract}</p>}
+                        {item.epistemicStatus === 'archive' ? (
+                          fm.statusNote ? (
+                            <p className="text-sm text-frc-text-dim leading-relaxed mt-2 line-clamp-3">{fm.statusNote}</p>
+                          ) : null
+                        ) : (
+                          fm.abstract ? (
+                            <p className="text-sm text-frc-text-dim leading-relaxed mt-2 line-clamp-3">{fm.abstract}</p>
+                          ) : null
+                        )}
                       </Link>
                     </article>
                   );
