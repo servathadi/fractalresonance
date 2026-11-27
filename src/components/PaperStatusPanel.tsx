@@ -3,13 +3,16 @@ import { getMuLevel } from '@/lib/mu-levels';
 
 const OPEN_WORK: Record<string, string> = {
   'FRC-100-000': 'Router only: evaluate the cited primary papers rather than treating this map as evidence.',
+  'FRC-100-001': 'Framework charter in the physics register: exact ledger identities and obstructions are verified, while universal open-system reciprocity, t*gamma_C = O(1) collapse, and held-out Lambda-Flight gain (B4 > B0-B3) remain open falsifiable conjectures.',
   'FRC-100-002': 'KAM correspondence, crossover tolerance, and out-of-sample mechanism collapse remain open.',
   'FRC-100-002-001': 'The registered dense Gate 4 route is closed negatively. The coarse result remains scoped; no quantum gate or cross-mechanism collapse is established.',
   'FRC-100-003': 'Operational equivalence, no-signaling, and environment accounting remain open.',
+  'FRC-100-004': 'Foundations synthesis with negative gates (100.002.001, 100.005, 100.007) and FRC 830.005 v0.3 obstructions integrated; five admissibility gates (operational equivalence, bipartite no-signaling, non-circular Born weights, explicit bath accounting, and constructions beyond open-set affine qubit channels) remain open.',
   'FRC-100-005': 'The negative result remains scoped to the tested closure and normalization.',
   'FRC-100-006': 'Half A S^1 equilibrium math is proven conditionally; Half B gates (non-circular origin of |alpha_j|^2 weights and Lambda_0 = k*, operational equivalence, bipartite no-signaling, and closed bath entropy accounting) remain open.',
   'FRC-100-006-002': 'Underived 2025 deviation window is retired; forward P-D1/P-D2/P-D3 bounds are proven, and any empirical parameter exclusion remains conditional on platform calibration, cancellation control, and parent Half B gates.',
   'FRC-100-007': 'The audited implementations fail in scope; no replacement ontology is established.',
+  'FRC-100-010': 'Philosophy / Two-Register Bridge (register: philosophy): defends Fractal Resonance Cognition philosophically while keeping the consciousness firewall intact; physics claims remain governed strictly by physics-register negative gates and tiered defeat conditions.',
   'FRC-566-001': 'The universal physical extension remains conjectural beyond declared bookkeeping.',
   'FRC-566-030': 'The exact family contains no bath or independent entropy-production channel.',
   'FRC-787-787': 'Independent platform validation and wins over equal-feature baselines remain required.',

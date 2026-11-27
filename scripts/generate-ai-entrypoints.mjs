@@ -33,9 +33,6 @@ export const FRONTIER_PAPERS = new Set([
 ]);
 
 export const REVISION_PENDING_PAPERS = new Set([
-  'FRC-100-001',
-  'FRC-100-004',
-  'FRC-100-010',
   'FRC-566-010',
   'FRC-566-020',
 ]);
@@ -43,16 +40,19 @@ export const REVISION_PENDING_PAPERS = new Set([
 const PRIMARY_READING_ORDER = [
   'FRC-566-001',
   'FRC-566-030',
+  'FRC-100-001',
   'FRC-100-005',
   'FRC-100-002',
   'FRC-100-002-001',
   'FRC-100-100',
   'FRC-100-003',
+  'FRC-100-004',
   'FRC-100-006',
   'FRC-100-006-002',
   'FRC-100-007',
   'FRC-100-008',
   'FRC-100-009',
+  'FRC-100-010',
   'FRC-100-011',
 ];
 
@@ -71,16 +71,19 @@ const FRONTIER_READING_ORDER = [
 const PAPER_ROLES = {
   'FRC-566-001': 'Canonical notation, scale selection, boundary discipline, and claim status.',
   'FRC-566-030': 'Exact von Mises/Kuramoto identity and scoped system-only result.',
+  'FRC-100-001': 'Technical entry framework charter for complex systems analysis: anchors canonical scale-invariant reciprocity (FRC 566.001 v2.2), exact elementary ledger identities, operational multi-scale registers (FRC 700.000–007), exact obstructions (FRC 830.005 v0.3), empirical baseline discipline, and the Two-Register boundary.',
   'FRC-100-005': 'Closure-specific thermodynamic boundary experiment; not a universal replacement law.',
   'FRC-100-002': 'Standard Map / Quantum Kicked Rotor chaos program and scoped negative results.',
   'FRC-100-002-001': 'The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established.',
   'FRC-100-100': 'Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers.',
   'FRC-100-003': 'Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates.',
+  'FRC-100-004': 'Quantum foundations synthesis integrating chaos baselines, Negative Gate 4 (NO_GAIN), conditional phase-locking collapse, negative thermodynamic and rho-drift audits (100.005 v2.3, 100.007 v3.3), live FRC 830.005 v0.3 obstructions, and five explicit remaining admissibility gates.',
   'FRC-100-006': 'Conditional S^1 Fokker-Planck Born-equilibrium core (Half A: unique equilibrium, KL H-theorem, gamma = Lambda_0/k* = 1 exponent uniqueness, D > 0 necessity) with carrier obstructions integrated and Half B admissibility gates explicitly open.',
   'FRC-100-006-002': 'Retires the underived 2025 Born-deviation heuristic and proves forward spectral-gap (P-D1), linear-skew (P-D2), and Fisher-information adiabatic (P-D3) diagnostic bounds with explicit sufficiency vs. conditional exclusion discipline.',
   'FRC-100-007': 'Narrow density-matrix drift audit and ontology separation.',
   'FRC-100-008': 'Declared executable closures; no fundamental ontology claim.',
   'FRC-100-009': 'Declared local implementation with explicit source, sink, and residual terms.',
+  'FRC-100-010': 'Philosophy / Two-Register Bridge (register: philosophy) defending Fractal Resonance Cognition (The Open System; The Mind in the Coupling) while keeping the consciousness firewall, one-way evidence valve, and tiered defeat conditions intact.',
   'FRC-100-011': 'Vocabulary crosswalk; use with, not instead of, primary papers.',
   'FRC-787-787': 'Operational and latent coherence-transport protocol awaiting held-out platform validation.',
   'FRC-826-829': 'Status-labeled mathematical foundations and open problems.',

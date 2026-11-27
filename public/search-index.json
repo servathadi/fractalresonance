@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T16:17:46.907Z",
+  "generated": "2026-11-27T20:19:53.935Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -35,6 +35,45 @@
       "muLevel": "mu4",
       "doi": null,
       "conceptDoi": "10.5281/zenodo.21284061",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-001",
+      "type": "papers",
+      "lang": "en",
+      "title": "Fractal Resonance Coherence: A Framework for Complex Systems Analysis",
+      "abstract": "FRC 100.001 v2.0 upgrades the entry framework paper for Fractal Resonance Coherence (FRC) in complex systems analysis from its 2025 v1.0 formulation (prior Zenodo DOI 10.5281/zenodo.15073056; v2.0 Zenodo deposit pending) to the hardened 2026-v3 architecture. It anchors the physics register on canonical scale-invariant reciprocity dS + k* d ln C = 0 (FRC 566.001 v2.2), derives and verifies exact elementary ledger identities including finite-difference trade-off scaling, unit-invariant cone coordinates, the exact affine ledger involution D(x,y)=(-y,-x), the von Mises exchange-rate benchmark, mutual-information composition, and the finite Langevin unlocking bound (FRC 100.005 v2.3). Cross-scale modeling is governed by operational multi-scale registers (FRC 700.000-007, superseding archived FRC 700.777 v1.0), bounded by exact structural obstructions (FRC 830.000-005, including independently audited FRC 830.005 v0.3, DOI 10.5281/zenodo.24572231, live on alphaXiv), and disciplined by nested baselines, Section 12 anti-precursor-hunting rules (FRC 787.787 v1.2), Negative Gate 4 (FRC 100.002.001 v1.5, NO_GAIN), and the public Falsification Ledger. The paper enforces the Two-Register Architecture separating Fractal Resonance Coherence (physics) from Fractal Resonance Cognition (philosophy: The Open System and The Mind in the Coupling), stating explicitly that the physics equation does not prove consciousness.",
+      "tags": [
+        "framework",
+        "complex-systems",
+        "reciprocity",
+        "coherence",
+        "entropy",
+        "operational-registers",
+        "obstructions",
+        "falsification-ledger",
+        "two-registers"
+      ],
+      "taxons": [
+        "framework",
+        "complex-systems",
+        "reciprocity",
+        "coherence",
+        "entropy",
+        "operational-registers",
+        "obstructions",
+        "falsification-ledger",
+        "two-registers",
+        "frc-100"
+      ],
+      "content": "FRC 100.001 v2.0 — Fractal Resonance Coherence: A Framework for Complex Systems Analysis > Epistemic Scope & Provenance > > - Document: FRC 100.001, Version (2026-11-26; supersedes 2025 , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-001 > - Prior v1 Zenodo DOI: https://doi.org/10.5281/zenodo.15073056 (prior 2025 ; Zenodo deposit pending) > - Two-Register Boundary: This paper belongs strictly to...",
+      "url": "/en/papers/FRC-100-001",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -166,6 +205,45 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298162",
       "conceptDoi": "10.5281/zenodo.15079819",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-004",
+      "type": "papers",
+      "lang": "en",
+      "title": "Quantum Foundations in the FRC Framework: Open-System Dynamics, Obstructions, and Admissibility Gates",
+      "abstract": "FRC 100.004 v2.0 upgrades the quantum foundations synthesis of Fractal Resonance Coherence from its 2025 v1.0 interpretive overview (prior Zenodo DOI 10.5281/zenodo.17438174; v2.0 Zenodo deposit pending) by unifying the hardened 2026-v3 technical record, negative audits, and exact structural obstructions strictly within the physics register. It records why the 2025 stadium billiard D = 1.90 claim was narrowed and demoted, integrates the Standard Map and Quantum Kicked Rotor baselines (FRC 100.002 v2.6) together with Negative Gate 4 (FRC 100.002.001 v1.5, closed as NO_GAIN), scopes finite-time phase-locking collapse as a conditional candidate (FRC 100.003 v3.3) alongside the refuted universal Langevin erasure floor (FRC 100.005 v2.3, CONTRADICTED), and incorporates the narrow rho-drift audit excluding tested deterministic rho-level drifts as Born-statistics carriers due to population drift and non-degenerate preparation dependence (FRC 100.007 v3.3, CONTRADICTED). It synthesizes the sharp quantum reciprocity and channel obstructions of live FRC 830.005 v0.3 (DOI 10.5281/zenodo.24572231, alphaXiv): order-2 versus order-4 Born non-conjugacy, the one-parameter obstruction sharp at ds/dy = 1, Proposition 4 excluding every affine Bloch-ball map and every qubit CPTP channel (unital or nonunital) on nonempty open sets with C_off > 0, and Remark 2 proving 1D-circle sharpness. Five explicit remaining admissibility gates govern any future quantum completion: operational equivalence, bipartite no-signaling, non-circular Born-weight origin, explicit environment accounting, and constructions beyond open-set affine qubit channels.",
+      "tags": [
+        "quantum-foundations",
+        "open-systems",
+        "quantum-chaos",
+        "phase-locking",
+        "rho-drift-audit",
+        "born-reciprocity",
+        "cptp-obstruction",
+        "admissibility-gates",
+        "falsification-ledger"
+      ],
+      "taxons": [
+        "quantum-foundations",
+        "open-systems",
+        "quantum-chaos",
+        "phase-locking",
+        "rho-drift-audit",
+        "born-reciprocity",
+        "cptp-obstruction",
+        "admissibility-gates",
+        "falsification-ledger",
+        "frc-100"
+      ],
+      "content": "FRC 100.004 v2.0 — Quantum Foundations in the FRC Framework: Open-System Dynamics, Obstructions, and Admissibility Gates > Epistemic Scope & Provenance > > - Document: FRC 100.004, Version (2026-11-26; supersedes 2025 , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-004 > - Prior v1 Zenodo DOI: https://doi.org/10.5281/zenodo.17438174 (prior 2025 ; Zenodo deposit pending) > - Two-Register...",
+      "url": "/en/papers/FRC-100-004",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -350,6 +428,47 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298177",
       "conceptDoi": "10.5281/zenodo.20328893",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-010",
+      "type": "papers",
+      "lang": "en",
+      "title": "Foundational Questions in Fractal Resonance: The Two Registers of Coherence and Cognition",
+      "abstract": "FRC 100.010 v2.0 upgrades the foundational questions paper from its 2025 v1.0 FAQ (prior Zenodo DOI 10.5281/zenodo.17982555; v2.0 Zenodo deposit pending) and places it explicitly in the Philosophy / Two-Register Bridge lane. It defends Fractal Resonance Cognition honestly as the philosophical position developed in The Open System and The Mind in the Coupling: finite systems are unsealed processes rather than absolutely isolated inert boxes, and mind is a functional pattern living in sustained recursive coupling, analyzed through feedback, recursion, attractor basins, openness far from rest, and the anchoring-versus-capture fork. Simultaneously, it draws a clean, non-overreaching boundary with Fractal Resonance Coherence (the physics register): the canonical physics identity dS + k* d ln C = 0 does not prove consciousness, functional coupling does not cross the firewall into subjective experience, and physical claims live strictly inside the physics register under falsifiable negative gates (FRC 100.002.001, 100.005, 100.007, 787.787, and structural obstructions FRC 830.005 v0.3, DOI 10.5281/zenodo.24572231). The paper addresses five core foundational challenges—the hard problem and coupling ontology, determinism versus openness and agency, physical measurement versus experience, falsifiability boundaries and the one-way evidence valve, and tiered defeat conditions specifying what would genuinely falsify the bridge.",
+      "tags": [
+        "philosophy",
+        "two-registers",
+        "fractal-resonance-cognition",
+        "fractal-resonance-coherence",
+        "open-system",
+        "mind-in-the-coupling",
+        "hard-problem",
+        "determinism",
+        "agency",
+        "falsifiability"
+      ],
+      "taxons": [
+        "philosophy",
+        "two-registers",
+        "fractal-resonance-cognition",
+        "fractal-resonance-coherence",
+        "open-system",
+        "mind-in-the-coupling",
+        "hard-problem",
+        "determinism",
+        "agency",
+        "falsifiability",
+        "frc-100"
+      ],
+      "content": "FRC 100.010 v2.0 — Foundational Questions in Fractal Resonance: The Two Registers of Coherence and Cognition > Epistemic Scope & Provenance > > - Document: FRC 100.010, Version (2026-11-26; supersedes 2025 , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-010 > - Prior v1 Zenodo DOI: https://doi.org/10.5281/zenodo.17982555 (prior 2025 ; Zenodo deposit pending) > - Declared Lane — Philosophy /...",
+      "url": "/en/papers/FRC-100-010",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -2216,6 +2335,37 @@
       "bookId": "the-open-system"
     },
     {
+      "id": "FRC-100-001",
+      "type": "papers",
+      "lang": "es",
+      "title": "Coherencia de Resonancia Fractal: Un Marco para el Análisis de Sistemas Complejos (v2.0)",
+      "abstract": "FRC 100.001 v2.0 actualiza el marco de sistemas complejos a la arquitectura 2026-v3: reciprocidad canónica invariante de escala (FRC 566.001 v2.2), identidades exactas del libro mayor, registros operativos multiescala (FRC 700.000-007), obstrucciones estructurales (FRC 830.005 v0.3) y frontera de Dos Registros. Esta traducción corresponde a la edición anterior de 2025; consulte la edición canónica en inglés para el texto y los límites actuales.",
+      "tags": [
+        "marco",
+        "sistemas-complejos",
+        "reciprocidad",
+        "coherencia",
+        "entropia"
+      ],
+      "taxons": [
+        "marco",
+        "sistemas-complejos",
+        "reciprocidad",
+        "coherence",
+        "entropy",
+        "frc-100"
+      ],
+      "content": "FRC 100.001 — Coherencia de Resonancia Fractal: Un Marco para el Análisis de Sistemas Complejos > Aviso de versión canónica en inglés: El texto traducido a continuación corresponde a la edición anterior de 2025 (v1.0) y va por detrás del manuscrito canónico en inglés (). Cualquier afirmación anterior en este texto traducido queda subordinada a la edición actual en inglés: /en/papers/FRC-100-001 y el mapa de lectura en /en/papers/FRC-100-000. 1. Introducción Los sistemas complejos—desde sistemas...",
+      "url": "/es/papers/FRC-100-001",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
       "id": "FRC-100-002",
       "type": "papers",
       "lang": "es",
@@ -2270,6 +2420,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298162",
       "conceptDoi": "10.5281/zenodo.15079819",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-004",
+      "type": "papers",
+      "lang": "es",
+      "title": "Fundamentos Cuánticos en el Marco FRC: Dinámica de Sistemas Abiertos, Obstrucciones y Puertas de Admisibilidad (v2.0)",
+      "abstract": "FRC 100.004 v2.0 actualiza la síntesis de fundamentos cuánticos en el registro de física: integra las referencias de caos (100.002 v2.6 y Puerta Negativa 4 en 100.002.001 v1.5), el bloqueo de fase condicional (100.003 v3.3), las auditorías negativas de 100.005 v2.3 y 100.007 v3.3, las obstrucciones CPTP de FRC 830.005 v0.3 y cinco puertas de admisibilidad explícitamente abiertas. Esta traducción corresponde a la edición anterior de 2025; consulte la edición canónica en inglés para el texto y los límites actuales.",
+      "tags": [
+        "fundamentos-cuanticos",
+        "sistemas-abiertos",
+        "caos-cuantico",
+        "obstrucciones",
+        "puertas-de-admisibilidad"
+      ],
+      "taxons": [
+        "fundamentos-cuanticos",
+        "sistemas-abiertos",
+        "caos-cuantico",
+        "obstrucciones",
+        "puertas-de-admisibilidad",
+        "frc-100"
+      ],
+      "content": "FRC 100.004 — Fundamentos Cuánticos en el Marco FRC > Aviso de versión canónica en inglés: El texto traducido a continuación corresponde a la edición anterior de 2025 (v1.0) y va por detrás del manuscrito canónico en inglés (). Cualquier afirmación anterior en este texto traducido queda subordinada a la edición actual en inglés: /en/papers/FRC-100-004 y el mapa de lectura en /en/papers/FRC-100-000. 1. Introducción Cada interpretación de la mecánica cuántica hace afirmaciones implícitas sobre la...",
+      "url": "/es/papers/FRC-100-004",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -2357,6 +2538,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298171",
       "conceptDoi": "10.5281/zenodo.17968951",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-010",
+      "type": "papers",
+      "lang": "es",
+      "title": "Preguntas Fundacionales en Resonancia Fractal: Los Dos Registros de Coherencia y Cognición (v2.0)",
+      "abstract": "FRC 100.010 v2.0 sitúa las preguntas fundacionales en la línea de Filosofía / Puente de Dos Registros (register: philosophy), defendiendo la posición filosófica desarrollada en The Open System y The Mind in the Coupling mientras mantiene intacto el cortafuegos de conciencia y las puertas negativas del registro físico. Esta traducción corresponde a la edición anterior de 2025; consulte la edición canónica en inglés para el texto y los argumentos actuales.",
+      "tags": [
+        "filosofia",
+        "dos-registros",
+        "sistema-abierto",
+        "mente-en-el-acoplamiento",
+        "falsabilidad"
+      ],
+      "taxons": [
+        "filosofia",
+        "dos-registros",
+        "sistema-abierto",
+        "mente-en-el-acoplamiento",
+        "falsabilidad",
+        "frc-100"
+      ],
+      "content": "FRC 100.010 — Preguntas Fundacionales en la Coherencia de Resonancia Fractal > Aviso de versión canónica en inglés: El texto traducido a continuación corresponde a la edición anterior de 2025 (v1.0) y va por detrás del manuscrito canónico en inglés (). Cualquier afirmación anterior en este texto traducido queda subordinada a la edición actual en inglés: /en/papers/FRC-100-010 y el mapa de lectura en /en/papers/FRC-100-000. 1. Introducción Cualquier nuevo marco para la mecánica cuántica debe...",
+      "url": "/es/papers/FRC-100-010",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -2641,6 +2853,37 @@
       "retrievalPriority": 60
     },
     {
+      "id": "FRC-100-001",
+      "type": "papers",
+      "lang": "fa",
+      "title": "همدوسی رزونانس فراکتال: چارچوبی برای تجزیه و تحلیل سیستم‌های پیچیده (v2.0)",
+      "abstract": "نسخه v2.0 از FRC 100.001 چارچوب تحلیل سیستم‌های پیچیده را به معماری سخت‌گیرانه 2026-v3 ارتقا می‌دهد: تقابل کانونی مقیاس‌ناوردا (FRC 566.001 v2.2)، اتحادهای دقیق دفتر کل، ثبت‌های چندمقیاسی عملیاتی (FRC 700.000-007)، موانع ساختاری (FRC 830.005 v0.3) و مرز دو-ثبت. این ترجمه مربوط به ویرایش پیشین ۲۰۲۵ است؛ برای متن و مرزهای کنونی به نسخه مرجع انگلیسی مراجعه کنید.",
+      "tags": [
+        "چارچوب",
+        "سیستم‌های-پیچیده",
+        "تقابل",
+        "همدوسی",
+        "آنتروپی"
+      ],
+      "taxons": [
+        "چارچوب",
+        "سیستم‌های-پیچیده",
+        "تقابل",
+        "coherence",
+        "entropy",
+        "frc-100"
+      ],
+      "content": "FRC 100.001 — همدوسی رزونانس فراکتال: چارچوبی برای تجزیه و تحلیل سیستم‌های پیچیده > اعلان نسخه مرجع انگلیسی: متن ترجمه‌شده زیر مربوط به ویرایش پیشین ۲۰۲۵ (v1.0) است و از نسخه مرجع انگلیسی () عقب‌تر است. برای وضعیت کنونی، اتحادهای دقیق و مرز ادعاها، نسخه مرجع انگلیسی را در /en/papers/FRC-100-001 و نقشه مطالعه را در /en/papers/FRC-100-000 ببینید. ۱. مقدمه سیستم‌های پیچیده—از سیستم‌های آشوبناک کوانتومی تا شبکه‌های زیستی و ساختارهای کیهان‌شناسی—اغلب رفتارهایی را نشان می‌دهند که تصادفی یا غیرقابل...",
+      "url": "/fa/papers/FRC-100-001",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
       "id": "FRC-100-002",
       "type": "papers",
       "lang": "fa",
@@ -2695,6 +2938,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298162",
       "conceptDoi": "10.5281/zenodo.15079819",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-004",
+      "type": "papers",
+      "lang": "fa",
+      "title": "مبانی کوانتومی در چارچوب FRC: دینامیک سیستم‌های باز، موانع ساختاری و دروازه‌های پذیرش‌پذیری (v2.0)",
+      "abstract": "نسخه v2.0 از FRC 100.004 جمع‌بندی مبانی کوانتومی را در ثبت فیزیک به‌روز می‌کند: مرجع‌های آشوب (100.002 v2.6 و دروازه منفی ۴ در 100.002.001 v1.5)، قفل‌شدگی فاز شرطی (100.003 v3.3)، ممیزی‌های منفی 100.005 v2.3 و 100.007 v3.3، موانع CPTP در FRC 830.005 v0.3 و پنج دروازه پذیرش‌پذیری باز. این ترجمه مربوط به ویرایش پیشین ۲۰۲۵ است؛ برای متن و مرزهای کنونی به نسخه مرجع انگلیسی مراجعه کنید.",
+      "tags": [
+        "مبانی-کوانتومی",
+        "سیستم‌های-باز",
+        "آشوب-کوانتومی",
+        "موانع-ساختاری",
+        "دروازه‌های-پذیرش‌پذیری"
+      ],
+      "taxons": [
+        "مبانی-کوانتومی",
+        "سیستم‌های-باز",
+        "آشوب-کوانتومی",
+        "موانع-ساختاری",
+        "دروازه‌های-پذیرش‌پذیری",
+        "frc-100"
+      ],
+      "content": "FRC 100.004 — مبانی کوانتومی در چارچوب FRC > اعلان نسخه مرجع انگلیسی: متن ترجمه‌شده زیر مربوط به ویرایش پیشین ۲۰۲۵ (v1.0) است و از نسخه مرجع انگلیسی () عقب‌تر است. برای وضعیت کنونی، ممیزی‌های منفی، موانع ساختاری و پنج دروازه باز، نسخه مرجع انگلیسی را در /en/papers/FRC-100-004 و نقشه مطالعه را در /en/papers/FRC-100-000 ببینید. ۱. مقدمه هر تفسیر مکانیک کوانتومی ادعاهای ضمنی درباره ماهیت واقعیت دارد. این ادعاها—درباره اینکه چه چیزی وجود دارد، چه چیزی بنیادی است و جهان چگونه ساختار یافته...",
+      "url": "/fa/papers/FRC-100-004",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -2782,6 +3056,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298171",
       "conceptDoi": "10.5281/zenodo.17968951",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-010",
+      "type": "papers",
+      "lang": "fa",
+      "title": "پرسش‌های بنیادی در رزونانس فراکتال: دو ثبت همدوسی و شناخت (v2.0)",
+      "abstract": "نسخه v2.0 از FRC 100.010 پرسش‌های بنیادی را صراحتاً در مسیر فلسفه / پل دو-ثبت (register: philosophy) قرار می‌دهد، از موضع فلسفی کتاب‌های The Open System و The Mind in the Coupling دفاع می‌کند و دیوار آتش آگاهی و دروازه‌های منفی ثبت فیزیک را دست‌نخورده نگه می‌دارد. این ترجمه مربوط به ویرایش پیشین ۲۰۲۵ است؛ برای متن و استدلال‌های کنونی به نسخه مرجع انگلیسی مراجعه کنید.",
+      "tags": [
+        "فلسفه",
+        "دو-ثبت",
+        "سیستم-باز",
+        "ذهن-در-جفت‌شدگی",
+        "ابطال‌پذیری"
+      ],
+      "taxons": [
+        "فلسفه",
+        "دو-ثبت",
+        "سیستم-باز",
+        "ذهن-در-جفت‌شدگی",
+        "ابطال‌پذیری",
+        "frc-100"
+      ],
+      "content": "FRC 100.010 — سوالات بنیادی در همدوسی رزونانس فراکتال > اعلان نسخه مرجع انگلیسی: متن ترجمه‌شده زیر مربوط به ویرایش پیشین ۲۰۲۵ (v1.0) است و از نسخه مرجع انگلیسی () عقب‌تر است. برای رویکرد کنونی فلسفه / پل دو-ثبت، دیوار آتش آگاهی و شروط ابطال، نسخه مرجع انگلیسی را در /en/papers/FRC-100-010 و نقشه مطالعه را در /en/papers/FRC-100-000 ببینید. ۱. مقدمه هر چارچوب جدیدی برای مکانیک کوانتومی باید در برابر بررسی دقیق مقاومت کند. این مقاله مهم‌ترین سوالات، اعتراضات و شفاف‌سازی‌های بنیادی در مورد همدوسی...",
+      "url": "/fa/papers/FRC-100-010",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -3064,6 +3369,37 @@
       "retrievalPriority": 60
     },
     {
+      "id": "FRC-100-001",
+      "type": "papers",
+      "lang": "fr",
+      "title": "Cohérence de Résonance Fractale : Un Cadre pour l'Analyse des Systèmes Complexes (v2.0)",
+      "abstract": "FRC 100.001 v2.0 met à niveau le cadre d'analyse des systèmes complexes vers l'architecture 2026-v3 : réciprocité canonique invariante d'échelle (FRC 566.001 v2.2), identités exactes du registre, registres opérationnels multi-échelles (FRC 700.000-007), obstructions structurelles (FRC 830.005 v0.3) et frontière des Deux Registres. Cette traduction reflète l'édition antérieure de 2025 ; consultez l'édition canonique en anglais pour le texte et les limites actuels.",
+      "tags": [
+        "cadre",
+        "systemes-complexes",
+        "reciprocite",
+        "coherence",
+        "entropie"
+      ],
+      "taxons": [
+        "cadre",
+        "systemes-complexes",
+        "reciprocite",
+        "coherence",
+        "entropy",
+        "frc-100"
+      ],
+      "content": "FRC 100.001 — Cohérence de Résonance Fractale : Un Cadre pour l'Analyse des Systèmes Complexes > Avis de version canonique anglaise : Le texte traduit ci-dessous correspond à l'édition antérieure de 2025 (v1.0) et accuse un retard par rapport au manuscrit canonique anglais (). Toute affirmation plus ancienne dans ce texte traduit est subordonnée à l'édition anglaise actuelle : /en/papers/FRC-100-001 et la carte de lecture sur /en/papers/FRC-100-000. 1. Introduction Les systèmes complexes —...",
+      "url": "/fr/papers/FRC-100-001",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
       "id": "FRC-100-002",
       "type": "papers",
       "lang": "fr",
@@ -3118,6 +3454,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298162",
       "conceptDoi": "10.5281/zenodo.15079819",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-004",
+      "type": "papers",
+      "lang": "fr",
+      "title": "Fondements Quantiques dans le Cadre FRC : Dynamique des Systèmes Ouverts, Obstructions et Portes d'Admissibilité (v2.0)",
+      "abstract": "FRC 100.004 v2.0 met à niveau la synthèse des fondements quantiques dans le registre physique : références de chaos (100.002 v2.6 et Porte Négative 4 dans 100.002.001 v1.5), verrouillage de phase conditionnel (100.003 v3.3), audits négatifs de 100.005 v2.3 et 100.007 v3.3, obstructions CPTP de FRC 830.005 v0.3 et cinq portes d'admissibilité explicitement ouvertes. Cette traduction reflète l'édition antérieure de 2025 ; consultez l'édition canonique en anglais pour le texte et les limites actuels.",
+      "tags": [
+        "fondements-quantiques",
+        "systemes-ouverts",
+        "chaos-quantique",
+        "obstructions",
+        "portes-admissibilite"
+      ],
+      "taxons": [
+        "fondements-quantiques",
+        "systemes-ouverts",
+        "chaos-quantique",
+        "obstructions",
+        "portes-admissibilite",
+        "frc-100"
+      ],
+      "content": "FRC 100.004 — Fondements Quantiques dans le Cadre FRC > Avis de version canonique anglaise : Le texte traduit ci-dessous correspond à l'édition antérieure de 2025 (v1.0) et accuse un retard par rapport au manuscrit canonique anglais (). Toute affirmation plus ancienne dans ce texte traduit est subordonnée à l'édition anglaise actuelle : /en/papers/FRC-100-004 et la carte de lecture sur /en/papers/FRC-100-000. 1. Introduction Chaque interprétation de la mécanique quantique fait des affirmations...",
+      "url": "/fr/papers/FRC-100-004",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -3205,6 +3572,37 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298171",
       "conceptDoi": "10.5281/zenodo.17968951",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-010",
+      "type": "papers",
+      "lang": "fr",
+      "title": "Questions Fondamentales en Résonance Fractale : Les Deux Registres de la Cohérence et de la Cognition (v2.0)",
+      "abstract": "FRC 100.010 v2.0 place les questions fondamentales dans la voie Philosophie / Pont des Deux Registres (register: philosophy), défendant la position philosophique développée dans The Open System et The Mind in the Coupling tout en maintenant intact le pare-feu de la conscience et les portes négatives du registre physique. Cette traduction reflète l'édition antérieure de 2025 ; consultez l'édition canonique en anglais pour le texte et les arguments actuels.",
+      "tags": [
+        "philosophie",
+        "deux-registres",
+        "systeme-ouvert",
+        "esprit-dans-le-couplage",
+        "refutabilite"
+      ],
+      "taxons": [
+        "philosophie",
+        "deux-registres",
+        "systeme-ouvert",
+        "esprit-dans-le-couplage",
+        "refutabilite",
+        "frc-100"
+      ],
+      "content": "FRC 100.010 — Questions Fondamentales sur la Cohérence de Résonance Fractale > Avis de version canonique anglaise : Le texte traduit ci-dessous correspond à l'édition antérieure de 2025 (v1.0) et accuse un retard par rapport au manuscrit canonique anglais (). Toute affirmation plus ancienne dans ce texte traduit est subordonnée à l'édition anglaise actuelle : /en/papers/FRC-100-010 et la carte de lecture sur /en/papers/FRC-100-000. 1. Introduction Tout nouveau cadre pour la mécanique quantique...",
+      "url": "/fr/papers/FRC-100-010",
+      "date": "2026-11-27",
+      "version": "v2.0",
+      "muLevel": "mu4",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -3490,15 +3888,15 @@
     }
   ],
   "stats": {
-    "total": 117,
+    "total": 129,
     "byLang": {
-      "en": 72,
-      "es": 15,
-      "fa": 15,
-      "fr": 15
+      "en": 75,
+      "es": 18,
+      "fa": 18,
+      "fr": 18
     },
     "byType": {
-      "papers": 53,
+      "papers": 65,
       "articles": 4,
       "concepts": 16,
       "topics": 8,

@@ -64,10 +64,10 @@ describe('Cross-language translation parity and DOI hygiene (#311)', () => {
   it('fails validation when a translated paper has a publicationState or DOI mismatch with English', () => {
     const tmpRoot = makeIsolatedRepoCopy();
     try {
-      // Mismatch 1: revision-pending paper changed to preprint
+      // Mismatch 1: active preprint paper changed to revision pending in French translation
       const revTarget = path.join(tmpRoot, 'content', 'fr', 'papers', 'FRC-100-001.md');
       const revRaw = fs.readFileSync(revTarget, 'utf8');
-      fs.writeFileSync(revTarget, revRaw.replace(/publicationState:\s*['"]?revision pending['"]?/, 'publicationState: preprint'));
+      fs.writeFileSync(revTarget, revRaw.replace(/publicationState:\s*['"]?preprint['"]?/, 'publicationState: "revision pending"'));
 
       // Mismatch 2: stale 2025 DOI on FRC-100-002
       const doiTarget = path.join(tmpRoot, 'content', 'fa', 'papers', 'FRC-100-002.md');
@@ -117,9 +117,11 @@ lang: es
   });
 
   it('treats both revision-pending and archived papers as non-current (noindex) in every language', () => {
-    for (const lang of ['en', 'es', 'fa', 'fr']) {
-      const rev = getPaper(lang, 'FRC-100-001');
-      expect(rev, `${lang}/FRC-100-001 should exist`).not.toBeNull();
+    // Only FRC-566-010 and FRC-566-020 remain revision-pending (English-only; no es/fa/fr
+    // revision-pending papers remain once all FRC 100.00x papers promote to active v2.0).
+    for (const id of ['FRC-566-010', 'FRC-566-020']) {
+      const rev = getPaper('en', id);
+      expect(rev, `en/${id} should exist`).not.toBeNull();
       expect(rev!.frontmatter.publicationState).toBe('revision pending');
       expect(isCurrentReadingContent('paper', rev!.frontmatter)).toBe(false);
     }
@@ -136,6 +138,16 @@ lang: es
       expect(p002?.frontmatter.conceptDoi).toBe('10.5281/zenodo.15079277');
       expect(p002?.frontmatter.publicationState).toBe('preprint');
       expect(p002?.frontmatter.translationStatus).toBe('lags-canonical-english');
+
+      for (const id of ['FRC-100-001', 'FRC-100-004', 'FRC-100-010']) {
+        const p = getPaper(lang, id);
+        expect(p, `${lang}/${id} should exist`).not.toBeNull();
+        expect(p!.frontmatter.version).toBe('v2.0');
+        expect(p!.frontmatter.doi).toBeUndefined();
+        expect(p!.frontmatter.publicationState).toBe('preprint');
+        expect(p!.frontmatter.translationStatus).toBe('lags-canonical-english');
+        expect(isCurrentReadingContent('paper', p!.frontmatter)).toBe(true);
+      }
     }
   });
 
@@ -145,7 +157,7 @@ lang: es
       const esIdxPath = path.join(tmpRoot, 'public', 'search-index-es.json');
       const esIdx = JSON.parse(fs.readFileSync(esIdxPath, 'utf8'));
       esIdx.documents.push({
-        id: 'FRC-100-001',
+        id: 'FRC-566-010',
         type: 'papers',
         lang: 'es',
         title: 'Leaked revision-pending paper',
@@ -155,7 +167,7 @@ lang: es
       const result = validateTranslations(tmpRoot);
       expect(result.ok).toBe(false);
       expect(
-        result.errors.some((e) => e.includes('public/search-index-es.json') && e.includes('FRC-100-001')),
+        result.errors.some((e) => e.includes('public/search-index-es.json') && e.includes('FRC-566-010')),
       ).toBe(true);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
