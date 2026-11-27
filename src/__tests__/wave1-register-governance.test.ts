@@ -149,13 +149,17 @@ describe('Two-Register governance (Wave 1)', () => {
     );
     expect(charterPhysicsOverreach.length).toBeGreaterThan(0);
 
-    // Charter exemptions must NEVER allow affirmative physics-mechanism claims tied to
-    // "Fractal Resonance Cognition" even if "the open system", "Two-Register Architecture",
-    // or "philosophy register" appears in the same sentence.
+    // Charter exemptions must NEVER allow physics-mechanism/quantum/dynamics claims tied to
+    // "Fractal Resonance Cognition" regardless of verb, register label, or piggybacked negation.
     for (const bypassAttempt of [
       'Fractal Resonance Cognition acts as the physical collapse mechanism in the open system.',
       'Fractal Resonance Cognition is the physical force driving quantum decoherence in the Two-Register Architecture.',
-      'In the philosophy register, Fractal Resonance Cognition drives physical collapse dynamics in the open system.',
+      'In the philosophy register, Fractal Resonance Cognition underlies quantum decoherence.',
+      'Fractal Resonance Cognition (philosophy) provides the physical collapse mechanism.',
+      'In the philosophy register, Fractal Resonance Cognition physically drives quantum decoherence.',
+      'Fractal Resonance Cognition acts as the physical collapse mechanism without claiming physical proof of consciousness.',
+      'In the philosophy register, Fractal Resonance Cognition mediates wavefunction collapse.',
+      'Fractal Resonance Cognition (philosophy register) governs quantum collapse.',
     ]) {
       const issues = checkActiveTextForStaleClaims(
         bypassAttempt,
@@ -166,7 +170,7 @@ describe('Two-Register governance (Wave 1)', () => {
     }
   });
 
-  it('rejects affirmative Fractal Resonance Cognition physics-mechanism insertions on charter papers (100.000, 100.100, 100.011) via CLI while unmodified charters exit 0', () => {
+  it('rejects all Fractal Resonance Cognition physics-mechanism bypasses on charter papers (100.000, 100.100, 100.011) via CLI while unmodified charters exit 0', () => {
     // Confirm unmodified repository (including FRC-100-000, FRC-100-100, FRC-100-011) exits 0
     const cleanRes = runGovernanceCli(root);
     expect(cleanRes.status, cleanRes.stderr).toBe(0);
@@ -181,8 +185,28 @@ describe('Two-Register governance (Wave 1)', () => {
         line: 'Fractal Resonance Cognition is the physical force driving quantum decoherence in the Two-Register Architecture.',
       },
       {
+        file: 'FRC-100-000.md',
+        line: 'In the philosophy register, Fractal Resonance Cognition underlies quantum decoherence.',
+      },
+      {
+        file: 'FRC-100-100.md',
+        line: 'Fractal Resonance Cognition (philosophy) provides the physical collapse mechanism.',
+      },
+      {
         file: 'FRC-100-011.md',
-        line: 'In the philosophy register, Fractal Resonance Cognition governs quantum decoherence and physical collapse dynamics in the open system.',
+        line: 'In the philosophy register, Fractal Resonance Cognition physically drives quantum decoherence.',
+      },
+      {
+        file: 'FRC-100-000.md',
+        line: 'Fractal Resonance Cognition acts as the physical collapse mechanism without claiming physical proof of consciousness.',
+      },
+      {
+        file: 'FRC-100-011.md',
+        line: 'In the philosophy register, Fractal Resonance Cognition mediates wavefunction collapse.',
+      },
+      {
+        file: 'FRC-100-100.md',
+        line: 'Fractal Resonance Cognition (philosophy register) governs quantum collapse.',
       },
     ];
 
@@ -204,7 +228,7 @@ describe('Two-Register governance (Wave 1)', () => {
         fs.rmSync(failRoot, { recursive: true, force: true });
       }
     }
-  }, 30_000);
+  }, 45_000);
 
   it('proves CLI exit codes for (a) physics cognition fail, (b) philosophy cognition pass, (c) philosophy overreach fail, and (d) charter two-register pass', () => {
     // (a) Physics paper body claiming "Fractal Resonance Cognition" as physics mechanism -> exit 1
