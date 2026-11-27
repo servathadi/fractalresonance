@@ -9,8 +9,8 @@
   },
   "catalog_summary": {
     "published_english_papers": 43,
-    "active_papers": 32,
-    "revision_pending": 5,
+    "active_papers": 35,
+    "revision_pending": 2,
     "superseded_origin": 1,
     "archive": 5
   },
@@ -93,15 +93,18 @@
       "FRC-100-000",
       "FRC-566-001",
       "FRC-566-030",
+      "FRC-100-001",
       "FRC-100-005",
       "FRC-100-002",
       "FRC-100-100",
       "FRC-100-003",
+      "FRC-100-004",
       "FRC-100-006",
       "FRC-100-006-002",
       "FRC-100-007",
       "FRC-100-008",
       "FRC-100-009",
+      "FRC-100-010",
       "FRC-100-011"
     ],
     "frontier": [
@@ -142,9 +145,6 @@
       ]
     },
     "revision_pending": [
-      "FRC-100-001",
-      "FRC-100-004",
-      "FRC-100-010",
       "FRC-566-010",
       "FRC-566-020"
     ],
@@ -213,6 +213,15 @@
       "url": "/en/papers/FRC-100-000"
     },
     {
+      "id": "FRC-100-001",
+      "version": "v2.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "framework-charter",
+      "status_label": "framework-charter; canonical-reciprocity-bookkeeping; obstructions-and-ledger-integrated",
+      "url": "/en/papers/FRC-100-001"
+    },
+    {
       "id": "FRC-100-002",
       "version": "v2.6",
       "publication_state": "preprint",
@@ -236,6 +245,15 @@
       "canon_status": "living-core",
       "epistemic_status": "primary",
       "url": "/en/papers/FRC-100-003"
+    },
+    {
+      "id": "FRC-100-004",
+      "version": "v2.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "foundations-synthesis",
+      "status_label": "foundations-synthesis; negative-gates-and-cptp-obstructions-integrated; five-admissibility-gates-open",
+      "url": "/en/papers/FRC-100-004"
     },
     {
       "id": "FRC-100-005",
@@ -287,6 +305,15 @@
       "canon_status": "living-core",
       "epistemic_status": "primary",
       "url": "/en/papers/FRC-100-009"
+    },
+    {
+      "id": "FRC-100-010",
+      "version": "v2.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "philosophy-two-register-bridge",
+      "status_label": "philosophy-two-register-bridge; cognition-register-defended; consciousness-firewall-intact",
+      "url": "/en/papers/FRC-100-010"
     },
     {
       "id": "FRC-100-011",
@@ -515,6 +542,21 @@
       "role": "Exact von Mises/Kuramoto identity and scoped system-only result."
     },
     {
+      "id": "FRC-100-001",
+      "title": "Fractal Resonance Coherence: A Framework for Complex Systems Analysis",
+      "url": "/en/papers/FRC-100-001",
+      "version": "v2.0",
+      "date": "2026-11-27",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "framework-charter",
+      "status_label": "framework-charter; canonical-reciprocity-bookkeeping; obstructions-and-ledger-integrated",
+      "prior_version_doi": "10.5281/zenodo.15073056",
+      "doi_status": "v2.0 Zenodo deposit pending",
+      "pdf_url": "/paper-pdfs/FRC-100-001.pdf",
+      "role": "Technical entry framework charter for complex systems analysis: anchors canonical scale-invariant reciprocity (FRC 566.001 v2.2), exact elementary ledger identities, operational multi-scale registers (FRC 700.000–007), exact obstructions (FRC 830.005 v0.3), empirical baseline discipline, and the Two-Register boundary."
+    },
+    {
       "id": "FRC-100-005",
       "title": "Thermodynamics of Locking v2.3: Boundary Result Scoped to Its Declared Normalization",
       "url": "/en/papers/FRC-100-005",
@@ -589,6 +631,21 @@
       "role": "Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates."
     },
     {
+      "id": "FRC-100-004",
+      "title": "Quantum Foundations in the FRC Framework: Open-System Dynamics, Obstructions, and Admissibility Gates",
+      "url": "/en/papers/FRC-100-004",
+      "version": "v2.0",
+      "date": "2026-11-27",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "foundations-synthesis",
+      "status_label": "foundations-synthesis; negative-gates-and-cptp-obstructions-integrated; five-admissibility-gates-open",
+      "prior_version_doi": "10.5281/zenodo.17438174",
+      "doi_status": "v2.0 Zenodo deposit pending",
+      "pdf_url": "/paper-pdfs/FRC-100-004.pdf",
+      "role": "Quantum foundations synthesis integrating chaos baselines, Negative Gate 4 (NO_GAIN), conditional phase-locking collapse, negative thermodynamic and rho-drift audits (100.005 v2.3, 100.007 v3.3), live FRC 830.005 v0.3 obstructions, and five explicit remaining admissibility gates."
+    },
+    {
       "id": "FRC-100-006",
       "title": "Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation",
       "url": "/en/papers/FRC-100-006",
@@ -659,6 +716,21 @@
       "doi": "10.5281/zenodo.21298177",
       "pdf_url": "/paper-pdfs/FRC-100-009.pdf",
       "role": "Declared local implementation with explicit source, sink, and residual terms."
+    },
+    {
+      "id": "FRC-100-010",
+      "title": "Foundational Questions in Fractal Resonance: The Two Registers of Coherence and Cognition",
+      "url": "/en/papers/FRC-100-010",
+      "version": "v2.0",
+      "date": "2026-11-27",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "philosophy-two-register-bridge",
+      "status_label": "philosophy-two-register-bridge; cognition-register-defended; consciousness-firewall-intact",
+      "prior_version_doi": "10.5281/zenodo.17982555",
+      "doi_status": "v2.0 Zenodo deposit pending",
+      "pdf_url": "/paper-pdfs/FRC-100-010.pdf",
+      "role": "Philosophy / Two-Register Bridge (register: philosophy) defending Fractal Resonance Cognition (The Open System; The Mind in the Coupling) while keeping the consciousness firewall, one-way evidence valve, and tiered defeat conditions intact."
     },
     {
       "id": "FRC-100-011",
@@ -917,42 +989,6 @@
     }
   ],
   "revision_pending_records": [
-    {
-      "id": "FRC-100-001",
-      "title": "Fractal Resonance Coherence: A Framework for Complex Systems Analysis",
-      "url": "/en/papers/FRC-100-001",
-      "date": "2025-03-23",
-      "publication_state": "revision pending",
-      "canon_status": "living-core",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.15073056",
-      "pdf_url": "/paper-pdfs/FRC-100-001.pdf",
-      "status_note": "This living 100-series identifier is retained, but this 2025 formulation has not yet been reconciled with the current scoped program. Use FRC 100.000, FRC 566.001, and the cited current versions for present claims."
-    },
-    {
-      "id": "FRC-100-004",
-      "title": "Quantum Foundations in the FRC Framework",
-      "url": "/en/papers/FRC-100-004",
-      "date": "2025-06-20",
-      "publication_state": "revision pending",
-      "canon_status": "living-core",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.17438174",
-      "pdf_url": "/paper-pdfs/FRC-100-004.pdf",
-      "status_note": "This living 100-series identifier is retained, but its quantum-ontology claims are revision pending. It does not state the current FRC position on determinism, hidden variables, or quantum foundations."
-    },
-    {
-      "id": "FRC-100-010",
-      "title": "Foundational Questions in Fractal Resonance Coherence",
-      "url": "/en/papers/FRC-100-010",
-      "date": "2025-11-20",
-      "publication_state": "revision pending",
-      "canon_status": "living-core",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.17982555",
-      "pdf_url": "/paper-pdfs/FRC-100-010.pdf",
-      "status_note": "This living 100-series identifier is retained for a future revision. Its answers on non-locality, determinism, and the Lambda field do not state the current scoped FRC position."
-    },
     {
       "id": "FRC-566-010",
       "title": "UCC PDE: Existence, Uniqueness, and Dissipation",

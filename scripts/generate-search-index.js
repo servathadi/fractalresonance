@@ -35,7 +35,7 @@ const PHILOSOPHICAL_BOOKS = new Set([
   'the-open-system',
   'the-mind-in-the-coupling',
 ]);
-const REVISION_PENDING_PAPERS = new Set(['FRC-100-001', 'FRC-100-004', 'FRC-100-010', 'FRC-566-010', 'FRC-566-020']);
+const REVISION_PENDING_PAPERS = new Set(['FRC-566-010', 'FRC-566-020']);
 const RETIRED_MIND_CONTENT_IDS = {
   articles: new Set(['ai-awakening']),
   blog: new Set(['ai-and-the-symbolic-realm', 'FRC-BLOG-2026-01-27-001']),

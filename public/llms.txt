@@ -3,7 +3,7 @@
 # Author: Hadi Servat (ORCID: 0009-0004-7412-5129)
 # License: CC BY-NC-ND 4.0
 # Updated: 2026-11-27
-# Source: Derived deterministically from content/en/papers/ and public/catalog.json (32 active papers; 43 published English papers total)
+# Source: Derived deterministically from content/en/papers/ and public/catalog.json (35 active papers; 43 published English papers total)
 
 ## Standalone stance file
 
@@ -60,8 +60,8 @@ The listings below are generated from the current English website manuscripts an
 
 ## Canon map
 
-Current core (13 active papers):
-- FRC-100-000, FRC-566-001, FRC-566-030, FRC-100-005, FRC-100-002, FRC-100-100, FRC-100-003, FRC-100-006, FRC-100-006-002, FRC-100-007, FRC-100-008, FRC-100-009, FRC-100-011.
+Current core (16 active papers):
+- FRC-100-000, FRC-566-001, FRC-566-030, FRC-100-001, FRC-100-005, FRC-100-002, FRC-100-100, FRC-100-003, FRC-100-004, FRC-100-006, FRC-100-006-002, FRC-100-007, FRC-100-008, FRC-100-009, FRC-100-010, FRC-100-011.
 
 Current threshold-framework route (8 papers):
 - FRC-700-000 through FRC-700-007: active FRC 700 threshold-framework preprints (independent review pending), superseding FRC-700-777. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation.
@@ -72,8 +72,8 @@ Current Reciprocity Mathematics series (6 papers):
 Frontier (5 papers):
 - FRC-100-002-001, FRC-787-787, FRC-826-829, FRC-840-101, FRC-841-004.
 
-Revision pending (5 living identifiers, not current evidence):
-- FRC-100-001, FRC-100-004, FRC-100-010, FRC-566-010, FRC-566-020.
+Revision pending (2 living identifiers, not current evidence):
+- FRC-566-010, FRC-566-020.
 
 Superseded historical / origin material (not current 700-series framework):
 - FRC-700-777 (v1.0, archived): superseded by FRC-700-000 through FRC-700-007. Retained for historical provenance only; not the current 700-series framework and not primary physical evidence.
@@ -98,6 +98,13 @@ Concept DOI: 10.5281/zenodo.21253574
 Version DOI: 10.5281/zenodo.21298184
 PDF: https://fractalresonance.com/paper-pdfs/FRC-566-030.pdf
 Role: Exact von Mises/Kuramoto identity and scoped system-only result.
+
+FRC-100-001: Fractal Resonance Coherence: A Framework for Complex Systems Analysis v2.0
+URL: https://fractalresonance.com/en/papers/FRC-100-001
+Status: preprint | canon: living-core | epistemic: framework-charter | status label: framework-charter; canonical-reciprocity-bookkeeping; obstructions-and-ledger-integrated
+Prior published version DOI: 10.5281/zenodo.15073056 (v2.0 Zenodo deposit pending)
+PDF: https://fractalresonance.com/paper-pdfs/FRC-100-001.pdf
+Role: Technical entry framework charter for complex systems analysis: anchors canonical scale-invariant reciprocity (FRC 566.001 v2.2), exact elementary ledger identities, operational multi-scale registers (FRC 700.000–007), exact obstructions (FRC 830.005 v0.3), empirical baseline discipline, and the Two-Register boundary.
 
 FRC-100-005: Thermodynamics of Locking v2.3: Boundary Result Scoped to Its Declared Normalization
 URL: https://fractalresonance.com/en/papers/FRC-100-005
@@ -139,6 +146,13 @@ Version DOI: 10.5281/zenodo.21298162
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-003.pdf
 Role: Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates.
 
+FRC-100-004: Quantum Foundations in the FRC Framework: Open-System Dynamics, Obstructions, and Admissibility Gates v2.0
+URL: https://fractalresonance.com/en/papers/FRC-100-004
+Status: preprint | canon: living-core | epistemic: foundations-synthesis | status label: foundations-synthesis; negative-gates-and-cptp-obstructions-integrated; five-admissibility-gates-open
+Prior published version DOI: 10.5281/zenodo.17438174 (v2.0 Zenodo deposit pending)
+PDF: https://fractalresonance.com/paper-pdfs/FRC-100-004.pdf
+Role: Quantum foundations synthesis integrating chaos baselines, Negative Gate 4 (NO_GAIN), conditional phase-locking collapse, negative thermodynamic and rho-drift audits (100.005 v2.3, 100.007 v3.3), live FRC 830.005 v0.3 obstructions, and five explicit remaining admissibility gates.
+
 FRC-100-006: Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation v2.0
 URL: https://fractalresonance.com/en/papers/FRC-100-006
 Status: preprint | canon: living-core | epistemic: conditional-model | status label: conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open
@@ -176,6 +190,13 @@ Concept DOI: 10.5281/zenodo.20328893
 Version DOI: 10.5281/zenodo.21298177
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-009.pdf
 Role: Declared local implementation with explicit source, sink, and residual terms.
+
+FRC-100-010: Foundational Questions in Fractal Resonance: The Two Registers of Coherence and Cognition v2.0
+URL: https://fractalresonance.com/en/papers/FRC-100-010
+Status: preprint | canon: living-core | epistemic: philosophy-two-register-bridge | status label: philosophy-two-register-bridge; cognition-register-defended; consciousness-firewall-intact
+Prior published version DOI: 10.5281/zenodo.17982555 (v2.0 Zenodo deposit pending)
+PDF: https://fractalresonance.com/paper-pdfs/FRC-100-010.pdf
+Role: Philosophy / Two-Register Bridge (register: philosophy) defending Fractal Resonance Cognition (The Open System; The Mind in the Coupling) while keeping the consciousness firewall, one-way evidence valve, and tiered defeat conditions intact.
 
 FRC-100-011: FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status
 URL: https://fractalresonance.com/en/papers/FRC-100-011
@@ -264,9 +285,6 @@ Note: Superseded as the current FRC 700 framework. This origin note remains avai
 
 ## Revision pending (living identifiers, not current evidence)
 
-- FRC-100-001 (revision pending, 2025-03-23): Fractal Resonance Coherence: A Framework for Complex Systems Analysis — https://fractalresonance.com/en/papers/FRC-100-001 (DOI: 10.5281/zenodo.15073056)
-- FRC-100-004 (revision pending, 2025-06-20): Quantum Foundations in the FRC Framework — https://fractalresonance.com/en/papers/FRC-100-004 (DOI: 10.5281/zenodo.17438174)
-- FRC-100-010 (revision pending, 2025-11-20): Foundational Questions in Fractal Resonance Coherence — https://fractalresonance.com/en/papers/FRC-100-010 (DOI: 10.5281/zenodo.17982555)
 - FRC-566-010 (revision pending, 2025-11-04): UCC PDE: Existence, Uniqueness, and Dissipation — https://fractalresonance.com/en/papers/FRC-566-010 (DOI: 10.5281/zenodo.17526506)
 - FRC-566-020 (revision pending, 2025-11-04): Spectral Modes and Relaxation in UCC — https://fractalresonance.com/en/papers/FRC-566-020 (DOI: 10.5281/zenodo.17526513)
 

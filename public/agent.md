@@ -2,7 +2,7 @@
 
 This static vault contains the living **Fractal Resonance Coherence (FRC)** corpus.
 
-Updated: 2026-11-27. Generated deterministically from `content/en/papers/` and `/catalog.json` (32 active papers; 43 published English papers total). Reading order does not rank evidence or imply peer review.
+Updated: 2026-11-27. Generated deterministically from `content/en/papers/` and `/catalog.json` (35 active papers; 43 published English papers total). Reading order does not rank evidence or imply peer review.
 
 For a single self-contained model briefing with no required links, use `FRC-100-100` (v1.1) at `/FRC-100-100.md`. It summarizes the current stance but does not override primary evidence papers. This file remains the concise routing and grounding guide.
 
@@ -41,11 +41,11 @@ For a single self-contained model briefing with no required links, use `FRC-100-
 
 ## 5) Canon map
 
-- **Current core (13):** `FRC-100-000`, `FRC-566-001`, `FRC-566-030`, `FRC-100-005`, `FRC-100-002`, `FRC-100-100`, `FRC-100-003`, `FRC-100-006`, `FRC-100-006-002`, `FRC-100-007`, `FRC-100-008`, `FRC-100-009`, `FRC-100-011`.
+- **Current core (16):** `FRC-100-000`, `FRC-566-001`, `FRC-566-030`, `FRC-100-001`, `FRC-100-005`, `FRC-100-002`, `FRC-100-100`, `FRC-100-003`, `FRC-100-004`, `FRC-100-006`, `FRC-100-006-002`, `FRC-100-007`, `FRC-100-008`, `FRC-100-009`, `FRC-100-010`, `FRC-100-011`.
 - **Current threshold-framework route (8):** `FRC-700-000` through `FRC-700-007` — active FRC 700 framework preprints (independent review pending) superseding `FRC-700-777`.
 - **Current Reciprocity Mathematics series (6):** `FRC-830-000` through `FRC-830-005` — terminology charter, formal mathematics, and scoped lift obstructions; accurate no-promotion boundary applies.
 - **Frontier (5):** `FRC-100-002-001`, `FRC-787-787`, `FRC-826-829`, `FRC-840-101`, `FRC-841-004`.
-- **Revision pending (5):** `FRC-100-001`, `FRC-100-004`, `FRC-100-010`, `FRC-566-010`, `FRC-566-020` retain living identifiers but must not be used as current evidence.
+- **Revision pending (2):** `FRC-566-010`, `FRC-566-020` retain living identifiers but must not be used as current evidence.
 - **Superseded historical / origin material:** `FRC-700-777` (v1.0, archived; superseded by FRC-700-000 through FRC-700-007). Do not present as the current 700-series framework or primary physical evidence.
 - **Archive / development history:** `FRC-16D-001`, `FRC-16D-920`, `FRC-821-100`, `FRC-840-001`, `FRC-840-LTM-001`. Do not present as current core.
 
@@ -53,16 +53,19 @@ For a single self-contained model briefing with no required links, use `FRC-100-
 
 - [`FRC-566-001`](/en/papers/FRC-566-001) v2.2 (preprint; status: core-corrected; canonical-notation restoration): Canonical notation, scale selection, boundary discipline, and claim status.
 - [`FRC-566-030`](/en/papers/FRC-566-030) v1.3 (preprint; status: core-corrected; operational-normalization clarification): Exact von Mises/Kuramoto identity and scoped system-only result.
+- [`FRC-100-001`](/en/papers/FRC-100-001) v2.0 (preprint; status: framework-charter; canonical-reciprocity-bookkeeping; obstructions-and-ledger-integrated): Technical entry framework charter for complex systems analysis: anchors canonical scale-invariant reciprocity (FRC 566.001 v2.2), exact elementary ledger identities, operational multi-scale registers (FRC 700.000–007), exact obstructions (FRC 830.005 v0.3), empirical baseline discipline, and the Two-Register boundary.
 - [`FRC-100-005`](/en/papers/FRC-100-005) v2.3 (preprint; status: core-corrected; model-specific negative result retained): Closure-specific thermodynamic boundary experiment; not a universal replacement law.
 - [`FRC-100-002`](/en/papers/FRC-100-002) v2.6 (preprint): Standard Map / Quantum Kicked Rotor chaos program and scoped negative results.
 - [`FRC-100-002-001`](/en/papers/FRC-100-002-001) v1.5 (preprint; frontier; status: answer-appendix line 100.002.001; coarse result retained; registered dense Gate 4 closed negatively): The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established.
 - [`FRC-100-100`](/en/papers/FRC-100-100) v1.1 (preprint; status: wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending): Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers.
 - [`FRC-100-003`](/en/papers/FRC-100-003) v3.3 (preprint): Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates.
+- [`FRC-100-004`](/en/papers/FRC-100-004) v2.0 (preprint; status: foundations-synthesis; negative-gates-and-cptp-obstructions-integrated; five-admissibility-gates-open): Quantum foundations synthesis integrating chaos baselines, Negative Gate 4 (NO_GAIN), conditional phase-locking collapse, negative thermodynamic and rho-drift audits (100.005 v2.3, 100.007 v3.3), live FRC 830.005 v0.3 obstructions, and five explicit remaining admissibility gates.
 - [`FRC-100-006`](/en/papers/FRC-100-006) v2.0 (preprint; status: conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open): Conditional S^1 Fokker-Planck Born-equilibrium core (Half A: unique equilibrium, KL H-theorem, gamma = Lambda_0/k* = 1 exponent uniqueness, D > 0 necessity) with carrier obstructions integrated and Half B admissibility gates explicitly open.
 - [`FRC-100-006-002`](/en/papers/FRC-100-006-002) v2.0 (preprint; status: heuristic-window-retired; spectral-and-adiabatic-bounds-proven; empirical-constraint-map-linked): Retires the underived 2025 Born-deviation heuristic and proves forward spectral-gap (P-D1), linear-skew (P-D2), and Fisher-information adiabatic (P-D3) diagnostic bounds with explicit sufficiency vs. conditional exclusion discipline.
 - [`FRC-100-007`](/en/papers/FRC-100-007) v3.3 (preprint): Narrow density-matrix drift audit and ontology separation.
 - [`FRC-100-008`](/en/papers/FRC-100-008) v2.2 (preprint): Declared executable closures; no fundamental ontology claim.
 - [`FRC-100-009`](/en/papers/FRC-100-009) v2.6 (preprint): Declared local implementation with explicit source, sink, and residual terms.
+- [`FRC-100-010`](/en/papers/FRC-100-010) v2.0 (preprint; status: philosophy-two-register-bridge; cognition-register-defended; consciousness-firewall-intact): Philosophy / Two-Register Bridge (register: philosophy) defending Fractal Resonance Cognition (The Open System; The Mind in the Coupling) while keeping the consciousness firewall, one-way evidence valve, and tiered defeat conditions intact.
 - [`FRC-100-011`](/en/papers/FRC-100-011) v1.3 (preprint; status: wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending): Vocabulary crosswalk; use with, not instead of, primary papers.
 
 ## 7) Current threshold-framework route (FRC 700.000–700.007)
@@ -105,7 +108,7 @@ Shared release: concept DOI `10.5281/zenodo.21385391`; v0.1 series bundle DOI `1
 ## 10) Superseded historical / origin material and revision-pending records
 
 - **Superseded origin note:** [`FRC-700-777`](/en/papers/FRC-700-777) (v1.0, `archived`, `canonStatus: archive`, superseded by `FRC-700-000 through FRC-700-007`). Superseded as the current FRC 700 framework. This origin note remains available for historical context; use FRC 700.000 through FRC 700.007 for the active threshold-series method and claim boundaries.
-- **Revision pending (not current evidence):** [`FRC-100-001`](/en/papers/FRC-100-001), [`FRC-100-004`](/en/papers/FRC-100-004), [`FRC-100-010`](/en/papers/FRC-100-010), [`FRC-566-010`](/en/papers/FRC-566-010), [`FRC-566-020`](/en/papers/FRC-566-020).
+- **Revision pending (not current evidence):** [`FRC-566-010`](/en/papers/FRC-566-010), [`FRC-566-020`](/en/papers/FRC-566-020).
 - **Archive / development history:** [`FRC-16D-001`](/en/papers/FRC-16D-001), [`FRC-16D-920`](/en/papers/FRC-16D-920), [`FRC-821-100`](/en/papers/FRC-821-100), [`FRC-840-001`](/en/papers/FRC-840-001), [`FRC-840-LTM-001`](/en/papers/FRC-840-LTM-001).
 
 ## 11) Grounding rules

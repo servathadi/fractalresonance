@@ -176,12 +176,12 @@ describe('AI-facing entrypoints generation and drift checks', () => {
       fs.mkdirSync(path.join(tmpRoot, 'public'), { recursive: true });
       fs.symlinkSync(path.join(root, 'public', 'paper-pdfs'), path.join(tmpRoot, 'public', 'paper-pdfs'));
 
-      const srcPaper = fs.readFileSync(path.join(root, 'content', 'en', 'papers', 'FRC-100-001.md'), 'utf8');
+      const srcPaper = fs.readFileSync(path.join(root, 'content', 'en', 'papers', 'FRC-566-010.md'), 'utf8');
       const mutated = srcPaper.replace(/publicationState:\s*revision pending/, 'publicationState: preprint');
-      fs.writeFileSync(path.join(tmpPapersDir, 'FRC-100-001.md'), mutated, 'utf8');
+      fs.writeFileSync(path.join(tmpPapersDir, 'FRC-566-010.md'), mutated, 'utf8');
 
       const [paper] = loadCanonicalPapers(tmpRoot);
-      expect(paper.id).toBe('FRC-100-001');
+      expect(paper.id).toBe('FRC-566-010');
       expect(paper.rawPublicationState).toBe('preprint');
       expect(paper.publicationState).toBe('revision pending');
     } finally {
