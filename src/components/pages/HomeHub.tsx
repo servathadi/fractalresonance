@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ResearchMapSection } from '@/components/ResearchMapSection';
+import { VisualAbstractShowcase } from '@/components/VisualAbstractShowcase';
 import { getGlossary, getHomeConfig, getPapers } from '@/lib/content';
 import { getFalsificationLedger } from '@/lib/falsifications';
 import { buildResearchMap } from '@/lib/research-map';
@@ -347,6 +348,9 @@ export async function HomeHub({ lang, view }: { lang: string; view: PerspectiveV
           </div>
         </div>
       </section>
+
+      {/* FRC v3 1-Slide Visual Abstract & 7-Slide Overview Deck */}
+      <VisualAbstractShowcase lang={lang} variant="home" />
 
       {/* Canonical reading path */}
       <section className="max-w-6xl mx-auto px-6 py-12 border-b border-frc-blue/60">
