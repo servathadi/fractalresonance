@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_ROOT = path.join(__dirname, '..');
 
 export const NEGATION_CONTEXT_RX =
-  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdraw(?:n|s|ing)?|retir(?:e|es|ed|ing)|underived|uncalibrated|without\s+deriving|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
 
 export const TWO_REGISTER_FRAMING_RX =
   /(?:\b(?:philosophy\s+register|philosophical\s+register|in\s+philosophy)\b[^.;!?]{0,40}\bfractal\s+resonance\s+cognition\b|\bfractal\s+resonance\s+cognition\b[^.;!?]{0,40}(?:\b(?:belongs?\s+to\s+philosophy|in\s+(?:its\s+)?philosophy\s+register|philosophy\s+register)\b|\(\s*philosophy(?:\s+register)?\s*\)))/i;
@@ -107,7 +107,18 @@ const ACTIVE_STALE_CLAIM_RULES = [
 ];
 
 const NEGATED_LIST_LEAD_RX =
-  /\b(?:do\s+not\s+revive|do\s+not\s+claim|retired\s+claims|withdrawn\s+claims|demoted\s+claims|explicit\s+non-claims)\b[^.\n]*:\s*$/i;
+  /\b(?:do\s+not\s+revive|do\s+not\s+claim|retired\s+claims|withdrawn\s+claims|demoted\s+claims|explicit\s+non-claims|overclaiming[^.\n]*exposed\s+as\s+unproved)\b[^.\n]*:\s*$/i;
+
+const AFFIRMATIVE_BORN_DERIVATION_RX =
+  /(?:(?:(?:has|have)\s+(?:already\s+)?)?deriv(?:es?|ed)\s+the\s+born\s+rule|born\s+rule\s+(?:(?:is|was|has\s+been|had\s+been)\s+(?:already\s+)?)?(?:derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند)/i;
+
+/**
+ * Narrow rule-specific exemption ONLY for clauses that directly retire or mark as underived
+ * the historical [10^-4, 10^-3] heuristic range itself (never exempting affirmative Born-rule
+ * derivation claims, 16D claims, or unrelated uses of "retire"/"uncalibrated"/"underived").
+ */
+const SCOPED_RETIRED_DEVIATION_WINDOW_RX =
+  /\b(?:retir(?:es?|ed|ing)\s+(?:the\s+)?(?:prior\s+|2025\s+|underived\s+){0,2}(?:\$?[^.;!?$]{0,25})?\[?10\^\{?-4\}?|underived\s+(?:2025\s+)?(?:numerical\s+)?heuristic(?:\s+expectation)?\s+of\s+[^.;!?]{0,40}10\^\{?-4\}?|uncalibrated\s+[^.;!?]{0,90}10\^\{?-4\}?[^.;!?]{0,40}\bheuristics?\b)/i;
 
 const NEGATED_TABLE_ROW_CELL_RX =
   /^(?:CONTRADICTED|DEMOTED|ARCHIVED|RETIRED|HISTORICAL\s+DEVELOPMENT\s+ARCHIVE(?:\s*\([^)]*\))?)$/i;
@@ -245,6 +256,13 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
         }
         if (!rule.pattern.test(plainClause)) continue;
         if (NEGATION_CONTEXT_RX.test(plainClause)) continue;
+        if (
+          rule.id === 'unhedged-born-rule' &&
+          !AFFIRMATIVE_BORN_DERIVATION_RX.test(plainClause) &&
+          SCOPED_RETIRED_DEVIATION_WINDOW_RX.test(plainClause)
+        ) {
+          continue;
+        }
         if (hasNegatedTableDisposition && rule.id !== 'unhedged-equation-proves-consciousness') {
           continue;
         }

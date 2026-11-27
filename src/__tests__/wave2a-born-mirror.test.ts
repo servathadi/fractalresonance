@@ -115,5 +115,21 @@ describe('Wave 2a mirror: FRC 100.006 v2.0 & FRC 100.006.002 v2.0', () => {
       'content/en/papers/FRC-100-006.md',
     );
     expect(unhedged.length).toBeGreaterThan(0);
+
+    // Mixed-assertion regressions: unrelated "uncalibrated"/"retire"/"underived" words MUST NOT
+    // exempt affirmative Born-rule, 16D, or unhedged deviation-window claims.
+    const mixedAssertions = [
+      'The apparatus is uncalibrated and FRC derives the Born rule.',
+      'We retire the old apparatus and FRC derives the Born rule.',
+      'The readout is uncalibrated and 16D is physical canon.',
+      'The apparatus is uncalibrated and $|\\delta(x)| \\in [10^{-4}, 10^{-3}]$.',
+      'We retire the old apparatus and $|\\delta(x)| \\in [10^{-4}, 10^{-3}]$.',
+    ];
+    for (const sentence of mixedAssertions) {
+      expect(
+        checkActiveTextForStaleClaims(sentence, 'content/en/papers/FRC-566-001.md').length,
+        `expected governance failure for: ${sentence}`,
+      ).toBeGreaterThan(0);
+    }
   });
 });
