@@ -350,17 +350,17 @@ describe('Wave 1 charter mirror, live FRC 830.005 v0.3 DOI, and persona hygiene'
     expect(p000?.frontmatter.version).toBe('v1.3');
     expect(p000?.frontmatter.conceptDoi).toBe('10.5281/zenodo.21284061');
     expect(p000?.frontmatter.priorVersionDoi).toBe('10.5281/zenodo.21298155');
-    expect(p000?.frontmatter.doi).toBeUndefined();
+    expect(p000?.frontmatter.doi).toBe('10.5281/zenodo.24575211');
 
     expect(p100?.frontmatter.version).toBe('v1.1');
     expect(p100?.frontmatter.conceptDoi).toBe('10.5281/zenodo.21298193');
     expect(p100?.frontmatter.priorVersionDoi).toBe('10.5281/zenodo.21298194');
-    expect(p100?.frontmatter.doi).toBeUndefined();
+    expect(p100?.frontmatter.doi).toBe('10.5281/zenodo.24575216');
 
     expect(p011?.frontmatter.version).toBe('v1.3');
     expect(p011?.frontmatter.conceptDoi).toBe('10.5281/zenodo.21284063');
     expect(p011?.frontmatter.priorVersionDoi).toBe('10.5281/zenodo.21298180');
-    expect(p011?.frontmatter.doi).toBeUndefined();
+    expect(p011?.frontmatter.doi).toBe('10.5281/zenodo.24575217');
 
     expect(sha256File(path.join(root, 'public/paper-pdfs/FRC-100-000.pdf'))).toBe(
       '9a6cbbd45f427211568505fd3de954b49d80b38b07ddce074c8073a116d81c96',

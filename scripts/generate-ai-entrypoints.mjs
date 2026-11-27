@@ -433,6 +433,7 @@ function getSharedDois(papers) {
 }
 
 function buildAgentJson(corpus) {
+  const thresholdDois = getSharedDois(corpus.thresholdRoute);
   const frontierCanonIds = [
     ...corpus.primaryRoute.filter((p) => p.canonStatus === 'frontier').map((p) => p.id),
     ...corpus.frontierRoute.map((p) => p.id),
@@ -516,6 +517,11 @@ function buildAgentJson(corpus) {
       threshold_framework: {
         route: thresholdRange,
         status: 'Current FRC 700 threshold-framework route (preprints; independent review pending; governs evidence, interpretation, and register discipline; adds no new physical law, universal μ ontology, or cross-register causation).',
+        ...(thresholdDois.conceptDoi ? { concept_doi: thresholdDois.conceptDoi } : {}),
+        ...(thresholdDois.versionDoi ? { version_doi: thresholdDois.versionDoi } : {}),
+        ...(thresholdDois.versionDoi && /^10\.5281\/zenodo\.(\d+)$/.test(thresholdDois.versionDoi)
+          ? { zenodo_url: `https://zenodo.org/records/${thresholdDois.versionDoi.split('.').pop()}` }
+          : {}),
         supersedes: corpus.supersededOrigin.map((p) => p.id),
         ids: corpus.thresholdRoute.map((p) => p.id),
       },
@@ -624,6 +630,7 @@ function formatStatusLine(paper) {
 
 function buildLlmsTxt(corpus) {
   const lines = [];
+  const thresholdDois = getSharedDois(corpus.thresholdRoute);
   const recDois = getSharedDois(corpus.reciprocityMathematicsRoute);
   const activeCoreIds = [
     corpus.startHere.id,
@@ -735,6 +742,7 @@ function buildLlmsTxt(corpus) {
     } else if (p.priorVersionDoi) {
       lines.push(`Prior published version DOI: ${p.priorVersionDoi} (${p.version} Zenodo deposit pending)`);
     }
+    if (p.alphaxivUrl) lines.push(`alphaXiv: ${p.alphaxivUrl}`);
     if (p.pdfUrl) lines.push(`PDF: ${SITE_URL}${p.pdfUrl}`);
     const role = getPaperRole(p);
     if (role) lines.push(`Role: ${role}`);
@@ -762,7 +770,19 @@ function buildLlmsTxt(corpus) {
 
   lines.push('## Current threshold-framework route (FRC 700.000–700.007)');
   lines.push('');
-  lines.push('FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework route, superseding the archived origin note FRC-700-777. These are framework preprints with independent review pending. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. No DOI or downloadable paper PDF is declared for these records in the current website source.');
+  const thresholdHasPdf = corpus.thresholdRoute.some((p) => p.pdfUrl);
+  const thresholdPdfNote = thresholdHasPdf
+    ? 'Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.'
+    : 'No downloadable per-paper PDF is declared for these records in the current website source.';
+  const thresholdZenodoRecordUrl =
+    thresholdDois.versionDoi && /^10\.5281\/zenodo\.(\d+)$/.test(thresholdDois.versionDoi)
+      ? `https://zenodo.org/records/${thresholdDois.versionDoi.split('.').pop()}`
+      : null;
+  const thresholdDoiNote =
+    thresholdDois.conceptDoi || thresholdDois.versionDoi
+      ? `Coordinated 8-paper Zenodo release: Concept DOI ${thresholdDois.conceptDoi || '—'}, Version DOI ${thresholdDois.versionDoi || '—'}${thresholdZenodoRecordUrl ? ` (${thresholdZenodoRecordUrl})` : ''}. ${thresholdPdfNote}`
+      : 'No DOI or downloadable paper PDF is declared for these records in the current website source.';
+  lines.push(`FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework route, superseding the archived origin note FRC-700-777. These are framework preprints with independent review pending. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. ${thresholdDoiNote}`);
   lines.push('');
   lines.push('| Paper | Version | Publication state | Status label | Reading page |');
   lines.push('|---|---|---|---|---|');
@@ -770,6 +790,13 @@ function buildLlmsTxt(corpus) {
     lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.publicationState || '—'} | ${p.statusLabel || '—'} | [Read](${p.fullUrl}) |`);
   }
   lines.push('');
+  if (thresholdDois.conceptDoi || thresholdDois.versionDoi) {
+    const versionPart = thresholdDois.versionDoi
+      ? `; version DOI \`${thresholdDois.versionDoi}\`${thresholdZenodoRecordUrl ? ` (${thresholdZenodoRecordUrl})` : ''}`
+      : '';
+    lines.push(`Shared release: concept DOI \`${thresholdDois.conceptDoi}\`${versionPart}.`);
+    lines.push('');
+  }
 
   lines.push('## Current Reciprocity Mathematics series (FRC 830.000–830.005)');
   lines.push('');
@@ -871,6 +898,7 @@ function buildLlmsTxt(corpus) {
 
 function buildAgentMd(corpus) {
   const lines = [];
+  const thresholdDois = getSharedDois(corpus.thresholdRoute);
   const recDois = getSharedDois(corpus.reciprocityMathematicsRoute);
   const activeCoreIds = [
     corpus.startHere.id,
@@ -941,14 +969,32 @@ function buildAgentMd(corpus) {
   lines.push('');
   for (const p of corpus.primaryRoute) {
     const versionPart = p.version ? ` ${p.version}` : '';
-    const statusParts = [p.publicationState, p.canonStatus === 'frontier' ? 'frontier' : null, p.statusLabel ? `status: ${p.statusLabel}` : null].filter(Boolean).join('; ');
+    const statusParts = [
+      p.publicationState,
+      p.canonStatus === 'frontier' ? 'frontier' : null,
+      p.doi ? `DOI \`${p.doi}\`` : null,
+      p.statusLabel ? `status: ${p.statusLabel}` : null,
+    ].filter(Boolean).join('; ');
+    const extLink = p.alphaxivUrl ? ` · [alphaXiv](${p.alphaxivUrl})` : '';
     const role = getPaperRole(p);
-    lines.push(`- [\`${p.id}\`](${p.url})${versionPart} (${statusParts}): ${role}`);
+    lines.push(`- [\`${p.id}\`](${p.url})${versionPart} (${statusParts})${extLink}: ${role}`);
   }
   lines.push('');
   lines.push('## 7) Current threshold-framework route (FRC 700.000–700.007)');
   lines.push('');
-  lines.push('`FRC-700-000` through `FRC-700-007` are the active FRC 700 threshold-framework preprints (independent review pending), superseding the archived origin note `FRC-700-777`. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. No DOI or downloadable paper PDF is declared for these records in the current website source.');
+  const thresholdHasPdf = corpus.thresholdRoute.some((p) => p.pdfUrl);
+  const thresholdPdfNote = thresholdHasPdf
+    ? 'Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.'
+    : 'No downloadable per-paper PDF is declared for these records in the current website source.';
+  const thresholdZenodoRecordUrl =
+    thresholdDois.versionDoi && /^10\.5281\/zenodo\.(\d+)$/.test(thresholdDois.versionDoi)
+      ? `https://zenodo.org/records/${thresholdDois.versionDoi.split('.').pop()}`
+      : null;
+  const thresholdDoiNote =
+    thresholdDois.conceptDoi || thresholdDois.versionDoi
+      ? `Coordinated 8-paper Zenodo release: Concept DOI \`${thresholdDois.conceptDoi || '—'}\`, Version DOI \`${thresholdDois.versionDoi || '—'}\`${thresholdZenodoRecordUrl ? ` (${thresholdZenodoRecordUrl})` : ''}. ${thresholdPdfNote}`
+      : 'No DOI or downloadable paper PDF is declared for these records in the current website source.';
+  lines.push(`\`FRC-700-000\` through \`FRC-700-007\` are the active FRC 700 threshold-framework preprints (independent review pending), superseding the archived origin note \`FRC-700-777\`. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. ${thresholdDoiNote}`);
   lines.push('');
   lines.push('| Paper | Version | Publication state | Status label | Reading page |');
   lines.push('|---|---|---|---|---|');
@@ -956,6 +1002,13 @@ function buildAgentMd(corpus) {
     lines.push(`| ${p.id} — ${p.title} | ${p.version || '—'} | ${p.publicationState || '—'} | ${p.statusLabel || '—'} | [Read](${p.url}) |`);
   }
   lines.push('');
+  if (thresholdDois.conceptDoi || thresholdDois.versionDoi) {
+    const versionPart = thresholdDois.versionDoi
+      ? `; version DOI \`${thresholdDois.versionDoi}\`${thresholdZenodoRecordUrl ? ` (${thresholdZenodoRecordUrl})` : ''}`
+      : '';
+    lines.push(`Shared release: concept DOI \`${thresholdDois.conceptDoi}\`${versionPart}.`);
+    lines.push('');
+  }
   lines.push('## 8) Current Reciprocity Mathematics series (FRC 830.000–830.005)');
   lines.push('');
   lines.push('Read `FRC-830-000` for the terminology charter, then the declared mathematical results and sharp lift obstructions in `FRC-830-001` through `FRC-830-005`. `FRC-830-005 v0.3` has completed independent symbolic/numerical Python verification (42/42 checks) and is live on Zenodo (DOI `10.5281/zenodo.24572231`) and alphaXiv (formal human peer review pending). **No-promotion rule:** exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (`ds/dy < 1`, sharp at `ds/dy = 1`), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and `d >= 3` gates remain open.');

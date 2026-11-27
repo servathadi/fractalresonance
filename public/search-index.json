@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T20:19:53.935Z",
+  "generated": "2026-11-27T22:28:51.312Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -28,12 +28,12 @@
         "falsification-ledger",
         "frc-100"
       ],
-      "content": "FRC 100.000 v1.3 — Start Here: Canonical Stance and Version-Aware Reading Guide > Epistemic Scope & Provenance > > - Document: FRC 100.000, Version (2026-11-26; supersedes , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-000 > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21284061 (prior published : ) > - Two-Register Scope: Separates the Physics Register (Fractal Resonance Coherence:...",
+      "content": "FRC 100.000 v1.3 — Start Here: Canonical Stance and Version-Aware Reading Guide > Epistemic Scope & Provenance > > - Document: FRC 100.000, Version (2026-11-26; supersedes ) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-000 > - Zenodo Version DOI (v1.3, Live): https://doi.org/10.5281/zenodo.24575211 (https://zenodo.org/records/24575211) > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21284061 (prior published :...",
       "url": "/en/papers/FRC-100-000",
       "date": "Thu Nov 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v1.3",
       "muLevel": "mu4",
-      "doi": null,
+      "doi": "10.5281/zenodo.24575211",
       "conceptDoi": "10.5281/zenodo.21284061",
       "epistemicStatus": "primary",
       "retrievalPriority": 100
@@ -350,7 +350,7 @@
         "operational-equivalence",
         "frc-100"
       ],
-      "content": "FRC 100.006 v2.0 — Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation > Epistemic Scope & Provenance > > - Document: FRC 100.006, Version (2026-11-27) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-006 > - Prior v1 Record DOI: https://doi.org/10.5281/zenodo.17438360 (prior 2025 v1 record; v2.0 Zenodo deposit pending) > - Exact Conditional Math (Half A): Unique zero-current...",
+      "content": "FRC 100.006 v2.0 — Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation > Epistemic Scope & Provenance > > - Document: FRC 100.006, Version (2026-11-27) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-006 > - alphaXiv Preprint (Live): https://www.alphaxiv.org/abs/2611.frc-100-006-born-rule-equilibrium-admissibility-gates > - Prior v1 Record DOI:...",
       "url": "/en/papers/FRC-100-006",
       "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v2.0",
@@ -503,12 +503,12 @@
         "orientation",
         "frc-100"
       ],
-      "content": "FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status > Epistemic Scope & Provenance > > - Document: FRC 100.011, Version (2026-11-26; supersedes , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-011 > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21284063 (prior published : ) > - Two-Register Crosswalk: Explicitly distinguishes Fractal Resonance Coherence (physics register)...",
+      "content": "FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status > Epistemic Scope & Provenance > > - Document: FRC 100.011, Version (2026-11-26; supersedes ) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-011 > - Zenodo Version DOI (v1.3, Live): https://doi.org/10.5281/zenodo.24575217 (https://zenodo.org/records/24575217) > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21284063 (prior published : ) > -...",
       "url": "/en/papers/FRC-100-011",
       "date": "Thu Nov 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v1.3",
       "muLevel": "mu4",
-      "doi": null,
+      "doi": "10.5281/zenodo.24575217",
       "conceptDoi": "10.5281/zenodo.21284063",
       "epistemicStatus": "primary",
       "retrievalPriority": 100
@@ -542,12 +542,12 @@
         "falsification-ledger",
         "frc-100"
       ],
-      "content": "FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence > Epistemic Scope & Provenance > > - Document: FRC 100.100, Version (2026-11-26; supersedes , Zenodo deposit pending) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-100 > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21298193 (prior published : ) > - Two-Register Scope: Summarizes both the Physics Register (Fractal...",
+      "content": "FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence > Epistemic Scope & Provenance > > - Document: FRC 100.100, Version (2026-11-26; supersedes ) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-100 > - Zenodo Version DOI (v1.1, Live): https://doi.org/10.5281/zenodo.24575216 (https://zenodo.org/records/24575216) > - Zenodo Concept DOI: https://doi.org/10.5281/zenodo.21298193...",
       "url": "/en/papers/FRC-100-100",
       "date": "Thu Nov 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v1.1",
       "muLevel": "mu4",
-      "doi": null,
+      "doi": "10.5281/zenodo.24575216",
       "conceptDoi": "10.5281/zenodo.21298193",
       "epistemicStatus": "primary",
       "retrievalPriority": 100
@@ -654,8 +654,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu4",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -687,8 +687,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu4",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -720,8 +720,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu4",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -753,8 +753,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu4",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -788,8 +788,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu5",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -821,8 +821,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu4",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -854,8 +854,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu6",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
@@ -889,8 +889,8 @@
       "date": "Fri Jul 17 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
       "version": "v0.1",
       "muLevel": "mu6",
-      "doi": null,
-      "conceptDoi": null,
+      "doi": "10.5281/zenodo.24575404",
+      "conceptDoi": "10.5281/zenodo.24575403",
       "epistemicStatus": "philosophical",
       "retrievalPriority": 40
     },
