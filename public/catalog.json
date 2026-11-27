@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-27T19:58:51.094Z",
+  "generated": "2026-11-27T20:19:54.201Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -121,7 +121,7 @@
             "frc-100"
           ],
           "status": "published",
-          "wordCount": 3548
+          "wordCount": 3549
         },
         {
           "id": "FRC-100-002-001",
@@ -315,7 +315,7 @@
             "frc-100"
           ],
           "status": "published",
-          "wordCount": 3616
+          "wordCount": 3617
         },
         {
           "id": "FRC-100-005",

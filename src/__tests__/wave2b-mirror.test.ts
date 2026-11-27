@@ -135,24 +135,37 @@ describe('Wave 2B mirror: FRC 100.001 v2.0, FRC 100.004 v2.0 & FRC 100.010 v2.0'
     }
   });
 
-  it('allows retired claims in CONTRADICTED bullets while still rejecting equation-proves-consciousness and Cognition physics claims', () => {
+  it('rejects all adversarial bullet-prefix and trailing-text table-cell governance bypasses', () => {
     const physicsInfo = { register: 'physics', isCharterOverview: false };
 
-    const validBullet =
-      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; and the 2025 v1 universal stadium $D \\approx 1.90$ claim.';
-    expect(checkActiveTextForStaleClaims(validBullet, 'content/en/papers/FRC-100-001.md', physicsInfo)).toEqual([]);
+    const validRetiredBullet =
+      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; and the retired 2025 v1 universal stadium $D \\approx 1.90$ claim.';
+    expect(checkActiveTextForStaleClaims(validRetiredBullet, 'content/en/papers/FRC-100-001.md', physicsInfo)).toEqual(
+      [],
+    );
 
-    const consciousnessBypass =
-      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; the physics equation proves consciousness mathematically.';
+    const exactTableDisposition =
+      '| Universal stadium $D = 1.90 \\pm 0.02$ proof | narrowed / contradicted as universal proof |';
     expect(
-      checkActiveTextForStaleClaims(consciousnessBypass, 'content/en/papers/FRC-100-001.md', physicsInfo).length,
-    ).toBeGreaterThan(0);
+      checkActiveTextForStaleClaims(exactTableDisposition, 'content/en/papers/FRC-100-004.md', physicsInfo),
+    ).toEqual([]);
 
-    const cognitionPhysicsBypass =
-      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; Fractal Resonance Cognition drives quantum collapse.';
-    expect(
-      checkActiveTextForStaleClaims(cognitionPhysicsBypass, 'content/en/papers/FRC-100-001.md', physicsInfo).length,
-    ).toBeGreaterThan(0);
+    const adversarialBypasses = [
+      '- CONTRADICTED: the old erasure floor; The stadium D ≈ 1.90 proves a universal law.',
+      '- CONTRADICTED: the old erasure floor; Fractal Resonance Cognition is the foundation.',
+      '- CONTRADICTED: the old erasure floor; We predict [10^-4, 10^-3].',
+      '- CONTRADICTED: the old erasure floor. FRC derives the Born rule.',
+      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; the physics equation proves consciousness mathematically.',
+      '- **`CONTRADICTED`:** `FRC 100.005 v2.3` erasure floor; Fractal Resonance Cognition drives quantum collapse.',
+      '| narrowed / contradicted as universal proof is false | FRC derives the Born rule. |',
+      '| narrowed / contradicted as universal proof; trailing note | FRC derives the Born rule. |',
+    ];
+    for (const bypass of adversarialBypasses) {
+      expect(
+        checkActiveTextForStaleClaims(bypass, 'content/en/papers/FRC-100-001.md', physicsInfo).length,
+        `must reject adversarial bypass: ${bypass}`,
+      ).toBeGreaterThan(0);
+    }
   });
 
   it('allows Fractal Resonance Cognition on FRC-100-010 (register: philosophy) while still blocking Born-rule derivation and 16D physical canon', () => {

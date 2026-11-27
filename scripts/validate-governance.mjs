@@ -122,10 +122,7 @@ const SCOPED_RETIRED_DEVIATION_WINDOW_RX =
   /(?:\bretir(?:es?|ed|ing)\s+the\s+(?:(?:prior|2025|underived|historical)\s+){0,2}(?:\$[^$\n]{0,30}10\^\{?-4\}?[^$\n]*\$|\[?10\^\{?-4\}?)|\bunderived\s+(?:2025\s+)?(?:numerical\s+)?heuristic(?:\s+expectation)?\s+of\s+\$[^$\n]{0,30}10\^\{?-4\}?[^$\n]*\$|\bthe\s+uncalibrated\s+\$[^$\n]+\$\s+and\s+\$[^$\n]*10\^\{?-4\}?[^$\n]*\$\s+heuristics?\b)/i;
 
 const NEGATED_TABLE_ROW_CELL_RX =
-  /^(?:(?:CONTRADICTED|DEMOTED|ARCHIVED|RETIRED|HISTORICAL\s+DEVELOPMENT\s+ARCHIVE(?:\s*\([^)]*\))?|\[retired-or-narrowed-v1\])$|narrowed\s*\/\s*contradicted\s+as\s+universal\s+proof\b)/i;
-
-const NEGATED_DISPOSITION_BULLET_RX =
-  /^\s*[-*+]\s*(?:\*\*)?(?:CONTRADICTED|RETIRED|DEMOTED|ARCHIVED|WITHDRAWN)(?:\*\*)?:\s+/;
+  /^(?:CONTRADICTED|DEMOTED|ARCHIVED|RETIRED|HISTORICAL\s+DEVELOPMENT\s+ARCHIVE(?:\s*\([^)]*\))?|\[retired-or-narrowed-v1\]|narrowed\s*\/\s*contradicted\s+as\s+universal\s+proof)$/i;
 
 /**
  * Determine whether a content item belongs to the physics or philosophy register,
@@ -230,7 +227,6 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
       isTableRow && tableCells.some((cell) => NEGATED_TABLE_ROW_CELL_RX.test(cell));
     const hasPhilosophyRegisterTableCell =
       isTableRow && tableCells.some((cell) => /^(?:philosophy\s+register|\[philosophy-register\])$/i.test(cell));
-    const isNegatedDispositionBullet = NEGATED_DISPOSITION_BULLET_RX.test(plainTrimmed);
 
     // Evaluate Markdown table rows as one complete unit before splitting on `|` so a
     // physics-mechanism claim in another column cannot evade the Cognition check.
@@ -268,10 +264,7 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
         ) {
           continue;
         }
-        if (
-          (hasNegatedTableDisposition || isNegatedDispositionBullet) &&
-          rule.id !== 'unhedged-equation-proves-consciousness'
-        ) {
+        if (hasNegatedTableDisposition && rule.id !== 'unhedged-equation-proves-consciousness') {
           continue;
         }
         if (
