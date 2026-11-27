@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_ROOT = path.join(__dirname, '..');
 
 export const NEGATION_CONTEXT_RX =
-  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdraw(?:n|s|ing)?|retir(?:e|es|ed|ing)|underived|uncalibrated|without\s+deriving|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
 
 export const TWO_REGISTER_FRAMING_RX =
   /(?:\b(?:philosophy\s+register|philosophical\s+register|in\s+philosophy)\b[^.;!?]{0,40}\bfractal\s+resonance\s+cognition\b|\bfractal\s+resonance\s+cognition\b[^.;!?]{0,40}(?:\b(?:belongs?\s+to\s+philosophy|in\s+(?:its\s+)?philosophy\s+register|philosophy\s+register)\b|\(\s*philosophy(?:\s+register)?\s*\)))/i;
@@ -154,9 +154,11 @@ export function resolveContentRegister({ type = '', id = '', rel = '', frontmatt
  */
 export function splitIntoClauses(line) {
   const withoutListPrefix = String(line || '').replace(/^\s*(?:[-*+]|\d+\.)\s+/, '');
-  return withoutListPrefix
+  // Protect pipes inside inline LaTeX math ($...$) such as $|\delta(x)|$ so they are not split like table columns.
+  const mathProtected = withoutListPrefix.replace(/\$[^$\n]+\$/g, (m) => m.replace(/\|/g, '\u0000'));
+  return mathProtected
     .split(/(?:[;!?|]+|\.[)"'”’]*(?=\s|$)|,\s+(?:but|however|yet|whereas|while)\b)/i)
-    .map((s) => s.trim())
+    .map((s) => s.replace(/\u0000/g, '|').trim())
     .filter(Boolean);
 }
 

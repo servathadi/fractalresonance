@@ -1,7 +1,7 @@
 {
   "name": "Fractal Resonance Coherence (FRC) Agent Quickstart",
   "version": "2.1.0",
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "generated_from": {
     "papers_source": "content/en/papers/*.md",
     "catalog": "/catalog.json",
@@ -9,8 +9,8 @@
   },
   "catalog_summary": {
     "published_english_papers": 43,
-    "active_papers": 30,
-    "revision_pending": 7,
+    "active_papers": 32,
+    "revision_pending": 5,
     "superseded_origin": 1,
     "archive": 5
   },
@@ -97,6 +97,8 @@
       "FRC-100-002",
       "FRC-100-100",
       "FRC-100-003",
+      "FRC-100-006",
+      "FRC-100-006-002",
       "FRC-100-007",
       "FRC-100-008",
       "FRC-100-009",
@@ -142,8 +144,6 @@
     "revision_pending": [
       "FRC-100-001",
       "FRC-100-004",
-      "FRC-100-006",
-      "FRC-100-006-002",
       "FRC-100-010",
       "FRC-566-010",
       "FRC-566-020"
@@ -245,6 +245,24 @@
       "epistemic_status": "primary",
       "status_label": "core-corrected; model-specific negative result retained",
       "url": "/en/papers/FRC-100-005"
+    },
+    {
+      "id": "FRC-100-006",
+      "version": "v2.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "conditional-model",
+      "status_label": "conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open",
+      "url": "/en/papers/FRC-100-006"
+    },
+    {
+      "id": "FRC-100-006-002",
+      "version": "v2.0",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "conditional-model",
+      "status_label": "heuristic-window-retired; spectral-and-adiabatic-bounds-proven; empirical-constraint-map-linked",
+      "url": "/en/papers/FRC-100-006-002"
     },
     {
       "id": "FRC-100-007",
@@ -571,6 +589,36 @@
       "role": "Candidate finite-time basin mechanism with open dynamics, Born-weight, and environment gates."
     },
     {
+      "id": "FRC-100-006",
+      "title": "Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation",
+      "url": "/en/papers/FRC-100-006",
+      "version": "v2.0",
+      "date": "2026-11-27",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "conditional-model",
+      "status_label": "conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open",
+      "prior_version_doi": "10.5281/zenodo.17438360",
+      "doi_status": "v2.0 Zenodo deposit pending",
+      "pdf_url": "/paper-pdfs/FRC-100-006.pdf",
+      "role": "Conditional S^1 Fokker-Planck Born-equilibrium core (Half A: unique equilibrium, KL H-theorem, gamma = Lambda_0/k* = 1 exponent uniqueness, D > 0 necessity) with carrier obstructions integrated and Half B admissibility gates explicitly open."
+    },
+    {
+      "id": "FRC-100-006-002",
+      "title": "Finite-Time, Non-Ergodic, and Non-Stationary Diagnostic Bounds on Resonant Equilibrium",
+      "url": "/en/papers/FRC-100-006-002",
+      "version": "v2.0",
+      "date": "2026-11-27",
+      "publication_state": "preprint",
+      "canon_status": "living-core",
+      "epistemic_status": "conditional-model",
+      "status_label": "heuristic-window-retired; spectral-and-adiabatic-bounds-proven; empirical-constraint-map-linked",
+      "prior_version_doi": "10.5281/zenodo.17526499",
+      "doi_status": "v2.0 Zenodo deposit pending",
+      "pdf_url": "/paper-pdfs/FRC-100-006-002.pdf",
+      "role": "Retires the underived 2025 Born-deviation heuristic and proves forward spectral-gap (P-D1), linear-skew (P-D2), and Fisher-information adiabatic (P-D3) diagnostic bounds with explicit sufficiency vs. conditional exclusion discipline."
+    },
+    {
       "id": "FRC-100-007",
       "title": "The Lambda-Field v3.3: Narrow Rho-Drift Audit and Ontology Separation",
       "url": "/en/papers/FRC-100-007",
@@ -892,30 +940,6 @@
       "doi": "10.5281/zenodo.17438174",
       "pdf_url": "/paper-pdfs/FRC-100-004.pdf",
       "status_note": "This living 100-series identifier is retained, but its quantum-ontology claims are revision pending. It does not state the current FRC position on determinism, hidden variables, or quantum foundations."
-    },
-    {
-      "id": "FRC-100-006",
-      "title": "The Emergence of the Born Rule from Resonant Equilibrium",
-      "url": "/en/papers/FRC-100-006",
-      "date": "2025-08-15",
-      "publication_state": "revision pending",
-      "canon_status": "living-core",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.17438360",
-      "pdf_url": "/paper-pdfs/FRC-100-006.pdf",
-      "status_note": "This living 100-series identifier is retained, but its claimed Born-rule derivation is revision pending. The current corpus does not treat it as an established derivation or prediction."
-    },
-    {
-      "id": "FRC-100-006-002",
-      "title": "Born-Rule Deviations under Finite-Time and Non-Equilibrium Conditions",
-      "url": "/en/papers/FRC-100-006-002",
-      "date": "2025-11-04",
-      "publication_state": "revision pending",
-      "canon_status": "living-core",
-      "epistemic_status": "primary",
-      "doi": "10.5281/zenodo.17526499",
-      "pdf_url": "/paper-pdfs/FRC-100-006-002.pdf",
-      "status_note": "This living 100-series identifier depends on the earlier FRC 100.006 premise and is revision pending. It does not establish observable Born-rule deviations."
     },
     {
       "id": "FRC-100-010",
