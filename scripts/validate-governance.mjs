@@ -41,10 +41,24 @@ export const COGNITION_NAME_RX = /\bfractal\s+resonance\s+cognition\b/i;
 
 /**
  * Verb-independent physics-mechanism / quantum / dynamics vocabulary that must NEVER
- * co-occur with "Fractal Resonance Cognition" in a clause on physics or charter pages.
+ * co-occur with "Fractal Resonance Cognition" in a clause or table row on physics or charter pages.
  */
 export const COGNITION_PHYSICS_VOCAB_RX =
-  /\b(?:quantum|decoherence|collapse|wavefunction|born|hamiltonian|physically|physical\s+(?:force|mechanism|collapse|law|dynamics|process|substrate|driver|cause|interaction|field|equation|model|theory|effect)|phase[- ]locking\s+mechanism|thermodynamic\s+law)\b/i;
+  /\b(?:quantum|decoherence|collapse|wavefunction|born|hamiltonian|physically|physical(?:\s+[a-z0-9-]+){0,3}\s+(?:force|mechanism|collapse|law|dynamics|process|substrate|driver|cause|interaction|effect|operator|field|state|evolution|model|theory|equation)|phase[- ]locking\s+mechanism|thermodynamic\s+law)\b/i;
+
+const PHYSICAL_NON_PROOF_DISCLAIMER_RX =
+  /\b(?:without\s+claiming|zero|no|not)\s+physical(?:\s+or\s+mathematical)?\s+(?:proof|evidence)\b/gi;
+
+const COGNITION_MECHANISM_NOUN_RX =
+  /\b(?:mechanism|force|collapse|decoherence|dynamics|process|law|cause|driver|substrate|operator|field)\b/i;
+
+export function hasCognitionPhysicsMechanismVocab(text) {
+  const plain = String(text || '');
+  if (!COGNITION_NAME_RX.test(plain)) return false;
+  if (COGNITION_PHYSICS_VOCAB_RX.test(plain)) return true;
+  const withoutProofDisclaimer = plain.replace(PHYSICAL_NON_PROOF_DISCLAIMER_RX, '');
+  return /\bphysical\b/i.test(withoutProofDisclaimer) && COGNITION_MECHANISM_NOUN_RX.test(withoutProofDisclaimer);
+}
 
 export const PHILOSOPHY_BOOK_IDS = new Set([
   'the-open-system',
@@ -188,6 +202,7 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
     }
 
     const isTableRow = trimmed.startsWith('|') && trimmed.endsWith('|');
+    const hasTablePipe = isTableRow || trimmed.includes('|');
     const tableCells = isTableRow
       ? trimmed
           .slice(1, -1)
@@ -199,16 +214,23 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
     const hasPhilosophyRegisterTableCell =
       isTableRow && tableCells.some((cell) => /^philosophy\s+register$/i.test(cell));
 
+    // Evaluate Markdown table rows as one complete unit before splitting on `|` so a
+    // physics-mechanism claim in another column cannot evade the Cognition check.
+    if (hasTablePipe && register !== 'philosophy' && hasCognitionPhysicsMechanismVocab(plainTrimmed)) {
+      issues.push(
+        `${rel}: active page combines "Fractal Resonance Cognition" with physical-mechanism/quantum vocabulary ("${trimmed.slice(0, 120)}").`,
+      );
+      continue;
+    }
+
     for (const clause of splitIntoClauses(rawLine)) {
       const plainClause = clause.replace(/[*_`]+/g, '');
-      const hasCognitionPhysicsVocab =
-        COGNITION_NAME_RX.test(plainClause) && COGNITION_PHYSICS_VOCAB_RX.test(plainClause);
 
       // Strict verb-independent rule: on ANY physics or charter page, a clause combining
       // "Fractal Resonance Cognition" with physics-mechanism / quantum / dynamics vocabulary
       // is unconditionally rejected (cannot be bypassed by "philosophy register", "(philosophy)",
-      // "the open system", "Two-Register Architecture", or piggybacked negation phrases).
-      if (hasCognitionPhysicsVocab && register !== 'philosophy') {
+      // "the open system", "Two-Register Architecture", intervening modifiers, or piggybacked negation).
+      if (register !== 'philosophy' && hasCognitionPhysicsMechanismVocab(plainClause)) {
         issues.push(
           `${rel}: active page combines "Fractal Resonance Cognition" with physical-mechanism/quantum vocabulary ("${clause.slice(0, 120)}").`,
         );

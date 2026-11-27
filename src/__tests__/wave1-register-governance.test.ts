@@ -10,6 +10,7 @@ import { buildResearchMap } from '@/lib/research-map';
 import {
   checkActiveTextForStaleClaims,
   resolveContentRegister,
+  validateGovernance,
 } from '../../scripts/validate-governance.mjs';
 
 const root = process.cwd();
@@ -160,6 +161,9 @@ describe('Two-Register governance (Wave 1)', () => {
       'Fractal Resonance Cognition acts as the physical collapse mechanism without claiming physical proof of consciousness.',
       'In the philosophy register, Fractal Resonance Cognition mediates wavefunction collapse.',
       'Fractal Resonance Cognition (philosophy register) governs quantum collapse.',
+      'Fractal Resonance Cognition (philosophy) provides the physical causal mechanism.',
+      'Fractal Resonance Cognition (philosophy) provides a mechanism that is physical.',
+      '| Philosophy register | Fractal Resonance Cognition | Governs quantum decoherence |',
     ]) {
       const issues = checkActiveTextForStaleClaims(
         bypassAttempt,
@@ -208,25 +212,49 @@ describe('Two-Register governance (Wave 1)', () => {
         file: 'FRC-100-100.md',
         line: 'Fractal Resonance Cognition (philosophy register) governs quantum collapse.',
       },
+      {
+        file: 'FRC-100-100.md',
+        line: 'Fractal Resonance Cognition (philosophy) provides the physical causal mechanism.',
+      },
+      {
+        file: 'FRC-100-011.md',
+        line: '| Register | Framework | Physical role |\n| --- | --- | --- |\n| Philosophy register | Fractal Resonance Cognition | Governs quantum decoherence |',
+      },
     ];
 
-    for (const tc of charterCounterexamples) {
-      const failRoot = makeTempRepoCopy((tmpRoot) => {
-        const target = path.join(tmpRoot, 'content', 'en', 'papers', tc.file);
-        const raw = fs.readFileSync(target, 'utf8');
+    const sharedFailRoot = makeTempRepoCopy();
+    try {
+      const originals = new Map<string, string>();
+      for (const file of ['FRC-100-000.md', 'FRC-100-100.md', 'FRC-100-011.md']) {
+        originals.set(file, fs.readFileSync(path.join(sharedFailRoot, 'content', 'en', 'papers', file), 'utf8'));
+      }
+
+      for (const tc of charterCounterexamples) {
+        const target = path.join(sharedFailRoot, 'content', 'en', 'papers', tc.file);
+        const raw = originals.get(tc.file)!;
         const injected = raw.replace(
           /\r?\n##+\s+(?:\d+\.\s*)?References\b/i,
           `\n\n${tc.line}\n$&`,
         );
         fs.writeFileSync(target, injected !== raw ? injected : `${raw}\n${tc.line}\n`);
-      });
-      try {
-        const res = runGovernanceCli(failRoot);
-        expect(res.status, `${tc.file} must exit 1 on "${tc.line}"`).toBe(1);
-        expect(res.stderr).toContain('Fractal Resonance Cognition');
-      } finally {
-        fs.rmSync(failRoot, { recursive: true, force: true });
+        try {
+          // Run the real full-corpus governance validator on every counterexample
+          const valRes = validateGovernance(sharedFailRoot);
+          expect(valRes.ok, `${tc.file} must fail validateGovernance on "${tc.line}"`).toBe(false);
+          expect(valRes.errors.join('\n')).toContain('Fractal Resonance Cognition');
+
+          // Also verify CLI exit code 1 directly for the modifier and table-row bypass counterexamples
+          if (tc.line.includes('physical causal mechanism') || tc.line.includes('Governs quantum decoherence')) {
+            const cliRes = runGovernanceCli(sharedFailRoot);
+            expect(cliRes.status, `${tc.file} CLI must exit 1 on "${tc.line}"`).toBe(1);
+            expect(cliRes.stderr).toContain('Fractal Resonance Cognition');
+          }
+        } finally {
+          fs.writeFileSync(target, raw);
+        }
       }
+    } finally {
+      fs.rmSync(sharedFailRoot, { recursive: true, force: true });
     }
   }, 45_000);
 
