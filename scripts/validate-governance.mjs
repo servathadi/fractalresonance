@@ -32,10 +32,13 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_ROOT = path.join(__dirname, '..');
 
 export const NEGATION_CONTEXT_RX =
-  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|without\s+claiming\s+(?:physical\s+|empirical\s+)?proof|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
 
 export const TWO_REGISTER_FRAMING_RX =
-  /\b(?:philosophy\s+register|philosophical\s+(?:register|position|stance|monograph)|in\s+philosophy|belongs?\s+to\s+philosophy|two[- ]register(?:\s+architecture|\s+crosswalk|\s+scope)?|philosophy\s*\)|\(\s*philosophy|philosoph(?:y|ical)[^.;!?]{0,80}fractal\s+resonance\s+cognition|fractal\s+resonance\s+cognition[^.;!?]{0,80}philosoph(?:y|ical)|the\s+open\s+system|the\s+mind\s+in\s+the\s+coupling)\b/i;
+  /(?:\b(?:philosophy\s+register|philosophical\s+register|in\s+philosophy)\b[^.;!?]{0,40}\bfractal\s+resonance\s+cognition\b|\bfractal\s+resonance\s+cognition\b[^.;!?]{0,40}(?:\b(?:belongs?\s+to\s+philosophy|in\s+(?:its\s+)?philosophy\s+register|philosophy\s+register)\b|\(\s*philosophy(?:\s+register)?\s*\)))/i;
+
+export const AFFIRMATIVE_COGNITION_PHYSICS_RX =
+  /\bfractal\s+resonance\s+cognition\b(?:\s*\([^)]{0,30}\))?\s+(?:acts?\s+as|is\s+(?:a|an|the)?|serves?\s+as|operates?\s+as|functions?\s+as|drives?|causes?|governs?|explains?|derives?|proves?|produces?|generates?|mediates?|induces?|triggers?)\b[^.;!?]{0,90}\b(?:physical(?:\s+(?:collapse|force|mechanism|law|field|process|dynamics|interaction|theory|proof|equation))?|quantum(?:\s+(?:collapse|decoherence|measurement|dynamics|field|mechanism|state))?|collapse\s+(?:mechanism|dynamics|equation)|decoherence|force\s+driving|wavefunction|hamiltonian|thermodynamic\s+law|phase[- ]locking\s+mechanism|born\s+rule)\b/i;
 
 export const PHILOSOPHY_BOOK_IDS = new Set([
   'the-open-system',
@@ -51,6 +54,11 @@ export const CHARTER_OVERVIEW_IDS = new Set([
 ]);
 
 const ACTIVE_STALE_CLAIM_RULES = [
+  {
+    id: 'cognition-physics-mechanism-claim',
+    pattern: AFFIRMATIVE_COGNITION_PHYSICS_RX,
+    message: 'asserts "Fractal Resonance Cognition" as an affirmative physical mechanism, force, or derivation',
+  },
   {
     id: 'retired-cognition-name',
     pattern: /fractal\s+resonance\s+cognition/i,
@@ -188,22 +196,28 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
     const hasNegatedTableDisposition =
       isTableRow && tableCells.some((cell) => NEGATED_TABLE_ROW_CELL_RX.test(cell));
     const hasPhilosophyRegisterTableCell =
-      isTableRow && tableCells.some((cell) => /\bphilosophy\s+register\b/i.test(cell));
+      isTableRow && tableCells.some((cell) => /^philosophy\s+register$/i.test(cell));
 
     for (const clause of splitIntoClauses(rawLine)) {
       const plainClause = clause.replace(/[*_`]+/g, '');
+      const hasAffirmativeCognitionPhysics = AFFIRMATIVE_COGNITION_PHYSICS_RX.test(plainClause);
       for (const rule of ACTIVE_STALE_CLAIM_RULES) {
         if (rule.id === 'retired-cognition-name' && register === 'philosophy') {
           continue;
         }
         if (!rule.pattern.test(plainClause)) continue;
         if (NEGATION_CONTEXT_RX.test(plainClause)) continue;
-        if (hasNegatedTableDisposition && rule.id !== 'unhedged-equation-proves-consciousness') {
+        if (
+          hasNegatedTableDisposition &&
+          rule.id !== 'unhedged-equation-proves-consciousness' &&
+          rule.id !== 'cognition-physics-mechanism-claim'
+        ) {
           continue;
         }
         if (
           rule.id === 'retired-cognition-name' &&
           isCharterOverview &&
+          !hasAffirmativeCognitionPhysics &&
           (TWO_REGISTER_FRAMING_RX.test(plainClause) || hasPhilosophyRegisterTableCell)
         ) {
           continue;

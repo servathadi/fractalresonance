@@ -148,7 +148,63 @@ describe('Two-Register governance (Wave 1)', () => {
       { register: 'physics', isCharterOverview: true },
     );
     expect(charterPhysicsOverreach.length).toBeGreaterThan(0);
+
+    // Charter exemptions must NEVER allow affirmative physics-mechanism claims tied to
+    // "Fractal Resonance Cognition" even if "the open system", "Two-Register Architecture",
+    // or "philosophy register" appears in the same sentence.
+    for (const bypassAttempt of [
+      'Fractal Resonance Cognition acts as the physical collapse mechanism in the open system.',
+      'Fractal Resonance Cognition is the physical force driving quantum decoherence in the Two-Register Architecture.',
+      'In the philosophy register, Fractal Resonance Cognition drives physical collapse dynamics in the open system.',
+    ]) {
+      const issues = checkActiveTextForStaleClaims(
+        bypassAttempt,
+        'content/en/papers/FRC-100-000.md',
+        { register: 'physics', isCharterOverview: true },
+      );
+      expect(issues.length, `Charter page must reject physics-mechanism claim: ${bypassAttempt}`).toBeGreaterThan(0);
+    }
   });
+
+  it('rejects affirmative Fractal Resonance Cognition physics-mechanism insertions on charter papers (100.000, 100.100, 100.011) via CLI while unmodified charters exit 0', () => {
+    // Confirm unmodified repository (including FRC-100-000, FRC-100-100, FRC-100-011) exits 0
+    const cleanRes = runGovernanceCli(root);
+    expect(cleanRes.status, cleanRes.stderr).toBe(0);
+
+    const charterCounterexamples: Array<{ file: string; line: string }> = [
+      {
+        file: 'FRC-100-000.md',
+        line: 'Fractal Resonance Cognition acts as the physical collapse mechanism in the open system.',
+      },
+      {
+        file: 'FRC-100-100.md',
+        line: 'Fractal Resonance Cognition is the physical force driving quantum decoherence in the Two-Register Architecture.',
+      },
+      {
+        file: 'FRC-100-011.md',
+        line: 'In the philosophy register, Fractal Resonance Cognition governs quantum decoherence and physical collapse dynamics in the open system.',
+      },
+    ];
+
+    for (const tc of charterCounterexamples) {
+      const failRoot = makeTempRepoCopy((tmpRoot) => {
+        const target = path.join(tmpRoot, 'content', 'en', 'papers', tc.file);
+        const raw = fs.readFileSync(target, 'utf8');
+        const injected = raw.replace(
+          /\r?\n##+\s+(?:\d+\.\s*)?References\b/i,
+          `\n\n${tc.line}\n$&`,
+        );
+        fs.writeFileSync(target, injected !== raw ? injected : `${raw}\n${tc.line}\n`);
+      });
+      try {
+        const res = runGovernanceCli(failRoot);
+        expect(res.status, `${tc.file} must exit 1 on "${tc.line}"`).toBe(1);
+        expect(res.stderr).toContain('Fractal Resonance Cognition');
+      } finally {
+        fs.rmSync(failRoot, { recursive: true, force: true });
+      }
+    }
+  }, 30_000);
 
   it('proves CLI exit codes for (a) physics cognition fail, (b) philosophy cognition pass, (c) philosophy overreach fail, and (d) charter two-register pass', () => {
     // (a) Physics paper body claiming "Fractal Resonance Cognition" as physics mechanism -> exit 1
