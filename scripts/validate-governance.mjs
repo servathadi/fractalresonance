@@ -109,16 +109,16 @@ const ACTIVE_STALE_CLAIM_RULES = [
 const NEGATED_LIST_LEAD_RX =
   /\b(?:do\s+not\s+revive|do\s+not\s+claim|retired\s+claims|withdrawn\s+claims|demoted\s+claims|explicit\s+non-claims|overclaiming[^.\n]*exposed\s+as\s+unproved)\b[^.\n]*:\s*$/i;
 
-const AFFIRMATIVE_BORN_DERIVATION_RX =
-  /(?:(?:(?:has|have)\s+(?:already\s+)?)?deriv(?:es?|ed)\s+the\s+born\s+rule|born\s+rule\s+(?:(?:is|was|has\s+been|had\s+been)\s+(?:already\s+)?)?(?:derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند)/i;
+const AFFIRMATIVE_BORN_OR_RANGE_VERB_RX =
+  /(?:(?:(?:has|have)\s+(?:already\s+)?)?deriv(?:es?|ed)\s+the\s+born\s+rule|born\s+rule\s+(?:(?:is|was|has\s+been|had\s+been)\s+(?:already\s+)?)?(?:derived|derivation|emerges\s+as)|(?:deriva|dérive)\s+la\s+(?:regla|règle)\s+de\s+born|قاعده\s+بورن[\s\S]{0,60}استخراج\s+می‌کند|\b(?:predicts?|predicting|claims?|asserts?|establishes?|confirms?|proves?|exhibits?|yields?|produces?)\b)/i;
 
 /**
- * Narrow rule-specific exemption ONLY for clauses that directly retire or mark as underived
- * the historical [10^-4, 10^-3] heuristic range itself (never exempting affirmative Born-rule
- * derivation claims, 16D claims, or unrelated uses of "retire"/"uncalibrated"/"underived").
+ * Narrow rule-specific exemption ONLY for exact noun phrases that directly retire or mark as
+ * underived/uncalibrated the historical [10^-4, 10^-3] heuristic itself (zero arbitrary wildcards
+ * across words/verbs, and never applied if any affirmative prediction/claim verb appears).
  */
 const SCOPED_RETIRED_DEVIATION_WINDOW_RX =
-  /\b(?:retir(?:es?|ed|ing)\s+(?:the\s+)?(?:prior\s+|2025\s+|underived\s+){0,2}(?:\$?[^.;!?$]{0,25})?\[?10\^\{?-4\}?|underived\s+(?:2025\s+)?(?:numerical\s+)?heuristic(?:\s+expectation)?\s+of\s+[^.;!?]{0,40}10\^\{?-4\}?|uncalibrated\s+[^.;!?]{0,90}10\^\{?-4\}?[^.;!?]{0,40}\bheuristics?\b)/i;
+  /(?:\bretir(?:es?|ed|ing)\s+the\s+(?:(?:prior|2025|underived|historical)\s+){0,2}(?:\$[^$\n]{0,30}10\^\{?-4\}?[^$\n]*\$|\[?10\^\{?-4\}?)|\bunderived\s+(?:2025\s+)?(?:numerical\s+)?heuristic(?:\s+expectation)?\s+of\s+\$[^$\n]{0,30}10\^\{?-4\}?[^$\n]*\$|\bthe\s+uncalibrated\s+\$[^$\n]+\$\s+and\s+\$[^$\n]*10\^\{?-4\}?[^$\n]*\$\s+heuristics?\b)/i;
 
 const NEGATED_TABLE_ROW_CELL_RX =
   /^(?:CONTRADICTED|DEMOTED|ARCHIVED|RETIRED|HISTORICAL\s+DEVELOPMENT\s+ARCHIVE(?:\s*\([^)]*\))?)$/i;
@@ -258,7 +258,7 @@ export function checkActiveTextForStaleClaims(text, rel, options = {}) {
         if (NEGATION_CONTEXT_RX.test(plainClause)) continue;
         if (
           rule.id === 'unhedged-born-rule' &&
-          !AFFIRMATIVE_BORN_DERIVATION_RX.test(plainClause) &&
+          !AFFIRMATIVE_BORN_OR_RANGE_VERB_RX.test(plainClause) &&
           SCOPED_RETIRED_DEVIATION_WINDOW_RX.test(plainClause)
         ) {
           continue;

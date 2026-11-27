@@ -124,6 +124,9 @@ describe('Wave 2a mirror: FRC 100.006 v2.0 & FRC 100.006.002 v2.0', () => {
       'The readout is uncalibrated and 16D is physical canon.',
       'The apparatus is uncalibrated and $|\\delta(x)| \\in [10^{-4}, 10^{-3}]$.',
       'We retire the old apparatus and $|\\delta(x)| \\in [10^{-4}, 10^{-3}]$.',
+      'We retire the apparatus and predict 10^-4 to 10^-3 deviations.',
+      'The apparatus is uncalibrated and we predict 10^-4 to 10^-3 deviations with this heuristic.',
+      'We retire the apparatus and 10^-4 to 10^-3 deviations occur.',
     ];
     for (const sentence of mixedAssertions) {
       expect(
