@@ -65,7 +65,7 @@ describe('Cross-language translation parity and DOI hygiene (#311)', () => {
     const tmpRoot = makeIsolatedRepoCopy();
     try {
       // Mismatch 1: revision-pending paper changed to preprint
-      const revTarget = path.join(tmpRoot, 'content', 'fr', 'papers', 'FRC-100-006.md');
+      const revTarget = path.join(tmpRoot, 'content', 'fr', 'papers', 'FRC-100-001.md');
       const revRaw = fs.readFileSync(revTarget, 'utf8');
       fs.writeFileSync(revTarget, revRaw.replace(/publicationState:\s*['"]?revision pending['"]?/, 'publicationState: preprint'));
 
@@ -76,7 +76,7 @@ describe('Cross-language translation parity and DOI hygiene (#311)', () => {
 
       const result = validateTranslations(tmpRoot);
       expect(result.ok).toBe(false);
-      expect(result.errors.some((e) => e.includes('FRC-100-006.md') && e.includes('publicationState'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('FRC-100-001.md') && e.includes('publicationState'))).toBe(true);
       expect(result.errors.some((e) => e.includes('FRC-100-002.md') && e.includes('"doi"'))).toBe(true);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
@@ -118,8 +118,8 @@ lang: es
 
   it('treats both revision-pending and archived papers as non-current (noindex) in every language', () => {
     for (const lang of ['en', 'es', 'fa', 'fr']) {
-      const rev = getPaper(lang, 'FRC-100-006');
-      expect(rev, `${lang}/FRC-100-006 should exist`).not.toBeNull();
+      const rev = getPaper(lang, 'FRC-100-001');
+      expect(rev, `${lang}/FRC-100-001 should exist`).not.toBeNull();
       expect(rev!.frontmatter.publicationState).toBe('revision pending');
       expect(isCurrentReadingContent('paper', rev!.frontmatter)).toBe(false);
     }
@@ -145,7 +145,7 @@ lang: es
       const esIdxPath = path.join(tmpRoot, 'public', 'search-index-es.json');
       const esIdx = JSON.parse(fs.readFileSync(esIdxPath, 'utf8'));
       esIdx.documents.push({
-        id: 'FRC-100-006',
+        id: 'FRC-100-001',
         type: 'papers',
         lang: 'es',
         title: 'Leaked revision-pending paper',
@@ -155,7 +155,7 @@ lang: es
       const result = validateTranslations(tmpRoot);
       expect(result.ok).toBe(false);
       expect(
-        result.errors.some((e) => e.includes('public/search-index-es.json') && e.includes('FRC-100-006')),
+        result.errors.some((e) => e.includes('public/search-index-es.json') && e.includes('FRC-100-001')),
       ).toBe(true);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });

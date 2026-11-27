@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T02:46:47.191Z",
+  "generated": "2026-11-27T16:17:46.907Z",
   "documents": [
     {
       "id": "FRC-100-000",
@@ -201,6 +201,84 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298168",
       "conceptDoi": "10.5281/zenodo.17438230",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-006-002",
+      "type": "papers",
+      "lang": "en",
+      "title": "Finite-Time, Non-Ergodic, and Non-Stationary Diagnostic Bounds on Resonant Equilibrium",
+      "abstract": "This companion to FRC 100.006 v2.0 formally retires the underived 2025 [10^-4, 10^-3] Born-rule deviation heuristic and replaces it with exact, reproducible forward diagnostic bounds and explicitly conditional exclusion criteria for the three operational non-equilibrium mechanisms on the S^1 Fokker-Planck generator. Mapping the Fokker-Planck operator unitarily to a self-adjoint Schrodinger operator H_FP = D(-d_phi^2 + W(phi)) with discrete spectrum 0 = lambda_0 < lambda_1 <= lambda_2 <= ... -> infinity, we prove three forward theorems: (1) P-D1 (finite-time truncation): total variation and basin occupancy errors obey eps_basin(T) <= eps_TV(T) <= C_0 exp(-lambda_1 T) with C_0 = (1/2) sqrt(chi^2(rho_0 || rho*)), revealing a quantitative metastability trade-off where increasing basin gain beta suppresses static overlap error while shrinking lambda_1(beta); (2) P-D2 (non-ergodic skewed initial priors): under rho_0^(delta) = (1 - delta) rho* + delta nu, every outcome deviation scales identically linearly in delta at fixed horizon T, establishing preparation randomization as a crisp falsifier of skew-only hypotheses; and (3) P-D3 (non-stationary coupling ramps): an exact weighted-L^2 Lyapunov analysis incorporating the equilibrium Fisher information I_F(g) and metric-drift norm M(g) proves a non-asymptotic adiabatic tracking bound O(||dg/dt||_inf / lambda_min) = O(1 / (lambda_min T_ramp)) whenever ||dg/dt||_inf M(g) <= lambda_1(g), supplemented by the exact initial-layer asymptotic decomposition and nondegeneracy conditions for 1/T_ramp endpoint scaling. Finally, we carefully separate sufficient conditions for null accuracy from conditional parameter exclusions—demonstrating explicit finite-time mode-cancellation and static-overlap-cancellation counterexamples to naive upper-bound inversion—and link calibrated precision-Born observations to scoped constraints on |gamma - 1|, lambda_1^{-1}, ramp lag, and the audited FRC 100.007 v3.3 deterministic rho-drift pilot (rates 0.09 alpha to 0.22 alpha, preparation-dependence slope 8.804 in its tested normalization), subject to the anti-precursor-hunting discipline of FRC 787.787 v1.2.",
+      "tags": [
+        "born-rule",
+        "non-equilibrium",
+        "spectral-gap",
+        "fokker-planck",
+        "adiabatic-tracking",
+        "non-ergodicity",
+        "falsifiability",
+        "diagnostic-bounds",
+        "anti-precursor-hunting"
+      ],
+      "taxons": [
+        "born-rule",
+        "non-equilibrium",
+        "spectral-gap",
+        "fokker-planck",
+        "adiabatic-tracking",
+        "non-ergodicity",
+        "falsifiability",
+        "diagnostic-bounds",
+        "anti-precursor-hunting",
+        "frc-100"
+      ],
+      "content": "FRC 100.006.002 v2.0 — Finite-Time, Non-Ergodic, and Non-Stationary Diagnostic Bounds on Resonant Equilibrium > Epistemic Scope & Provenance > > - Document: FRC 100.006.002, Version (2026-11-27) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-006-002 > - Prior v1 Record DOI: https://doi.org/10.5281/zenodo.17526499 (prior 2025 v1 record; v2.0 Zenodo deposit pending) > - Retired 2025 Heuristic: Explicitly withdraws the...",
+      "url": "/en/papers/FRC-100-006-002",
+      "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-006",
+      "type": "papers",
+      "lang": "en",
+      "title": "Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation",
+      "abstract": "This paper upgrades FRC 100.006 to a rigorously scoped conditional equilibrium framework for Born-rule statistics on a one-dimensional microstate phase circle S^1. Dividing the problem into a proven conditional core (Half A) and explicit open admissibility gates (Half B), we first prove three exact mathematical results for overdamped Langevin and Fokker-Planck dynamics on S^1 driven by a multi-basin coherence landscape C(phi; alpha, beta) = sum_j |alpha_j|^2 exp(beta cos(phi - phi_j)) with potential Lambda(phi) = Lambda_0 ln C(phi) and Einstein-scaled diffusivity D = k*/eta: (1) unique zero-current stationary equilibrium rho*_gamma(phi) = Z^{-1} C(phi)^gamma with exponent ratio gamma = Lambda_0 / k*; (2) an exact relative-entropy (KL) H-theorem with strict dissipation dH/dt = -D int rho |d_phi ln(rho/rho*_gamma)|^2 d phi <= 0 and explicit Holley-Stroock Log-Sobolev exponential convergence; and (3) an exact exponent-uniqueness theorem with certified non-asymptotic finite-beta overlap bounds showing that basin occupancies converge to p_j*(gamma) = |alpha_j|^{2 gamma} / sum_l |alpha_l|^{2 gamma} as beta -> infinity, uniquely selecting gamma = 1 (Lambda_0 = k*) for linear Born ratios while producing sharp power-law distortion for gamma != 1. A contrasting exact two-basin calculation proves that nonzero stochastic diffusion (D > 0) is mathematically indispensable: deterministic (D = 0) gradient capture from a uniform phase prior converges to 1/2 rather than |alpha_1|^2. Second, we synthesize two carrier-level obstructions from the hardened FRC corpus: FRC 100.007 v3.3 excludes audited deterministic rho-level Lambda-drifts via population drift (0.09 alpha to 0.22 alpha) and preparation-dependence slope 8.804, while FRC 830.005 v0.3 excludes every affine Bloch-ball map (hence every CPTP qubit channel) on open coherent sets while leaving one-dimensional circle fibers and outcome-conditioned instruments open, matching the S^1 microstate geometry. Finally, we state Half B transparently without circularity: Half A does not explain why the coupled system-apparatus landscape carries quadratic |alpha_j|^2 weights with Lambda_0 = k*, nor does it establish operational equivalence, bipartite no-signaling, or closed environment entropy accounting. All underived 2025 magnitude heuristics (including the prior [10^-4, 10^-3] guess) are formally retired.",
+      "tags": [
+        "born-rule",
+        "resonant-equilibrium",
+        "fokker-planck",
+        "h-theorem",
+        "exponent-rigidity",
+        "coherence-landscape",
+        "admissibility-gates",
+        "no-signaling",
+        "operational-equivalence"
+      ],
+      "taxons": [
+        "born-rule",
+        "resonant-equilibrium",
+        "fokker-planck",
+        "h-theorem",
+        "exponent-rigidity",
+        "coherence-landscape",
+        "admissibility-gates",
+        "no-signaling",
+        "operational-equivalence",
+        "frc-100"
+      ],
+      "content": "FRC 100.006 v2.0 — Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility Gates for Resonant Relaxation > Epistemic Scope & Provenance > > - Document: FRC 100.006, Version (2026-11-27) > - Author: Hadi Servat (ORCID: 0009-0004-7412-5129) > - Canonical Web URL: https://fractalresonance.com/en/papers/FRC-100-006 > - Prior v1 Record DOI: https://doi.org/10.5281/zenodo.17438360 (prior 2025 v1 record; v2.0 Zenodo deposit pending) > - Exact Conditional Math (Half A): Unique zero-current...",
+      "url": "/en/papers/FRC-100-006",
+      "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -2225,6 +2303,35 @@
       "retrievalPriority": 100
     },
     {
+      "id": "FRC-100-006",
+      "type": "papers",
+      "lang": "es",
+      "title": "Equilibrio de la Regla de Born, Paisajes de Coherencia y Puertas de Admisibilidad para la Relajación Resonante (v2.0)",
+      "abstract": "FRC 100.006 v2.0 actualiza el marco a un modelo condicional riguroso de equilibrio en S^1 (Mitad A probada; obstrucciones de 100.007 v3.3 y 830.005 v0.3 integradas; puertas de admisibilidad de la Mitad B explícitamente abiertas). Esta traducción corresponde a la edición anterior de 2025; consulte la edición canónica en inglés para el texto y los teoremas actuales.",
+      "tags": [
+        "regla-born",
+        "probabilidad",
+        "equilibrio",
+        "mecanica-estadistica"
+      ],
+      "taxons": [
+        "regla-born",
+        "probabilidad",
+        "equilibrio",
+        "mecanica-estadistica",
+        "frc-100"
+      ],
+      "content": "FRC 100.006 — La Emergencia de la Regla de Born desde el Equilibrio Resonante > Aviso de versión canónica en inglés: El texto traducido a continuación corresponde a la edición anterior de 2025 (v1) y va por detrás del manuscrito canónico en inglés (). Cualquier afirmación anterior en este texto traducido queda subordinada a la edición actual en inglés: /en/papers/FRC-100-006 y el mapa de lectura en /en/papers/FRC-100-000. 1. Introducción La regla de Born—$P(x) = |͓(x)|^2$—es el puente entre la...",
+      "url": "/es/papers/FRC-100-006",
+      "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
       "id": "FRC-100-007",
       "type": "papers",
       "lang": "es",
@@ -2617,6 +2724,35 @@
       "muLevel": "mu1",
       "doi": "10.5281/zenodo.21298168",
       "conceptDoi": "10.5281/zenodo.17438230",
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
+      "id": "FRC-100-006",
+      "type": "papers",
+      "lang": "fa",
+      "title": "تعادل قاعده بورن، چشم‌اندازهای همدوسی و دروازه‌های پذیرش‌پذیری برای آرامش رزونانسی (v2.0)",
+      "abstract": "نسخه v2.0 از FRC 100.006 چارچوب تعادل شرطی دقیق روی دایره فازی S^1 را ارائه می‌دهد (نیمه A اثبات‌شده؛ موانع 100.007 v3.3 و 830.005 v0.3 یکپارچه؛ دروازه‌های نیمه B به‌صراحت باز). این ترجمه مربوط به نسخه پیشین ۲۰۲۵ است؛ برای متن و قضایای کنونی به نسخه مرجع انگلیسی مراجعه کنید.",
+      "tags": [
+        "قاعده-بورن",
+        "احتمال",
+        "تعادل",
+        "مکانیک-آماری"
+      ],
+      "taxons": [
+        "قاعده-بورن",
+        "احتمال",
+        "تعادل",
+        "مکانیک-آماری",
+        "frc-100"
+      ],
+      "content": "FRC 100.006 — ظهور قاعده بورن از تعادل رزونانسی > اعلان نسخه مرجع انگلیسی: متن ترجمه‌شده زیر مربوط به ویرایش پیشین ۲۰۲۵ (v1) است و از نسخه مرجع انگلیسی () عقب‌تر است. برای وضعیت کنونی، قضایای دقیق و مرز ادعاها، نسخه مرجع انگلیسی را در /en/papers/FRC-100-006 و نقشه مطالعه را در /en/papers/FRC-100-000 ببینید. ۱. مقدمه قاعده بورن—$P(x) = |\\psi(x)|^2$—پل بین نظریه کوانتومی و آزمایش است. این قاعده احتمال یافتن یک ذره در موقعیت $x$ را با توجه به تابع موج $\\psi$ به ما می‌گوید. در مکانیک کوانتومی...",
+      "url": "/fa/papers/FRC-100-006",
+      "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
       "epistemicStatus": "primary",
       "retrievalPriority": 100
     },
@@ -3015,6 +3151,35 @@
       "retrievalPriority": 100
     },
     {
+      "id": "FRC-100-006",
+      "type": "papers",
+      "lang": "fr",
+      "title": "Équilibre de la Règle de Born, Paysages de Cohérence et Portes d'Admissibilité pour la Relaxation Résonante (v2.0)",
+      "abstract": "FRC 100.006 v2.0 fait évoluer le cadre vers un modèle d'équilibre conditionnel rigoureux sur S^1 (Moitié A démontrée ; obstructions de 100.007 v3.3 et 830.005 v0.3 intégrées ; portes d'admissibilité de la Moitié B explicitement ouvertes). Cette traduction reflète l'édition antérieure de 2025 ; consultez l'édition canonique en anglais pour le texte et les théorèmes actuels.",
+      "tags": [
+        "regle-born",
+        "probabilite",
+        "equilibre",
+        "mecanique-statistique"
+      ],
+      "taxons": [
+        "regle-born",
+        "probabilite",
+        "equilibre",
+        "mecanique-statistique",
+        "frc-100"
+      ],
+      "content": "FRC 100.006 — L'Émergence de la Règle de Born depuis l'Équilibre Résonant > Avis de version canonique anglaise : Le texte traduit ci-dessous correspond à l'édition antérieure de 2025 (v1) et accuse un retard par rapport au manuscrit canonique anglais (). Toute affirmation plus ancienne dans ce texte traduit est subordonnée à l'édition anglaise actuelle : /en/papers/FRC-100-006 et la carte de lecture sur /en/papers/FRC-100-000. 1. Introduction La règle de Born — $P(x) = |͘͘͘(x)|^2$ — est le pont...",
+      "url": "/fr/papers/FRC-100-006",
+      "date": "Fri Nov 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "version": "v2.0",
+      "muLevel": "mu1",
+      "doi": null,
+      "conceptDoi": null,
+      "epistemicStatus": "primary",
+      "retrievalPriority": 100
+    },
+    {
       "id": "FRC-100-007",
       "type": "papers",
       "lang": "fr",
@@ -3325,15 +3490,15 @@
     }
   ],
   "stats": {
-    "total": 112,
+    "total": 117,
     "byLang": {
-      "en": 70,
-      "es": 14,
-      "fa": 14,
-      "fr": 14
+      "en": 72,
+      "es": 15,
+      "fa": 15,
+      "fr": 15
     },
     "byType": {
-      "papers": 48,
+      "papers": 53,
       "articles": 4,
       "concepts": 16,
       "topics": 8,

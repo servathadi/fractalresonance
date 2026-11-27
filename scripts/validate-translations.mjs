@@ -40,8 +40,6 @@ export const VALID_TRANSLATION_STATUS = new Set([
 export const REVISION_PENDING_PAPERS = new Set([
   'FRC-100-001',
   'FRC-100-004',
-  'FRC-100-006',
-  'FRC-100-006-002',
   'FRC-100-010',
   'FRC-566-010',
   'FRC-566-020',
