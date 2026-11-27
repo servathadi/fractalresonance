@@ -17,7 +17,7 @@ onboarding_path:
     title: "Reciprocity Mathematics Charter"
     desc: "Entry into FRC 830.000–830.005: exact ledger classification, typed morphisms, and scoped lift obstructions."
 building_now:
-  - "FRC 830.000–830.005: FRC 830.005 v0.3 (live on alphaXiv; 42/42 independent Python verification checks passing, human peer review pending) excludes every open-set affine/CPTP qubit lift (sharp on 1D circles); empty-interior, projective-instrument, and d ≥ 3 gates remain open."
+  - "FRC 830.000–830.005: FRC 830.005 v0.3 (Zenodo DOI 10.5281/zenodo.24572231; FRC 830 Concept DOI 10.5281/zenodo.21385391; live on alphaXiv; 42/42 independent Python verification checks passing, human peer review pending) excludes every open-set affine/CPTP qubit lift (sharp on 1D circles); empty-interior, projective-instrument, and d ≥ 3 gates remain open."
   - "FRC 700.000–700.007: independent review and inter-rater testing of the threshold-framework protocol (superseding FRC 700.777)."
   - "FRC 100.002 / FRC 100.002.001: dense classical Gate 4 closed negatively; coarse result retained, quantum and cross-mechanism gates remain open."
   - "FRC 787.787: held-out physical and computational platform validation against equal-feature baselines."

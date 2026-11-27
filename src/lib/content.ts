@@ -114,6 +114,7 @@ export interface RawFrontmatter {
   statusNote?: string;
   supersededBy?: string;
   epistemicStatus?: string;
+  register?: 'physics' | 'philosophy' | string;
   editionStatus?: string;
   translationStatus?: string;
   scopeTag?: EdgeScopeTag | string;
@@ -155,6 +156,7 @@ export interface RawFrontmatter {
   lang?: string;
   doi?: string;
   conceptDoi?: string;
+  priorVersionDoi?: string;
   alphaxivUrl?: string;
   canonStatus?: PaperCanonStatus;
   muLevel?: MuLevel;
@@ -916,7 +918,7 @@ export function toPaperMeta(parsed: ParsedContent): PaperMeta {
     abstract: fm.abstract || '',
     tags: Array.isArray(fm.tags) ? fm.tags : [],
     lang: fm.lang || 'en',
-    doi: fm.doi,
+    doi: fm.doi || fm.conceptDoi,
     alphaxivUrl: fm.alphaxivUrl,
     video: fm.video,
     images: fm.images,
@@ -948,7 +950,6 @@ export interface GlossaryItem {
   excerpt: string;
   type: 'paper' | 'concept' | 'book' | 'article' | 'blog' | 'topic' | 'person';
   url: string;
-  perspective: ContentPerspective;
 }
 
 export interface PersonWorkItem {
@@ -1089,7 +1090,6 @@ export function getGlossary(
       excerpt: safeExcerpt('paper', fm, 'No abstract available.'),
       type: 'paper',
       url: `${basePath}/papers/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1117,7 +1117,6 @@ export function getGlossary(
       excerpt: firstPara,
       type: 'concept',
       url: fm.id === 'mu-levels' ? `${basePath}/mu-levels` : `${basePath}/concepts/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1132,7 +1131,6 @@ export function getGlossary(
       excerpt: safeExcerpt('book', fm, 'No description available.'),
       type: 'book',
       url: `${basePath}/books/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1147,7 +1145,6 @@ export function getGlossary(
       excerpt: safeExcerpt('article', fm, 'No description available.'),
       type: 'article',
       url: `${basePath}/articles/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1162,7 +1159,6 @@ export function getGlossary(
       excerpt: safeExcerpt('blog', fm, 'No description available.'),
       type: 'blog',
       url: `${basePath}/blog/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1177,7 +1173,6 @@ export function getGlossary(
       excerpt: safeExcerpt('topic', fm, 'No description available.'),
       type: 'topic',
       url: `${basePath}/topics/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 
@@ -1193,7 +1188,6 @@ export function getGlossary(
       excerpt: fm.tagline || fm.abstract || 'Profile.',
       type: 'person',
       url: `${basePath}/people/${fm.id}`,
-      perspective: normalizeContentPerspective(fm.perspective),
     };
   }
 

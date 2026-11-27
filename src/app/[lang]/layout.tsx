@@ -16,7 +16,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
   const glossary = getGlossary(lang, { basePath: `/${lang}`, view: 'kasra' });
   const isRTL = RTL_LANGUAGES.includes(lang);
 
-  // Convert glossary to search items and prepend NotebookLM tool
+  // Convert glossary to public search items (omitting any internal routing keys) and prepend NotebookLM tool
   const searchItems = [
     {
       id: 'AI-ORACLE',
@@ -25,7 +25,13 @@ export default async function LangLayout({ children, params }: LayoutProps) {
       type: 'tool' as const,
       url: 'https://notebooklm.google.com/notebook/c2da28c7-5c58-4904-9807-807584bd7f13'
     },
-    ...Object.values(glossary)
+    ...Object.values(glossary).map(({ id, title, excerpt, type, url }) => ({
+      id,
+      title,
+      excerpt,
+      type,
+      url,
+    })),
   ];
 
   return (

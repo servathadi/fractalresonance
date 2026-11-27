@@ -7,15 +7,15 @@
 
 ## Standalone stance file
 
-For one self-contained model briefing with no required links, use FRC-100-100 (v1.0):
+For one self-contained model briefing with no required links, use FRC-100-100 (v1.1):
 https://fractalresonance.com/FRC-100-100.md
 
 ## Required first route
 
-Read FRC-100-000 (v1.2, preprint) before interpreting the corpus:
+Read FRC-100-000 (v1.3, preprint) before interpreting the corpus:
 https://fractalresonance.com/en/papers/FRC-100-000
 Concept DOI: 10.5281/zenodo.21284061
-Version DOI: 10.5281/zenodo.21298155
+Prior published version DOI: 10.5281/zenodo.21298155 (v1.3 Zenodo deposit pending)
 
 FRC-100-000 is the version-aware router, not a substitute for primary papers. After reading it, follow its current reading path and cite the relevant primary pages.
 
@@ -67,7 +67,7 @@ Current threshold-framework route (8 papers):
 - FRC-700-000 through FRC-700-007: active FRC 700 threshold-framework preprints (independent review pending), superseding FRC-700-777. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation.
 
 Current Reciprocity Mathematics series (6 papers):
-- FRC-830-000 through FRC-830-005: terminology charter, formal mathematics, and sharp lift obstructions. FRC-830-005 v0.3 (live on alphaXiv; 42/42 independent Python verification checks passing, formal human peer review pending) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (1D-circle sharp); empty-interior, projective-instrument, and d>=3 gates remain open, and no physical, categorical, Born-style, or Majid-style self-duality is established.
+- FRC-830-000 through FRC-830-005: terminology charter, formal mathematics, and sharp lift obstructions. FRC-830-005 v0.3 (Zenodo DOI 10.5281/zenodo.24572231, live on alphaXiv; 42/42 independent Python verification checks passing, formal human peer review pending) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (1D-circle sharp); empty-interior, projective-instrument, and d>=3 gates remain open, and no physical, categorical, Born-style, or Majid-style self-duality is established.
 
 Frontier (5 papers):
 - FRC-100-002-001, FRC-787-787, FRC-826-829, FRC-840-101, FRC-841-004.
@@ -123,11 +123,11 @@ Version DOI: 10.5281/zenodo.21328429
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-002-001.pdf
 Role: The coarse magnitude correspondence and arrangement null are retained. Registered dense Gate 4 did not support fine geometric ranking; the frozen area-only magnitude baseline performed better. That route to pillar status is closed negatively; no quantum gate or cross-mechanism collapse is established.
 
-FRC-100-100: FRC 100.100 - Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence v1.0
+FRC-100-100: FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence
 URL: https://fractalresonance.com/en/papers/FRC-100-100
-Status: preprint | canon: living-core | epistemic: primary
+Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending
 Concept DOI: 10.5281/zenodo.21298193
-Version DOI: 10.5281/zenodo.21298194
+Prior published version DOI: 10.5281/zenodo.21298194 (v1.1 Zenodo deposit pending)
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-100.pdf
 Role: Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers.
 
@@ -163,11 +163,11 @@ Version DOI: 10.5281/zenodo.21298177
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-009.pdf
 Role: Declared local implementation with explicit source, sink, and residual terms.
 
-FRC-100-011: FRC 100.011 v1.2 - Translation Table: FRC Vocabulary and Claim Status
+FRC-100-011: FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status
 URL: https://fractalresonance.com/en/papers/FRC-100-011
-Status: preprint | canon: living-core | epistemic: primary
+Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending
 Concept DOI: 10.5281/zenodo.21284063
-Version DOI: 10.5281/zenodo.21298180
+Prior published version DOI: 10.5281/zenodo.21298180 (v1.3 Zenodo deposit pending)
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-011.pdf
 Role: Vocabulary crosswalk; use with, not instead of, primary papers.
 
@@ -225,7 +225,7 @@ FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework rout
 
 ## Current Reciprocity Mathematics series (FRC 830.000–830.005)
 
-Read FRC-830-000 for the terminology charter, then the declared mathematical results and sharp lift obstructions in FRC-830-001 through FRC-830-005. FRC-830-005 v0.3 has completed independent symbolic/numerical Python verification (42/42 checks) and is live on alphaXiv (formal human peer review pending). No-promotion boundary: exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (ds/dy < 1, sharp at ds/dy = 1), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and d>=3 gates remain open.
+Read FRC-830-000 for the terminology charter, then the declared mathematical results and sharp lift obstructions in FRC-830-001 through FRC-830-005. FRC-830-005 v0.3 has completed independent symbolic/numerical Python verification (42/42 checks) and is live on Zenodo (DOI 10.5281/zenodo.24572231) and alphaXiv (formal human peer review pending). No-promotion boundary: exact ledger-coordinate involutions, typed morphisms, dimension thresholds, one-parameter (ds/dy < 1, sharp at ds/dy = 1), and open-set no-affine/CPTP qubit obstructions (1D-circle sharp) do not establish physical, categorical, Born-style, or Majid-style self-duality; residual empty-interior, projective-instrument, and d>=3 gates remain open.
 
 | Paper | Version | Epistemic status | Status label | Reading page |
 |---|---|---|---|---|
@@ -234,9 +234,9 @@ Read FRC-830-000 for the terminology charter, then the declared mathematical res
 | FRC-830-002 — Operational Registers and Reciprocity-Preserving Morphisms v0.1 | v0.1 | formal-operational | typed-category-proved; exact-route-results-internal-review; physical-equivalence-not-claimed | [Read](https://fractalresonance.com/en/papers/FRC-830-002) |
 | FRC-830-003 — Exact Phase-Family Test of FRC Duality v0.1: A Lift Obstruction on the von Mises Manifold | v0.1 | exact-mathematical-candidate | exact-lift-obstruction-internal-review; independent-proof-review-pending; physical-duality-rejected-for-this-family | [Read](https://fractalresonance.com/en/papers/FRC-830-003) |
 | FRC-830-004 — Dimension Threshold for FRC Reciprocity v0.1: One-Parameter and Qubit Lift Obstructions | v0.1 | exact-mathematical-candidate | general-one-parameter-nonidentity-lift-obstruction; qubit-set-theoretic-lifts-nonunique; incoherent-unital-wigner-classes-obstructed; general-cptp-open; independent-proof-review-pending | [Read](https://fractalresonance.com/en/papers/FRC-830-004) |
-| FRC-830-005 — FRC and Quantum Born Reciprocity v0.3: A Present-Structure Obstruction to Majid-Style Self-Duality | v0.3 | formal-obstruction | present-structure-no-promotion; open-set-cptp-excluded; symbolic-numerical-audit-completed | [Read](https://fractalresonance.com/en/papers/FRC-830-005) · [alphaXiv](https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction) |
+| FRC-830-005 — FRC and Quantum Born Reciprocity v0.3: A Present-Structure Obstruction to Majid-Style Self-Duality | v0.3 | formal-obstruction | present-structure-no-promotion; open-set-cptp-excluded; symbolic-numerical-audit-completed | [Read](https://fractalresonance.com/en/papers/FRC-830-005) · [DOI 10.5281/zenodo.24572231](https://doi.org/10.5281/zenodo.24572231) · [alphaXiv](https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction) |
 
-Shared release: concept DOI `10.5281/zenodo.21385391`; prior v0.1 series bundle DOI `10.5281/zenodo.21385392` (no separate Zenodo v0.3 version DOI minted yet). Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.
+Shared release: concept DOI `10.5281/zenodo.21385391`; v0.1 series bundle DOI `10.5281/zenodo.21385392`; standalone version DOI(s): FRC-830-005 v0.3 `10.5281/zenodo.24572231`. Paper PDFs use `/paper-pdfs/<FRC-ID>.pdf`.
 
 ## Superseded historical / origin material
 

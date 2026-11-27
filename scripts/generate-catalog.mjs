@@ -62,9 +62,54 @@ function deriveSeriesTaxon(id) {
   return null;
 }
 
+const EXCLUDED_PERSONA_IDS = new Set(['kasra', 'river']);
+const EXCLUDED_PERSONA_TAXONS = new Set(['kasra', 'river', 'کسرا', 'ریور']);
+const RAW_PERSONA_AUTHOR_RX = /^(?:kasra|river|کسرا|ریور)(?:\s*\([^)]*\))?$/i;
+const RAW_PERSONA_TEXT_RX = /\b(?:kasra|river(?:-side)?)\b|کسرا|ریور/i;
+
+function isExcludedPersonaRecord(type, item) {
+  const id = String(item.id || '').trim().toLowerCase();
+  if (type === 'people') {
+    if (
+      EXCLUDED_PERSONA_IDS.has(id) ||
+      item.status === 'archived' ||
+      item.epistemicStatus === 'archive' ||
+      item.noindex === true ||
+      item.noindex === 'true'
+    ) {
+      return true;
+    }
+  }
+  if (String(item.perspective || '').trim().toLowerCase() === 'river') {
+    return true;
+  }
+  return false;
+}
+
+function sanitizePublicText(value, item, isArchived) {
+  if (!value) return undefined;
+  const str = String(value);
+  if (RAW_PERSONA_TEXT_RX.test(str)) {
+    if (isArchived) {
+      return item.statusNote && !RAW_PERSONA_TEXT_RX.test(String(item.statusNote))
+        ? String(item.statusNote)
+        : 'Archived historical record.';
+    }
+    return undefined;
+  }
+  return str;
+}
+
+function sanitizePublicTags(rawTags) {
+  if (!Array.isArray(rawTags)) return [];
+  return rawTags.filter((tag) => !EXCLUDED_PERSONA_TAXONS.has(canonicalTaxon(tag)));
+}
+
 function getTaxons(type, item) {
   const rawTags = Array.isArray(item.tags) ? item.tags : item.tags ? [item.tags] : [];
-  const taxons = rawTags.map(canonicalTaxon);
+  const taxons = rawTags
+    .map(canonicalTaxon)
+    .filter((taxon) => !EXCLUDED_PERSONA_TAXONS.has(taxon));
   const series = type === 'papers' ? deriveSeriesTaxon(item.id) : null;
   return [...new Set(series ? [...taxons, series] : taxons)];
 }
@@ -213,8 +258,15 @@ function buildCatalog() {
     for (const type of contentTypes) {
       const items = readContentDir(lang, type);
 
-      catalog.content[lang][type] = items.filter((item) => !RETIRED_MIND_CONTENT_IDS[type]?.has(item.id)).map(item => {
+      catalog.content[lang][type] = items
+        .filter((item) => !RETIRED_MIND_CONTENT_IDS[type]?.has(item.id) && !isExcludedPersonaRecord(type, item))
+        .map(item => {
         const epistemicStatus = inferEpistemicStatus(type, item);
+        const isArchived =
+          epistemicStatus === 'archive' ||
+          item.status === 'archived' ||
+          item.noindex === true ||
+          item.noindex === 'true';
         const entry = {
           id: item.id,
           title: item.title,
@@ -222,12 +274,15 @@ function buildCatalog() {
           path: `/${lang}/${type}/${item.id}`,
         };
 
-        if (item.abstract) entry.abstract = item.abstract;
-        if (item.description) entry.description = item.description;
+        const safeAbstract = sanitizePublicText(item.abstract, item, isArchived);
+        const safeDescription = sanitizePublicText(item.description, item, isArchived);
+        if (safeAbstract) entry.abstract = safeAbstract;
+        if (safeDescription) entry.description = safeDescription;
         if (item.date) entry.date = item.date;
-        if (item.author) entry.author = item.author;
+        if (item.author && !RAW_PERSONA_AUTHOR_RX.test(String(item.author).trim())) entry.author = item.author;
         if (item.doi) entry.doi = item.doi;
         if (item.conceptDoi) entry.conceptDoi = item.conceptDoi;
+        if (item.priorVersionDoi) entry.priorVersionDoi = item.priorVersionDoi;
         if (item.alphaxivUrl) entry.alphaxivUrl = item.alphaxivUrl;
         if (item.version) entry.version = item.version;
         if (item.muLevel) entry.muLevel = item.muLevel;
@@ -247,7 +302,10 @@ function buildCatalog() {
         if (item.cover) entry.cover = item.cover;
         if (item.tier) entry.tier = item.tier;
         if (item.series) entry.series = item.series;
-        if (item.tags && Array.isArray(item.tags)) entry.tags = item.tags;
+        if (item.tags && Array.isArray(item.tags)) {
+          const cleanTags = sanitizePublicTags(item.tags);
+          if (cleanTags.length > 0) entry.tags = cleanTags;
+        }
         entry.taxons = getTaxons(type, item);
         if (item.status) entry.status = item.status;
         if (item.noindex === true || item.noindex === 'true') entry.noindex = true;
