@@ -42,10 +42,10 @@
     "publication_state": "preprint",
     "canon_status": "living-core",
     "epistemic_status": "primary",
-    "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-deposit-pending",
+    "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-live",
     "concept_doi": "10.5281/zenodo.21284061",
+    "doi": "10.5281/zenodo.24575211",
     "prior_version_doi": "10.5281/zenodo.21298155",
-    "doi_status": "v1.3 Zenodo deposit pending",
     "pdf_url": "/paper-pdfs/FRC-100-000.pdf"
   },
   "routing": [
@@ -117,6 +117,9 @@
     "threshold_framework": {
       "route": "FRC-700-000 through FRC-700-007",
       "status": "Current FRC 700 threshold-framework route (preprints; independent review pending; governs evidence, interpretation, and register discipline; adds no new physical law, universal μ ontology, or cross-register causation).",
+      "concept_doi": "10.5281/zenodo.24575403",
+      "version_doi": "10.5281/zenodo.24575404",
+      "zenodo_url": "https://zenodo.org/records/24575404",
       "supersedes": [
         "FRC-700-777"
       ],
@@ -209,7 +212,7 @@
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
-      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-deposit-pending",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-live",
       "url": "/en/papers/FRC-100-000"
     },
     {
@@ -321,7 +324,7 @@
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
-      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending",
+      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-live",
       "url": "/en/papers/FRC-100-011"
     },
     {
@@ -330,7 +333,7 @@
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
-      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-live",
       "url": "/en/papers/FRC-100-100"
     },
     {
@@ -609,10 +612,10 @@
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
-      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-live",
       "concept_doi": "10.5281/zenodo.21298193",
+      "doi": "10.5281/zenodo.24575216",
       "prior_version_doi": "10.5281/zenodo.21298194",
-      "doi_status": "v1.1 Zenodo deposit pending",
       "pdf_url": "/paper-pdfs/FRC-100-100.pdf",
       "role": "Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers."
     },
@@ -656,6 +659,7 @@
       "epistemic_status": "conditional-model",
       "status_label": "conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open",
       "prior_version_doi": "10.5281/zenodo.17438360",
+      "alphaxiv_url": "https://www.alphaxiv.org/abs/2611.frc-100-006-born-rule-equilibrium-admissibility-gates",
       "doi_status": "v2.0 Zenodo deposit pending",
       "pdf_url": "/paper-pdfs/FRC-100-006.pdf",
       "role": "Conditional S^1 Fokker-Planck Born-equilibrium core (Half A: unique equilibrium, KL H-theorem, gamma = Lambda_0/k* = 1 exponent uniqueness, D > 0 necessity) with carrier obstructions integrated and Half B admissibility gates explicitly open."
@@ -741,10 +745,10 @@
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
-      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending",
+      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-live",
       "concept_doi": "10.5281/zenodo.21284063",
+      "doi": "10.5281/zenodo.24575217",
       "prior_version_doi": "10.5281/zenodo.21298180",
-      "doi_status": "v1.3 Zenodo deposit pending",
       "pdf_url": "/paper-pdfs/FRC-100-011.pdf",
       "role": "Vocabulary crosswalk; use with, not instead of, primary papers."
     }
@@ -814,7 +818,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "charter-defined; application-unreviewed; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-001",
@@ -826,7 +831,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "interface-defined; non-reconstruction-proved; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-002",
@@ -838,7 +844,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "role-indexing-defined; structural-recurrence-scoped; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-003",
@@ -850,7 +857,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "return-update-defined; reachable-loss-proved; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-004",
@@ -862,7 +870,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "semantic-maps-defined; narrative-non-reconstruction-proved; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-005",
@@ -874,7 +883,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "authorial-atlas-complete; independent-rater-data-absent; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-006",
@@ -886,7 +896,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "claim-graph-defined; no-silent-promotion-proved; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     },
     {
       "id": "FRC-700-007",
@@ -898,7 +909,8 @@
       "canon_status": "framework",
       "epistemic_status": "threshold-framework",
       "status_label": "standalone-handbook-complete; independent-usability-unmeasured; independent-review-pending",
-      "doi_status": "not declared in current website source"
+      "concept_doi": "10.5281/zenodo.24575403",
+      "doi": "10.5281/zenodo.24575404"
     }
   ],
   "reciprocity_mathematics_route": [

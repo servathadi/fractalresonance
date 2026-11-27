@@ -15,7 +15,7 @@ https://fractalresonance.com/FRC-100-100.md
 Read FRC-100-000 (v1.3, preprint) before interpreting the corpus:
 https://fractalresonance.com/en/papers/FRC-100-000
 Concept DOI: 10.5281/zenodo.21284061
-Prior published version DOI: 10.5281/zenodo.21298155 (v1.3 Zenodo deposit pending)
+Version DOI: 10.5281/zenodo.24575211
 
 FRC-100-000 is the version-aware router, not a substitute for primary papers. After reading it, follow its current reading path and cite the relevant primary pages.
 
@@ -132,9 +132,9 @@ Role: The coarse magnitude correspondence and arrangement null are retained. Reg
 
 FRC-100-100: FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence
 URL: https://fractalresonance.com/en/papers/FRC-100-100
-Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending
+Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-architecture; zenodo-v1.1-live
 Concept DOI: 10.5281/zenodo.21298193
-Prior published version DOI: 10.5281/zenodo.21298194 (v1.1 Zenodo deposit pending)
+Version DOI: 10.5281/zenodo.24575216
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-100.pdf
 Role: Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers.
 
@@ -157,6 +157,7 @@ FRC-100-006: Born-Rule Equilibrium, Coherence Landscapes, and the Admissibility 
 URL: https://fractalresonance.com/en/papers/FRC-100-006
 Status: preprint | canon: living-core | epistemic: conditional-model | status label: conditional-half-a-proven; carrier-obstructions-integrated; half-b-admissibility-gates-open
 Prior published version DOI: 10.5281/zenodo.17438360 (v2.0 Zenodo deposit pending)
+alphaXiv: https://www.alphaxiv.org/abs/2611.frc-100-006-born-rule-equilibrium-admissibility-gates
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-006.pdf
 Role: Conditional S^1 Fokker-Planck Born-equilibrium core (Half A: unique equilibrium, KL H-theorem, gamma = Lambda_0/k* = 1 exponent uniqueness, D > 0 necessity) with carrier obstructions integrated and Half B admissibility gates explicitly open.
 
@@ -200,9 +201,9 @@ Role: Philosophy / Two-Register Bridge (register: philosophy) defending Fractal 
 
 FRC-100-011: FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status
 URL: https://fractalresonance.com/en/papers/FRC-100-011
-Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending
+Status: preprint | canon: living-core | epistemic: primary | status label: wave1-charter; two-register-crosswalk; zenodo-v1.3-live
 Concept DOI: 10.5281/zenodo.21284063
-Prior published version DOI: 10.5281/zenodo.21298180 (v1.3 Zenodo deposit pending)
+Version DOI: 10.5281/zenodo.24575217
 PDF: https://fractalresonance.com/paper-pdfs/FRC-100-011.pdf
 Role: Vocabulary crosswalk; use with, not instead of, primary papers.
 
@@ -245,7 +246,7 @@ Role: Frontier architecture proposal; does not establish a new computing paradig
 
 ## Current threshold-framework route (FRC 700.000–700.007)
 
-FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework route, superseding the archived origin note FRC-700-777. These are framework preprints with independent review pending. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. No DOI or downloadable paper PDF is declared for these records in the current website source.
+FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework route, superseding the archived origin note FRC-700-777. These are framework preprints with independent review pending. They govern evidence, interpretation, and register discipline; they do not establish a physical law, universal μ ontology, or cross-register causation. Coordinated 8-paper Zenodo release: Concept DOI 10.5281/zenodo.24575403, Version DOI 10.5281/zenodo.24575404 (https://zenodo.org/records/24575404). No downloadable per-paper PDF is declared for these records in the current website source.
 
 | Paper | Version | Publication state | Status label | Reading page |
 |---|---|---|---|---|
@@ -257,6 +258,8 @@ FRC-700-000 through FRC-700-007 form the active FRC 700 threshold-framework rout
 | FRC-700-005 — The μ Atlas: Cross-System Assignment and Failure Audit v0.1 | v0.1 | preprint | authorial-atlas-complete; independent-rater-data-absent; independent-review-pending | [Read](https://fractalresonance.com/en/papers/FRC-700-005) |
 | FRC-700-006 — The Reflexive Threshold: Corpus Integration, Witness, and Claim-Graph Audit v0.1 | v0.1 | preprint | claim-graph-defined; no-silent-promotion-proved; independent-review-pending | [Read](https://fractalresonance.com/en/papers/FRC-700-006) |
 | FRC-700-007 — The FRC Threshold Handbook: A Standalone Onboarding and Application Protocol v0.1 | v0.1 | preprint | standalone-handbook-complete; independent-usability-unmeasured; independent-review-pending | [Read](https://fractalresonance.com/en/papers/FRC-700-007) |
+
+Shared release: concept DOI `10.5281/zenodo.24575403`; version DOI `10.5281/zenodo.24575404` (https://zenodo.org/records/24575404).
 
 ## Current Reciprocity Mathematics series (FRC 830.000–830.005)
 
