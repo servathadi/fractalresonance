@@ -32,13 +32,57 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_ROOT = path.join(__dirname, '..');
 
 export const NEGATION_CONTEXT_RX =
-  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+derived|not\s+an?\s+established|does\s+not\s+(?:derive|claim|establish|assert|predict)|do\s+not\s+(?:claim|assert|present|derive)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+  /\b(?:not\s+a\s+pillar|not\s+universal|not\s+the\s+current|not\s+current|not\s+(?:already\s+)?derived|(?:has|have|was|were)\s+not\s+(?:been\s+|already\s+)?derived|never\s+(?:derived|proves?|claims?|establishes?|substitutes?)|not\s+an?\s+(?:established|empirical\s+proof)|not\s+claim\s+to\s+prove|no\s+claim\s+to\s+prove|zero\s+(?:empirical\s+|physical\s+)?proof|does\s+not\s+(?:derive|claim|establish|assert|predict|prove)|do\s+not\s+(?:claim|assert|present|derive|prove)|has\s+no\s+fixed|no\s+fixed|no\s+longer|demoted|withdrawn|retired|retracted|contradicted|refuted|excluded|superseded|archived|quarantined|development\s+history|no\s+fitted|obsolete|relegat|rejected|cannot\s+be\s+used|conditional|not\s+a\s+completed|prohibited\s+category\s+error)\b|(?:no\s+ha\s+derivado|no\s+afirma|descartad|retirad|archiv|sustituid|degradad|retrograd|n['’]a\s+pas\s+dérivé|ne\s+revendique\s+pas|remplac|بایگانی|منسوخ|تنزل|کنار\s+گذاشته|مدعی[\s\S]{0,20}نیست)/i;
+
+export const TWO_REGISTER_FRAMING_RX =
+  /(?:\b(?:philosophy\s+register|philosophical\s+register|in\s+philosophy)\b[^.;!?]{0,40}\bfractal\s+resonance\s+cognition\b|\bfractal\s+resonance\s+cognition\b[^.;!?]{0,40}(?:\b(?:belongs?\s+to\s+philosophy|in\s+(?:its\s+)?philosophy\s+register|philosophy\s+register)\b|\(\s*philosophy(?:\s+register)?\s*\)))/i;
+
+export const COGNITION_NAME_RX = /\bfractal\s+resonance\s+cognition\b/i;
+
+/**
+ * Verb-independent physics-mechanism / quantum / dynamics vocabulary that must NEVER
+ * co-occur with "Fractal Resonance Cognition" in a clause or table row on physics or charter pages.
+ */
+export const COGNITION_PHYSICS_VOCAB_RX =
+  /\b(?:quantum|decoherence|collapse|wavefunction|born|hamiltonian|physically|physical(?:\s+[a-z0-9-]+){0,3}\s+(?:force|mechanism|collapse|law|dynamics|process|substrate|driver|cause|interaction|effect|operator|field|state|evolution|model|theory|equation)|phase[- ]locking\s+mechanism|thermodynamic\s+law)\b/i;
+
+const PHYSICAL_NON_PROOF_DISCLAIMER_RX =
+  /\b(?:without\s+claiming|zero|no|not)\s+physical(?:\s+or\s+mathematical)?\s+(?:proof|evidence)\b/gi;
+
+const COGNITION_MECHANISM_NOUN_RX =
+  /\b(?:mechanism|force|collapse|decoherence|dynamics|process|law|cause|driver|substrate|operator|field)\b/i;
+
+export function hasCognitionPhysicsMechanismVocab(text) {
+  const plain = String(text || '');
+  if (!COGNITION_NAME_RX.test(plain)) return false;
+  if (COGNITION_PHYSICS_VOCAB_RX.test(plain)) return true;
+  const withoutProofDisclaimer = plain.replace(PHYSICAL_NON_PROOF_DISCLAIMER_RX, '');
+  return /\bphysical\b/i.test(withoutProofDisclaimer) && COGNITION_MECHANISM_NOUN_RX.test(withoutProofDisclaimer);
+}
+
+export const PHILOSOPHY_BOOK_IDS = new Set([
+  'the-open-system',
+  'the-mind-in-the-coupling',
+]);
+
+export const CHARTER_OVERVIEW_IDS = new Set([
+  'FRC-100-000',
+  'FRC-100-100',
+  'FRC-100-011',
+  'start-here',
+  'about',
+]);
 
 const ACTIVE_STALE_CLAIM_RULES = [
   {
     id: 'retired-cognition-name',
-    pattern: /fractal\s+resonance\s+cognition/i,
-    message: 'uses retired 2025 name "Fractal Resonance Cognition" without explicit historical/negation framing',
+    pattern: COGNITION_NAME_RX,
+    message: 'uses "Fractal Resonance Cognition" in physics register without explicit philosophy/two-register or historical/negation framing',
+  },
+  {
+    id: 'unhedged-equation-proves-consciousness',
+    pattern: /(?:(?:equation|reciprocity|dS\s*\+\s*k\*?\s*d\s*\\?ln\s*C|FRC)\s+(?:proves?|demonstrates?|establishes?)\s+(?:that\s+)?(?:consciousness|subjective\s+experience|sentience)|proves?\s+consciousness\s+(?:physically|mathematically|from\s+the\s+equation))/i,
+    message: 'contains unhedged claim that the physics equation proves consciousness',
   },
   {
     id: 'unhedged-d190',
@@ -65,6 +109,41 @@ const ACTIVE_STALE_CLAIM_RULES = [
 const NEGATED_LIST_LEAD_RX =
   /\b(?:do\s+not\s+revive|do\s+not\s+claim|retired\s+claims|withdrawn\s+claims|demoted\s+claims|explicit\s+non-claims)\b[^.\n]*:\s*$/i;
 
+const NEGATED_TABLE_ROW_CELL_RX =
+  /^(?:CONTRADICTED|DEMOTED|ARCHIVED|RETIRED|HISTORICAL\s+DEVELOPMENT\s+ARCHIVE(?:\s*\([^)]*\))?)$/i;
+
+/**
+ * Determine whether a content item belongs to the physics or philosophy register,
+ * and whether it is a charter/overview document permitted to explain the Two-Register Architecture.
+ */
+export function resolveContentRegister({ type = '', id = '', rel = '', frontmatter = {} } = {}) {
+  const fm = frontmatter || {};
+  const normalizedId = String(id || fm.id || '').trim();
+  const normalizedRel = String(rel || '').replace(/\\/g, '/');
+  const explicitRegister = String(fm.register || '').trim().toLowerCase();
+  const epistemicStatus = String(fm.epistemicStatus || '').trim().toLowerCase();
+
+  const isPhilosophyBook =
+    type === 'books'
+      ? PHILOSOPHY_BOOK_IDS.has(normalizedId) ||
+        /(?:^|\/)(?:the-open-system|the-mind-in-the-coupling)(?:\/|$)/i.test(normalizedRel)
+      : /(?:^|\/)books\/(?:the-open-system|the-mind-in-the-coupling)(?:\/|$)/i.test(normalizedRel);
+
+  const register =
+    explicitRegister === 'philosophy' || epistemicStatus === 'philosophical' || isPhilosophyBook
+      ? 'philosophy'
+      : 'physics';
+
+  const baseId = path.basename(normalizedRel, '.md');
+  const isCharterOverview =
+    CHARTER_OVERVIEW_IDS.has(normalizedId) ||
+    CHARTER_OVERVIEW_IDS.has(normalizedId.toUpperCase()) ||
+    CHARTER_OVERVIEW_IDS.has(baseId) ||
+    CHARTER_OVERVIEW_IDS.has(baseId.toUpperCase());
+
+  return { register, isCharterOverview };
+}
+
 /**
  * Split a line into clauses/sentences so negation/demotion framing in one clause
  * cannot exempt an affirmative retired claim in another clause on the same line.
@@ -76,39 +155,105 @@ const NEGATED_LIST_LEAD_RX =
 export function splitIntoClauses(line) {
   const withoutListPrefix = String(line || '').replace(/^\s*(?:[-*+]|\d+\.)\s+/, '');
   return withoutListPrefix
-    .split(/(?:[;!?|]+|\.(?=\s|$)|,\s+(?:but|however|yet|whereas|while)\b)/i)
+    .split(/(?:[;!?|]+|\.[)"'”’]*(?=\s|$)|,\s+(?:but|however|yet|whereas|while)\b)/i)
     .map((s) => s.trim())
     .filter(Boolean);
 }
 
 /**
  * Scan active (non-archived) text clause-by-clause for unhedged retired claims.
+ *
+ * Register-aware governance (Two-Register Architecture):
+ *   - register: 'physics' (default): strict enforcement on all rules, including
+ *     unhedged "Fractal Resonance Cognition" unless explicitly framed as Two-Register
+ *     on charter/overview pages or explicitly negated/historical.
+ *   - register: 'philosophy': allows canonical "Fractal Resonance Cognition" cleanly
+ *     while STILL blocking unhedged physics-overreach claims (D ≈ 1.90 proof, 16D canon,
+ *     FRC 821 canon, Born-rule derivation/deviation, equation proves consciousness).
  */
-export function checkActiveTextForStaleClaims(text, rel) {
+export function checkActiveTextForStaleClaims(text, rel, options = {}) {
+  const { register = 'physics', isCharterOverview = false } = options;
   const issues = [];
   let inNegatedList = false;
+  let awaitingListAfterLead = false;
 
   for (const rawLine of String(text || '').split(/\r?\n/)) {
     const trimmed = rawLine.trim();
-    if (!trimmed) continue;
+    if (!trimmed) {
+      if (!awaitingListAfterLead) {
+        inNegatedList = false;
+      }
+      continue;
+    }
 
+    const plainTrimmed = trimmed.replace(/[*_`]+/g, '');
     const isListItem = /^(?:[-*+]|\d+\.)\s+/.test(trimmed);
-    if (NEGATED_LIST_LEAD_RX.test(trimmed)) {
+    if (NEGATED_LIST_LEAD_RX.test(plainTrimmed)) {
       inNegatedList = true;
+      awaitingListAfterLead = true;
       continue;
     }
     if (!isListItem) {
       inNegatedList = false;
+      awaitingListAfterLead = false;
     } else if (inNegatedList) {
+      awaitingListAfterLead = false;
+      continue;
+    }
+
+    const isTableRow = trimmed.startsWith('|') && trimmed.endsWith('|');
+    const hasTablePipe = isTableRow || trimmed.includes('|');
+    const tableCells = isTableRow
+      ? trimmed
+          .slice(1, -1)
+          .split('|')
+          .map((c) => c.replace(/[*_`]+/g, '').trim())
+      : [];
+    const hasNegatedTableDisposition =
+      isTableRow && tableCells.some((cell) => NEGATED_TABLE_ROW_CELL_RX.test(cell));
+    const hasPhilosophyRegisterTableCell =
+      isTableRow && tableCells.some((cell) => /^philosophy\s+register$/i.test(cell));
+
+    // Evaluate Markdown table rows as one complete unit before splitting on `|` so a
+    // physics-mechanism claim in another column cannot evade the Cognition check.
+    if (hasTablePipe && register !== 'philosophy' && hasCognitionPhysicsMechanismVocab(plainTrimmed)) {
+      issues.push(
+        `${rel}: active page combines "Fractal Resonance Cognition" with physical-mechanism/quantum vocabulary ("${trimmed.slice(0, 120)}").`,
+      );
       continue;
     }
 
     for (const clause of splitIntoClauses(rawLine)) {
       const plainClause = clause.replace(/[*_`]+/g, '');
+
+      // Strict verb-independent rule: on ANY physics or charter page, a clause combining
+      // "Fractal Resonance Cognition" with physics-mechanism / quantum / dynamics vocabulary
+      // is unconditionally rejected (cannot be bypassed by "philosophy register", "(philosophy)",
+      // "the open system", "Two-Register Architecture", intervening modifiers, or piggybacked negation).
+      if (register !== 'philosophy' && hasCognitionPhysicsMechanismVocab(plainClause)) {
+        issues.push(
+          `${rel}: active page combines "Fractal Resonance Cognition" with physical-mechanism/quantum vocabulary ("${clause.slice(0, 120)}").`,
+        );
+        continue;
+      }
+
       for (const rule of ACTIVE_STALE_CLAIM_RULES) {
-        if (rule.pattern.test(plainClause) && !NEGATION_CONTEXT_RX.test(plainClause)) {
-          issues.push(`${rel}: active page ${rule.message} ("${clause.slice(0, 120)}").`);
+        if (rule.id === 'retired-cognition-name' && register === 'philosophy') {
+          continue;
         }
+        if (!rule.pattern.test(plainClause)) continue;
+        if (NEGATION_CONTEXT_RX.test(plainClause)) continue;
+        if (hasNegatedTableDisposition && rule.id !== 'unhedged-equation-proves-consciousness') {
+          continue;
+        }
+        if (
+          rule.id === 'retired-cognition-name' &&
+          isCharterOverview &&
+          (TWO_REGISTER_FRAMING_RX.test(plainClause) || hasPhilosophyRegisterTableCell)
+        ) {
+          continue;
+        }
+        issues.push(`${rel}: active page ${rule.message} ("${clause.slice(0, 120)}").`);
       }
     }
   }
@@ -241,6 +386,22 @@ export function validateGovernance(root = DEFAULT_ROOT) {
           errors.push(`public/catalog.json (${lang}/${type}) leaks retired content ${item.id}.`);
         }
       }
+      for (const person of byType.people || []) {
+        if (['kasra', 'river'].includes(String(person.id || '').toLowerCase()) || person.status === 'archived' || person.noindex === true) {
+          errors.push(`public/catalog.json (${lang}/people) leaks archived/persona record ${person.id}.`);
+        }
+      }
+      for (const [type, items] of Object.entries(byType)) {
+        if (!Array.isArray(items)) continue;
+        for (const item of items) {
+          if (/^(?:kasra|river|کسرا|ریور)$/i.test(String(item.author || '').trim())) {
+            errors.push(`public/catalog.json (${lang}/${type}/${item.id}) leaks raw persona author "${item.author}".`);
+          }
+          if (/\b(?:kasra|river(?:-side)?)\b|کسرا|ریور/i.test(`${item.abstract || ''} ${item.description || ''}`)) {
+            errors.push(`public/catalog.json (${lang}/${type}/${item.id}) leaks raw persona tagline/abstract.`);
+          }
+        }
+      }
     }
   }
 
@@ -345,6 +506,15 @@ export function validateGovernance(root = DEFAULT_ROOT) {
         errors.push(`content/en/site/start-here.md matches prohibited inflated claim pattern ${rx}.`);
       }
     }
+    const startHereFm = matter(startHereRaw).data;
+    const startHereRel = path.relative(root, startHerePath);
+    errors.push(
+      ...checkActiveTextForStaleClaims(
+        startHereRaw,
+        startHereRel,
+        resolveContentRegister({ type: 'site', id: 'start-here', rel: startHereRel, frontmatter: startHereFm }),
+      ),
+    );
   }
 
   // 9. Active (non-archived) pages across papers, books, articles, concepts, blog, and topics
@@ -421,7 +591,8 @@ export function validateGovernance(root = DEFAULT_ROOT) {
             ? raw.split(/\r?\n##+\s+(?:\d+\.\s*)?References\b/i)[0]
             : raw;
 
-        errors.push(...checkActiveTextForStaleClaims(textToCheck, rel));
+        const registerInfo = resolveContentRegister({ type, id, rel, frontmatter: fm });
+        errors.push(...checkActiveTextForStaleClaims(textToCheck, rel, registerInfo));
       }
     }
   }

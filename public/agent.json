@@ -19,7 +19,7 @@
     "agent_doc": "/agent.md",
     "standalone_stance": {
       "id": "FRC-100-100",
-      "version": "v1.0",
+      "version": "v1.1",
       "url": "/FRC-100-100.md",
       "paper_url": "/en/papers/FRC-100-100",
       "role": "Self-contained current stance capsule for machine reading; summarizes but does not override primary evidence papers."
@@ -35,19 +35,21 @@
   },
   "start_here": {
     "id": "FRC-100-000",
-    "title": "FRC 100.000 v1.2 - Start Here: Canonical Stance and Version-Aware Reading Map",
+    "title": "FRC 100.000 v1.3 — Start Here: Canonical Stance and Version-Aware Reading Guide",
     "url": "/en/papers/FRC-100-000",
-    "version": "v1.2",
-    "date": "2026-07-09",
+    "version": "v1.3",
+    "date": "2026-11-26",
     "publication_state": "preprint",
     "canon_status": "living-core",
     "epistemic_status": "primary",
+    "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-deposit-pending",
     "concept_doi": "10.5281/zenodo.21284061",
-    "doi": "10.5281/zenodo.21298155",
+    "prior_version_doi": "10.5281/zenodo.21298155",
+    "doi_status": "v1.3 Zenodo deposit pending",
     "pdf_url": "/paper-pdfs/FRC-100-000.pdf"
   },
   "routing": [
-    "Read FRC-100-000 (v1.2) first for the current stance, version rules, and reading path.",
+    "Read FRC-100-000 (v1.3) first for the current stance, version rules, and reading path.",
     "Then read and cite the relevant primary papers; the router is not a substitute for them.",
     "Prefer the latest version under a declared concept DOI.",
     "Use the catalog and search index only for discovery.",
@@ -126,7 +128,7 @@
     },
     "reciprocity_mathematics": {
       "route": "FRC-830-000 through FRC-830-005",
-      "status": "Current FRC 830 Reciprocity Mathematics series (preprints with paper-specific status labels; exact ledger-coordinate results, typed morphisms, dimension thresholds, and sharp lift obstructions—including FRC-830-005 v0.3 live on alphaXiv, which excludes all open-set affine/CPTP qubit channels on nonempty open coherent subsets of the Bloch ball with 1D-circle sharpness and 42/42 independent Python verification checks passing—do not establish physical, categorical, Born-style, or Majid-style self-duality; empty-interior, projective-instrument, and d>=3 gates remain open alongside formal human peer review).",
+      "status": "Current FRC 830 Reciprocity Mathematics series (preprints with paper-specific status labels; exact ledger-coordinate results, typed morphisms, dimension thresholds, and sharp lift obstructions—including FRC-830-005 v0.3 live on Zenodo DOI 10.5281/zenodo.24572231 and alphaXiv, which excludes all open-set affine/CPTP qubit channels on nonempty open coherent subsets of the Bloch ball with 1D-circle sharpness and 42/42 independent Python verification checks passing—do not establish physical, categorical, Born-style, or Majid-style self-duality; empty-interior, projective-instrument, and d>=3 gates remain open alongside formal human peer review).",
       "no_promotion": true,
       "ids": [
         "FRC-830-000",
@@ -203,10 +205,11 @@
   "active_papers": [
     {
       "id": "FRC-100-000",
-      "version": "v1.2",
+      "version": "v1.3",
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.3-deposit-pending",
       "url": "/en/papers/FRC-100-000"
     },
     {
@@ -269,18 +272,20 @@
     },
     {
       "id": "FRC-100-011",
-      "version": "v1.2",
+      "version": "v1.3",
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
+      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending",
       "url": "/en/papers/FRC-100-011"
     },
     {
       "id": "FRC-100-100",
-      "version": "v1.0",
+      "version": "v1.1",
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending",
       "url": "/en/papers/FRC-100-100"
     },
     {
@@ -537,15 +542,17 @@
     },
     {
       "id": "FRC-100-100",
-      "title": "FRC 100.100 - Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence",
+      "title": "FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence",
       "url": "/en/papers/FRC-100-100",
-      "version": "v1.0",
-      "date": "2026-07-10",
+      "version": "v1.1",
+      "date": "2026-11-26",
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
+      "status_label": "wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending",
       "concept_doi": "10.5281/zenodo.21298193",
-      "doi": "10.5281/zenodo.21298194",
+      "prior_version_doi": "10.5281/zenodo.21298194",
+      "doi_status": "v1.1 Zenodo deposit pending",
       "pdf_url": "/paper-pdfs/FRC-100-100.pdf",
       "role": "Self-contained status-labeled snapshot for grounding human and machine readers; not a substitute for primary evidence papers."
     },
@@ -607,15 +614,17 @@
     },
     {
       "id": "FRC-100-011",
-      "title": "FRC 100.011 v1.2 - Translation Table: FRC Vocabulary and Claim Status",
+      "title": "FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status",
       "url": "/en/papers/FRC-100-011",
-      "version": "v1.2",
-      "date": "2026-07-09",
+      "version": "v1.3",
+      "date": "2026-11-26",
       "publication_state": "preprint",
       "canon_status": "living-core",
       "epistemic_status": "primary",
+      "status_label": "wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending",
       "concept_doi": "10.5281/zenodo.21284063",
-      "doi": "10.5281/zenodo.21298180",
+      "prior_version_doi": "10.5281/zenodo.21298180",
+      "doi_status": "v1.3 Zenodo deposit pending",
       "pdf_url": "/paper-pdfs/FRC-100-011.pdf",
       "role": "Vocabulary crosswalk; use with, not instead of, primary papers."
     }
@@ -854,7 +863,7 @@
       "epistemic_status": "formal-obstruction",
       "status_label": "present-structure-no-promotion; open-set-cptp-excluded; symbolic-numerical-audit-completed",
       "concept_doi": "10.5281/zenodo.21385391",
-      "doi": "10.5281/zenodo.21385391",
+      "doi": "10.5281/zenodo.24572231",
       "alphaxiv_url": "https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction",
       "pdf_url": "/paper-pdfs/FRC-830-005.pdf"
     }

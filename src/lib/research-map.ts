@@ -91,8 +91,8 @@ const RECIPROCITY_MATH_BADGES: Record<string, { statusCategory: ResearchStatusCa
   },
   'FRC-830-005': {
     statusCategory: 'exact-mathematics',
-    statusBadge: 'Exact mathematics · Open-set CPTP excluded · alphaXiv live',
-    summary: 'Present-structure obstruction to Born reciprocity and Majid-style self-duality, sharpened with an open-set no-affine/CPTP qubit theorem (Proposition 4, 1D-circle sharp) and 42/42 symbolic-numerical verification checks.',
+    statusBadge: 'Exact mathematics · Open-set CPTP excluded · Zenodo DOI & alphaXiv live',
+    summary: 'Present-structure obstruction to Born reciprocity and Majid-style self-duality, sharpened with an open-set no-affine/CPTP qubit theorem (Proposition 4, 1D-circle sharp) and 42/42 symbolic-numerical verification checks (Zenodo DOI 10.5281/zenodo.24572231).',
   },
 };
 
@@ -195,7 +195,21 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
     });
 
   const recConceptDois = [...new Set(recPapers.map((p) => p.conceptDoi).filter(Boolean))];
-  const recVersionDois = [...new Set(recPapers.map((p) => (p.doi && p.doi !== p.conceptDoi ? p.doi : null)).filter(Boolean))];
+  const recVersionCounts = new Map<string, number>();
+  for (const p of recPapers) {
+    if (p.doi && p.doi !== p.conceptDoi) {
+      recVersionCounts.set(p.doi, (recVersionCounts.get(p.doi) || 0) + 1);
+    }
+  }
+  const sharedBundleVersionDois = [...recVersionCounts.entries()]
+    .filter(([, count]) => count > 1)
+    .map(([doi]) => doi);
+  const sharedVersionDoi =
+    sharedBundleVersionDois.length === 1
+      ? sharedBundleVersionDois[0]
+      : recVersionCounts.size === 1
+        ? [...recVersionCounts.keys()][0]
+        : null;
 
   const thresholdPapers = enPapers
     .filter((p) => /^FRC-700-00\d$/.test(p.frontmatter.id) && p.frontmatter.canonStatus === 'framework')
@@ -234,7 +248,7 @@ export function buildResearchMap(lang: string, basePath: string): ResearchMapDat
     reciprocityMathematics: {
       papers: recPapers,
       sharedConceptDoi: recConceptDois.length === 1 ? recConceptDois[0] : null,
-      sharedVersionDoi: recVersionDois.length === 1 ? recVersionDois[0] : null,
+      sharedVersionDoi,
     },
     thresholdPapers,
     empiricalPrograms,

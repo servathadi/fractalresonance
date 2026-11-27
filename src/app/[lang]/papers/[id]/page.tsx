@@ -170,6 +170,7 @@ export default async function PaperPage({ params }: Props) {
   const doiEntries = [
     fm.conceptDoi ? { label: 'Concept DOI', value: fm.conceptDoi } : null,
     fm.doi && fm.doi !== fm.conceptDoi ? { label: 'DOI', value: fm.doi } : null,
+    !fm.doi && fm.priorVersionDoi ? { label: 'Prior Version DOI', value: fm.priorVersionDoi } : null,
   ].filter((entry): entry is { label: string; value: string } => entry !== null);
 
   const staticTargets = new Set(['about', 'articles', 'papers', 'books', 'formulas', 'positioning', 'mu-levels', 'graph', 'privacy', 'terms']);

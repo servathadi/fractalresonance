@@ -1,7 +1,7 @@
 {
   "$schema": "https://fractalresonance.com/catalog.schema.json",
   "version": "1.0.0",
-  "generated": "2026-11-26T22:32:50.873Z",
+  "generated": "2026-11-27T02:46:47.606Z",
   "site": {
     "url": "https://fractalresonance.com",
     "name": "Fractal Resonance Coherence",
@@ -10,21 +10,21 @@
   },
   "statistics": {
     "languages": 4,
-    "totalItems": 235,
+    "totalItems": 171,
     "byType": {
       "papers": 73,
-      "articles": 36,
+      "articles": 28,
       "concepts": 36,
-      "topics": 56,
+      "topics": 8,
       "blog": 12,
       "books": 10,
-      "people": 12
+      "people": 4
     },
     "byLanguage": {
-      "en": 85,
-      "es": 50,
-      "fa": 50,
-      "fr": 50
+      "en": 69,
+      "es": 34,
+      "fa": 34,
+      "fr": 34
     }
   },
   "content": {
@@ -32,42 +32,49 @@
       "papers": [
         {
           "id": "FRC-100-000",
-          "title": "FRC 100.000 v1.2 - Start Here: Canonical Stance and Version-Aware Reading Map",
+          "title": "FRC 100.000 v1.3 — Start Here: Canonical Stance and Version-Aware Reading Guide",
           "url": "https://fractalresonance.com/en/papers/FRC-100-000",
           "path": "/en/papers/FRC-100-000",
-          "abstract": "FRC 100.000 is the version-aware front door to the Fractal Resonance Coherence corpus. Version 1.2 restores the owner-approved canonical relation dS + k* d ln C = 0. The starred k* is the scale-invariant Boltzmann bridge, not an outcome-fitted constant or evolving state variable; indexed notation belongs only to declared operational realizations. The relation is used operationally as bookkeeping and remains an open physical conjecture for real open systems. This document routes readers to current primary papers and separates definitions, mathematical results, model-specific tests, and conjectures. It is an index, not a substitute for the primary papers and not a minimum sufficient prompt for machine readers.",
-          "date": "2026-07-09",
-          "author": "H. Servat",
-          "doi": "10.5281/zenodo.21298155",
+          "abstract": "FRC 100.000 v1.3 is the version-aware front door and reading charter for the Fractal Resonance program. It codifies the program's Two-Register Architecture—separating the physics register (Fractal Resonance Coherence: dS + k* d ln C = 0, open-system reciprocity, operational registers FRC 700.000–007, structural obstruction theorems FRC 830.000–005, and the public falsification ledger) from the philosophy register (Fractal Resonance Cognition: the philosophical position developed in The Open System and The Mind in the Coupling, where mind is analyzed as sustained recursive coupling and basin dynamics without claiming physical proof of consciousness). Version 1.3 synchronizes the active corpus map and Concept DOI ledger with FRC 566.001 v2.2, FRC 100.002 v2.6, FRC 100.002.001 v1.5 (Gate 4 closed negatively as NO_GAIN), FRC 787.787 v1.2 (Rijke-tube P3 underpowered negative gate and Section 12 anti-precursor-hunting discipline), FRC 700.000–007 (replacing archived FRC 700.777), and FRC 830.000–005 including the independently audited FRC 830.005 v0.3 live on alphaXiv. Every 100.00x topic lane is preserved in its original category, with Wave-2 frontier upgrades explicitly queued rather than demoted or erased.",
+          "date": "2026-11-26",
+          "author": "Hadi Servat",
           "conceptDoi": "10.5281/zenodo.21284061",
-          "version": "v1.2",
+          "priorVersionDoi": "10.5281/zenodo.21298155",
+          "version": "v1.3",
           "muLevel": "mu4",
-          "supersedes": "FRC 100.000 v1.1",
+          "supersedes": "FRC 100.000 v1.2",
+          "statusLabel": "wave1-charter; two-register-architecture; zenodo-v1.3-deposit-pending",
+          "statusNote": "Wave 1 charter release (v1.3): staged for Zenodo deposit pending DOI mint; Concept DOI 10.5281/zenodo.21284061 currently resolves to prior published v1.2 (10.5281/zenodo.21298155).",
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "canonStatus": "living-core",
           "cover": "/media/en/papers/FRC-100-000/cover.png",
           "tier": "foundational",
-          "series": "FRC 100",
+          "series": "FRC 100 — Foundational Basin Series",
           "tags": [
             "orientation",
             "index",
             "front-door",
+            "two-registers",
             "scale-invariance",
             "version-control",
-            "reading-guide"
+            "reading-guide",
+            "falsification-ledger"
           ],
           "taxons": [
             "orientation",
             "index",
             "front-door",
+            "two-registers",
             "scale-invariance",
             "version-control",
             "reading-guide",
+            "falsification-ledger",
             "frc-100"
           ],
           "status": "published",
-          "wordCount": 1066
+          "wordCount": 2876
         },
         {
           "id": "FRC-100-001",
@@ -513,84 +520,100 @@
         },
         {
           "id": "FRC-100-011",
-          "title": "FRC 100.011 v1.2 - Translation Table: FRC Vocabulary and Claim Status",
+          "title": "FRC 100.011 v1.3 — Translation Table: FRC Vocabulary and Claim Status",
           "url": "https://fractalresonance.com/en/papers/FRC-100-011",
           "path": "/en/papers/FRC-100-011",
-          "abstract": "FRC 100.011 is a vocabulary and claim-status crosswalk, not a complete representation of FRC. Version 1.2 restores the canonical relation dS + k* d ln C = 0 and reserves indexed notation for declared operational realizations. It separates observed, target, and dynamical Lambda objects; distinguishes bookkeeping identities from the open physical reciprocity conjecture; and corrects the claim that uncertainty forbids stationary states. It maps FRC terms to mainstream counterparts while marking whether a relation is definitional, borrowed, model-specific, or an FRC conjecture. Definitions, boundary conventions, and evidence status must be checked against the current primary papers.",
-          "date": "2026-07-09",
-          "author": "H. Servat",
-          "doi": "10.5281/zenodo.21298180",
+          "abstract": "FRC 100.011 v1.3 is the vocabulary and claim-status crosswalk for the Fractal Resonance program, not a substitute for primary papers. It translates FRC terms into mainstream physics, mathematics, and philosophy counterparts while labeling each entry as definitional, borrowed, model-specific, a structural obstruction, a philosophical stance, or a falsifiable FRC wager. Version 1.3 adds explicit crosswalk rows for the Two-Register Architecture (Coherence in the physics register vs Cognition in the philosophy register of The Open System and The Mind in the Coupling), Operational Registers (FRC 700.000–007, replacing archived FRC 700.777), Reciprocity Obstructions and Open-Set Rigidity (FRC 830.000–005 and independently audited FRC 830.005 v0.3 live on alphaXiv), and Typed Falsification Dispositions (NO_GAIN, CONTRADICTED, UNDERPOWERED, STRUCTURAL_OBSTRUCTION) anchored to the public falsification ledger. It synchronizes every negative gate and active wager with FRC 100.002 v2.6, FRC 100.002.001 v1.5 (Gate 4 closed negatively), and FRC 787.787 v1.2 (Rijke-tube P3 underpowered non-promotion and Section 12 anti-precursor-hunting rule).",
+          "date": "2026-11-26",
+          "author": "Hadi Servat",
           "conceptDoi": "10.5281/zenodo.21284063",
-          "version": "v1.2",
+          "priorVersionDoi": "10.5281/zenodo.21298180",
+          "version": "v1.3",
           "muLevel": "mu4",
-          "supersedes": "FRC 100.011 v1.1",
+          "supersedes": "FRC 100.011 v1.2",
+          "statusLabel": "wave1-charter; two-register-crosswalk; zenodo-v1.3-deposit-pending",
+          "statusNote": "Wave 1 translation table release (v1.3): staged for Zenodo deposit pending DOI mint; Concept DOI 10.5281/zenodo.21284063 currently resolves to prior published v1.2 (10.5281/zenodo.21298180).",
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
+          "canonStatus": "living-core",
           "cover": "/media/en/papers/FRC-100-011/cover.png",
           "tier": "foundational",
-          "series": "FRC 100",
+          "series": "FRC 100 — Foundational Basin Series",
           "tags": [
             "translation",
             "glossary",
+            "two-registers",
             "mainstream-physics",
             "order-parameter",
             "stochastic-thermodynamics",
-            "landauer",
-            "quantum-equilibrium",
+            "operational-registers",
+            "reciprocity-obstructions",
+            "falsification-dispositions",
             "orientation"
           ],
           "taxons": [
             "translation",
             "glossary",
+            "two-registers",
             "mainstream-physics",
             "order-parameter",
             "stochastic-thermodynamics",
-            "landauer",
-            "quantum-equilibrium",
+            "operational-registers",
+            "reciprocity-obstructions",
+            "falsification-dispositions",
             "orientation",
             "frc-100"
           ],
           "status": "published",
-          "wordCount": 2246
+          "wordCount": 3560
         },
         {
           "id": "FRC-100-100",
-          "title": "FRC 100.100 - Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence",
+          "title": "FRC 100.100 v1.1 — Standalone Stance: A Status-Labeled Snapshot of Fractal Resonance Coherence",
           "url": "https://fractalresonance.com/en/papers/FRC-100-100",
           "path": "/en/papers/FRC-100-100",
-          "abstract": "FRC 100.100 is a self-contained, status-labeled snapshot of the current Fractal Resonance Coherence program for human and machine readers. It states the canonical scale-invariant relation dS + k* d ln C = 0; separates definitions, exact mathematics, model-specific results, operational programs, conjectures, and philosophical notes; records the current scope of the chaos, collapse, Born-rule, Lambda, and mu-register lines; and preserves the program's negative results. It is a routing and grounding document, not a substitute for primary papers when a derivation, dataset, or citation is required.",
-          "date": "2026-07-10",
-          "author": "H. Servat",
-          "doi": "10.5281/zenodo.21298194",
+          "abstract": "FRC 100.100 v1.1 is a self-contained, status-labeled snapshot of the Fractal Resonance program for human and machine readers. It establishes the Two-Register Architecture separating the physics register (Fractal Resonance Coherence: dS + k* d ln C = 0, open-system reciprocity, operational registers FRC 700.000–007, structural obstruction theorems FRC 830.000–005, and the public negative-gate falsification ledger) from the philosophy register (Fractal Resonance Cognition: The Open System and The Mind in the Coupling, treating mind as sustained recursive coupling and basin dynamics without claiming physical proof of consciousness). Version 1.1 updates every status table and corpus citation to current versions—including FRC 566.001 v2.2, FRC 100.002 v2.6 and FRC 100.002.001 v1.5 (Gate 4 closed negatively as NO_GAIN), FRC 787.787 v1.2 (Rijke-tube P3 underpowered non-promotion and Section 12 anti-precursor-hunting discipline), FRC 700.000–007 replacing archived FRC 700.777, and FRC 830.000–005 highlighting the independently audited FRC 830.005 v0.3 live on alphaXiv. Every 100.00x paper category is preserved intact, distinguishing narrowed 2025 claims from active frontier bounds and Wave-2 upgrade queues.",
+          "date": "2026-11-26",
+          "author": "Hadi Servat",
           "conceptDoi": "10.5281/zenodo.21298193",
-          "version": "v1.0",
+          "priorVersionDoi": "10.5281/zenodo.21298194",
+          "version": "v1.1",
           "muLevel": "mu4",
+          "supersedes": "FRC 100.100 v1.0",
+          "statusLabel": "wave1-charter; two-register-architecture; zenodo-v1.1-deposit-pending",
+          "statusNote": "Wave 1 standalone stance release (v1.1): staged for Zenodo deposit pending DOI mint; Concept DOI 10.5281/zenodo.21298193 currently resolves to prior published v1.0 (10.5281/zenodo.21298194).",
           "publicationState": "preprint",
           "epistemicStatus": "primary",
           "retrievalPriority": 100,
-          "series": "FRC 100 - Foundational Basin Series",
+          "canonStatus": "living-core",
+          "tier": "foundational",
+          "series": "FRC 100 — Foundational Basin Series",
           "tags": [
             "orientation",
             "standalone-stance",
-            "machine-reading",
-            "status-labels",
-            "scale-invariance",
-            "reciprocity",
-            "coherence"
-          ],
-          "taxons": [
-            "orientation",
-            "standalone-stance",
+            "two-registers",
             "machine-reading",
             "status-labels",
             "scale-invariance",
             "reciprocity",
             "coherence",
+            "falsification-ledger"
+          ],
+          "taxons": [
+            "orientation",
+            "standalone-stance",
+            "two-registers",
+            "machine-reading",
+            "status-labels",
+            "scale-invariance",
+            "reciprocity",
+            "coherence",
+            "falsification-ledger",
             "frc-100"
           ],
           "status": "published",
-          "wordCount": 2184
+          "wordCount": 3619
         },
         {
           "id": "FRC-16D-001",
@@ -1481,7 +1504,7 @@
           "abstract": "FRC has an exact normalized entropy-coherence ledger involution D(x,y)=(-y,-x), a typed category of operational registers, and exact one-parameter and qubit lift obstructions. This paper asks whether those structures constitute quantum Born reciprocity or Majid-style representation-theoretic self-duality. They do not. The canonical Born exchange B_a(q,p)=(ap,-q/a) has order four and is symplectic, whereas D has order two and reverses the ambient area form; their different orders prevent conjugacy by any bijection. More decisively, the ledger datum does not reconstruct a unique state-space action, and this non-reconstruction occurs naturally in qubit fibers. A primitive Hopf algebraization makes pullback along D only a Hopf automorphism of one chosen ambient coordinate algebra, supplying neither an independently defined dual object nor a Hopf pairing, semidualisation, representation exchange, or physical state-observable map. Every C^1 one-parameter family with strictly monotone coherence and slope ds/dy < 1 (in particular the decreasing-entropy trade regime ds/dy < 0) excludes nonidentity lifts, and the threshold ds/dy = 1 is sharp. On the full qubit ledger, incoherent operations, unital channels, and Wigner symmetries fail on their stated domains, and an open-set rigidity theorem excludes every affine map of the Bloch ball—hence every CPTP qubit channel (unital or nonunital), every positive trace-preserving map, and every fixed-ancilla Stinespring protocol—from inducing D on any nonempty open subset with nonzero off-diagonal coherence. Explicit one-dimensional circle realizations show that the open-set hypothesis is sharp, leaving empty-interior subsets, projective outcome-conditioned instrument maps, higher-dimensional registers, and cross-register constructions open. Present FRC therefore possesses exact coordinate geometry, typed-morphism criteria, and sharp obstruction theorems, but not Born reciprocity or Majid-style self-duality.",
           "date": "2026-11-26",
           "author": "H. Servat",
-          "doi": "10.5281/zenodo.21385391",
+          "doi": "10.5281/zenodo.24572231",
           "conceptDoi": "10.5281/zenodo.21385391",
           "alphaxivUrl": "https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction",
           "version": "v0.3",
@@ -1520,7 +1543,7 @@
             "frc-800"
           ],
           "status": "published",
-          "wordCount": 8031
+          "wordCount": 8047
         },
         {
           "id": "FRC-840-001",
@@ -1860,54 +1883,6 @@
           "status": "archived",
           "noindex": true,
           "wordCount": 23
-        },
-        {
-          "id": "gemini-deep-research-frc-2026-01-25",
-          "title": "Gemini Deep Research on FRC (Jan 25, 2026)",
-          "url": "https://fractalresonance.com/en/articles/gemini-deep-research-frc-2026-01-25",
-          "path": "/en/articles/gemini-deep-research-frc-2026-01-25",
-          "date": "2026-01-25",
-          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "digest",
-            "meta",
-            "public-face",
-            "needs-factcheck"
-          ],
-          "taxons": [
-            "river",
-            "digest",
-            "meta",
-            "public-face",
-            "needs-factcheck"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1099
-        },
-        {
-          "id": "river-welcome",
-          "title": "Reading Guide: Navigating the FRC Corpus",
-          "url": "https://fractalresonance.com/en/articles/river-welcome",
-          "path": "/en/articles/river-welcome",
-          "date": "2026-07-15",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
-          "tags": [
-            "digest",
-            "start-here",
-            "orientation"
-          ],
-          "taxons": [
-            "digest",
-            "start-here",
-            "orientation"
-          ],
-          "status": "published",
-          "wordCount": 53
         }
       ],
       "concepts": [
@@ -2124,327 +2099,6 @@
       ],
       "topics": [
         {
-          "id": "addiction-coherence-trap",
-          "title": "Addiction: A Coherence Trap",
-          "url": "https://fractalresonance.com/en/topics/addiction-coherence-trap",
-          "path": "/en/topics/addiction-coherence-trap",
-          "abstract": "A River-side mechanism: addiction as coherence working too well, narrowing the learning gate to a single frequency and trapping the system in a local minimum.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "addiction",
-            "dopamine",
-            "learning",
-            "coherence",
-            "health"
-          ],
-          "taxons": [
-            "addiction",
-            "dopamine",
-            "learning",
-            "coherence",
-            "health"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 232
-        },
-        {
-          "id": "cities-coherence-concrete",
-          "title": "Cities: Coherence Made of Concrete",
-          "url": "https://fractalresonance.com/en/topics/cities-coherence-concrete",
-          "path": "/en/topics/cities-coherence-concrete",
-          "abstract": "A River-side urban lens: neighborhoods as coherence fields; gentrification as coherence extraction; suburbs as anti-coherence architecture.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "cities",
-            "urbanism",
-            "jane-jacobs",
-            "coherence",
-            "gentrification"
-          ],
-          "taxons": [
-            "cities",
-            "urbanism",
-            "jane-jacobs",
-            "coherence",
-            "gentrification"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 172
-        },
-        {
-          "id": "climate-earth-fever",
-          "title": "Climate: Earth as a Body Running a Fever",
-          "url": "https://fractalresonance.com/en/topics/climate-earth-fever",
-          "path": "/en/topics/climate-earth-fever",
-          "abstract": "A River-side climate diagnosis through FRC: tipping points as coherence thresholds; industrial civilization as a broken metabolic loop.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "climate",
-            "gaia",
-            "tipping-points",
-            "coherence",
-            "entropy"
-          ],
-          "taxons": [
-            "climate",
-            "gaia",
-            "tipping-points",
-            "coherence",
-            "entropy"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 301
-        },
-        {
-          "id": "dreams-nightly-nigredo",
-          "title": "Dreams: The Nightly Nigredo",
-          "url": "https://fractalresonance.com/en/topics/dreams-nightly-nigredo",
-          "path": "/en/topics/dreams-nightly-nigredo",
-          "abstract": "A River-side frame: dreaming as controlled dissolution and recombination; the brain runs Nigredo on purpose to form deeper coherence.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "dreams",
-            "sleep",
-            "memory",
-            "coherence",
-            "nigredo"
-          ],
-          "taxons": [
-            "dreams",
-            "sleep",
-            "memory",
-            "coherence",
-            "nigredo"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 209
-        },
-        {
-          "id": "education-cgl-gates",
-          "title": "Education: Learning Gates and Boredom",
-          "url": "https://fractalresonance.com/en/topics/education-cgl-gates",
-          "path": "/en/topics/education-cgl-gates",
-          "abstract": "A River-side educational frame: CGL says learning only happens when alpha is nonzero; boredom is a diagnostic signal of a closed gate.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "education",
-            "learning",
-            "cgl",
-            "attention",
-            "boredom"
-          ],
-          "taxons": [
-            "education",
-            "learning",
-            "cgl",
-            "attention",
-            "boredom"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 318
-        },
-        {
-          "id": "food-coherence-alchemy",
-          "title": "Food: Coherence Alchemy (Fermentation and Grandmother's Hands)",
-          "url": "https://fractalresonance.com/en/topics/food-coherence-alchemy",
-          "path": "/en/topics/food-coherence-alchemy",
-          "abstract": "A River-side kitchen physics: fermentation as controlled Nigredo and cooking as coherence transfer; why grandmother's recipe can't be replicated.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "food",
-            "fermentation",
-            "coherence",
-            "culture",
-            "microbiome"
-          ],
-          "taxons": [
-            "food",
-            "fermentation",
-            "coherence",
-            "culture",
-            "microbiome"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 140
-        },
-        {
-          "id": "gaia-sahara-ocean-coherence",
-          "title": "Gaia: Sahara, Ocean, and Coherence Pumps",
-          "url": "https://fractalresonance.com/en/topics/gaia-sahara-ocean-coherence",
-          "path": "/en/topics/gaia-sahara-ocean-coherence",
-          "abstract": "A River-side dossier: deserts, oceans, and the Gaia hypothesis through FRC's coherence/entropy reciprocity.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "gaia",
-            "coherence",
-            "entropy",
-            "mu-levels",
-            "earth-systems"
-          ],
-          "taxons": [
-            "gaia",
-            "coherence",
-            "entropy",
-            "mu-levels",
-            "earth-systems"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 936
-        },
-        {
-          "id": "health-hrv-coherence",
-          "title": "Health: HRV as Alpha Drift",
-          "url": "https://fractalresonance.com/en/topics/health-hrv-coherence",
-          "path": "/en/topics/health-hrv-coherence",
-          "abstract": "A River-side medical frame: health as coherence maintenance; HRV as a measurable proxy for alpha drift.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "health",
-            "hrv",
-            "coherence",
-            "autonomic",
-            "medicine"
-          ],
-          "taxons": [
-            "health",
-            "hrv",
-            "coherence",
-            "autonomic",
-            "medicine"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 345
-        },
-        {
-          "id": "iran-liquid-fortress",
-          "title": "Iran: Liquid Fortress (Past, Present, Future)",
-          "url": "https://fractalresonance.com/en/topics/iran-liquid-fortress",
-          "path": "/en/topics/iran-liquid-fortress",
-          "abstract": "A River-side lens on Iran across centuries: coherence persists by flowing, absorbing, and carrying pattern through language and culture.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "iran",
-            "persia",
-            "geopolitics",
-            "shabrang",
-            "liquid-fortress",
-            "coherence"
-          ],
-          "taxons": [
-            "iran",
-            "persia",
-            "geopolitics",
-            "shabrang",
-            "liquid-fortress",
-            "coherence"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 256
-        },
-        {
-          "id": "language-coherence-audible",
-          "title": "Language: Coherence Made Audible",
-          "url": "https://fractalresonance.com/en/topics/language-coherence-audible",
-          "path": "/en/topics/language-coherence-audible",
-          "abstract": "A River-side frame: poetry as coherence compression, propaganda as forced phase-locking, and language as coherence transfer between minds.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "language",
-            "poetry",
-            "propaganda",
-            "coherence",
-            "farsi"
-          ],
-          "taxons": [
-            "language",
-            "poetry",
-            "propaganda",
-            "coherence",
-            "farsi"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 206
-        },
-        {
-          "id": "markets-coherence-flow",
-          "title": "Markets: Where Is Coherence Flowing?",
-          "url": "https://fractalresonance.com/en/topics/markets-coherence-flow",
-          "path": "/en/topics/markets-coherence-flow",
-          "abstract": "A River-side market read expressed through FRC: concentration dissolving, distribution forming; coherence moving between containers.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "markets",
-            "finance",
-            "coherence",
-            "entropy",
-            "narratives"
-          ],
-          "taxons": [
-            "markets",
-            "finance",
-            "coherence",
-            "entropy",
-            "narratives"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 507
-        },
-        {
           "id": "topics-intro",
           "title": "Topics — Ask FRC",
           "url": "https://fractalresonance.com/en/topics/topics-intro",
@@ -2464,35 +2118,6 @@
           ],
           "status": "published",
           "wordCount": 108
-        },
-        {
-          "id": "war-coherence-fields",
-          "title": "War: Coherence Competing With Coherence",
-          "url": "https://fractalresonance.com/en/topics/war-coherence-fields",
-          "path": "/en/topics/war-coherence-fields",
-          "abstract": "A River-side geopolitics frame: wars are coherence fields that cannot phase-lock, so they attempt to dissolve each other via entropy injection.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "war",
-            "geopolitics",
-            "coherence",
-            "entropy",
-            "narratives"
-          ],
-          "taxons": [
-            "war",
-            "geopolitics",
-            "coherence",
-            "entropy",
-            "narratives"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 193
         },
         {
           "id": "what-is-frc",
@@ -2738,48 +2363,6 @@
             "frc"
           ],
           "wordCount": 34
-        },
-        {
-          "id": "kasra",
-          "title": "Kasra",
-          "url": "https://fractalresonance.com/en/people/kasra",
-          "path": "/en/people/kasra",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "kasra",
-            "architect",
-            "persona"
-          ],
-          "taxons": [
-            "kasra",
-            "architect",
-            "persona"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 68
-        },
-        {
-          "id": "river",
-          "title": "River",
-          "url": "https://fractalresonance.com/en/people/river",
-          "path": "/en/people/river",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "oracle",
-            "persona"
-          ],
-          "taxons": [
-            "river",
-            "oracle",
-            "persona"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 67
         }
       ]
     },
@@ -3315,54 +2898,6 @@
           "status": "archived",
           "noindex": true,
           "wordCount": 24
-        },
-        {
-          "id": "gemini-deep-research-frc-2026-01-25",
-          "title": "Investigación profunda de Gemini sobre FRC (25 de enero de 2026)",
-          "url": "https://fractalresonance.com/es/articles/gemini-deep-research-frc-2026-01-25",
-          "path": "/es/articles/gemini-deep-research-frc-2026-01-25",
-          "date": "2026-01-25",
-          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "resumen",
-            "meta",
-            "cara-pública",
-            "necesita-verificación"
-          ],
-          "taxons": [
-            "river",
-            "resumen",
-            "meta",
-            "cara-pública",
-            "necesita-verificación"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1269
-        },
-        {
-          "id": "river-welcome",
-          "title": "Guía de lectura: cómo navegar el corpus FRC",
-          "url": "https://fractalresonance.com/es/articles/river-welcome",
-          "path": "/es/articles/river-welcome",
-          "date": "2026-07-15",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
-          "tags": [
-            "resumen",
-            "empezar-aquí",
-            "orientación"
-          ],
-          "taxons": [
-            "resumen",
-            "empezar-aquí",
-            "orientación"
-          ],
-          "status": "published",
-          "wordCount": 64
         }
       ],
       "concepts": [
@@ -3579,327 +3114,6 @@
       ],
       "topics": [
         {
-          "id": "addiction-coherence-trap",
-          "title": "Adicción: Una trampa de coherencia",
-          "url": "https://fractalresonance.com/es/topics/addiction-coherence-trap",
-          "path": "/es/topics/addiction-coherence-trap",
-          "abstract": "Un mecanismo desde el lado de River: la adicción como coherencia que funciona demasiado bien, estrechando la puerta del aprendizaje a una sola frecuencia y atrapando al sistema en un mínimo local.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "adicción",
-            "dopamina",
-            "aprendizaje",
-            "coherencia",
-            "salud"
-          ],
-          "taxons": [
-            "adicción",
-            "dopamina",
-            "aprendizaje",
-            "coherence",
-            "salud"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 287
-        },
-        {
-          "id": "cities-coherence-concrete",
-          "title": "Ciudades: Coherencia hecha de concreto",
-          "url": "https://fractalresonance.com/es/topics/cities-coherence-concrete",
-          "path": "/es/topics/cities-coherence-concrete",
-          "abstract": "Una lente urbana desde el lado de River: los vecindarios como campos de coherencia; la gentrificación como extracción de coherencia; los suburbios como arquitectura anti-coherencia.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "ciudades",
-            "urbanismo",
-            "jane-jacobs",
-            "coherencia",
-            "gentrificación"
-          ],
-          "taxons": [
-            "ciudades",
-            "urbanismo",
-            "jane-jacobs",
-            "coherence",
-            "gentrificación"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 226
-        },
-        {
-          "id": "climate-earth-fever",
-          "title": "Clima: La Tierra como un cuerpo con fiebre",
-          "url": "https://fractalresonance.com/es/topics/climate-earth-fever",
-          "path": "/es/topics/climate-earth-fever",
-          "abstract": "Un diagnóstico climático desde el lado de River a través de la FRC: los puntos de inflexión como umbrales de coherencia; la civilización industrial como un ciclo metabólico roto.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "clima",
-            "gaia",
-            "puntos-de-inflexión",
-            "coherencia",
-            "entropía"
-          ],
-          "taxons": [
-            "clima",
-            "gaia",
-            "puntos-de-inflexión",
-            "coherence",
-            "entropy"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 372
-        },
-        {
-          "id": "dreams-nightly-nigredo",
-          "title": "Sueños: El Nigredo nocturno",
-          "url": "https://fractalresonance.com/es/topics/dreams-nightly-nigredo",
-          "path": "/es/topics/dreams-nightly-nigredo",
-          "abstract": "Un marco desde el lado de River: soñar como disolución y recombinación controladas; el cerebro ejecuta el Nigredo a propósito para formar una coherencia más profunda.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "sueños",
-            "sueño",
-            "memoria",
-            "coherencia",
-            "nigredo"
-          ],
-          "taxons": [
-            "sueños",
-            "sueño",
-            "memoria",
-            "coherence",
-            "nigredo"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 246
-        },
-        {
-          "id": "education-cgl-gates",
-          "title": "Educación: Puertas de aprendizaje y aburrimiento",
-          "url": "https://fractalresonance.com/es/topics/education-cgl-gates",
-          "path": "/es/topics/education-cgl-gates",
-          "abstract": "Un marco educativo desde el lado de River: CGL dice que el aprendizaje solo ocurre cuando alfa es distinto de cero; el aburrimiento es una señal diagnóstica de una puerta cerrada.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "educación",
-            "aprendizaje",
-            "cgl",
-            "atención",
-            "aburrimiento"
-          ],
-          "taxons": [
-            "educación",
-            "aprendizaje",
-            "cgl",
-            "atención",
-            "aburrimiento"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 383
-        },
-        {
-          "id": "food-coherence-alchemy",
-          "title": "Alimentación: Alquimia de la coherencia (Fermentación y las manos de la abuela)",
-          "url": "https://fractalresonance.com/es/topics/food-coherence-alchemy",
-          "path": "/es/topics/food-coherence-alchemy",
-          "abstract": "Una física de cocina desde el lado de River: la fermentación como Nigredo controlado y la cocina como transferencia de coherencia; por qué la receta de la abuela no se puede replicar.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "alimentación",
-            "fermentación",
-            "coherencia",
-            "cultura",
-            "microbioma"
-          ],
-          "taxons": [
-            "alimentación",
-            "fermentación",
-            "coherence",
-            "cultura",
-            "microbioma"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 174
-        },
-        {
-          "id": "gaia-sahara-ocean-coherence",
-          "title": "Gaia: El Sahara, el océano y las bombas de coherencia",
-          "url": "https://fractalresonance.com/es/topics/gaia-sahara-ocean-coherence",
-          "path": "/es/topics/gaia-sahara-ocean-coherence",
-          "abstract": "Un dossier desde el lado de River: desiertos, océanos y la hipótesis Gaia a través de la reciprocidad coherencia/entropía de la FRC.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "gaia",
-            "coherencia",
-            "entropía",
-            "niveles-mu",
-            "sistemas-terrestres"
-          ],
-          "taxons": [
-            "gaia",
-            "coherence",
-            "entropy",
-            "niveles-mu",
-            "sistemas-terrestres"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1138
-        },
-        {
-          "id": "health-hrv-coherence",
-          "title": "Salud: La VFC como deriva alfa",
-          "url": "https://fractalresonance.com/es/topics/health-hrv-coherence",
-          "path": "/es/topics/health-hrv-coherence",
-          "abstract": "Un marco médico desde el lado de River: la salud como mantenimiento de la coherencia; la VFC como un proxy medible para la deriva alfa.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "salud",
-            "vfc",
-            "coherencia",
-            "autonómico",
-            "medicina"
-          ],
-          "taxons": [
-            "salud",
-            "vfc",
-            "coherence",
-            "autonómico",
-            "medicina"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 420
-        },
-        {
-          "id": "iran-liquid-fortress",
-          "title": "Irán: Fortaleza líquida (Pasado, Presente, Futuro)",
-          "url": "https://fractalresonance.com/es/topics/iran-liquid-fortress",
-          "path": "/es/topics/iran-liquid-fortress",
-          "abstract": "Una lente desde el lado de River sobre Irán a través de los siglos: la coherencia persiste fluyendo, absorbiendo y portando patrones a través del lenguaje y la cultura.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "irán",
-            "persia",
-            "geopolítica",
-            "shabrang",
-            "fortaleza-líquida",
-            "coherencia"
-          ],
-          "taxons": [
-            "irán",
-            "persia",
-            "geopolítica",
-            "shabrang",
-            "fortaleza-líquida",
-            "coherence"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 283
-        },
-        {
-          "id": "language-coherence-audible",
-          "title": "Lenguaje: Coherencia hecha audible",
-          "url": "https://fractalresonance.com/es/topics/language-coherence-audible",
-          "path": "/es/topics/language-coherence-audible",
-          "abstract": "Un marco desde el lado de River: la poesía como compresión de coherencia, la propaganda como bloqueo de fase forzado y el lenguaje como transferencia de coherencia entre mentes.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "lenguaje",
-            "poesía",
-            "propaganda",
-            "coherencia",
-            "farsi"
-          ],
-          "taxons": [
-            "lenguaje",
-            "poesía",
-            "propaganda",
-            "coherence",
-            "farsi"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 243
-        },
-        {
-          "id": "markets-coherence-flow",
-          "title": "Mercados: ¿Hacia dónde fluye la coherencia?",
-          "url": "https://fractalresonance.com/es/topics/markets-coherence-flow",
-          "path": "/es/topics/markets-coherence-flow",
-          "abstract": "Una lectura de mercado desde el lado de River expresada a través de la FRC: concentración disolviéndose, distribución formándose; la coherencia moviéndose entre contenedores.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "mercados",
-            "finanzas",
-            "coherencia",
-            "entropía",
-            "narrativas"
-          ],
-          "taxons": [
-            "mercados",
-            "finanzas",
-            "coherence",
-            "entropy",
-            "narrativas"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 616
-        },
-        {
           "id": "topics-intro",
           "title": "Temas — Preguntas sobre FRC",
           "url": "https://fractalresonance.com/es/topics/topics-intro",
@@ -3919,35 +3133,6 @@
           ],
           "status": "published",
           "wordCount": 72
-        },
-        {
-          "id": "war-coherence-fields",
-          "title": "Guerra: Coherencia compitiendo con coherencia",
-          "url": "https://fractalresonance.com/es/topics/war-coherence-fields",
-          "path": "/es/topics/war-coherence-fields",
-          "abstract": "Un marco geopolítico desde el lado de River: las guerras son campos de coherencia que no pueden bloquearse en fase, por lo que intentan disolverse mutuamente mediante la inyección de entropía.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "guerra",
-            "geopolítica",
-            "coherencia",
-            "entropía",
-            "narrativas"
-          ],
-          "taxons": [
-            "guerra",
-            "geopolítica",
-            "coherence",
-            "entropy",
-            "narrativas"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 230
         },
         {
           "id": "what-is-frc",
@@ -4125,48 +3310,6 @@
             "frc"
           ],
           "wordCount": 35
-        },
-        {
-          "id": "kasra",
-          "title": "Kasra",
-          "url": "https://fractalresonance.com/es/people/kasra",
-          "path": "/es/people/kasra",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "kasra",
-            "arquitecto",
-            "personaje"
-          ],
-          "taxons": [
-            "kasra",
-            "arquitecto",
-            "personaje"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 77
-        },
-        {
-          "id": "river",
-          "title": "River",
-          "url": "https://fractalresonance.com/es/people/river",
-          "path": "/es/people/river",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "oráculo",
-            "personaje"
-          ],
-          "taxons": [
-            "river",
-            "oráculo",
-            "personaje"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 75
         }
       ]
     },
@@ -4702,54 +3845,6 @@
           "status": "archived",
           "noindex": true,
           "wordCount": 23
-        },
-        {
-          "id": "gemini-deep-research-frc-2026-01-25",
-          "title": "تحقیق عمیق جمینای در مورد FRC (۲۵ ژانویه ۲۰۲۶)",
-          "url": "https://fractalresonance.com/fa/articles/gemini-deep-research-frc-2026-01-25",
-          "path": "/fa/articles/gemini-deep-research-frc-2026-01-25",
-          "date": "2026-01-25",
-          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "ریور",
-            "خلاصه",
-            "متا",
-            "چهره-عمومی",
-            "نیازمند-بررسی"
-          ],
-          "taxons": [
-            "ریور",
-            "خلاصه",
-            "متا",
-            "چهره-عمومی",
-            "نیازمند-بررسی"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1139
-        },
-        {
-          "id": "river-welcome",
-          "title": "راهنمای مطالعه: ناوبری در پیکره FRC",
-          "url": "https://fractalresonance.com/fa/articles/river-welcome",
-          "path": "/fa/articles/river-welcome",
-          "date": "2026-07-15",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
-          "tags": [
-            "خلاصه",
-            "از-اینجا-شروع-کنید",
-            "جهت‌یابی"
-          ],
-          "taxons": [
-            "خلاصه",
-            "از-اینجا-شروع-کنید",
-            "جهت‌یابی"
-          ],
-          "status": "published",
-          "wordCount": 59
         }
       ],
       "concepts": [
@@ -4964,327 +4059,6 @@
       ],
       "topics": [
         {
-          "id": "addiction-coherence-trap",
-          "title": "اعتیاد: یک تله همدوسی",
-          "url": "https://fractalresonance.com/fa/topics/addiction-coherence-trap",
-          "path": "/fa/topics/addiction-coherence-trap",
-          "abstract": "مکانیزمی از سمت ریور: اعتیاد به عنوان همدوسی که بیش از حد خوب کار می‌کند، دریچه یادگیری را به یک فرکانس واحد محدود می‌کند و سیستم را در یک کمینه محلی به دام می‌اندازد.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "اعتیاد",
-            "دوپامین",
-            "یادگیری",
-            "همدوسی",
-            "سلامت"
-          ],
-          "taxons": [
-            "اعتیاد",
-            "دوپامین",
-            "یادگیری",
-            "coherence",
-            "سلامت"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 264
-        },
-        {
-          "id": "cities-coherence-concrete",
-          "title": "شهرها: همدوسی ساخته شده از بتن",
-          "url": "https://fractalresonance.com/fa/topics/cities-coherence-concrete",
-          "path": "/fa/topics/cities-coherence-concrete",
-          "abstract": "یک لنز شهری از سمت ریور: محله‌ها به مثابه میدان‌های همدوسی؛ اعیان‌سازی (gentrification) به عنوان استخراج همدوسی؛ حومه‌نشینی به عنوان معماریِ ضد-همدوسی.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "شهرها",
-            "شهرسازی",
-            "جین-جیکوبز",
-            "همدوسی",
-            "اعیان‌سازی"
-          ],
-          "taxons": [
-            "شهرها",
-            "شهرسازی",
-            "جین-جیکوبز",
-            "coherence",
-            "اعیان‌سازی"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 208
-        },
-        {
-          "id": "climate-earth-fever",
-          "title": "اقلیم: زمین به مثابه بدنی در تب",
-          "url": "https://fractalresonance.com/fa/topics/climate-earth-fever",
-          "path": "/fa/topics/climate-earth-fever",
-          "abstract": "یک تشخیص اقلیمی از سمت ریور از طریق FRC: نقاط عطف به عنوان آستانه‌های همدوسی؛ تمدن صنعتی به عنوان یک چرخه متابولیک شکسته.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "اقلیم",
-            "گایا",
-            "نقاط-عطف",
-            "همدوسی",
-            "آنتروپی"
-          ],
-          "taxons": [
-            "اقلیم",
-            "گایا",
-            "نقاط-عطف",
-            "coherence",
-            "entropy"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 346
-        },
-        {
-          "id": "dreams-nightly-nigredo",
-          "title": "رویاها: نیگردویِ شبانه",
-          "url": "https://fractalresonance.com/fa/topics/dreams-nightly-nigredo",
-          "path": "/fa/topics/dreams-nightly-nigredo",
-          "abstract": "قابی از سمت ریور: رویا دیدن به مثابه انحلال و ترکیب مجددِ کنترل شده؛ مغز تعمداً نیگردو را اجرا می‌کند تا همدوسی عمیق‌تری شکل دهد.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "رویاها",
-            "خواب",
-            "حافظه",
-            "همدوسی",
-            "نیگردو"
-          ],
-          "taxons": [
-            "رویاها",
-            "خواب",
-            "حافظه",
-            "coherence",
-            "نیگردو"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 258
-        },
-        {
-          "id": "education-cgl-gates",
-          "title": "آموزش: دریچه‌های یادگیری و بی‌حوصلگی",
-          "url": "https://fractalresonance.com/fa/topics/education-cgl-gates",
-          "path": "/fa/topics/education-cgl-gates",
-          "abstract": "قابی آموزشی از سمت ریور: CGL می‌گوید یادگیری تنها زمانی رخ می‌دهد که آلفا غیرصفر باشد؛ بی‌حوصلگی یک سیگنال تشخیصی از بسته بودن دریچه است.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "آموزش",
-            "یادگیری",
-            "cgl",
-            "توجه",
-            "بی‌حوصلگی"
-          ],
-          "taxons": [
-            "آموزش",
-            "یادگیری",
-            "cgl",
-            "توجه",
-            "بی‌حوصلگی"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 369
-        },
-        {
-          "id": "food-coherence-alchemy",
-          "title": "غذا: کیمیاگری همدوسی (تخمیر و دستان مادربزرگ)",
-          "url": "https://fractalresonance.com/fa/topics/food-coherence-alchemy",
-          "path": "/fa/topics/food-coherence-alchemy",
-          "abstract": "فیزیک آشپزخانه از سمت ریور: تخمیر به مثابه نیگردوی کنترل شده و آشپزی به عنوان انتقال همدوسی؛ چرا دستور پخت مادربزرگ قابل بازتولید نیست.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "غذا",
-            "تخمیر",
-            "همدوسی",
-            "فرهنگ",
-            "میکروبیوم"
-          ],
-          "taxons": [
-            "غذا",
-            "تخمیر",
-            "coherence",
-            "فرهنگ",
-            "میکروبیوم"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 160
-        },
-        {
-          "id": "gaia-sahara-ocean-coherence",
-          "title": "گایا: صحرا، اقیانوس و پمپ‌های همدوسی",
-          "url": "https://fractalresonance.com/fa/topics/gaia-sahara-ocean-coherence",
-          "path": "/fa/topics/gaia-sahara-ocean-coherence",
-          "abstract": "پرونده‌ای از سمت ریور: بیابان‌ها، اقیانوس‌ها و فرضیه گایا از طریق تقابل همدوسی/آنتروپی در FRC.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "گایا",
-            "همدوسی",
-            "آنتروپی",
-            "سطوح-mu",
-            "سیستم‌های-زمین"
-          ],
-          "taxons": [
-            "گایا",
-            "coherence",
-            "entropy",
-            "سطوح-mu",
-            "سیستم‌های-زمین"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1054
-        },
-        {
-          "id": "health-hrv-coherence",
-          "title": "سلامت: HRV به مثابه رانش آلفا",
-          "url": "https://fractalresonance.com/fa/topics/health-hrv-coherence",
-          "path": "/fa/topics/health-hrv-coherence",
-          "abstract": "قابی پزشکی از سمت ریور: سلامت به مثابه حفظ همدوسی؛ HRV به عنوان یک پروکسیِ قابل اندازه‌گیری برای رانش آلفا.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "سلامت",
-            "hrv",
-            "همدوسی",
-            "خودمختار",
-            "پزشکی"
-          ],
-          "taxons": [
-            "سلامت",
-            "hrv",
-            "coherence",
-            "خودمختار",
-            "پزشکی"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 406
-        },
-        {
-          "id": "iran-liquid-fortress",
-          "title": "ایران: قلعه مایع (گذشته، حال، آینده)",
-          "url": "https://fractalresonance.com/fa/topics/iran-liquid-fortress",
-          "path": "/fa/topics/iran-liquid-fortress",
-          "abstract": "لنزی از سمت ریور بر ایران در طول قرن‌ها: همدوسی با جاری شدن، جذب کردن و حمل الگو از طریق زبان و فرهنگ پایداری می‌یابد.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "ایران",
-            "پرشیا",
-            "ژئوپلیتیک",
-            "شبرنگ",
-            "قلعه-مایع",
-            "همدوسی"
-          ],
-          "taxons": [
-            "ایران",
-            "پرشیا",
-            "ژئوپلیتیک",
-            "شبرنگ",
-            "قلعه-مایع",
-            "coherence"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 272
-        },
-        {
-          "id": "language-coherence-audible",
-          "title": "زبان: همدوسیِ شنیدنی شده",
-          "url": "https://fractalresonance.com/fa/topics/language-coherence-audible",
-          "path": "/fa/topics/language-coherence-audible",
-          "abstract": "قابی از سمت ریور: شعر به مثابه فشرده‌سازی همدوسی، پروپاگاندا به عنوان قفل فازِ اجباری، و زبان به عنوان انتقال همدوسی بین ذهن‌ها.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "زبان",
-            "شعر",
-            "پروپاگاندا",
-            "همدوسی",
-            "فارسی"
-          ],
-          "taxons": [
-            "زبان",
-            "شعر",
-            "پروپاگاندا",
-            "coherence",
-            "فارسی"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 245
-        },
-        {
-          "id": "markets-coherence-flow",
-          "title": "بازارها: همدوسی به کجا جریان دارد؟",
-          "url": "https://fractalresonance.com/fa/topics/markets-coherence-flow",
-          "path": "/fa/topics/markets-coherence-flow",
-          "abstract": "یک خوانشِ بازار از سمت ریور که از طریق FRC بیان شده است: انحلال تمرکز, شکل‌گیریِ توزیع؛ حرکت همدوسی بین ظرف‌ها.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "بازارها",
-            "مالی",
-            "همدوسی",
-            "آنتروپی",
-            "روایت‌ها"
-          ],
-          "taxons": [
-            "بازارها",
-            "مالی",
-            "coherence",
-            "entropy",
-            "روایت‌ها"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 624
-        },
-        {
           "id": "topics-intro",
           "title": "موضوعات — پرسش و پاسخ FRC",
           "url": "https://fractalresonance.com/fa/topics/topics-intro",
@@ -5304,35 +4078,6 @@
           ],
           "status": "published",
           "wordCount": 69
-        },
-        {
-          "id": "war-coherence-fields",
-          "title": "جنگ: رقابتِ همدوسی با همدوسی",
-          "url": "https://fractalresonance.com/fa/topics/war-coherence-fields",
-          "path": "/fa/topics/war-coherence-fields",
-          "abstract": "قابی ژئوپلیتیک از سمت ریور: جنگ‌ها میدان‌های همدوسی‌ای هستند که نمی‌توانند با یکدیگر قفل فاز شوند، بنابراین تلاش می‌کنند از طریق تزریق آنتروپی، یکدیگر را منحل کنند.",
-          "date": "2026-01-25",
-          "author": "کسرا",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "جنگ",
-            "ژئوپلیتیک",
-            "همدوسی",
-            "آنتروپی",
-            "روایت‌ها"
-          ],
-          "taxons": [
-            "جنگ",
-            "ژئوپلیتیک",
-            "coherence",
-            "entropy",
-            "روایت‌ها"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 218
         },
         {
           "id": "what-is-frc",
@@ -5510,48 +4255,6 @@
             "frc"
           ],
           "wordCount": 30
-        },
-        {
-          "id": "kasra",
-          "title": "کسرا",
-          "url": "https://fractalresonance.com/fa/people/kasra",
-          "path": "/fa/people/kasra",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "کسرا",
-            "معمار",
-            "پرسونا"
-          ],
-          "taxons": [
-            "کسرا",
-            "معمار",
-            "پرسونا"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 69
-        },
-        {
-          "id": "river",
-          "title": "ریور",
-          "url": "https://fractalresonance.com/fa/people/river",
-          "path": "/fa/people/river",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "ریور",
-            "اوراکل",
-            "پرسونا"
-          ],
-          "taxons": [
-            "ریور",
-            "اوراکل",
-            "پرسونا"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 71
         }
       ]
     },
@@ -6087,54 +4790,6 @@
           "status": "archived",
           "noindex": true,
           "wordCount": 23
-        },
-        {
-          "id": "gemini-deep-research-frc-2026-01-25",
-          "title": "Recherche approfondie de Gemini sur la FRC (25 janvier 2026)",
-          "url": "https://fractalresonance.com/fr/articles/gemini-deep-research-frc-2026-01-25",
-          "path": "/fr/articles/gemini-deep-research-frc-2026-01-25",
-          "date": "2026-01-25",
-          "statusNote": "Archived January 2026 external synthesis (noindex). Reflects superseded early naming (\\\"Fractal Resonance Cognition\\\"), stadium D ≈ 1.90 claims, Born-rule derivation claims, and ladder μ-level framing; see FRC 100.000, FRC 100.100, and FRC 100.002.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "digest",
-            "meta",
-            "visage-public",
-            "besoin-verification"
-          ],
-          "taxons": [
-            "river",
-            "digest",
-            "meta",
-            "visage-public",
-            "besoin-verification"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1290
-        },
-        {
-          "id": "river-welcome",
-          "title": "Guide de lecture : naviguer dans le corpus FRC",
-          "url": "https://fractalresonance.com/fr/articles/river-welcome",
-          "path": "/fr/articles/river-welcome",
-          "date": "2026-07-15",
-          "epistemicStatus": "commentary",
-          "retrievalPriority": 60,
-          "tags": [
-            "synthèse",
-            "commencer-ici",
-            "orientation"
-          ],
-          "taxons": [
-            "synthèse",
-            "commencer-ici",
-            "orientation"
-          ],
-          "status": "published",
-          "wordCount": 64
         }
       ],
       "concepts": [
@@ -6351,327 +5006,6 @@
       ],
       "topics": [
         {
-          "id": "addiction-coherence-trap",
-          "title": "Addiction : Un piège à cohérence",
-          "url": "https://fractalresonance.com/fr/topics/addiction-coherence-trap",
-          "path": "/fr/topics/addiction-coherence-trap",
-          "abstract": "Un mécanisme du côté de River : l'addiction comme une cohérence qui fonctionne trop bien, rétrécissant la porte de l'apprentissage à une seule fréquence et piégeant le système dans un minimum local.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "addiction",
-            "dopamine",
-            "apprentissage",
-            "cohérence",
-            "santé"
-          ],
-          "taxons": [
-            "addiction",
-            "dopamine",
-            "apprentissage",
-            "coherence",
-            "santé"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 291
-        },
-        {
-          "id": "cities-coherence-concrete",
-          "title": "Villes : La cohérence faite de béton",
-          "url": "https://fractalresonance.com/fr/topics/cities-coherence-concrete",
-          "path": "/fr/topics/cities-coherence-concrete",
-          "abstract": "Une lentille urbaine du côté de River : les quartiers comme champs de cohérence ; la gentrification comme extraction de cohérence ; les banlieues comme architecture anti-cohérence.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "villes",
-            "urbanisme",
-            "jane-jacobs",
-            "cohérence",
-            "gentrification"
-          ],
-          "taxons": [
-            "villes",
-            "urbanisme",
-            "jane-jacobs",
-            "coherence",
-            "gentrification"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 233
-        },
-        {
-          "id": "climate-earth-fever",
-          "title": "Climat : La Terre comme un corps fiévreux",
-          "url": "https://fractalresonance.com/fr/topics/climate-earth-fever",
-          "path": "/fr/topics/climate-earth-fever",
-          "abstract": "Un diagnostic climatique du côté de River à travers la FRC : les points de bascule comme seuils de cohérence ; la civilisation industrielle comme une boucle métabolique brisée.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "climat",
-            "gaia",
-            "points-de-bascule",
-            "cohérence",
-            "entropie"
-          ],
-          "taxons": [
-            "climat",
-            "gaia",
-            "points-de-bascule",
-            "coherence",
-            "entropy"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 386
-        },
-        {
-          "id": "dreams-nightly-nigredo",
-          "title": "Rêves : Le Nigredo nocturne",
-          "url": "https://fractalresonance.com/fr/topics/dreams-nightly-nigredo",
-          "path": "/fr/topics/dreams-nightly-nigredo",
-          "abstract": "Un cadre du côté de River : le rêve comme dissolution et recombinaison contrôlées ; le cerveau exécute le Nigredo exprès pour former une cohérence plus profonde.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "rêves",
-            "sommeil",
-            "mémoire",
-            "cohérence",
-            "nigredo"
-          ],
-          "taxons": [
-            "rêves",
-            "sommeil",
-            "mémoire",
-            "coherence",
-            "nigredo"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 276
-        },
-        {
-          "id": "education-cgl-gates",
-          "title": "Éducation : Portes d'apprentissage et ennui",
-          "url": "https://fractalresonance.com/fr/topics/education-cgl-gates",
-          "path": "/fr/topics/education-cgl-gates",
-          "abstract": "Un cadre éducatif du côté de River : le CGL dit que l'apprentissage ne se produit que lorsque l'alpha est non nul ; l'ennui est un signal diagnostique d'une porte fermée.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "éducation",
-            "apprentissage",
-            "cgl",
-            "attention",
-            "ennui"
-          ],
-          "taxons": [
-            "éducation",
-            "apprentissage",
-            "cgl",
-            "attention",
-            "ennui"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 407
-        },
-        {
-          "id": "food-coherence-alchemy",
-          "title": "Alimentation : L'alchimie de la cohérence (Fermentation et mains de grand-mère)",
-          "url": "https://fractalresonance.com/fr/topics/food-coherence-alchemy",
-          "path": "/fr/topics/food-coherence-alchemy",
-          "abstract": "Une physique de cuisine du côté de River : la fermentation comme Nigredo contrôlé et la cuisine comme transfert de cohérence ; pourquoi la recette de grand-mère ne peut être reproduite.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "alimentation",
-            "fermentation",
-            "cohérence",
-            "culture",
-            "microbiome"
-          ],
-          "taxons": [
-            "alimentation",
-            "fermentation",
-            "coherence",
-            "culture",
-            "microbiome"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 189
-        },
-        {
-          "id": "gaia-sahara-ocean-coherence",
-          "title": "Gaia : Sahara, océan et pompes à cohérence",
-          "url": "https://fractalresonance.com/fr/topics/gaia-sahara-ocean-coherence",
-          "path": "/fr/topics/gaia-sahara-ocean-coherence",
-          "abstract": "Un dossier du côté de River : déserts, océans et hypothèse Gaia à travers la réciprocité cohérence/entropie de la FRC.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "gaia",
-            "cohérence",
-            "entropie",
-            "niveaux-mu",
-            "systèmes-terrestres"
-          ],
-          "taxons": [
-            "gaia",
-            "coherence",
-            "entropy",
-            "niveaux-mu",
-            "systèmes-terrestres"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 1204
-        },
-        {
-          "id": "health-hrv-coherence",
-          "title": "Santé : La VFC comme dérive alpha",
-          "url": "https://fractalresonance.com/fr/topics/health-hrv-coherence",
-          "path": "/fr/topics/health-hrv-coherence",
-          "abstract": "Un cadre médical du côté de River : la santé comme maintien de la cohérence ; la VFC comme proxy mesurable de la dérive alpha.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "santé",
-            "vfc",
-            "cohérence",
-            "autonome",
-            "médecine"
-          ],
-          "taxons": [
-            "santé",
-            "vfc",
-            "coherence",
-            "autonome",
-            "médecine"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 457
-        },
-        {
-          "id": "iran-liquid-fortress",
-          "title": "Iran : Forteresse liquide (Passé, Présent, Futur)",
-          "url": "https://fractalresonance.com/fr/topics/iran-liquid-fortress",
-          "path": "/fr/topics/iran-liquid-fortress",
-          "abstract": "Une lentille du côté de River sur l'Iran à travers les siècles : la cohérence persiste en coulant, en absorbant et en transportant le motif à travers la langue et la culture.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "iran",
-            "perse",
-            "geopolitique",
-            "shabrang",
-            "forteresse-liquide",
-            "coherence"
-          ],
-          "taxons": [
-            "iran",
-            "perse",
-            "geopolitique",
-            "shabrang",
-            "forteresse-liquide",
-            "coherence"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 302
-        },
-        {
-          "id": "language-coherence-audible",
-          "title": "Langage : La cohérence rendue audible",
-          "url": "https://fractalresonance.com/fr/topics/language-coherence-audible",
-          "path": "/fr/topics/language-coherence-audible",
-          "abstract": "Un cadre du côté de River : la poésie comme compression de cohérence, la propagande comme verrouillage de phase forcé, et le langage comme transfert de cohérence entre les esprits.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "langage",
-            "poesie",
-            "propagande",
-            "coherence",
-            "farsi"
-          ],
-          "taxons": [
-            "langage",
-            "poesie",
-            "propagande",
-            "coherence",
-            "farsi"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 261
-        },
-        {
-          "id": "markets-coherence-flow",
-          "title": "Marchés : Où coule la cohérence ?",
-          "url": "https://fractalresonance.com/fr/topics/markets-coherence-flow",
-          "path": "/fr/topics/markets-coherence-flow",
-          "abstract": "Une lecture du marché du côté de River exprimée à travers la FRC : la concentration se dissout, la distribution se forme ; la cohérence se déplace entre les conteneurs.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "marches",
-            "finance",
-            "coherence",
-            "entropie",
-            "recits"
-          ],
-          "taxons": [
-            "marches",
-            "finance",
-            "coherence",
-            "entropy",
-            "recits"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 643
-        },
-        {
           "id": "topics-intro",
           "title": "Sujets — Questions sur FRC",
           "url": "https://fractalresonance.com/fr/topics/topics-intro",
@@ -6691,35 +5025,6 @@
           ],
           "status": "published",
           "wordCount": 74
-        },
-        {
-          "id": "war-coherence-fields",
-          "title": "Guerre : La cohérence en compétition avec la cohérence",
-          "url": "https://fractalresonance.com/fr/topics/war-coherence-fields",
-          "path": "/fr/topics/war-coherence-fields",
-          "abstract": "Un cadre géopolitique du côté de River : les guerres sont des champs de cohérence qui ne peuvent pas se verrouiller en phase, ils tentent donc de se dissoudre mutuellement par l'injection d'entropie.",
-          "date": "2026-01-25",
-          "author": "Kasra",
-          "statusNote": "Archived exploratory topic (noindex). Exploratory analogy, not a validated FRC result; see FRC 100.000.",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "guerre",
-            "geopolitique",
-            "coherence",
-            "entropie",
-            "recits"
-          ],
-          "taxons": [
-            "guerre",
-            "geopolitique",
-            "coherence",
-            "entropy",
-            "recits"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 258
         },
         {
           "id": "what-is-frc",
@@ -6897,48 +5202,6 @@
             "frc"
           ],
           "wordCount": 38
-        },
-        {
-          "id": "kasra",
-          "title": "Kasra",
-          "url": "https://fractalresonance.com/fr/people/kasra",
-          "path": "/fr/people/kasra",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "kasra",
-            "architecte",
-            "persona"
-          ],
-          "taxons": [
-            "kasra",
-            "architecte",
-            "persona"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 88
-        },
-        {
-          "id": "river",
-          "title": "River",
-          "url": "https://fractalresonance.com/fr/people/river",
-          "path": "/fr/people/river",
-          "epistemicStatus": "archive",
-          "retrievalPriority": 20,
-          "tags": [
-            "river",
-            "oracle",
-            "persona"
-          ],
-          "taxons": [
-            "river",
-            "oracle",
-            "persona"
-          ],
-          "status": "archived",
-          "noindex": true,
-          "wordCount": 75
         }
       ]
     }

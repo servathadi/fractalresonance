@@ -44,7 +44,7 @@ const COPY: Record<string, CopyBlock> = {
     conjectureDesc: 'Unestablished physical extensions and explicit falsification, platform, and no-signaling gates (including closed negative gates such as dense Gate 4 in FRC 100.002.001).',
     canonicalHeading: 'Canonical reciprocity statement',
     reciprocityHeading: 'Reciprocity Mathematics (FRC 830.000–830.005)',
-    reciprocityIntro: 'Terminology charter, affine one-form classification, typed operational morphisms, and exact one-parameter/qubit lift obstructions. FRC 830.005 v0.3 (live on alphaXiv) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (sharp on 1D circles); empty-interior, projective-instrument, and higher-dimensional gates remain open, and no Born or Majid-style self-duality is established.',
+    reciprocityIntro: 'Terminology charter, affine one-form classification, typed operational morphisms, and exact one-parameter/qubit lift obstructions. FRC 830.005 v0.3 (Zenodo DOI 10.5281/zenodo.24572231; live on alphaXiv) excludes every affine/CPTP qubit channel on any nonempty open coherent subset of the Bloch ball (sharp on 1D circles); empty-interior, projective-instrument, and higher-dimensional gates remain open, and no Born or Majid-style self-duality is established.',
     zenodoConcept: 'Shared Zenodo Concept DOI',
     zenodoVersion: 'v0.1 Bundle DOI',
     readPaper: 'Web page',
@@ -313,6 +313,18 @@ export function ResearchMapSection({
                         {c.pdfLabel}
                       </a>
                     )}
+                    {paper.doi &&
+                      paper.doi !== data.reciprocityMathematics.sharedVersionDoi &&
+                      paper.doi !== data.reciprocityMathematics.sharedConceptDoi && (
+                        <a
+                          href={`https://doi.org/${paper.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-frc-gold/90 hover:text-frc-gold hover:underline"
+                        >
+                          DOI ↗
+                        </a>
+                      )}
                     {paper.alphaxivUrl && /^https:\/\//i.test(paper.alphaxivUrl) && (
                       <a
                         href={paper.alphaxivUrl}
@@ -412,6 +424,18 @@ export function ResearchMapSection({
                         {c.pdfLabel}
                       </a>
                     )}
+                    {paper.doi &&
+                      paper.doi !== data.reciprocityMathematics.sharedVersionDoi &&
+                      paper.doi !== data.reciprocityMathematics.sharedConceptDoi && (
+                        <a
+                          href={`https://doi.org/${paper.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-frc-gold/90 hover:text-frc-gold hover:underline"
+                        >
+                          DOI ↗
+                        </a>
+                      )}
                     {paper.alphaxivUrl && /^https:\/\//i.test(paper.alphaxivUrl) && (
                       <a
                         href={paper.alphaxivUrl}

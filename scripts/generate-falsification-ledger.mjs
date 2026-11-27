@@ -144,13 +144,21 @@ const LEDGER_ENTRIES = [
       verification_checks_passed: 42,
       verification_checks_total: 42,
     },
-    scopeBoundary: 'Present-structure no-promotion obstruction (FRC 830.005 v0.3 live on alphaXiv; independent symbolic/numerical audit completed with 42/42 checks passing, formal human peer review pending). Proposition 4 closes the open-set affine/CPTP qubit gate negatively; residual empty-interior subsets (curves/surfaces), nonlinear projective outcome-conditioned instrument maps, higher-dimensional (d >= 3) registers, and cross-register constructions remain explicitly open. Present ledger mathematics cannot be cited as evidence for physical, categorical, Born-style, or Majid-style self-duality.',
+    scopeBoundary: 'Present-structure no-promotion obstruction (FRC 830.005 v0.3 live on Zenodo DOI 10.5281/zenodo.24572231, standalone Concept DOI 10.5281/zenodo.24572230, FRC 830 set Concept DOI 10.5281/zenodo.21385391, and alphaXiv; independent symbolic/numerical audit completed with 42/42 checks passing, formal human peer review pending). Proposition 4 closes the open-set affine/CPTP qubit gate negatively; residual empty-interior subsets (curves/surfaces), nonlinear projective outcome-conditioned instrument maps, higher-dimensional (d >= 3) registers, and cross-register constructions remain explicitly open. Present ledger mathematics cannot be cited as evidence for physical, categorical, Born-style, or Majid-style self-duality.',
     urls: ['/en/papers/FRC-830-005', '/en/papers/FRC-830-004', '/en/papers/FRC-830-003'],
-    dois: ['10.5281/zenodo.21385391', '10.5281/zenodo.21385392'],
+    dois: ['10.5281/zenodo.24572231', '10.5281/zenodo.24572230', '10.5281/zenodo.21385391', '10.5281/zenodo.21385392'],
     externalLinks: [
+      {
+        label: 'Zenodo v0.3 (DOI 10.5281/zenodo.24572231)',
+        url: 'https://zenodo.org/records/24572231',
+      },
       {
         label: 'alphaXiv (FRC 830.005 v0.3)',
         url: 'https://www.alphaxiv.org/abs/2611.frc-830-005-quantum-born-reciprocity-obstruction',
+      },
+      {
+        label: 'Academia.edu (FRC 830.005 v0.3)',
+        url: 'https://www.academia.edu/182072723/FRC_830_005_v0_3_FRC_and_Quantum_Born_Reciprocity_A_Present_Structure_Obstruction_to_Majid_Style_Self_Duality',
       },
     ],
   },

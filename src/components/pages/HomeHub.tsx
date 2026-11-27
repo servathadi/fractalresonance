@@ -74,7 +74,7 @@ const DICT: Record<string, HomeCopy> = {
     observable: 'Chaos structure functional',
     criterion: 'Localization crossover target',
     currentWork: 'Current program',
-    work1: 'FRC 830.000–830.005: FRC 830.005 v0.3 (live on alphaXiv, 42/42 verification checks) excludes all open-set affine/CPTP qubit lifts (sharp on 1D circles); empty-interior, projective-instrument, and d ≥ 3 gates remain open alongside human peer review.',
+    work1: 'FRC 830.000–830.005: FRC 830.005 v0.3 (Zenodo DOI 10.5281/zenodo.24572231; live on alphaXiv, 42/42 verification checks) excludes all open-set affine/CPTP qubit lifts (sharp on 1D circles); empty-interior, projective-instrument, and d ≥ 3 gates remain open alongside human peer review.',
     work2: 'FRC 700.000–700.007: independent review and inter-rater audit of the active threshold-framework protocol (superseding FRC 700.777).',
     work3: 'FRC 100.002 / 100.002.001 & 787.787: dense classical Gate 4 closed negatively; quantum, cross-mechanism, and held-out platform gates remain open.',
     evidence: 'Claim boundaries',
