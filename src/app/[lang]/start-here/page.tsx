@@ -5,6 +5,7 @@ import { buildResearchMap } from '@/lib/research-map';
 import { renderMarkdown } from '@/lib/markdown';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { ResearchMapSection } from '@/components/ResearchMapSection';
+import { VisualAbstractShowcase } from '@/components/VisualAbstractShowcase';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -128,6 +129,8 @@ export default async function StartHerePage({ params }: Props) {
             </Link>
           </div>
         </header>
+
+        <VisualAbstractShowcase lang={lang} variant="start-here" />
 
         {path.length > 0 && (
           <section className="mb-12">
